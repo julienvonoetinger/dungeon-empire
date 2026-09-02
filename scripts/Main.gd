@@ -38,6 +38,7 @@ const COST_REPAIR_DOOR := 15
 const COST_REPAIR_TRAP := 10
 
 const TURN_TIME := 0.48
+var PORTAL_HOLD := 1.15
 const DIRS: Array[Vector2i] = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
 
 # What a hero believes a step through a cell costs. Traps and doors make a
@@ -232,6 +233,8 @@ func _ensure_dungeon() -> Node3D:
 	return dungeon
 
 func _sync_world() -> void:
+	if DisplayServer.get_name() == "headless":
+		return
 	if dungeon != null and dungeon.has_method("sync") and not grid.is_empty():
 		dungeon.sync(self)
 
@@ -697,13 +700,12 @@ func _process(delta: float) -> void:
 		var mp := get_local_mouse_position()
 		get_window().title = "Dungeon Empire  |  mouse %d,%d  clicks %d" % [int(mp.x), int(mp.y), debug_clicks]
 	_refresh_toolbar_buttons()
-	if not game_over:
-		if raid_active:
-			_update_hero(delta)
-		elif _has_entrance():
-			raid_timer = maxf(0.0, raid_timer - delta)
-			if raid_timer <= 0.0:
-				_start_raid()
+	if raid_active:
+		_update_hero(delta)
+	elif not game_over and _has_entrance():
+		raid_timer = maxf(0.0, raid_timer - delta)
+		if raid_timer <= 0.0:
+			_start_raid()
 	_sync_world()
 	queue_redraw()
 
@@ -739,6 +741,10 @@ func _start_raid() -> void:
 		"bias": {},
 		"ignored": {},
 		"fleeing": false,
+		"portaling": false,
+		"portal_t": 0.0,
+		"portal_msg": "",
+		"facing": _entrance_mouth(entrance),
 		"greed": greed,
 		"steal_capacity": maxi(1, int(round(float(template["steal_capacity"]) * greed))),
 		"fear_weight": _jitter(float(template["fear_weight"]) + float(mods["fear"]), 0.20),
@@ -856,6 +862,12 @@ func _update_hero(delta: float) -> void:
 	if hero.is_empty():
 		return
 
+	if bool(hero.get("portaling", false)):
+		hero["portal_t"] = float(hero.get("portal_t", 0.0)) - delta
+		if float(hero["portal_t"]) <= 0.0:
+			_finish_town_portal()
+		return
+
 	hero["move_cd"] = float(hero["move_cd"]) - delta
 	if float(hero["move_cd"]) > 0.0:
 		return
@@ -875,12 +887,12 @@ func _update_hero(delta: float) -> void:
 	# Safety net: a lost hero must not lock the dungeon forever.
 	if int(hero["turns"]) > int(hero["patience"]) * 3:
 		raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
-		_end_raid("%s gets lost in the maze and eventually finds the way out." % hero["display"])
+		_open_town_portal("%s gets lost in the maze and eventually finds the way out." % hero["display"])
 		return
 
 	var next := _choose_next_step(hero)
 	if next == pos:
-		_end_raid("%s gives up exploring for lack of a useful path." % hero["display"])
+		_open_town_portal("%s gives up exploring for lack of a useful path." % hero["display"])
 		return
 
 	# An intact door blocks: it has to be broken before passing through.
@@ -888,6 +900,7 @@ func _update_hero(delta: float) -> void:
 		_attack_door(next)
 		return
 
+	hero["facing"] = next - pos
 	hero["visited"][next] = int(hero["visited"].get(next, 0)) + 1
 	hero["pos"] = next
 	if hero.get("trap_sprung_at", Vector2i(-1, -1)) != next:
@@ -954,6 +967,7 @@ func _trigger_trap(p: Vector2i, tile: int) -> void:
 	else:
 		hero["hp"] = int(hero["hp"]) - 10
 		hero["move_cd"] = float(hero["move_cd"]) + 0.55
+		hero["trap_sprung_at"] = p
 
 func _attack_door(p: Vector2i) -> void:
 	if int(door_hp.get(p, DOOR_MAX_HP)) <= 0:
@@ -987,7 +1001,7 @@ func _try_rob_vault(p: Vector2i) -> void:
 	var rest := ""
 	if left > 0:
 		rest = " %d gold stays behind." % left
-	_end_raid("%s steals %d gold and teleports out of the dungeon.%s" % [hero["display"], amount, rest])
+	_open_town_portal("%s steals %d gold and teleports out of the dungeon.%s" % [hero["display"], amount, rest])
 
 func _hero_reaches_core() -> void:
 	var damage := 24
@@ -1001,10 +1015,10 @@ func _hero_reaches_core() -> void:
 
 	if core_hp <= 0:
 		game_over = true
-		_end_raid("DEFEAT — %s destroys the Core. Click Reset to start a new campaign." % hero["display"])
+		_open_town_portal("DEFEAT — %s destroys the Core. Click Reset to start a new campaign." % hero["display"])
 		return
 
-	_end_raid("%s strikes the Core (-%d integrity) then vanishes." % [hero["display"], damage])
+	_open_town_portal("%s strikes the Core (-%d integrity) then vanishes." % [hero["display"], damage])
 
 func _kill_hero() -> void:
 	var death_pos: Vector2i = hero["pos"]
@@ -1229,7 +1243,21 @@ func _hero_escapes() -> void:
 	var carried := int(hero["carried_gold"])
 	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
 	raid_stats["carried_out"] = carried
-	_end_raid("%s walks out of the dungeon alive with %d gold." % [hero["display"], carried])
+	var ent: Vector2i = hero["pos"]
+	hero["facing"] = -_entrance_mouth(ent)
+	_open_town_portal("%s walks out of the dungeon alive with %d gold." % [hero["display"], carried])
+
+func _open_town_portal(result_text: String) -> void:
+	if hero.is_empty() or bool(hero.get("portaling", false)):
+		return
+	hero["portaling"] = true
+	hero["portal_t"] = PORTAL_HOLD
+	hero["portal_msg"] = result_text
+	message = "%s opens a town portal." % hero["display"]
+
+func _finish_town_portal() -> void:
+	var text := String(hero.get("portal_msg", "The hero leaves the dungeon."))
+	_end_raid(text)
 
 # --- Grid and storage ------------------------------------------------------
 

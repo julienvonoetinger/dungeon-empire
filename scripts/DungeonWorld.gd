@@ -15,16 +15,23 @@ const MESH_PAD := 1.002
 const WALL_THICK := 0.22
 const PILLAR_W := 0.28
 const WALL_JOIN := 0.1
-const MESH_VER := 85
+const MESH_VER := 92
 const CORE_GLB := "res://assets/models/core_healthy.glb"
 const ROCK_GLB := "res://assets/models/walls/rock_block_match_door_v2.glb"
 const WALL_STRAIGHT_GLB := "res://assets/models/walls/wall_straight_meshy.glb"
 const WALL_PILLAR_GLB := "res://assets/models/walls/wall_pillar_meshy.glb"
+const TORCH_GLB := "res://assets/models/walls/wall_torch_emberstone.glb"
+const TORCH_H := 0.36
+const TORCH_ENERGY := 0.85
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
+const TOWN_PORTAL_GLB := "res://assets/models/environment/town_portal.glb"
 const SPIKE_GLB := "res://assets/models/traps/spike_voidspike.glb"
 const SPIKE_SPRUNG_GLB := "res://assets/models/traps/spike_voidspike_sprung.glb"
 const SPIKE_BROKEN_GLB := "res://assets/models/traps/spike_voidspike_broken.glb"
+const SNARE_GLB := "res://assets/models/traps/snare_voidstone_nexus.glb"
+const SNARE_SPRUNG_GLB := "res://assets/models/traps/snare_voidstone_nexus_sprung.glb"
+const SNARE_BROKEN_GLB := "res://assets/models/traps/snare_voidstone_nexus_broken.glb"
 const DOOR_CLOSED_GLB := "res://assets/models/doors/door_violet_crypt_gate.glb"
 const DOOR_DAMAGED_GLB := "res://assets/models/doors/door_shadowgem_gate.glb"
 const DOOR_DESTROYED_GLB := "res://assets/models/doors/door_violet_ruin_gateway.glb"
@@ -70,6 +77,10 @@ var _last_sig: Dictionary = {}
 var _look := Vector3.ZERO
 var _marker_sig := ""
 var _rng := RandomNumberGenerator.new()
+var _torch_lights: Array = []
+var _town_portal: Node3D
+var _portal_age := 0.0
+var _portal_shown := false
 var _door_ref_scale := 0.0
 var _door_stone_sh: Shader
 var _wall_packed: Dictionary = {}
@@ -92,17 +103,13 @@ func _make_environment() -> void:
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color("#17161B")
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color("#3B414C")
-	env.ambient_light_energy = 0.42
+	env.ambient_light_color = Color("#2A2118")
+	env.ambient_light_energy = 0.12
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	we.environment = env
 	add_child(we)
-	_sun = DirectionalLight3D.new()
-	_sun.light_color = Color(0.92, 0.94, 1.0)
-	_sun.light_energy = 1.15
-	_sun.shadow_enabled = true
-	_sun.rotation_degrees = Vector3(-52, 38, 0)
-	add_child(_sun)
+	# Cave: no outdoor sun. Torches on wall faces are the only scene lights.
+	_sun = null
 	_fill = OmniLight3D.new()
 	_fill.light_color = Color("#9B4DB5")
 	_fill.light_energy = 0.0
@@ -265,6 +272,11 @@ func clear_map() -> void:
 	_core_emit_mat = null
 	_core_bolts.clear()
 	_core_debris.clear()
+	_torch_lights.clear()
+	if _town_portal != null:
+		_town_portal.queue_free()
+		_town_portal = null
+	_portal_shown = false
 	if _fill != null:
 		_fill.light_energy = 0.0
 
@@ -418,7 +430,7 @@ func sync(game: Node) -> void:
 			var t: int = int(grid[y][x])
 			var spent: bool = (t == game.Tile.SPIKE or t == game.Tile.SNARE) and int(game.trap_charges.get(p, game.TRAP_MAX_CHARGES)) <= 0
 			var sig := "m%d:%d:%d:%s" % [MESH_VER, t, int(vaults.get(p, 0)), spent]
-			if t == game.Tile.SPIKE:
+			if t == game.Tile.SPIKE or t == game.Tile.SNARE:
 				sig += ":s%d" % int(_spike_sprung(p, game))
 			if t == game.Tile.ENTRANCE:
 				var o := _entrance_face(p, game)
@@ -441,6 +453,7 @@ func sync(game: Node) -> void:
 	_sync_pillars(game)
 	_sync_markers(game)
 	_sync_hero(game)
+	_sync_town_portal(game)
 
 func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: bool) -> void:
 	if _cells.has(p):
@@ -474,8 +487,8 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 				gold_m.emission_enabled = gold_amt > 8
 				gold_m.emission = Color("#80652A")
 				gold_m.emission_energy_multiplier = 0.35
-				_add_box(root, Vector3(0.62, 0.55, 0.62), Vector3(CELL * 0.5, 0.42, CELL * 0.5), gold_m)
-			_label(root, str(gold_amt), Color("#FFD878"), Vector3(CELL * 0.5, 1.05, CELL * 0.5))
+				_add_box(root, Vector3(0.31, 0.28, 0.31), Vector3(CELL * 0.5, 0.28, CELL * 0.5), gold_m)
+			_label(root, str(gold_amt), Color("#FFD878"), Vector3(CELL * 0.5, 0.62, CELL * 0.5))
 		game.Tile.SPIKE:
 			if not _add_fitted_spike(root, spent, _spike_sprung(p, game)):
 				_add_floor_tile(root)
@@ -495,13 +508,14 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 					root.add_child(mi)
 			_label(root, str(int(game.trap_charges.get(p, game.TRAP_MAX_CHARGES))), Color("#D9783C"), Vector3(CELL * 0.5, 0.85, CELL * 0.5))
 		game.Tile.SNARE:
-			_add_floor_tile(root)
-			var nm := StandardMaterial3D.new()
-			nm.albedo_color = Color("#40204F") if not spent else Color("#3B414C")
-			nm.roughness = 0.7
-			for i in 4:
-				var vine := _add_box(root, Vector3(0.08, 0.08, 0.72), Vector3(CELL * 0.5, 0.28, CELL * 0.5), nm)
-				vine.rotation.y = PI * 0.25 * float(i)
+			if not _add_fitted_snare(root, spent, _spike_sprung(p, game)):
+				_add_floor_tile(root)
+				var nm := StandardMaterial3D.new()
+				nm.albedo_color = Color("#40204F") if not spent else Color("#3B414C")
+				nm.roughness = 0.7
+				for i in 4:
+					var vine := _add_box(root, Vector3(0.08, 0.08, 0.72), Vector3(CELL * 0.5, 0.28, CELL * 0.5), nm)
+					vine.rotation.y = PI * 0.25 * float(i)
 			_label(root, str(int(game.trap_charges.get(p, game.TRAP_MAX_CHARGES))), Color("#D9783C"), Vector3(CELL * 0.5, 0.7, CELL * 0.5))
 		game.Tile.DOOR:
 			_build_door(root, p, game)
@@ -642,6 +656,7 @@ func _build_rock(root: Node3D, p: Vector2i, game: Node) -> void:
 			continue
 		if not _add_edge_wall(root, d):
 			_add_edge_wall_box(root, d)
+		_add_wall_torch(root, d)
 
 func _rock_face_mask(p: Vector2i, game: Node) -> int:
 	var m := 0
@@ -734,6 +749,38 @@ func _add_fitted_spike(root: Node3D, spent: bool, sprung: bool) -> bool:
 	_prep_core_meshes(inst)
 	return true
 
+func _add_fitted_snare(root: Node3D, spent: bool, sprung: bool) -> bool:
+	var path := SNARE_GLB
+	if sprung:
+		path = SNARE_SPRUNG_GLB
+	elif spent:
+		path = SNARE_BROKEN_GLB
+	var packed := _wall_scene(path)
+	if packed == null:
+		packed = _wall_scene(SNARE_GLB)
+	if packed == null:
+		return false
+	var holder := Node3D.new()
+	holder.position = Vector3(CELL * 0.5, 0.0, CELL * 0.5)
+	root.add_child(holder)
+	var inst := packed.instantiate()
+	if inst == null:
+		holder.queue_free()
+		return false
+	holder.add_child(inst)
+	var aabb := _model_aabb(inst)
+	if aabb.size == Vector3.ZERO:
+		return true
+	var span := maxf(aabb.size.x, aabb.size.z)
+	var s := CELL / maxf(span, 0.01)
+	inst.scale = Vector3.ONE * s
+	var fitted := _model_aabb(inst)
+	inst.position.x += -fitted.get_center().x
+	inst.position.z += -fitted.get_center().z
+	inst.position.y += -fitted.position.y
+	_prep_core_meshes(inst)
+	return true
+
 func _vault_open_face(p: Vector2i, game: Node) -> Vector3:
 	var wall := _vault_wall_dir(p, game)
 	if wall != Vector2i.ZERO:
@@ -797,7 +844,7 @@ func _add_fitted_vault(root: Node3D, empty: bool, face: Vector3) -> bool:
 	if aabb.size == Vector3.ZERO:
 		return true
 	var span := maxf(aabb.size.x, aabb.size.z)
-	var s := (CELL * 0.78) / maxf(span, 0.01)
+	var s := (CELL * 0.39) / maxf(span, 0.01)
 	inst.scale = Vector3.ONE * s
 	var fitted := _model_aabb(inst)
 	inst.position.x += -fitted.get_center().x
@@ -964,6 +1011,38 @@ func _add_edge_wall_box(root: Node3D, toward: Vector2i) -> void:
 	var along_z: bool = toward.x != 0
 	var sz := Vector3(WALL_THICK, ROCK_H, wall_len) if along_z else Vector3(wall_len, ROCK_H, WALL_THICK)
 	_add_box(root, sz, _wall_face_pos(toward) + Vector3(0.0, ROCK_H * 0.5, 0.0), _mat_rock)
+
+func _add_wall_torch(root: Node3D, toward: Vector2i) -> void:
+	var n := Vector3(float(toward.x), 0.0, float(toward.y))
+	var holder := Node3D.new()
+	# Sit on the room side of the slab, not inside the wall mesh.
+	holder.position = Vector3(CELL * 0.5, ROCK_H * 0.62, CELL * 0.5) + n * (CELL * 0.5 + 0.06)
+	holder.rotation.y = atan2(n.x, n.z)
+	root.add_child(holder)
+	var packed := _wall_scene(TORCH_GLB)
+	if packed != null:
+		var inst := packed.instantiate()
+		if inst != null:
+			holder.add_child(inst)
+			var aabb := _model_aabb(inst)
+			if aabb.size != Vector3.ZERO:
+				var s := TORCH_H / maxf(aabb.size.y, 0.01)
+				inst.scale = Vector3.ONE * s
+				var fitted := _model_aabb(inst)
+				inst.position.x += -fitted.get_center().x
+				inst.position.y += -fitted.get_center().y
+				inst.position.z += -fitted.position.z
+			_prep_core_meshes(inst)
+	var flame := OmniLight3D.new()
+	flame.light_color = Color(1.0, 0.55, 0.28)
+	flame.light_energy = TORCH_ENERGY
+	flame.omni_range = 3.2
+	flame.shadow_enabled = false
+	flame.distance_fade_enabled = false
+	flame.position = Vector3(0.0, 0.08, 0.12)
+	flame.set_meta("flicker", _rng.randf() * TAU)
+	holder.add_child(flame)
+	_torch_lights.append(flame)
 
 func _wall_face_pos(toward: Vector2i) -> Vector3:
 	return Vector3(
@@ -1459,8 +1538,69 @@ func _sync_hero(game: Node) -> void:
 	_hero_tag.modulate = Color("#D9783C")
 	_hero_tag.position = _hero.position + Vector3(0, 0.72, 0)
 
+func _sync_town_portal(game: Node) -> void:
+	var show: bool = bool(game.raid_active) and not game.hero.is_empty() and bool(game.hero.get("portaling", false))
+	if not show:
+		if _town_portal != null:
+			_town_portal.visible = false
+		_portal_shown = false
+		return
+	if _town_portal == null:
+		_spawn_town_portal()
+	if _town_portal == null:
+		return
+	if not _portal_shown:
+		_portal_age = 0.0
+		_portal_shown = true
+	var p: Vector2i = game.hero["pos"]
+	var f: Vector2i = game.hero.get("facing", Vector2i.DOWN)
+	if f == Vector2i.ZERO:
+		f = Vector2i.DOWN
+	var n := Vector3(float(f.x), 0.0, float(f.y))
+	_town_portal.position = cell_center(p, 0.0) + n * 0.52
+	_town_portal.rotation.y = atan2(n.x, n.z)
+	_town_portal.visible = true
+
+func _spawn_town_portal() -> void:
+	var packed := _wall_scene(TOWN_PORTAL_GLB)
+	_town_portal = Node3D.new()
+	add_child(_town_portal)
+	if packed == null:
+		return
+	var inst := packed.instantiate()
+	if inst == null:
+		return
+	_town_portal.add_child(inst)
+	var aabb := _model_aabb(inst)
+	if aabb.size == Vector3.ZERO:
+		return
+	var s := 1.15 / maxf(aabb.size.y, 0.01)
+	s = minf(s, 0.85 / maxf(maxf(aabb.size.x, aabb.size.z), 0.01))
+	inst.scale = Vector3.ONE * s
+	var fitted := _model_aabb(inst)
+	inst.position.x += -fitted.get_center().x
+	inst.position.z += -fitted.get_center().z
+	inst.position.y += -fitted.position.y
+	_prep_core_meshes(inst)
+	var glow := OmniLight3D.new()
+	glow.light_color = Color(0.55, 0.35, 1.0)
+	glow.light_energy = 0.85
+	glow.omni_range = 2.4
+	glow.shadow_enabled = false
+	glow.position = Vector3(0.0, 0.7, 0.0)
+	_town_portal.add_child(glow)
+
 func _process(delta: float) -> void:
 	_core_pulse += delta
+	_flicker_torches()
+	if _town_portal != null and _town_portal.visible:
+		_portal_age += delta
+		var k := clampf(_portal_age / 0.28, 0.0, 1.0)
+		_town_portal.scale = Vector3.ONE * lerpf(0.18, 1.0, k)
+		if _town_portal.get_child_count() > 0:
+			var vis := _town_portal.get_child(0)
+			if vis is Node3D:
+				(vis as Node3D).rotate_y(delta * 1.15)
 	if _core_vortex != null and is_instance_valid(_core_vortex):
 		if _core_spin != null:
 			_core_spin.rotate_y(delta * 0.45)
@@ -1494,3 +1634,20 @@ func _process(delta: float) -> void:
 			n.visible = _rng.randf() > 0.35
 			if n.visible:
 				_shape_spark_bolt(n)
+
+func _flicker_torches() -> void:
+	var t := _core_pulse
+	var live: Array = []
+	for item in _torch_lights:
+		var flame := item as OmniLight3D
+		if flame == null or not is_instance_valid(flame):
+			continue
+		live.append(flame)
+		var phase := float(flame.get_meta("flicker", 0.0))
+		var wobble := 0.14 * sin(t * 8.4 + phase)
+		wobble += 0.10 * sin(t * 15.7 + phase * 1.9)
+		wobble += 0.06 * sin(t * 29.0 + phase * 0.6)
+		flame.light_energy = TORCH_ENERGY * clampf(0.88 + wobble, 0.62, 1.12)
+		var warm := 0.04 * sin(t * 11.0 + phase)
+		flame.light_color = Color(1.0, 0.50 + warm, 0.22 + warm * 0.4)
+	_torch_lights = live

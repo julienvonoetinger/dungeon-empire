@@ -9,6 +9,7 @@ func _initialize() -> void:
     root.add_child(m)
     if m.grid.is_empty():
         m._new_map()   # _ready is not triggered inside this SceneTree harness.
+    m.PORTAL_HOLD = 0.0
     seed(4242)
     print("grid: ", m.grid.size(), "x", (m.grid[0] as Array).size())
 
@@ -149,6 +150,12 @@ func _test_sprite_pack() -> void:
         check(m._sprite(key) != null, "Main did not load sprite '%s'" % key)
     check(m._sprite("rock").get_width() >= 256, "rock wrap texture too small")
     check(m._sprite("floor").get_width() >= 256, "floor wrap texture too small")
+
+func wait_town_portal() -> void:
+    for i in range(30):
+        if not m.raid_active:
+            return
+        m._process(0.1)
 
 func check(ok: bool, label: String) -> void:
     if not ok:
@@ -397,6 +404,7 @@ func _test_death_and_theft() -> void:
     m.hero["pos"] = vault
     m._resolve_cell(vault)
     check(m.gold == treasury - 40, "theft not limited by carrying capacity (%d -> %d)" % [treasury, m.gold])
+    wait_town_portal()
     check(not m.raid_active, "the thief does not teleport out after stealing")
 
     # What the thief could not carry stays in the storage (single vault, no surplus).
@@ -516,12 +524,13 @@ func _test_raids() -> void:
         if raids_seen >= 40:
             break
         if m.game_over:
+            wait_town_portal()
             campaigns += 1
             if not defeat_checked:
                 defeat_checked = true
                 _check_defeat_is_locked()
             else:
-                click_named(m.Tool.RESET)
+                m._new_map()
             _build_test_dungeon()
             was_active = false
             continue
@@ -557,6 +566,7 @@ func _test_raids() -> void:
 
 # After defeat: no raid, no countdown, no building — Reset aside.
 func _check_defeat_is_locked() -> void:
+    wait_town_portal()
     var timer_before: float = m.raid_timer
     for i in range(2000):
         m._process(0.1)
