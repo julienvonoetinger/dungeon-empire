@@ -1,0 +1,12 @@
+﻿art_bible_section,production_asset_folder,asset_families
+Dungeon Core,core/,core_*
+Doors,doors/,door_*
+Storage / Treasure,storage/,"vault_chest, cache, reliquary, vault"
+Signature Traps,traps/,"spines, grasp, void, watcher"
+Dungeon Modules,environment/modules/,"floor, wall, pillar, stairs, bridge, veins"
+Environment Props,environment/props/,"torch, brazier, banner, crate, barrel, etc."
+Heroes,characters/heroes/,species × class canonical heroes
+Dungeon Creatures,characters/creatures/,"Shardling, Hollow, Maw, Wraith"
+Loot,loot/,"bags, treasure piles, relics, equipment"
+World Map,world_map/,surface diorama landmarks
+UI,ui/,2D semantic icons; not for Meshy

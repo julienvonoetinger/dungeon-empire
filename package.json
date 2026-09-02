@@ -1,0 +1,10 @@
+{
+  "package_name": "Dungeon_Master_Integrated_Art_Production_Bible",
+  "version": "1.0",
+  "canonical_art_bible": "art_bible/ART_BIBLE.md",
+  "game_design": "GAME_DESIGN.md",
+  "asset_manifest": "production/manifests/asset_manifest.csv",
+  "generation_queue": "production/manifests/image_generation_queue.jsonl",
+  "canonical_reference_artbook": "art_bible/references/canonical/artbook_low_poly_dungeon_empire.png",
+  "production_rule": "one image = one asset; variants edit canonical reference"
+}

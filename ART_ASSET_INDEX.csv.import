@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://k2iqqfa51g81"
+
+[deps]
+
+files=["res://ART_ASSET_INDEX.production.translation", "res://ART_ASSET_INDEX.asset.translation"]
+
+source_file="res://ART_ASSET_INDEX.csv"
+dest_files=["res://ART_ASSET_INDEX.production.translation", "res://ART_ASSET_INDEX.asset.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

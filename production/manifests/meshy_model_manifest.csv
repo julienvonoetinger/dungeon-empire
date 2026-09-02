@@ -1,0 +1,103 @@
+﻿mesh_output,strategy,families,source_images
+models/doors/door_standard.glb,shared_hinged_mesh,door_standard,doors/standard/door_standard_reference.png | doors/standard/door_standard_closed.png | doors/standard/door_standard_open.png
+models/doors/door_standard_damaged.glb,variant_mesh_or_damage_overlay,door_standard,doors/standard/door_standard_damaged.png
+models/doors/door_standard_destroyed.glb,variant_mesh,door_standard,doors/standard/door_standard_destroyed.png
+models/storage/vault_chest.glb,shared_hinged_mesh,vault_chest,storage/vault_chest/vault_chest_reference.png | storage/vault_chest/vault_chest_closed_full.png | storage/vault_chest/vault_chest_open_empty.png | storage/vault_chest/vault_chest_closed_empty.png | storage/vault_chest/vault_chest_open_full.png
+models/storage/vault_chest_destroyed.glb,variant_mesh,vault_chest,storage/vault_chest/vault_chest_destroyed.png
+models/traps/trap_spines.glb,animated_mesh,trap_spines,traps/spines/trap_spines_reference.png | traps/spines/trap_spines_armed.png | traps/spines/trap_spines_triggered.png
+models/core/core_healthy.glb,static_mesh_plus_vfx,core,core/core_reference.png | core/core_healthy.png
+models/traps/trap_spines_broken.glb,variant_mesh,trap_spines,traps/spines/trap_spines_broken.png
+models/core/core_damaged.glb,variant_mesh_plus_vfx,core,core/core_damaged.png
+models/core/core_critical.glb,variant_mesh_plus_vfx,core,core/core_critical.png
+models/core/core_destroyed.glb,variant_mesh_plus_vfx,core,core/core_destroyed.png
+models/traps/trap_grasp.glb,animated_mesh,trap_grasp,traps/grasp/trap_grasp_reference.png | traps/grasp/trap_grasp_hidden.png | traps/grasp/trap_grasp_active.png
+models/traps/trap_grasp_broken.glb,variant_mesh,trap_grasp,traps/grasp/trap_grasp_broken.png
+models/traps/trap_void.glb,animated_mesh,trap_void,traps/void/trap_void_reference.png | traps/void/trap_void_inactive.png | traps/void/trap_void_active.png
+models/traps/trap_void_collapsed.glb,variant_mesh,trap_void,traps/void/trap_void_collapsed.png
+models/traps/trap_watcher.glb,animated_mesh,trap_watcher,traps/watcher/trap_watcher_reference.png | traps/watcher/trap_watcher_idle.png | traps/watcher/trap_watcher_alert.png | traps/watcher/trap_watcher_firing.png
+models/traps/trap_watcher_destroyed.glb,variant_mesh,trap_watcher,traps/watcher/trap_watcher_destroyed.png
+models/traps/pit/trap_pit.glb,animated_mesh,trap_pit,traps/future/pit/trap_pit_reference.png | traps/future/pit/trap_pit_closed.png | traps/future/pit/trap_pit_open.png
+models/traps/pit/trap_pit_broken.glb,variant_mesh,trap_pit,traps/future/pit/trap_pit_broken.png
+models/traps/boulder/trap_boulder.glb,animated_mesh,trap_boulder,traps/future/boulder/trap_boulder_reference.png | traps/future/boulder/trap_boulder_ready.png | traps/future/boulder/trap_boulder_rolling.png
+models/traps/boulder/trap_boulder_broken.glb,variant_mesh,trap_boulder,traps/future/boulder/trap_boulder_broken.png
+models/traps/arrow/trap_arrow.glb,animated_mesh,trap_arrow,traps/future/arrow/trap_arrow_reference.png | traps/future/arrow/trap_arrow_retracted.png | traps/future/arrow/trap_arrow_firing.png
+models/traps/arrow/trap_arrow_broken.glb,variant_mesh,trap_arrow,traps/future/arrow/trap_arrow_broken.png
+models/traps/flame/trap_flame.glb,animated_mesh,trap_flame,traps/future/flame/trap_flame_reference.png | traps/future/flame/trap_flame_inactive.png | traps/future/flame/trap_flame_active.png
+models/traps/flame/trap_flame_broken.glb,variant_mesh,trap_flame,traps/future/flame/trap_flame_broken.png
+models/traps/ice/trap_ice.glb,animated_mesh,trap_ice,traps/future/ice/trap_ice_reference.png | traps/future/ice/trap_ice_inactive.png | traps/future/ice/trap_ice_active.png
+models/traps/ice/trap_ice_broken.glb,variant_mesh,trap_ice,traps/future/ice/trap_ice_broken.png
+models/traps/acid/trap_acid.glb,animated_mesh,trap_acid,traps/future/acid/trap_acid_reference.png | traps/future/acid/trap_acid_inactive.png | traps/future/acid/trap_acid_active.png
+models/traps/acid/trap_acid_broken.glb,variant_mesh,trap_acid,traps/future/acid/trap_acid_broken.png
+models/doors/door_reinforced.glb,shared_hinged_mesh,door_reinforced,doors/reinforced/door_reinforced_reference.png | doors/reinforced/door_reinforced_closed.png | doors/reinforced/door_reinforced_open.png
+models/doors/door_reinforced_damaged.glb,variant_mesh,door_reinforced,doors/reinforced/door_reinforced_damaged.png
+models/doors/door_reinforced_destroyed.glb,variant_mesh,door_reinforced,doors/reinforced/door_reinforced_destroyed.png
+models/doors/door_locked.glb,shared_hinged_mesh,door_locked,doors/locked/door_locked_reference.png | doors/locked/door_locked_closed.png | doors/locked/door_locked_open.png
+models/doors/door_locked_damaged.glb,variant_mesh,door_locked,doors/locked/door_locked_damaged.png
+models/doors/door_locked_destroyed.glb,variant_mesh,door_locked,doors/locked/door_locked_destroyed.png
+models/doors/door_trapped.glb,shared_hinged_mesh,door_trapped,doors/trapped/door_trapped_reference.png | doors/trapped/door_trapped_closed.png | doors/trapped/door_trapped_open.png
+models/doors/door_trapped_damaged.glb,variant_mesh,door_trapped,doors/trapped/door_trapped_damaged.png
+models/doors/door_trapped_destroyed.glb,variant_mesh,door_trapped,doors/trapped/door_trapped_destroyed.png
+models/doors/door_magic_sealed.glb,shared_hinged_mesh,door_magic_sealed,doors/magic_sealed/door_magic_sealed_reference.png | doors/magic_sealed/door_magic_sealed_closed.png | doors/magic_sealed/door_magic_sealed_open.png
+models/doors/door_magic_sealed_damaged.glb,variant_mesh,door_magic_sealed,doors/magic_sealed/door_magic_sealed_damaged.png
+models/doors/door_magic_sealed_destroyed.glb,variant_mesh,door_magic_sealed,doors/magic_sealed/door_magic_sealed_destroyed.png
+models/storage/cache.glb,shared_mesh_plus_contents,cache,storage/cache/cache_reference.png | storage/cache/cache_empty.png | storage/cache/cache_partially_filled.png | storage/cache/cache_full.png
+models/storage/cache_destroyed.glb,variant_mesh,cache,storage/cache/cache_destroyed.png
+models/storage/reliquary.glb,shared_mesh_plus_contents,reliquary,storage/reliquary/reliquary_reference.png | storage/reliquary/reliquary_empty.png | storage/reliquary/reliquary_partially_filled.png | storage/reliquary/reliquary_full.png
+models/storage/reliquary_destroyed.glb,variant_mesh,reliquary,storage/reliquary/reliquary_destroyed.png
+models/storage/vault.glb,shared_mesh_plus_contents,vault,storage/vault/vault_reference.png | storage/vault/vault_empty.png | storage/vault/vault_partially_filled.png | storage/vault/vault_full.png
+models/storage/vault_destroyed.glb,variant_mesh,vault,storage/vault/vault_destroyed.png
+models/structures/expansion_sanctuary.glb,static_mesh_plus_vfx,expansion_sanctuary,structures/expansion_sanctuary/expansion_sanctuary_reference.png | structures/expansion_sanctuary/expansion_sanctuary_idle.png | structures/expansion_sanctuary/expansion_sanctuary_researching.png
+models/structures/expansion_sanctuary_interrupted.glb,variant_mesh,expansion_sanctuary,structures/expansion_sanctuary/expansion_sanctuary_interrupted.png
+models/structures/expansion_sanctuary_destroyed.glb,variant_mesh,expansion_sanctuary,structures/expansion_sanctuary/expansion_sanctuary_destroyed.png
+models/environment/floor_tile_uncontrolled.glb,modular_static_mesh,floor_tile_uncontrolled,environment/modules/floor_tile_uncontrolled.png
+models/environment/floor_tile_controlled.glb,modular_static_mesh,floor_tile_controlled,environment/modules/floor_tile_controlled.png
+models/environment/floor_tile_strong_influence.glb,modular_static_mesh,floor_tile_strong_influence,environment/modules/floor_tile_strong_influence.png
+models/environment/wall_straight_uncontrolled.glb,modular_static_mesh,wall_straight_uncontrolled,environment/modules/wall_straight_uncontrolled.png
+models/environment/wall_straight_controlled.glb,modular_static_mesh,wall_straight_controlled,environment/modules/wall_straight_controlled.png
+models/environment/wall_corner_controlled.glb,modular_static_mesh,wall_corner_controlled,environment/modules/wall_corner_controlled.png
+models/environment/pillar_controlled.glb,modular_static_mesh,pillar_controlled,environment/modules/pillar_controlled.png
+models/environment/stairs_controlled.glb,modular_static_mesh,stairs_controlled,environment/modules/stairs_controlled.png
+models/environment/bridge_controlled.glb,modular_static_mesh,bridge_controlled,environment/modules/bridge_controlled.png
+models/environment/cave_rock_cluster.glb,modular_static_mesh,cave_rock_cluster,environment/modules/cave_rock_cluster.png
+models/environment/dungeon_vein_segment.glb,modular_static_mesh,dungeon_vein_segment,environment/modules/dungeon_vein_segment.png
+models/environment/influence_crack_cluster.glb,modular_static_mesh,influence_crack_cluster,environment/modules/influence_crack_cluster.png
+models/environment/floating_rock_cluster.glb,modular_static_mesh,floating_rock_cluster,environment/modules/floating_rock_cluster.png
+models/props/torch_sconce.glb,static_mesh,torch_sconce,environment/props/torch_sconce.png
+models/props/brazier.glb,static_mesh,brazier,environment/props/brazier.png
+models/props/banner.glb,static_mesh,banner,environment/props/banner.png
+models/props/crate.glb,static_mesh,crate,environment/props/crate.png
+models/props/barrel.glb,static_mesh,barrel,environment/props/barrel.png
+models/props/bookshelf.glb,static_mesh,bookshelf,environment/props/bookshelf.png
+models/props/table.glb,static_mesh,table,environment/props/table.png
+models/props/chair.glb,static_mesh,chair,environment/props/chair.png
+models/props/spiked_fence.glb,static_mesh,spiked_fence,environment/props/spiked_fence.png
+models/props/portcullis.glb,static_mesh,portcullis,environment/props/portcullis.png
+models/props/magic_focus.glb,static_mesh,magic_focus,environment/props/magic_focus.png
+models/props/ritual_altar.glb,static_mesh,ritual_altar,environment/props/ritual_altar.png
+models/loot/loot_bag.glb,static_mesh,loot_bag,loot/loot_bag.png
+models/loot/gold_pile_small.glb,static_mesh,gold_pile_small,loot/gold_pile_small.png
+models/loot/gold_pile_medium.glb,static_mesh,gold_pile_medium,loot/gold_pile_medium.png
+models/loot/gold_pile_large.glb,static_mesh,gold_pile_large,loot/gold_pile_large.png
+models/loot/relic_bundle.glb,static_mesh,relic_bundle,loot/relic_bundle.png
+models/loot/dropped_weapon_bundle.glb,static_mesh,dropped_weapon_bundle,loot/dropped_weapon_bundle.png
+models/characters/hero_vulpin_thief.glb,rigged_character_mesh,hero_vulpin_thief,characters/heroes/hero_vulpin_thief.png
+models/characters/hero_lithide_paladin.glb,rigged_character_mesh,hero_lithide_paladin,characters/heroes/hero_lithide_paladin.png
+models/characters/hero_batrafian_ranger.glb,rigged_character_mesh,hero_batrafian_ranger,characters/heroes/hero_batrafian_ranger.png
+models/characters/hero_mycean_mage.glb,rigged_character_mesh,hero_mycean_mage,characters/heroes/hero_mycean_mage.png
+models/characters/hero_nocturne_priest.glb,rigged_character_mesh,hero_nocturne_priest,characters/heroes/hero_nocturne_priest.png
+models/characters/hero_saurian_warrior.glb,rigged_character_mesh,hero_saurian_warrior,characters/heroes/hero_saurian_warrior.png
+models/characters/hero_forged_sapper.glb,rigged_character_mesh,hero_forged_sapper,characters/heroes/hero_forged_sapper.png
+models/characters/hero_human_barbarian.glb,rigged_character_mesh,hero_human_barbarian,characters/heroes/hero_human_barbarian.png
+models/creatures/creature_shardling.glb,rigged_character_mesh,creature_shardling,characters/creatures/creature_shardling.png
+models/creatures/creature_hollow.glb,rigged_character_mesh,creature_hollow,characters/creatures/creature_hollow.png
+models/creatures/creature_maw.glb,rigged_character_mesh,creature_maw,characters/creatures/creature_maw.png
+models/creatures/creature_wraith.glb,rigged_character_mesh,creature_wraith,characters/creatures/creature_wraith.png
+models/world_map/world_village_cluster.glb,diorama_static_mesh,world_village_cluster,world_map/world_village_cluster.png
+models/world_map/world_castle.glb,diorama_static_mesh,world_castle,world_map/world_castle.png
+models/world_map/world_forest_cluster.glb,diorama_static_mesh,world_forest_cluster,world_map/world_forest_cluster.png
+models/world_map/world_mountain_cluster.glb,diorama_static_mesh,world_mountain_cluster,world_map/world_mountain_cluster.png
+models/world_map/world_trade_road_segment.glb,diorama_static_mesh,world_trade_road_segment,world_map/world_trade_road_segment.png
+models/world_map/world_religious_sanctuary.glb,diorama_static_mesh,world_religious_sanctuary,world_map/world_religious_sanctuary.png
+models/world_map/world_fungal_forest_cluster.glb,diorama_static_mesh,world_fungal_forest_cluster,world_map/world_fungal_forest_cluster.png
+models/world_map/world_magic_region_cluster.glb,diorama_static_mesh,world_magic_region_cluster,world_map/world_magic_region_cluster.png
+models/world_map/world_dungeon_influence_fissure.glb,diorama_static_mesh,world_dungeon_influence_fissure,world_map/world_dungeon_influence_fissure.png

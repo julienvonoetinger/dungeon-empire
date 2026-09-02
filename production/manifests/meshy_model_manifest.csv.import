@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ldj8ua1gfsik"
+
+[deps]
+
+files=["res://production/manifests/meshy_model_manifest.strategy.translation", "res://production/manifests/meshy_model_manifest.families.translation", "res://production/manifests/meshy_model_manifest.source.translation"]
+
+source_file="res://production/manifests/meshy_model_manifest.csv"
+dest_files=["res://production/manifests/meshy_model_manifest.strategy.translation", "res://production/manifests/meshy_model_manifest.families.translation", "res://production/manifests/meshy_model_manifest.source.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

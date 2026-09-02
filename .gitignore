@@ -1,0 +1,20 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Godot
+.godot/
+*.translation
+export.cfg
+export_presets.cfg
+.import/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.tmp
+*~
+__pycache__/
+*.pyc
+
