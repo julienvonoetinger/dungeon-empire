@@ -46,6 +46,10 @@ Placeholder colors come from `art_bible/palette/COLOR_PALETTE.md`, so the protot
 2. Open this folder as a Godot project.
 3. Run the project (F6/F5).
 
+## Project structure
+
+Gameplay code is split so `Main` only wires systems. Follow `docs/GODOT_PROJECT_STRUCTURE.md` when adding features (`GameTypes`, `DungeonSim`, `RaidDirector`, HUD, `DungeonWorld`).
+
 ## Quick verification
 A headless harness simulates building, raids, deaths, thefts, wear and defeat:
 

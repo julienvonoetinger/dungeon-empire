@@ -1,128 +1,191 @@
+class_name DungeonGame
 extends Control
 
-# Prototype v0.2 — see GAME_DESIGN.md
-# 3D orthographic dungeon (art bible: ~40° camera). Sim stays a 20×12 grid.
-# Structural rules enforced here:
-#  - two phases: preparation (everything editable) / raid (dungeon locked);
-#  - persistent consequences: broken doors, spent traps, corpses, unsecured loot;
-#  - dungeon wealth lives only inside storages (starter vaults around the Core);
-#  - dead heroes leave loot on the body until the player stores it;
-#  - a thief takes only what it can carry, then teleports out (no return trip);
-#  - every hero rolls its own personality, so no dungeon is ever fully solved;
-#  - the AI reasons on its partial knowledge, never on the real grid;
-#  - no offline simulation: nothing advances while the application is closed.
+# Conductor: camera, HUD paint, input, and wiring. Rules live in scripts/game/.
+# See docs/GODOT_PROJECT_STRUCTURE.md
 
-# Logical grid is still COLS×ROWS. Presentation is 3D ortho ~40° / 45° yaw.
-const TILE_W := 64
-const TILE_H := 32
-const DESIGN_SIZE := Vector2(1280, 720)
-const ISO_ORIGIN_DESIGN := Vector2(512, 76)
-const COLS := 20
-const ROWS := 12
-const RAID_DELAY := 25.0
+const Tile := GameTypes.Tile
+const Tool := GameTypes.Tool
+const TILE_W := GameTypes.TILE_W
+const TILE_H := GameTypes.TILE_H
+const DESIGN_SIZE := GameTypes.DESIGN_SIZE
+const ISO_ORIGIN_DESIGN := GameTypes.ISO_ORIGIN_DESIGN
+const COLS := GameTypes.COLS
+const ROWS := GameTypes.ROWS
+const RAID_DELAY := GameTypes.RAID_DELAY
+const CORE_MAX := GameTypes.CORE_MAX
+const CORE_W := GameTypes.CORE_W
+const CORE_H := GameTypes.CORE_H
+const DOOR_MAX_HP := GameTypes.DOOR_MAX_HP
+const TRAP_MAX_CHARGES := GameTypes.TRAP_MAX_CHARGES
+const VAULT_CAPACITY := GameTypes.VAULT_CAPACITY
+const START_GOLD := GameTypes.START_GOLD
+const COST_DIG := GameTypes.COST_DIG
+const COST_VAULT := GameTypes.COST_VAULT
+const COST_SPIKE := GameTypes.COST_SPIKE
+const COST_SNARE := GameTypes.COST_SNARE
+const COST_VOID := GameTypes.COST_VOID
+const COST_DOOR := GameTypes.COST_DOOR
+const COST_REPAIR_DOOR := GameTypes.COST_REPAIR_DOOR
+const COST_REPAIR_TRAP := GameTypes.COST_REPAIR_TRAP
+const TURN_TIME := GameTypes.TURN_TIME
+const DIRS := GameTypes.DIRS
+const ROUTE_STEP := GameTypes.ROUTE_STEP
+const ROUTE_TRAP := GameTypes.ROUTE_TRAP
+const ROUTE_DOOR := GameTypes.ROUTE_DOOR
+const ROUTE_REVISIT := GameTypes.ROUTE_REVISIT
+const ROUTE_REVISIT_MAX := GameTypes.ROUTE_REVISIT_MAX
+const ROUTE_BIAS := GameTypes.ROUTE_BIAS
+const TOOLBAR_MARGIN := GameTypes.TOOLBAR_MARGIN
+const BTN_X := GameTypes.BTN_X
+const BTN_GAP := GameTypes.BTN_GAP
+const BTN_H := GameTypes.BTN_H
+const CORPSE_OFFSET := GameTypes.CORPSE_OFFSET
+const BAG_OFFSET := GameTypes.BAG_OFFSET
+const CLICK_RADIUS := GameTypes.CLICK_RADIUS
+const ZOOM_MIN := GameTypes.ZOOM_MIN
+const ZOOM_MAX := GameTypes.ZOOM_MAX
+const ZOOM_DEFAULT := GameTypes.ZOOM_DEFAULT
+const WORLD_RENDER_SCALE := GameTypes.WORLD_RENDER_SCALE
+const YAW_DEFAULT := GameTypes.YAW_DEFAULT
+const ORBIT_SPEED := GameTypes.ORBIT_SPEED
+const ZOOM_STEP := GameTypes.ZOOM_STEP
+const HUD_TOP := GameTypes.HUD_TOP
+const PLAY_MARGIN := GameTypes.PLAY_MARGIN
+const TRAITS := GameTypes.TRAITS
+const C_ANTHRACITE := GameTypes.C_ANTHRACITE
+const C_BLUE_GRAY := GameTypes.C_BLUE_GRAY
+const C_MID_STONE := GameTypes.C_MID_STONE
+const C_PALE_STONE := GameTypes.C_PALE_STONE
+const C_DEEP_VIOLET := GameTypes.C_DEEP_VIOLET
+const C_INFLUENCE_PURPLE := GameTypes.C_INFLUENCE_PURPLE
+const C_ARCANE_VIOLET := GameTypes.C_ARCANE_VIOLET
+const C_ENERGY_MAGENTA := GameTypes.C_ENERGY_MAGENTA
+const C_DARK_GOLD := GameTypes.C_DARK_GOLD
+const C_WARM_GOLD := GameTypes.C_WARM_GOLD
+const C_TREASURE_HIGHLIGHT := GameTypes.C_TREASURE_HIGHLIGHT
+const C_FOREST_GREEN := GameTypes.C_FOREST_GREEN
+const C_MOSS_GREEN := GameTypes.C_MOSS_GREEN
+const C_WARM_SAND := GameTypes.C_WARM_SAND
+const C_VILLAGE_BEIGE := GameTypes.C_VILLAGE_BEIGE
+const C_DANGER_RED := GameTypes.C_DANGER_RED
+const C_HOT_ORANGE := GameTypes.C_HOT_ORANGE
+const C_TEXT := GameTypes.C_TEXT
+const C_BACKDROP := GameTypes.C_BACKDROP
+const SPRITE_FILES := GameTypes.SPRITE_FILES
 
-const CORE_MAX := 100
-const CORE_W := 2
-const CORE_H := 2
-const DOOR_MAX_HP := 60
-const TRAP_MAX_CHARGES := 3
-const VAULT_CAPACITY := 150
-const START_GOLD := 320
+var sim: DungeonSim = DungeonSim.new()
+var raid: RaidDirector = RaidDirector.new()
+var toolbar: GameToolbar = GameToolbar.new()
 
-const COST_DIG := 5
-const COST_VAULT := 60
-const COST_SPIKE := 35
-const COST_SNARE := 30
-const COST_VOID := 45
-const COST_DOOR := 40
-const COST_REPAIR_DOOR := 15
-const COST_REPAIR_TRAP := 10
+var PORTAL_HOLD: float:
+	get:
+		return raid.portal_hold
+	set(value):
+		raid.portal_hold = value
 
-const TURN_TIME := 0.48
-var PORTAL_HOLD := 1.15
-const DIRS: Array[Vector2i] = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
+var grid: Array:
+	get:
+		return sim.grid
+	set(value):
+		sim.grid = value
 
-# What a hero believes a step through a cell costs. Traps and doors make a
-# route expensive so an open detour wins whenever one exists, but they never
-# veto it: a trapped corridor that is the only way on still gets crossed.
-const ROUTE_STEP := 1.0
-const ROUTE_TRAP := 6.0
-const ROUTE_DOOR := 2.5
-const ROUTE_REVISIT := 1.5
-const ROUTE_REVISIT_MAX := 6.0
-const ROUTE_BIAS := 1.2
+var selected_tool: int:
+	get:
+		return sim.selected_tool
+	set(value):
+		sim.selected_tool = value
 
-const TOOLBAR_MARGIN := 78
-const BTN_X := 16
-const BTN_GAP := 8.0
-const BTN_H := 52.0
+var gold: int:
+	get:
+		return sim.gold
+	set(value):
+		sim.gold = value
 
-const CORPSE_OFFSET := Vector2(-8, 8)
-const BAG_OFFSET := Vector2(9, -7)
-const CLICK_RADIUS := 14.0
-const ZOOM_MIN := 0.45
-const ZOOM_MAX := 6.0
-const ZOOM_DEFAULT := 1.35
-const WORLD_RENDER_SCALE := 2.0
-const YAW_DEFAULT := 45.0
-const ORBIT_SPEED := 78.0
-const ZOOM_STEP := 1.12
-const HUD_TOP := 72.0
-const PLAY_MARGIN := 28.0
+var core_hp: int:
+	get:
+		return sim.core_hp
+	set(value):
+		sim.core_hp = value
 
-# Readable personalities (GAME_DESIGN.md §10). Every hero also rolls its own
-# values around these, so two Vulpins never behave exactly alike.
-# "Loyal" is left out: it only means something with parties, which this
-# prototype does not simulate yet.
-const TRAITS := {
-	"Greedy": {"fear": -0.30, "trap": -0.20, "greed": 1.40, "flee": -0.08, "patience": 15},
-	"Cautious": {"fear": 0.50, "trap": 0.40, "greed": 0.85, "flee": 0.10, "patience": -10},
-	"Stubborn": {"fear": -0.20, "trap": -0.10, "greed": 1.00, "flee": -0.12, "patience": 35},
-	"Cowardly": {"fear": 0.70, "trap": 0.50, "greed": 0.90, "flee": 0.15, "patience": -25}
-}
+var loot_bags: Array:
+	get:
+		return sim.loot_bags
+	set(value):
+		sim.loot_bags = value
 
-# Palette straight from art-bible/palette/COLOR_PALETTE.md.
-const C_ANTHRACITE := Color("#25232A")
-const C_BLUE_GRAY := Color("#3B414C")
-const C_MID_STONE := Color("#555765")
-const C_PALE_STONE := Color("#858895")
-const C_DEEP_VIOLET := Color("#40204F")
-const C_INFLUENCE_PURPLE := Color("#683276")
-const C_ARCANE_VIOLET := Color("#9B4DB5")
-const C_ENERGY_MAGENTA := Color("#CE72DF")
-const C_DARK_GOLD := Color("#80652A")
-const C_WARM_GOLD := Color("#D4A83E")
-const C_TREASURE_HIGHLIGHT := Color("#FFD878")
-const C_FOREST_GREEN := Color("#56724C")
-const C_MOSS_GREEN := Color("#819568")
-const C_WARM_SAND := Color("#C9AC7A")
-const C_VILLAGE_BEIGE := Color("#B99570")
-const C_DANGER_RED := Color("#A74747")
-const C_HOT_ORANGE := Color("#D9783C")
-# Derived (UI text needs to stay legible on dark stone).
-const C_TEXT := Color("#E8E6EC")
-const C_BACKDROP := Color("#17161B")
+var corpses: Array:
+	get:
+		return sim.corpses
+	set(value):
+		sim.corpses = value
 
-enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID }
-enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET }
+var door_hp: Dictionary:
+	get:
+		return sim.door_hp
+	set(value):
+		sim.door_hp = value
 
-var grid: Array = []
-var selected_tool: int = Tool.DIG
-var gold := START_GOLD
-var core_hp := CORE_MAX
-var raid_timer := RAID_DELAY
-var raid_active := false
-var game_over := false
-var reset_armed := false
-var raid_index := 0
-var hero: Dictionary = {}
-var loot_bags: Array = []
-var corpses: Array = []
-var door_hp: Dictionary = {}        # Vector2i -> remaining HP
-var trap_charges: Dictionary = {}   # Vector2i -> remaining charges
-var raid_stats: Dictionary = {}
-var message := ""
-var report := ""
+var trap_charges: Dictionary:
+	get:
+		return sim.trap_charges
+	set(value):
+		sim.trap_charges = value
+
+var message: String:
+	get:
+		return sim.message
+	set(value):
+		sim.message = value
+
+var report: String:
+	get:
+		return sim.report
+	set(value):
+		sim.report = value
+
+var game_over: bool:
+	get:
+		return sim.game_over
+	set(value):
+		sim.game_over = value
+
+var reset_armed: bool:
+	get:
+		return sim.reset_armed
+	set(value):
+		sim.reset_armed = value
+
+var raid_timer: float:
+	get:
+		return raid.raid_timer
+	set(value):
+		raid.raid_timer = value
+
+var raid_active: bool:
+	get:
+		return raid.raid_active
+	set(value):
+		raid.raid_active = value
+
+var raid_index: int:
+	get:
+		return raid.raid_index
+	set(value):
+		raid.raid_index = value
+
+var hero: Dictionary:
+	get:
+		return raid.hero
+	set(value):
+		raid.hero = value
+
+var raid_stats: Dictionary:
+	get:
+		return raid.raid_stats
+	set(value):
+		raid.raid_stats = value
+
 var font := ThemeDB.fallback_font
 var sprites: Dictionary = {}
 var cam_zoom := ZOOM_DEFAULT
@@ -144,25 +207,115 @@ var dungeon: Node3D
 var _world_host: SubViewportContainer
 var _world_port: SubViewport
 
-const SPRITE_FILES := {
-	"rock": "res://assets/sprites/tile_rock.png",
-	"floor": "res://assets/sprites/tile_floor.png",
-	"entrance": "res://assets/sprites/tile_entrance.png",
-	"core": "res://assets/sprites/tile_core.png",
-	"vault": "res://assets/sprites/tile_vault.png",
-	"vault_full": "res://assets/sprites/tile_vault_full.png",
-	"spike": "res://assets/sprites/tile_spike.png",
-	"snare": "res://assets/sprites/tile_snare.png",
-	"door": "res://assets/sprites/tile_door.png",
-	"door_damaged": "res://assets/sprites/tile_door_damaged.png",
-	"wrap_rock": "res://assets/sprites/wrap_rock.png",
-	"wrap_floor": "res://assets/sprites/wrap_floor.png",
-	"corpse": "res://assets/sprites/prop_corpse.png",
-	"loot": "res://assets/sprites/prop_loot.png",
-	"thief": "res://assets/sprites/hero_thief.png",
-	"paladin": "res://assets/sprites/hero_paladin.png",
-	"ranger": "res://assets/sprites/hero_ranger.png",
-}
+func _init() -> void:
+	raid.sim = sim
+	sim.raid = raid
+	toolbar.g = self
+
+func _new_map() -> void:
+	sim.new_map()
+	raid.reset_for_new_map()
+	_ensure_dungeon()
+	if dungeon.has_method("clear_map"):
+		dungeon.clear_map()
+	_sync_world()
+	queue_redraw()
+
+func _has_entrance() -> bool:
+	return sim._has_entrance()
+
+func _unsecured_loot_total() -> int:
+	return sim._unsecured_loot_total()
+
+func _damaged_structure_count() -> int:
+	return sim._damaged_structure_count()
+
+func _inside(p: Vector2i) -> bool:
+	return sim._inside(p)
+
+func _walkable(p: Vector2i) -> bool:
+	return sim._walkable(p)
+
+func _is_trap_tile(t: int) -> bool:
+	return sim._is_trap_tile(t)
+
+func _trap_max_charges(t: int) -> int:
+	return sim._trap_max_charges(t)
+
+func _entrance_mouth(p: Vector2i) -> Vector2i:
+	return sim._entrance_mouth(p)
+
+func _can_step(from: Vector2i, to: Vector2i) -> bool:
+	return sim._can_step(from, to)
+
+func _door_intact(p: Vector2i) -> bool:
+	return sim._door_intact(p)
+
+func _core_origin() -> Vector2i:
+	return sim._core_origin()
+
+func _find_tile(tile: int) -> Vector2i:
+	return sim._find_tile(tile)
+
+func _storage_state() -> Dictionary:
+	return sim._storage_state()
+
+func _deposit_gold(amount: int) -> int:
+	return sim._deposit_gold(amount)
+
+func _build_at(gp: Vector2i) -> void:
+	sim._build_at(gp)
+
+func _repair_structures() -> void:
+	sim._repair_structures()
+
+func _start_raid() -> void:
+	raid._start_raid()
+
+func _update_hero(delta: float) -> void:
+	raid._update_hero(delta)
+
+func _resolve_cell(pos: Vector2i) -> void:
+	raid._resolve_cell(pos)
+
+func _storage_capacity() -> int:
+	return sim._storage_capacity()
+
+func _attack_door(p: Vector2i) -> void:
+	raid._attack_door(p)
+
+func _corpse_danger_near(p: Vector2i) -> float:
+	return raid._corpse_danger_near(p)
+
+func _end_raid(result_text: String) -> void:
+	raid._end_raid(result_text)
+
+func _kill_hero() -> void:
+	raid._kill_hero()
+
+func _btn_y() -> float:
+	return toolbar._btn_y()
+
+func _setup_toolbar_buttons() -> void:
+	toolbar._setup_toolbar_buttons()
+
+func _on_toolbar_button(tool: int) -> void:
+	toolbar._on_toolbar_button(tool)
+
+func _refresh_toolbar_buttons() -> void:
+	toolbar._refresh_toolbar_buttons()
+
+func _buttons() -> Array:
+	return toolbar._buttons()
+
+func _toolbar_hit(mp: Vector2) -> bool:
+	return toolbar._toolbar_hit(mp)
+
+func _handle_toolbar(mp: Vector2) -> void:
+	toolbar._handle_toolbar(mp)
+
+func _apply_toolbar_tool(tool: int) -> void:
+	toolbar._apply_toolbar_tool(tool)
 
 func _enter_tree() -> void:
 	set_process_input(true)
@@ -230,7 +383,7 @@ func _setup_world3d() -> void:
 
 func _ensure_dungeon() -> Node3D:
 	if dungeon == null:
-		dungeon = load("res://scripts/DungeonWorld.gd").new()
+		dungeon = load("res://scripts/world/dungeon_world.gd").new()
 	return dungeon
 
 func _sync_world() -> void:
@@ -299,11 +452,8 @@ func _fit_camera_to_view() -> void:
 	cam_pan = Vector2.ZERO
 	_cam_custom = false
 
-func _btn_y() -> float:
-	return _view_size().y - TOOLBAR_MARGIN
-
 func _layout_toolbar() -> void:
-	_setup_toolbar_buttons()
+	toolbar._layout_toolbar()
 	var s := _view_size()
 	if toolbar_host != null:
 		toolbar_host.position = Vector2.ZERO
@@ -323,72 +473,6 @@ func _layout_toolbar() -> void:
 		tool_buttons[i].custom_minimum_size = r.size
 		tool_buttons[i].size = r.size
 	queue_redraw()
-
-func _setup_toolbar_buttons() -> void:
-	if tool_buttons.size() != _buttons().size():
-		for b in tool_buttons:
-			if is_instance_valid(b):
-				b.queue_free()
-		tool_buttons.clear()
-		if toolbar_host != null:
-			var layer_node := toolbar_host.get_parent()
-			toolbar_host.queue_free()
-			toolbar_host = null
-			if layer_node != null:
-				layer_node.queue_free()
-	if not tool_buttons.is_empty():
-		return
-	var layer := CanvasLayer.new()
-	layer.layer = 128
-	layer.name = "ToolbarLayer"
-	add_child(layer)
-	var host := Control.new()
-	host.name = "ToolbarHost"
-	toolbar_host = host
-	host.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	host.set_anchors_preset(Control.PRESET_TOP_LEFT)
-	host.position = Vector2.ZERO
-	host.size = _view_size()
-	layer.add_child(host)
-	for spec in _buttons():
-		var r: Rect2 = spec["rect"]
-		var btn := Button.new()
-		btn.set_anchors_preset(Control.PRESET_TOP_LEFT)
-		btn.position = r.position
-		btn.custom_minimum_size = r.size
-		btn.size = r.size
-		btn.clip_text = true
-		btn.clip_contents = true
-		btn.autowrap_mode = TextServer.AUTOWRAP_OFF
-		btn.text = "%s\n%s" % [spec["label"], spec["cost"]]
-		btn.focus_mode = Control.FOCUS_NONE
-		btn.mouse_filter = Control.MOUSE_FILTER_STOP
-		var tool := int(spec["tool"])
-		btn.pressed.connect(_on_toolbar_button.bind(tool))
-		host.add_child(btn)
-		tool_buttons.append(btn)
-
-func _on_toolbar_button(tool: int) -> void:
-	debug_clicks += 1
-	if raid_active:
-		return
-	_apply_toolbar_tool(tool)
-	_refresh_toolbar_buttons()
-	queue_redraw()
-
-func _refresh_toolbar_buttons() -> void:
-	var specs := _buttons()
-	for i in range(mini(tool_buttons.size(), specs.size())):
-		var spec: Dictionary = specs[i]
-		var tool := int(spec["tool"])
-		var label := String(spec["label"])
-		if tool == Tool.RESET and reset_armed:
-			label = "Confirm?"
-		if tool == selected_tool:
-			tool_buttons[i].modulate = Color(1.15, 1.05, 1.3)
-		else:
-			tool_buttons[i].modulate = Color.WHITE
-		tool_buttons[i].text = "%s\n%s" % [label, spec["cost"]]
 
 func _load_sprites() -> void:
 	sprites.clear()
@@ -622,46 +706,6 @@ func _draw_seamless(tex: Texture2D, dest: Rect2, fallback: Color, modulate: Colo
 			remain_y -= slice_h
 		dx += slice_w
 		remain_x -= slice_w
-
-func _new_map() -> void:
-	grid.clear()
-	door_hp.clear()
-	trap_charges.clear()
-	loot_bags.clear()
-	corpses.clear()
-	for y in range(ROWS):
-		var row := []
-		for x in range(COLS):
-			row.append(Tile.ROCK)
-		grid.append(row)
-
-	var core := Vector2i(9, 5)
-	for dy in range(CORE_H):
-		for dx in range(CORE_W):
-			grid[core.y + dy][core.x + dx] = Tile.CORE
-	for y in range(core.y - 1, core.y + CORE_H + 1):
-		for x in range(core.x - 1, core.x + CORE_W + 1):
-			if int(grid[y][x]) == Tile.CORE:
-				continue
-			grid[y][x] = Tile.FLOOR
-	_place_starter_storage()
-	gold = START_GOLD
-	core_hp = CORE_MAX
-	raid_timer = RAID_DELAY
-	raid_active = false
-	game_over = false
-	reset_armed = false
-	raid_index = 0
-	hero = {}
-	raid_stats = {}
-	report = ""
-	message = "The Core is sealed. Starter vaults hold the dungeon's gold. Dig a layout, then place the entrance stair."
-	_ensure_dungeon()
-	if dungeon.has_method("clear_map"):
-		dungeon.clear_map()
-	_sync_world()
-	queue_redraw()
-
 func _process(delta: float) -> void:
 	# While the application is not running nothing is simulated: the Master is absent.
 	var pan := Vector2.ZERO
@@ -709,688 +753,6 @@ func _process(delta: float) -> void:
 			_start_raid()
 	_sync_world()
 	queue_redraw()
-
-# --- Raids -----------------------------------------------------------------
-
-func _has_entrance() -> bool:
-	return _find_tile(Tile.ENTRANCE).x >= 0
-
-func _start_raid() -> void:
-	var entrance := _find_tile(Tile.ENTRANCE)
-	if entrance.x < 0:
-		return
-
-	var template := _random_hero_template()
-	var trait_name := _roll_trait()
-	var mods: Dictionary = TRAITS[trait_name]
-	var greed := maxf(0.15, _jitter(float(mods["greed"]), 0.15))
-	var hp := maxi(20, int(template["hp"]) + randi_range(-6, 6))
-	raid_index += 1
-	hero = {
-		"name": template["name"],
-		"trait": trait_name,
-		"display": "%s (%s)" % [template["name"], trait_name],
-		"kind": template["kind"],
-		"pos": entrance,
-		"hp": hp,
-		"max_hp": hp,
-		"carried_gold": template["loot"],
-		"move_cd": 0.0,
-		"turns": 0,
-		"known": {},
-		"visited": {entrance: 1},
-		"bias": {},
-		"ignored": {},
-		"fleeing": false,
-		"portaling": false,
-		"portal_t": 0.0,
-		"portal_msg": "",
-		"facing": _entrance_mouth(entrance),
-		"greed": greed,
-		"steal_capacity": maxi(1, int(round(float(template["steal_capacity"]) * greed))),
-		"fear_weight": _jitter(float(template["fear_weight"]) + float(mods["fear"]), 0.20),
-		"trap_weight": maxf(0.05, _jitter(float(template["trap_weight"]) + float(mods["trap"]), 0.20)),
-		"objective": template["objective"],
-		"door_damage": maxi(4, int(template["door_damage"]) + randi_range(-3, 3)),
-		"flee_ratio": clampf(_jitter(float(template["flee_ratio"]) + float(mods["flee"]), 0.05), 0.05, 0.8),
-		"patience": maxi(25, int(template["patience"]) + int(mods["patience"]) + randi_range(-10, 10))
-	}
-	raid_active = true
-	raid_timer = 0.0
-	raid_stats = {
-		"killed": 0,
-		"escaped": 0,
-		"stolen": 0,
-		"carried_out": 0,
-		"doors_destroyed": 0,
-		"traps_spent": 0,
-		"core_lost": 0
-	}
-	report = ""
-	message = "RAID %d: %s enters the dungeon. All changes are locked." % [raid_index, hero["display"]]
-
-func _roll_trait() -> String:
-	var names := TRAITS.keys()
-	return String(names[randi() % names.size()])
-
-func _jitter(base: float, spread: float) -> float:
-	return base + randf_range(-spread, spread)
-
-func _random_hero_template() -> Dictionary:
-	var roll := randi() % 3
-	if roll == 0:
-		return {
-			"name": "Vulpin Thief",
-			"kind": "thief",
-			"hp": 68,
-			"loot": randi_range(80, 150),
-			"steal_capacity": randi_range(90, 160),
-			"fear_weight": 1.2,
-			"trap_weight": 1.0,
-			"objective": "vault",
-			"door_damage": 18,
-			"flee_ratio": 0.45,
-			"patience": 90
-		}
-	elif roll == 1:
-		return {
-			"name": "Lithide Paladin",
-			"kind": "paladin",
-			"hp": 115,
-			"loot": randi_range(140, 240),
-			"steal_capacity": 0,
-			"fear_weight": -0.25,
-			"trap_weight": 0.55,
-			"objective": "core",
-			"door_damage": 34,
-			"flee_ratio": 0.15,
-			"patience": 140
-		}
-	return {
-		"name": "Batrafian Ranger",
-		"kind": "ranger",
-		"hp": 82,
-		"loot": randi_range(95, 175),
-		"steal_capacity": 0,
-		"fear_weight": 0.75,
-		"trap_weight": 1.55,
-		"objective": "explore",
-		"door_damage": 20,
-		"flee_ratio": 0.4,
-		"patience": 70
-	}
-
-func _end_raid(result_text: String) -> void:
-	raid_active = false
-	raid_timer = RAID_DELAY
-	hero = {}
-	message = result_text
-	if not game_over:
-		message += "  Preparation: repairs and collection available."
-	# Report fields follow GAME_DESIGN.md §3.
-	report = "Raid %d report — killed: %d | escaped: %d | gold stolen: %d | carried out: %d | loot remaining: %d | doors destroyed: %d | structures damaged: %d | Core: %d%%" % [
-		raid_index,
-		int(raid_stats.get("killed", 0)),
-		int(raid_stats.get("escaped", 0)),
-		int(raid_stats.get("stolen", 0)),
-		int(raid_stats.get("carried_out", 0)),
-		_unsecured_loot_total(),
-		int(raid_stats.get("doors_destroyed", 0)),
-		_damaged_structure_count(),
-		core_hp
-	]
-
-func _unsecured_loot_total() -> int:
-	var total := 0
-	for bag in loot_bags:
-		total += int(bag["gold"])
-	return total
-
-func _damaged_structure_count() -> int:
-	var damaged := 0
-	for key in door_hp.keys():
-		var p: Vector2i = key
-		if int(grid[p.y][p.x]) == Tile.DOOR and int(door_hp[p]) < DOOR_MAX_HP:
-			damaged += 1
-	for key in trap_charges.keys():
-		var p: Vector2i = key
-		var t := int(grid[p.y][p.x])
-		if _is_trap_tile(t) and int(trap_charges[p]) < _trap_max_charges(t):
-			damaged += 1
-	return damaged
-
-func _update_hero(delta: float) -> void:
-	if hero.is_empty():
-		return
-
-	if bool(hero.get("portaling", false)):
-		hero["portal_t"] = float(hero.get("portal_t", 0.0)) - delta
-		if float(hero["portal_t"]) <= 0.0:
-			_finish_town_portal()
-		return
-
-	hero["move_cd"] = float(hero["move_cd"]) - delta
-	if float(hero["move_cd"]) > 0.0:
-		return
-	hero["move_cd"] = TURN_TIME
-	hero["turns"] = int(hero["turns"]) + 1
-
-	_remember_nearby(hero)
-	_update_flee_state()
-
-	var pos: Vector2i = hero["pos"]
-
-	# A fleeing hero leaves the dungeon as soon as it reaches the entrance again.
-	if bool(hero["fleeing"]) and int(grid[pos.y][pos.x]) == Tile.ENTRANCE:
-		_hero_escapes()
-		return
-
-	# Safety net: a lost hero must not lock the dungeon forever.
-	if int(hero["turns"]) > int(hero["patience"]) * 3:
-		raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
-		_open_town_portal("%s gets lost in the maze and eventually finds the way out." % hero["display"])
-		return
-
-	var next := _choose_next_step(hero)
-	if next == pos:
-		_open_town_portal("%s gives up exploring for lack of a useful path." % hero["display"])
-		return
-
-	# An intact door blocks: it has to be broken before passing through.
-	if _door_intact(next):
-		_attack_door(next)
-		return
-
-	hero["facing"] = next - pos
-	hero["visited"][next] = int(hero["visited"].get(next, 0)) + 1
-	hero["pos"] = next
-	if hero.get("trap_sprung_at", Vector2i(-1, -1)) != next:
-		hero.erase("trap_sprung_at")
-	_resolve_cell(next)
-
-func _update_flee_state() -> void:
-	if bool(hero["fleeing"]):
-		return
-	var ratio := float(hero["hp"]) / float(hero["max_hp"])
-	if ratio <= float(hero["flee_ratio"]):
-		hero["fleeing"] = true
-		message = "%s is badly wounded and looks for the exit." % hero["display"]
-	elif int(hero["turns"]) >= int(hero["patience"]):
-		hero["fleeing"] = true
-		message = "%s has seen enough and looks for the exit." % hero["display"]
-
-# Resolves arriving on a cell: loot, traps, then objective.
-func _resolve_cell(pos: Vector2i) -> void:
-	_pick_up_loot(pos)
-
-	var tile: int = int(grid[pos.y][pos.x])
-	if _is_trap_tile(tile):
-		_trigger_trap(pos, tile)
-
-	if bool(hero.get("portaling", false)):
-		return
-
-	if int(hero["hp"]) <= 0:
-		_kill_hero()
-		return
-
-	if bool(hero["fleeing"]):
-		return
-
-	if tile == Tile.VAULT and String(hero["kind"]) == "thief":
-		_try_rob_vault(pos)
-		return
-
-	if tile == Tile.CORE:
-		_hero_reaches_core()
-
-func _pick_up_loot(pos: Vector2i) -> void:
-	var taken := 0
-	for bag in loot_bags:
-		if bag["pos"] == pos:
-			taken += int(bag["gold"])
-			bag["taken"] = true
-	if taken <= 0:
-		return
-	hero["carried_gold"] = int(hero["carried_gold"]) + taken
-	loot_bags = loot_bags.filter(func(b): return not bool(b.get("taken", false)))
-	message = "%s picks up %d gold of unsecured loot!" % [hero["display"], taken]
-
-func _trigger_trap(p: Vector2i, tile: int) -> void:
-	var charges := int(trap_charges.get(p, _trap_max_charges(tile)))
-	if charges <= 0:
-		return  # Spent defense: it stays inert until repaired.
-	trap_charges[p] = charges - 1
-	raid_stats["traps_spent"] = int(raid_stats["traps_spent"]) + 1
-	if tile == Tile.SPIKE:
-		var damage := 24
-		if String(hero["kind"]) == "paladin":
-			damage = 15   # Lithides resist physical hazards (GAME_DESIGN.md §8).
-		hero["hp"] = int(hero["hp"]) - damage
-		hero["trap_sprung_at"] = p
-	elif tile == Tile.VOID:
-		hero["trap_sprung_at"] = p
-		_banish_via_void()
-	else:
-		hero["hp"] = int(hero["hp"]) - 10
-		hero["move_cd"] = float(hero["move_cd"]) + 0.55
-		hero["trap_sprung_at"] = p
-
-func _banish_via_void() -> void:
-	var carried := int(hero["carried_gold"])
-	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
-	raid_stats["carried_out"] = carried
-	_open_town_portal("%s is torn through a void rift and expelled from the dungeon with %d gold." % [hero["display"], carried])
-
-func _attack_door(p: Vector2i) -> void:
-	if int(door_hp.get(p, DOOR_MAX_HP)) <= 0:
-		return
-	var hp := int(door_hp.get(p, DOOR_MAX_HP)) - int(hero["door_damage"])
-	hero["move_cd"] = float(hero["move_cd"]) + 0.35
-	if hp <= 0:
-		door_hp[p] = 0
-		raid_stats["doors_destroyed"] = int(raid_stats["doors_destroyed"]) + 1
-		message = "%s forces a door. The wreck stays after the raid." % hero["display"]
-	else:
-		door_hp[p] = hp
-		message = "%s strikes a door (%d HP left)." % [hero["display"], hp]
-
-# A thief carries away only what fits in its bag, then teleports out.
-func _try_rob_vault(p: Vector2i) -> void:
-	var storage := _storage_state()
-	var vaults: Dictionary = storage["vaults"]
-	var available := int(vaults.get(p, 0))
-	if available <= 0:
-		hero["ignored"][p] = true
-		message = "%s finds nothing but an empty storage." % hero["display"]
-		return
-	var amount := mini(available, int(hero["steal_capacity"]))
-	gold -= amount
-	hero["carried_gold"] = int(hero["carried_gold"]) + amount
-	raid_stats["stolen"] = int(raid_stats["stolen"]) + amount
-	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
-	raid_stats["carried_out"] = int(hero["carried_gold"])
-	var left := available - amount
-	var rest := ""
-	if left > 0:
-		rest = " %d gold stays behind." % left
-	_open_town_portal("%s steals %d gold and teleports out of the dungeon.%s" % [hero["display"], amount, rest])
-
-func _hero_reaches_core() -> void:
-	var damage := 24
-	if String(hero["kind"]) == "paladin":
-		damage = 42
-	var lost := mini(core_hp, damage)
-	core_hp = maxi(0, core_hp - damage)
-	raid_stats["core_lost"] = int(raid_stats["core_lost"]) + lost
-	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
-	raid_stats["carried_out"] = int(hero["carried_gold"])
-
-	if core_hp <= 0:
-		game_over = true
-		_open_town_portal("DEFEAT — %s destroys the Core. Click Reset to start a new campaign." % hero["display"])
-		return
-
-	_open_town_portal("%s strikes the Core (-%d integrity) then vanishes." % [hero["display"], damage])
-
-func _kill_hero() -> void:
-	var death_pos: Vector2i = hero["pos"]
-	corpses.append({
-		"pos": death_pos,
-		"name": hero["name"],
-		"fear": 18.0
-	})
-	var carried := int(hero["carried_gold"])
-	if carried > 0:
-		loot_bags.append({
-			"pos": death_pos,
-			"gold": carried,
-			"taken": false
-		})
-
-	# Essence absorbed by the Core (GAME_DESIGN.md §4: weak ~2, experienced ~3, champion ~5).
-	var heal := 2
-	if String(hero["kind"]) == "ranger":
-		heal = 3
-	elif String(hero["kind"]) == "paladin":
-		heal = 5
-	core_hp = mini(CORE_MAX, core_hp + heal)
-	raid_stats["killed"] = int(raid_stats["killed"]) + 1
-	_end_raid("%s dies. The Core absorbs its essence (+%d); body and loot stay where they fell." % [hero["display"], heal])
-
-# --- AI: partial knowledge and decision ------------------------------------
-
-func _remember_nearby(h: Dictionary) -> void:
-	var radius := 3 if String(h["kind"]) == "ranger" else 2
-	var p: Vector2i = h["pos"]
-	for dy in range(-radius, radius + 1):
-		for dx in range(-radius, radius + 1):
-			var q := Vector2i(p.x + dx, p.y + dy)
-			if _inside(q):
-				# Rolled once per cell: two heroes never price a route alike.
-				if not h["known"].has(q):
-					h["bias"][q] = randf_range(0.0, ROUTE_BIAS)
-				h["known"][q] = grid[q.y][q.x]
-
-func _target_tile(h: Dictionary) -> int:
-	if bool(h["fleeing"]):
-		return Tile.ENTRANCE
-	var objective := String(h["objective"])
-	if objective == "vault":
-		return Tile.VAULT
-	if objective == "core":
-		return Tile.CORE
-	return -1  # The ranger maps the place without a fixed target.
-
-# The hero reasons on routes, never on a single step: a trap or a corpse makes
-# a corridor expensive, it never makes it impassable. Judging one neighbour at
-# a time made a hero retreat into the entrance forever in front of a trapped
-# corridor, because backing off always looked cheaper than the only way on.
-# GAME_DESIGN.md §10: "high-level AI decides what it wants, pathfinding decides
-# how to reach what it currently knows".
-func _choose_next_step(h: Dictionary) -> Vector2i:
-	var start: Vector2i = h["pos"]
-	var candidates: Array[Vector2i] = []
-	for d in DIRS:
-		var q := start + d
-		if _can_step(start, q):
-			candidates.append(q)
-	if candidates.is_empty():
-		return start
-
-	# 1. Objective already spotted: head there using the mental map only.
-	var target_tile := _target_tile(h)
-	if target_tile >= 0:
-		var step := _route_step(h, _known_targets(h, target_tile))
-		if step != start:
-			return step
-
-	# 2. Nothing spotted: walk towards the closest edge of the known world.
-	var explore := _route_step(h, _frontier_cells(h))
-	if explore != start:
-		return explore
-
-	# 3. Everything reachable is mapped: go back over the least trodden ground.
-	var revisit := _route_step(h, _least_visited_cells(h))
-	if revisit != start:
-		return revisit
-
-	# 4. Nowhere left to route: decide on the spot.
-	return _local_step(h, candidates)
-
-# Cells of the wanted kind the hero remembers, minus those it wrote off.
-func _known_targets(h: Dictionary, target_tile: int) -> Dictionary:
-	var goals := {}
-	for k in h["known"].keys():
-		var p: Vector2i = k
-		if int(h["known"][p]) == target_tile and not h["ignored"].has(p):
-			goals[p] = true
-	return goals
-
-# Known passages touching something still unseen: the edge of the mental map.
-func _frontier_cells(h: Dictionary) -> Dictionary:
-	var goals := {}
-	for k in h["known"].keys():
-		var p: Vector2i = k
-		if int(h["known"][p]) == Tile.ROCK:
-			continue
-		for d in DIRS:
-			var n := p + d
-			if _inside(n) and not h["known"].has(n):
-				goals[p] = true
-				break
-	return goals
-
-func _least_visited_cells(h: Dictionary) -> Dictionary:
-	var start: Vector2i = h["pos"]
-	var lowest := 1 << 30
-	var goals := {}
-	for k in h["known"].keys():
-		var p: Vector2i = k
-		if int(h["known"][p]) == Tile.ROCK or p == start:
-			continue
-		var seen_count := int(h["visited"].get(p, 0))
-		if seen_count < lowest:
-			lowest = seen_count
-			goals.clear()
-		if seen_count == lowest:
-			goals[p] = true
-	return goals
-
-# Price the hero puts on entering a cell, based on what it believes is there.
-# Never zero or negative: a route always costs something to walk.
-func _step_cost(h: Dictionary, p: Vector2i) -> float:
-	var cost := ROUTE_STEP
-	cost += minf(float(int(h["visited"].get(p, 0))) * ROUTE_REVISIT, ROUTE_REVISIT_MAX)
-	var seen := int(h["known"].get(p, Tile.ROCK))
-	if _is_trap_tile(seen):
-		cost += ROUTE_TRAP * float(h["trap_weight"])
-	elif seen == Tile.DOOR:
-		cost += ROUTE_DOOR
-	# A Paladin has a negative fear weight: corpses draw it in instead.
-	cost += _corpse_danger_near(p) * float(h["fear_weight"])
-	cost += float(h["bias"].get(p, 0.0))
-	return maxf(0.05, cost)
-
-# Cheapest route to any of the goals, over the mental map alone (never the real
-# grid). Returns the first step, or the current cell when nothing is reachable.
-func _route_step(h: Dictionary, goals: Dictionary) -> Vector2i:
-	var start: Vector2i = h["pos"]
-	if goals.is_empty():
-		return start
-
-	var dist := {start: 0.0}
-	var came := {}
-	var closed := {}
-	var open: Array[Vector2i] = [start]
-	var reached := Vector2i(-1, -1)
-
-	while not open.is_empty():
-		var best_i := 0
-		for i in range(1, open.size()):
-			if float(dist[open[i]]) < float(dist[open[best_i]]):
-				best_i = i
-		var cur: Vector2i = open[best_i]
-		open.remove_at(best_i)
-		if closed.has(cur):
-			continue
-		closed[cur] = true
-		if cur != start and goals.has(cur):
-			reached = cur
-			break
-		for d in DIRS:
-			var n := cur + d
-			if closed.has(n) or not h["known"].has(n):
-				continue
-			if int(h["known"][n]) == Tile.ROCK:
-				continue
-			if not _can_step(cur, n):
-				continue
-			var nd := float(dist[cur]) + _step_cost(h, n)
-			if nd < float(dist.get(n, INF)):
-				dist[n] = nd
-				came[n] = cur
-				open.append(n)
-
-	if reached.x < 0:
-		return start
-	# Walk the parent chain back down to the cell right next to the hero.
-	var cur2 := reached
-	while came.has(cur2) and came[cur2] != start:
-		cur2 = came[cur2]
-	if not came.has(cur2):
-		return start
-	return cur2
-
-# Last resort, used only when the whole known dungeon is already routed out:
-# a plain local preference so the hero still does something readable.
-func _local_step(h: Dictionary, candidates: Array[Vector2i]) -> Vector2i:
-	var best := candidates[0]
-	var best_score := -INF
-	for q in candidates:
-		var score := randf_range(-2.5, 2.5)
-		score -= float(int(h["visited"].get(q, 0))) * 4.0
-		score -= _corpse_danger_near(q) * float(h["fear_weight"])
-		var seen := int(h["known"].get(q, Tile.ROCK))
-		if _is_trap_tile(seen):
-			score -= 8.0 * float(h["trap_weight"])
-		if seen == Tile.ENTRANCE and bool(h["fleeing"]):
-			score += 25.0
-		if score > best_score:
-			best_score = score
-			best = q
-	return best
-
-func _corpse_danger_near(p: Vector2i) -> float:
-	var danger := 0.0
-	for corpse in corpses:
-		var cp: Vector2i = corpse["pos"]
-		var dist := absi(cp.x - p.x) + absi(cp.y - p.y)
-		if dist == 0:
-			danger += float(corpse["fear"])
-		elif dist == 1:
-			danger += float(corpse["fear"]) * 0.5
-	return danger / 10.0
-
-func _hero_escapes() -> void:
-	var carried := int(hero["carried_gold"])
-	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
-	raid_stats["carried_out"] = carried
-	var ent: Vector2i = hero["pos"]
-	hero["facing"] = -_entrance_mouth(ent)
-	_open_town_portal("%s walks out of the dungeon alive with %d gold." % [hero["display"], carried])
-
-func _open_town_portal(result_text: String) -> void:
-	if hero.is_empty() or bool(hero.get("portaling", false)):
-		return
-	hero["portaling"] = true
-	hero["portal_t"] = PORTAL_HOLD
-	hero["portal_msg"] = result_text
-	message = "%s opens a town portal." % hero["display"]
-
-func _finish_town_portal() -> void:
-	var text := String(hero.get("portal_msg", "The hero leaves the dungeon."))
-	_end_raid(text)
-
-# --- Grid and storage ------------------------------------------------------
-
-func _inside(p: Vector2i) -> bool:
-	return p.x >= 0 and p.y >= 0 and p.x < COLS and p.y < ROWS
-
-func _walkable(p: Vector2i) -> bool:
-	return _inside(p) and int(grid[p.y][p.x]) != Tile.ROCK
-
-func _is_trap_tile(t: int) -> bool:
-	return t == Tile.SPIKE or t == Tile.SNARE or t == Tile.VOID
-
-func _trap_max_charges(t: int) -> int:
-	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES
-
-# Stairs only connect along their run: corridor mouth, not the left/right flanks.
-func _entrance_mouth(p: Vector2i) -> Vector2i:
-	var core := _core_origin()
-	var best := Vector2i.ZERO
-	var best_score := -INF
-	for d in DIRS:
-		var n: Vector2i = p + d
-		if not _walkable(n):
-			continue
-		if int(grid[n.y][n.x]) == Tile.ENTRANCE:
-			continue
-		var score := float(d.x) * float(core.x - p.x) + float(d.y) * float(core.y - p.y)
-		if score > best_score:
-			best_score = score
-			best = d
-	return best if best != Vector2i.ZERO else Vector2i.RIGHT
-
-func _can_step(from: Vector2i, to: Vector2i) -> bool:
-	if not _walkable(to):
-		return false
-	if absi(from.x - to.x) + absi(from.y - to.y) != 1:
-		return false
-	if int(grid[from.y][from.x]) == Tile.ENTRANCE:
-		return to - from == _entrance_mouth(from)
-	if int(grid[to.y][to.x]) == Tile.ENTRANCE:
-		return from - to == _entrance_mouth(to)
-	return true
-
-func _door_intact(p: Vector2i) -> bool:
-	return _inside(p) and int(grid[p.y][p.x]) == Tile.DOOR and int(door_hp.get(p, DOOR_MAX_HP)) > 0
-
-func _core_origin() -> Vector2i:
-	return _find_tile(Tile.CORE)
-
-func _find_tile(tile: int) -> Vector2i:
-	for y in range(ROWS):
-		for x in range(COLS):
-			if int(grid[y][x]) == tile:
-				return Vector2i(x, y)
-	return Vector2i(-1, -1)
-
-func _place_starter_storage() -> void:
-	var origin := Vector2i(9, 5)
-	var needed := ceili(float(START_GOLD) / float(VAULT_CAPACITY))
-	var placed := 0
-	for y in range(origin.y + CORE_H, origin.y - 2, -1):
-		for x in range(origin.x - 1, origin.x + CORE_W + 1):
-			if placed >= needed:
-				return
-			if not _inside(Vector2i(x, y)):
-				continue
-			if int(grid[y][x]) != Tile.FLOOR:
-				continue
-			grid[y][x] = Tile.VAULT
-			placed += 1
-
-func _storage_capacity() -> int:
-	return _vault_positions().size() * VAULT_CAPACITY
-
-func _storage_free() -> int:
-	return maxi(0, _storage_capacity() - gold)
-
-func _deposit_gold(amount: int) -> int:
-	var take := mini(maxi(0, amount), _storage_free())
-	gold += take
-	return take
-
-func _spill_overflow_at(p: Vector2i) -> void:
-	var extra := gold - _storage_capacity()
-	if extra <= 0:
-		return
-	gold -= extra
-	loot_bags.append({"pos": p, "gold": extra, "taken": false})
-
-func _vault_positions() -> Array[Vector2i]:
-	var out: Array[Vector2i] = []
-	for y in range(ROWS):
-		for x in range(COLS):
-			if int(grid[y][x]) == Tile.VAULT:
-				out.append(Vector2i(x, y))
-	return out
-
-# Dungeon wealth is physical: it fills the storages one by one and the
-# surplus stays exposed next to the Core (GAME_DESIGN.md §5).
-func _storage_state() -> Dictionary:
-	var vaults := {}
-	var remaining := gold
-	for p in _vault_positions():
-		var amount := mini(remaining, VAULT_CAPACITY)
-		vaults[p] = amount
-		remaining -= amount
-	return {"vaults": vaults, "unstored": 0, "capacity": _storage_capacity()}
-
-func _has_open_neighbour(p: Vector2i) -> bool:
-	for d in DIRS:
-		if _walkable(p + d):
-			return true
-	return false
-
-func _clear_cell_state(p: Vector2i) -> void:
-	door_hp.erase(p)
-	trap_charges.erase(p)
-
-# --- Player input ----------------------------------------------------------
-
 func _board_center() -> Vector2:
 	return _cell_pos(Vector2i(COLS / 2, ROWS / 2))
 
@@ -1610,152 +972,6 @@ func _handle_event(event: InputEvent) -> void:
 	_build_at(_screen_to_grid(mp))
 	_sync_world()
 	queue_redraw()
-
-func _toolbar_hit(mp: Vector2) -> bool:
-	for b in _buttons():
-		var rect: Rect2 = b["rect"]
-		if rect.has_point(mp):
-			return true
-	return false
-
-func _handle_toolbar(mp: Vector2) -> void:
-	for b in _buttons():
-		var rect: Rect2 = b["rect"]
-		if not rect.has_point(mp):
-			continue
-		_apply_toolbar_tool(int(b["tool"]))
-		return
-
-func _apply_toolbar_tool(tool: int) -> void:
-	if tool == Tool.RESET:
-		if reset_armed or game_over:
-			_new_map()
-		else:
-			reset_armed = true
-			message = "Reset: click a second time to wipe everything."
-		return
-	reset_armed = false
-	if game_over:
-		return
-	if tool == Tool.REPAIR:
-		_repair_structures()
-		return
-	selected_tool = tool
-
-func _build_at(gp: Vector2i) -> void:
-	if not _inside(gp):
-		message = "No tile under the cursor."
-		return
-	var current := int(grid[gp.y][gp.x])
-	if current == Tile.ENTRANCE or current == Tile.CORE:
-		message = "The entrance and the Core cannot be modified."
-		return
-
-	match selected_tool:
-		Tool.DIG:
-			if current == Tile.ROCK:
-				if not _has_open_neighbour(gp):
-					message = "You must dig from an existing passage."
-				elif gold < COST_DIG:
-					message = "Not enough gold to dig (%d)." % COST_DIG
-				else:
-					gold -= COST_DIG
-					grid[gp.y][gp.x] = Tile.FLOOR
-					message = "Dug a passage."
-			else:
-				var was_vault := current == Tile.VAULT
-				_clear_cell_state(gp)
-				grid[gp.y][gp.x] = Tile.FLOOR
-				if was_vault:
-					_spill_overflow_at(gp)
-				message = "Structure cleared."
-		Tool.STORE:
-			_place(gp, Tile.VAULT, COST_VAULT)
-		Tool.TRAP_SPIKE:
-			_place(gp, Tile.SPIKE, COST_SPIKE)
-		Tool.TRAP_SNARE:
-			_place(gp, Tile.SNARE, COST_SNARE)
-		Tool.TRAP_VOID:
-			_place(gp, Tile.VOID, COST_VOID)
-		Tool.BUILD_DOOR:
-			_place(gp, Tile.DOOR, COST_DOOR)
-		Tool.BUILD_ENTRANCE:
-			_place_entrance(gp)
-
-func _place_entrance(p: Vector2i) -> void:
-	if _has_entrance():
-		message = "The entrance stair is already set. It cannot be moved."
-		return
-	if int(grid[p.y][p.x]) != Tile.FLOOR:
-		message = "Place the stair on an open passage."
-		return
-	grid[p.y][p.x] = Tile.ENTRANCE
-	raid_timer = RAID_DELAY
-	message = "Entrance opened. Heroes will find it in %ds." % int(RAID_DELAY)
-
-func _place(p: Vector2i, tile: int, cost: int) -> void:
-	var current := int(grid[p.y][p.x])
-	if current == Tile.ROCK:
-		message = "Dig this passage first."
-		return
-	if tile == Tile.DOOR and current != Tile.DOOR and not _door_between_walls(p):
-		message = "A door must sit in a gap between two walls."
-		return
-	if current == tile:
-		if tile != Tile.DOOR or int(door_hp.get(p, DOOR_MAX_HP)) > 0:
-			return
-	if gold < cost:
-		message = "Not enough gold (%d required)." % cost
-		return
-	gold -= cost
-	var was_vault := current == Tile.VAULT
-	_clear_cell_state(p)
-	grid[p.y][p.x] = tile
-	if was_vault and tile != Tile.VAULT:
-		_spill_overflow_at(p)
-	if tile == Tile.DOOR:
-		door_hp[p] = DOOR_MAX_HP
-	elif _is_trap_tile(tile):
-		trap_charges[p] = _trap_max_charges(tile)
-
-func _door_between_walls(p: Vector2i) -> bool:
-	# Opposite rocks: a 1-tile corridor or a hole punched through a wall.
-	var ew := _is_rock_cell(p + Vector2i.LEFT) and _is_rock_cell(p + Vector2i.RIGHT)
-	var ns := _is_rock_cell(p + Vector2i.UP) and _is_rock_cell(p + Vector2i.DOWN)
-	return ew or ns
-
-func _is_rock_cell(n: Vector2i) -> bool:
-	return _inside(n) and int(grid[n.y][n.x]) == Tile.ROCK
-
-# Repairs: outside raids only (GAME_DESIGN.md §7).
-func _repair_structures() -> void:
-	var doors := 0
-	var charges := 0
-	for key in door_hp.keys():
-		var p: Vector2i = key
-		if int(grid[p.y][p.x]) != Tile.DOOR:
-			continue
-		if int(door_hp[p]) <= 0 or int(door_hp[p]) >= DOOR_MAX_HP:
-			continue
-		if gold < COST_REPAIR_DOOR:
-			break
-		gold -= COST_REPAIR_DOOR
-		door_hp[p] = DOOR_MAX_HP
-		doors += 1
-	for key in trap_charges.keys():
-		var p: Vector2i = key
-		var t := int(grid[p.y][p.x])
-		if not _is_trap_tile(t):
-			continue
-		while int(trap_charges[p]) < _trap_max_charges(t) and gold >= COST_REPAIR_TRAP:
-			gold -= COST_REPAIR_TRAP
-			trap_charges[p] = int(trap_charges[p]) + 1
-			charges += 1
-	if doors == 0 and charges == 0:
-		message = "Nothing to repair (or not enough gold)."
-	else:
-		message = "Repairs: %d door(s), %d trap charge(s)." % [doors, charges]
-
 func _iso_top(p: Vector2i) -> Vector2:
 	return _iso_origin() + Vector2(float(p.x - p.y) * _tw() * 0.5, float(p.x + p.y) * _th() * 0.5)
 
@@ -1783,35 +999,6 @@ func _bag_pos(bag: Dictionary) -> Vector2:
 
 func _corpse_pos(corpse: Dictionary) -> Vector2:
 	return _cell_pos(corpse["pos"]) + CORPSE_OFFSET
-
-func _buttons() -> Array:
-	var defs := [
-		{"tool": Tool.DIG, "label": "Dig", "cost": "5"},
-		{"tool": Tool.STORE, "label": "Storage", "cost": "60"},
-		{"tool": Tool.TRAP_SPIKE, "label": "Spikes", "cost": "35"},
-		{"tool": Tool.TRAP_SNARE, "label": "Snare", "cost": "30"},
-		{"tool": Tool.TRAP_VOID, "label": "Void", "cost": "45"},
-		{"tool": Tool.BUILD_DOOR, "label": "Door", "cost": "40"},
-		{"tool": Tool.BUILD_ENTRANCE, "label": "Entrance", "cost": "free"},
-		{"tool": Tool.REPAIR, "label": "Repair", "cost": "15 / 10"},
-		{"tool": Tool.ABSORB, "label": "Absorb", "cost": "+2 Core"},
-		{"tool": Tool.RESET, "label": "Reset", "cost": ""}
-	]
-	var n: int = defs.size()
-	var view := _view_size()
-	var usable: float = maxf(view.x - BTN_X * 2.0, 200.0)
-	var w: float = (usable - BTN_GAP * float(n - 1)) / float(n)
-	var out := []
-	for i in range(n):
-		var d: Dictionary = defs[i]
-		d["rect"] = Rect2(Vector2(BTN_X + float(i) * (w + BTN_GAP), _btn_y()), Vector2(w, BTN_H))
-		out.append(d)
-	return out
-
-# --- Rendering -------------------------------------------------------------
-
-# Draws one HUD segment and returns the x position for the next one
-# (semantic colors follow GAME_DESIGN.md §24).
 func _hud_segment(x: float, text: String, color: Color, size: int) -> float:
 	draw_string(font, Vector2(x, 34), text, HORIZONTAL_ALIGNMENT_LEFT, -1, size, color)
 	return x + font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, size).x

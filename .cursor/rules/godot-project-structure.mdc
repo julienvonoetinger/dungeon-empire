@@ -1,0 +1,18 @@
+---
+description: Godot scene and script layout for Dungeon Empire
+globs: "**/*.{gd,tscn}"
+alwaysApply: true
+---
+
+# Godot structure
+
+Follow `docs/GODOT_PROJECT_STRUCTURE.md` when adding features.
+
+- `Main` / `DungeonGame` only wires systems, camera, HUD paint, and input.
+- Rules go in `scripts/game/` (`GameTypes`, `DungeonSim`, `RaidDirector`).
+- 3D presentation stays in `scripts/world/` (`DungeonWorld`).
+- Toolbar/HUD live in `scripts/hud/`.
+- New scenes go under `scenes/`, not the repo root.
+- Do not add new gameplay rules onto `scripts/Main.gd`.
+- Communicate with signals where the HUD or world notifies the conductor.
+- Do not duplicate `Tile` / `Tool` enums; use `GameTypes` or the `DungeonGame` aliases.
