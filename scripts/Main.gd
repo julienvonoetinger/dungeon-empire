@@ -33,6 +33,7 @@ const COST_DIG := 5
 const COST_VAULT := 60
 const COST_SPIKE := 35
 const COST_SNARE := 30
+const COST_VOID := 45
 const COST_DOOR := 40
 const COST_REPAIR_DOOR := 15
 const COST_REPAIR_TRAP := 10
@@ -102,8 +103,8 @@ const C_HOT_ORANGE := Color("#D9783C")
 const C_TEXT := Color("#E8E6EC")
 const C_BACKDROP := Color("#17161B")
 
-enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR }
-enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, BUILD_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET }
+enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID }
+enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET }
 
 var grid: Array = []
 var selected_tool: int = Tool.DIG
@@ -854,7 +855,7 @@ func _damaged_structure_count() -> int:
 	for key in trap_charges.keys():
 		var p: Vector2i = key
 		var t := int(grid[p.y][p.x])
-		if (t == Tile.SPIKE or t == Tile.SNARE) and int(trap_charges[p]) < TRAP_MAX_CHARGES:
+		if _is_trap_tile(t) and int(trap_charges[p]) < _trap_max_charges(t):
 			damaged += 1
 	return damaged
 
@@ -923,8 +924,11 @@ func _resolve_cell(pos: Vector2i) -> void:
 	_pick_up_loot(pos)
 
 	var tile: int = int(grid[pos.y][pos.x])
-	if tile == Tile.SPIKE or tile == Tile.SNARE:
+	if _is_trap_tile(tile):
 		_trigger_trap(pos, tile)
+
+	if bool(hero.get("portaling", false)):
+		return
 
 	if int(hero["hp"]) <= 0:
 		_kill_hero()
@@ -953,7 +957,7 @@ func _pick_up_loot(pos: Vector2i) -> void:
 	message = "%s picks up %d gold of unsecured loot!" % [hero["display"], taken]
 
 func _trigger_trap(p: Vector2i, tile: int) -> void:
-	var charges := int(trap_charges.get(p, TRAP_MAX_CHARGES))
+	var charges := int(trap_charges.get(p, _trap_max_charges(tile)))
 	if charges <= 0:
 		return  # Spent defense: it stays inert until repaired.
 	trap_charges[p] = charges - 1
@@ -964,10 +968,19 @@ func _trigger_trap(p: Vector2i, tile: int) -> void:
 			damage = 15   # Lithides resist physical hazards (GAME_DESIGN.md §8).
 		hero["hp"] = int(hero["hp"]) - damage
 		hero["trap_sprung_at"] = p
+	elif tile == Tile.VOID:
+		hero["trap_sprung_at"] = p
+		_banish_via_void()
 	else:
 		hero["hp"] = int(hero["hp"]) - 10
 		hero["move_cd"] = float(hero["move_cd"]) + 0.55
 		hero["trap_sprung_at"] = p
+
+func _banish_via_void() -> void:
+	var carried := int(hero["carried_gold"])
+	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
+	raid_stats["carried_out"] = carried
+	_open_town_portal("%s is torn through a void rift and expelled from the dungeon with %d gold." % [hero["display"], carried])
 
 func _attack_door(p: Vector2i) -> void:
 	if int(door_hp.get(p, DOOR_MAX_HP)) <= 0:
@@ -1150,7 +1163,7 @@ func _step_cost(h: Dictionary, p: Vector2i) -> float:
 	var cost := ROUTE_STEP
 	cost += minf(float(int(h["visited"].get(p, 0))) * ROUTE_REVISIT, ROUTE_REVISIT_MAX)
 	var seen := int(h["known"].get(p, Tile.ROCK))
-	if seen == Tile.SPIKE or seen == Tile.SNARE:
+	if _is_trap_tile(seen):
 		cost += ROUTE_TRAP * float(h["trap_weight"])
 	elif seen == Tile.DOOR:
 		cost += ROUTE_DOOR
@@ -1219,7 +1232,7 @@ func _local_step(h: Dictionary, candidates: Array[Vector2i]) -> Vector2i:
 		score -= float(int(h["visited"].get(q, 0))) * 4.0
 		score -= _corpse_danger_near(q) * float(h["fear_weight"])
 		var seen := int(h["known"].get(q, Tile.ROCK))
-		if seen == Tile.SPIKE or seen == Tile.SNARE:
+		if _is_trap_tile(seen):
 			score -= 8.0 * float(h["trap_weight"])
 		if seen == Tile.ENTRANCE and bool(h["fleeing"]):
 			score += 25.0
@@ -1266,6 +1279,12 @@ func _inside(p: Vector2i) -> bool:
 
 func _walkable(p: Vector2i) -> bool:
 	return _inside(p) and int(grid[p.y][p.x]) != Tile.ROCK
+
+func _is_trap_tile(t: int) -> bool:
+	return t == Tile.SPIKE or t == Tile.SNARE or t == Tile.VOID
+
+func _trap_max_charges(t: int) -> int:
+	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES
 
 # Stairs only connect along their run: corridor mouth, not the left/right flanks.
 func _entrance_mouth(p: Vector2i) -> Vector2i:
@@ -1656,6 +1675,8 @@ func _build_at(gp: Vector2i) -> void:
 			_place(gp, Tile.SPIKE, COST_SPIKE)
 		Tool.TRAP_SNARE:
 			_place(gp, Tile.SNARE, COST_SNARE)
+		Tool.TRAP_VOID:
+			_place(gp, Tile.VOID, COST_VOID)
 		Tool.BUILD_DOOR:
 			_place(gp, Tile.DOOR, COST_DOOR)
 		Tool.BUILD_ENTRANCE:
@@ -1694,8 +1715,8 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 		_spill_overflow_at(p)
 	if tile == Tile.DOOR:
 		door_hp[p] = DOOR_MAX_HP
-	elif tile == Tile.SPIKE or tile == Tile.SNARE:
-		trap_charges[p] = TRAP_MAX_CHARGES
+	elif _is_trap_tile(tile):
+		trap_charges[p] = _trap_max_charges(tile)
 
 func _door_between_walls(p: Vector2i) -> bool:
 	# Opposite rocks: a 1-tile corridor or a hole punched through a wall.
@@ -1724,9 +1745,9 @@ func _repair_structures() -> void:
 	for key in trap_charges.keys():
 		var p: Vector2i = key
 		var t := int(grid[p.y][p.x])
-		if t != Tile.SPIKE and t != Tile.SNARE:
+		if not _is_trap_tile(t):
 			continue
-		while int(trap_charges[p]) < TRAP_MAX_CHARGES and gold >= COST_REPAIR_TRAP:
+		while int(trap_charges[p]) < _trap_max_charges(t) and gold >= COST_REPAIR_TRAP:
 			gold -= COST_REPAIR_TRAP
 			trap_charges[p] = int(trap_charges[p]) + 1
 			charges += 1
@@ -1769,6 +1790,7 @@ func _buttons() -> Array:
 		{"tool": Tool.STORE, "label": "Storage", "cost": "60"},
 		{"tool": Tool.TRAP_SPIKE, "label": "Spikes", "cost": "35"},
 		{"tool": Tool.TRAP_SNARE, "label": "Snare", "cost": "30"},
+		{"tool": Tool.TRAP_VOID, "label": "Void", "cost": "45"},
 		{"tool": Tool.BUILD_DOOR, "label": "Door", "cost": "40"},
 		{"tool": Tool.BUILD_ENTRANCE, "label": "Entrance", "cost": "free"},
 		{"tool": Tool.REPAIR, "label": "Repair", "cost": "15 / 10"},
@@ -1806,7 +1828,7 @@ func _tile_height(t: int) -> float:
 			return 22.0
 		Tile.VAULT:
 			return 16.0
-		Tile.SPIKE, Tile.SNARE:
+		Tile.SPIKE, Tile.SNARE, Tile.VOID:
 			return 8.0
 		Tile.DOOR:
 			return 18.0
@@ -1854,6 +1876,8 @@ func _tile_top_color(p: Vector2i, t: int, vaults: Dictionary) -> Color:
 			return C_DANGER_RED.darkened(0.15)
 		Tile.SNARE:
 			return C_HOT_ORANGE.darkened(0.2)
+		Tile.VOID:
+			return C_INFLUENCE_PURPLE.darkened(0.15)
 		Tile.DOOR:
 			return C_VILLAGE_BEIGE.darkened(0.25)
 	return C_MID_STONE

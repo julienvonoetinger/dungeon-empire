@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfelgw6qtb62c"
-path.s3tc="res://.godot/imported/core_void_nexus_base_color.jpg-340a24f6224f2e05844e605b3044da3f.s3tc.ctex"
+uid="uid://d4m31nwl5yufv"
+path="res://.godot/imported/treasure_room_reference.png-791bd153d9c6454f076e37dfe1cee8d0.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "37b86ae08e35ed16339c156dc06dbd9b"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/models/core_void_nexus_base_color.jpg"
-dest_files=["res://.godot/imported/core_void_nexus_base_color.jpg-340a24f6224f2e05844e605b3044da3f.s3tc.ctex"]
+source_file="res://production/meshy_assets/structures/treasure_room/treasure_room_reference.png"
+dest_files=["res://.godot/imported/treasure_room_reference.png-791bd153d9c6454f076e37dfe1cee8d0.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

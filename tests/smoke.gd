@@ -21,6 +21,7 @@ func _initialize() -> void:
     _test_build_rules()
     _test_door_facing()
     _test_trap_wear_and_repair()
+    _test_void_trap_banish()
     _test_death_and_theft()
     _test_personalities()
     _test_report_fields()
@@ -358,6 +359,32 @@ func _test_trap_wear_and_repair() -> void:
     check(tile(door) == m.Tile.DOOR and int(m.door_hp.get(door, -1)) == 0, "destroyed door resurrected by the repair")
     var expected: int = m.COST_REPAIR_DOOR + m.TRAP_MAX_CHARGES * m.COST_REPAIR_TRAP
     check(m.gold == gold_before - expected, "unexpected repair cost (%d instead of %d)" % [gold_before - m.gold, expected])
+    m._new_map()
+
+func _test_void_trap_banish() -> void:
+    print("== void trap banish ==")
+    m._new_map()
+    var rift: Vector2i = core_east_floor()
+    click_named(m.Tool.TRAP_VOID)
+    click_cell(rift)
+    check(tile(rift) == m.Tile.VOID, "void trap not placed")
+    check(int(m.trap_charges.get(rift, 0)) == 1, "void trap should start with one charge")
+    ensure_entrance()
+    m._start_raid()
+    m.hero["kind"] = "thief"
+    m.hero["hp"] = 80
+    m.hero["carried_gold"] = 40
+    m.hero["pos"] = rift
+    var hp := int(m.hero["hp"])
+    m._resolve_cell(rift)
+    check(bool(m.hero.get("portaling", false)), "void trap did not open a portal")
+    check(int(m.hero["hp"]) == hp, "void trap wounded the hero")
+    wait_town_portal()
+    check(not m.raid_active, "raid continues after a void banish")
+    check(m.corpses.is_empty(), "void trap left a corpse")
+    check(m.loot_bags.is_empty(), "void trap dropped loot")
+    check(int(m.raid_stats.get("escaped", 0)) >= 1, "void banish not counted as escape")
+    check(int(m.trap_charges[rift]) == 0, "void charge not consumed")
     m._new_map()
 
 func _test_death_and_theft() -> void:

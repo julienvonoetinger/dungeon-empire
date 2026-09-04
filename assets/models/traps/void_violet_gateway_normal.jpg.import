@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfelgw6qtb62c"
-path.s3tc="res://.godot/imported/core_void_nexus_base_color.jpg-340a24f6224f2e05844e605b3044da3f.s3tc.ctex"
+uid="uid://b5wj7w086usw1"
+path.s3tc="res://.godot/imported/void_violet_gateway_normal.jpg-3ed859ccc21f6823afca91278261df52.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "37b86ae08e35ed16339c156dc06dbd9b"
+"md5": "cca96a21e07dc066820dfb267fa8a725"
 }
 
 [deps]
 
-source_file="res://assets/models/core_void_nexus_base_color.jpg"
-dest_files=["res://.godot/imported/core_void_nexus_base_color.jpg-340a24f6224f2e05844e605b3044da3f.s3tc.ctex"]
+source_file="res://assets/models/traps/void_violet_gateway_normal.jpg"
+dest_files=["res://.godot/imported/void_violet_gateway_normal.jpg-3ed859ccc21f6823afca91278261df52.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://assets/models/traps/void_violet_gateway_normal.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
