@@ -4,14 +4,14 @@ extends Object
 ## Shared enums, economy, and presentation constants. No simulation.
 
 enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID }
-enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET }
+enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET, NONE }
 
 const TILE_W := 64
 const TILE_H := 32
 const DESIGN_SIZE := Vector2(1280, 720)
 const ISO_ORIGIN_DESIGN := Vector2(512, 76)
-const COLS := 20
-const ROWS := 12
+const COLS := 16
+const ROWS := 16
 const RAID_DELAY := 25.0
 
 const CORE_MAX := 100
@@ -112,9 +112,11 @@ static func is_trap_tile(t: int) -> bool:
 static func trap_max_charges(t: int) -> int:
 	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES
 
+static func core_origin_cell() -> Vector2i:
+	return Vector2i((COLS - CORE_W) / 2, (ROWS - CORE_H) / 2)
+
 static func toolbar_defs() -> Array:
 	return [
-		{"tool": Tool.DIG, "label": "Dig", "cost": "5"},
 		{"tool": Tool.STORE, "label": "Storage", "cost": "60"},
 		{"tool": Tool.TRAP_SPIKE, "label": "Spikes", "cost": "35"},
 		{"tool": Tool.TRAP_SNARE, "label": "Snare", "cost": "30"},
@@ -123,5 +125,4 @@ static func toolbar_defs() -> Array:
 		{"tool": Tool.BUILD_ENTRANCE, "label": "Entrance", "cost": "free"},
 		{"tool": Tool.REPAIR, "label": "Repair", "cost": "15 / 10"},
 		{"tool": Tool.ABSORB, "label": "Absorb", "cost": "+2 Core"},
-		{"tool": Tool.RESET, "label": "Reset", "cost": ""}
 	]

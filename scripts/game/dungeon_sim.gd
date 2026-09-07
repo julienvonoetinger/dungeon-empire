@@ -24,7 +24,7 @@ const COST_REPAIR_TRAP := GameTypes.COST_REPAIR_TRAP
 const DIRS := GameTypes.DIRS
 
 var grid: Array = []
-var selected_tool: int = Tool.DIG
+var selected_tool: int = Tool.NONE
 var gold := START_GOLD
 var core_hp := CORE_MAX
 var loot_bags: Array = []
@@ -49,7 +49,7 @@ func new_map() -> void:
 			row.append(Tile.ROCK)
 		grid.append(row)
 
-	var core := Vector2i(9, 5)
+	var core := GameTypes.core_origin_cell()
 	for dy in range(CORE_H):
 		for dx in range(CORE_W):
 			grid[core.y + dy][core.x + dx] = Tile.CORE
@@ -63,6 +63,7 @@ func new_map() -> void:
 	core_hp = CORE_MAX
 	game_over = false
 	reset_armed = false
+	selected_tool = Tool.NONE
 	report = ""
 	message = "The Core is sealed. Starter vaults hold the dungeon's gold. Dig a layout, then place the entrance stair."
 
@@ -156,7 +157,7 @@ func _find_tile(tile: int) -> Vector2i:
 
 
 func _place_starter_storage() -> void:
-	var origin := Vector2i(9, 5)
+	var origin := GameTypes.core_origin_cell()
 	var needed := ceili(float(START_GOLD) / float(VAULT_CAPACITY))
 	var placed := 0
 	for y in range(origin.y + CORE_H, origin.y - 2, -1):
@@ -224,6 +225,23 @@ func _has_open_neighbour(p: Vector2i) -> bool:
 	return false
 
 
+func _is_excavated(p: Vector2i) -> bool:
+	return _inside(p) and int(grid[p.y][p.x]) != Tile.ROCK
+
+
+func _is_diggable_rock(p: Vector2i) -> bool:
+	return _inside(p) and int(grid[p.y][p.x]) == Tile.ROCK and _has_open_neighbour(p)
+
+
+func _faces_map_limit(p: Vector2i) -> bool:
+	if not _is_excavated(p):
+		return false
+	for d in DIRS:
+		if not _inside(p + d):
+			return true
+	return false
+
+
 func _clear_cell_state(p: Vector2i) -> void:
 	door_hp.erase(p)
 	trap_charges.erase(p)
@@ -232,32 +250,31 @@ func _clear_cell_state(p: Vector2i) -> void:
 
 
 func _build_at(gp: Vector2i) -> void:
+	if game_over:
+		return
+	if raid != null and bool(raid.raid_active):
+		return
 	if not _inside(gp):
 		message = "No tile under the cursor."
 		return
 	var current := int(grid[gp.y][gp.x])
+	if current == Tile.ROCK:
+		_try_dig(gp)
+		return
+	if selected_tool == Tool.NONE:
+		return
 	if current == Tile.ENTRANCE or current == Tile.CORE:
 		message = "The entrance and the Core cannot be modified."
 		return
 
 	match selected_tool:
 		Tool.DIG:
-			if current == Tile.ROCK:
-				if not _has_open_neighbour(gp):
-					message = "You must dig from an existing passage."
-				elif gold < COST_DIG:
-					message = "Not enough gold to dig (%d)." % COST_DIG
-				else:
-					gold -= COST_DIG
-					grid[gp.y][gp.x] = Tile.FLOOR
-					message = "Dug a passage."
-			else:
-				var was_vault := current == Tile.VAULT
-				_clear_cell_state(gp)
-				grid[gp.y][gp.x] = Tile.FLOOR
-				if was_vault:
-					_spill_overflow_at(gp)
-				message = "Structure cleared."
+			var was_vault := current == Tile.VAULT
+			_clear_cell_state(gp)
+			grid[gp.y][gp.x] = Tile.FLOOR
+			if was_vault:
+				_spill_overflow_at(gp)
+			message = "Structure cleared."
 		Tool.STORE:
 			_place(gp, Tile.VAULT, COST_VAULT)
 		Tool.TRAP_SPIKE:
@@ -270,6 +287,18 @@ func _build_at(gp: Vector2i) -> void:
 			_place(gp, Tile.DOOR, COST_DOOR)
 		Tool.BUILD_ENTRANCE:
 			_place_entrance(gp)
+
+
+func _try_dig(gp: Vector2i) -> void:
+	if not _has_open_neighbour(gp):
+		message = "You must dig from an existing passage."
+		return
+	if gold < COST_DIG:
+		message = "Not enough gold to dig (%d)." % COST_DIG
+		return
+	gold -= COST_DIG
+	grid[gp.y][gp.x] = Tile.FLOOR
+	message = "Dug a passage."
 
 
 func _place_entrance(p: Vector2i) -> void:

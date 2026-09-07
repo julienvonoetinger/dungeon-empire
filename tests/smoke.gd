@@ -38,10 +38,13 @@ func _initialize() -> void:
     quit(0 if failures.is_empty() else 1)
 
 func click_named(tool: int) -> void:
+    if tool == m.Tool.RESET:
+        m._apply_toolbar_tool(tool)
+        return
     var specs: Array = m._buttons()
     for i in range(specs.size()):
         if int(specs[i]["tool"]) == tool:
-            click_tool(i)
+            m._apply_toolbar_tool(tool)
             return
     check(false, "toolbar is missing tool %d" % tool)
 
@@ -68,7 +71,6 @@ func corridor_south() -> Vector2i:
     var c: Vector2i = core_cell()
     var p := Vector2i(c.x, c.y + m.CORE_H + 1)
     if int(m.grid[p.y][p.x]) == m.Tile.ROCK:
-        click_named(m.Tool.DIG)
         click_cell(p)
     return p
 
@@ -76,7 +78,6 @@ func corridor_east() -> Vector2i:
     var c: Vector2i = core_cell()
     var p := Vector2i(c.x + m.CORE_W + 1, c.y)
     if int(m.grid[p.y][p.x]) == m.Tile.ROCK:
-        click_named(m.Tool.DIG)
         click_cell(p)
     return p
 
@@ -85,6 +86,8 @@ func _test_sealed_core_start() -> void:
     m._new_map()
     var c: Vector2i = core_cell()
     check(c.x >= 0, "Core missing at start")
+    check(m.COLS == m.ROWS, "diggable area is not square")
+    check(c == GameTypes.core_origin_cell(), "Core is not centered in the diggable area")
     check(m._find_tile(m.Tile.ENTRANCE).x < 0, "entrance already present at start")
     var floors := 0
     var cores := 0
@@ -120,7 +123,6 @@ func _test_sealed_core_start() -> void:
     check(m.gold == gold_before, "entrance was not free")
     click_cell(core_east_floor())
     check(tile(core_east_floor()) == m.Tile.FLOOR, "second entrance placed (must be permanent / unique)")
-    click_named(m.Tool.DIG)
     click_cell(west)
     check(tile(west) == m.Tile.ENTRANCE, "placed entrance was modified")
     m._process(0.5)
@@ -182,12 +184,12 @@ func click_cell(p: Vector2i) -> void:
 func _test_dungeon_input_not_stolen() -> void:
     print("== dungeon clicks vs toolbar ==")
     m._reset_camera()
-    m.selected_tool = m.Tool.DIG
-    var far := Vector2i(19, 11)
+    m.selected_tool = m.Tool.STORE
+    var far := Vector2i(m.COLS - 1, m.ROWS - 1)
     var screen: Vector2 = m._board_to_screen(m._cell_pos(far))
     check(m._screen_to_grid(screen) == far, "south-east cell does not pick under the camera")
     click(screen)
-    check(m.selected_tool == m.Tool.DIG, "a dungeon click was treated as a toolbar click")
+    check(m.selected_tool == m.Tool.STORE, "a dungeon click was treated as a toolbar click")
     var wheel := InputEventMouseButton.new()
     wheel.button_index = MOUSE_BUTTON_WHEEL_UP
     wheel.pressed = false
@@ -205,7 +207,7 @@ func _test_isometric() -> void:
     check(east.x > a.x, "X+ should move right on the 45° ortho view")
     check(south.y > a.y or south.x != a.x, "Y+ should move on screen vs X+")
     check(not is_equal_approx(a.x, east.x) or not is_equal_approx(a.y, east.y), "neighbours collapsed to one screen point")
-    for p in [Vector2i(0, 0), Vector2i(2, 2), Vector2i(18, 1), Vector2i(19, 11)]:
+    for p in [Vector2i(0, 0), Vector2i(2, 2), Vector2i(m.COLS - 2, 1), Vector2i(m.COLS - 1, m.ROWS - 1)]:
         var picked: Vector2i = m._screen_to_grid(m._board_to_screen(m._cell_pos(p)))
         check(picked == p, "3D picking missed %s (got %s)" % [p, picked])
 
@@ -239,26 +241,44 @@ func _test_build_rules() -> void:
     print("== build rules ==")
     m._new_map()
     var c: Vector2i = core_cell()
-    click_named(m.Tool.DIG)
+    for spec in m._buttons():
+        check(int(spec["tool"]) != m.Tool.DIG, "Dig is still in the toolbar")
+    check(m.selected_tool == m.Tool.NONE, "a tool is selected by default")
     var gold_before: int = m.gold
+    var idle_floor := core_east_floor()
+    click_cell(idle_floor)
+    check(tile(idle_floor) == m.Tile.FLOOR, "clicking a dug cell placed something without a tool")
+    check(m.gold == gold_before, "gold spent without a selected tool")
+    m._reset_camera()
+    click(m._board_to_screen(m._cell_pos(idle_floor)))
+    check(m.toolbar.open, "dug cell did not open the pie menu")
+    m.toolbar.close()
+    check(tile(idle_floor) == m.Tile.FLOOR, "opening the pie menu changed the tile")
     click_cell(Vector2i(15, 1))
     check(tile(Vector2i(15, 1)) == m.Tile.ROCK, "isolated rock dug without an adjacent passage")
     check(m.gold == gold_before, "gold spent on a rejected dig")
-
+    check(not m._is_diggable_rock(Vector2i(15, 1)), "far rock marked diggable")
+    check(m._is_excavated(c), "core is not part of the excavated area")
     var north := Vector2i(c.x, c.y - 2)
+    check(m._is_diggable_rock(north), "rock on the core ring is not marked diggable")
+    check(not m._is_excavated(north), "undug rock counted as excavated")
+    m._reset_camera()
+    check(m._screen_to_grid(m._board_to_screen(m._cell_pos(north))) == north, "dig expand pad is not picked")
+    m.grid[0][0] = m.Tile.FLOOR
+    check(m._faces_map_limit(Vector2i(0, 0)), "border floor is not treated as a map limit")
+    m.grid[0][0] = m.Tile.ROCK
+
     click_cell(north)
     check(tile(north) == m.Tile.FLOOR, "adjacent dig rejected")
     click_cell(Vector2i(c.x - 1, c.y - 2))
     click_cell(Vector2i(c.x - 2, c.y - 2))
     click_cell(Vector2i(c.x - 3, c.y - 2))
     check(tile(Vector2i(c.x - 3, c.y - 2)) == m.Tile.FLOOR, "branch not dug")
-
+    m.toolbar.open_at(Vector2i(c.x - 3, c.y - 2), Vector2(400, 300))
+    m.toolbar.pick_index(0)
+    check(tile(Vector2i(c.x - 3, c.y - 2)) == m.Tile.VAULT, "pie menu storage not placed")
     click_cell(c)
     check(tile(c) == m.Tile.CORE, "Core modified")
-
-    click_named(m.Tool.STORE)
-    click_cell(Vector2i(c.x - 3, c.y - 2))
-    check(tile(Vector2i(c.x - 3, c.y - 2)) == m.Tile.VAULT, "storage not placed")
     click_named(m.Tool.TRAP_SPIKE)
     click_cell(core_east_floor())
     click_named(m.Tool.TRAP_SNARE)
@@ -291,7 +311,7 @@ func _test_build_rules() -> void:
     click_named(m.Tool.RESET)
     check(m.reset_armed, "Reset not armed on the first click")
     check(m.gold == gold_now, "Reset applied on the very first click")
-    click_named(m.Tool.DIG)
+    click_named(m.Tool.STORE)
     check(not m.reset_armed, "Reset still armed after another click")
 
 func _test_door_facing() -> void:
@@ -521,7 +541,6 @@ func _test_report_fields() -> void:
 func _build_test_dungeon() -> void:
     ensure_entrance()
     var c: Vector2i = core_cell()
-    click_named(m.Tool.DIG)
     for p in [Vector2i(c.x, c.y - 2), Vector2i(c.x - 1, c.y - 2), Vector2i(c.x - 2, c.y - 2), Vector2i(c.x - 3, c.y - 2)]:
         click_cell(p)
     click_named(m.Tool.STORE)
@@ -600,7 +619,6 @@ func _check_defeat_is_locked() -> void:
     check(not m.raid_active, "a raid starts after the defeat")
     check(m.raid_timer == timer_before, "the countdown keeps running after the defeat")
     var gold_before: int = m.gold
-    click_named(m.Tool.DIG)
     click_cell(core_cell() + Vector2i(0, -2))
     check(m.gold == gold_before, "building still possible after the defeat")
     click_named(m.Tool.RESET)
@@ -669,9 +687,9 @@ func _test_loot_and_corpses() -> void:
 
     # Without the dedicated tool, clicking a corpse does not absorb it.
     m.core_hp = 90
-    m.selected_tool = m.Tool.DIG
+    m.selected_tool = m.Tool.STORE
     click(m._board_to_screen(m._corpse_pos(m.corpses[0])))
-    check(m.corpses.size() == 1, "corpse absorbed by accident with the Dig tool")
+    check(m.corpses.size() == 1, "corpse absorbed by accident without Absorb")
 
     # With the Absorb tool it is consumed and heals the Core.
     click_named(m.Tool.ABSORB)
@@ -686,7 +704,6 @@ func _test_loot_and_corpses() -> void:
     var gold_locked: int = m.gold
     click(m._board_to_screen(m._bag_pos(m.loot_bags[0])))
     click(m._board_to_screen(m._corpse_pos(m.corpses[0])))
-    click_named(m.Tool.DIG)
     click_cell(Vector2i(4, 7))
     check(m.gold == gold_locked, "gold changed during a raid")
     check(m.corpses.size() == 1 and m.loot_bags.size() == 1, "loot/corpses manipulated during a raid")

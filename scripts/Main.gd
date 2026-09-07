@@ -213,6 +213,8 @@ func _init() -> void:
 	toolbar.g = self
 
 func _new_map() -> void:
+	if toolbar != null:
+		toolbar.close()
 	sim.new_map()
 	raid.reset_for_new_map()
 	_ensure_dungeon()
@@ -270,6 +272,7 @@ func _repair_structures() -> void:
 	sim._repair_structures()
 
 func _start_raid() -> void:
+	toolbar.close()
 	raid._start_raid()
 
 func _update_hero(delta: float) -> void:
@@ -292,6 +295,15 @@ func _end_raid(result_text: String) -> void:
 
 func _kill_hero() -> void:
 	raid._kill_hero()
+
+func _is_excavated(p: Vector2i) -> bool:
+	return sim._is_excavated(p)
+
+func _is_diggable_rock(p: Vector2i) -> bool:
+	return sim._is_diggable_rock(p)
+
+func _faces_map_limit(p: Vector2i) -> bool:
+	return sim._faces_map_limit(p)
 
 func _btn_y() -> float:
 	return toolbar._btn_y()
@@ -415,7 +427,7 @@ func _from_world_screen(screen: Vector2) -> Vector2:
 func _play_rect() -> Rect2:
 	var s := _view_size()
 	var top := HUD_TOP
-	var bottom := TOOLBAR_MARGIN + 18.0
+	var bottom := 48.0
 	return Rect2(PLAY_MARGIN, top, maxf(64.0, s.x - PLAY_MARGIN * 2.0), maxf(64.0, s.y - top - bottom))
 
 func _base_scale() -> float:
@@ -456,8 +468,7 @@ func _layout_toolbar() -> void:
 	toolbar._layout_toolbar()
 	var s := _view_size()
 	if toolbar_host != null:
-		toolbar_host.position = Vector2.ZERO
-		toolbar_host.size = s
+		toolbar_host.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if _world_host != null:
 		var play := _play_rect()
 		_world_host.position = play.position
@@ -466,12 +477,6 @@ func _layout_toolbar() -> void:
 		_world_port.size = _world_pixel_size()
 	if not _cam_custom:
 		_fit_camera_to_view()
-	var specs := _buttons()
-	for i in range(mini(tool_buttons.size(), specs.size())):
-		var r: Rect2 = specs[i]["rect"]
-		tool_buttons[i].position = r.position
-		tool_buttons[i].custom_minimum_size = r.size
-		tool_buttons[i].size = r.size
 	queue_redraw()
 
 func _load_sprites() -> void:
@@ -746,6 +751,7 @@ func _process(delta: float) -> void:
 		get_window().title = "Dungeon Empire  |  mouse %d,%d  clicks %d" % [int(mp.x), int(mp.y), debug_clicks]
 	_refresh_toolbar_buttons()
 	if raid_active:
+		toolbar.close()
 		_update_hero(delta)
 	elif not game_over and _has_entrance():
 		raid_timer = maxf(0.0, raid_timer - delta)
@@ -866,13 +872,16 @@ func _handle_event(event: InputEvent) -> void:
 		queue_redraw()
 		return
 
-	if event is InputEventMouseMotion and cam_orbiting:
-		_orbit_yaw(event.relative.x * 0.28)
-		return
-	if event is InputEventMouseMotion and cam_panning:
-		cam_pan += event.relative
-		_cam_custom = true
-		queue_redraw()
+	if event is InputEventMouseMotion:
+		toolbar.hover_at(_mouse_pos(event))
+		if cam_orbiting:
+			_orbit_yaw(event.relative.x * 0.28)
+			return
+		if cam_panning:
+			cam_pan += event.relative
+			_cam_custom = true
+			queue_redraw()
+			return
 		return
 
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -885,6 +894,10 @@ func _handle_event(event: InputEvent) -> void:
 		if event.keycode == KEY_0 or event.keycode == KEY_KP_0:
 			_reset_camera()
 			return
+		if event.keycode == KEY_ESCAPE:
+			toolbar.close()
+			queue_redraw()
+			return
 
 	if not (event is InputEventMouseButton):
 		return
@@ -892,7 +905,7 @@ func _handle_event(event: InputEvent) -> void:
 	if _already_handled(mb):
 		return
 	if mb.button_index == MOUSE_BUTTON_LEFT:
-		var stamp := "%d:%s:%.0f:%.0f" % [Engine.get_process_frames(), mb.pressed, mb.position.x, mb.position.y]
+		var stamp := "%d:%s:%.0f:%.0f:%d" % [Engine.get_process_frames(), mb.pressed, mb.position.x, mb.position.y, debug_clicks]
 		if stamp == _click_stamp:
 			return
 		_click_stamp = stamp
@@ -916,14 +929,9 @@ func _handle_event(event: InputEvent) -> void:
 	else:
 		return
 
-	if _toolbar_hit(mp):
-		# Live clicks are handled by the Button nodes. Tests inject events
-		# without a pressed OS mouse, so they still go through here.
-		# Do not mark the event handled or the toolbar Buttons never fire.
-		if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if not raid_active:
-				_handle_toolbar(mp)
-				queue_redraw()
+	if toolbar.open:
+		_handle_toolbar(mp)
+		queue_redraw()
 		return
 
 	if is_inside_tree():
@@ -933,6 +941,9 @@ func _handle_event(event: InputEvent) -> void:
 		return
 
 	if game_over:
+		if _defeat_box().has_point(mp):
+			_new_map()
+			queue_redraw()
 		return
 
 	reset_armed = false
@@ -958,20 +969,48 @@ func _handle_event(event: InputEvent) -> void:
 			return
 
 	if selected_tool == Tool.ABSORB:
-		for corpse in corpses:
-			if _board_to_screen(_corpse_pos(corpse)).distance_to(mp) <= grab:
-				core_hp = mini(CORE_MAX, core_hp + 2)
-				corpses.erase(corpse)
-				message = "Corpse absorbed: +2 integrity. It frightens nobody anymore."
-				queue_redraw()
-				return
+		if _absorb_at_screen(mp, grab):
+			return
 		message = "No corpse under the cursor."
 		queue_redraw()
 		return
 
-	_build_at(_screen_to_grid(mp))
+	var gp := _screen_to_grid(mp)
+	if _inside(gp) and _is_excavated(gp):
+		var t := int(grid[gp.y][gp.x])
+		if t != Tile.CORE and t != Tile.ENTRANCE:
+			toolbar.open_at(gp, mp)
+			queue_redraw()
+			return
+
+	_build_at(gp)
 	_sync_world()
 	queue_redraw()
+
+func _defeat_box() -> Rect2:
+	var s := _view_size()
+	return Rect2(Vector2((s.x - 440) * 0.5, (s.y - 120) * 0.5), Vector2(440, 120))
+
+func _absorb_at_cell(p: Vector2i) -> void:
+	for corpse in corpses:
+		var cp: Vector2i = corpse["pos"]
+		if cp == p:
+			core_hp = mini(CORE_MAX, core_hp + 2)
+			corpses.erase(corpse)
+			message = "Corpse absorbed: +2 integrity. It frightens nobody anymore."
+			return
+	message = "No corpse on this tile."
+
+func _absorb_at_screen(mp: Vector2, grab: float) -> bool:
+	for corpse in corpses:
+		if _board_to_screen(_corpse_pos(corpse)).distance_to(mp) <= grab:
+			core_hp = mini(CORE_MAX, core_hp + 2)
+			corpses.erase(corpse)
+			message = "Corpse absorbed: +2 integrity. It frightens nobody anymore."
+			queue_redraw()
+			return true
+	return false
+
 func _iso_top(p: Vector2i) -> Vector2:
 	return _iso_origin() + Vector2(float(p.x - p.y) * _tw() * 0.5, float(p.x + p.y) * _th() * 0.5)
 
@@ -1168,37 +1207,17 @@ func _draw() -> void:
 		x = _hud_segment(x, "Raid: sealed", C_MOSS_GREEN, 17)
 
 	if report != "":
-		draw_string(font, Vector2(34, s.y - 132), report, HORIZONTAL_ALIGNMENT_LEFT, -1, 14, C_PALE_STONE)
-	draw_string(font, Vector2(34, s.y - 110), message, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, C_TEXT)
-
-	if tool_buttons.is_empty():
-		for b in _buttons():
-			var rr: Rect2 = b["rect"]
-			var tool := int(b["tool"])
-			var label := String(b["label"])
-			var cost := String(b["cost"])
-			var bg := C_ANTHRACITE
-			var border := C_MID_STONE
-			if tool == selected_tool:
-				bg = C_DEEP_VIOLET
-				border = C_ARCANE_VIOLET
-			if tool == Tool.RESET and reset_armed:
-				bg = C_DANGER_RED.darkened(0.5)
-				border = C_DANGER_RED
-				label = "Confirm?"
-			draw_rect(rr, bg)
-			draw_rect(rr, border, false, 1)
-			draw_string(font, rr.position + Vector2(8, 20), label, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, C_TEXT)
-			draw_string(font, rr.position + Vector2(8, 40), cost, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, C_WARM_GOLD)
+		draw_string(font, Vector2(34, s.y - 92), report, HORIZONTAL_ALIGNMENT_LEFT, -1, 14, C_PALE_STONE)
+	draw_string(font, Vector2(34, s.y - 70), message, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, C_TEXT)
 
 	if game_over:
-		var box := Rect2(Vector2((s.x - 440) * 0.5, (s.y - 120) * 0.5), Vector2(440, 120))
+		var box := _defeat_box()
 		draw_rect(box, C_ANTHRACITE.darkened(0.35))
 		draw_rect(box, C_DANGER_RED, false, 2)
 		draw_string(font, box.position + Vector2(24, 50), "CAMPAIGN LOST", HORIZONTAL_ALIGNMENT_LEFT, -1, 26, C_DANGER_RED)
-		draw_string(font, box.position + Vector2(24, 86), "The Core was destroyed. Reset to start over.", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, C_TEXT)
+		draw_string(font, box.position + Vector2(24, 86), "Click here to reset the campaign.", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, C_TEXT)
 	elif raid_active:
-		draw_string(font, Vector2(s.x - 205, s.y - 110), "Dungeon locked", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, C_DANGER_RED)
+		draw_string(font, Vector2(s.x - 205, s.y - 70), "Dungeon locked", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, C_DANGER_RED)
 	else:
-		draw_string(font, Vector2(s.x - 240, s.y - 110), "Loot / corpses clickable", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, C_PALE_STONE)
+		draw_string(font, Vector2(s.x - 240, s.y - 70), "Click a dug tile for the wheel", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, C_PALE_STONE)
 	draw_string(font, Vector2(maxf(34.0, s.x - 620), 56), "Q/E orbit · wheel zoom · WASD pan · right-drag pan · middle-drag orbit · 0 reset", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, C_PALE_STONE)

@@ -16,7 +16,9 @@ const MESH_PAD := 1.002
 const WALL_THICK := 0.22
 const PILLAR_W := 0.28
 const WALL_JOIN := 0.1
-const MESH_VER := 108
+const MESH_VER := 117
+const EXPAND_PAD := 0.88
+const EXPAND_PICK_H := 0.34
 const CORE_GLB := "res://assets/models/core_void_nexus.glb"
 const CORE_DESTROYED_GLB := "res://assets/models/core_void_nexus_destroyed.glb"
 const ROCK_GLB := "res://assets/models/walls/rock_block_match_door_v2.glb"
@@ -93,6 +95,13 @@ var _door_stone_sh: Shader
 var _wall_packed: Dictionary = {}
 var _pillar_sig := ""
 var _pillar_root: Node3D
+var _mat_dig_bound: StandardMaterial3D
+var _mat_expand_fill: StandardMaterial3D
+var _mat_expand_dash: StandardMaterial3D
+var _dig_bound: Node3D
+var _dig_bound_sig := ""
+var _expand_root: Node3D
+var _expand_sig := ""
 
 func _init() -> void:
 	_look = Vector3(10.0, 0.0, 6.0)
@@ -202,6 +211,32 @@ func _make_materials() -> void:
 	_mat_iron.albedo_color = Color("#2A2C32")
 	_mat_iron.metallic = 0.65
 	_mat_iron.roughness = 0.4
+	_mat_dig_bound = StandardMaterial3D.new()
+	_mat_dig_bound.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	_mat_dig_bound.albedo_color = Color(1.0, 0.15, 0.1)
+	_mat_dig_bound.emission_enabled = true
+	_mat_dig_bound.emission = Color(1.0, 0.22, 0.12)
+	_mat_dig_bound.emission_energy_multiplier = 3.4
+	_mat_dig_bound.disable_receive_shadows = true
+	_mat_dig_bound.no_depth_test = true
+	_mat_dig_bound.render_priority = 16
+	_mat_expand_fill = StandardMaterial3D.new()
+	_mat_expand_fill.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	_mat_expand_fill.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	_mat_expand_fill.albedo_color = Color(1.0, 0.86, 0.18, 0.28)
+	_mat_expand_fill.emission_enabled = true
+	_mat_expand_fill.emission = Color(1.0, 0.82, 0.12)
+	_mat_expand_fill.emission_energy_multiplier = 1.4
+	_mat_expand_fill.disable_receive_shadows = true
+	_mat_expand_fill.render_priority = 4
+	_mat_expand_dash = StandardMaterial3D.new()
+	_mat_expand_dash.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	_mat_expand_dash.albedo_color = Color(1.0, 0.88, 0.12)
+	_mat_expand_dash.emission_enabled = true
+	_mat_expand_dash.emission = Color(1.0, 0.9, 0.2)
+	_mat_expand_dash.emission_energy_multiplier = 2.2
+	_mat_expand_dash.disable_receive_shadows = true
+	_mat_expand_dash.render_priority = 5
 
 func _rock_mat(_p: Vector2i) -> StandardMaterial3D:
 	return _mat_rock
@@ -280,6 +315,14 @@ func clear_map() -> void:
 	_core_bolts.clear()
 	_core_debris.clear()
 	_floor_lights.clear()
+	_dig_bound_sig = ""
+	if _dig_bound != null:
+		_dig_bound.queue_free()
+		_dig_bound = null
+	_expand_sig = ""
+	if _expand_root != null:
+		_expand_root.queue_free()
+		_expand_root = null
 	if _town_portal != null:
 		_town_portal.queue_free()
 		_town_portal = null
@@ -318,7 +361,9 @@ func _cam_basis() -> Basis:
 func cell_center(p: Vector2i, height: float = FLOOR_Y) -> Vector3:
 	return Vector3((float(p.x) + 0.5) * CELL, height, (float(p.y) + 0.5) * CELL)
 
-func tile_height(t: int, game: Node) -> float:
+func tile_height(t: int, game: Node, p: Vector2i = Vector2i(-1, -1)) -> float:
+	if p.x >= 0 and game != null and game.has_method("_is_diggable_rock") and game._is_diggable_rock(p):
+		return EXPAND_PICK_H
 	if t == game.Tile.ENTRANCE:
 		return ROCK_H
 	if t == game.Tile.ROCK:
@@ -335,7 +380,7 @@ func cell_to_screen(p: Vector2i, view: Vector2, zoom: float, pan: Vector2, cols:
 	apply_camera(zoom, pan, view, cols, rows, yaw)
 	var hy := FLOOR_H
 	if game != null and p.y >= 0 and p.y < game.grid.size() and p.x >= 0 and p.x < (game.grid[p.y] as Array).size():
-		hy = tile_height(int(game.grid[p.y][p.x]), game)
+		hy = tile_height(int(game.grid[p.y][p.x]), game, p)
 	return _world_to_screen(cell_center(p, hy), view, zoom)
 
 func _world_to_screen(world: Vector3, view: Vector2, zoom: float) -> Vector2:
@@ -402,6 +447,10 @@ func _ray_aabb_t(origin: Vector3, dir: Vector3, aabb: AABB) -> float:
 func screen_to_cell(screen: Vector2, view: Vector2, zoom: float, pan: Vector2, cols: int, rows: int, yaw: float = 45.0, game: Node = null) -> Vector2i:
 	apply_camera(zoom, pan, view, cols, rows, yaw)
 	if game != null and not game.grid.is_empty():
+		if not bool(game.raid_active):
+			var pad := _expand_cell_from_ground(screen, view, zoom, game)
+			if pad.x >= 0:
+				return pad
 		var ray := _screen_ray(screen, view, zoom)
 		var origin: Vector3 = ray[0]
 		var dir: Vector3 = ray[1]
@@ -410,7 +459,7 @@ func screen_to_cell(screen: Vector2, view: Vector2, zoom: float, pan: Vector2, c
 		for y in rows:
 			for x in cols:
 				var p := Vector2i(x, y)
-				var h := tile_height(int(game.grid[y][x]), game)
+				var h := tile_height(int(game.grid[y][x]), game, p)
 				var aabb := AABB(Vector3(float(x) * CELL, 0.0, float(y) * CELL), Vector3(CELL, h, CELL))
 				var t := _ray_aabb_t(origin, dir, aabb)
 				if t >= 0.0 and t < best_t:
@@ -420,6 +469,15 @@ func screen_to_cell(screen: Vector2, view: Vector2, zoom: float, pan: Vector2, c
 			return best
 	var hit := screen_to_ground(screen, view, zoom)
 	return Vector2i(floori(hit.x / CELL), floori(hit.z / CELL))
+
+func _expand_cell_from_ground(screen: Vector2, view: Vector2, zoom: float, game: Node) -> Vector2i:
+	if game == null or not game.has_method("_is_diggable_rock"):
+		return Vector2i(-1, -1)
+	var hit := screen_to_ground(screen, view, zoom)
+	var gp := Vector2i(floori(hit.x / CELL), floori(hit.z / CELL))
+	if game._is_diggable_rock(gp):
+		return gp
+	return Vector2i(-1, -1)
 
 func sync(game: Node) -> void:
 	if camera == null:
@@ -459,6 +517,8 @@ func sync(game: Node) -> void:
 				_last_sig[p] = sig
 				_rebuild_cell(p, t, game, vaults, spent)
 	_sync_pillars(game)
+	_sync_dig_bounds(game)
+	_sync_expand_pads(game)
 	_sync_markers(game)
 	_sync_hero(game)
 	_sync_town_portal(game)
@@ -539,6 +599,8 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 			_build_door(root, p, game)
 		_:
 			_add_floor_tile(root)
+	if t != game.Tile.ROCK:
+		_add_map_limit_walls(root, p, game)
 
 func _entrance_outward(p: Vector2i, game: Node) -> Vector3:
 	var m: Vector2i = game._entrance_mouth(p)
@@ -677,6 +739,13 @@ func _add_fitted_model(parent: Node3D, path: String, footprint: float) -> Node3D
 func _build_rock(root: Node3D, p: Vector2i, game: Node) -> void:
 	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
 		if not _rock_faces_dug(p, d, game):
+			continue
+		if not _add_edge_wall(root, d):
+			_add_edge_wall_box(root, d)
+
+func _add_map_limit_walls(root: Node3D, p: Vector2i, game: Node) -> void:
+	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+		if game._inside(p + d):
 			continue
 		if not _add_edge_wall(root, d):
 			_add_edge_wall_box(root, d)
@@ -980,6 +1049,25 @@ func _wall_joint_positions(game: Node) -> Array[Vector3]:
 							break
 					if not got:
 						arr.append(d)
+	for y in rows:
+		for x in cols:
+			if int(game.grid[y][x]) == game.Tile.ROCK:
+				continue
+			var ep := Vector2i(x, y)
+			for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+				if game._inside(ep + d):
+					continue
+				for v in _face_verts(ep, d):
+					if not dirs_at.has(v):
+						dirs_at[v] = []
+					var arr2: Array = dirs_at[v]
+					var got2 := false
+					for existing in arr2:
+						if existing == d:
+							got2 = true
+							break
+					if not got2:
+						arr2.append(d)
 	var seen: Dictionary = {}
 	var out: Array[Vector3] = []
 	for v in dirs_at.keys():
@@ -1508,10 +1596,153 @@ func _label(parent: Node3D, text: String, color: Color, pos: Vector3) -> void:
 	lab.font_size = 42
 	lab.pixel_size = 0.0045
 	lab.modulate = color
+	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	lab.no_depth_test = false
 	lab.position = pos
 	lab.outline_size = 3
 	parent.add_child(lab)
+
+func _dig_bound_signature(game: Node) -> String:
+	return "map:%d:%d:%d" % [MESH_VER, int(game.COLS), int(game.ROWS)]
+
+func _sync_dig_bounds(game: Node) -> void:
+	var sig := _dig_bound_signature(game)
+	if sig == _dig_bound_sig and _dig_bound != null:
+		return
+	_dig_bound_sig = sig
+	if _dig_bound != null:
+		_dig_bound.queue_free()
+		_dig_bound = null
+	_dig_bound = Node3D.new()
+	_dig_bound.name = "DigBound"
+	add_child(_dig_bound)
+	var cols: float = float(int(game.COLS)) * CELL
+	var rows: float = float(int(game.ROWS)) * CELL
+	var y := ROCK_H + 0.08
+	var thick := 0.1
+	_add_bound_rail(Vector3(0.0, y, rows * 0.5), Vector3(thick, thick, rows))
+	_add_bound_rail(Vector3(cols, y, rows * 0.5), Vector3(thick, thick, rows))
+	_add_bound_rail(Vector3(cols * 0.5, y, 0.0), Vector3(cols, thick, thick))
+	_add_bound_rail(Vector3(cols * 0.5, y, rows), Vector3(cols, thick, thick))
+
+func _add_bound_rail(pos: Vector3, size: Vector3) -> void:
+	var mi := MeshInstance3D.new()
+	var box := BoxMesh.new()
+	box.size = size
+	mi.mesh = box
+	mi.position = pos
+	mi.material_override = _mat_dig_bound
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_dig_bound.add_child(mi)
+
+func _expand_signature(game: Node) -> String:
+	if bool(game.raid_active):
+		return "off:%d" % MESH_VER
+	var keys: Array[String] = []
+	for y in int(game.ROWS):
+		for x in int(game.COLS):
+			var p := Vector2i(x, y)
+			if game._is_diggable_rock(p):
+				keys.append("%d,%d" % [x, y])
+	return "e%d:%s" % [MESH_VER, ",".join(keys)]
+
+func _sync_expand_pads(game: Node) -> void:
+	var sig := _expand_signature(game)
+	if sig == _expand_sig and _expand_root != null:
+		_expand_root.visible = not bool(game.raid_active)
+		return
+	_expand_sig = sig
+	if _expand_root != null:
+		_expand_root.queue_free()
+		_expand_root = null
+	_expand_root = Node3D.new()
+	_expand_root.name = "ExpandPads"
+	add_child(_expand_root)
+	if bool(game.raid_active):
+		_expand_root.visible = false
+		return
+	for y in int(game.ROWS):
+		for x in int(game.COLS):
+			var rock := Vector2i(x, y)
+			if not game._is_diggable_rock(rock):
+				continue
+			_add_expand_pad(rock, game)
+
+func _first_open_neighbour(p: Vector2i, game: Node) -> Vector2i:
+	for d in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
+		var n: Vector2i = p + d
+		if game._is_excavated(n):
+			return n
+	return Vector2i(-1, -1)
+
+func _add_expand_pad(rock: Vector2i, game: Node) -> void:
+	var open := _first_open_neighbour(rock, game)
+	var outward := Vector3.ZERO
+	if open.x >= 0:
+		outward = Vector3(float(rock.x - open.x), 0.0, float(rock.y - open.y))
+	var center := cell_center(rock, FLOOR_Y + 0.05) + outward * 0.08
+	var fill := MeshInstance3D.new()
+	var quad := QuadMesh.new()
+	quad.size = Vector2(EXPAND_PAD, EXPAND_PAD)
+	fill.mesh = quad
+	fill.position = center
+	fill.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+	fill.material_override = _mat_expand_fill
+	fill.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_expand_root.add_child(fill)
+	_add_dashed_square(center, EXPAND_PAD)
+	var lab := Label3D.new()
+	lab.text = str(GameTypes.COST_DIG)
+	lab.font_size = 72
+	lab.pixel_size = 0.006
+	lab.modulate = Color(1.0, 0.86, 0.22)
+	lab.outline_modulate = Color(0.12, 0.08, 0.02, 0.9)
+	lab.outline_size = 8
+	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	lab.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	lab.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	lab.no_depth_test = false
+	lab.position = center + Vector3(0.0, 0.03, 0.0)
+	lab.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+	_expand_root.add_child(lab)
+
+func _add_dashed_square(center: Vector3, size: float) -> void:
+	var half := size * 0.5
+	var segs := 5
+	var pitch := size / float(segs)
+	var dash_len := pitch * 0.58
+	var thick := 0.035
+	var h := 0.035
+	for s in 4:
+		var along := Vector3(1.0, 0.0, 0.0)
+		var start := Vector3(-half, 0.0, -half)
+		if s == 1:
+			along = Vector3(0.0, 0.0, 1.0)
+			start = Vector3(half, 0.0, -half)
+		elif s == 2:
+			along = Vector3(-1.0, 0.0, 0.0)
+			start = Vector3(half, 0.0, half)
+		elif s == 3:
+			along = Vector3(0.0, 0.0, -1.0)
+			start = Vector3(-half, 0.0, half)
+		for i in segs:
+			var t0 := (float(i) + 0.5) * pitch
+			var mid := start + along * t0
+			var mi := MeshInstance3D.new()
+			var box := BoxMesh.new()
+			if absf(along.x) > 0.5:
+				box.size = Vector3(dash_len, h, thick)
+			else:
+				box.size = Vector3(thick, h, dash_len)
+			mi.mesh = box
+			mi.position = center + Vector3(mid.x, 0.0, mid.z)
+			mi.material_override = _mat_expand_dash
+			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			_expand_root.add_child(mi)
 
 func _sync_markers(game: Node) -> void:
 	if not is_inside_tree():
@@ -1555,7 +1786,11 @@ func _sync_markers(game: Node) -> void:
 			lab.font_size = 42
 			lab.pixel_size = 0.0045
 			lab.modulate = Color("#FFD878")
+			lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 			lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+			lab.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+			lab.no_depth_test = false
 			lab.position = cell_center(p, 0.55)
 			lab.outline_size = 3
 			lab.add_to_group("dyn_marker")

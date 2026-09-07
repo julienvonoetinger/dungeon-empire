@@ -1,83 +1,47 @@
 class_name GameToolbar
 extends RefCounted
 
+## Pie menu on excavated cells. Replaces the old bottom action bar.
+
 const Tool := GameTypes.Tool
-const TILE_W := GameTypes.TILE_W
-const TILE_H := GameTypes.TILE_H
-const COLS := GameTypes.COLS
-const ROWS := GameTypes.ROWS
-const TOOLBAR_MARGIN := GameTypes.TOOLBAR_MARGIN
-const BTN_X := GameTypes.BTN_X
-const BTN_GAP := GameTypes.BTN_GAP
-const BTN_H := GameTypes.BTN_H
-const HUD_TOP := GameTypes.HUD_TOP
-const PLAY_MARGIN := GameTypes.PLAY_MARGIN
-const DESIGN_SIZE := GameTypes.DESIGN_SIZE
+const INNER := 42.0
+const OUTER := 128.0
+const GAP := 0.028
 
 var g: DungeonGame
+var open := false
+var cell := Vector2i(-1, -1)
+var center := Vector2.ZERO
+var hover := -1
 
 
 func _btn_y() -> float:
-	return g._view_size().y - TOOLBAR_MARGIN
+	return g._view_size().y - 8.0
 
 
 func _layout_toolbar() -> void:
 	_setup_toolbar_buttons()
-	var s: Vector2 = g._view_size()
-	if g.toolbar_host != null:
-		g.toolbar_host.position = Vector2.ZERO
-		g.toolbar_host.size = s
-	var specs := _buttons()
-	for i in range(mini(g.tool_buttons.size(), specs.size())):
-		var r: Rect2 = specs[i]["rect"]
-		g.tool_buttons[i].position = r.position
-		g.tool_buttons[i].custom_minimum_size = r.size
-		g.tool_buttons[i].size = r.size
 
 
 func _setup_toolbar_buttons() -> void:
-	if g.tool_buttons.size() != _buttons().size():
-		for b in g.tool_buttons:
-			if is_instance_valid(b):
-				b.queue_free()
-		g.tool_buttons.clear()
-		if g.toolbar_host != null:
-			var layer_node: Node = g.toolbar_host.get_parent()
-			g.toolbar_host.queue_free()
-			g.toolbar_host = null
-			if layer_node != null:
-				layer_node.queue_free()
-	if not g.tool_buttons.is_empty():
+	for b in g.tool_buttons:
+		if is_instance_valid(b):
+			b.queue_free()
+	g.tool_buttons.clear()
+	if g.toolbar_host != null and is_instance_valid(g.toolbar_host):
 		return
 	var layer := CanvasLayer.new()
-	layer.layer = 128
-	layer.name = "ToolbarLayer"
+	layer.layer = 200
+	layer.name = "RadialLayer"
 	g.add_child(layer)
 	var host := Control.new()
-	host.name = "ToolbarHost"
-	g.toolbar_host = host
+	host.set_script(load("res://scripts/hud/radial_overlay.gd"))
+	host.name = "RadialHost"
 	host.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	host.set_anchors_preset(Control.PRESET_TOP_LEFT)
-	host.position = Vector2.ZERO
-	host.size = g._view_size()
+	host.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	layer.add_child(host)
-	for spec in _buttons():
-		var r: Rect2 = spec["rect"]
-		var btn := Button.new()
-		btn.set_anchors_preset(Control.PRESET_TOP_LEFT)
-		btn.position = r.position
-		btn.custom_minimum_size = r.size
-		btn.size = r.size
-		btn.clip_text = true
-		btn.clip_contents = true
-		btn.autowrap_mode = TextServer.AUTOWRAP_OFF
-		btn.text = "%s\n%s" % [spec["label"], spec["cost"]]
-		btn.focus_mode = Control.FOCUS_NONE
-		btn.mouse_filter = Control.MOUSE_FILTER_STOP
-		var tool := int(spec["tool"])
-		btn.pressed.connect(_on_toolbar_button.bind(tool))
-		host.add_child(btn)
-		g.tool_buttons.append(btn)
+	host.set("menu", self)
+	g.toolbar_host = host
 
 
 func _on_toolbar_button(tool: int) -> void:
@@ -85,57 +49,114 @@ func _on_toolbar_button(tool: int) -> void:
 	if g.raid_active:
 		return
 	_apply_toolbar_tool(tool)
-	_refresh_toolbar_buttons()
 	g.queue_redraw()
 
 
 func _refresh_toolbar_buttons() -> void:
-	var specs := _buttons()
-	for i in range(mini(g.tool_buttons.size(), specs.size())):
-		var spec: Dictionary = specs[i]
-		var tool := int(spec["tool"])
-		var label := String(spec["label"])
-		if tool == Tool.RESET and g.reset_armed:
-			label = "Confirm?"
-		if tool == g.selected_tool:
-			g.tool_buttons[i].modulate = Color(1.15, 1.05, 1.3)
-		else:
-			g.tool_buttons[i].modulate = Color.WHITE
-		g.tool_buttons[i].text = "%s\n%s" % [label, spec["cost"]]
+	pass
 
 
 func _buttons() -> Array:
-	var defs := GameTypes.toolbar_defs()
-	var n: int = defs.size()
-	var view: Vector2 = g._view_size()
-	var usable: float = maxf(view.x - BTN_X * 2.0, 200.0)
-	var w: float = (usable - BTN_GAP * float(n - 1)) / float(n)
-	var out := []
-	for i in range(n):
-		var d: Dictionary = defs[i]
-		d["rect"] = Rect2(Vector2(BTN_X + float(i) * (w + BTN_GAP), _btn_y()), Vector2(w, BTN_H))
-		out.append(d)
-	return out
+	return GameTypes.toolbar_defs().duplicate(true)
 
 
 func _toolbar_hit(mp: Vector2) -> bool:
-	for b in _buttons():
-		var rect: Rect2 = b["rect"]
-		if rect.has_point(mp):
-			return true
-	return false
+	if not open:
+		return false
+	return mp.distance_to(center) <= OUTER + 8.0
 
 
 func _handle_toolbar(mp: Vector2) -> void:
-	for b in _buttons():
-		var rect: Rect2 = b["rect"]
-		if not rect.has_point(mp):
-			continue
-		_apply_toolbar_tool(int(b["tool"]))
+	if not open:
 		return
+	var i := slice_at(mp)
+	if i >= 0:
+		pick_index(i)
+		return
+	close()
+
+
+func close() -> void:
+	open = false
+	hover = -1
+	cell = Vector2i(-1, -1)
+	_redraw_wheel()
+
+
+func open_at(p: Vector2i, screen: Vector2) -> void:
+	open = true
+	cell = p
+	var s: Vector2 = g._view_size()
+	center = Vector2(
+		clampf(screen.x, OUTER + 8.0, maxf(OUTER + 8.0, s.x - OUTER - 8.0)),
+		clampf(screen.y, OUTER + 8.0, maxf(OUTER + 8.0, s.y - OUTER - 8.0))
+	)
+	hover = slice_at(screen)
+	_redraw_wheel()
+
+
+func hover_at(mp: Vector2) -> void:
+	if not open:
+		return
+	var next := slice_at(mp)
+	if next != hover:
+		hover = next
+		_redraw_wheel()
+
+
+func _redraw_wheel() -> void:
+	if g.toolbar_host != null:
+		g.toolbar_host.queue_redraw()
+	g.queue_redraw()
+
+
+func slice_at(mp: Vector2) -> int:
+	var d := mp - center
+	var dist := d.length()
+	if dist < INNER or dist > OUTER:
+		return -1
+	var defs := _buttons()
+	var n: int = defs.size()
+	if n <= 0:
+		return -1
+	var step := TAU / float(n)
+	var ang := atan2(d.y, d.x)
+	var start := -PI * 0.5 - step * 0.5
+	var rel := ang - start
+	while rel < 0.0:
+		rel += TAU
+	while rel >= TAU:
+		rel -= TAU
+	return clampi(int(rel / step), 0, n - 1)
+
+
+func pick_index(i: int) -> void:
+	var defs := _buttons()
+	if i < 0 or i >= defs.size():
+		return
+	var tool := int(defs[i]["tool"])
+	var at := cell
+	close()
+	_apply_toolbar_tool(tool)
+	if tool == Tool.REPAIR or tool == Tool.RESET:
+		g.selected_tool = Tool.NONE
+		g._sync_world()
+		g.queue_redraw()
+		return
+	if tool == Tool.ABSORB:
+		g._absorb_at_cell(at)
+		g.selected_tool = Tool.NONE
+		g._sync_world()
+		g.queue_redraw()
+		return
+	g._build_at(at)
+	g.selected_tool = Tool.NONE
+	g._sync_world()
+	g.queue_redraw()
 
 
 func _apply_toolbar_tool(tool: int) -> void:
+	close()
 	if tool == Tool.RESET:
 		if g.reset_armed or g.game_over:
 			g._new_map()
@@ -150,3 +171,47 @@ func _apply_toolbar_tool(tool: int) -> void:
 		g._repair_structures()
 		return
 	g.selected_tool = tool
+
+
+func draw_wheel(c: CanvasItem) -> void:
+	if not open:
+		return
+	var defs := _buttons()
+	var n: int = defs.size()
+	if n <= 0:
+		return
+	var step := TAU / float(n)
+	var start := -PI * 0.5 - step * 0.5
+	c.draw_circle(center, OUTER + 6.0, Color(0, 0, 0, 0.28))
+	for i in n:
+		var a0: float = start + float(i) * step + GAP
+		var a1: float = start + float(i + 1) * step - GAP
+		var active: bool = i == hover
+		var fill := Color(0.12, 0.12, 0.14, 0.88)
+		if active:
+			fill = Color(0.42, 0.78, 0.82, 0.95)
+		c.draw_colored_polygon(_slice_poly(center, INNER, OUTER, a0, a1), fill)
+		var mid: float = (a0 + a1) * 0.5
+		var pos: Vector2 = center + Vector2(cos(mid), sin(mid)) * ((INNER + OUTER) * 0.5)
+		var spec: Dictionary = defs[i]
+		var label := String(spec["label"])
+		var cost := String(spec["cost"])
+		var ink := Color.WHITE if active else GameTypes.C_TEXT
+		var gold := Color(0.08, 0.08, 0.1) if active else GameTypes.C_WARM_GOLD
+		c.draw_string(g.font, pos + Vector2(-36, -6), label, HORIZONTAL_ALIGNMENT_CENTER, 72, 13, ink)
+		c.draw_string(g.font, pos + Vector2(-36, 12), cost, HORIZONTAL_ALIGNMENT_CENTER, 72, 11, gold)
+	c.draw_circle(center, INNER - 4.0, Color(0.07, 0.07, 0.09, 0.55))
+	c.draw_arc(center, INNER, 0.0, TAU, 48, Color(0.2, 0.2, 0.22, 0.9), 2.0)
+	c.draw_arc(center, OUTER, 0.0, TAU, 64, Color(0.28, 0.28, 0.3, 0.9), 2.0)
+
+
+func _slice_poly(cen: Vector2, r0: float, r1: float, a0: float, a1: float) -> PackedVector2Array:
+	var pts := PackedVector2Array()
+	var segs := 10
+	for i in range(segs + 1):
+		var a: float = lerpf(a0, a1, float(i) / float(segs))
+		pts.append(cen + Vector2(cos(a), sin(a)) * r1)
+	for i in range(segs + 1):
+		var a: float = lerpf(a1, a0, float(i) / float(segs))
+		pts.append(cen + Vector2(cos(a), sin(a)) * r0)
+	return pts
