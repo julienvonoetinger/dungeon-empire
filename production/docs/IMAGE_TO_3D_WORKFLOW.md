@@ -30,6 +30,8 @@ Create separate 3D variants when topology is genuinely destroyed:
 - destroyed Core;
 - destroyed structures.
 
+Use the guarded manifest pipeline documented in [MESHY_API_PIPELINE.md](MESHY_API_PIPELINE.md). Always run its networkless preview first; only `--execute` authorizes a paid API submission. Do not run the legacy one-off scripts for batch production.
+
 ## 4. Godot
 Recommended pattern:
 

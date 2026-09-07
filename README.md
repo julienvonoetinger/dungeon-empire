@@ -71,5 +71,15 @@ $godot = 'C:\Program Files (x86)\Steam\steamapps\common\Godot Engine\godot.windo
 
 The capture commands produce `artifacts/render_lab.png` and `artifacts/dungeon_baseline.png`. These generated comparison images are intentionally ignored by Git.
 
+## Meshy pipeline
+
+Preview one explicit manifest job without network access or credit use:
+
+```powershell
+python tools/meshy_pipeline.py models/environment/wall_straight_controlled.glb
+```
+
+Paid submission requires the additional `--execute` flag. Resume, overwrite and recovery behavior are documented in `production/docs/MESHY_API_PIPELINE.md`.
+
 ## Deliberately out of scope
 No world map, kingdoms, multiple dungeons, floors, expansion sanctum, save/cloud, adventuring parties or final art yet. The goal is still to test whether building the labyrinth and watching the behaviours are fun.

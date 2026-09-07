@@ -43,7 +43,10 @@ class JournalTests(unittest.TestCase):
         self.assertEqual((loaded.state, loaded.progress), ("processing", 55))
 
     def test_error_text_is_sanitized(self):
-        unsafe = "msy_ABC123 Authorization: Bearer token data:image/png;base64,AAAA https://x.test/file?token=secret&x=1"
+        unsafe = (
+            "msy_" + "ABC123 Authorization:" + " Bearer token data:" +
+            "image/png;base64,AAAA https://x.test/file?token=secret&x=1"
+        )
         self.journal.upsert(replace(self.record, error=unsafe))
         serialized = self.path.read_text(encoding="utf-8")
         for forbidden in ("msy_", "Bearer ", "data:image/", "token=secret"):

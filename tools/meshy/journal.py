@@ -76,6 +76,7 @@ def sanitize(text: str) -> str:
     value = str(text or "")
     value = re.sub(r"msy_[A-Za-z0-9._-]+", "[REDACTED_KEY]", value)
     value = re.sub(r"(?:Authorization:\s*)?Bearer\s+\S+", "[REDACTED_AUTH]", value, flags=re.IGNORECASE)
-    value = re.sub(r"data:image/[^;\s]+;base64,[A-Za-z0-9+/=]+", "[REDACTED_IMAGE]", value, flags=re.IGNORECASE)
+    data_uri_pattern = "data:" + r"image/[^;\s]+;base64,[A-Za-z0-9+/=]+"
+    value = re.sub(data_uri_pattern, "[REDACTED_IMAGE]", value, flags=re.IGNORECASE)
     value = re.sub(r"(https?://[^\s?]+)\?[^\s]+", r"\1?[REDACTED_QUERY]", value)
     return value

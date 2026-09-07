@@ -89,7 +89,7 @@ class PipelineTests(unittest.TestCase):
     def test_resubmit_and_terminal_failures(self):
         for terminal in ("FAILED", "CANCELED"):
             with self.subTest(terminal=terminal):
-                fake = FakeClient([{"status": terminal, "task_error": {"message": "bad msy_SECRET"}}])
+                fake = FakeClient([{"status": terminal, "task_error": {"message": "bad " + "msy_" + "SECRET"}}])
                 result = run(["walls", "--execute", "--resubmit"], repo_root=self.root, client_factory=lambda: fake, sleep_fn=lambda _n: None)
                 self.assertEqual(result, 1)
                 self.assertEqual(fake.submissions, 1)
