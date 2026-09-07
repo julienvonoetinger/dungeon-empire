@@ -18,3 +18,5 @@ Thumbs.db
 __pycache__/
 *.pyc
 
+# Local isolated implementation worktrees
+.worktrees/
