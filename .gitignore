@@ -20,3 +20,6 @@ __pycache__/
 
 # Local isolated implementation worktrees
 .worktrees/
+
+# Local Meshy task state (may contain remote task identifiers)
+.meshy/
