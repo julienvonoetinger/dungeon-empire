@@ -26,6 +26,7 @@ const WALL_STRAIGHT_GLB := "res://assets/models/walls/wall_straight_meshy.glb"
 const WALL_PILLAR_GLB := "res://assets/models/walls/wall_pillar_meshy.glb"
 const RENDER_PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
 const FLOOR_RENDERER_SCRIPT := preload("res://scripts/world/floor_renderer.gd")
+const MODEL_FIT := preload("res://scripts/world/model_fit.gd")
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
 const TOWN_PORTAL_GLB := "res://assets/models/environment/town_portal.glb"
@@ -740,10 +741,7 @@ func _add_fitted_model(parent: Node3D, path: String, footprint: float) -> Node3D
 	var aabb := _model_aabb(inst)
 	if aabb.size == Vector3.ZERO:
 		return inst
-	var span := maxf(aabb.size.x, aabb.size.z)
-	var s := footprint / maxf(span, 0.01)
-	inst.scale = Vector3.ONE * s
-	inst.position.y = FLOOR_H - aabb.position.y * s
+	MODEL_FIT.fit_footprint(inst, footprint, FLOOR_H)
 	_prep_core_meshes(inst)
 	return inst
 
@@ -803,17 +801,7 @@ func _add_fitted_floor(root: Node3D) -> bool:
 	var aabb := _model_aabb(inst)
 	if aabb.size == Vector3.ZERO:
 		return true
-	var span_x := maxf(aabb.size.x, 0.01)
-	var span_z := maxf(aabb.size.z, 0.01)
-	inst.scale = Vector3(
-		CELL * FLOOR_OVERLAP / span_x,
-		FLOOR_H / maxf(aabb.size.y, 0.01),
-		CELL * FLOOR_OVERLAP / span_z
-	)
-	var fitted := _model_aabb(inst)
-	inst.position.x += -fitted.get_center().x
-	inst.position.z += -fitted.get_center().z
-	inst.position.y += -fitted.position.y
+	MODEL_FIT.fit_footprint(inst, CELL * FLOOR_OVERLAP, 0.0)
 	_prep_core_meshes(inst)
 	return true
 
@@ -1119,13 +1107,7 @@ func _add_pillar(parent: Node3D, pos: Vector3) -> void:
 	var aabb := _model_aabb(inst)
 	if aabb.size == Vector3.ZERO:
 		return
-	var span := maxf(aabb.size.x, aabb.size.z)
-	var s := PILLAR_W / maxf(span, 0.01)
-	inst.scale = Vector3(s, ROCK_H / maxf(aabb.size.y, 0.01), s)
-	var fitted := _model_aabb(inst)
-	inst.position.x += -fitted.get_center().x
-	inst.position.z += -fitted.get_center().z
-	inst.position.y += -fitted.position.y
+	MODEL_FIT.fit_footprint(inst, PILLAR_W, 0.0)
 	_prep_core_meshes(inst)
 
 func _add_edge_wall(root: Node3D, toward: Vector2i) -> bool:
@@ -1149,17 +1131,9 @@ func _add_edge_wall(root: Node3D, toward: Vector2i) -> bool:
 	if aabb.size.z > aabb.size.x + 0.02:
 		inst.rotation.y += PI * 0.5
 		aabb = _model_aabb(inst)
-	var z_s := 1.0 if aabb.size.z <= WALL_THICK * 1.5 else WALL_THICK / maxf(aabb.size.z, 0.01)
 	var wall_len := CELL - gap
-	inst.scale = Vector3(
-		wall_len / maxf(aabb.size.x, 0.01),
-		ROCK_H / maxf(aabb.size.y, 0.01),
-		z_s
-	)
+	MODEL_FIT.fit_footprint(inst, wall_len, 0.0)
 	var fitted := _model_aabb(inst)
-	inst.position.x += -fitted.get_center().x
-	inst.position.z += -fitted.get_center().z
-	inst.position.y += -fitted.position.y
 	var thick: float = maxf(fitted.size.z, 0.08)
 	holder.position = Vector3(
 		CELL * 0.5 + float(toward.x) * (CELL * 0.5 - thick * 0.5),
@@ -1491,16 +1465,7 @@ func _add_fitted_stairs(root: Node3D, face: Vector3) -> bool:
 	if aabb.size.x > aabb.size.z + 0.02:
 		inst.rotation.y += PI * 0.5
 		aabb = _model_aabb(inst)
-	var span := maxf(aabb.size.x, aabb.size.z)
-	inst.scale = Vector3(
-		CELL / maxf(span, 0.01),
-		ROCK_H / maxf(aabb.size.y, 0.01),
-		CELL / maxf(span, 0.01)
-	)
-	var fitted := _model_aabb(inst)
-	inst.position.x += -fitted.get_center().x
-	inst.position.z += -fitted.get_center().z
-	inst.position.y += -fitted.position.y
+	MODEL_FIT.fit_footprint(inst, CELL, 0.0)
 	_prep_core_meshes(inst)
 	return true
 
