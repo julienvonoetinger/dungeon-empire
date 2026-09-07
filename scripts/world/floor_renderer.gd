@@ -37,7 +37,7 @@ func sync_cells(open_cells: Array[Vector2i], cell_size: float) -> void:
 			Vector2(float(cell.x), float(cell.y)), Vector2(float(cell.x + 1), float(cell.y)),
 			Vector2(float(cell.x + 1), float(cell.y + 1)), Vector2(float(cell.x), float(cell.y + 1)),
 		]))
-		indices.append_array(PackedInt32Array([base, base + 2, base + 1, base, base + 3, base + 2]))
+		indices.append_array(PackedInt32Array([base, base + 1, base + 2, base, base + 2, base + 3]))
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
