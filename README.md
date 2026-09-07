@@ -59,5 +59,17 @@ godot --headless --path . --script res://tests/smoke.gd
 
 It prints `OK: all checks pass.` and returns 0 when everything is fine.
 
+For the PC rendering baseline, use the installed Steam Godot executable from PowerShell:
+
+```powershell
+$godot = 'C:\Program Files (x86)\Steam\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe'
+& $godot --headless --path . --script res://tests/smoke.gd
+& $godot --headless --path . --script res://tools/validate_runtime_models.gd
+& $godot --path . --script res://tools/capture_render_lab.gd
+& $godot --path . --script res://tools/capture_entrance.gd
+```
+
+The capture commands produce `artifacts/render_lab.png` and `artifacts/dungeon_baseline.png`. These generated comparison images are intentionally ignored by Git.
+
 ## Deliberately out of scope
 No world map, kingdoms, multiple dungeons, floors, expansion sanctum, save/cloud, adventuring parties or final art yet. The goal is still to test whether building the labyrinth and watching the behaviours are fun.
