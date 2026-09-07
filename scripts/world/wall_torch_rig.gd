@@ -5,10 +5,16 @@ const PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
 const SPACING := 2.6
 var _fixtures: Dictionary = {}
 
-func sync_cells(cells: Array[Vector2i], target: Vector3, cell_size: float) -> void:
+func sync_cells(cells: Array[Vector2i], cell_size: float) -> void:
 	var occupied: Dictionary = {}
+	var center := Vector3.ZERO
 	for cell in cells:
 		occupied[cell] = true
+	# Rank wall mounts around the layout, never around the moving camera.
+	for cell in occupied:
+		center += Vector3(cell.x + 0.5, 0, cell.y + 0.5)
+	if not occupied.is_empty():
+		center *= cell_size / occupied.size()
 	var candidates: Array[Dictionary] = []
 	for cell in cells:
 		for direction in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
@@ -17,7 +23,7 @@ func sync_cells(cells: Array[Vector2i], target: Vector3, cell_size: float) -> vo
 			var inward := Vector3(-direction.x, 0, -direction.y)
 			var point := Vector3(cell.x + 0.5, 0, cell.y + 0.5) * cell_size - inward * cell_size * 0.48
 			var key := "%d,%d:%d,%d" % [cell.x, cell.y, direction.x, direction.y]
-			candidates.append({"key": key, "point": point, "inward": inward, "distance": point.distance_squared_to(target)})
+			candidates.append({"key": key, "point": point, "inward": inward, "distance": point.distance_squared_to(center)})
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		if is_equal_approx(a.distance, b.distance):
 			return a.key < b.key

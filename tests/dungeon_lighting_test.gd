@@ -26,5 +26,20 @@ func _initialize() -> void:
 	var core_light: OmniLight3D = game.dungeon._fill
 	var core_visual: Node3D = game.dungeon._core_spin
 	assert(core_light.global_position.distance_to(core_visual.global_position) < 1.0, "Core light must follow the Core world position")
-	print("OK: dungeon lighting is bounded")
+	var fixtures_before := _torch_transforms(game.dungeon._torch_rig)
+	for pan in [Vector2(800, 400), Vector2(-800, -400), Vector2.ZERO]:
+		game.cam_pan = pan
+		game.cam_yaw += 90.0
+		game.dungeon.sync(game)
+		if _torch_transforms(game.dungeon._torch_rig) != fixtures_before:
+			printerr("FAIL: moving the camera must preserve every torch instance and world transform")
+			quit(1)
+			return
+	print("OK: dungeon lighting is bounded and torches stay fixed during camera movement")
 	quit()
+
+func _torch_transforms(rig: Node3D) -> Dictionary:
+	var result: Dictionary = {}
+	for fixture in rig.get_children():
+		result[fixture.get_instance_id()] = fixture.global_transform
+	return result

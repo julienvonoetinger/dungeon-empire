@@ -10,7 +10,7 @@ func _initialize() -> void:
 	for y in 16:
 		for x in 16:
 			cells.append(Vector2i(x, y))
-	rig.sync_cells(cells, Vector3(8, 0, 8), 1.0)
+	rig.sync_cells(cells, 1.0)
 	var lights := rig.find_children("*", "OmniLight3D", true, false)
 	if lights.size() != PROFILE.max_practical_lights:
 		printerr("FAIL: large room must fill, but not exceed, the practical-light budget")
@@ -28,18 +28,29 @@ func _initialize() -> void:
 				quit(1)
 				return
 	var first_id := rig.get_child(0).get_instance_id()
-	rig.sync_cells(cells, Vector3(8, 0, 8), 1.0)
+	rig.sync_cells(cells, 1.0)
 	if first_id != rig.get_child(0).get_instance_id():
 		printerr("FAIL: unchanged layout must reuse fixtures")
 		quit(1)
 		return
-	rig.sync_cells(cells, Vector3(0, 0, 0), 1.0)
+	var fixture_ids: Array[int] = []
+	for fixture in rig.get_children():
+		fixture_ids.append(fixture.get_instance_id())
+	cells.reverse()
+	rig.sync_cells(cells, 1.0)
+	var reordered_ids: Array[int] = []
+	for fixture in rig.get_children():
+		reordered_ids.append(fixture.get_instance_id())
+	if reordered_ids != fixture_ids:
+		printerr("FAIL: cell ordering must not change the selected fixtures")
+		quit(1)
+		return
 	if rig.find_children("*", "OmniLight3D", true, false).size() > PROFILE.max_practical_lights:
-		printerr("FAIL: camera movement exceeds light budget before deferred deletion")
+		printerr("FAIL: synchronization exceeds light budget before deferred deletion")
 		quit(1)
 		return
 	var empty: Array[Vector2i] = []
-	rig.sync_cells(empty, Vector3.ZERO, 1.0)
+	rig.sync_cells(empty, 1.0)
 	if rig.get_child_count() != 0:
 		printerr("FAIL: map reset must remove every torch")
 		quit(1)

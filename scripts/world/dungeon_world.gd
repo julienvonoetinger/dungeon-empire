@@ -310,7 +310,7 @@ func clear_map() -> void:
 	_cells.clear()
 	var no_floor_cells: Array[Vector2i] = []
 	_floor_renderer.sync_cells(no_floor_cells, CELL)
-	_torch_rig.sync_cells(no_floor_cells, _look, CELL)
+	_torch_rig.sync_cells(no_floor_cells, CELL)
 	_last_sig.clear()
 	_marker_sig = ""
 	_pillar_sig = ""
@@ -506,7 +506,7 @@ func sync(game: Node) -> void:
 			if int(grid[y][x]) != game.Tile.ROCK:
 				open_cells.append(Vector2i(x, y))
 	_floor_renderer.sync_cells(open_cells, CELL)
-	_torch_rig.sync_cells(open_cells, _look, CELL)
+	_torch_rig.sync_cells(open_cells, CELL)
 	var vaults: Dictionary = game._storage_state()["vaults"]
 	for y in rows:
 		for x in cols:
