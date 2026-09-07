@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/render_lab.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://assets/models/walls/wall_straight_meshy.glb" id="2_wall"]
+[ext_resource type="PackedScene" path="res://assets/models/walls/wall_pillar_meshy.glb" id="3_pillar"]
+[ext_resource type="PackedScene" path="res://assets/models/walls/wall_torch_emberstone.glb" id="4_torch"]
+[ext_resource type="PackedScene" path="res://assets/models/storage/vault_skull_treasure.glb" id="5_vault"]
+[ext_resource type="PackedScene" path="res://assets/models/core_void_nexus.glb" id="6_core"]
+
+[sub_resource type="Environment" id="Environment_render_lab"]
+background_mode = 1
+background_color = Color(0.09, 0.086, 0.106, 1)
+
+[sub_resource type="StandardMaterial3D" id="FloorMaterial"]
+albedo_color = Color(0.12, 0.13, 0.16, 1)
+roughness = 0.88
+
+[sub_resource type="PlaneMesh" id="FloorMesh"]
+material = SubResource("FloorMaterial")
+size = Vector2(12, 10)
+subdivide_width = 5
+subdivide_depth = 4
+
+[sub_resource type="StandardMaterial3D" id="HeroMaterial"]
+albedo_color = Color(0.12, 0.18, 0.15, 1)
+roughness = 0.82
+
+[sub_resource type="CapsuleMesh" id="HeroMesh"]
+material = SubResource("HeroMaterial")
+radius = 0.42
+height = 1.8
+
+[node name="RenderLab" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_render_lab")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.454519, 0.541675, 0, 0.766044, 0.642788, -0.707107, -0.454519, 0.541675, 10, 11, 10)
+projection = 1
+size = 13.5
+current = true
+
+[node name="CoolKey" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-52, -38, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("FloorMesh")
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="BackWall" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector3(0, 0, -3.8)
+scale = Vector3(1.8, 1.8, 1.8)
+
+[node name="SideWall" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector3(-4.8, 0, -0.2)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(1.8, 1.8, 1.8)
+
+[node name="CornerPillar" parent="Walls" instance=ExtResource("3_pillar")]
+position = Vector3(-4.5, 0, -3.5)
+scale = Vector3(1.6, 1.6, 1.6)
+
+[node name="Torch" parent="." instance=ExtResource("4_torch")]
+position = Vector3(-3.8, 0.8, -3.1)
+scale = Vector3(1.25, 1.25, 1.25)
+
+[node name="TorchLight" type="OmniLight3D" parent="."]
+position = Vector3(-3.1, 2.0, -2.6)
+shadow_enabled = true
+
+[node name="Vault" parent="." instance=ExtResource("5_vault")]
+position = Vector3(2.7, 0, -2.0)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.25, 1.25, 1.25)
+
+[node name="Core" parent="." instance=ExtResource("6_core")]
+position = Vector3(0.2, 0, 1.0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="CoreLight" type="OmniLight3D" parent="."]
+position = Vector3(0.2, 1.0, 1.0)
+
+[node name="HeroProxy" type="MeshInstance3D" parent="."]
+position = Vector3(-2.0, 0.9, 1.8)
+mesh = SubResource("HeroMesh")
