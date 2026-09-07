@@ -16,7 +16,7 @@ const MESH_PAD := 1.002
 const WALL_THICK := 0.22
 const PILLAR_W := 0.28
 const WALL_JOIN := 0.1
-const MESH_VER := 117
+const MESH_VER := 118
 const EXPAND_PAD := 0.88
 const EXPAND_PICK_H := 0.34
 const CORE_GLB := "res://assets/models/core_void_nexus.glb"
@@ -25,6 +25,7 @@ const ROCK_GLB := "res://assets/models/walls/rock_block_match_door_v2.glb"
 const WALL_STRAIGHT_GLB := "res://assets/models/walls/wall_straight_meshy.glb"
 const WALL_PILLAR_GLB := "res://assets/models/walls/wall_pillar_meshy.glb"
 const RENDER_PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
+const FLOOR_RENDERER_SCRIPT := preload("res://scripts/world/floor_renderer.gd")
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
 const TOWN_PORTAL_GLB := "res://assets/models/environment/town_portal.glb"
@@ -47,6 +48,7 @@ const LOOT_GLB := "res://assets/models/loot/gold_loot.glb"
 var camera: Camera3D
 var _sun: DirectionalLight3D
 var _fill: OmniLight3D
+var _floor_renderer: MeshInstance3D
 var _cells: Dictionary = {}
 var _hero: MeshInstance3D
 var _hero_bar: MeshInstance3D
@@ -104,6 +106,9 @@ func _init() -> void:
 	_look = Vector3(10.0, 0.0, 6.0)
 	_make_materials()
 	_make_camera()
+	_floor_renderer = FLOOR_RENDERER_SCRIPT.new()
+	_floor_renderer.name = "ContinuousFloor"
+	add_child(_floor_renderer)
 	_rng.seed = 7
 
 func _ready() -> void:
@@ -297,6 +302,8 @@ func clear_map() -> void:
 	for k in _cells.keys():
 		(_cells[k] as Node).queue_free()
 	_cells.clear()
+	var no_floor_cells: Array[Vector2i] = []
+	_floor_renderer.sync_cells(no_floor_cells, CELL)
 	_last_sig.clear()
 	_marker_sig = ""
 	_pillar_sig = ""
@@ -486,6 +493,12 @@ func sync(game: Node) -> void:
 	var grid: Array = game.grid
 	if grid.is_empty():
 		return
+	var open_cells: Array[Vector2i] = []
+	for y in rows:
+		for x in cols:
+			if int(grid[y][x]) != game.Tile.ROCK:
+				open_cells.append(Vector2i(x, y))
+	_floor_renderer.sync_cells(open_cells, CELL)
 	var vaults: Dictionary = game._storage_state()["vaults"]
 	for y in rows:
 		for x in cols:
@@ -772,10 +785,8 @@ func _wall_scene(path: String) -> PackedScene:
 	return _wall_packed[path] as PackedScene
 
 func _add_floor_tile(root: Node3D) -> void:
-	if _add_fitted_floor(root):
-		pass
-	else:
-		_add_box(root, Vector3(MESH_PAD, FLOOR_H, MESH_PAD), Vector3(CELL * 0.5, FLOOR_H * 0.5, CELL * 0.5), _mat_floor)
+	# The shared FloorRenderer supplies the surface beneath every excavated cell.
+	pass
 
 func _add_fitted_floor(root: Node3D) -> bool:
 	var packed := _wall_scene(FLOOR_GLB)
