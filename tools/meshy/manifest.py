@@ -52,13 +52,17 @@ def load_jobs(repo_root: Path, manifest_path: Path) -> dict[str, AssetJob]:
             destination = (repo_root / "assets" / output_path).resolve()
             if not _is_beneath(destination, destination_root):
                 raise ManifestError(f"destination must stay beneath assets/models: {asset_id}")
-            source_path = Path(sources[0])
-            if source_path.is_absolute():
-                raise ManifestError(f"absolute source is forbidden: {sources[0]}")
-            source = (source_root / source_path).resolve()
-            if not _is_beneath(source, source_root):
-                raise ManifestError(f"source escapes production/meshy_assets: {sources[0]}")
-            if not source.is_file():
+            source = None
+            for source_name in sources:
+                source_path = Path(source_name)
+                if source_path.is_absolute():
+                    raise ManifestError(f"absolute source is forbidden: {source_name}")
+                candidate = (source_root / source_path).resolve()
+                if not _is_beneath(candidate, source_root):
+                    raise ManifestError(f"source escapes production/meshy_assets: {source_name}")
+                if candidate.is_file() and source is None:
+                    source = candidate
+            if source is None:
                 raise ManifestError(f"missing source image: {sources[0]}")
             jobs[asset_id] = AssetJob(asset_id, source, destination, strategy, family)
     return jobs

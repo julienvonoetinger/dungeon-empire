@@ -43,6 +43,11 @@ class ManifestTests(unittest.TestCase):
         with self.assertRaises(ManifestError):
             load_jobs(self.root, self.manifest)
 
+    def test_first_existing_reference_is_used_when_an_optional_reference_is_missing(self):
+        self.write(["models/environment/wall.glb,static_mesh,walls,walls/missing.png | walls/ref.png"])
+        job = load_jobs(self.root, self.manifest)["models/environment/wall.glb"]
+        self.assertEqual(job.source.name, "ref.png")
+
     def test_unsafe_destinations_and_2d_rows_are_rejected(self):
         for output, strategy in [
             (str((self.root / "absolute.glb").resolve()), "static_mesh"),
