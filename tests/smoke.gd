@@ -13,6 +13,7 @@ func _initialize() -> void:
     seed(4242)
     print("grid: ", m.grid.size(), "x", (m.grid[0] as Array).size())
 
+    _test_rendering_method()
     _test_sprite_pack()
     _test_isometric()
     _test_camera()
@@ -36,6 +37,10 @@ func _initialize() -> void:
         for f in failures:
             print("FAIL: ", f)
     quit(0 if failures.is_empty() else 1)
+
+func _test_rendering_method() -> void:
+    check(ProjectSettings.get_setting("rendering/renderer/rendering_method") == "forward_plus", "desktop renderer uses Forward+")
+    check(ProjectSettings.get_setting("rendering/renderer/rendering_method.mobile") == "gl_compatibility", "mobile renderer keeps Compatibility")
 
 func click_named(tool: int) -> void:
     if tool == m.Tool.RESET:
