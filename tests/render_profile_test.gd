@@ -1,10 +1,11 @@
 extends SceneTree
 
 const PROFILE_PATH := "res://assets/rendering/dungeon_render_profile.tres"
+const PROFILE_SCRIPT := preload("res://scripts/world/dungeon_render_profile.gd")
 
 func _initialize() -> void:
 	var profile = load(PROFILE_PATH)
-	assert(profile is DungeonRenderProfile, "render profile must use DungeonRenderProfile")
+	assert(profile != null and profile.get_script() == PROFILE_SCRIPT, "render profile must use DungeonRenderProfile")
 	assert(profile.max_practical_lights == 12, "PC practical-light budget changed")
 	var env := Environment.new()
 	profile.apply_to_environment(env)
