@@ -10,14 +10,13 @@ from __future__ import annotations
 
 import argparse
 import base64
-import json
 import mimetypes
 import os
 import sys
 import time
-import urllib.error
-import urllib.request
 from pathlib import Path
+
+from meshy.client import MeshyClient
 
 ROOT = Path(__file__).resolve().parents[1]
 API = "https://api.meshy.ai/openapi/v1/image-to-3d"
@@ -35,26 +34,15 @@ def load_env() -> None:
         os.environ.setdefault(key.strip(), val.strip().strip('"').strip("'"))
 
 
-def headers() -> dict:
+def client() -> MeshyClient:
     key = os.environ.get("MESHY_API_KEY", "").strip()
     if not key:
         sys.exit("MESHY_API_KEY missing. Put it in .env (see .env.example).")
-    return {
-        "Authorization": "Bearer " + key,
-        "Content-Type": "application/json",
-    }
+    return MeshyClient(key)
 
 
 def api(method: str, url: str, body: dict | None = None) -> dict:
-    data = None if body is None else json.dumps(body).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers=headers(), method=method)
-    try:
-        with urllib.request.urlopen(req, timeout=180) as resp:
-            raw = resp.read().decode("utf-8")
-            return json.loads(raw) if raw else {}
-    except urllib.error.HTTPError as e:
-        err = e.read().decode("utf-8", errors="replace")
-        sys.exit("Meshy HTTP %s: %s" % (e.code, err[:800]))
+    return client().request(method, url, body)
 
 
 def ping() -> None:
@@ -72,10 +60,7 @@ def image_to_data_uri(path: Path) -> str:
 
 
 def download(url: str, dest: Path) -> None:
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    req = urllib.request.Request(url)
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        dest.write_bytes(resp.read())
+    client().download(url, dest)
 
 
 def main() -> None:
