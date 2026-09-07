@@ -4,3 +4,9 @@
 
 [resource]
 script = ExtResource("1_profile")
+ambient_energy = 0.28
+exposure = 1.2
+key_energy = 1.25
+fog_density = 0.002
+practical_energy = 0.8
+practical_range = 2.0

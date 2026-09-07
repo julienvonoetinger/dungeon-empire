@@ -55,6 +55,7 @@ func surface_count() -> int:
 func _make_material() -> StandardMaterial3D:
 	var material := StandardMaterial3D.new()
 	material.albedo_texture = FLOOR_TEXTURE
+	material.uv1_scale = Vector3(0.25, 0.25, 1.0)
 	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	material.roughness = 0.9
 	material.metallic = 0.0

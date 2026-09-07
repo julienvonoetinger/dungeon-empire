@@ -26,6 +26,7 @@ const WALL_STRAIGHT_GLB := "res://assets/models/walls/wall_straight_meshy.glb"
 const WALL_PILLAR_GLB := "res://assets/models/walls/wall_pillar_meshy.glb"
 const RENDER_PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
 const FLOOR_RENDERER_SCRIPT := preload("res://scripts/world/floor_renderer.gd")
+const TORCH_RIG_SCRIPT := preload("res://scripts/world/wall_torch_rig.gd")
 const MODEL_FIT := preload("res://scripts/world/model_fit.gd")
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
@@ -50,6 +51,7 @@ var camera: Camera3D
 var _sun: DirectionalLight3D
 var _fill: OmniLight3D
 var _floor_renderer: MeshInstance3D
+var _torch_rig: Node3D
 var _cells: Dictionary = {}
 var _hero: MeshInstance3D
 var _hero_bar: MeshInstance3D
@@ -110,6 +112,9 @@ func _init() -> void:
 	_floor_renderer = FLOOR_RENDERER_SCRIPT.new()
 	_floor_renderer.name = "ContinuousFloor"
 	add_child(_floor_renderer)
+	_torch_rig = TORCH_RIG_SCRIPT.new()
+	_torch_rig.name = "WallTorches"
+	add_child(_torch_rig)
 	_rng.seed = 7
 
 func _ready() -> void:
@@ -305,6 +310,7 @@ func clear_map() -> void:
 	_cells.clear()
 	var no_floor_cells: Array[Vector2i] = []
 	_floor_renderer.sync_cells(no_floor_cells, CELL)
+	_torch_rig.sync_cells(no_floor_cells, _look, CELL)
 	_last_sig.clear()
 	_marker_sig = ""
 	_pillar_sig = ""
@@ -500,6 +506,7 @@ func sync(game: Node) -> void:
 			if int(grid[y][x]) != game.Tile.ROCK:
 				open_cells.append(Vector2i(x, y))
 	_floor_renderer.sync_cells(open_cells, CELL)
+	_torch_rig.sync_cells(open_cells, _look, CELL)
 	var vaults: Dictionary = game._storage_state()["vaults"]
 	for y in rows:
 		for x in cols:
@@ -727,8 +734,9 @@ func _build_core(root: Node3D, _p: Vector2i, game: Node) -> void:
 		if _add_fitted_model(_core_spin, CORE_GLB, fit) == null:
 			_add_sphere(_core_spin, 0.55, Vector3(0.0, 0.7, 0.0), _mat_shell, true)
 	if _fill != null:
-		_fill.position = mid + Vector3(0.0, 0.8, 0.0)
+		_fill.position = root.position + mid + Vector3(0.0, 0.8, 0.0)
 		RENDER_PROFILE.configure_core(_fill)
+		_core_fill_base = RENDER_PROFILE.core_energy
 
 func _add_fitted_model(parent: Node3D, path: String, footprint: float) -> Node3D:
 	var packed: PackedScene = load(path) as PackedScene
