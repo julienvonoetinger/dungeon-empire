@@ -60,6 +60,39 @@ func _buttons() -> Array:
 	return GameTypes.toolbar_defs().duplicate(true)
 
 
+func _wheel_defs() -> Array:
+	var defs: Array = _buttons()
+	if not _cell_has_trap():
+		var kept: Array = []
+		for d in defs:
+			if int(d["tool"]) != Tool.REPAIR:
+				kept.append(d)
+		return kept
+	return defs
+
+
+func _cell_has_trap() -> bool:
+	if not g._inside(cell):
+		return false
+	return g._is_trap_tile(int(g.grid[cell.y][cell.x]))
+
+
+func _cell_trap_damaged() -> bool:
+	if not _cell_has_trap():
+		return false
+	var t := int(g.grid[cell.y][cell.x])
+	var cap := g._trap_max_charges(t)
+	return int(g.trap_charges.get(cell, cap)) < cap
+
+
+func _tool_enabled(tool: int) -> bool:
+	if tool == Tool.REPAIR:
+		return _cell_trap_damaged()
+	if tool == Tool.BUILD_ENTRANCE:
+		return not g._has_entrance()
+	return true
+
+
 func _toolbar_hit(mp: Vector2) -> bool:
 	if not open:
 		return false
@@ -115,7 +148,7 @@ func slice_at(mp: Vector2) -> int:
 	var dist := d.length()
 	if dist < INNER or dist > OUTER:
 		return -1
-	var defs := _buttons()
+	var defs := _wheel_defs()
 	var n: int = defs.size()
 	if n <= 0:
 		return -1
@@ -131,10 +164,12 @@ func slice_at(mp: Vector2) -> int:
 
 
 func pick_index(i: int) -> void:
-	var defs := _buttons()
+	var defs := _wheel_defs()
 	if i < 0 or i >= defs.size():
 		return
 	var tool := int(defs[i]["tool"])
+	if not _tool_enabled(tool):
+		return
 	var at := cell
 	close()
 	_apply_toolbar_tool(tool)
@@ -176,7 +211,7 @@ func _apply_toolbar_tool(tool: int) -> void:
 func draw_wheel(c: CanvasItem) -> void:
 	if not open:
 		return
-	var defs := _buttons()
+	var defs := _wheel_defs()
 	var n: int = defs.size()
 	if n <= 0:
 		return
@@ -186,18 +221,22 @@ func draw_wheel(c: CanvasItem) -> void:
 	for i in n:
 		var a0: float = start + float(i) * step + GAP
 		var a1: float = start + float(i + 1) * step - GAP
-		var active: bool = i == hover
+		var spec: Dictionary = defs[i]
+		var tool := int(spec["tool"])
+		var enabled := _tool_enabled(tool)
+		var active: bool = i == hover and enabled
 		var fill := Color(0.12, 0.12, 0.14, 0.88)
-		if active:
+		if not enabled:
+			fill = Color(0.08, 0.08, 0.09, 0.55)
+		elif active:
 			fill = Color(0.42, 0.78, 0.82, 0.95)
 		c.draw_colored_polygon(_slice_poly(center, INNER, OUTER, a0, a1), fill)
 		var mid: float = (a0 + a1) * 0.5
 		var pos: Vector2 = center + Vector2(cos(mid), sin(mid)) * ((INNER + OUTER) * 0.5)
-		var spec: Dictionary = defs[i]
 		var label := String(spec["label"])
 		var cost := String(spec["cost"])
-		var ink := Color.WHITE if active else GameTypes.C_TEXT
-		var gold := Color(0.08, 0.08, 0.1) if active else GameTypes.C_WARM_GOLD
+		var ink := Color(0.45, 0.45, 0.48) if not enabled else (Color.WHITE if active else GameTypes.C_TEXT)
+		var gold := Color(0.35, 0.32, 0.28) if not enabled else (Color(0.08, 0.08, 0.1) if active else GameTypes.C_WARM_GOLD)
 		c.draw_string(g.font, pos + Vector2(-36, -6), label, HORIZONTAL_ALIGNMENT_CENTER, 72, 13, ink)
 		c.draw_string(g.font, pos + Vector2(-36, 12), cost, HORIZONTAL_ALIGNMENT_CENTER, 72, 11, gold)
 	c.draw_circle(center, INNER - 4.0, Color(0.07, 0.07, 0.09, 0.55))

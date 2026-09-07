@@ -116,11 +116,17 @@ func _test_sealed_core_start() -> void:
     check(not m.raid_active, "a raid started before any entrance existed")
     check(is_equal_approx(m.raid_timer, timer_before), "raid countdown ran with no entrance")
     var west: Vector2i = c + Vector2i.LEFT
+    m.toolbar.open_at(west, Vector2(400, 300))
+    check(m.toolbar._tool_enabled(m.Tool.BUILD_ENTRANCE), "Entrance disabled before it is placed")
+    m.toolbar.close()
     click_named(m.Tool.BUILD_ENTRANCE)
     check(m.selected_tool == m.Tool.BUILD_ENTRANCE, "Entrance tool did not stay selected")
     click_cell(west)
     check(tile(west) == m.Tile.ENTRANCE, "free entrance not placed on a ring floor")
     check(m.gold == gold_before, "entrance was not free")
+    m.toolbar.open_at(core_east_floor(), Vector2(400, 300))
+    check(not m.toolbar._tool_enabled(m.Tool.BUILD_ENTRANCE), "Entrance still enabled after it is placed")
+    m.toolbar.close()
     click_cell(core_east_floor())
     check(tile(core_east_floor()) == m.Tile.FLOOR, "second entrance placed (must be permanent / unique)")
     click_cell(west)
@@ -252,6 +258,8 @@ func _test_build_rules() -> void:
     m._reset_camera()
     click(m._board_to_screen(m._cell_pos(idle_floor)))
     check(m.toolbar.open, "dug cell did not open the pie menu")
+    for spec in m.toolbar._wheel_defs():
+        check(int(spec["tool"]) != m.Tool.REPAIR, "Repair shown on a tile without a trap")
     m.toolbar.close()
     check(tile(idle_floor) == m.Tile.FLOOR, "opening the pie menu changed the tile")
     click_cell(Vector2i(15, 1))
@@ -281,6 +289,17 @@ func _test_build_rules() -> void:
     check(tile(c) == m.Tile.CORE, "Core modified")
     click_named(m.Tool.TRAP_SPIKE)
     click_cell(core_east_floor())
+    m.toolbar.open_at(core_east_floor(), Vector2(400, 300))
+    var saw_repair := false
+    for spec in m.toolbar._wheel_defs():
+        if int(spec["tool"]) == m.Tool.REPAIR:
+            saw_repair = true
+    check(saw_repair, "Repair missing on a trap tile")
+    check(not m.toolbar._tool_enabled(m.Tool.REPAIR), "Repair enabled on an undamaged trap")
+    m.trap_charges[core_east_floor()] = 1
+    check(m.toolbar._tool_enabled(m.Tool.REPAIR), "Repair disabled on a damaged trap")
+    m.trap_charges[core_east_floor()] = m.TRAP_MAX_CHARGES
+    m.toolbar.close()
     click_named(m.Tool.TRAP_SNARE)
     click_cell(core_se_floor())
     click_named(m.Tool.BUILD_DOOR)
