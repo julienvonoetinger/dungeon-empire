@@ -24,9 +24,7 @@ const CORE_DESTROYED_GLB := "res://assets/models/core_void_nexus_destroyed.glb"
 const ROCK_GLB := "res://assets/models/walls/rock_block_match_door_v2.glb"
 const WALL_STRAIGHT_GLB := "res://assets/models/walls/wall_straight_meshy.glb"
 const WALL_PILLAR_GLB := "res://assets/models/walls/wall_pillar_meshy.glb"
-const FLOOR_LIGHT_COLOR := Color(0.62, 0.30, 0.90)
-const FLOOR_LIGHT_ENERGY := 0.55
-const FLOOR_LIGHT_RANGE := 5.5
+const RENDER_PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
 const TOWN_PORTAL_GLB := "res://assets/models/environment/town_portal.glb"
@@ -85,7 +83,6 @@ var _last_sig: Dictionary = {}
 var _look := Vector3.ZERO
 var _marker_sig := ""
 var _rng := RandomNumberGenerator.new()
-var _floor_lights: Array = []
 var _town_portal: Node3D
 var _portal_spin: Node3D
 var _portal_age := 0.0
@@ -116,21 +113,22 @@ func _ready() -> void:
 func _make_environment() -> void:
 	var we := WorldEnvironment.new()
 	var env := Environment.new()
-	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color("#17161B")
-	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color("#6030A8")
-	env.ambient_light_energy = 0.45
-	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	RENDER_PROFILE.apply_to_environment(env)
 	we.environment = env
 	add_child(we)
-	# Cave: no outdoor sun. Floor tiles emit soft purple light.
-	_sun = null
+	_sun = DirectionalLight3D.new()
+	RENDER_PROFILE.configure_key(_sun)
+	add_child(_sun)
 	_fill = OmniLight3D.new()
-	_fill.light_color = Color("#9B4DB5")
-	_fill.light_energy = 0.0
-	_fill.omni_range = 6.0
+	RENDER_PROFILE.configure_core(_fill)
 	add_child(_fill)
+
+func practical_light_count() -> int:
+	var count := 0
+	for node in find_children("*", "OmniLight3D", true, false):
+		if node != _fill:
+			count += 1
+	return count
 
 func _make_materials() -> void:
 	_mat_rock = _tex_mat("res://assets/sprites/wrap_rock.png", false)
@@ -314,7 +312,6 @@ func clear_map() -> void:
 	_core_emit_mat = null
 	_core_bolts.clear()
 	_core_debris.clear()
-	_floor_lights.clear()
 	_dig_bound_sig = ""
 	if _dig_bound != null:
 		_dig_bound.queue_free()
@@ -716,7 +713,8 @@ func _build_core(root: Node3D, _p: Vector2i, game: Node) -> void:
 		if _add_fitted_model(_core_spin, CORE_GLB, fit) == null:
 			_add_sphere(_core_spin, 0.55, Vector3(0.0, 0.7, 0.0), _mat_shell, true)
 	if _fill != null:
-		_fill.light_energy = 0.0
+		_fill.position = mid + Vector3(0.0, 0.8, 0.0)
+		RENDER_PROFILE.configure_core(_fill)
 
 func _add_fitted_model(parent: Node3D, path: String, footprint: float) -> Node3D:
 	var packed: PackedScene = load(path) as PackedScene
@@ -778,18 +776,6 @@ func _add_floor_tile(root: Node3D) -> void:
 		pass
 	else:
 		_add_box(root, Vector3(MESH_PAD, FLOOR_H, MESH_PAD), Vector3(CELL * 0.5, FLOOR_H * 0.5, CELL * 0.5), _mat_floor)
-	_add_floor_light(root)
-
-func _add_floor_light(root: Node3D) -> void:
-	var light := OmniLight3D.new()
-	light.light_color = FLOOR_LIGHT_COLOR
-	light.light_energy = FLOOR_LIGHT_ENERGY
-	light.omni_range = FLOOR_LIGHT_RANGE
-	light.shadow_enabled = false
-	light.distance_fade_enabled = false
-	light.position = Vector3(CELL * 0.5, 0.60, CELL * 0.5)
-	root.add_child(light)
-	_floor_lights.append(light)
 
 func _add_fitted_floor(root: Node3D) -> bool:
 	var packed := _wall_scene(FLOOR_GLB)
