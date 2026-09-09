@@ -19,6 +19,7 @@ const WALL_JOIN := 0.1
 const MESH_VER := 119
 const EXPAND_PAD := 0.88
 const EXPAND_PICK_H := 0.34
+const HERO_MOVE_TIME := GameTypes.TURN_TIME
 const CORE_ANOMALY := preload("res://scripts/world/core_anomaly.gd")
 const CORE_GLB := "res://assets/models/core_void_nexus.glb"
 const CORE_DESTROYED_GLB := "res://assets/models/core_void_nexus_destroyed.glb"
@@ -29,6 +30,8 @@ const RENDER_PROFILE := preload("res://assets/rendering/dungeon_render_profile.t
 const FLOOR_RENDERER_SCRIPT := preload("res://scripts/world/floor_renderer.gd")
 const TORCH_RIG_SCRIPT := preload("res://scripts/world/wall_torch_rig.gd")
 const MODEL_FIT := preload("res://scripts/world/model_fit.gd")
+const VULPIN_HERO := preload("res://scripts/world/vulpin_hero.gd")
+const LITHIDE_HERO := preload("res://scripts/world/lithide_hero.gd")
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
 const TOWN_PORTAL_GLB := "res://assets/models/environment/town_portal.glb"
@@ -70,9 +73,17 @@ var _fill: OmniLight3D
 var _floor_renderer: MeshInstance3D
 var _torch_rig: Node3D
 var _cells: Dictionary = {}
-var _hero: MeshInstance3D
+var _hero: Node3D
+var _hero_proxy: MeshInstance3D
+var _vulpin: Node3D
+var _lithide: Node3D
 var _hero_bar: MeshInstance3D
 var _hero_tag: Label3D
+var _hero_cell := Vector2i(-1, -1)
+var _hero_move_from := Vector3.ZERO
+var _hero_move_to := Vector3.ZERO
+var _hero_move_elapsed := HERO_MOVE_TIME
+var _hero_absorbing := false
 var _core_spin: Node3D
 var _core_inner: Node3D
 var _core_drift: Node3D
@@ -293,13 +304,27 @@ func _make_camera() -> void:
 	add_child(camera)
 
 func _make_hero() -> void:
-	_hero = MeshInstance3D.new()
+	_hero = Node3D.new()
+	_hero.name = "HeroVisual"
+	add_child(_hero)
+	_hero_proxy = MeshInstance3D.new()
+	_hero_proxy.name = "HeroProxy"
 	var cap := CapsuleMesh.new()
 	cap.radius = 0.18
 	cap.height = 0.62
-	_hero.mesh = cap
+	_hero_proxy.mesh = cap
+	_hero.add_child(_hero_proxy)
+	_vulpin = VULPIN_HERO.new() as Node3D
+	_vulpin.name = "VulpinHero"
+	_vulpin.position.y = FLOOR_H - 0.48
+	_vulpin.visible = false
+	_hero.add_child(_vulpin)
+	_lithide = LITHIDE_HERO.new() as Node3D
+	_lithide.name = "LithideHero"
+	_lithide.position.y = FLOOR_H - 0.48
+	_lithide.visible = false
+	_hero.add_child(_lithide)
 	_hero.visible = false
-	add_child(_hero)
 	_hero_bar = MeshInstance3D.new()
 	var bar := BoxMesh.new()
 	bar.size = Vector3(0.42, 0.05, 0.05)
@@ -1831,9 +1856,37 @@ func _sync_hero(game: Node) -> void:
 	_hero_bar.visible = show
 	_hero_tag.visible = show
 	if not show:
+		_hero_cell = Vector2i(-1, -1)
+		_hero_move_elapsed = HERO_MOVE_TIME
+		_hero_absorbing = false
 		return
 	var p: Vector2i = game.hero["pos"]
+	var target_position := cell_center(p, 0.48)
+	if _hero_cell.x < 0:
+		_hero_cell = p
+		_hero.position = target_position
+		_hero_move_from = target_position
+		_hero_move_to = target_position
+		_hero_move_elapsed = HERO_MOVE_TIME
+		_orient_hero(game.hero.get("facing", Vector2i.DOWN))
+	elif p != _hero_cell:
+		_hero_cell = p
+		_hero_move_from = _hero.position
+		_hero_move_to = target_position
+		_hero_move_elapsed = 0.0
+		_orient_hero(game.hero.get("facing", Vector2i.DOWN))
 	var kind := String(game.hero["kind"])
+	var use_lithide := kind == "paladin" and _lithide != null
+	var use_vulpin := not use_lithide and _vulpin != null
+	_hero_proxy.visible = not use_vulpin and not use_lithide
+	if _vulpin != null:
+		_vulpin.visible = use_vulpin
+		if use_vulpin:
+			_vulpin.set_running(bool(game.hero["fleeing"]))
+	if _lithide != null:
+		_lithide.visible = use_lithide
+		if use_lithide:
+			_lithide.set_running(bool(game.hero["fleeing"]))
 	var mat := StandardMaterial3D.new()
 	match kind:
 		"paladin":
@@ -1844,12 +1897,13 @@ func _sync_hero(game: Node) -> void:
 		_:
 			mat.albedo_color = Color(0.82, 0.42, 0.18)
 	mat.roughness = 0.55
-	_hero.material_override = mat
-	_hero.position = cell_center(p, 0.48)
+	_hero_proxy.material_override = mat
 	_hero.scale = Vector3.ONE
-	_hero.rotation = Vector3.ZERO
 	var absorbing: bool = bool(game.hero.get("void_absorbing", false))
+	_hero_absorbing = absorbing
 	if absorbing:
+		_hero_move_elapsed = HERO_MOVE_TIME
+		_hero.position = target_position
 		var progress := clampf(1.0 - float(game.hero.get("portal_t", 0.0)) / maxf(float(game.PORTAL_HOLD), 0.01), 0.0, 1.0)
 		var pull := ease(progress, 1.6)
 		var angle := progress * TAU * 2.25
@@ -1858,7 +1912,6 @@ func _sync_hero(game: Node) -> void:
 		_hero.scale = Vector3.ONE * maxf(0.04, 1.0 - pull)
 		_hero.rotation = Vector3(sin(angle) * 0.55, angle * 2.4, cos(angle) * 0.55)
 	var hp_ratio := clampf(float(game.hero["hp"]) / float(game.hero["max_hp"]), 0.05, 1.0)
-	_hero_bar.position = _hero.position + Vector3(0, 0.48, 0)
 	_hero_bar.visible = not absorbing
 	_hero_tag.visible = not absorbing
 	var bm := BoxMesh.new()
@@ -1873,7 +1926,28 @@ func _sync_hero(game: Node) -> void:
 		tag += " · fleeing"
 	_hero_tag.text = tag
 	_hero_tag.modulate = Color("#D9783C")
-	_hero_tag.position = _hero.position + Vector3(0, 0.72, 0)
+	_position_hero_ui()
+
+func _orient_hero(facing: Vector2i) -> void:
+	if facing == Vector2i.ZERO:
+		return
+	_hero.rotation = Vector3(0.0, atan2(float(facing.x), float(facing.y)), 0.0)
+
+func _advance_hero_visual(delta: float) -> void:
+	if _hero == null or not _hero.visible or _hero_absorbing or _hero_move_elapsed >= HERO_MOVE_TIME:
+		return
+	_hero_move_elapsed = minf(HERO_MOVE_TIME, _hero_move_elapsed + delta)
+	var progress := _hero_move_elapsed / HERO_MOVE_TIME
+	_hero.position = _hero_move_from.lerp(_hero_move_to, progress)
+	_position_hero_ui()
+
+func _position_hero_ui() -> void:
+	if _hero == null:
+		return
+	if _hero_bar != null:
+		_hero_bar.position = _hero.position + Vector3(0, 0.48, 0)
+	if _hero_tag != null:
+		_hero_tag.position = _hero.position + Vector3(0, 0.72, 0)
 
 func _sync_town_portal(game: Node) -> void:
 	var show: bool = bool(game.raid_active) and not game.hero.is_empty() and bool(game.hero.get("portaling", false)) and not bool(game.hero.get("void_absorbing", false))
@@ -1944,6 +2018,7 @@ func _fill_portal_visual(root: Node3D) -> Node3D:
 	return spin
 
 func _process(delta: float) -> void:
+	_advance_hero_visual(delta)
 	_core_pulse += delta
 	if _town_portal != null and _town_portal.visible:
 		_portal_age += delta
