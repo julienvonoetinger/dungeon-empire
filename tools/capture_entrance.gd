@@ -19,6 +19,14 @@ func _capture(main: Control) -> void:
 	if main.has_method("_ensure_dungeon"):
 		main._ensure_dungeon()
 	main.set_process(false)
+	var corridor := OS.get_cmdline_user_args().has("--stone-corridor")
+	if corridor:
+		var core := GameTypes.core_origin_cell()
+		# An odd-width elbow exercises paired walls, exposed ends and clipped slabs.
+		for x in range(1, core.x):
+			main.grid[core.y][x] = main.Tile.FLOOR
+		for y in range(1, core.y + 1):
+			main.grid[y][1] = main.Tile.FLOOR
 	main.cam_zoom = 2.5
 	# Stable overview of the complete starting dungeon.
 	main.cam_yaw = 45.0
@@ -57,12 +65,13 @@ func _capture(main: Control) -> void:
 	else:
 		img = root.get_texture().get_image()
 	if img != null:
-		var error := img.save_png(OUTPUT_PATH)
+		var output := "res://artifacts/stone_corridor.png" if corridor else OUTPUT_PATH
+		var error := img.save_png(output)
 		if error != OK:
 			printerr("capture failed: could not save %s (error %d)" % [OUTPUT_PATH, error])
 			quit(1)
 			return
-		print("saved ", OUTPUT_PATH, " ", img.get_width(), "x", img.get_height())
+		print("saved ", output, " ", img.get_width(), "x", img.get_height())
 	else:
 		printerr("capture failed: no image")
 		quit(1)

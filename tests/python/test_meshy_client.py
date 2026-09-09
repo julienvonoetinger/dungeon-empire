@@ -23,6 +23,23 @@ class FakeResponse:
 
 
 class MeshyClientTests(unittest.TestCase):
+    def test_timeouts_do_not_replace_request_or_download_body(self):
+        # Match urlopen's signature: its second positional argument is data.
+        def opener(request, data=None, timeout=None):
+            self.assertIsNone(data, "timeout must not overwrite the HTTP body")
+            self.assertEqual(timeout, 17)
+            if request.get_method() == "POST":
+                self.assertEqual(json.loads(request.data), {"x": 1})
+                return FakeResponse(b'{"result":"task-1"}')
+            return FakeResponse(b"glb-bytes")
+
+        client = MeshyClient("key", opener=opener, request_timeout=17, download_timeout=17)
+        self.assertEqual(client.request("POST", "https://example.test/tasks", {"x": 1}), {"result": "task-1"})
+        with tempfile.TemporaryDirectory() as folder:
+            destination = Path(folder) / "model.glb"
+            client.download("https://example.test/model.glb", destination)
+            self.assertEqual(destination.read_bytes(), b"glb-bytes")
+
     def test_request_encodes_json_and_authorization(self):
         seen = {}
 

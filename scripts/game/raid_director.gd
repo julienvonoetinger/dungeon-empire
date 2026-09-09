@@ -61,6 +61,7 @@ func _start_raid() -> void:
 		"ignored": {},
 		"fleeing": false,
 		"portaling": false,
+		"void_absorbing": false,
 		"portal_t": 0.0,
 		"portal_msg": "",
 		"facing": sim._entrance_mouth(entrance),
@@ -291,7 +292,11 @@ func _banish_via_void() -> void:
 	var carried := int(hero["carried_gold"])
 	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
 	raid_stats["carried_out"] = carried
-	_open_town_portal("%s is torn through a void rift and expelled from the dungeon with %d gold." % [hero["display"], carried])
+	hero["void_absorbing"] = true
+	hero["portaling"] = true
+	hero["portal_t"] = portal_hold
+	hero["portal_msg"] = "%s is swallowed by a void rift with %d gold." % [hero["display"], carried]
+	sim.message = "%s is pulled into the void." % hero["display"]
 
 
 func _attack_door(p: Vector2i) -> void:

@@ -424,7 +424,7 @@ func _test_void_trap_banish() -> void:
     m.hero["pos"] = rift
     var hp := int(m.hero["hp"])
     m._resolve_cell(rift)
-    check(bool(m.hero.get("portaling", false)), "void trap did not open a portal")
+    check(bool(m.hero.get("void_absorbing", false)), "void trap did not start an absorption")
     check(int(m.hero["hp"]) == hp, "void trap wounded the hero")
     wait_town_portal()
     check(not m.raid_active, "raid continues after a void banish")

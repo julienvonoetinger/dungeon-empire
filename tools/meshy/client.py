@@ -39,7 +39,7 @@ class MeshyClient:
             method=method,
         )
         try:
-            with self.opener(request, self.request_timeout) as response:
+            with self.opener(request, timeout=self.request_timeout) as response:
                 raw = response.read().decode("utf-8")
         except urllib.error.HTTPError as error:
             detail = error.read().decode("utf-8", errors="replace")
@@ -69,7 +69,7 @@ class MeshyClient:
         destination.parent.mkdir(parents=True, exist_ok=True)
         request = urllib.request.Request(url)
         try:
-            with self.opener(request, self.download_timeout) as response:
+            with self.opener(request, timeout=self.download_timeout) as response:
                 destination.write_bytes(response.read())
         except (TimeoutError, socket.timeout) as error:
             raise MeshyError("timeout", self._sanitize(f"Meshy download timed out: {error}")) from None

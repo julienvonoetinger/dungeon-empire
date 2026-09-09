@@ -16,13 +16,14 @@ const MESH_PAD := 1.002
 const WALL_THICK := 0.22
 const PILLAR_W := 0.28
 const WALL_JOIN := 0.1
-const MESH_VER := 118
+const MESH_VER := 119
 const EXPAND_PAD := 0.88
 const EXPAND_PICK_H := 0.34
+const CORE_ANOMALY := preload("res://scripts/world/core_anomaly.gd")
 const CORE_GLB := "res://assets/models/core_void_nexus.glb"
 const CORE_DESTROYED_GLB := "res://assets/models/core_void_nexus_destroyed.glb"
 const ROCK_GLB := "res://assets/models/walls/rock_block_match_door_v2.glb"
-const WALL_STRAIGHT_GLB := "res://assets/models/walls/wall_straight_meshy.glb"
+const WALL_STRAIGHT_GLB := "res://assets/models/environment/wall_straight_controlled.glb"
 const WALL_PILLAR_GLB := "res://assets/models/walls/wall_pillar_meshy.glb"
 const RENDER_PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
 const FLOOR_RENDERER_SCRIPT := preload("res://scripts/world/floor_renderer.gd")
@@ -40,10 +41,26 @@ const SNARE_BROKEN_GLB := "res://assets/models/traps/snare_voidstone_nexus_broke
 const VOID_GLB := "res://assets/models/traps/void_arcane_nexus.glb"
 const VOID_SPRUNG_GLB := "res://assets/models/traps/void_violet_gateway.glb"
 const VOID_BROKEN_GLB := "res://assets/models/traps/void_arcane_nexus_broken.glb"
-const DOOR_CLOSED_GLB := "res://assets/models/doors/door_violet_crypt_gate.glb"
-const DOOR_DAMAGED_GLB := "res://assets/models/doors/door_shadowgem_gate.glb"
-const DOOR_DESTROYED_GLB := "res://assets/models/doors/door_violet_ruin_gateway.glb"
-const DOOR_OPENED_GLB := "res://assets/models/doors/door_opened.glb"
+const TRAP_STATE_INTACT := preload("res://assets/ui/trap_states/trap_state_intact.png")
+const TRAP_STATE_TWO := preload("res://assets/ui/trap_states/trap_state_two.png")
+const TRAP_STATE_ONE := preload("res://assets/ui/trap_states/trap_state_one.png")
+const TRAP_STATE_DESTROYED := preload("res://assets/ui/trap_states/trap_state_destroyed.png")
+const DOOR_STATE_INTACT := preload("res://assets/ui/door_states/door_state_intact.png")
+const DOOR_STATE_DAMAGED := preload("res://assets/ui/door_states/door_state_damaged.png")
+const DOOR_STATE_DESTROYED := preload("res://assets/ui/door_states/door_state_destroyed.png")
+const STATUS_ICON_WORLD_DIAMETER := 1.35432
+const STATUS_ICON_SCALE := 0.55
+const STATUS_ICON_HEIGHT := 0.95
+const DOOR_STATUS_ICON_SIZE_MULTIPLIER := 0.85
+const DOOR_STATUS_ICON_HEIGHT := 1.65
+const STATUS_ICON_FILTER := BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+const STATUS_ICON_BILLBOARD := BaseMaterial3D.BILLBOARD_ENABLED
+const DOOR_CLOSED_GLB := "res://assets/models/doors/wall_v2/door_closed.glb"
+const DOOR_DAMAGED_GLB := "res://assets/models/doors/wall_v2/door_damaged.glb"
+const DOOR_DESTROYED_GLB := "res://assets/models/doors/wall_v2/door_destroyed.glb"
+const DOOR_OPENED_GLB := "res://assets/models/doors/wall_v2/door_open.glb"
+const DOOR_WIDTH := 0.98
+const DOOR_DEPTH := 0.28
 const VAULT_GLB := "res://assets/models/storage/vault_skull_treasure.glb"
 const VAULT_EMPTY_GLB := "res://assets/models/storage/vault_empty_reliquary.glb"
 const LOOT_GLB := "res://assets/models/loot/gold_loot.glb"
@@ -92,7 +109,6 @@ var _town_portal: Node3D
 var _portal_spin: Node3D
 var _portal_age := 0.0
 var _portal_shown := false
-var _door_ref_scale := 0.0
 var _door_stone_sh: Shader
 var _wall_packed: Dictionary = {}
 var _pillar_sig := ""
@@ -496,11 +512,14 @@ func sync(game: Node) -> void:
 	if grid.is_empty():
 		return
 	var open_cells: Array[Vector2i] = []
+	var inset_cells: Array[Vector2i] = []
 	for y in rows:
 		for x in cols:
 			if int(grid[y][x]) != game.Tile.ROCK:
 				open_cells.append(Vector2i(x, y))
-	_floor_renderer.sync_cells(open_cells, CELL)
+			if game._is_trap_tile(int(grid[y][x])):
+				inset_cells.append(Vector2i(x, y))
+	_floor_renderer.sync_cells(open_cells, CELL, inset_cells)
 	_torch_rig.sync_cells(open_cells, CELL)
 	var vaults: Dictionary = game._storage_state()["vaults"]
 	for y in rows:
@@ -509,8 +528,12 @@ func sync(game: Node) -> void:
 			var t: int = int(grid[y][x])
 			var spent: bool = game._is_trap_tile(t) and int(game.trap_charges.get(p, game._trap_max_charges(t))) <= 0
 			var sig := "m%d:%d:%d:%s" % [MESH_VER, t, int(vaults.get(p, 0)), spent]
+			# Pairing depends on neighbouring faces, including after excavation.
+			for side in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+				if t == game.Tile.ROCK or not game._inside(p + side):
+					sig += ":w%d" % _wall_span(p, side, game, t != game.Tile.ROCK)
 			if game._is_trap_tile(t):
-				sig += ":s%d" % int(_trap_sprung(p, game, spent))
+				sig += ":q%d:s%d" % [int(game.trap_charges.get(p, game._trap_max_charges(t))), int(_trap_sprung(p, game, spent))]
 			if t == game.Tile.ENTRANCE:
 				var o := _entrance_face(p, game)
 				sig += ":e%.0f,%.0f" % [o.x, o.z]
@@ -519,8 +542,6 @@ func sync(game: Node) -> void:
 				var co := _cliff_outward_for_rock(p, game)
 				if co != Vector3.ZERO:
 					sig += ":c%.0f,%.0f" % [co.x, co.z]
-			if t == game.Tile.CORE:
-				sig += ":h%d" % _core_band(int(game.core_hp))
 			if t == game.Tile.DOOR:
 				sig += ":%d:y%.2f:%s" % [int(game.door_hp.get(p, game.DOOR_MAX_HP)), _door_yaw(p, game), DOOR_CLOSED_GLB.get_file()]
 			if t == game.Tile.VAULT:
@@ -529,6 +550,11 @@ func sync(game: Node) -> void:
 			if str(_last_sig.get(p, "")) != sig:
 				_last_sig[p] = sig
 				_rebuild_cell(p, t, game, vaults, spent)
+	if is_instance_valid(_core_spin):
+		_core_spin.set_health(int(game.core_hp))
+		_core_fill_base = _core_spin.light_strength()
+		if _fill != null:
+			_fill.light_energy = _core_fill_base
 	_sync_pillars(game)
 	_sync_dig_bounds(game)
 	_sync_expand_pads(game)
@@ -587,7 +613,7 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 					var a := TAU * float(i) / 5.0
 					mi.position = Vector3(CELL * 0.5 + cos(a) * 0.18, 0.38, CELL * 0.5 + sin(a) * 0.18)
 					root.add_child(mi)
-			_label(root, str(int(game.trap_charges.get(p, game.TRAP_MAX_CHARGES))), Color("#D9783C"), Vector3(CELL * 0.5, 0.85, CELL * 0.5))
+			_trap_state_icon(root, p, t, game)
 		game.Tile.SNARE:
 			if not _add_fitted_snare(root, spent, _trap_sprung(p, game, spent)):
 				_add_floor_tile(root)
@@ -597,7 +623,7 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 				for i in 4:
 					var vine := _add_box(root, Vector3(0.08, 0.08, 0.72), Vector3(CELL * 0.5, 0.28, CELL * 0.5), nm)
 					vine.rotation.y = PI * 0.25 * float(i)
-			_label(root, str(int(game.trap_charges.get(p, game.TRAP_MAX_CHARGES))), Color("#D9783C"), Vector3(CELL * 0.5, 0.7, CELL * 0.5))
+			_trap_state_icon(root, p, t, game)
 		game.Tile.VOID:
 			if not _add_fitted_void(root, spent, _trap_sprung(p, game, spent)):
 				_add_floor_tile(root)
@@ -607,7 +633,7 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 				vm.emission = Color("#7A3CC8")
 				vm.emission_energy_multiplier = 0.55
 				_add_sphere(root, 0.22, Vector3(CELL * 0.5, 0.38, CELL * 0.5), vm, false)
-			_label(root, str(int(game.trap_charges.get(p, game.TRAP_MAX_CHARGES))), Color("#C9A0FF"), Vector3(CELL * 0.5, 0.85, CELL * 0.5))
+			_trap_state_icon(root, p, t, game)
 		game.Tile.DOOR:
 			_build_door(root, p, game)
 		_:
@@ -701,37 +727,24 @@ func _add_well_ring(parent: Node3D, pos: Vector3, outer_r: float, inner_r: float
 	comb.add_child(hole)
 
 func _build_core(root: Node3D, _p: Vector2i, game: Node) -> void:
-	var band := _core_band(int(game.core_hp))
-	var span_x := float(int(game.CORE_W)) * CELL
-	var span_z := float(int(game.CORE_H)) * CELL
-	var mid := Vector3(span_x * 0.5, 0.0, span_z * 0.5)
-	var fit := span_x * 0.94
-	if band == 0:
-		fit = span_x * 0.86
-	elif band == 2:
-		fit = span_x * 0.98
-	elif band == 3:
-		fit = span_x * 0.90
-	elif band == 4:
-		fit = span_x * 0.94
-	if _core_spin != null:
+	var mid := Vector3(float(game.CORE_W) * CELL * 0.5, 0.0, float(game.CORE_H) * CELL * 0.5)
+	if is_instance_valid(_core_spin):
 		_core_spin.queue_free()
-	_core_spin = Node3D.new()
+	_core_spin = CORE_ANOMALY.new()
 	_core_spin.position = mid
 	root.add_child(_core_spin)
+	_core_spin.set_health(int(game.core_hp))
 	_core_inner = null
 	_core_drift = null
 	_core_vortex = null
 	_core_debris.clear()
 	_core_bolts.clear()
-	var core_path := CORE_DESTROYED_GLB if band == 4 else CORE_GLB
-	if _add_fitted_model(_core_spin, core_path, fit) == null:
-		if _add_fitted_model(_core_spin, CORE_GLB, fit) == null:
-			_add_sphere(_core_spin, 0.55, Vector3(0.0, 0.7, 0.0), _mat_shell, true)
 	if _fill != null:
 		_fill.position = root.position + mid + Vector3(0.0, 0.8, 0.0)
 		RENDER_PROFILE.configure_core(_fill)
-		_core_fill_base = RENDER_PROFILE.core_energy
+		_core_fill_base = _core_spin.light_strength()
+		_fill.light_energy = _core_fill_base
+		_fill.omni_range = 2.8
 
 func _add_fitted_model(parent: Node3D, path: String, footprint: float) -> Node3D:
 	var packed: PackedScene = load(path) as PackedScene
@@ -752,15 +765,35 @@ func _build_rock(root: Node3D, p: Vector2i, game: Node) -> void:
 	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
 		if not _rock_faces_dug(p, d, game):
 			continue
-		if not _add_edge_wall(root, d):
-			_add_edge_wall_box(root, d)
+		var span := _wall_span(p, d, game)
+		if span == 0:
+			continue
+		if not _add_edge_wall(root, d, span):
+			_add_edge_wall_box(root, d, span)
 
 func _add_map_limit_walls(root: Node3D, p: Vector2i, game: Node) -> void:
 	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
 		if game._inside(p + d):
 			continue
-		if not _add_edge_wall(root, d):
-			_add_edge_wall_box(root, d)
+		var span := _wall_span(p, d, game, true)
+		if span == 0:
+			continue
+		if not _add_edge_wall(root, d, span):
+			_add_edge_wall_box(root, d, span)
+
+func _wall_span(p: Vector2i, toward: Vector2i, game: Node, border: bool = false) -> int:
+	var along := Vector2i.RIGHT if toward.y != 0 else Vector2i.DOWN
+	var coordinate := p.x if toward.y != 0 else p.y
+	var second := posmod(coordinate, 2) == 1
+	var neighbour := p - along if second else p + along
+	if not game._inside(neighbour):
+		return 1
+	var paired: bool
+	if border:
+		paired = int(game.grid[neighbour.y][neighbour.x]) != game.Tile.ROCK and not game._inside(neighbour + toward)
+	else:
+		paired = int(game.grid[neighbour.y][neighbour.x]) == game.Tile.ROCK and _rock_faces_dug(neighbour, toward, game)
+	return (0 if second else 2) if paired else 1
 
 func _rock_face_mask(p: Vector2i, game: Node) -> int:
 	var m := 0
@@ -813,109 +846,58 @@ func _spike_sprung(p: Vector2i, game: Node) -> bool:
 		return false
 	return game.hero.get("trap_sprung_at", Vector2i(-1, -1)) == p
 
-func _trap_sprung(p: Vector2i, game: Node, spent: bool) -> bool:
-	if not _spike_sprung(p, game):
-		return false
-	if not spent:
-		return true
-	# Last charge just fired: keep the active mesh only while the void portal plays.
-	return bool(game.hero.get("portaling", false))
+func _trap_sprung(p: Vector2i, game: Node, _spent: bool) -> bool:
+	# The final charge still has an activation. Exhaustion follows departure,
+	# or the end of the banishment, rather than hiding the last trigger immediately.
+	return _spike_sprung(p, game)
 
 func _add_fitted_spike(root: Node3D, spent: bool, sprung: bool) -> bool:
-	var path := SPIKE_GLB
-	if sprung:
-		path = SPIKE_SPRUNG_GLB
-	elif spent:
-		path = SPIKE_BROKEN_GLB
-	var packed := _wall_scene(path)
-	if packed == null:
-		packed = _wall_scene(SPIKE_GLB)
-	if packed == null:
+	var trap := preload("res://scripts/world/meshy_stone_trap.gd").new()
+	root.add_child(trap)
+	if not trap.configure("spike", "sprung" if sprung else "broken" if spent else "armed"):
+		trap.queue_free()
 		return false
-	var holder := Node3D.new()
-	holder.position = Vector3(CELL * 0.5, 0.0, CELL * 0.5)
-	root.add_child(holder)
-	var inst := packed.instantiate()
-	if inst == null:
-		holder.queue_free()
-		return false
-	holder.add_child(inst)
-	var aabb := _model_aabb(inst)
-	if aabb.size == Vector3.ZERO:
-		return true
-	var span := maxf(aabb.size.x, aabb.size.z)
-	var s := CELL / maxf(span, 0.01)
-	inst.scale = Vector3.ONE * s
-	var fitted := _model_aabb(inst)
-	inst.position.x += -fitted.get_center().x
-	inst.position.z += -fitted.get_center().z
-	inst.position.y += -fitted.position.y
-	_prep_core_meshes(inst)
+	trap.scale = Vector3(CELL, 1.0, CELL)
 	return true
 
 func _add_fitted_snare(root: Node3D, spent: bool, sprung: bool) -> bool:
-	var path := SNARE_GLB
-	if sprung:
-		path = SNARE_SPRUNG_GLB
-	elif spent:
-		path = SNARE_BROKEN_GLB
-	var packed := _wall_scene(path)
-	if packed == null:
-		packed = _wall_scene(SNARE_GLB)
-	if packed == null:
+	var trap := preload("res://scripts/world/meshy_stone_trap.gd").new()
+	root.add_child(trap)
+	if not trap.configure("snare", "sprung" if sprung else "broken" if spent else "armed"):
+		trap.queue_free()
 		return false
-	var holder := Node3D.new()
-	holder.position = Vector3(CELL * 0.5, 0.0, CELL * 0.5)
-	root.add_child(holder)
-	var inst := packed.instantiate()
-	if inst == null:
-		holder.queue_free()
-		return false
-	holder.add_child(inst)
-	var aabb := _model_aabb(inst)
-	if aabb.size == Vector3.ZERO:
-		return true
-	var span := maxf(aabb.size.x, aabb.size.z)
-	var s := CELL / maxf(span, 0.01)
-	inst.scale = Vector3.ONE * s
-	var fitted := _model_aabb(inst)
-	inst.position.x += -fitted.get_center().x
-	inst.position.z += -fitted.get_center().z
-	inst.position.y += -fitted.position.y
-	_prep_core_meshes(inst)
+	trap.scale = Vector3(CELL, 1.0, CELL)
 	return true
 
 func _add_fitted_void(root: Node3D, spent: bool, sprung: bool) -> bool:
-	var path := VOID_GLB
-	if sprung:
-		path = VOID_SPRUNG_GLB
-	elif spent:
-		path = VOID_BROKEN_GLB
-	var packed := _wall_scene(path)
-	if packed == null:
-		packed = _wall_scene(VOID_GLB)
-	if packed == null:
+	var trap := preload("res://scripts/world/meshy_stone_trap.gd").new()
+	root.add_child(trap)
+	if not trap.configure("void", "sprung" if sprung else "broken" if spent else "armed"):
+		trap.queue_free()
 		return false
-	var holder := Node3D.new()
-	holder.position = Vector3(CELL * 0.5, 0.0, CELL * 0.5)
-	root.add_child(holder)
-	var inst := packed.instantiate()
-	if inst == null:
-		holder.queue_free()
-		return false
-	holder.add_child(inst)
-	var aabb := _model_aabb(inst)
-	if aabb.size == Vector3.ZERO:
-		return true
-	var span := maxf(aabb.size.x, aabb.size.z)
-	var s := CELL / maxf(span, 0.01)
-	inst.scale = Vector3.ONE * s
-	var fitted := _model_aabb(inst)
-	inst.position.x += -fitted.get_center().x
-	inst.position.z += -fitted.get_center().z
-	inst.position.y += -fitted.position.y
-	_prep_core_meshes(inst)
+	trap.scale = Vector3(CELL, 1.0, CELL)
 	return true
+
+func _trap_state_icon(parent: Node3D, p: Vector2i, tile: int, game: Node) -> void:
+	var charges: int = int(game.trap_charges.get(p, game._trap_max_charges(tile)))
+	var maximum: int = game._trap_max_charges(tile)
+	var texture: Texture2D = TRAP_STATE_ONE if maximum == 1 and charges == 1 else TRAP_STATE_DESTROYED if maximum == 1 else TRAP_STATE_INTACT if charges == maximum else TRAP_STATE_TWO if charges == 2 else TRAP_STATE_ONE if charges == 1 else TRAP_STATE_DESTROYED
+	var icon := Sprite3D.new()
+	icon.name = "TrapStateIcon"
+	icon.texture = texture
+	# The cohesive status set is cropped into 640 px medallions. Give the
+	# status signal enough world-space footprint to read against floor detail.
+	icon.pixel_size = _status_icon_pixel_size(texture)
+	icon.fixed_size = false
+	icon.scale = Vector3.ONE * STATUS_ICON_SCALE
+	icon.texture_filter = STATUS_ICON_FILTER
+	icon.billboard = STATUS_ICON_BILLBOARD
+	icon.no_depth_test = false
+	icon.position = Vector3(CELL * 0.5, STATUS_ICON_HEIGHT, CELL * 0.5)
+	parent.add_child(icon)
+
+func _status_icon_pixel_size(texture: Texture2D) -> float:
+	return STATUS_ICON_WORLD_DIAMETER / float(texture.get_width())
 
 func _vault_open_face(p: Vector2i, game: Node) -> Vector3:
 	var wall := _vault_wall_dir(p, game)
@@ -1061,6 +1043,9 @@ func _wall_joint_positions(game: Node) -> Array[Vector3]:
 	for v in dirs_at.keys():
 		var vv: Vector2i = v
 		var dirs: Array = dirs_at[vv]
+		# Straight runs already have end stones in the Meshy module.
+		if dirs.size() == 1:
+			continue
 		var inner := Vector3(float(vv.x) * CELL, 0.0, float(vv.y) * CELL)
 		_remember_pillar(seen, out, inner)
 		if dirs.size() == 2:
@@ -1113,7 +1098,7 @@ func _add_pillar(parent: Node3D, pos: Vector3) -> void:
 	MODEL_FIT.fit_footprint(inst, PILLAR_W, 0.0)
 	_prep_core_meshes(inst)
 
-func _add_edge_wall(root: Node3D, toward: Vector2i) -> bool:
+func _add_edge_wall(root: Node3D, toward: Vector2i, span: int = 1) -> bool:
 	var packed := _wall_scene(WALL_STRAIGHT_GLB)
 	if packed == null:
 		packed = _wall_scene(ROCK_GLB)
@@ -1135,23 +1120,31 @@ func _add_edge_wall(root: Node3D, toward: Vector2i) -> bool:
 		inst.rotation.y += PI * 0.5
 		aabb = _model_aabb(inst)
 	var wall_len := CELL - gap
-	MODEL_FIT.fit_footprint(inst, wall_len, 0.0)
-	var fitted := _model_aabb(inst)
-	var thick: float = maxf(fitted.size.z, 0.08)
+	# Keep the kit's height and thickness; widen the large stone planes along runs.
+	var scalar := wall_len / aabb.size.x
+	inst.scale = Vector3(scalar * span, scalar, scalar)
+	inst.position = -aabb.get_center() * inst.scale
+	inst.position.y = -aabb.position.y * scalar
+	var thick: float = maxf(aabb.size.z * scalar, 0.08)
 	holder.position = Vector3(
 		CELL * 0.5 + float(toward.x) * (CELL * 0.5 - thick * 0.5),
 		0.0,
 		CELL * 0.5 + float(toward.y) * (CELL * 0.5 - thick * 0.5)
 	)
+	if toward.y != 0:
+		holder.position.x += (span - 1) * CELL * 0.5
+	else:
+		holder.position.z += (span - 1) * CELL * 0.5
 	_prep_core_meshes(inst)
 	return true
 
-func _add_edge_wall_box(root: Node3D, toward: Vector2i) -> void:
+func _add_edge_wall_box(root: Node3D, toward: Vector2i, span: int = 1) -> void:
 	var gap := _pillar_gap()
-	var wall_len := CELL - gap
+	var wall_len := CELL * span - gap
 	var along_z: bool = toward.x != 0
 	var sz := Vector3(WALL_THICK, ROCK_H, wall_len) if along_z else Vector3(wall_len, ROCK_H, WALL_THICK)
-	_add_box(root, sz, _wall_face_pos(toward) + Vector3(0.0, ROCK_H * 0.5, 0.0), _mat_rock)
+	var offset := Vector3(0, 0, 1) if along_z else Vector3(1, 0, 0)
+	_add_box(root, sz, _wall_face_pos(toward) + Vector3(0.0, ROCK_H * 0.5, 0.0) + offset * (span - 1) * CELL * 0.5, _mat_rock)
 
 
 
@@ -1162,37 +1155,52 @@ func _wall_face_pos(toward: Vector2i) -> Vector3:
 		CELL * 0.5 + float(toward.y) * (CELL * 0.5 - WALL_THICK * 0.5)
 	)
 
-func _door_closed_scale() -> float:
-	if _door_ref_scale > 0.0:
-		return _door_ref_scale
-	var packed: PackedScene = load(DOOR_CLOSED_GLB) as PackedScene
-	if packed == null:
-		_door_ref_scale = 1.0
-		return _door_ref_scale
-	var probe: Node = packed.instantiate()
-	var aabb := _model_aabb(probe)
-	probe.free()
-	var span := maxf(aabb.size.x, aabb.size.z)
-	_door_ref_scale = 1.12 / maxf(span, 0.01)
-	return _door_ref_scale
-
 func _add_fitted_door(parent: Node3D, path: String) -> Node3D:
 	var packed: PackedScene = load(path) as PackedScene
 	if packed == null:
 		return null
-	var inst := packed.instantiate()
+	var inst := packed.instantiate() as Node3D
 	if inst == null:
 		return null
-	parent.add_child(inst)
-	var s := _door_closed_scale()
-	inst.scale = Vector3.ONE * s
-	var fitted := _model_aabb(inst)
-	if fitted.size != Vector3.ZERO:
-		inst.position.x += -fitted.get_center().x
-		inst.position.z += -fitted.get_center().z
-		inst.position.y += FLOOR_H - fitted.position.y
+	var fitted_root := Node3D.new()
+	fitted_root.name = "MeshyDoor"
+	parent.add_child(fitted_root)
+	fitted_root.add_child(inst)
+	var source := _door_aabb(inst)
+	if source.size == Vector3.ZERO:
+		fitted_root.queue_free()
+		return null
+	# Doors are wall modules. Fit each axis deliberately so image-to-3D depth
+	# cannot turn the frame into a slab laid across the corridor.
+	fitted_root.scale = Vector3(
+		DOOR_WIDTH / maxf(source.size.x, 0.001),
+		(ROCK_H - FLOOR_H) / maxf(source.size.y, 0.001),
+		DOOR_DEPTH / maxf(source.size.z, 0.001)
+	)
+	var fitted := _door_aabb(fitted_root)
+	fitted_root.position = Vector3(-fitted.get_center().x, FLOOR_H - fitted.position.y, -fitted.get_center().z)
 	_prep_core_meshes(inst)
-	return inst
+	return fitted_root
+
+func _door_aabb(n: Node) -> AABB:
+	return _door_aabb_xf(n, Transform3D.IDENTITY)
+
+func _door_aabb_xf(n: Node, xf: Transform3D) -> AABB:
+	var local := xf
+	if n is Node3D:
+		local = xf * (n as Node3D).transform
+	var acc := AABB()
+	var got := false
+	if n is MeshInstance3D:
+		acc = local * (n as MeshInstance3D).get_aabb()
+		got = true
+	for child in n.get_children():
+		var sub := _door_aabb_xf(child, local)
+		if sub.size == Vector3.ZERO:
+			continue
+		acc = sub if not got else acc.merge(sub)
+		got = true
+	return acc if got else AABB()
 
 func _model_aabb(n: Node) -> AABB:
 	return _model_aabb_xf(n, Transform3D.IDENTITY)
@@ -1515,10 +1523,21 @@ func _build_door(root: Node3D, p: Vector2i, game: Node) -> void:
 		path = DOOR_DAMAGED_GLB
 	if _add_fitted_door(frame, path) == null:
 		_build_door_boxes(frame, intact)
-	if intact:
-		_label(root, str(hp), Color("#C9AC7A"), Vector3(CELL * 0.5, 1.28, CELL * 0.5))
-	else:
-		_label(root, "broken", Color("#A74747"), Vector3(CELL * 0.5, 1.12, CELL * 0.5))
+	_door_state_icon(root, hp, game)
+
+func _door_state_icon(parent: Node3D, hp: int, game: Node) -> void:
+	var texture: Texture2D = DOOR_STATE_INTACT if hp >= int(game.DOOR_MAX_HP) else DOOR_STATE_DAMAGED if hp > 0 else DOOR_STATE_DESTROYED
+	var icon := Sprite3D.new()
+	icon.name = "DoorStateIcon"
+	icon.texture = texture
+	icon.pixel_size = _status_icon_pixel_size(texture) * DOOR_STATUS_ICON_SIZE_MULTIPLIER
+	icon.scale = Vector3.ONE * STATUS_ICON_SCALE
+	icon.fixed_size = false
+	icon.texture_filter = STATUS_ICON_FILTER
+	icon.billboard = STATUS_ICON_BILLBOARD
+	icon.no_depth_test = false
+	icon.position = Vector3(CELL * 0.5, DOOR_STATUS_ICON_HEIGHT, CELL * 0.5)
+	parent.add_child(icon)
 
 func _build_door_boxes(frame: Node3D, intact: bool) -> void:
 	var stone: Material = _mat_rock
@@ -1539,24 +1558,6 @@ func _build_door_boxes(frame: Node3D, intact: bool) -> void:
 		var hanging := _add_box(frame, Vector3(0.28, 0.62, 0.07), Vector3(-0.22, 0.42, 0.1), _mat_wood)
 		hanging.rotation_degrees = Vector3(18.0, 12.0, -28.0)
 		var fallen := _add_box(frame, Vector3(0.42, 0.07, 0.28), Vector3(0.14, 0.2, 0.16), _mat_wood)
-func _vault_label(parent: Node3D, text: String) -> void:
-	var lab := Label3D.new()
-	lab.text = text
-	# Keep the displayed height while rendering from a denser glyph atlas.
-	lab.font_size = 64
-	lab.pixel_size = 0.003
-	lab.modulate = Color("#FFD878")
-	lab.outline_modulate = Color(0.12, 0.08, 0.02, 0.95)
-	lab.outline_size = 5
-	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lab.alpha_cut = Label3D.ALPHA_CUT_DISABLED
-	lab.no_depth_test = false
-	# The fitted chest lid rises above the generic marker height.
-	lab.position = Vector3(CELL * 0.5, 1.16, CELL * 0.5)
-	parent.add_child(lab)
-
 		fallen.rotation_degrees = Vector3(8.0, 22.0, 6.0)
 		var splinter := _add_box(frame, Vector3(0.16, 0.05, 0.08), Vector3(-0.05, 0.18, -0.12), _mat_wood)
 		splinter.rotation_degrees = Vector3(0.0, 40.0, 0.0)
@@ -1586,6 +1587,24 @@ func _label(parent: Node3D, text: String, color: Color, pos: Vector3) -> void:
 	lab.no_depth_test = false
 	lab.position = pos
 	lab.outline_size = 3
+	parent.add_child(lab)
+
+func _vault_label(parent: Node3D, text: String) -> void:
+	var lab := Label3D.new()
+	lab.text = text
+	# Keep the displayed height while rendering from a denser glyph atlas.
+	lab.font_size = 64
+	lab.pixel_size = 0.003
+	lab.modulate = Color("#FFD878")
+	lab.outline_modulate = Color(0.12, 0.08, 0.02, 0.95)
+	lab.outline_size = 5
+	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.alpha_cut = Label3D.ALPHA_CUT_DISABLED
+	lab.no_depth_test = false
+	# The fitted chest lid rises above the generic marker height.
+	lab.position = Vector3(CELL * 0.5, 1.16, CELL * 0.5)
 	parent.add_child(lab)
 
 func _dig_bound_signature(game: Node) -> String:
@@ -1827,8 +1846,21 @@ func _sync_hero(game: Node) -> void:
 	mat.roughness = 0.55
 	_hero.material_override = mat
 	_hero.position = cell_center(p, 0.48)
+	_hero.scale = Vector3.ONE
+	_hero.rotation = Vector3.ZERO
+	var absorbing: bool = bool(game.hero.get("void_absorbing", false))
+	if absorbing:
+		var progress := clampf(1.0 - float(game.hero.get("portal_t", 0.0)) / maxf(float(game.PORTAL_HOLD), 0.01), 0.0, 1.0)
+		var pull := ease(progress, 1.6)
+		var angle := progress * TAU * 2.25
+		var orbit := lerpf(0.22, 0.0, pull)
+		_hero.position += Vector3(cos(angle) * orbit, 0.0, sin(angle) * orbit)
+		_hero.scale = Vector3.ONE * maxf(0.04, 1.0 - pull)
+		_hero.rotation = Vector3(sin(angle) * 0.55, angle * 2.4, cos(angle) * 0.55)
 	var hp_ratio := clampf(float(game.hero["hp"]) / float(game.hero["max_hp"]), 0.05, 1.0)
 	_hero_bar.position = _hero.position + Vector3(0, 0.48, 0)
+	_hero_bar.visible = not absorbing
+	_hero_tag.visible = not absorbing
 	var bm := BoxMesh.new()
 	bm.size = Vector3(0.42 * hp_ratio, 0.05, 0.05)
 	_hero_bar.mesh = bm
@@ -1844,7 +1876,7 @@ func _sync_hero(game: Node) -> void:
 	_hero_tag.position = _hero.position + Vector3(0, 0.72, 0)
 
 func _sync_town_portal(game: Node) -> void:
-	var show: bool = bool(game.raid_active) and not game.hero.is_empty() and bool(game.hero.get("portaling", false))
+	var show: bool = bool(game.raid_active) and not game.hero.is_empty() and bool(game.hero.get("portaling", false)) and not bool(game.hero.get("void_absorbing", false))
 	if not show:
 		if _town_portal != null:
 			_town_portal.visible = false
@@ -1943,7 +1975,7 @@ func _process(delta: float) -> void:
 	if _mat_glint != null:
 		_mat_glint.emission_energy_multiplier = 1.8 + sin(_core_pulse * 9.0) * 0.5
 	if _fill != null and _fill.light_energy > 0.01:
-		_fill.light_energy = _core_fill_base + sin(_core_pulse * 7.0) * 0.18
+		_fill.light_energy = _core_fill_base * (1.0 + sin(_core_pulse * 0.9) * 0.06)
 	_spark_cd -= delta
 	if _spark_cd <= 0.0 and not _core_bolts.is_empty():
 		_spark_cd = _rng.randf_range(0.035, 0.08)

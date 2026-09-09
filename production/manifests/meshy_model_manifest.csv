@@ -1,5 +1,28 @@
 ﻿mesh_output,strategy,families,source_images
 models/doors/door_standard.glb,shared_hinged_mesh,door_standard,doors/standard/door_standard_reference.png | doors/standard/door_standard_closed.png | doors/standard/door_standard_open.png
+models/doors/wall_v2/door_closed.glb,variant_mesh,door_wall_v2,doors/wall_v2/door_closed.png
+models/doors/wall_v2/door_open.glb,variant_mesh,door_wall_v2,doors/wall_v2/door_open.png
+models/doors/wall_v2/door_damaged.glb,variant_mesh,door_wall_v2,doors/wall_v2/door_damaged.png
+models/doors/wall_v2/door_destroyed.glb,variant_mesh,door_wall_v2,doors/wall_v2/door_destroyed.png
+models/traps/stone_v2/spike_armed.glb,variant_mesh,stone_v2_spike,traps/stone_v2/spike_armed.png
+models/traps/stone_v2/spike_armed_clean.glb,variant_mesh,stone_v2_spike_clean,traps/stone_v2/spike_armed.png
+models/traps/stone_v2/snare_armed.glb,variant_mesh,stone_v2_snare,traps/stone_v2/snare_armed.png
+models/traps/stone_v2/void_armed.glb,variant_mesh,stone_v2_void,traps/stone_v2/void_armed.png
+models/traps/stone_v2/spike_sprung.glb,variant_mesh,stone_v2_spike,traps/stone_v2/spike_sprung.png
+models/traps/stone_v2/void_sprung.glb,variant_mesh,stone_v2_void,traps/stone_v2/void_sprung.png
+models/traps/stone_v2/void_broken.glb,variant_mesh,stone_v2_void,traps/stone_v2/void_broken.png
+models/traps/stone_v2/spike_broken.glb,variant_mesh,stone_v2_spike,traps/stone_v2/spike_broken.png
+models/traps/stone_v2/snare_sprung.glb,variant_mesh,stone_v2_snare,traps/stone_v2/snare_sprung.png
+models/traps/stone_v2/snare_broken.glb,variant_mesh,stone_v2_snare,traps/stone_v2/snare_broken.png
+models/traps/paver_v3/snare_armed.glb,variant_mesh,paver_v3_snare,traps/paver_v3/snare_armed.png
+models/traps/paver_v3/snare_sprung.glb,variant_mesh,paver_v3_snare,traps/paver_v3/snare_sprung.png
+models/traps/paver_v3/snare_broken.glb,variant_mesh,paver_v3_snare,traps/paver_v3/snare_broken.png
+models/traps/paver_v3/void_armed.glb,variant_mesh,paver_v3_void,traps/paver_v3/void_armed.png
+models/traps/paver_v3/void_sprung.glb,variant_mesh,paver_v3_void,traps/paver_v3/void_sprung.png
+models/traps/paver_v3/void_broken.glb,variant_mesh,paver_v3_void,traps/paver_v3/void_broken.png
+models/traps/paver_v3/spike_armed.glb,variant_mesh,paver_v3_spike,traps/paver_v3/spike_armed.png
+models/traps/paver_v3/spike_sprung.glb,variant_mesh,paver_v3_spike,traps/paver_v3/spike_sprung.png
+models/traps/paver_v3/spike_broken.glb,variant_mesh,paver_v3_spike,traps/paver_v3/spike_broken.png
 models/doors/door_standard_damaged.glb,variant_mesh_or_damage_overlay,door_standard,doors/standard/door_standard_damaged.png
 models/doors/door_standard_destroyed.glb,variant_mesh,door_standard,doors/standard/door_standard_destroyed.png
 models/storage/vault_chest.glb,shared_hinged_mesh,vault_chest,storage/vault_chest/vault_chest_reference.png | storage/vault_chest/vault_chest_closed_full.png | storage/vault_chest/vault_chest_open_empty.png | storage/vault_chest/vault_chest_closed_empty.png | storage/vault_chest/vault_chest_open_full.png
@@ -51,6 +74,7 @@ models/structures/expansion_sanctuary_interrupted.glb,variant_mesh,expansion_san
 models/structures/expansion_sanctuary_destroyed.glb,variant_mesh,expansion_sanctuary,structures/expansion_sanctuary/expansion_sanctuary_destroyed.png
 models/environment/floor_tile_uncontrolled.glb,modular_static_mesh,floor_tile_uncontrolled,environment/modules/floor_tile_uncontrolled.png
 models/environment/floor_tile_controlled.glb,modular_static_mesh,floor_tile_controlled,environment/modules/floor_tile_controlled.png
+models/environment/floor_tile_trap_match_1x1.glb,modular_static_mesh,floor_tile_trap_match_1x1,environment/modules/floor_tile_trap_match_1x1.png
 models/environment/floor_tile_strong_influence.glb,modular_static_mesh,floor_tile_strong_influence,environment/modules/floor_tile_strong_influence.png
 models/environment/wall_straight_uncontrolled.glb,modular_static_mesh,wall_straight_uncontrolled,environment/modules/wall_straight_uncontrolled.png
 models/environment/wall_straight_controlled.glb,modular_static_mesh,wall_straight_controlled,environment/modules/wall_straight_controlled.png
