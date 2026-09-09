@@ -273,16 +273,16 @@ func _trigger_trap(p: Vector2i, tile: int) -> void:
 	sim.trap_charges[p] = charges - 1
 	raid_stats["traps_spent"] = int(raid_stats["traps_spent"]) + 1
 	if tile == Tile.SPIKE:
-		var damage := 24
+		var damage := GameTypes.DAMAGE_SPIKE
 		if String(hero["kind"]) == "paladin":
-			damage = 15   # Lithides resist physical hazards (GAME_DESIGN.md §8).
+			damage = GameTypes.DAMAGE_SPIKE_PALADIN   # Lithides resist physical hazards (GAME_DESIGN.md §8).
 		hero["hp"] = int(hero["hp"]) - damage
 		hero["trap_sprung_at"] = p
 	elif tile == Tile.VOID:
 		hero["trap_sprung_at"] = p
 		_banish_via_void()
 	else:
-		hero["hp"] = int(hero["hp"]) - 10
+		hero["hp"] = int(hero["hp"]) - GameTypes.DAMAGE_SNARE
 		hero["move_cd"] = float(hero["move_cd"]) + 0.55
 		hero["trap_sprung_at"] = p
 

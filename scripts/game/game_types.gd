@@ -31,6 +31,10 @@ const COST_DOOR := 40
 const COST_REPAIR_DOOR := 15
 const COST_REPAIR_TRAP := 10
 
+const DAMAGE_SPIKE := 30
+const DAMAGE_SPIKE_PALADIN := 20
+const DAMAGE_SNARE := 16
+
 const TURN_TIME := 0.48
 const DIRS: Array[Vector2i] = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
 

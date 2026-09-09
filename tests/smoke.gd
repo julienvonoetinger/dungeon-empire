@@ -366,6 +366,9 @@ func _test_trap_wear_and_repair() -> void:
 
     m._start_raid()
     m.hero["kind"] = "thief"
+    # This test exercises charge depletion, not whether a standard hero survives three hits.
+    m.hero["hp"] = 300
+    m.hero["max_hp"] = 300
     m.hero["door_damage"] = 18
 
     # Every trigger consumes one charge and wounds the hero.

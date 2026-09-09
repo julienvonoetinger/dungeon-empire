@@ -232,18 +232,13 @@ func _make_materials() -> void:
 	_mat_expand_fill = StandardMaterial3D.new()
 	_mat_expand_fill.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	_mat_expand_fill.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	_mat_expand_fill.albedo_color = Color(1.0, 0.86, 0.18, 0.28)
-	_mat_expand_fill.emission_enabled = true
-	_mat_expand_fill.emission = Color(1.0, 0.82, 0.12)
-	_mat_expand_fill.emission_energy_multiplier = 1.4
+	_mat_expand_fill.albedo_color = Color("#3B414C1A")
 	_mat_expand_fill.disable_receive_shadows = true
 	_mat_expand_fill.render_priority = 4
 	_mat_expand_dash = StandardMaterial3D.new()
 	_mat_expand_dash.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	_mat_expand_dash.albedo_color = Color(1.0, 0.88, 0.12)
-	_mat_expand_dash.emission_enabled = true
-	_mat_expand_dash.emission = Color(1.0, 0.9, 0.2)
-	_mat_expand_dash.emission_energy_multiplier = 2.2
+	_mat_expand_dash.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	_mat_expand_dash.albedo_color = Color("#80652A99")
 	_mat_expand_dash.disable_receive_shadows = true
 	_mat_expand_dash.render_priority = 5
 
@@ -574,7 +569,7 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 				gold_m.emission = Color("#80652A")
 				gold_m.emission_energy_multiplier = 0.35
 				_add_box(root, Vector3(0.3875, 0.35, 0.3875), Vector3(CELL * 0.5, 0.35, CELL * 0.5), gold_m)
-			_label(root, str(gold_amt), Color("#FFD878"), Vector3(CELL * 0.5, 0.62, CELL * 0.5))
+			_vault_label(root, str(gold_amt))
 		game.Tile.SPIKE:
 			if not _add_fitted_spike(root, spent, _trap_sprung(p, game, spent)):
 				_add_floor_tile(root)
@@ -1544,6 +1539,24 @@ func _build_door_boxes(frame: Node3D, intact: bool) -> void:
 		var hanging := _add_box(frame, Vector3(0.28, 0.62, 0.07), Vector3(-0.22, 0.42, 0.1), _mat_wood)
 		hanging.rotation_degrees = Vector3(18.0, 12.0, -28.0)
 		var fallen := _add_box(frame, Vector3(0.42, 0.07, 0.28), Vector3(0.14, 0.2, 0.16), _mat_wood)
+func _vault_label(parent: Node3D, text: String) -> void:
+	var lab := Label3D.new()
+	lab.text = text
+	# Keep the displayed height while rendering from a denser glyph atlas.
+	lab.font_size = 64
+	lab.pixel_size = 0.003
+	lab.modulate = Color("#FFD878")
+	lab.outline_modulate = Color(0.12, 0.08, 0.02, 0.95)
+	lab.outline_size = 5
+	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	lab.alpha_cut = Label3D.ALPHA_CUT_DISABLED
+	lab.no_depth_test = false
+	# The fitted chest lid rises above the generic marker height.
+	lab.position = Vector3(CELL * 0.5, 1.16, CELL * 0.5)
+	parent.add_child(lab)
+
 		fallen.rotation_degrees = Vector3(8.0, 22.0, 6.0)
 		var splinter := _add_box(frame, Vector3(0.16, 0.05, 0.08), Vector3(-0.05, 0.18, -0.12), _mat_wood)
 		splinter.rotation_degrees = Vector3(0.0, 40.0, 0.0)
@@ -1666,15 +1679,15 @@ func _add_expand_pad(rock: Vector2i, game: Node) -> void:
 	_add_dashed_square(center, EXPAND_PAD)
 	var lab := Label3D.new()
 	lab.text = str(GameTypes.COST_DIG)
-	lab.font_size = 72
-	lab.pixel_size = 0.006
-	lab.modulate = Color(1.0, 0.86, 0.22)
+	lab.font_size = 56
+	lab.pixel_size = 0.0045
+	lab.modulate = Color("#C9AC7A")
 	lab.outline_modulate = Color(0.12, 0.08, 0.02, 0.9)
-	lab.outline_size = 8
+	lab.outline_size = 5
 	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	lab.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	lab.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	lab.alpha_cut = Label3D.ALPHA_CUT_DISABLED
 	lab.no_depth_test = false
 	lab.position = center + Vector3(0.0, 0.03, 0.0)
 	lab.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
