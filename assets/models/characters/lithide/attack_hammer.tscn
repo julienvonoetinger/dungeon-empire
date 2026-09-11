@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://assets/models/characters/lithide/attack_hammer_mesh.res" id="1_jmbe2"]
+
+[node name="GildedStonehammer" type="Node3D" unique_id=1266215215]
+
+[node name="HammerMesh" type="MeshInstance3D" parent="." unique_id=561035084]
+transform = Transform3D(98.38594, 10.073189, -14.789727, 14.789525, -92.302444, 35.51804, -10.073481, -37.132095, -92.30241, -58.81783, 75.65707, 42.673077)
+mesh = ExtResource("1_jmbe2")

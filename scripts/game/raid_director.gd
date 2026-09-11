@@ -8,6 +8,8 @@ const RAID_DELAY := GameTypes.RAID_DELAY
 const CORE_MAX := GameTypes.CORE_MAX
 const DOOR_MAX_HP := GameTypes.DOOR_MAX_HP
 const TURN_TIME := GameTypes.TURN_TIME
+const CORE_STRIKE_HOLD := GameTypes.CORE_STRIKE_HOLD
+const VULPIN_COLLECT_HOLD := GameTypes.VULPIN_COLLECT_HOLD
 const TRAITS := GameTypes.TRAITS
 const DIRS := GameTypes.DIRS
 const ROUTE_STEP := GameTypes.ROUTE_STEP
@@ -166,6 +168,25 @@ func _end_raid(result_text: String) -> void:
 
 func _update_hero(delta: float) -> void:
 	if hero.is_empty():
+		return
+
+	if bool(hero.get("collecting_gold", false)):
+		hero["collect_t"] = float(hero.get("collect_t", 0.0)) - delta
+		if float(hero["collect_t"]) <= 0.0:
+			var collect_result := String(hero.get("collect_result", "%s leaves the dungeon." % hero["display"]))
+			hero.erase("collecting_gold")
+			hero.erase("collect_t")
+			hero.erase("collect_result")
+			_open_town_portal(collect_result)
+		return
+
+	if bool(hero.get("core_striking", false)):
+		hero["core_strike_t"] = float(hero.get("core_strike_t", 0.0)) - delta
+		if float(hero["core_strike_t"]) <= 0.0:
+			var result_text := _apply_core_damage(int(hero.get("core_strike_damage", 42)))
+			hero.erase("core_striking")
+			hero.erase("core_strike_damage")
+			_open_town_portal(result_text)
 		return
 
 	if bool(hero.get("portaling", false)):
@@ -334,25 +355,39 @@ func _try_rob_vault(p: Vector2i) -> void:
 	var rest := ""
 	if left > 0:
 		rest = " %d gold stays behind." % left
-	_open_town_portal("%s steals %d gold and teleports out of the dungeon.%s" % [hero["display"], amount, rest])
+	hero["collecting_gold"] = true
+	hero["collect_t"] = VULPIN_COLLECT_HOLD
+	hero["collect_result"] = "%s steals %d gold and teleports out of the dungeon.%s" % [hero["display"], amount, rest]
+	sim.message = "%s gathers gold from the vault." % hero["display"]
 
 
 func _hero_reaches_core() -> void:
 	var damage := 24
 	if String(hero["kind"]) == "paladin":
 		damage = 42
+
+	if String(hero["kind"]) == "paladin":
+		hero["core_striking"] = true
+		hero["core_strike_t"] = CORE_STRIKE_HOLD
+		hero["core_strike_damage"] = damage
+		sim.message = "%s raises its hammer against the Core." % hero["display"]
+		return
+
+	_open_town_portal(_apply_core_damage(damage))
+
+
+func _apply_core_damage(damage: int) -> String:
 	var lost := mini(sim.core_hp, damage)
 	sim.core_hp = maxi(0, sim.core_hp - damage)
 	raid_stats["core_lost"] = int(raid_stats["core_lost"]) + lost
 	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
 	raid_stats["carried_out"] = int(hero["carried_gold"])
 
+	var result_text := "%s strikes the Core (-%d integrity) then vanishes." % [hero["display"], damage]
 	if sim.core_hp <= 0:
 		sim.game_over = true
-		_open_town_portal("DEFEAT — %s destroys the Core. Click Reset to start a new campaign." % hero["display"])
-		return
-
-	_open_town_portal("%s strikes the Core (-%d integrity) then vanishes." % [hero["display"], damage])
+		result_text = "DEFEAT — %s destroys the Core. Click Reset to start a new campaign." % hero["display"]
+	return result_text
 
 
 func _kill_hero() -> void:

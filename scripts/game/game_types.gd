@@ -36,6 +36,10 @@ const DAMAGE_SPIKE_PALADIN := 20
 const DAMAGE_SNARE := 16
 
 const TURN_TIME := 0.48
+# Matches the 76-frame / 30 FPS Axe Spin Attack clip used by the Lithide paladin.
+const CORE_STRIKE_HOLD := 76.0 / 30.0
+# Matches the 181-frame / 30 FPS Collect Object clip used by the Vulpin thief.
+const VULPIN_COLLECT_HOLD := 181.0 / 30.0
 const DIRS: Array[Vector2i] = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
 
 const ROUTE_STEP := 1.0
@@ -54,7 +58,7 @@ const CORPSE_OFFSET := Vector2(-8, 8)
 const BAG_OFFSET := Vector2(9, -7)
 const CLICK_RADIUS := 14.0
 const ZOOM_MIN := 0.45
-const ZOOM_MAX := 6.0
+const ZOOM_MAX := 20.0
 const ZOOM_DEFAULT := 1.35
 const WORLD_RENDER_SCALE := 2.0
 const YAW_DEFAULT := 45.0

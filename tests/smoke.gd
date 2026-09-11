@@ -26,6 +26,7 @@ func _initialize() -> void:
     _test_death_and_theft()
     _test_personalities()
     _test_report_fields()
+    _test_paladin_core_attack_hold()
     _test_raids()
     _test_loot_and_corpses()
     _test_trapped_corridor()
@@ -41,6 +42,34 @@ func _initialize() -> void:
 func _test_rendering_method() -> void:
     check(ProjectSettings.get_setting("rendering/renderer/rendering_method") == "forward_plus", "desktop renderer uses Forward+")
     check(ProjectSettings.get_setting("rendering/renderer/rendering_method.mobile") == "gl_compatibility", "mobile renderer keeps Compatibility")
+
+func _test_paladin_core_attack_hold() -> void:
+    print("== paladin Core attack ==")
+    m._new_map()
+    var core := core_cell()
+    m.raid_active = true
+    m.core_hp = m.CORE_MAX
+    m.hero = {
+        "kind": "paladin",
+        "display": "Lithide Paladin",
+        "pos": core,
+        "hp": 100,
+        "max_hp": 100,
+        "carried_gold": 0,
+        "fleeing": false,
+        "portaling": false
+    }
+    m.raid_stats = {"core_lost": 0, "escaped": 0, "carried_out": 0}
+    m._resolve_cell(core)
+    check(bool(m.hero.get("core_striking", false)), "paladin must enter a Core-strike hold before leaving")
+    check(not bool(m.hero.get("portaling", false)), "paladin must not portal before its Core strike is shown")
+    check(m.core_hp == m.CORE_MAX, "paladin must not damage the Core before the attack animation impact")
+    m._update_hero(2.5)
+    check(m.core_hp == m.CORE_MAX, "paladin must not damage the Core before the 2.533-second axe spin finishes")
+    m._update_hero(0.04)
+    check(m.core_hp == m.CORE_MAX - 42, "paladin must damage the Core when the axe spin reaches its impact")
+    check(bool(m.hero.get("portaling", false)), "paladin must portal after completing its Core strike")
+    m._new_map()
 
 func click_named(tool: int) -> void:
     if tool == m.Tool.RESET:
@@ -166,7 +195,7 @@ func _test_sprite_pack() -> void:
     check(m._sprite("floor").get_width() >= 256, "floor wrap texture too small")
 
 func wait_town_portal() -> void:
-    for i in range(30):
+    for i in range(100):
         if not m.raid_active:
             return
         m._process(0.1)
@@ -233,6 +262,9 @@ func _test_camera() -> void:
     m._zoom_at(screen, 1.25)
     check(m.cam_zoom > z_before + 0.01, "wheel zoom did not increase")
     check(m._screen_to_grid(screen) == home, "zoom-at-cursor moved the cell under the pointer")
+    # Asset placement needs a close inspection view, beyond the old 6x cap.
+    m._zoom_at(screen, 100.0)
+    check(m.cam_zoom >= 20.0, "camera does not allow close asset inspection")
     m.cam_pan += Vector2(40, -15)
     var moved: Vector2 = m._board_to_screen(m._cell_pos(home))
     check(m._screen_to_grid(moved) == home, "pan broke cell picking")
@@ -478,6 +510,12 @@ func _test_death_and_theft() -> void:
     m.hero["pos"] = vault
     m._resolve_cell(vault)
     check(m.gold == treasury - 40, "theft not limited by carrying capacity (%d -> %d)" % [treasury, m.gold])
+    check(bool(m.hero.get("collecting_gold", false)), "a thief must collect gold before opening the town portal")
+    check(not bool(m.hero.get("portaling", false)), "a thief must not portal before the collect animation finishes")
+    m._update_hero(6.0)
+    check(bool(m.hero.get("collecting_gold", false)), "the thief must still collect before the 6.033-second clip ends")
+    m._update_hero(0.04)
+    check(bool(m.hero.get("portaling", false)), "the thief must portal after the collect animation finishes")
     wait_town_portal()
     check(not m.raid_active, "the thief does not teleport out after stealing")
 

@@ -66,6 +66,13 @@ func _run() -> void:
 		_check(_playing_clip(vulpin).contains("running"), "a fleeing thief must run")
 
 	game.hero["fleeing"] = false
+	game.hero["collecting_gold"] = true
+	world._sync_hero(game)
+	if vulpin != null:
+		var collect := vulpin.find_child("Collect", true, false) as Node3D
+		_check(collect != null and collect.visible, "a thief taking vault gold must show the collect model")
+		_check(_playing_clip(vulpin).contains("collect"), "a thief taking vault gold must play the collect animation")
+	game.hero.erase("collecting_gold")
 	game.hero["kind"] = "paladin"
 	world._sync_hero(game)
 	_check(lithide != null and lithide.visible, "paladin raids must show the animated Lithide")
@@ -80,6 +87,18 @@ func _run() -> void:
 	world._sync_hero(game)
 	if lithide != null:
 		_check(_playing_clip(lithide).contains("running"), "a fleeing paladin must run")
+	game.hero["fleeing"] = false
+	game.hero["core_striking"] = true
+	world._sync_hero(game)
+	if lithide != null:
+		var attack := lithide.find_child("Attack", true, false) as Node3D
+		_check(attack != null and attack.visible, "a paladin striking the Core must play its attack animation")
+		_check(_playing_clip(lithide).contains("spin") or _playing_clip(lithide).contains("attack"),
+			"a paladin striking the Core must play the axe spin attack clip")
+		var attack_player := attack.find_child("AnimationPlayer", true, false) as AnimationPlayer
+		_check(attack_player != null and attack_player.get_animation(attack_player.current_animation).loop_mode != Animation.LOOP_NONE,
+			"the core strike must loop while the paladin is striking")
+	game.hero.erase("core_striking")
 
 	game.hero["fleeing"] = false
 	game.hero["kind"] = "ranger"
@@ -89,6 +108,12 @@ func _run() -> void:
 	_check(proxy != null and not proxy.visible, "ranger heroes must hide the capsule proxy")
 	if vulpin != null:
 		_check(_playing_clip(vulpin).contains("walking"), "ranger heroes must use the Vulpin walking clip")
+
+	game.raid_active = false
+	game.hero = {}
+	world._sync_hero(game)
+	_check(world.find_child("CoreAttackPreview", true, false) == null,
+		"preparation must not spawn a paladin test preview")
 
 	game.free()
 	world.queue_free()

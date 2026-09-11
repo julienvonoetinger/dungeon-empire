@@ -1883,10 +1883,12 @@ func _sync_hero(game: Node) -> void:
 		_vulpin.visible = use_vulpin
 		if use_vulpin:
 			_vulpin.set_running(bool(game.hero["fleeing"]))
+			_vulpin.set_collecting(bool(game.hero.get("collecting_gold", false)))
 	if _lithide != null:
 		_lithide.visible = use_lithide
 		if use_lithide:
 			_lithide.set_running(bool(game.hero["fleeing"]))
+			_lithide.set_attacking(bool(game.hero.get("core_striking", false)), true)
 	var mat := StandardMaterial3D.new()
 	match kind:
 		"paladin":
