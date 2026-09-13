@@ -27,6 +27,12 @@ func _initialize() -> void:
     _test_personalities()
     _test_report_fields()
     _test_paladin_core_attack_hold()
+    _test_vulpin_never_attacks_core()
+    _test_paladin_door_attack_hold()
+    _test_paladin_unknown_door_commitment()
+    _test_vulpin_lockpicking_hold()
+    _test_magic_door_rules()
+    _test_ranger_trap_jump()
     _test_raids()
     _test_loot_and_corpses()
     _test_trapped_corridor()
@@ -37,6 +43,8 @@ func _initialize() -> void:
     else:
         for f in failures:
             print("FAIL: ", f)
+    m.queue_free()
+    await process_frame
     quit(0 if failures.is_empty() else 1)
 
 func _test_rendering_method() -> void:
@@ -71,6 +79,236 @@ func _test_paladin_core_attack_hold() -> void:
     check(bool(m.hero.get("portaling", false)), "paladin must portal after completing its Core strike")
     m._new_map()
 
+
+func _test_vulpin_never_attacks_core() -> void:
+    print("== Vulpin Core restraint ==")
+    m._new_map()
+    var core := core_cell()
+    m.raid_active = true
+    m.core_hp = m.CORE_MAX
+    m.hero = {
+        "kind": "thief",
+        "display": "Vulpin Thief",
+        "pos": core,
+        "hp": 68,
+        "max_hp": 68,
+        "carried_gold": 0,
+        "fleeing": false,
+        "portaling": false,
+        "known": {},
+        "bias": {},
+        "ignored": {}
+    }
+    m.raid_stats = {"core_lost": 0, "escaped": 0, "carried_out": 0}
+    m._resolve_cell(core)
+    check(m.core_hp == m.CORE_MAX, "a Vulpin must never damage the Core")
+    check(not bool(m.hero.get("core_striking", false)), "a Vulpin must never enter the Core attack state")
+    check(not bool(m.hero.get("portaling", false)), "finding the Core must not make a Vulpin teleport away")
+    m._new_map()
+
+
+func _test_paladin_door_attack_hold() -> void:
+    print("== paladin door attack ==")
+    m._new_map()
+    var door := corridor_south()
+    click_named(m.Tool.BUILD_DOOR)
+    click_cell(door)
+    ensure_entrance()
+    m._start_raid()
+    m.hero["kind"] = "paladin"
+    m.hero["display"] = "Lithide Paladin"
+    m.hero["door_damage"] = 20
+    var hp_before: int = int(m.door_hp[door])
+    m._attack_door(door)
+    check(bool(m.hero.get("door_striking", false)), "a Paladin must enter a door-strike state")
+    check(int(m.door_hp[door]) == hp_before, "a Paladin must not damage a door before the attack impact")
+    m._update_hero(2.5)
+    check(int(m.door_hp[door]) == hp_before, "a Paladin must not damage a door before the 2.533-second attack finishes")
+    m._update_hero(0.04)
+    check(int(m.door_hp[door]) == hp_before - 20, "a Paladin must damage the door at the attack impact")
+    m._new_map()
+
+
+func _test_paladin_unknown_door_commitment() -> void:
+    print("== paladin unknown door commitment ==")
+    m._new_map()
+    var door := corridor_south()
+    click_named(m.Tool.BUILD_DOOR)
+    click_cell(door)
+    ensure_entrance()
+    m._start_raid()
+    m.hero["kind"] = "paladin"
+    m.hero["door_damage"] = 20
+    m.hero["known"] = {}
+    m._attack_door(door)
+    m._update_hero(2.54)
+    check(bool(m.hero.get("door_striking", false)), "a Paladin may make a second attempt at an unknown entry door")
+    m._update_hero(2.54)
+    check(not bool(m.hero.get("door_striking", false)), "a Paladin must stop after two attempts at an unknown door")
+    m._new_map()
+
+
+func _test_vulpin_lockpicking_hold() -> void:
+    print("== Vulpin lockpicking ==")
+    m._new_map()
+    var door := corridor_south()
+    click_named(m.Tool.BUILD_DOOR)
+    click_cell(door)
+    ensure_entrance()
+    m._start_raid()
+    m.hero["kind"] = "thief"
+    m.hero["display"] = "Vulpin Thief"
+    m.hero["door_damage"] = 20
+    m.hero["lockpick_success_chance"] = 1.0
+    var hp_before: int = int(m.door_hp[door])
+    m._attack_door(door)
+    check(bool(m.hero.get("lockpicking", false)), "a Vulpin must enter a lockpicking state at a door")
+    check(int(m.door_hp[door]) == hp_before, "a Vulpin must not open the door before the lockpicking animation impact")
+    m._update_hero(3.0)
+    check(int(m.door_hp[door]) == hp_before, "a Vulpin must hold its lockpicking animation before opening the door")
+    m._update_hero(0.04)
+    check(int(m.door_hp[door]) == 0, "a successful Vulpin lockpick must open the door without breaking it")
+    check(bool(m.sim.door_opened.get(door, false)), "a successful Vulpin lockpick must mark the door as opened, not destroyed")
+    check(not bool(m.hero.get("lockpicking", false)), "a Vulpin must stop lockpicking after opening the door")
+
+    m._new_map()
+    door = corridor_south()
+    click_named(m.Tool.BUILD_DOOR)
+    click_cell(door)
+    ensure_entrance()
+    m._start_raid()
+    m.hero["kind"] = "thief"
+    m.hero["display"] = "Vulpin Thief"
+    m.hero["lockpick_success_chance"] = 0.0
+    m._attack_door(door)
+    m._update_hero(3.04)
+    check(bool(m.hero.get("lockpicking", false)), "a Vulpin gets one final lockpicking attempt after a failure")
+    m._update_hero(3.04)
+    check(int(m.door_hp[door]) == m.DOOR_MAX_HP, "failed lockpicking must not damage a door")
+    check(bool(m.hero.get("avoided_doors", {}).get(door, false)), "a Vulpin must abandon a door after two failed lockpicks")
+    m._new_map()
+
+
+func _test_magic_door_rules() -> void:
+    print("== magic door rules ==")
+    var magic_tool: int = int(GameTypes.Tool.get("BUILD_MAGIC_DOOR", -1))
+    var magic_tile: int = int(GameTypes.Tile.get("MAGIC_DOOR", -1))
+    check(magic_tool >= 0, "Magic Door tool missing")
+    check(magic_tile >= 0, "Magic Door tile missing")
+    if magic_tool < 0 or magic_tile < 0:
+        return
+    m._new_map()
+    var door := corridor_south()
+    m.toolbar.open_at(door, Vector2(400, 300))
+    check(m.toolbar._tool_enabled(magic_tool), "Magic Door disabled in the radial menu on a valid wall gap")
+    m.toolbar.close()
+    click_named(magic_tool)
+    click_cell(door)
+    check(tile(door) == magic_tile, "magic door not placed between walls")
+    check(m._door_intact(door), "magic door not treated as an intact door")
+
+    ensure_entrance()
+    m._start_raid()
+    m.hero["kind"] = "paladin"
+    m.hero["display"] = "Lithide Paladin"
+    m.hero["door_damage"] = 200
+    m._attack_door(door)
+    m._update_hero(3.0)
+    check(int(m.door_hp[door]) == m.DOOR_MAX_HP, "Paladin damaged an invulnerable magic door")
+    check(not bool(m.door_opened.get(door, false)), "Paladin opened a magic door")
+    check(bool(m.hero.get("saw_magic_door_blocker", false)), "Paladin did not remember that the raid needs a mage")
+    m.raid._open_town_portal("test exit")
+    m.raid._finish_town_portal()
+    check(int(m.raid.mage_pressure) == 1, "first non-mage magic-door escape did not increase mage pressure")
+
+    m.raid_active = true
+    m.hero["kind"] = "thief"
+    m.hero["display"] = "Vulpin Thief"
+    m.hero["portaling"] = false
+    m.hero["lockpick_success_chance"] = 1.0
+    m._attack_door(door)
+    check(int(m.door_hp[door]) == m.DOOR_MAX_HP, "Vulpin damaged a magic door")
+    check(not bool(m.door_opened.get(door, false)), "Vulpin lockpicked a magic door")
+    check(bool(m.hero.get("avoided_doors", {}).get(door, false)), "Vulpin did not mark a magic door as impossible")
+    m.raid._open_town_portal("test exit")
+    m.raid._finish_town_portal()
+    check(int(m.raid.mage_pressure) == 2, "mage pressure is not cumulative after repeated non-mage escapes")
+    m.raid.mage_pressure = 999
+    check(String(m.raid._random_hero_template()["kind"]) == "mage", "high magic-door pressure did not force the next mage")
+    check(int(m.raid.mage_pressure) == 0, "mage pressure was not consumed when a mage was chosen")
+
+    m.hero = {
+        "kind": "mage",
+        "display": "Sable Mage",
+        "pos": door + Vector2i(0, -1),
+        "hp": 74,
+        "max_hp": 74,
+        "carried_gold": 0,
+        "fleeing": false,
+        "portaling": false,
+        "known": {},
+        "visited": {},
+        "bias": {},
+        "ignored": {},
+        "facing": Vector2i.DOWN,
+        "trait": "Arcane",
+    }
+    m.raid_active = true
+    m.hero["kind"] = "mage"
+    m.hero["display"] = "Sable Mage"
+    m.dungeon.sync(m)
+    var mycean: Node3D = m.dungeon._mycean
+    var proxy: Node3D = m.dungeon._hero_proxy
+    check(mycean != null, "Mage placeholder node missing")
+    check(mycean != null and mycean.visible, "Mage placeholder not visible for mage heroes")
+    check(proxy != null and not proxy.visible, "Mage still uses the generic hero proxy")
+    m._attack_door(door)
+    check(bool(m.hero.get("arcane_opening", false)), "Mage must start an arcane opening state at a magic door")
+    m._update_hero(1.6)
+    check(int(m.door_hp[door]) == 0, "Mage did not open the magic door")
+    check(bool(m.door_opened.get(door, false)), "Mage opening must mark the magic door as opened")
+    m._new_map()
+
+
+func _test_ranger_trap_jump() -> void:
+    print("== ranger trap jump ==")
+    m._new_map()
+    var from := core_east_floor()
+    var trap := from + Vector2i.RIGHT
+    var landing := trap + Vector2i.RIGHT
+    ensure_floor(trap)
+    ensure_floor(landing)
+    click_named(m.Tool.TRAP_SPIKE)
+    click_cell(trap)
+    var known := {}
+    known[trap] = m.Tile.SPIKE
+    var visited := {}
+    visited[from] = 1
+    m.raid_active = true
+    m.hero = {
+        "kind": "ranger",
+        "display": "Batrafian Ranger",
+        "pos": from,
+        "hp": 82,
+        "max_hp": 82,
+        "carried_gold": 0,
+        "fleeing": false,
+        "portaling": false,
+        "known": known,
+        "visited": visited,
+        "ignored": {},
+        "bias": {},
+        "facing": Vector2i.RIGHT,
+    }
+    m.raid_stats = {"escaped": 0, "carried_out": 0, "traps_spent": 0}
+    check(m.raid._try_trap_jump(from, trap), "ranger did not jump a known active trap")
+    check(m.hero["pos"] == landing, "ranger landed at %s instead of %s" % [m.hero["pos"], landing])
+    check(bool(m.hero.get("jumping_trap", false)), "ranger jump did not expose the jump animation state")
+    check(int(m.trap_charges.get(trap, 0)) == m.TRAP_MAX_CHARGES,
+        "ranger jump consumed the trap charge instead of clearing it")
+    m._new_map()
+
+
 func click_named(tool: int) -> void:
     if tool == m.Tool.RESET:
         m._apply_toolbar_tool(tool)
@@ -83,45 +321,120 @@ func click_named(tool: int) -> void:
     check(false, "toolbar is missing tool %d" % tool)
 
 func core_cell() -> Vector2i:
+    if not m._has_core():
+        check(m._place_core(GameTypes.core_origin_cell()), "default Core placement failed")
+        sync_test_world()
     return m._find_tile(m.Tile.CORE)
+
+func ensure_floor(p: Vector2i) -> void:
+    if m._inside(p) and int(m.grid[p.y][p.x]) == m.Tile.ROCK:
+        m.grid[p.y][p.x] = m.Tile.FLOOR
+        m._sync_world()
+        sync_test_world()
 
 func ensure_entrance() -> void:
     if m._has_entrance():
         return
     var c: Vector2i = core_cell()
     var p := Vector2i(c.x - 1, c.y)
+    ensure_floor(p)
     click_named(m.Tool.BUILD_ENTRANCE)
     click_cell(p)
 
+func ensure_storage_capacity(required: int) -> void:
+    var c: Vector2i = core_cell()
+    for p in [
+        c + Vector2i(1, -1),
+        c + Vector2i(2, 0),
+        c + Vector2i(2, 1),
+        c + Vector2i(0, -1),
+        c + Vector2i(-1, 1),
+    ]:
+        if int(m._storage_state()["capacity"]) >= required:
+            return
+        ensure_floor(p)
+        m.selected_tool = m.Tool.STORE
+        m._build_at(p)
+    check(int(m._storage_state()["capacity"]) >= required, "could not build enough test storage")
+
 func core_east_floor() -> Vector2i:
     var c: Vector2i = core_cell()
-    return Vector2i(c.x + m.CORE_W, c.y)
+    var p := Vector2i(c.x + m.CORE_W, c.y)
+    ensure_floor(p)
+    return p
 
 func core_se_floor() -> Vector2i:
     var c: Vector2i = core_cell()
-    return Vector2i(c.x + m.CORE_W, c.y + 1)
+    var p := Vector2i(c.x + m.CORE_W, c.y + 1)
+    ensure_floor(p)
+    return p
 
 func corridor_south() -> Vector2i:
     var c: Vector2i = core_cell()
     var p := Vector2i(c.x, c.y + m.CORE_H + 1)
-    if int(m.grid[p.y][p.x]) == m.Tile.ROCK:
-        click_cell(p)
+    ensure_floor(Vector2i(c.x, c.y + m.CORE_H))
+    ensure_floor(p)
+    ensure_floor(p + Vector2i.DOWN)
     return p
 
 func corridor_east() -> Vector2i:
     var c: Vector2i = core_cell()
     var p := Vector2i(c.x + m.CORE_W + 1, c.y)
-    if int(m.grid[p.y][p.x]) == m.Tile.ROCK:
-        click_cell(p)
+    ensure_floor(Vector2i(c.x + m.CORE_W, c.y))
+    ensure_floor(p)
+    ensure_floor(p + Vector2i.RIGHT)
     return p
 
 func _test_sealed_core_start() -> void:
     print("== sealed core start ==")
     m._new_map()
+    var default_core := GameTypes.core_origin_cell()
+    check(not m._has_core(), "Core already present before the anchoring ritual")
+    check(m.gold == m.START_GOLD, "starting gold changed before Core placement")
+    check(int(m._storage_state()["capacity"]) == 0, "storage exists before Core placement")
+    check(not m._place_core(Vector2i(1, 1)), "Core placed outside the 2x2 anchoring grid")
+    check(m._can_place_core(Vector2i(14, 14)), "Core cannot anchor flush with the south-east influence boundary")
+    var corner_core := Vector2i(0, 0)
+    var corner_screen: Vector2 = m._to_world_screen(m.dungeon._world_to_screen(m.dungeon.cell_center(corner_core, m.dungeon.FLOOR_Y + 0.05), m._play_view(), m.cam_zoom))
+    click(corner_screen)
+    check(m._core_origin() == corner_core, "clicking Core marker %s placed the Core at %s" % [corner_core, m._core_origin()])
+    m._new_map()
+    var grid_core := Vector2i(6, 6)
+    var grid_core_center: Vector3 = m.dungeon.cell_center(grid_core, m.dungeon.FLOOR_Y + 0.05) + Vector3(0.5, 0.0, 0.5)
+    var pad_center_screen: Vector2 = m._to_world_screen(m.dungeon._world_to_screen(grid_core_center, m._play_view(), m.cam_zoom))
+    var click_cell: Vector2i = m._screen_to_grid(pad_center_screen)
+    check(click_cell == grid_core, "Core anchoring pad click resolves to %s instead of %s" % [click_cell, grid_core])
+    var pad_edge_screen: Vector2 = m._to_world_screen(m.dungeon._world_to_screen(grid_core_center + Vector3(0.38, 0.0, 0.0), m._play_view(), m.cam_zoom))
+    click_cell = m._screen_to_grid(pad_edge_screen)
+    check(click_cell == grid_core, "Core anchoring pad edge click resolves to %s instead of %s" % [click_cell, grid_core])
+    var grid_core_label_center: Vector3 = m.dungeon.cell_center(grid_core, m.dungeon.FLOOR_Y + 0.12) + Vector3(0.5, 0.0, 0.5)
+    var pad_label_edge_screen: Vector2 = m._to_world_screen(m.dungeon._world_to_screen(grid_core_label_center + Vector3(-0.38, 0.0, -0.38), m._play_view(), m.cam_zoom))
+    click_cell = m._screen_to_grid(pad_label_edge_screen)
+    check(click_cell == grid_core, "Core anchoring visible marker click resolves to %s instead of %s" % [click_cell, grid_core])
+    var all_core_pads_pick := true
+    for y in range(0, 16, 2):
+        for x in range(0, 16, 2):
+            var pad := Vector2i(x, y)
+            for marker_h in [m.dungeon.FLOOR_Y + 0.05, m.dungeon.FLOOR_Y + 0.12]:
+                var marker_center: Vector3 = m.dungeon.cell_center(pad, marker_h) + Vector3(0.5, 0.0, 0.5)
+                var screen: Vector2 = m._to_world_screen(m.dungeon._world_to_screen(marker_center, m._play_view(), m.cam_zoom))
+                var resolved: Vector2i = m._screen_to_grid(screen)
+                if resolved != pad:
+                    all_core_pads_pick = false
+                    check(false, "Core anchoring marker %s at height %.2f resolves to %s" % [pad, marker_h, resolved])
+                    break
+            if not all_core_pads_pick:
+                break
+        if not all_core_pads_pick:
+            break
+    click(pad_center_screen)
+    check(m._has_core(), "clicking a Core anchoring pad did not place the Core")
+    if not m._has_core():
+        check(m._place_core(default_core), "Core not placed on a valid anchoring site")
+    check(m._has_core(), "Core missing after anchoring")
     var c: Vector2i = core_cell()
-    check(c.x >= 0, "Core missing at start")
     check(m.COLS == m.ROWS, "diggable area is not square")
-    check(c == GameTypes.core_origin_cell(), "Core is not centered in the diggable area")
+    check(c == grid_core, "Core was not placed on the selected 2x2 grid site")
     check(m._find_tile(m.Tile.ENTRANCE).x < 0, "entrance already present at start")
     var floors := 0
     var cores := 0
@@ -133,16 +446,21 @@ func _test_sealed_core_start() -> void:
             elif t == m.Tile.FLOOR:
                 floors += 1
     check(cores == m.CORE_W * m.CORE_H, "Core is not 2x2 (got %d cells)" % cores)
-    check(floors == 9, "Core ring is not 9 floors + starter vaults (got %d floors)" % floors)
+    check(floors == 0, "Core placement must not dig automatic corridors or a starter room (got %d floors)" % floors)
+    m._new_map()
+    check(m._place_core(Vector2i(14, 14)), "Core cannot be placed against the influence boundary")
+    check(tile(Vector2i(14, 14)) == m.Tile.CORE and tile(Vector2i(15, 15)) == m.Tile.CORE, "boundary Core placement is not a 2x2 footprint")
+    m._new_map()
+    check(m._place_core(default_core), "Core not restored after boundary placement check")
+    c = core_cell()
     var vaults := 0
     for y in range(m.ROWS):
         for x in range(m.COLS):
             if int(m.grid[y][x]) == m.Tile.VAULT:
                 vaults += 1
-    check(vaults == ceili(float(m.START_GOLD) / float(m.VAULT_CAPACITY)), "starter storage missing (got %d vaults)" % vaults)
-    check(int(m._storage_state()["unstored"]) == 0, "starting gold is not fully in storage")
+    check(vaults == 0, "starter storage should not be placed automatically (got %d vaults)" % vaults)
     check(m.gold == m.START_GOLD, "starting gold changed")
-    check(m.gold <= int(m._storage_state()["capacity"]), "treasury exceeds storage capacity")
+    check(m.gold > int(m._storage_state()["capacity"]), "treasury should require player-built storage")
     var gold_before: int = m.gold
     var timer_before: float = m.raid_timer
     for i in range(40):
@@ -150,6 +468,7 @@ func _test_sealed_core_start() -> void:
     check(not m.raid_active, "a raid started before any entrance existed")
     check(is_equal_approx(m.raid_timer, timer_before), "raid countdown ran with no entrance")
     var west: Vector2i = c + Vector2i.LEFT
+    ensure_floor(west)
     m.toolbar.open_at(west, Vector2(400, 300))
     check(m.toolbar._tool_enabled(m.Tool.BUILD_ENTRANCE), "Entrance disabled before it is placed")
     m.toolbar.close()
@@ -166,7 +485,15 @@ func _test_sealed_core_start() -> void:
     click_cell(west)
     check(tile(west) == m.Tile.ENTRANCE, "placed entrance was modified")
     m._process(0.5)
-    check(m.raid_timer < timer_before - 0.2 or m.raid_timer <= m.RAID_DELAY - 0.2, "placing the entrance did not start the raid delay")
+    check(is_equal_approx(m.raid_timer, timer_before), "raid countdown ran without enough storage")
+    check(m.message.contains("storage") or m.message.contains("Storage"), "missing storage prerequisite feedback")
+    for p in [c + Vector2i(-1, -1), c + Vector2i(0, -1), c + Vector2i(1, -1)]:
+        ensure_floor(p)
+        m.selected_tool = m.Tool.STORE
+        m._build_at(p)
+    check(m.gold <= int(m._storage_state()["capacity"]), "player-built storage still cannot hold the treasury")
+    m._process(0.5)
+    check(m.raid_timer < timer_before - 0.2 or m.raid_timer <= m.RAID_DELAY - 0.2, "placing enough storage did not start the raid delay")
     m._new_map()
 
 func _test_sprite_pack() -> void:
@@ -220,10 +547,19 @@ func click_cell(p: Vector2i) -> void:
     # cell without depending on whether a taller neighbour occludes it.
     m._build_at(p)
     m._sync_world()
+    sync_test_world()
+
+func sync_test_world() -> void:
+    if m.dungeon != null:
+        m.dungeon.sync(m)
 
 func _test_dungeon_input_not_stolen() -> void:
     print("== dungeon clicks vs toolbar ==")
+    m._new_map()
+    check(m._place_core(GameTypes.core_origin_cell()), "Core setup failed before input picking test")
     m._reset_camera()
+    if m._world_host != null:
+        check(m._world_host.stretch, "3D viewport is not stretched to the playable area; mouse picking will not match rendered Core pads")
     m.selected_tool = m.Tool.STORE
     var far := Vector2i(m.COLS - 1, m.ROWS - 1)
     var screen: Vector2 = m._board_to_screen(m._cell_pos(far))
@@ -241,6 +577,8 @@ func _test_dungeon_input_not_stolen() -> void:
 
 func _test_isometric() -> void:
     print("== 3D ortho picking ==")
+    m._new_map()
+    check(m._place_core(GameTypes.core_origin_cell()), "Core setup failed before isometric picking test")
     var a: Vector2 = m._cell_pos(Vector2i(3, 5))
     var east: Vector2 = m._cell_pos(Vector2i(4, 5))
     var south: Vector2 = m._cell_pos(Vector2i(3, 6))
@@ -253,6 +591,8 @@ func _test_isometric() -> void:
 
 func _test_camera() -> void:
     print("== dungeon camera ==")
+    m._new_map()
+    check(m._place_core(GameTypes.core_origin_cell()), "Core setup failed before camera test")
     m._reset_camera()
     check(m.cam_zoom >= m.ZOOM_MIN, "fitted zoom is below the minimum")
     var home := Vector2i(3, 3)
@@ -293,7 +633,8 @@ func _test_build_rules() -> void:
     check(tile(idle_floor) == m.Tile.FLOOR, "clicking a dug cell placed something without a tool")
     check(m.gold == gold_before, "gold spent without a selected tool")
     m._reset_camera()
-    click(m._board_to_screen(m._cell_pos(idle_floor)))
+    var idle_screen: Vector2 = m._to_world_screen(m.dungeon._world_to_screen(m.dungeon.cell_center(idle_floor, m.dungeon.FLOOR_Y + 0.05), m._play_view(), m.cam_zoom))
+    m.toolbar.open_at(idle_floor, idle_screen)
     check(m.toolbar.open, "dug cell did not open the pie menu")
     for spec in m.toolbar._wheel_defs():
         check(int(spec["tool"]) != m.Tool.REPAIR, "Repair shown on a tile without a trap")
@@ -304,7 +645,7 @@ func _test_build_rules() -> void:
     check(m.gold == gold_before, "gold spent on a rejected dig")
     check(not m._is_diggable_rock(Vector2i(15, 1)), "far rock marked diggable")
     check(m._is_excavated(c), "core is not part of the excavated area")
-    var north := Vector2i(c.x, c.y - 2)
+    var north := c + Vector2i.UP
     check(m._is_diggable_rock(north), "rock on the core ring is not marked diggable")
     check(not m._is_excavated(north), "undug rock counted as excavated")
     m._reset_camera()
@@ -315,13 +656,16 @@ func _test_build_rules() -> void:
 
     click_cell(north)
     check(tile(north) == m.Tile.FLOOR, "adjacent dig rejected")
-    click_cell(Vector2i(c.x - 1, c.y - 2))
-    click_cell(Vector2i(c.x - 2, c.y - 2))
-    click_cell(Vector2i(c.x - 3, c.y - 2))
-    check(tile(Vector2i(c.x - 3, c.y - 2)) == m.Tile.FLOOR, "branch not dug")
-    m.toolbar.open_at(Vector2i(c.x - 3, c.y - 2), Vector2(400, 300))
+    var branch1 := north + Vector2i.LEFT
+    var branch2 := north + Vector2i.LEFT * 2
+    var branch3 := north + Vector2i.LEFT * 3
+    click_cell(branch1)
+    click_cell(branch2)
+    click_cell(branch3)
+    check(tile(branch3) == m.Tile.FLOOR, "branch not dug")
+    m.toolbar.open_at(branch3, Vector2(400, 300))
     m.toolbar.pick_index(0)
-    check(tile(Vector2i(c.x - 3, c.y - 2)) == m.Tile.VAULT, "pie menu storage not placed")
+    check(tile(branch3) == m.Tile.VAULT, "pie menu storage not placed")
     click_cell(c)
     check(tile(c) == m.Tile.CORE, "Core modified")
     click_named(m.Tool.TRAP_SPIKE)
@@ -339,11 +683,21 @@ func _test_build_rules() -> void:
     m.toolbar.close()
     click_named(m.Tool.TRAP_SNARE)
     click_cell(core_se_floor())
+    var open_room := c + Vector2i.LEFT
+    ensure_floor(open_room)
+    ensure_floor(open_room + Vector2i.UP)
+    ensure_floor(open_room + Vector2i.LEFT)
+    m.toolbar.open_at(open_room, Vector2(400, 300))
+    check(not m.toolbar._tool_enabled(m.Tool.BUILD_DOOR), "Door enabled in the radial menu on an open room tile")
+    m.toolbar.close()
     click_named(m.Tool.BUILD_DOOR)
-    click_cell(c + Vector2i(-1, 0))
-    check(tile(c + Vector2i(-1, 0)) != m.Tile.DOOR, "door placed in the open room")
+    click_cell(open_room)
+    check(tile(open_room) != m.Tile.DOOR, "door placed in the open room")
     check(m.message.contains("between two walls"), "misplaced door was not rejected")
     var slot := corridor_south()
+    m.toolbar.open_at(slot, Vector2(400, 300))
+    check(m.toolbar._tool_enabled(m.Tool.BUILD_DOOR), "Door disabled in the radial menu on a valid wall gap")
+    m.toolbar.close()
     click_named(m.Tool.BUILD_DOOR)
     click_cell(slot)
     check(tile(slot) == m.Tile.DOOR, "door not placed between walls")
@@ -359,7 +713,7 @@ func _test_build_rules() -> void:
 
     var storage: Dictionary = m._storage_state()
     var vaults: Dictionary = storage["vaults"]
-    var vault_p := Vector2i(c.x - 3, c.y - 2)
+    var vault_p := branch3
     check(int(vaults.get(vault_p, -1)) == mini(m.gold, m.VAULT_CAPACITY), "storage filled incorrectly")
     check(int(storage["unstored"]) == 0, "treasury is not fully inside storage")
 
@@ -397,7 +751,7 @@ func _test_trap_wear_and_repair() -> void:
     ensure_entrance()
 
     m._start_raid()
-    m.hero["kind"] = "thief"
+    m.hero["kind"] = "paladin"
     # This test exercises charge depletion, not whether a standard hero survives three hits.
     m.hero["hp"] = 300
     m.hero["max_hp"] = 300
@@ -418,10 +772,13 @@ func _test_trap_wear_and_repair() -> void:
 
     # The door takes damage, then gives way, and stays broken.
     m._attack_door(door)
+	# A thief now spends one second visibly picking the lock before it opens.
+    m._update_hero(3.04)
     check(int(m.door_hp[door]) == m.DOOR_MAX_HP - 18, "door HP not decremented")
     for i in range(5):
         if tile(door) == m.Tile.DOOR:
             m._attack_door(door)
+            m._update_hero(3.04)
     check(tile(door) == m.Tile.DOOR, "indestructible door")
     check(int(m.door_hp.get(door, -1)) == 0, "forced door did not stay as wreckage")
 
@@ -483,7 +840,10 @@ func _test_death_and_theft() -> void:
     m.hero["carried_gold"] = 120
     m.hero["pos"] = spike
     m._resolve_cell(spike)
-    check(not m.raid_active, "the raid continues after the hero died")
+    check(bool(m.hero.get("dying", false)), "a defeated Vulpin must enter a dying state before the raid ends")
+    check(m.raid_active, "the raid must remain active while the Vulpin death animation plays")
+    m._update_hero(1.5)
+    check(not m.raid_active, "the raid continues after the Vulpin death animation completed")
     check(m.corpses.size() == 1 and m.corpses[0]["pos"] == spike, "corpse missing or misplaced")
     check(m.loot_bags.size() == 1 and int(m.loot_bags[0]["gold"]) == 120, "dead hero's loot not left in place")
     check(m.core_hp == 92, "Core healed incorrectly by a thief's death (%d)" % m.core_hp)
@@ -500,6 +860,7 @@ func _test_death_and_theft() -> void:
     # Robbing a storage: the thief carries away only what fits in its bag.
     m._new_map()
     var vault: Vector2i = core_cell() + Vector2i(1, -1)
+    ensure_floor(vault)
     click_named(m.Tool.STORE)
     click_cell(vault)
     ensure_entrance()
@@ -510,6 +871,7 @@ func _test_death_and_theft() -> void:
     m.hero["pos"] = vault
     m._resolve_cell(vault)
     check(m.gold == treasury - 40, "theft not limited by carrying capacity (%d -> %d)" % [treasury, m.gold])
+    check(int(m.hero.get("stolen_gold", 0)) == 40, "the thief must track gold stolen toward bag capacity")
     check(bool(m.hero.get("collecting_gold", false)), "a thief must collect gold before opening the town portal")
     check(not bool(m.hero.get("portaling", false)), "a thief must not portal before the collect animation finishes")
     m._update_hero(6.0)
@@ -548,7 +910,7 @@ func _test_death_and_theft() -> void:
     check(m.raid_active, "an empty storage ends the raid")
     check(m.hero["ignored"].has(vault), "the empty storage is not remembered as useless")
 
-    # No virtual gold beside the Core: reaching it damages the Core only.
+    # No virtual gold beside the Core: a thief can discover it but never attacks it.
     m.gold = mini(m.gold, m._storage_capacity())
     var treasury_at_core: int = m.gold
     var core: Vector2i = m._find_tile(m.Tile.CORE)
@@ -558,7 +920,7 @@ func _test_death_and_theft() -> void:
     m.hero["pos"] = core
     m._resolve_cell(core)
     check(m.gold == treasury_at_core, "Core contact stole dungeon gold without a storage tile (%d -> %d)" % [treasury_at_core, m.gold])
-    check(m.core_hp < m.CORE_MAX, "the Core took no damage")
+    check(m.core_hp == m.CORE_MAX, "a thief reaching the Core must not damage it")
     m._new_map()
 
 func _test_personalities() -> void:
@@ -606,10 +968,11 @@ func _test_report_fields() -> void:
 func _build_test_dungeon() -> void:
     ensure_entrance()
     var c: Vector2i = core_cell()
-    for p in [Vector2i(c.x, c.y - 2), Vector2i(c.x - 1, c.y - 2), Vector2i(c.x - 2, c.y - 2), Vector2i(c.x - 3, c.y - 2)]:
+    var north := c + Vector2i.UP
+    for p in [north, north + Vector2i.LEFT, north + Vector2i.LEFT * 2, north + Vector2i.LEFT * 3]:
         click_cell(p)
     click_named(m.Tool.STORE)
-    click_cell(Vector2i(c.x - 3, c.y - 2))
+    click_cell(north + Vector2i.LEFT * 3)
     click_named(m.Tool.TRAP_SPIKE)
     click_cell(core_east_floor())
     click_named(m.Tool.TRAP_SNARE)
@@ -630,7 +993,7 @@ func _test_raids() -> void:
     var kinds := {}
 
     for i in range(80000):
-        if raids_seen >= 15 and kinds.size() == 3:
+        if raids_seen >= 15 and kinds.size() == 4:
             break
         if raids_seen >= 40:
             break
@@ -672,7 +1035,7 @@ func _test_raids() -> void:
     print("last report: ", m.report)
     check(raids_seen >= 15, "too few raids simulated (%d)" % raids_seen)
     check(max_raid_frames * 0.1 < 240.0, "abnormally long raid (%.1f s): possible lock" % (max_raid_frames * 0.1))
-    check(kinds.size() == 3, "the three archetypes were not all encountered")
+    check(kinds.size() == 4, "the four archetypes were not all encountered")
     check(defeat_checked, "no defeat encountered: end state not verified")
 
 # After defeat: no raid, no countdown, no building — Reset aside.
@@ -724,7 +1087,7 @@ func _test_trapped_corridor() -> void:
             previous = pos
 
     print("deepest column reached: ", deepest, " | pointless returns to the entrance: ", pointless_returns)
-    check(seen_kinds.size() == 3, "the three archetypes were not all tested on the spike line")
+    check(seen_kinds.size() == 4, "the four archetypes were not all tested on the spike line")
     check(deepest >= 4, "heroes never get past the first cells of a trapped corridor (deepest column %d)" % deepest)
     check(pointless_returns == 0, "hero walks back into the dead-end entrance while exploring (%d times)" % pointless_returns)
 
@@ -733,6 +1096,7 @@ func _test_loot_and_corpses() -> void:
     m._new_map()   # The previous loop stops in the middle of a raid.
     ensure_entrance()
     var c: Vector2i = core_cell()
+    ensure_storage_capacity(m.gold + 77)
     m.loot_bags.append({"pos": c + Vector2i.UP, "gold": 77, "taken": false})
     m.corpses.append({"pos": c + Vector2i(-1, -1), "name": "test", "fear": 18.0})
 

@@ -1,10 +1,10 @@
 extends SceneTree
 
 const STATES := {
-	"closed": "res://assets/models/doors/wall_v2/door_closed.glb",
-	"open": "res://assets/models/doors/wall_v2/door_open.glb",
+	"closed": "res://assets/models/doors/wall_v2/door_square_closed.glb",
+	"open": "res://assets/models/doors/wall_v2/door_square_open_derived.glb",
 	"damaged": "res://assets/models/doors/wall_v2/door_damaged.glb",
-	"destroyed": "res://assets/models/doors/wall_v2/door_destroyed.glb",
+	"destroyed": "res://assets/models/doors/wall_v2/door_square_destroyed_derived.glb",
 }
 var failures := 0
 

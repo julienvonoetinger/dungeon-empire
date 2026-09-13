@@ -1,5 +1,6 @@
 extends SceneTree
 
+const NodeProbes := preload("res://tests/probes/node_probes.gd")
 const LITHIDE_SCRIPT := "res://scripts/world/lithide_hero.gd"
 const WALK_MODEL := "res://assets/models/characters/lithide/hero_lithide_paladin_walking_v3.glb"
 const RUN_MODEL := "res://assets/models/characters/lithide/hero_lithide_paladin_running_v3.glb"
@@ -59,14 +60,14 @@ func _run() -> void:
 	_check(attacking.visible and not walking.visible and not running.visible,
 		"core strike must show only the Lithide attack model")
 	_check(_model_has_playing_animation(attacking), "core strike must play the Lithide attack clip")
-	var attack_player := attacking.find_child("AnimationPlayer", true, false) as AnimationPlayer
+	var attack_player := NodeProbes.first_animation_player(attacking)
 	_check(attack_player != null and attack_player.get_animation(attack_player.current_animation).length >= 1.9,
 		"core strike must select the full attack clip instead of the static export clip")
 	if attack_player != null:
 		var attack_clip := attack_player.get_animation(attack_player.current_animation)
 		_check(attack_clip != null and attack_clip.loop_mode != Animation.LOOP_NONE,
 			"core strike clip must be configured to loop")
-		var skeleton := attacking.find_children("*", "Skeleton3D", true, false)[0] as Skeleton3D
+		var skeleton := NodeProbes.first_skeleton(attacking)
 		var hand := skeleton.find_bone("RightHand")
 		attack_player.seek(0.0, true)
 		var start := skeleton.get_bone_global_pose(hand)
@@ -84,46 +85,38 @@ func _run() -> void:
 
 func _check_attack_equipment(model: Node) -> void:
 	_check_hammer_attachment(model, "attack")
-	_check(model.find_child("AttackHammer", true, false) == null
-		and model.find_child("AttackShield", true, false) == null,
+	_check(NodeProbes.child(model, "AttackHammer") == null
+		and NodeProbes.child(model, "AttackShield") == null,
 		"attack export must not include integrated equipment")
-	var attachments := model.find_children("HammerAttachment", "BoneAttachment3D", true, false)
-	_check(attachments.size() == 1, "attack must have one editable hammer attachment")
-	if attachments.size() != 1:
+	var report := NodeProbes.attachment_report(model, "HammerAttachment", "GildedStonehammer")
+	_check(int(report["count"]) == 1, "attack must have one editable hammer attachment")
+	if int(report["count"]) != 1:
 		return
-	var attachment := attachments[0] as BoneAttachment3D
-	_check(attachment.bone_name == &"RightHand", "attack hammer must follow the right hand")
+	_check(report["bone"] == &"RightHand", "attack hammer must follow the right hand")
 
 
 func _playing_clip(hero: Node) -> String:
-	var playing: Array[String] = []
-	for player in hero.find_children("*", "AnimationPlayer", true, false):
-		if player.is_playing():
-			playing.append(String(player.current_animation).to_lower())
+	var playing := NodeProbes.playing_clips(hero)
 	_check(playing.size() == 1, "exactly one Lithide animation must be playing")
 	return playing[0] if playing.size() == 1 else ""
 
 
 func _model_has_playing_animation(model: Node) -> bool:
-	for player in model.find_children("*", "AnimationPlayer", true, false):
-		if (player as AnimationPlayer).is_playing():
-			return true
-	return false
+	return NodeProbes.model_has_playing_animation(model)
 
 
 func _check_hammer_attachment(model: Node, motion_name: String) -> void:
-	var attachments := model.find_children("HammerAttachment", "BoneAttachment3D", true, false)
-	_check(attachments.size() == 1, "%s model must have one hammer attachment" % motion_name)
-	if attachments.size() != 1:
+	var report := NodeProbes.attachment_report(model, "HammerAttachment", "GildedStonehammer")
+	_check(int(report["count"]) == 1, "%s model must have one hammer attachment" % motion_name)
+	if int(report["count"]) != 1:
 		return
-	var attachment := attachments[0] as BoneAttachment3D
-	_check(attachment.bone_name == &"RightHand",
+	_check(report["bone"] == &"RightHand",
 		"%s hammer must be attached to the left-hand bone" % motion_name)
-	_check(attachment.get_parent() is Skeleton3D,
+	_check(bool(report["parent_is_skeleton"]),
 		"%s hammer attachment must belong to the animated skeleton" % motion_name)
-	_check(attachment.find_child("GildedStonehammer", true, false) != null,
+	_check(report["payload"] != null,
 		"%s right hand must contain the gilded stonehammer" % motion_name)
-	var hammer := attachment.find_child("GildedStonehammer", true, false) as Node3D
+	var hammer := report["payload"] as Node3D
 	if hammer != null:
 		_check(hammer.position.is_equal_approx(Vector3(26.0, 8.0, -33.0)),
 			"%s hammer must keep the calibrated left-hand position" % motion_name)
@@ -134,18 +127,17 @@ func _check_hammer_attachment(model: Node, motion_name: String) -> void:
 		_check(hammer.rotation_order == EULER_ORDER_XZY,
 			"%s hammer must use XZY rotation order" % motion_name)
 func _check_shield_attachment(model: Node, motion_name: String) -> void:
-	var attachments := model.find_children("ShieldAttachment", "BoneAttachment3D", true, false)
-	_check(attachments.size() == 1, "%s model must have one shield attachment" % motion_name)
-	if attachments.size() != 1:
+	var report := NodeProbes.attachment_report(model, "ShieldAttachment", "GoldenAegis")
+	_check(int(report["count"]) == 1, "%s model must have one shield attachment" % motion_name)
+	if int(report["count"]) != 1:
 		return
-	var attachment := attachments[0] as BoneAttachment3D
-	_check(attachment.bone_name == &"LeftForeArm",
+	_check(report["bone"] == &"LeftForeArm",
 		"%s shield must be attached to the right forearm bone" % motion_name)
-	_check(attachment.get_parent() is Skeleton3D,
+	_check(bool(report["parent_is_skeleton"]),
 		"%s shield attachment must belong to the animated skeleton" % motion_name)
-	_check(attachment.find_child("GoldenAegis", true, false) != null,
+	_check(report["payload"] != null,
 		"%s right forearm must contain the golden aegis" % motion_name)
-	var shield := attachment.find_child("GoldenAegis", true, false) as Node3D
+	var shield := report["payload"] as Node3D
 	if shield != null:
 		_check(shield.position.is_equal_approx(Vector3(8.0, 13.0, 8.0)),
 			"%s shield must keep the calibrated right-forearm position" % motion_name)

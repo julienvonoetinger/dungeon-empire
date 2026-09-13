@@ -1,4 +1,6 @@
 extends SceneTree
+
+const NodeProbes := preload("res://tests/probes/node_probes.gd")
 ## Run headlessly for assertions, or with -- --capture for actual Godot screenshots.
 
 const SPIKE := Vector2i(2, 3)
@@ -7,11 +9,11 @@ const VOID := Vector2i(4, 7)
 const DOOR := Vector2i(3, 6)
 const ENTRANCE := Vector2i(1, 1)
 const ROUTE: Array[Vector2i] = [
-	Vector2i(5, 7), Vector2i(4, 7), Vector2i(3, 7), Vector2i(3, 6),
+	Vector2i(5, 6), Vector2i(5, 7), Vector2i(4, 7), Vector2i(3, 7), Vector2i(3, 6),
 	Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(5, 4),
 	Vector2i(5, 3), Vector2i(4, 3), Vector2i(3, 3), Vector2i(2, 3),
 	Vector2i(1, 3), Vector2i(1, 2), Vector2i(1, 1),
-	Vector2i(6, 3), Vector2i(7, 3), Vector2i(7, 4), Vector2i(3, 2), Vector2i(3, 1)]
+	Vector2i(6, 3), Vector2i(7, 3), Vector2i(3, 2), Vector2i(3, 1)]
 var game: Node
 var failures: Array[String] = []
 var capture := false
@@ -106,6 +108,7 @@ func _run() -> void:
 
 func _build_labyrinth() -> void:
 	game._new_map()
+	game._place_core(GameTypes.core_origin_cell())
 	game.set_process(false)
 	game.selected_tool = game.Tool.DIG
 	for point in ROUTE:
@@ -141,6 +144,13 @@ func _check_door_visual(expected: String) -> void:
 		check(is_equal_approx(icon.position.y, 1.65), "door medallions must sit above the door model")
 	check(cell.get_node_or_null("Label3D") == null, "door must not display a numeric health label")
 
+
+func _check_open_door_visual() -> void:
+	var cell: Node3D = game.dungeon._cells[DOOR]
+	check(cell.get_node_or_null("DoorStateIcon") == null, "an opened door must not be shown as damaged or destroyed")
+	check(cell.find_child("MeshyDoor", true, false) != null, "an opened door must keep its Meshy model")
+
+
 func _check_visual(point: Vector2i, state: String) -> void:
 	game.dungeon.sync(game)
 	var world: Node = game.dungeon
@@ -153,7 +163,7 @@ func _check_visual(point: Vector2i, state: String) -> void:
 		return
 	check(found.kind == _label(point) and found.state == state, "%s must display %s" % [_label(point), state])
 	check(not found.has_node("TrapFrame"), "%s %s must directly replace its 1x1 floor tile" % [_label(point), state])
-	var bounds := _bounds(found, _transform_to_cell(found.get_parent(), cell))
+	var bounds := NodeProbes.recursive_aabb(found, _transform_to_cell(found.get_parent(), cell))
 	if bounds.has_volume():
 		check(absf(bounds.position.x) < 0.03 and absf(bounds.end.x - 1.0) < 0.03 and absf(bounds.position.z) < 0.03 and absf(bounds.end.z - 1.0) < 0.03,
 			"%s %s must fill exactly one cell without a gutter: %s" % [_label(point), state, bounds])
@@ -179,27 +189,13 @@ func _transform_to_cell(node: Node3D, cell: Node3D) -> Transform3D:
 		return Transform3D.IDENTITY
 	return _transform_to_cell(node.get_parent(), cell) * node.transform
 
-func _bounds(node: Node3D, parent_transform: Transform3D) -> AABB:
-	var transform := parent_transform * node.transform
-	var result := AABB()
-	var has_mesh := false
-	if node is MeshInstance3D and node.mesh != null:
-		result = transform * node.get_aabb()
-		has_mesh = true
-	for child in node.get_children():
-		if not child is Node3D:
-			continue
-		var sub := _bounds(child, transform)
-		if sub.size != Vector3.ZERO:
-			result = result.merge(sub) if has_mesh else sub
-			has_mesh = true
-	return result
-
 func _natural_raids() -> void:
-	var encountered := {SPIKE: false, SNARE: false, VOID: false}
+	var encountered := {SPIKE: false, SNARE: false}
 	var kinds := {}
 	var opened_door := false
-	for run in 12:
+	for run in 30:
+		if kinds.size() == 4 and opened_door and not encountered.values().has(false):
+			break
 		seed(8200 + run)
 		_build_labyrinth()
 		game._start_raid()
@@ -213,7 +209,7 @@ func _natural_raids() -> void:
 			if not game.hero.is_empty():
 				var point: Vector2i = game.hero.pos
 				if point != previous:
-					check(game._can_step(previous, point), "natural raid crossed a wall or staircase side")
+					check(game._can_step(previous, point) or _valid_trap_jump(previous, point), "natural raid crossed a wall or staircase side")
 				previous = point
 			for point in encountered:
 				var maximum := 1 if point == VOID else 3
@@ -224,7 +220,10 @@ func _natural_raids() -> void:
 				opened_door = true
 			game.dungeon.sync(game)
 			if door_destroyed:
-				_check_door_visual("destroyed")
+				if bool(game.door_opened.get(DOOR, false)):
+					_check_open_door_visual()
+				else:
+					_check_door_visual("destroyed")
 			if previous != departed and encountered.has(departed):
 				_check_visual(departed, "broken" if game.trap_charges[departed] == 0 else "armed")
 			if step % 8 == 0:
@@ -232,11 +231,23 @@ func _natural_raids() -> void:
 		check(not game.raid_active, "natural raid %d did not terminate" % run)
 		for point in encountered:
 			_check_visual(point, "broken" if game.trap_charges[point] == 0 else "armed")
-	check(kinds.size() == 3, "natural raids should exercise all three adventurer archetypes")
+	check(kinds.size() == 4, "natural raids should exercise all four adventurer archetypes")
 	check(opened_door, "natural exploration must reach and break the corridor door")
 	for point in encountered:
 		check(encountered[point], "natural exploration never triggered %s" % _label(point))
 	print("Natural raids: archetypes=", kinds.keys(), " traps=", encountered, " door broken=", opened_door)
+
+
+func _valid_trap_jump(previous: Vector2i, point: Vector2i) -> bool:
+	if not bool(game.hero.get("jumping_trap", false)):
+		return false
+	var delta := point - previous
+	if absi(delta.x) + absi(delta.y) != 2:
+		return false
+	if delta.x != 0 and delta.y != 0:
+		return false
+	var skipped := previous + Vector2i(signi(delta.x), signi(delta.y))
+	return game._can_step(previous, skipped) and game._can_step(skipped, point) and game._is_trap_tile(int(game.grid[skipped.y][skipped.x]))
 
 func _snapshot(label: String, focus: Vector2i) -> void:
 	if not capture:

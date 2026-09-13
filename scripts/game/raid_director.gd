@@ -10,6 +10,9 @@ const DOOR_MAX_HP := GameTypes.DOOR_MAX_HP
 const TURN_TIME := GameTypes.TURN_TIME
 const CORE_STRIKE_HOLD := GameTypes.CORE_STRIKE_HOLD
 const VULPIN_COLLECT_HOLD := GameTypes.VULPIN_COLLECT_HOLD
+const VULPIN_LOCKPICK_HOLD := 3.0333333
+const VULPIN_DYING_HOLD := 1.5
+const MAGE_ARCANE_OPEN_HOLD := 1.5
 const TRAITS := GameTypes.TRAITS
 const DIRS := GameTypes.DIRS
 const ROUTE_STEP := GameTypes.ROUTE_STEP
@@ -26,6 +29,8 @@ var raid_active := false
 var raid_index := 0
 var hero: Dictionary = {}
 var raid_stats: Dictionary = {}
+var kingdom_knowledge: Dictionary = {}
+var mage_pressure := 0
 
 func reset_for_new_map() -> void:
 	raid_timer = RAID_DELAY
@@ -33,6 +38,8 @@ func reset_for_new_map() -> void:
 	raid_index = 0
 	hero = {}
 	raid_stats = {}
+	kingdom_knowledge = {}
+	mage_pressure = 0
 
 
 func _start_raid() -> void:
@@ -55,9 +62,10 @@ func _start_raid() -> void:
 		"hp": hp,
 		"max_hp": hp,
 		"carried_gold": template["loot"],
+		"stolen_gold": 0,
 		"move_cd": 0.0,
 		"turns": 0,
-		"known": {},
+		"known": kingdom_knowledge.duplicate(),
 		"visited": {entrance: 1},
 		"bias": {},
 		"ignored": {},
@@ -101,7 +109,7 @@ func _jitter(base: float, spread: float) -> float:
 
 
 func _random_hero_template() -> Dictionary:
-	var roll := randi() % 3
+	var roll := randi() % (4 + maxi(0, mage_pressure))
 	if roll == 0:
 		return {
 			"name": "Vulpin Thief",
@@ -130,18 +138,33 @@ func _random_hero_template() -> Dictionary:
 			"flee_ratio": 0.15,
 			"patience": 140
 		}
+	elif roll == 2:
+		return {
+			"name": "Batrafian Ranger",
+			"kind": "ranger",
+			"hp": 82,
+			"loot": randi_range(95, 175),
+			"steal_capacity": 0,
+			"fear_weight": 0.75,
+			"trap_weight": 1.55,
+			"objective": "explore",
+			"door_damage": 20,
+			"flee_ratio": 0.4,
+			"patience": 70
+		}
+	mage_pressure = 0
 	return {
-		"name": "Batrafian Ranger",
-		"kind": "ranger",
-		"hp": 82,
-		"loot": randi_range(95, 175),
+		"name": "Sable Mage",
+		"kind": "mage",
+		"hp": 74,
+		"loot": randi_range(110, 190),
 		"steal_capacity": 0,
-		"fear_weight": 0.75,
-		"trap_weight": 1.55,
-		"objective": "explore",
-		"door_damage": 20,
-		"flee_ratio": 0.4,
-		"patience": 70
+		"fear_weight": 0.45,
+		"trap_weight": 0.85,
+		"objective": "core",
+		"door_damage": 8,
+		"flee_ratio": 0.3,
+		"patience": 110
 	}
 
 
@@ -169,15 +192,62 @@ func _end_raid(result_text: String) -> void:
 func _update_hero(delta: float) -> void:
 	if hero.is_empty():
 		return
+	if bool(hero.get("dying", false)):
+		hero["dying_t"] = float(hero.get("dying_t", 0.0)) - delta
+		if float(hero["dying_t"]) <= 0.0:
+			hero.erase("dying")
+			hero.erase("dying_t")
+			_kill_hero()
+		return
 
 	if bool(hero.get("collecting_gold", false)):
 		hero["collect_t"] = float(hero.get("collect_t", 0.0)) - delta
 		if float(hero["collect_t"]) <= 0.0:
+			_finish_vulpin_collect()
 			var collect_result := String(hero.get("collect_result", "%s leaves the dungeon." % hero["display"]))
 			hero.erase("collecting_gold")
 			hero.erase("collect_t")
 			hero.erase("collect_result")
 			_open_town_portal(collect_result)
+		return
+
+	if bool(hero.get("door_striking", false)):
+		hero["door_strike_t"] = float(hero.get("door_strike_t", 0.0)) - delta
+		if float(hero["door_strike_t"]) <= 0.0:
+			var door: Vector2i = hero.get("door_strike_pos", Vector2i(-1, -1))
+			hero.erase("door_striking")
+			hero.erase("door_strike_t")
+			hero.erase("door_strike_pos")
+			_apply_door_damage(door)
+			if sim._door_intact(door):
+				_attack_door(door)
+		return
+
+	if bool(hero.get("lockpicking", false)):
+		hero["lockpick_t"] = float(hero.get("lockpick_t", 0.0)) - delta
+		if float(hero["lockpick_t"]) <= 0.0:
+			var lock_door: Vector2i = hero.get("lockpick_pos", Vector2i(-1, -1))
+			hero.erase("lockpicking")
+			hero.erase("lockpick_t")
+			hero.erase("lockpick_pos")
+			_resolve_vulpin_lockpick(lock_door)
+		return
+
+	if bool(hero.get("arcane_opening", false)):
+		hero["arcane_open_t"] = float(hero.get("arcane_open_t", 0.0)) - delta
+		if float(hero["arcane_open_t"]) <= 0.0:
+			var magic_door: Vector2i = hero.get("arcane_open_pos", Vector2i(-1, -1))
+			hero.erase("arcane_opening")
+			hero.erase("arcane_open_t")
+			hero.erase("arcane_open_pos")
+			_resolve_mage_arcane_open(magic_door)
+		return
+
+	if bool(hero.get("jumping_trap", false)):
+		hero["jump_t"] = float(hero.get("jump_t", 0.0)) - delta
+		if float(hero["jump_t"]) <= 0.0:
+			hero.erase("jumping_trap")
+			hero.erase("jump_t")
 		return
 
 	if bool(hero.get("core_striking", false)):
@@ -205,6 +275,10 @@ func _update_hero(delta: float) -> void:
 	_update_flee_state()
 
 	var pos: Vector2i = hero["pos"]
+	if int(sim.grid[pos.y][pos.x]) == Tile.VAULT and String(hero.get("kind", "")) == "thief":
+		_try_rob_vault(pos)
+		if bool(hero.get("collecting_gold", false)):
+			return
 
 	# A fleeing hero leaves the dungeon as soon as it reaches the entrance again.
 	if bool(hero["fleeing"]) and int(sim.grid[pos.y][pos.x]) == Tile.ENTRANCE:
@@ -224,7 +298,10 @@ func _update_hero(delta: float) -> void:
 
 	# An intact door blocks: it has to be broken before passing through.
 	if sim._door_intact(next):
+		hero["facing"] = next - pos
 		_attack_door(next)
+		return
+	if _try_trap_jump(pos, next):
 		return
 
 	hero["facing"] = next - pos
@@ -233,6 +310,32 @@ func _update_hero(delta: float) -> void:
 	if hero.get("trap_sprung_at", Vector2i(-1, -1)) != next:
 		hero.erase("trap_sprung_at")
 	_resolve_cell(next)
+
+
+func _try_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
+	var kind := String(hero.get("kind", ""))
+	if kind != "thief" and kind != "ranger":
+		return false
+	if not hero.get("known", {}).has(trap) or not sim._is_trap_tile(int(hero["known"][trap])):
+		return false
+	if int(sim.trap_charges.get(trap, 0)) <= 0:
+		return false
+	var landing := trap + (trap - from)
+	if not sim._inside(landing) or not sim._walkable(landing):
+		return false
+	if sim._is_trap_tile(int(sim.grid[landing.y][landing.x])) and int(sim.trap_charges.get(landing, 0)) > 0:
+		return false
+	hero["facing"] = trap - from
+	hero["visited"][landing] = int(hero["visited"].get(landing, 0)) + 1
+	hero["pos"] = landing
+	hero["jumping_trap"] = true
+	hero["jump_t"] = 1.0
+	_resolve_cell(landing)
+	return true
+
+
+func _try_vulpin_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
+	return _try_trap_jump(from, trap)
 
 
 func _update_flee_state() -> void:
@@ -261,6 +364,11 @@ func _resolve_cell(pos: Vector2i) -> void:
 		return
 
 	if int(hero["hp"]) <= 0:
+		if String(hero.get("kind", "")) == "thief":
+			hero["dying"] = true
+			hero["dying_t"] = VULPIN_DYING_HOLD
+			sim.message = "%s falls to the ground." % hero["display"]
+			return
 		_kill_hero()
 		return
 
@@ -272,6 +380,11 @@ func _resolve_cell(pos: Vector2i) -> void:
 		return
 
 	if tile == Tile.CORE:
+		if String(hero.get("kind", "")) == "thief":
+			# A Vulpin may discover the Core while exploring, but it is a thief,
+			# not a Core attacker. Keep exploring for treasure or head home.
+			hero["known"][pos] = Tile.CORE
+			return
 		_hero_reaches_core()
 
 
@@ -323,8 +436,88 @@ func _banish_via_void() -> void:
 func _attack_door(p: Vector2i) -> void:
 	if int(sim.door_hp.get(p, DOOR_MAX_HP)) <= 0:
 		return
-	var hp := int(sim.door_hp.get(p, DOOR_MAX_HP)) - int(hero["door_damage"])
-	hero["move_cd"] = float(hero["move_cd"]) + 0.35
+	if int(sim.grid[p.y][p.x]) == Tile.MAGIC_DOOR:
+		_attack_magic_door(p)
+		return
+	if String(hero.get("kind", "")) == "paladin":
+		if bool(hero.get("door_striking", false)):
+			return
+		if _known_targets(hero, Tile.CORE).is_empty():
+			var unknown_attempts: Dictionary = hero.get("unknown_door_attempts", {})
+			var count := int(unknown_attempts.get(p, 0))
+			if count >= 2:
+				return
+			unknown_attempts[p] = count + 1
+			hero["unknown_door_attempts"] = unknown_attempts
+		hero["door_striking"] = true
+		hero["door_strike_t"] = CORE_STRIKE_HOLD
+		hero["door_strike_pos"] = p
+		sim.message = "%s raises its hammer against a door." % hero["display"]
+		return
+	if String(hero.get("kind", "")) == "thief":
+		if bool(hero.get("lockpicking", false)):
+			return
+		hero["lockpicking"] = true
+		hero["lockpick_t"] = VULPIN_LOCKPICK_HOLD
+		hero["lockpick_pos"] = p
+		sim.message = "%s starts picking a door lock." % hero["display"]
+		return
+	_apply_door_damage(p)
+
+
+func _attack_magic_door(p: Vector2i) -> void:
+	if String(hero.get("kind", "")) == "mage":
+		if bool(hero.get("arcane_opening", false)):
+			return
+		hero["arcane_opening"] = true
+		hero["arcane_open_t"] = MAGE_ARCANE_OPEN_HOLD
+		hero["arcane_open_pos"] = p
+		sim.message = "%s begins an arcane opening ritual." % hero["display"]
+		return
+	var avoided: Dictionary = hero.get("avoided_doors", {})
+	avoided[p] = true
+	hero["avoided_doors"] = avoided
+	hero["saw_magic_door_blocker"] = true
+	sim.message = "%s cannot open the arcane door." % hero["display"]
+
+
+func _resolve_mage_arcane_open(p: Vector2i) -> void:
+	if p.x < 0 or not sim._door_intact(p) or int(sim.grid[p.y][p.x]) != Tile.MAGIC_DOOR:
+		return
+	sim.door_hp[p] = 0
+	sim.door_opened[p] = true
+	mage_pressure = 0
+	sim.message = "%s unseals the arcane door." % hero["display"]
+
+
+func _resolve_vulpin_lockpick(p: Vector2i) -> void:
+	if not sim._door_intact(p):
+		return
+	var chance := clampf(float(hero.get("lockpick_success_chance", 0.65)), 0.0, 1.0)
+	if randf() <= chance:
+		sim.door_hp[p] = 0
+		sim.door_opened[p] = true
+		sim.message = "%s picks the lock and slips through the door." % hero["display"]
+		return
+	var attempts: Dictionary = hero.get("lockpick_attempts", {})
+	var count := int(attempts.get(p, 0)) + 1
+	attempts[p] = count
+	hero["lockpick_attempts"] = attempts
+	if count < 2:
+		sim.message = "%s fails to pick the lock and tries once more." % hero["display"]
+		_attack_door(p)
+		return
+	var avoided: Dictionary = hero.get("avoided_doors", {})
+	avoided[p] = true
+	hero["avoided_doors"] = avoided
+	sim.message = "%s abandons the stubborn lock and looks for another route." % hero["display"]
+
+
+func _apply_door_damage(p: Vector2i) -> void:
+	if p.x < 0 or int(sim.door_hp.get(p, DOOR_MAX_HP)) <= 0:
+		return
+	var hp := int(sim.door_hp.get(p, DOOR_MAX_HP)) - int(hero.get("door_damage", 18))
+	hero["move_cd"] = float(hero.get("move_cd", 0.0)) + 0.35
 	if hp <= 0:
 		sim.door_hp[p] = 0
 		raid_stats["doors_destroyed"] = int(raid_stats["doors_destroyed"]) + 1
@@ -345,20 +538,47 @@ func _try_rob_vault(p: Vector2i) -> void:
 		hero["ignored"][p] = true
 		sim.message = "%s finds nothing but an empty storage." % hero["display"]
 		return
-	var amount := mini(available, int(hero["steal_capacity"]))
-	sim.gold -= amount
-	hero["carried_gold"] = int(hero["carried_gold"]) + amount
-	raid_stats["stolen"] = int(raid_stats["stolen"]) + amount
-	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
-	raid_stats["carried_out"] = int(hero["carried_gold"])
+	var remaining_capacity := maxi(0, int(hero["steal_capacity"]) - int(hero.get("stolen_gold", 0)))
+	if remaining_capacity <= 0:
+		_start_vulpin_exit()
+		return
+	var amount := mini(available, remaining_capacity)
 	var left := available - amount
-	var rest := ""
-	if left > 0:
-		rest = " %d gold stays behind." % left
+	sim.gold -= amount
+	hero["carried_gold"] = int(hero.get("carried_gold", 0)) + amount
+	hero["stolen_gold"] = int(hero.get("stolen_gold", 0)) + amount
+	raid_stats["stolen"] = int(raid_stats["stolen"]) + amount
+	if left <= 0:
+		hero["ignored"][p] = true
+	if int(hero.get("stolen_gold", 0)) >= int(hero["steal_capacity"]) or sim.gold <= 0:
+		_start_vulpin_exit()
+		return
+	sim.message = "%s pockets %d gold and looks for another vault." % [hero["display"], amount]
+
+
+func _start_vulpin_exit(pending_gold: int = 0, vault: Vector2i = Vector2i(-1, -1)) -> void:
+	if bool(hero.get("collecting_gold", false)):
+		return
+	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
 	hero["collecting_gold"] = true
 	hero["collect_t"] = VULPIN_COLLECT_HOLD
-	hero["collect_result"] = "%s steals %d gold and teleports out of the dungeon.%s" % [hero["display"], amount, rest]
-	sim.message = "%s gathers gold from the vault." % hero["display"]
+	hero["collect_gold"] = pending_gold
+	hero["collect_vault"] = vault
+	hero["collect_result"] = "%s fills its bag and teleports out of the dungeon." % hero["display"]
+	sim.message = "%s gathers the last useful gold before leaving." % hero["display"]
+
+
+func _finish_vulpin_collect() -> void:
+	var amount := int(hero.get("collect_gold", 0))
+	var vault: Vector2i = hero.get("collect_vault", Vector2i(-1, -1))
+	if amount > 0:
+		sim.gold -= amount
+		hero["carried_gold"] = int(hero.get("carried_gold", 0)) + amount
+		hero["stolen_gold"] = int(hero.get("stolen_gold", 0)) + amount
+		raid_stats["stolen"] = int(raid_stats["stolen"]) + amount
+		if vault.x >= 0:
+			hero["ignored"][vault] = true
+	raid_stats["carried_out"] = int(hero.get("carried_gold", 0))
 
 
 func _hero_reaches_core() -> void:
@@ -463,6 +683,12 @@ func _choose_next_step(h: Dictionary) -> Vector2i:
 	for d in DIRS:
 		var q := start + d
 		if sim._can_step(start, q):
+			if sim._door_intact(q) and String(h.get("kind", "")) == "ranger":
+				continue
+			if sim._door_intact(q) and bool(h.get("avoided_doors", {}).get(q, false)):
+				continue
+			if sim._door_intact(q) and String(h.get("kind", "")) == "paladin" and _known_targets(h, Tile.CORE).is_empty() and int(h.get("unknown_door_attempts", {}).get(q, 0)) >= 2:
+				continue
 			candidates.append(q)
 	if candidates.is_empty():
 		return start
@@ -470,9 +696,16 @@ func _choose_next_step(h: Dictionary) -> Vector2i:
 	# 1. Objective already spotted: head there using the mental map only.
 	var target_tile := _target_tile(h)
 	if target_tile >= 0:
-		var step := _route_step(h, _known_targets(h, target_tile))
+		var known_goals := _known_targets(h, target_tile)
+		var step := _route_step(h, known_goals)
 		if step != start:
 			return step
+		if String(h["kind"]) == "thief" and target_tile == Tile.VAULT and known_goals.is_empty():
+			# With no treasure and no unexplored frontier left, the thief has no
+			# reason to remain in the dungeon.
+			if _frontier_cells(h).is_empty():
+				h["fleeing"] = true
+				return _route_step(h, _known_targets(h, Tile.ENTRANCE))
 
 	# 2. Nothing spotted: walk towards the closest edge of the known world.
 	var explore := _route_step(h, _frontier_cells(h))
@@ -545,7 +778,7 @@ func _step_cost(h: Dictionary, p: Vector2i) -> float:
 	var seen := int(h["known"].get(p, Tile.ROCK))
 	if sim._is_trap_tile(seen):
 		cost += ROUTE_TRAP * float(h["trap_weight"])
-	elif seen == Tile.DOOR:
+	elif seen == Tile.DOOR or seen == Tile.MAGIC_DOOR:
 		cost += ROUTE_DOOR
 	# A Paladin has a negative fear weight: sim.corpses draw it in instead.
 	cost += _corpse_danger_near(p) * float(h["fear_weight"])
@@ -662,6 +895,25 @@ func _open_town_portal(result_text: String) -> void:
 
 func _finish_town_portal() -> void:
 	var text := String(hero.get("portal_msg", "The hero leaves the dungeon."))
+	_record_magic_door_escape()
+	_merge_hero_knowledge()
 	_end_raid(text)
+
+
+func _record_magic_door_escape() -> void:
+	if String(hero.get("kind", "")) == "mage":
+		return
+	if not bool(hero.get("saw_magic_door_blocker", false)):
+		return
+	mage_pressure += 1
+
+
+func _merge_hero_knowledge() -> void:
+	for cell in hero.get("known", {}).keys():
+		kingdom_knowledge[cell] = hero["known"][cell]
+
+
+func invalidate_kingdom_knowledge(cell: Vector2i) -> void:
+	kingdom_knowledge.erase(cell)
 
 # --- Grid and storage ------------------------------------------------------

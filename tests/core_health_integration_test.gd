@@ -5,6 +5,8 @@ func _initialize() -> void:
 	root.add_child(game)
 	await process_frame
 	game.set_process(false)
+	if not game._has_core():
+		game._place_core(GameTypes.core_origin_cell())
 	game.dungeon.sync(game)
 	var core: Node3D = game.dungeon._core_spin
 	var light: float = game.dungeon._core_fill_base
@@ -25,6 +27,7 @@ func _initialize() -> void:
 	assert(not core.get_node("Void").visible)
 	assert(game.dungeon._fill.light_energy == 0.0)
 	game._new_map()
+	game._place_core(GameTypes.core_origin_cell())
 	game.dungeon.sync(game)
 	assert(game.dungeon._core_spin.get_node("Void").visible)
 	print("OK: core health synchronization, orbit continuity, defeat and new game")

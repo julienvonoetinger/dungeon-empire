@@ -17,8 +17,10 @@ tandis que le Vulpin reste un voleur centré sur les coffres.
   de vol ou cherche la sortie.
 - Lorsqu'il ne connaît ni coffre atteignable ni nouvelle zone utile à
   explorer, il passe en fuite et rejoint l'entrée.
-- Lorsqu'il vide ou pille un coffre, il joue son animation de collecte puis
-  quitte le donjon, conformément au comportement existant.
+- Il continue de piller les coffres tant que son sac n'a pas atteint sa
+  capacité et qu'il reste de l'or stocké dans le donjon. Il ne joue son
+  animation de collecte puis ne quitte le donjon que lorsque son sac est
+  plein ou que tous les coffres sont vides.
 - Il est vulnérable aux pièges : leurs dégâts et leur danger perçu sont plus
   élevés pour lui que pour un Paladin.
 - Il peut crocheter une porte intacte. Le crochetage ouvre le passage sans

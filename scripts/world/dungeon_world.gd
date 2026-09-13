@@ -18,8 +18,11 @@ const PILLAR_W := 0.28
 const WALL_JOIN := 0.1
 const MESH_VER := 119
 const EXPAND_PAD := 0.88
+const CORE_ANCHOR_PAD := 2.0
 const EXPAND_PICK_H := 0.34
 const HERO_MOVE_TIME := GameTypes.TURN_TIME
+const DOOR_ACTION_OFFSET := 0.32
+const VAULT_COLLECT_OFFSET := 0.34
 const CORE_ANOMALY := preload("res://scripts/world/core_anomaly.gd")
 const CORE_GLB := "res://assets/models/core_void_nexus.glb"
 const CORE_DESTROYED_GLB := "res://assets/models/core_void_nexus_destroyed.glb"
@@ -32,6 +35,8 @@ const TORCH_RIG_SCRIPT := preload("res://scripts/world/wall_torch_rig.gd")
 const MODEL_FIT := preload("res://scripts/world/model_fit.gd")
 const VULPIN_HERO := preload("res://scripts/world/vulpin_hero.gd")
 const LITHIDE_HERO := preload("res://scripts/world/lithide_hero.gd")
+const MYCEAN_HERO := preload("res://scripts/world/mycean_hero.gd")
+const BATRAFIAN_HERO := preload("res://scripts/world/batrafian_hero.gd")
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
 const TOWN_PORTAL_GLB := "res://assets/models/environment/town_portal.glb"
@@ -58,10 +63,10 @@ const DOOR_STATUS_ICON_SIZE_MULTIPLIER := 0.85
 const DOOR_STATUS_ICON_HEIGHT := 1.65
 const STATUS_ICON_FILTER := BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 const STATUS_ICON_BILLBOARD := BaseMaterial3D.BILLBOARD_ENABLED
-const DOOR_CLOSED_GLB := "res://assets/models/doors/wall_v2/door_closed.glb"
+const DOOR_CLOSED_GLB := "res://assets/models/doors/wall_v2/door_square_closed.glb"
 const DOOR_DAMAGED_GLB := "res://assets/models/doors/wall_v2/door_damaged.glb"
-const DOOR_DESTROYED_GLB := "res://assets/models/doors/wall_v2/door_destroyed.glb"
-const DOOR_OPENED_GLB := "res://assets/models/doors/wall_v2/door_open.glb"
+const DOOR_DESTROYED_GLB := "res://assets/models/doors/wall_v2/door_square_destroyed_derived.glb"
+const DOOR_OPENED_GLB := "res://assets/models/doors/wall_v2/door_square_open_derived.glb"
 const DOOR_WIDTH := 0.98
 const DOOR_DEPTH := 0.28
 const VAULT_GLB := "res://assets/models/storage/vault_skull_treasure.glb"
@@ -77,6 +82,8 @@ var _hero: Node3D
 var _hero_proxy: MeshInstance3D
 var _vulpin: Node3D
 var _lithide: Node3D
+var _mycean: Node3D
+var _batrafian: Node3D
 var _hero_bar: MeshInstance3D
 var _hero_tag: Label3D
 var _hero_cell := Vector2i(-1, -1)
@@ -142,11 +149,13 @@ func _init() -> void:
 	_torch_rig = TORCH_RIG_SCRIPT.new()
 	_torch_rig.name = "WallTorches"
 	add_child(_torch_rig)
+	_make_hero()
 	_rng.seed = 7
 
 func _ready() -> void:
 	_make_environment()
-	_make_hero()
+	if _hero == null:
+		_make_hero()
 
 func _make_environment() -> void:
 	var we := WorldEnvironment.new()
@@ -254,7 +263,7 @@ func _make_materials() -> void:
 	_mat_dig_bound.emission = Color(1.0, 0.22, 0.12)
 	_mat_dig_bound.emission_energy_multiplier = 3.4
 	_mat_dig_bound.disable_receive_shadows = true
-	_mat_dig_bound.no_depth_test = true
+	_mat_dig_bound.no_depth_test = false
 	_mat_dig_bound.render_priority = 16
 	_mat_expand_fill = StandardMaterial3D.new()
 	_mat_expand_fill.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -304,6 +313,8 @@ func _make_camera() -> void:
 	add_child(camera)
 
 func _make_hero() -> void:
+	if _hero != null:
+		return
 	_hero = Node3D.new()
 	_hero.name = "HeroVisual"
 	add_child(_hero)
@@ -324,6 +335,16 @@ func _make_hero() -> void:
 	_lithide.position.y = FLOOR_H - 0.48
 	_lithide.visible = false
 	_hero.add_child(_lithide)
+	_mycean = MYCEAN_HERO.new() as Node3D
+	_mycean.name = "MyceanHero"
+	_mycean.position.y = FLOOR_H - 0.48
+	_mycean.visible = false
+	_hero.add_child(_mycean)
+	_batrafian = BATRAFIAN_HERO.new() as Node3D
+	_batrafian.name = "BatrafianHero"
+	_batrafian.position.y = FLOOR_H - 0.48
+	_batrafian.visible = false
+	_hero.add_child(_batrafian)
 	_hero.visible = false
 	_hero_bar = MeshInstance3D.new()
 	var bar := BoxMesh.new()
@@ -415,7 +436,7 @@ func tile_height(t: int, game: Node, p: Vector2i = Vector2i(-1, -1)) -> float:
 		return ROCK_H
 	if t == game.Tile.ROCK:
 		return ROCK_H
-	if t == game.Tile.DOOR:
+	if t == game.Tile.DOOR or t == game.Tile.MAGIC_DOOR:
 		return 1.08
 	if t == game.Tile.VAULT:
 		return 0.72
@@ -520,10 +541,106 @@ func screen_to_cell(screen: Vector2, view: Vector2, zoom: float, pan: Vector2, c
 func _expand_cell_from_ground(screen: Vector2, view: Vector2, zoom: float, game: Node) -> Vector2i:
 	if game == null or not game.has_method("_is_diggable_rock"):
 		return Vector2i(-1, -1)
+	var ray := _screen_ray(screen, view, zoom)
+	var origin: Vector3 = ray[0]
+	var dir: Vector3 = ray[1]
 	var hit := screen_to_ground(screen, view, zoom)
+	if game.has_method("_has_core") and not game._has_core() and game.has_method("_can_place_core"):
+		var screen_anchor := _core_anchor_from_screen(screen, view, zoom, game)
+		if screen_anchor.x >= 0:
+			return screen_anchor
+		var best := _expand_cell_on_marker_planes(origin, dir, game, true)
+		if best.x >= 0:
+			return best
+		var half := CORE_ANCHOR_PAD * 0.5
+		var best_dist := INF
+		for p in _core_anchor_grid(game):
+			var center := cell_center(p) + Vector3(CELL * 0.5, 0.0, CELL * 0.5)
+			var dx := absf(hit.x - center.x)
+			var dz := absf(hit.z - center.z)
+			if dx > half or dz > half:
+				continue
+			var dist := dx + dz
+			if dist < best_dist:
+				best_dist = dist
+				best = p
+		return best
+	var best_dig := _expand_cell_on_marker_planes(origin, dir, game, false)
+	if best_dig.x >= 0:
+		return best_dig
 	var gp := Vector2i(floori(hit.x / CELL), floori(hit.z / CELL))
 	if game._is_diggable_rock(gp):
 		return gp
+	return Vector2i(-1, -1)
+
+func _core_anchor_from_screen(screen: Vector2, view: Vector2, zoom: float, game: Node) -> Vector2i:
+	var best := Vector2i(-1, -1)
+	var best_dist := INF
+	var best_radius := 0.0
+	for p in _core_anchor_grid(game):
+		for marker_y in [FLOOR_Y + 0.05, FLOOR_Y + 0.12]:
+			var center_world := cell_center(p, marker_y) + Vector3(CELL * 0.5, 0.0, CELL * 0.5)
+			var center_screen := _world_to_screen(center_world, view, zoom)
+			var radius := _core_anchor_screen_radius(center_world, view, zoom)
+			var dist := center_screen.distance_to(screen)
+			if dist < best_dist:
+				best = p
+				best_dist = dist
+				best_radius = radius
+	if best.x >= 0:
+		if best_dist <= best_radius:
+			return best
+	return Vector2i(-1, -1)
+
+func _core_anchor_screen_radius(center_world: Vector3, view: Vector2, zoom: float) -> float:
+	var half := CORE_ANCHOR_PAD * 0.5
+	var center := _world_to_screen(center_world, view, zoom)
+	var corners := [
+		_world_to_screen(center_world + Vector3(half, 0.0, half), view, zoom),
+		_world_to_screen(center_world + Vector3(-half, 0.0, half), view, zoom),
+		_world_to_screen(center_world + Vector3(half, 0.0, -half), view, zoom),
+		_world_to_screen(center_world + Vector3(-half, 0.0, -half), view, zoom),
+	]
+	var radius := 0.0
+	for corner in corners:
+		radius = maxf(radius, center.distance_to(corner))
+	return radius + 12.0
+
+func _expand_cell_on_marker_planes(origin: Vector3, dir: Vector3, game: Node, core_mode: bool) -> Vector2i:
+	if absf(dir.y) < 0.0001:
+		return Vector2i(-1, -1)
+	var half := CORE_ANCHOR_PAD * 0.5 if core_mode else EXPAND_PAD * 0.5
+	for marker_y in [FLOOR_Y + 0.18, FLOOR_Y + 0.12, FLOOR_Y + 0.05, FLOOR_Y]:
+		var t := (float(marker_y) - origin.y) / dir.y
+		if t < 0.0:
+			continue
+		var hit := origin + dir * t
+		var best := Vector2i(-1, -1)
+		var best_dist := INF
+		var core_anchors := _core_anchor_grid(game)
+		for y in int(game.ROWS):
+			for x in int(game.COLS):
+				var p := Vector2i(x, y)
+				var valid := false
+				if core_mode:
+					valid = core_anchors.has(p)
+				else:
+					valid = game._is_diggable_rock(p)
+				if not valid:
+					continue
+				var center := cell_center(p)
+				if core_mode:
+					center += Vector3(CELL * 0.5, 0.0, CELL * 0.5)
+				var dx := absf(hit.x - center.x)
+				var dz := absf(hit.z - center.z)
+				if dx > half or dz > half:
+					continue
+				var dist := dx + dz
+				if dist < best_dist:
+					best_dist = dist
+					best = p
+		if best.x >= 0:
+			return best
 	return Vector2i(-1, -1)
 
 func sync(game: Node) -> void:
@@ -567,8 +684,8 @@ func sync(game: Node) -> void:
 				var co := _cliff_outward_for_rock(p, game)
 				if co != Vector3.ZERO:
 					sig += ":c%.0f,%.0f" % [co.x, co.z]
-			if t == game.Tile.DOOR:
-				sig += ":%d:y%.2f:%s" % [int(game.door_hp.get(p, game.DOOR_MAX_HP)), _door_yaw(p, game), DOOR_CLOSED_GLB.get_file()]
+			if t == game.Tile.DOOR or t == game.Tile.MAGIC_DOOR:
+				sig += ":%d:o%s:y%.2f:%s" % [int(game.door_hp.get(p, game.DOOR_MAX_HP)), str(bool(game.door_opened.get(p, false))), _door_yaw(p, game), DOOR_CLOSED_GLB.get_file()]
 			if t == game.Tile.VAULT:
 				var vf := _vault_open_face(p, game)
 				sig += ":v%.0f,%.0f" % [vf.x, vf.z]
@@ -659,7 +776,7 @@ func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: b
 				vm.emission_energy_multiplier = 0.55
 				_add_sphere(root, 0.22, Vector3(CELL * 0.5, 0.38, CELL * 0.5), vm, false)
 			_trap_state_icon(root, p, t, game)
-		game.Tile.DOOR:
+		game.Tile.DOOR, game.Tile.MAGIC_DOOR:
 			_build_door(root, p, game)
 		_:
 			_add_floor_tile(root)
@@ -1536,19 +1653,44 @@ func _door_is_open(n: Vector2i, game: Node) -> bool:
 func _build_door(root: Node3D, p: Vector2i, game: Node) -> void:
 	_add_floor_tile(root)
 	var hp := int(game.door_hp.get(p, game.DOOR_MAX_HP))
+	var opened := bool(game.door_opened.get(p, false))
+	var magic: bool = int(game.grid[p.y][p.x]) == game.Tile.MAGIC_DOOR
 	var intact: bool = hp > 0
 	var frame := Node3D.new()
 	frame.position = Vector3(CELL * 0.5, 0.0, CELL * 0.5)
 	frame.rotation.y = _door_yaw(p, game)
 	root.add_child(frame)
 	var path := DOOR_CLOSED_GLB
-	if hp <= 0:
+	if opened:
+		path = DOOR_OPENED_GLB
+	elif hp <= 0:
 		path = DOOR_DESTROYED_GLB
 	elif hp < int(game.DOOR_MAX_HP):
 		path = DOOR_DAMAGED_GLB
 	if _add_fitted_door(frame, path) == null:
 		_build_door_boxes(frame, intact)
-	_door_state_icon(root, hp, game)
+	if magic:
+		_magic_door_marker(root, opened)
+	if not opened:
+		_door_state_icon(root, hp, game)
+
+func _magic_door_marker(parent: Node3D, opened: bool) -> void:
+	var ring := TorusMesh.new()
+	ring.inner_radius = 0.24
+	ring.outer_radius = 0.29
+	var mi := MeshInstance3D.new()
+	mi.name = "MagicDoorSeal"
+	mi.mesh = ring
+	mi.position = Vector3(CELL * 0.5, 1.2, CELL * 0.5)
+	mi.rotation_degrees = Vector3(90.0, 0.0, 0.0)
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color("#CE72DF") if not opened else Color("#858895")
+	mat.emission_enabled = not opened
+	mat.emission = Color("#CE72DF")
+	mat.emission_energy_multiplier = 0.9
+	mat.roughness = 0.25
+	mi.material_override = mat
+	parent.add_child(mi)
 
 func _door_state_icon(parent: Node3D, hp: int, game: Node) -> void:
 	var texture: Texture2D = DOOR_STATE_INTACT if hp >= int(game.DOOR_MAX_HP) else DOOR_STATE_DAMAGED if hp > 0 else DOOR_STATE_DESTROYED
@@ -1633,7 +1775,8 @@ func _vault_label(parent: Node3D, text: String) -> void:
 	parent.add_child(lab)
 
 func _dig_bound_signature(game: Node) -> String:
-	return "map:%d:%d:%d" % [MESH_VER, int(game.COLS), int(game.ROWS)]
+	var phase := "anchor" if game.has_method("_has_core") and not game._has_core() else "map"
+	return "%s:%d:%d:%d" % [phase, MESH_VER, int(game.COLS), int(game.ROWS)]
 
 func _sync_dig_bounds(game: Node) -> void:
 	var sig := _dig_bound_signature(game)
@@ -1648,12 +1791,13 @@ func _sync_dig_bounds(game: Node) -> void:
 	add_child(_dig_bound)
 	var cols: float = float(int(game.COLS)) * CELL
 	var rows: float = float(int(game.ROWS)) * CELL
-	var y := ROCK_H + 0.08
+	var y := FLOOR_Y + 0.12
 	var thick := 0.1
-	_add_bound_rail(Vector3(0.0, y, rows * 0.5), Vector3(thick, thick, rows))
-	_add_bound_rail(Vector3(cols, y, rows * 0.5), Vector3(thick, thick, rows))
-	_add_bound_rail(Vector3(cols * 0.5, y, 0.0), Vector3(cols, thick, thick))
-	_add_bound_rail(Vector3(cols * 0.5, y, rows), Vector3(cols, thick, thick))
+	var outside := thick * 0.5
+	_add_bound_rail(Vector3(-outside, y, rows * 0.5), Vector3(thick, thick, rows + thick))
+	_add_bound_rail(Vector3(cols + outside, y, rows * 0.5), Vector3(thick, thick, rows + thick))
+	_add_bound_rail(Vector3(cols * 0.5, y, -outside), Vector3(cols + thick, thick, thick))
+	_add_bound_rail(Vector3(cols * 0.5, y, rows + outside), Vector3(cols + thick, thick, thick))
 
 func _add_bound_rail(pos: Vector3, size: Vector3) -> void:
 	var mi := MeshInstance3D.new()
@@ -1669,11 +1813,15 @@ func _expand_signature(game: Node) -> String:
 	if bool(game.raid_active):
 		return "off:%d" % MESH_VER
 	var keys: Array[String] = []
-	for y in int(game.ROWS):
-		for x in int(game.COLS):
-			var p := Vector2i(x, y)
-			if game._is_diggable_rock(p):
-				keys.append("%d,%d" % [x, y])
+	if game.has_method("_has_core") and not game._has_core():
+		for p in _core_anchor_grid(game):
+			keys.append("%d,%d" % [p.x, p.y])
+	else:
+		for y in int(game.ROWS):
+			for x in int(game.COLS):
+				var p := Vector2i(x, y)
+				if game._is_diggable_rock(p):
+					keys.append("%d,%d" % [x, y])
 	return "e%d:%s" % [MESH_VER, ",".join(keys)]
 
 func _sync_expand_pads(game: Node) -> void:
@@ -1691,12 +1839,40 @@ func _sync_expand_pads(game: Node) -> void:
 	if bool(game.raid_active):
 		_expand_root.visible = false
 		return
+	if game.has_method("_has_core") and not game._has_core():
+		for rock in _core_anchor_grid(game):
+			_add_expand_pad(rock, game, "Core")
+	else:
+		for y in int(game.ROWS):
+			for x in int(game.COLS):
+				var rock := Vector2i(x, y)
+				if game._is_diggable_rock(rock):
+					_add_expand_pad(rock, game, str(GameTypes.COST_DIG))
+
+
+func _core_anchor_grid(game: Node) -> Array[Vector2i]:
+	var valid: Array[Vector2i] = []
+	if not game.has_method("_can_place_core"):
+		return valid
+	var min_anchor := Vector2i(999999, 999999)
 	for y in int(game.ROWS):
 		for x in int(game.COLS):
-			var rock := Vector2i(x, y)
-			if not game._is_diggable_rock(rock):
+			var p := Vector2i(x, y)
+			if not game._can_place_core(p):
 				continue
-			_add_expand_pad(rock, game)
+			min_anchor.x = mini(min_anchor.x, x)
+			min_anchor.y = mini(min_anchor.y, y)
+	if min_anchor.x == 999999:
+		return valid
+	for y in int(game.ROWS):
+		for x in int(game.COLS):
+			var p := Vector2i(x, y)
+			if not game._can_place_core(p):
+				continue
+			if (x - min_anchor.x) % GameTypes.CORE_W != 0 or (y - min_anchor.y) % GameTypes.CORE_H != 0:
+				continue
+			valid.append(p)
+	return valid
 
 func _first_open_neighbour(p: Vector2i, game: Node) -> Vector2i:
 	for d in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
@@ -1705,24 +1881,28 @@ func _first_open_neighbour(p: Vector2i, game: Node) -> Vector2i:
 			return n
 	return Vector2i(-1, -1)
 
-func _add_expand_pad(rock: Vector2i, game: Node) -> void:
+func _add_expand_pad(rock: Vector2i, game: Node, label: String) -> void:
 	var open := _first_open_neighbour(rock, game)
 	var outward := Vector3.ZERO
 	if open.x >= 0:
 		outward = Vector3(float(rock.x - open.x), 0.0, float(rock.y - open.y))
+	var is_core := label == "Core"
+	var size := CORE_ANCHOR_PAD if is_core else EXPAND_PAD
 	var center := cell_center(rock, FLOOR_Y + 0.05) + outward * 0.08
+	if is_core:
+		center += Vector3(CELL * 0.5, 0.0, CELL * 0.5)
 	var fill := MeshInstance3D.new()
 	var quad := QuadMesh.new()
-	quad.size = Vector2(EXPAND_PAD, EXPAND_PAD)
+	quad.size = Vector2(size, size)
 	fill.mesh = quad
 	fill.position = center
 	fill.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
 	fill.material_override = _mat_expand_fill
 	fill.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_expand_root.add_child(fill)
-	_add_dashed_square(center, EXPAND_PAD)
+	_add_dashed_square(center, size)
 	var lab := Label3D.new()
-	lab.text = str(GameTypes.COST_DIG)
+	lab.text = label
 	lab.font_size = 56
 	lab.pixel_size = 0.0045
 	lab.modulate = Color("#C9AC7A")
@@ -1875,20 +2055,58 @@ func _sync_hero(game: Node) -> void:
 		_hero_move_to = target_position
 		_hero_move_elapsed = 0.0
 		_orient_hero(game.hero.get("facing", Vector2i.DOWN))
+	var action_door: Vector2i = game.hero.get("lockpick_pos", game.hero.get("door_strike_pos", game.hero.get("arcane_open_pos", Vector2i(-1, -1))))
+	if (bool(game.hero.get("lockpicking", false)) or bool(game.hero.get("door_striking", false)) or bool(game.hero.get("arcane_opening", false))) and action_door.x >= 0:
+		var to_door := action_door - p
+		if to_door != Vector2i.ZERO:
+			_orient_hero(to_door)
+			var action_position := target_position + Vector3(float(to_door.x), 0.0, float(to_door.y)) * DOOR_ACTION_OFFSET
+			_hero.position = action_position
+			_hero_move_from = action_position
+			_hero_move_to = action_position
+			_hero_move_elapsed = HERO_MOVE_TIME
+	if bool(game.hero.get("collecting_gold", false)):
+		var facing: Vector2i = game.hero.get("facing", Vector2i.DOWN)
+		if facing != Vector2i.ZERO:
+			_orient_hero(facing)
+			var collect_position := target_position - Vector3(float(facing.x), 0.0, float(facing.y)) * VAULT_COLLECT_OFFSET
+			_hero.position = collect_position
+			_hero_move_from = collect_position
+			_hero_move_to = collect_position
+			_hero_move_elapsed = HERO_MOVE_TIME
 	var kind := String(game.hero["kind"])
 	var use_lithide := kind == "paladin" and _lithide != null
-	var use_vulpin := not use_lithide and _vulpin != null
-	_hero_proxy.visible = not use_vulpin and not use_lithide
+	var use_vulpin := kind == "thief" and _vulpin != null
+	var use_mycean := kind == "mage" and _mycean != null
+	var use_batrafian := kind == "ranger" and _batrafian != null
+	_hero_proxy.visible = not use_vulpin and not use_lithide and not use_mycean and not use_batrafian
 	if _vulpin != null:
 		_vulpin.visible = use_vulpin
 		if use_vulpin:
 			_vulpin.set_running(bool(game.hero["fleeing"]))
 			_vulpin.set_collecting(bool(game.hero.get("collecting_gold", false)))
+			_vulpin.set_jumping(bool(game.hero.get("jumping_trap", false)))
+			_vulpin.set_lockpicking(bool(game.hero.get("lockpicking", false)))
+			_vulpin.set_dying(bool(game.hero.get("dying", false)))
 	if _lithide != null:
 		_lithide.visible = use_lithide
 		if use_lithide:
 			_lithide.set_running(bool(game.hero["fleeing"]))
-			_lithide.set_attacking(bool(game.hero.get("core_striking", false)), true)
+			_lithide.set_attacking(bool(game.hero.get("core_striking", false))
+				or bool(game.hero.get("door_striking", false)), true)
+	if _mycean != null:
+		_mycean.visible = use_mycean
+		if use_mycean:
+			_mycean.set_running(bool(game.hero["fleeing"]))
+			_mycean.set_channeling(bool(game.hero.get("arcane_opening", false)))
+			_mycean.set_dying(bool(game.hero.get("dying", false)))
+	if _batrafian != null:
+		_batrafian.visible = use_batrafian
+		if use_batrafian:
+			_batrafian.set_running(bool(game.hero["fleeing"]))
+			_batrafian.set_jumping(bool(game.hero.get("jumping_trap", false)))
+			_batrafian.set_attacking(bool(game.hero.get("ranged_attacking", false)))
+			_batrafian.set_dying(bool(game.hero.get("dying", false)))
 	var mat := StandardMaterial3D.new()
 	match kind:
 		"paladin":
@@ -1923,7 +2141,7 @@ func _sync_hero(game: Node) -> void:
 	bm_mat.albedo_color = Color("#819568")
 	bm_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	_hero_bar.material_override = bm_mat
-	var tag := String(game.hero["trait"])
+	var tag := String(game.hero.get("trait", "Adventurer"))
 	if bool(game.hero["fleeing"]):
 		tag += " · fleeing"
 	_hero_tag.text = tag

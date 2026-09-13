@@ -19,6 +19,7 @@ const COST_SPIKE := GameTypes.COST_SPIKE
 const COST_SNARE := GameTypes.COST_SNARE
 const COST_VOID := GameTypes.COST_VOID
 const COST_DOOR := GameTypes.COST_DOOR
+const COST_MAGIC_DOOR := GameTypes.COST_MAGIC_DOOR
 const COST_REPAIR_DOOR := GameTypes.COST_REPAIR_DOOR
 const COST_REPAIR_TRAP := GameTypes.COST_REPAIR_TRAP
 const DIRS := GameTypes.DIRS
@@ -30,6 +31,7 @@ var core_hp := CORE_MAX
 var loot_bags: Array = []
 var corpses: Array = []
 var door_hp: Dictionary = {}
+var door_opened: Dictionary = {}
 var trap_charges: Dictionary = {}
 var message := ""
 var report := ""
@@ -40,6 +42,7 @@ var raid = null
 func new_map() -> void:
 	grid.clear()
 	door_hp.clear()
+	door_opened.clear()
 	trap_charges.clear()
 	loot_bags.clear()
 	corpses.clear()
@@ -48,28 +51,48 @@ func new_map() -> void:
 		for x in range(COLS):
 			row.append(Tile.ROCK)
 		grid.append(row)
-
-	var core := GameTypes.core_origin_cell()
-	for dy in range(CORE_H):
-		for dx in range(CORE_W):
-			grid[core.y + dy][core.x + dx] = Tile.CORE
-	for y in range(core.y - 1, core.y + CORE_H + 1):
-		for x in range(core.x - 1, core.x + CORE_W + 1):
-			if int(grid[y][x]) == Tile.CORE:
-				continue
-			grid[y][x] = Tile.FLOOR
-	_place_starter_storage()
 	gold = START_GOLD
 	core_hp = CORE_MAX
 	game_over = false
 	reset_armed = false
 	selected_tool = Tool.NONE
 	report = ""
-	message = "The Core is sealed. Starter vaults hold the dungeon's gold. Dig a layout, then place the entrance stair."
+	message = "Choose an anchoring site for the Dungeon Core."
+
+
+func _has_core() -> bool:
+	return _core_origin().x >= 0
+
+
+func _can_place_core(origin: Vector2i) -> bool:
+	if _has_core():
+		return false
+	var min_x := 0
+	var min_y := 0
+	var max_x := COLS - CORE_W
+	var max_y := ROWS - CORE_H
+	if origin.x < min_x or origin.x > max_x or origin.y < min_y or origin.y > max_y:
+		return false
+	return (origin.x - min_x) % CORE_W == 0 and (origin.y - min_y) % CORE_H == 0
+
+
+func _place_core(origin: Vector2i) -> bool:
+	if not _can_place_core(origin):
+		message = "The Core must anchor inside the marked influence field."
+		return false
+	for dy in range(CORE_H):
+		for dx in range(CORE_W):
+			grid[origin.y + dy][origin.x + dx] = Tile.CORE
+	message = "The Core awakens. Dig from it, build vault storage, then place the entrance stair."
+	return true
 
 
 func _has_entrance() -> bool:
 	return _find_tile(Tile.ENTRANCE).x >= 0
+
+
+func _has_required_storage() -> bool:
+	return _has_core() and _has_entrance() and _storage_capacity() >= gold
 
 
 func _unsecured_loot_total() -> int:
@@ -83,7 +106,7 @@ func _damaged_structure_count() -> int:
 	var damaged := 0
 	for key in door_hp.keys():
 		var p: Vector2i = key
-		if int(grid[p.y][p.x]) == Tile.DOOR and int(door_hp[p]) < DOOR_MAX_HP:
+		if _is_door_tile(int(grid[p.y][p.x])) and int(door_hp[p]) < DOOR_MAX_HP:
 			damaged += 1
 	for key in trap_charges.keys():
 		var p: Vector2i = key
@@ -107,12 +130,18 @@ func _is_trap_tile(t: int) -> bool:
 	return t == Tile.SPIKE or t == Tile.SNARE or t == Tile.VOID
 
 
+func _is_door_tile(t: int) -> bool:
+	return t == Tile.DOOR or t == Tile.MAGIC_DOOR
+
+
 func _trap_max_charges(t: int) -> int:
 	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES
 
 # Stairs only connect along their run: corridor mouth, not the left/right flanks.
 func _entrance_mouth(p: Vector2i) -> Vector2i:
 	var core := _core_origin()
+	if core.x < 0:
+		return Vector2i.RIGHT
 	var best := Vector2i.ZERO
 	var best_score := -INF
 	for d in DIRS:
@@ -141,7 +170,7 @@ func _can_step(from: Vector2i, to: Vector2i) -> bool:
 
 
 func _door_intact(p: Vector2i) -> bool:
-	return _inside(p) and int(grid[p.y][p.x]) == Tile.DOOR and int(door_hp.get(p, DOOR_MAX_HP)) > 0
+	return _inside(p) and _is_door_tile(int(grid[p.y][p.x])) and int(door_hp.get(p, DOOR_MAX_HP)) > 0
 
 
 func _core_origin() -> Vector2i:
@@ -154,22 +183,6 @@ func _find_tile(tile: int) -> Vector2i:
 			if int(grid[y][x]) == tile:
 				return Vector2i(x, y)
 	return Vector2i(-1, -1)
-
-
-func _place_starter_storage() -> void:
-	var origin := GameTypes.core_origin_cell()
-	var needed := ceili(float(START_GOLD) / float(VAULT_CAPACITY))
-	var placed := 0
-	for y in range(origin.y + CORE_H, origin.y - 2, -1):
-		for x in range(origin.x - 1, origin.x + CORE_W + 1):
-			if placed >= needed:
-				return
-			if not _inside(Vector2i(x, y)):
-				continue
-			if int(grid[y][x]) != Tile.FLOOR:
-				continue
-			grid[y][x] = Tile.VAULT
-			placed += 1
 
 
 func _storage_capacity() -> int:
@@ -215,7 +228,7 @@ func _storage_state() -> Dictionary:
 		var amount := mini(remaining, VAULT_CAPACITY)
 		vaults[p] = amount
 		remaining -= amount
-	return {"vaults": vaults, "unstored": 0, "capacity": _storage_capacity()}
+	return {"vaults": vaults, "unstored": maxi(0, remaining), "capacity": _storage_capacity()}
 
 
 func _has_open_neighbour(p: Vector2i) -> bool:
@@ -244,7 +257,19 @@ func _faces_map_limit(p: Vector2i) -> bool:
 
 func _clear_cell_state(p: Vector2i) -> void:
 	door_hp.erase(p)
+	door_opened.erase(p)
 	trap_charges.erase(p)
+
+
+func _can_place_tile(p: Vector2i, tile: int) -> bool:
+	if not _inside(p):
+		return false
+	var current := int(grid[p.y][p.x])
+	if current == Tile.ROCK or current == Tile.ENTRANCE or current == Tile.CORE:
+		return false
+	if _is_door_tile(tile) and current != tile and not _door_between_walls(p):
+		return false
+	return true
 
 # --- Player input ----------------------------------------------------------
 
@@ -272,6 +297,8 @@ func _build_at(gp: Vector2i) -> void:
 			var was_vault := current == Tile.VAULT
 			_clear_cell_state(gp)
 			grid[gp.y][gp.x] = Tile.FLOOR
+			if raid != null:
+				raid.invalidate_kingdom_knowledge(gp)
 			if was_vault:
 				_spill_overflow_at(gp)
 			message = "Structure cleared."
@@ -285,6 +312,8 @@ func _build_at(gp: Vector2i) -> void:
 			_place(gp, Tile.VOID, COST_VOID)
 		Tool.BUILD_DOOR:
 			_place(gp, Tile.DOOR, COST_DOOR)
+		Tool.BUILD_MAGIC_DOOR:
+			_place(gp, Tile.MAGIC_DOOR, COST_MAGIC_DOOR)
 		Tool.BUILD_ENTRANCE:
 			_place_entrance(gp)
 
@@ -298,6 +327,8 @@ func _try_dig(gp: Vector2i) -> void:
 		return
 	gold -= COST_DIG
 	grid[gp.y][gp.x] = Tile.FLOOR
+	if raid != null:
+		raid.invalidate_kingdom_knowledge(gp)
 	message = "Dug a passage."
 
 
@@ -311,7 +342,10 @@ func _place_entrance(p: Vector2i) -> void:
 	grid[p.y][p.x] = Tile.ENTRANCE
 	if raid != null:
 		raid.raid_timer = RAID_DELAY
-	message = "Entrance opened. Heroes will find it in %ds." % int(RAID_DELAY)
+	if _has_required_storage():
+		message = "Entrance opened. Heroes will find it in %ds." % int(RAID_DELAY)
+	else:
+		message = "Entrance opened. Build enough storage before heroes can find it."
 
 
 func _place(p: Vector2i, tile: int, cost: int) -> void:
@@ -319,11 +353,11 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 	if current == Tile.ROCK:
 		message = "Dig this passage first."
 		return
-	if tile == Tile.DOOR and current != Tile.DOOR and not _door_between_walls(p):
+	if not _can_place_tile(p, tile):
 		message = "A door must sit in a gap between two walls."
 		return
 	if current == tile:
-		if tile != Tile.DOOR or int(door_hp.get(p, DOOR_MAX_HP)) > 0:
+		if not _is_door_tile(tile) or int(door_hp.get(p, DOOR_MAX_HP)) > 0:
 			return
 	if gold < cost:
 		message = "Not enough gold (%d required)." % cost
@@ -332,10 +366,15 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 	var was_vault := current == Tile.VAULT
 	_clear_cell_state(p)
 	grid[p.y][p.x] = tile
+	if raid != null:
+		raid.invalidate_kingdom_knowledge(p)
 	if was_vault and tile != Tile.VAULT:
 		_spill_overflow_at(p)
-	if tile == Tile.DOOR:
+	if _is_door_tile(tile):
 		door_hp[p] = DOOR_MAX_HP
+		door_opened.erase(p)
+		if raid != null:
+			raid.invalidate_kingdom_knowledge(p)
 	elif _is_trap_tile(tile):
 		trap_charges[p] = _trap_max_charges(tile)
 
@@ -356,7 +395,9 @@ func _repair_structures() -> void:
 	var charges := 0
 	for key in door_hp.keys():
 		var p: Vector2i = key
-		if int(grid[p.y][p.x]) != Tile.DOOR:
+		if not _is_door_tile(int(grid[p.y][p.x])):
+			continue
+		if int(grid[p.y][p.x]) == Tile.MAGIC_DOOR:
 			continue
 		if int(door_hp[p]) <= 0 or int(door_hp[p]) >= DOOR_MAX_HP:
 			continue
@@ -373,6 +414,8 @@ func _repair_structures() -> void:
 		while int(trap_charges[p]) < _trap_max_charges(t) and gold >= COST_REPAIR_TRAP:
 			gold -= COST_REPAIR_TRAP
 			trap_charges[p] = int(trap_charges[p]) + 1
+			if raid != null:
+				raid.invalidate_kingdom_knowledge(p)
 			charges += 1
 	if doors == 0 and charges == 0:
 		message = "Nothing to repair (or not enough gold)."

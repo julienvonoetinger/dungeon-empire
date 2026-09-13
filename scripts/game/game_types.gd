@@ -3,8 +3,8 @@ extends Object
 
 ## Shared enums, economy, and presentation constants. No simulation.
 
-enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID }
-enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET, NONE }
+enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID, MAGIC_DOOR }
+enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_MAGIC_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET, NONE }
 
 const TILE_W := 64
 const TILE_H := 32
@@ -28,6 +28,7 @@ const COST_SPIKE := 35
 const COST_SNARE := 30
 const COST_VOID := 45
 const COST_DOOR := 40
+const COST_MAGIC_DOOR := 80
 const COST_REPAIR_DOOR := 15
 const COST_REPAIR_TRAP := 10
 
@@ -121,7 +122,8 @@ static func trap_max_charges(t: int) -> int:
 	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES
 
 static func core_origin_cell() -> Vector2i:
-	return Vector2i((COLS - CORE_W) / 2, (ROWS - CORE_H) / 2)
+	return Vector2i((COLS - CORE_W) / 2 - ((COLS - CORE_W) / 2) % CORE_W,
+		(ROWS - CORE_H) / 2 - ((ROWS - CORE_H) / 2) % CORE_H)
 
 static func toolbar_defs() -> Array:
 	return [
@@ -130,6 +132,7 @@ static func toolbar_defs() -> Array:
 		{"tool": Tool.TRAP_SNARE, "label": "Snare", "cost": "30"},
 		{"tool": Tool.TRAP_VOID, "label": "Void", "cost": "45"},
 		{"tool": Tool.BUILD_DOOR, "label": "Door", "cost": "40"},
+		{"tool": Tool.BUILD_MAGIC_DOOR, "label": "Arcane", "cost": "80"},
 		{"tool": Tool.BUILD_ENTRANCE, "label": "Entrance", "cost": "free"},
 		{"tool": Tool.REPAIR, "label": "Repair", "cost": "15 / 10"},
 		{"tool": Tool.ABSORB, "label": "Absorb", "cost": "+2 Core"},

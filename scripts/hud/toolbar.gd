@@ -88,6 +88,10 @@ func _cell_trap_damaged() -> bool:
 func _tool_enabled(tool: int) -> bool:
 	if tool == Tool.REPAIR:
 		return _cell_trap_damaged()
+	if tool == Tool.BUILD_DOOR:
+		return g._can_place_tile(cell, GameTypes.Tile.DOOR)
+	if tool == Tool.BUILD_MAGIC_DOOR:
+		return g._can_place_tile(cell, GameTypes.Tile.MAGIC_DOOR)
 	if tool == Tool.BUILD_ENTRANCE:
 		return not g._has_entrance()
 	return true

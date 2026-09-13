@@ -8,6 +8,7 @@ func _initialize() -> void:
 	root.add_child(game)
 	await process_frame
 	game._new_map()
+	game._place_core(GameTypes.core_origin_cell())
 	if not _check_damage(game, game.Tile.SPIKE, "thief", 68, 38):
 		return
 	if not _check_damage(game, game.Tile.SPIKE, "ranger", 82, 52):

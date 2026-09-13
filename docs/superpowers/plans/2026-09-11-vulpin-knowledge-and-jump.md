@@ -16,6 +16,7 @@
 - Death and void absorption transmit nothing.
 - A Vulpin jumps only one known intact trap; a trap on its landing cell resolves normally.
 - The Paladin targets only the Core; the Vulpin never damages it.
+- A Vulpin continues looting until its carrying capacity is full or every vault is empty; only then does it collect and portal out.
 - A Paladin forcing a door uses the attack animation and applies door damage
   only at that animation's impact.
 - Run the smoke, Vulpin world, and Lithide hero tests before completion.
@@ -54,6 +55,7 @@
 - [ ] Write failing checks that a thief on the Core leaves `core_hp` unchanged; a Paladin ignores known Vault targets; a Vulpin lockpicks a known intact door; only the first of two adjacent known traps is skipped; and a Paladin keeps door HP unchanged until its attack impact.
 - [ ] Run the smoke test and confirm the new assertions fail.
 - [ ] Make Vulpins target only Vaults and exploration, never `_hero_reaches_core()`. Make Paladins target only the Core and ignore Vaults.
+- [ ] Limit each theft by remaining bag capacity. Keep a Vulpin in the raid after a partial vault theft while uncollected gold remains; start its collect-and-portal sequence only when the bag is full or `sim.gold` is zero.
 - [ ] Add Vulpin lockpick timing that opens an intact door without force damage. Retain lower Paladin physical-trap damage while giving the Vulpin a higher named trap-damage constant; lower Paladin door-force damage below the Vulpin's effective lockpick result. Add a Paladin `door_striking` timer matching the attack-impact timing, then apply one door hit only when that timer reaches the impact.
 - [ ] Before normal movement, permit a Vulpin to move across one known intact trap only if its landing cell is in bounds and not another trap. Set `jumping_trap` during the jump. Resolve the landing cell normally.
 - [ ] Re-run the smoke test and confirm it passes.

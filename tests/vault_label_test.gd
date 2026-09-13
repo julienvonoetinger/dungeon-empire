@@ -1,6 +1,7 @@
 extends SceneTree
 
 const MainScript := preload("res://scripts/Main.gd")
+const VisualProbes := preload("res://tests/probes/dungeon_visual_probes.gd")
 
 func _initialize() -> void:
 	var game: Node = MainScript.new()
@@ -8,8 +9,15 @@ func _initialize() -> void:
 	await process_frame
 	if game.grid.is_empty():
 		game._new_map()
+	if not game._has_core():
+		game._place_core(GameTypes.core_origin_cell())
+	var core: Vector2i = game._find_tile(game.Tile.CORE)
+	var vault := core + Vector2i(-1, -1)
+	game.grid[vault.y][vault.x] = game.Tile.FLOOR
+	game.selected_tool = game.Tool.STORE
+	game._build_at(vault)
 	game.dungeon.sync(game)
-	var vault_label := _first_vault_label(game)
+	var vault_label := VisualProbes.first_vault_label(game)
 	if not _check(vault_label != null, "a vault must create a value label"):
 		return
 	if not _check(vault_label.position.y >= 1.1, "vault value must clear the chest lid"):
@@ -20,15 +28,6 @@ func _initialize() -> void:
 		return
 	print("OK: vault labels clear chests and preserve readable text")
 	quit()
-
-func _first_vault_label(game: Node) -> Label3D:
-	for p in game.dungeon._cells:
-		if int(game.grid[p.y][p.x]) != game.Tile.VAULT:
-			continue
-		for child in game.dungeon._cells[p].get_children():
-			if child is Label3D:
-				return child
-	return null
 
 func _check(condition: bool, message: String) -> bool:
 	if condition:

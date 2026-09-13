@@ -126,6 +126,12 @@ var door_hp: Dictionary:
 	set(value):
 		sim.door_hp = value
 
+var door_opened: Dictionary:
+	get:
+		return sim.door_opened
+	set(value):
+		sim.door_opened = value
+
 var trap_charges: Dictionary:
 	get:
 		return sim.trap_charges
@@ -226,6 +232,28 @@ func _new_map() -> void:
 func _has_entrance() -> bool:
 	return sim._has_entrance()
 
+
+func _has_required_storage() -> bool:
+	return sim._has_required_storage()
+
+
+func _ready_for_raid() -> bool:
+	return _has_core() and _has_entrance() and _has_required_storage()
+
+
+func _has_core() -> bool:
+	return sim._has_core()
+
+func _can_place_core(p: Vector2i) -> bool:
+	return sim._can_place_core(p)
+
+func _place_core(p: Vector2i) -> bool:
+	var placed := sim._place_core(p)
+	if placed:
+		_sync_world()
+		queue_redraw()
+	return placed
+
 func _unsecured_loot_total() -> int:
 	return sim._unsecured_loot_total()
 
@@ -302,6 +330,9 @@ func _is_excavated(p: Vector2i) -> bool:
 func _is_diggable_rock(p: Vector2i) -> bool:
 	return sim._is_diggable_rock(p)
 
+func _can_place_tile(p: Vector2i, tile: int) -> bool:
+	return sim._can_place_tile(p, tile)
+
 func _faces_map_limit(p: Vector2i) -> bool:
 	return sim._faces_map_limit(p)
 
@@ -332,6 +363,15 @@ func _apply_toolbar_tool(tool: int) -> void:
 func _enter_tree() -> void:
 	set_process_input(true)
 	set_process_unhandled_input(false)
+
+func _exit_tree() -> void:
+	if toolbar != null:
+		toolbar.close()
+		toolbar.g = null
+	if sim != null:
+		sim.raid = null
+	if raid != null:
+		raid.sim = null
 
 func _ready() -> void:
 	randomize()
@@ -473,7 +513,7 @@ func _layout_toolbar() -> void:
 		var play := _play_rect()
 		_world_host.position = play.position
 		_world_host.size = play.size
-	if _world_port != null:
+	if _world_port != null and (_world_host == null or not _world_host.stretch):
 		_world_port.size = _world_pixel_size()
 	if not _cam_custom:
 		_fit_camera_to_view()
@@ -753,10 +793,12 @@ func _process(delta: float) -> void:
 	if raid_active:
 		toolbar.close()
 		_update_hero(delta)
-	elif not game_over and _has_entrance():
+	elif not game_over and _ready_for_raid():
 		raid_timer = maxf(0.0, raid_timer - delta)
 		if raid_timer <= 0.0:
 			_start_raid()
+	elif not game_over and _has_core() and _has_entrance() and not _has_required_storage():
+		message = "Build enough storage before heroes can find the entrance."
 	_sync_world()
 	queue_redraw()
 func _board_center() -> Vector2:
@@ -948,6 +990,11 @@ func _handle_event(event: InputEvent) -> void:
 
 	reset_armed = false
 	var grab := 24.0
+	var gp := _screen_to_grid(mp)
+
+	if not _has_core():
+		_place_core(gp)
+		return
 
 	for bag in loot_bags:
 		if _board_to_screen(_bag_pos(bag)).distance_to(mp) <= grab:
@@ -975,7 +1022,6 @@ func _handle_event(event: InputEvent) -> void:
 		queue_redraw()
 		return
 
-	var gp := _screen_to_grid(mp)
 	if _inside(gp) and _is_excavated(gp):
 		var t := int(grid[gp.y][gp.x])
 		if t != Tile.CORE and t != Tile.ENTRANCE:
@@ -1056,7 +1102,7 @@ func _tile_height(t: int) -> float:
 			return 16.0
 		Tile.SPIKE, Tile.SNARE, Tile.VOID:
 			return 8.0
-		Tile.DOOR:
+		Tile.DOOR, Tile.MAGIC_DOOR:
 			return 18.0
 	return 8.0
 
@@ -1106,6 +1152,8 @@ func _tile_top_color(p: Vector2i, t: int, vaults: Dictionary) -> Color:
 			return C_INFLUENCE_PURPLE.darkened(0.15)
 		Tile.DOOR:
 			return C_VILLAGE_BEIGE.darkened(0.25)
+		Tile.MAGIC_DOOR:
+			return C_ARCANE_VIOLET.darkened(0.15)
 	return C_MID_STONE
 
 func _draw_iso_prism(p: Vector2i, top: Color, height: float, tex: Texture2D) -> void:
@@ -1189,7 +1237,7 @@ func _draw() -> void:
 	draw_string(font, Vector2(34, 56), "clicks %d   mouse %d,%d   cell %s   zoom %.2f   yaw %d°" % [debug_clicks, int(debug_pointer.x), int(debug_pointer.y), _screen_to_grid(debug_pointer), cam_zoom, int(cam_yaw)], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, C_TREASURE_HIGHLIGHT)
 
 	var storage := _storage_state()
-	var phase := "RAID" if raid_active else "PREPARATION"
+	var phase := "RAID" if raid_active else "ANCHORING" if not _has_core() else "PREPARATION"
 	var phase_color := C_HOT_ORANGE if raid_active else C_ARCANE_VIOLET
 	if game_over:
 		phase = "DEFEAT"
@@ -1201,7 +1249,11 @@ func _draw() -> void:
 	if loose > 0:
 		x = _hud_segment(x, "loot: %d   " % loose, C_HOT_ORANGE, 17)
 	x = _hud_segment(x, "Core: %d%%   " % core_hp, C_DANGER_RED, 17)
-	if _has_entrance() or raid_active:
+	if not _has_core():
+		x = _hud_segment(x, "Raid: dormant", C_MOSS_GREEN, 17)
+	elif _has_entrance() and not _has_required_storage() and not raid_active:
+		x = _hud_segment(x, "Raid: storage", C_MOSS_GREEN, 17)
+	elif _has_entrance() or raid_active:
 		x = _hud_segment(x, "Raid: %02ds" % int(ceilf(raid_timer)), C_TEXT, 17)
 	else:
 		x = _hud_segment(x, "Raid: sealed", C_MOSS_GREEN, 17)
@@ -1218,6 +1270,10 @@ func _draw() -> void:
 		draw_string(font, box.position + Vector2(24, 86), "Click here to reset the campaign.", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, C_TEXT)
 	elif raid_active:
 		draw_string(font, Vector2(s.x - 205, s.y - 70), "Dungeon locked", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, C_DANGER_RED)
+	elif not _has_core():
+		draw_string(font, Vector2(s.x - 310, s.y - 70), "Choose a Core anchoring site", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, C_PALE_STONE)
+	elif _has_entrance() and not _has_required_storage():
+		draw_string(font, Vector2(s.x - 345, s.y - 70), "Build vault storage before the first raid", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, C_PALE_STONE)
 	else:
 		draw_string(font, Vector2(s.x - 240, s.y - 70), "Click a dug tile for the wheel", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, C_PALE_STONE)
 	draw_string(font, Vector2(maxf(34.0, s.x - 620), 56), "Q/E orbit · wheel zoom · WASD pan · right-drag pan · middle-drag orbit · 0 reset", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, C_PALE_STONE)

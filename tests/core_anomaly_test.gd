@@ -1,5 +1,7 @@
 extends SceneTree
 
+const NodeProbes := preload("res://tests/probes/node_probes.gd")
+
 func _initialize() -> void:
 	var script = load("res://scripts/world/core_anomaly.gd")
 	if script == null:
@@ -15,7 +17,7 @@ func _initialize() -> void:
 	assert(void_mesh.visible and halo.visible)
 	assert(core.get_node_or_null("ConvergingVeins") == null,
 		"the core must not project straight emissive strips onto surrounding floor tiles")
-	var pedestal_bounds := _bounds(core.get_node("Pedestal"), Transform3D.IDENTITY)
+	var pedestal_bounds := NodeProbes.recursive_aabb(core.get_node("Pedestal"), Transform3D.IDENTITY)
 	assert(absf(pedestal_bounds.position.y - 0.175) < 0.006,
 		"the core pedestal must rest on the finished floor instead of being buried")
 	var ids: Array[int] = []
@@ -41,19 +43,3 @@ func _initialize() -> void:
 	core.free()
 	print("OK: core animation, persistent identity, destruction and reset")
 	quit()
-
-func _bounds(node: Node, parent: Transform3D) -> AABB:
-	var transform := parent
-	if node is Node3D:
-		transform *= node.transform
-	var result := AABB()
-	var found := false
-	if node is MeshInstance3D and node.mesh != null:
-		result = transform * node.get_aabb()
-		found = true
-	for child in node.get_children():
-		var child_bounds := _bounds(child, transform)
-		if child_bounds.size != Vector3.ZERO:
-			result = result.merge(child_bounds) if found else child_bounds
-			found = true
-	return result if found else AABB()
