@@ -10,8 +10,10 @@ const CAM_DIST := 36.0
 const BASE_ORTHO := 15.5
 const FLOOR_Y := 0.12
 const ROCK_H := 1.12
+const ROCK_BLOCK_H := 0.70
 const FLOOR_H := 0.16
 const FLOOR_OVERLAP := 1.08
+const ROCK_SLAB_OVERLAP := 1.02
 const MESH_PAD := 1.002
 const WALL_THICK := 0.22
 const PILLAR_W := 0.28
@@ -27,6 +29,7 @@ const CORE_ANOMALY := preload("res://scripts/world/core_anomaly.gd")
 const CORE_GLB := "res://assets/models/core_void_nexus.glb"
 const CORE_DESTROYED_GLB := "res://assets/models/core_void_nexus_destroyed.glb"
 const ROCK_GLB := "res://assets/models/walls/rock_block_match_door_v2.glb"
+const DIGGABLE_ROCK_TEXTURE: Texture2D = preload("res://production/textures/rock/diggable_rock_slab.png")
 const WALL_STRAIGHT_GLB := "res://assets/models/environment/wall_straight_controlled.glb"
 const WALL_PILLAR_GLB := "res://assets/models/walls/wall_pillar_meshy.glb"
 const RENDER_PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
@@ -53,6 +56,7 @@ const TRAP_STATE_INTACT := preload("res://assets/ui/trap_states/trap_state_intac
 const TRAP_STATE_TWO := preload("res://assets/ui/trap_states/trap_state_two.png")
 const TRAP_STATE_ONE := preload("res://assets/ui/trap_states/trap_state_one.png")
 const TRAP_STATE_DESTROYED := preload("res://assets/ui/trap_states/trap_state_destroyed.png")
+const DIG_ICON_PICKAXE_PATH := "res://production/meshy_assets/ui/ui_icon_dig_pickaxe.png"
 const DOOR_STATE_INTACT := preload("res://assets/ui/door_states/door_state_intact.png")
 const DOOR_STATE_DAMAGED := preload("res://assets/ui/door_states/door_state_damaged.png")
 const DOOR_STATE_DESTROYED := preload("res://assets/ui/door_states/door_state_destroyed.png")
@@ -104,6 +108,7 @@ var _core_vr := 0.22
 var _core_base_y := 0.48
 var _core_emit_mat: StandardMaterial3D
 var _mat_rock: StandardMaterial3D
+var _mat_diggable_rock: StandardMaterial3D
 var _mat_floor: StandardMaterial3D
 var _mat_dark: StandardMaterial3D
 var _mat_void: StandardMaterial3D
@@ -179,6 +184,12 @@ func practical_light_count() -> int:
 
 func _make_materials() -> void:
 	_mat_rock = _tex_mat("res://assets/sprites/wrap_rock.png", false)
+	_mat_diggable_rock = StandardMaterial3D.new()
+	_mat_diggable_rock.albedo_texture = DIGGABLE_ROCK_TEXTURE
+	_mat_diggable_rock.roughness = 0.94
+	_mat_diggable_rock.metallic = 0.0
+	_mat_diggable_rock.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	_mat_diggable_rock.set_flag(BaseMaterial3D.FLAG_USE_TEXTURE_REPEAT, true)
 	_mat_floor = _tex_mat("res://assets/sprites/wrap_floor.png", true)
 	_mat_dark = StandardMaterial3D.new()
 	_mat_dark.albedo_color = Color(0.04, 0.04, 0.055)
@@ -610,7 +621,10 @@ func _expand_cell_on_marker_planes(origin: Vector3, dir: Vector3, game: Node, co
 	if absf(dir.y) < 0.0001:
 		return Vector2i(-1, -1)
 	var half := CORE_ANCHOR_PAD * 0.5 if core_mode else EXPAND_PAD * 0.5
-	for marker_y in [FLOOR_Y + 0.18, FLOOR_Y + 0.12, FLOOR_Y + 0.05, FLOOR_Y]:
+	var marker_planes := [FLOOR_Y + 0.18, FLOOR_Y + 0.12, FLOOR_Y + 0.05, FLOOR_Y]
+	if not core_mode:
+		marker_planes.push_front(ROCK_BLOCK_H + 0.04)
+	for marker_y in marker_planes:
 		var t := (float(marker_y) - origin.y) / dir.y
 		if t < 0.0:
 			continue
@@ -681,6 +695,7 @@ func sync(game: Node) -> void:
 				sig += ":e%.0f,%.0f" % [o.x, o.z]
 			if t == game.Tile.ROCK:
 				sig += ":f%d" % _rock_face_mask(p, game)
+				sig += ":core%s" % str(game.has_method("_has_core") and game._has_core())
 				var co := _cliff_outward_for_rock(p, game)
 				if co != Vector3.ZERO:
 					sig += ":c%.0f,%.0f" % [co.x, co.z]
@@ -904,6 +919,8 @@ func _add_fitted_model(parent: Node3D, path: String, footprint: float) -> Node3D
 	return inst
 
 func _build_rock(root: Node3D, p: Vector2i, game: Node) -> void:
+	if game.has_method("_has_core") and game._has_core():
+		_add_diggable_rock_slab(root, p, game)
 	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
 		if not _rock_faces_dug(p, d, game):
 			continue
@@ -912,6 +929,29 @@ func _build_rock(root: Node3D, p: Vector2i, game: Node) -> void:
 			continue
 		if not _add_edge_wall(root, d, span):
 			_add_edge_wall_box(root, d, span)
+
+func _add_diggable_rock_slab(root: Node3D, p: Vector2i, game: Node) -> void:
+	var slab := MeshInstance3D.new()
+	slab.name = "DiggableRockSlab"
+	var mesh := BoxMesh.new()
+	var min_x := (CELL - ROCK_SLAB_OVERLAP) * 0.5
+	var max_x := CELL - min_x
+	var min_z := min_x
+	var max_z := max_x
+	if _rock_faces_dug(p, Vector2i.LEFT, game):
+		min_x = WALL_THICK
+	if _rock_faces_dug(p, Vector2i.RIGHT, game):
+		max_x = CELL - WALL_THICK
+	if _rock_faces_dug(p, Vector2i.UP, game):
+		min_z = WALL_THICK
+	if _rock_faces_dug(p, Vector2i.DOWN, game):
+		max_z = CELL - WALL_THICK
+	mesh.size = Vector3(max_x - min_x, ROCK_BLOCK_H, max_z - min_z)
+	slab.mesh = mesh
+	slab.position = Vector3((min_x + max_x) * 0.5, ROCK_BLOCK_H * 0.5, (min_z + max_z) * 0.5)
+	slab.material_override = _mat_diggable_rock
+	slab.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	root.add_child(slab)
 
 func _add_map_limit_walls(root: Node3D, p: Vector2i, game: Node) -> void:
 	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
@@ -1888,7 +1928,8 @@ func _add_expand_pad(rock: Vector2i, game: Node, label: String) -> void:
 		outward = Vector3(float(rock.x - open.x), 0.0, float(rock.y - open.y))
 	var is_core := label == "Core"
 	var size := CORE_ANCHOR_PAD if is_core else EXPAND_PAD
-	var center := cell_center(rock, FLOOR_Y + 0.05) + outward * 0.08
+	var marker_y := FLOOR_Y + 0.05 if is_core else ROCK_BLOCK_H + 0.04
+	var center := cell_center(rock, marker_y) + outward * 0.08
 	if is_core:
 		center += Vector3(CELL * 0.5, 0.0, CELL * 0.5)
 	var fill := MeshInstance3D.new()
@@ -1900,10 +1941,14 @@ func _add_expand_pad(rock: Vector2i, game: Node, label: String) -> void:
 	fill.material_override = _mat_expand_fill
 	fill.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_expand_root.add_child(fill)
-	_add_dashed_square(center, size)
+	if is_core:
+		_add_anchor_square(center, size)
+	else:
+		_add_corner_marks(center, size)
+		_add_dig_icon(center)
 	var lab := Label3D.new()
 	lab.text = label
-	lab.font_size = 56
+	lab.font_size = 42 if not is_core else 56
 	lab.pixel_size = 0.0045
 	lab.modulate = Color("#C9AC7A")
 	lab.outline_modulate = Color(0.12, 0.08, 0.02, 0.9)
@@ -1917,39 +1962,72 @@ func _add_expand_pad(rock: Vector2i, game: Node, label: String) -> void:
 	lab.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
 	_expand_root.add_child(lab)
 
-func _add_dashed_square(center: Vector3, size: float) -> void:
+func _add_corner_marks(center: Vector3, size: float) -> void:
 	var half := size * 0.5
-	var segs := 5
-	var pitch := size / float(segs)
-	var dash_len := pitch * 0.58
-	var thick := 0.035
-	var h := 0.035
-	for s in 4:
-		var along := Vector3(1.0, 0.0, 0.0)
-		var start := Vector3(-half, 0.0, -half)
-		if s == 1:
-			along = Vector3(0.0, 0.0, 1.0)
-			start = Vector3(half, 0.0, -half)
-		elif s == 2:
-			along = Vector3(-1.0, 0.0, 0.0)
-			start = Vector3(half, 0.0, half)
-		elif s == 3:
-			along = Vector3(0.0, 0.0, -1.0)
-			start = Vector3(-half, 0.0, half)
-		for i in segs:
-			var t0 := (float(i) + 0.5) * pitch
-			var mid := start + along * t0
-			var mi := MeshInstance3D.new()
-			var box := BoxMesh.new()
-			if absf(along.x) > 0.5:
-				box.size = Vector3(dash_len, h, thick)
-			else:
-				box.size = Vector3(thick, h, dash_len)
-			mi.mesh = box
-			mi.position = center + Vector3(mid.x, 0.0, mid.z)
-			mi.material_override = _mat_expand_dash
-			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			_expand_root.add_child(mi)
+	var inset := 0.08
+	var length := minf(0.22, size * 0.25)
+	var thick := 0.022
+	var h := 0.026
+	var corners := [
+		Vector2(-half + inset, -half + inset),
+		Vector2(half - inset, -half + inset),
+		Vector2(half - inset, half - inset),
+		Vector2(-half + inset, half - inset),
+	]
+	for index in corners.size():
+		var corner: Vector2 = corners[index]
+		var x_dir := 1.0 if corner.x < 0.0 else -1.0
+		var z_dir := 1.0 if corner.y < 0.0 else -1.0
+		_add_marker_bar("DigCornerX%d" % index, center + Vector3(corner.x + x_dir * length * 0.5, 0.0, corner.y), Vector3(length, h, thick), _mat_expand_dash)
+		_add_marker_bar("DigCornerZ%d" % index, center + Vector3(corner.x, 0.0, corner.y + z_dir * length * 0.5), Vector3(thick, h, length), _mat_expand_dash)
+
+func _add_anchor_square(center: Vector3, size: float) -> void:
+	var half := size * 0.5
+	var thick := 0.025
+	var h := 0.024
+	_add_marker_bar("CoreAnchorNorth", center + Vector3(0.0, 0.0, -half), Vector3(size, h, thick), _mat_expand_dash)
+	_add_marker_bar("CoreAnchorSouth", center + Vector3(0.0, 0.0, half), Vector3(size, h, thick), _mat_expand_dash)
+	_add_marker_bar("CoreAnchorWest", center + Vector3(-half, 0.0, 0.0), Vector3(thick, h, size), _mat_expand_dash)
+	_add_marker_bar("CoreAnchorEast", center + Vector3(half, 0.0, 0.0), Vector3(thick, h, size), _mat_expand_dash)
+
+func _add_dig_icon(center: Vector3) -> void:
+	var texture := _load_texture_with_image_fallback(DIG_ICON_PICKAXE_PATH)
+	if texture == null:
+		return
+	var icon := Sprite3D.new()
+	icon.name = "DigIconPickaxe"
+	icon.texture = texture
+	icon.pixel_size = 0.00072
+	icon.fixed_size = false
+	icon.scale = Vector3.ONE * 0.42
+	icon.texture_filter = STATUS_ICON_FILTER
+	icon.billboard = STATUS_ICON_BILLBOARD
+	icon.no_depth_test = true
+	icon.render_priority = 12
+	icon.position = center + Vector3(0.0, 0.52, 0.0)
+	_expand_root.add_child(icon)
+
+func _load_texture_with_image_fallback(path: String) -> Texture2D:
+	if ResourceLoader.exists(path):
+		var imported := load(path) as Texture2D
+		if imported != null:
+			return imported
+	var image := Image.new()
+	if image.load(path) != OK:
+		return null
+	return ImageTexture.create_from_image(image)
+
+func _add_marker_bar(name: String, pos: Vector3, size: Vector3, mat: Material) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	mi.name = name
+	var box := BoxMesh.new()
+	box.size = size
+	mi.mesh = box
+	mi.position = pos
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_expand_root.add_child(mi)
+	return mi
 
 func _sync_markers(game: Node) -> void:
 	if not is_inside_tree():

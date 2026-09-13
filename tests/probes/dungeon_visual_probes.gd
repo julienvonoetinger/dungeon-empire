@@ -90,9 +90,54 @@ static func first_dash(root: Node3D) -> MeshInstance3D:
 	if root == null:
 		return null
 	for child in root.get_children():
-		if child is MeshInstance3D and child.mesh is BoxMesh:
+		if child is MeshInstance3D and child.mesh is BoxMesh and child.name.begins_with("DigCorner"):
 			return child
 	return null
+
+
+static func first_dig_icon(root: Node3D) -> Sprite3D:
+	if root == null:
+		return null
+	for child in root.get_children():
+		if child is Sprite3D and child.name.begins_with("DigIcon"):
+			return child
+	return null
+
+
+static func dig_marker_style_report(root: Node3D) -> Dictionary:
+	var report := {"corners": 0, "icons": 0, "billboards": 0, "long_dashes": 0}
+	if root == null:
+		return report
+	for child in root.get_children():
+		if child is Sprite3D and child.name.begins_with("DigIcon"):
+			report["billboards"] = int(report["billboards"]) + 1
+			continue
+		if not child is MeshInstance3D or not (child as MeshInstance3D).mesh is BoxMesh:
+			continue
+		var mesh := (child as MeshInstance3D).mesh as BoxMesh
+		if child.name.begins_with("DigCorner"):
+			report["corners"] = int(report["corners"]) + 1
+		elif child.name.begins_with("DigIcon"):
+			report["icons"] = int(report["icons"]) + 1
+		if maxf(mesh.size.x, mesh.size.z) > 0.3:
+			report["long_dashes"] = int(report["long_dashes"]) + 1
+	return report
+
+
+static func core_marker_style_report(root: Node3D) -> Dictionary:
+	var report := {"icons": 0, "corners": 0}
+	if root == null:
+		return report
+	for child in root.get_children():
+		if child is Sprite3D and child.name.begins_with("DigIcon"):
+			report["icons"] = int(report["icons"]) + 1
+		if not child is MeshInstance3D:
+			continue
+		if child.name.begins_with("DigIcon"):
+			report["icons"] = int(report["icons"]) + 1
+		elif child.name.begins_with("DigCorner"):
+			report["corners"] = int(report["corners"]) + 1
+	return report
 
 
 static func first_label(root: Node3D) -> Label3D:
@@ -102,6 +147,68 @@ static func first_label(root: Node3D) -> Label3D:
 		if child is Label3D:
 			return child
 	return null
+
+
+static func first_diggable_rock_slab(game: Node) -> MeshInstance3D:
+	if game == null or game.dungeon == null:
+		return null
+	for p in game.dungeon._cells:
+		if int(game.grid[p.y][p.x]) != game.Tile.ROCK:
+			continue
+		if not game._is_diggable_rock(p):
+			continue
+		var slab: Node = game.dungeon._cells[p].find_child("DiggableRockSlab", true, false)
+		if slab is MeshInstance3D:
+			return slab
+	return null
+
+
+static func rock_slab_report(game: Node) -> Dictionary:
+	var result := {
+		"rock_cells": 0,
+		"slabs": 0,
+		"missing": [],
+		"extra": [],
+	}
+	if game == null or game.dungeon == null:
+		return result
+	for p in game.dungeon._cells:
+		var root: Node = game.dungeon._cells[p]
+		var has_slab := root.find_child("DiggableRockSlab", true, false) is MeshInstance3D
+		if int(game.grid[p.y][p.x]) == game.Tile.ROCK:
+			result["rock_cells"] = int(result["rock_cells"]) + 1
+			if has_slab:
+				result["slabs"] = int(result["slabs"]) + 1
+			else:
+				(result["missing"] as Array).append(p)
+		elif has_slab:
+			(result["extra"] as Array).append(p)
+	return result
+
+
+static func first_rock_slab_wall_pair(game: Node) -> Dictionary:
+	if game == null or game.dungeon == null:
+		return {}
+	for p in game.dungeon._cells:
+		if int(game.grid[p.y][p.x]) != game.Tile.ROCK:
+			continue
+		var root: Node3D = game.dungeon._cells[p]
+		var slab := root.find_child("DiggableRockSlab", true, false) as MeshInstance3D
+		if slab == null:
+			continue
+		var wall_top := -INF
+		for child in root.get_children():
+			if child == slab:
+				continue
+			if not child is Node3D:
+				continue
+			var bounds := _recursive_aabb(child, Transform3D.IDENTITY)
+			if bounds.size != Vector3.ZERO:
+				wall_top = maxf(wall_top, bounds.end.y)
+		if wall_top > -INF:
+			var slab_bounds := _recursive_aabb(slab, Transform3D.IDENTITY)
+			return {"slab": slab, "slab_top": slab_bounds.end.y, "wall_top": wall_top}
+	return {}
 
 
 static func first_vault_label(game: Node) -> Label3D:
@@ -135,4 +242,23 @@ static func child_global_transforms(root: Node) -> Dictionary:
 	for child in root.get_children():
 		if child is Node3D:
 			result[child.get_instance_id()] = (child as Node3D).global_transform
+	return result
+
+
+static func _recursive_aabb(root: Node, parent_transform: Transform3D = Transform3D.IDENTITY) -> AABB:
+	if root == null:
+		return AABB()
+	var result := AABB()
+	var found := false
+	var transform := parent_transform
+	if root is Node3D:
+		transform = parent_transform * (root as Node3D).transform
+	if root is MeshInstance3D and (root as MeshInstance3D).mesh != null:
+		result = transform * (root as MeshInstance3D).get_aabb()
+		found = true
+	for child in root.get_children():
+		var child_bounds := _recursive_aabb(child, transform)
+		if child_bounds.size != Vector3.ZERO:
+			result = result.merge(child_bounds) if found else child_bounds
+			found = true
 	return result
