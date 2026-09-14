@@ -19,6 +19,7 @@ const WALL_THICK := 0.22
 const PILLAR_W := 0.28
 const WALL_JOIN := 0.1
 const MESH_VER := 119
+const SHOW_HERO_PREVIEW := true
 const EXPAND_PAD := 0.88
 const CORE_ANCHOR_PAD := 2.0
 const EXPAND_PICK_H := 0.34
@@ -40,6 +41,8 @@ const VULPIN_HERO := preload("res://scripts/world/vulpin_hero.gd")
 const LITHIDE_HERO := preload("res://scripts/world/lithide_hero.gd")
 const MYCEAN_HERO := preload("res://scripts/world/mycean_hero.gd")
 const BATRAFIAN_HERO := preload("res://scripts/world/batrafian_hero.gd")
+const NOCTURNE_PRIEST_HERO := preload("res://scripts/world/nocturne_priest_hero.gd")
+const SAURIAN_SCALELORD_HERO := preload("res://scripts/world/saurian_scalelord_hero.gd")
 const FLOOR_GLB := "res://assets/models/floors/floor_violet_rift.glb"
 const STAIRS_GLB := "res://assets/models/environment/entrance_stairs.glb"
 const TOWN_PORTAL_GLB := "res://assets/models/environment/town_portal.glb"
@@ -90,6 +93,7 @@ var _mycean: Node3D
 var _batrafian: Node3D
 var _hero_bar: MeshInstance3D
 var _hero_tag: Label3D
+var _hero_preview_root: Node3D
 var _hero_cell := Vector2i(-1, -1)
 var _hero_move_from := Vector3.ZERO
 var _hero_move_to := Vector3.ZERO
@@ -161,6 +165,8 @@ func _ready() -> void:
 	_make_environment()
 	if _hero == null:
 		_make_hero()
+	if SHOW_HERO_PREVIEW:
+		_make_hero_preview_line()
 
 func _make_environment() -> void:
 	var we := WorldEnvironment.new()
@@ -369,6 +375,65 @@ func _make_hero() -> void:
 	_hero_tag.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	_hero_tag.outline_render_priority = 1
 	_hero_tag.outline_size = 4
+
+func _make_hero_preview_line() -> void:
+	if _hero_preview_root != null:
+		return
+	_hero_preview_root = Node3D.new()
+	_hero_preview_root.name = "HeroPreviewLine"
+	add_child(_hero_preview_root)
+	_add_hero_preview("LithidePaladinPreview", LITHIDE_HERO.new() as Node3D, Vector3(3.0, FLOOR_H - 0.48, -1.8))
+	_add_hero_preview("VulpinThiefPreview", VULPIN_HERO.new() as Node3D, Vector3(6.5, FLOOR_H - 0.48, -1.8))
+	_add_hero_preview("MyceanMagePreview", MYCEAN_HERO.new() as Node3D, Vector3(10.0, FLOOR_H - 0.48, -1.8))
+	_add_hero_preview("BatrafianRangerPreview", BATRAFIAN_HERO.new() as Node3D, Vector3(13.5, FLOOR_H - 0.48, -1.8))
+	_add_hero_preview("NocturnePriestPreview", NOCTURNE_PRIEST_HERO.new() as Node3D, Vector3(17.0, FLOOR_H - 0.48, -1.8))
+	_add_hero_preview("SaurianScalelordPreview", SAURIAN_SCALELORD_HERO.new() as Node3D, Vector3(20.5, FLOOR_H - 0.48, -1.8))
+	_add_hero_preview_light()
+	call_deferred("_freeze_hero_preview_line")
+
+func _add_hero_preview(name: String, hero: Node3D, pos: Vector3) -> void:
+	if hero == null:
+		return
+	hero.name = name
+	hero.position = pos
+	hero.rotation = Vector3(0.0, PI, 0.0)
+	if hero.has_method("set_preview_pose"):
+		hero.call("set_preview_pose")
+	_hero_preview_root.add_child(hero)
+	var label := Label3D.new()
+	label.name = name + "Label"
+	label.text = name.replace("Preview", "").replace("Lithide", "Lithide ").replace("Vulpin", "Vulpin ").replace("Mycean", "Mycean ").replace("Batrafian", "Batrafian ").replace("Nocturne", "Nocturne ").replace("Saurian", "Saurian ")
+	label.font_size = 42
+	label.pixel_size = 0.004
+	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	label.modulate = Color("#C9AC7A")
+	label.outline_size = 4
+	label.position = pos + Vector3(0.0, 1.05, 0.0)
+	_hero_preview_root.add_child(label)
+
+func _add_hero_preview_light() -> void:
+	var light := OmniLight3D.new()
+	light.name = "PreviewInspectionLight"
+	light.light_color = Color(1.0, 0.86, 0.66)
+	light.light_energy = 4.8
+	light.omni_range = 10.0
+	light.shadow_enabled = false
+	light.position = Vector3(11.75, 2.1, -1.4)
+	_hero_preview_root.add_child(light)
+	var saurian_light := OmniLight3D.new()
+	saurian_light.name = "SaurianPreviewInspectionLight"
+	saurian_light.light_color = Color(1.0, 0.86, 0.66)
+	saurian_light.light_energy = 5.4
+	saurian_light.omni_range = 5.0
+	saurian_light.shadow_enabled = false
+	saurian_light.position = Vector3(20.5, 2.1, -1.4)
+	_hero_preview_root.add_child(saurian_light)
+
+func _freeze_hero_preview_line() -> void:
+	if _hero_preview_root == null:
+		return
+	for player in _hero_preview_root.find_children("*", "AnimationPlayer", true, false):
+		(player as AnimationPlayer).stop()
 	_hero_tag.visible = false
 	add_child(_hero_tag)
 

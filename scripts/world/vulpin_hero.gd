@@ -20,6 +20,7 @@ var _is_collecting := false
 var _is_jumping := false
 var _is_lockpicking := false
 var _is_dying := false
+var _preview_pose := false
 
 
 func _ready() -> void:
@@ -52,9 +53,19 @@ func _ready() -> void:
 	_lockpicking.visible = false
 	_dying.visible = false
 	set_running(false)
+	if _preview_pose:
+		_apply_preview_pose()
+
+
+func set_preview_pose() -> void:
+	_preview_pose = true
+	if _walking != null:
+		_apply_preview_pose()
 
 
 func set_running(value: bool) -> void:
+	if _preview_pose:
+		return
 	if _walking == null or _running == null or _collecting == null or _jumping == null or _lockpicking == null or _dying == null:
 		return
 	_is_running = value
@@ -71,6 +82,8 @@ func set_running(value: bool) -> void:
 
 
 func set_collecting(value: bool) -> void:
+	if _preview_pose:
+		return
 	if _walking == null or _running == null or _collecting == null:
 		return
 	if _is_collecting == value:
@@ -90,6 +103,8 @@ func set_collecting(value: bool) -> void:
 
 
 func set_jumping(value: bool) -> void:
+	if _preview_pose:
+		return
 	if _walking == null or _running == null or _collecting == null or _jumping == null or _lockpicking == null or _dying == null:
 		return
 	if _is_jumping == value:
@@ -113,6 +128,8 @@ func set_jumping(value: bool) -> void:
 
 
 func set_lockpicking(value: bool) -> void:
+	if _preview_pose:
+		return
 	if _walking == null or _running == null or _collecting == null or _jumping == null or _lockpicking == null or _dying == null:
 		return
 	if _is_lockpicking == value:
@@ -137,6 +154,8 @@ func set_lockpicking(value: bool) -> void:
 
 
 func set_dying(value: bool) -> void:
+	if _preview_pose:
+		return
 	if _walking == null or _running == null or _collecting == null or _jumping == null or _lockpicking == null or _dying == null:
 		return
 	if _is_dying == value:
@@ -161,12 +180,25 @@ func set_dying(value: bool) -> void:
 	set_running(_is_running)
 
 
+func _apply_preview_pose() -> void:
+	_walking.visible = false
+	_running.visible = false
+	_collecting.visible = false
+	_jumping.visible = false
+	_lockpicking.visible = true
+	_dying.visible = false
+	for model in [_walking, _running, _collecting, _jumping, _lockpicking, _dying]:
+		if model != _lockpicking:
+			_stop_animations(model)
+	_play_first_animation(_lockpicking, true)
+
+
 func _stop_animations(model: Node) -> void:
 	for player in model.find_children("*", "AnimationPlayer", true, false):
 		player.stop()
 
 
-func _play_first_animation(model: Node) -> void:
+func _play_first_animation(model: Node, loop: bool = false) -> void:
 	var players := model.find_children("*", "AnimationPlayer", true, false)
 	if players.is_empty():
 		return
@@ -175,5 +207,24 @@ func _play_first_animation(model: Node) -> void:
 	if clips.is_empty():
 		return
 	var clip: StringName = clips[0]
+	if loop:
+		var anim := player.get_animation(clip)
+		if anim != null:
+			anim.loop_mode = Animation.LOOP_LINEAR
 	if not player.is_playing() or player.current_animation != clip:
 		player.play(clip)
+
+
+func _pose_model(model: Node, normalized_time: float) -> void:
+	var players := model.find_children("*", "AnimationPlayer", true, false)
+	if players.is_empty():
+		return
+	var player := players[0] as AnimationPlayer
+	var clips := player.get_animation_list()
+	if clips.is_empty():
+		return
+	var clip: StringName = clips[0]
+	var anim := player.get_animation(clip)
+	player.play(clip)
+	player.seek(anim.length * clampf(normalized_time, 0.0, 1.0), true)
+	player.stop(false)

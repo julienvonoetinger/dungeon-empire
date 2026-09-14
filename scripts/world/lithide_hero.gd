@@ -22,6 +22,7 @@ var _attacking: Node3D
 var _is_running := false
 var _loop_attack := false
 var _static_pose := false
+var _preview_pose := false
 
 
 func _ready() -> void:
@@ -49,6 +50,8 @@ func _ready() -> void:
 	set_running(false)
 	if _static_pose:
 		_apply_static_pose()
+	if _preview_pose:
+		_apply_preview_pose()
 
 
 func set_static_pose() -> void:
@@ -57,6 +60,14 @@ func set_static_pose() -> void:
 	_static_pose = true
 	if _attacking != null:
 		_apply_static_pose()
+
+
+func set_preview_pose() -> void:
+	if _preview_pose:
+		return
+	_preview_pose = true
+	if _walking != null:
+		_apply_preview_pose()
 
 
 func _apply_static_pose() -> void:
@@ -70,8 +81,19 @@ func _apply_static_pose() -> void:
 		(skeleton as Skeleton3D).reset_bone_poses()
 
 
+func _apply_preview_pose() -> void:
+	_loop_attack = true
+	_walking.visible = false
+	_running.visible = false
+	_attacking.visible = true
+	for model in [_walking, _running, _attacking]:
+		if model != _attacking:
+			_stop_animations(model)
+	_play_first_animation(_attacking)
+
+
 func set_running(value: bool) -> void:
-	if _static_pose:
+	if _static_pose or _preview_pose:
 		return
 	if _walking == null or _running == null or _attacking == null:
 		return
@@ -82,7 +104,7 @@ func set_running(value: bool) -> void:
 
 
 func set_attacking(value: bool, loop: bool = false) -> void:
-	if _static_pose:
+	if _static_pose or _preview_pose:
 		return
 	if _walking == null or _running == null or _attacking == null:
 		return
@@ -155,6 +177,21 @@ func _play_first_animation(model: Node) -> void:
 		player.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
 	if not player.is_playing() or player.current_animation != clip:
 		player.play(clip)
+
+
+func _pose_model(model: Node, normalized_time: float) -> void:
+	var players := model.find_children("*", "AnimationPlayer", true, false)
+	if players.is_empty():
+		return
+	var player := players[0] as AnimationPlayer
+	var clips := player.get_animation_list()
+	if clips.is_empty():
+		return
+	var clip: StringName = clips[0]
+	var anim := player.get_animation(clip)
+	player.play(clip)
+	player.seek(anim.length * clampf(normalized_time, 0.0, 1.0), true)
+	player.stop(false)
 
 
 func _attach_hammer(model: Node3D) -> void:

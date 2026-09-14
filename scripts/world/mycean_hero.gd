@@ -9,12 +9,15 @@ const STAFF_MODEL := "res://assets/models/characters/mycean/mycean_mage_staff.gl
 const CHARACTER_SCALE := 0.42
 const PLACEHOLDER_SCALE := 0.78
 const STAFF_SCALE := Vector3.ONE
-const STAFF_GRIP_OFFSET := Vector3.ZERO
-const STAFF_GRIP_ROTATION := Vector3.ZERO
+const STAFF_GRIP_OFFSET_UNITS := Vector3(-2.0, 11.0, 0.0)
+const STAFF_GRIP_OFFSET_UNIT_SCALE := 0.01
+const STAFF_GRIP_ROTATION := Vector3(88.0, 15.0, 55.0)
+const RIGHT_HAND_POSE_CORRECTION_DEGREES := Vector3(0.0, 30.0, 20.0)
 
 var _is_running := false
 var _is_channeling := false
 var _is_dying := false
+var _preview_pose := false
 var _body: Node3D
 var _walking: Node3D
 var _running: Node3D
@@ -23,6 +26,7 @@ var _casting: Node3D
 
 
 func _ready() -> void:
+	process_priority = 100
 	_body = Node3D.new()
 	_body.name = "MyceanBody"
 	add_child(_body)
@@ -31,9 +35,27 @@ func _ready() -> void:
 		_build_placeholder()
 	set_running(_is_running)
 	set_channeling(_is_channeling)
+	if _preview_pose:
+		_apply_preview_pose()
+
+
+func set_preview_pose() -> void:
+	_preview_pose = true
+	if _body != null:
+		_apply_preview_pose()
+
+
+func get_staff_grip_offset_unit_scale() -> float:
+	return STAFF_GRIP_OFFSET_UNIT_SCALE
+
+
+func get_right_hand_pose_correction_degrees() -> Vector3:
+	return RIGHT_HAND_POSE_CORRECTION_DEGREES
 
 
 func set_running(value: bool) -> void:
+	if _preview_pose:
+		return
 	_is_running = value
 	if _body != null:
 		_body.rotation_degrees.z = -3.0 if value else 0.0
@@ -43,6 +65,8 @@ func set_running(value: bool) -> void:
 
 
 func set_channeling(value: bool) -> void:
+	if _preview_pose:
+		return
 	_is_channeling = value
 	if _body != null:
 		var base_scale := CHARACTER_SCALE if has_imported_model() else PLACEHOLDER_SCALE
@@ -56,6 +80,8 @@ func set_channeling(value: bool) -> void:
 
 
 func set_dying(value: bool) -> void:
+	if _preview_pose:
+		return
 	if not has_imported_model():
 		return
 	if _is_dying == value:
@@ -175,6 +201,21 @@ func _build_placeholder() -> void:
 	_body.add_child(focus)
 
 
+func _apply_preview_pose() -> void:
+	if has_imported_model():
+		_walking.visible = false
+		_running.visible = false
+		_dead.visible = false
+		_casting.visible = true
+		for model in [_walking, _running, _dead, _casting]:
+			if model != _casting:
+				_stop_animations(model)
+		_play_first_animation(_casting, true)
+	elif _body != null:
+		_body.rotation = Vector3.ZERO
+		_body.scale = Vector3.ONE * PLACEHOLDER_SCALE
+
+
 func _mat(albedo: Color, emission: Color, energy: float) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()
 	mat.albedo_color = albedo
@@ -186,7 +227,7 @@ func _mat(albedo: Color, emission: Color, energy: float) -> StandardMaterial3D:
 	return mat
 
 
-func _play_first_animation(model: Node) -> void:
+func _play_first_animation(model: Node, loop: bool = false) -> void:
 	var players := model.find_children("*", "AnimationPlayer", true, false)
 	if players.is_empty():
 		return
@@ -195,8 +236,51 @@ func _play_first_animation(model: Node) -> void:
 	if clips.is_empty():
 		return
 	var clip: StringName = clips[0]
+	if loop:
+		var anim := player.get_animation(clip)
+		if anim != null:
+			anim.loop_mode = Animation.LOOP_LINEAR
 	if not player.is_playing() or player.current_animation != clip:
 		player.play(clip)
+
+
+func _process(_delta: float) -> void:
+	_apply_right_hand_pose_correction()
+
+
+func _apply_right_hand_pose_correction() -> void:
+	for model in [_walking, _running, _dead, _casting]:
+		if model == null or not model.visible:
+			continue
+		for skeleton_node in model.find_children("*", "Skeleton3D", true, false):
+			var skeleton := skeleton_node as Skeleton3D
+			var hand := skeleton.find_bone("RightHand")
+			if hand < 0:
+				continue
+			skeleton.clear_bones_global_pose_override()
+			var corrected_pose := skeleton.get_bone_global_pose(hand)
+			var correction := Basis.from_euler(Vector3(
+				deg_to_rad(RIGHT_HAND_POSE_CORRECTION_DEGREES.x),
+				deg_to_rad(RIGHT_HAND_POSE_CORRECTION_DEGREES.y),
+				deg_to_rad(RIGHT_HAND_POSE_CORRECTION_DEGREES.z)
+			), EULER_ORDER_XYZ)
+			corrected_pose.basis *= correction
+			skeleton.set_bone_global_pose_override(hand, corrected_pose, 1.0, true)
+
+
+func _pose_model(model: Node, normalized_time: float) -> void:
+	var players := model.find_children("*", "AnimationPlayer", true, false)
+	if players.is_empty():
+		return
+	var player := players[0] as AnimationPlayer
+	var clips := player.get_animation_list()
+	if clips.is_empty():
+		return
+	var clip: StringName = clips[0]
+	var anim := player.get_animation(clip)
+	player.play(clip)
+	player.seek(anim.length * clampf(normalized_time, 0.0, 1.0), true)
+	player.stop(false)
 
 
 func _activate_model(model: Node3D) -> void:
@@ -235,7 +319,8 @@ func _attach_staff(model: Node3D, staff_packed: PackedScene) -> void:
 		push_error("Mycean Mage staff model cannot be instantiated")
 		return
 	staff.name = "MyceanMageStaff"
-	staff.position = STAFF_GRIP_OFFSET
+	staff.position = STAFF_GRIP_OFFSET_UNITS * STAFF_GRIP_OFFSET_UNIT_SCALE
+	staff.rotation_order = EULER_ORDER_YXZ
 	staff.rotation_degrees = STAFF_GRIP_ROTATION
 	staff.scale = STAFF_SCALE
 	attachment.add_child(staff)

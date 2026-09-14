@@ -604,7 +604,7 @@ func _test_camera() -> void:
     check(m._screen_to_grid(screen) == home, "zoom-at-cursor moved the cell under the pointer")
     # Asset placement needs a close inspection view, beyond the old 6x cap.
     m._zoom_at(screen, 100.0)
-    check(m.cam_zoom >= 20.0, "camera does not allow close asset inspection")
+    check(m.cam_zoom >= 32.0, "camera does not allow close asset inspection")
     m.cam_pan += Vector2(40, -15)
     var moved: Vector2 = m._board_to_screen(m._cell_pos(home))
     check(m._screen_to_grid(moved) == home, "pan broke cell picking")

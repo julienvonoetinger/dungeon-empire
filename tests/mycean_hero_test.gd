@@ -34,6 +34,18 @@ func _run() -> void:
 	_check(_has_right_hand_staff(running), "running Mycean Mage must hold the staff in the right hand")
 	_check(_has_right_hand_staff(dead), "dead Mycean Mage must keep the staff attached to the right hand")
 	_check(_has_right_hand_staff(casting), "casting Mycean Mage must hold the staff in the right hand")
+	_check_staff_transform(walking, "walking")
+	_check_staff_transform(running, "running")
+	_check_staff_transform(dead, "dead")
+	_check_staff_transform(casting, "casting")
+	_check(hero.has_method("get_staff_grip_offset_unit_scale")
+			and is_equal_approx(float(hero.call("get_staff_grip_offset_unit_scale")), 0.01),
+			"Mycean Mage staff offset must expose centimeter-style tuning units")
+	_check(hero.has_method("get_right_hand_pose_correction_degrees"),
+			"Mycean Mage must expose the paladin-matched right-hand correction")
+	if hero.has_method("get_right_hand_pose_correction_degrees"):
+		_check(hero.get_right_hand_pose_correction_degrees().is_equal_approx(Vector3(0.0, 30.0, 20.0)),
+				"Mycean Mage right hand must use the tuned calibration: X 0, Y 30, Z 20")
 	_check(walking != null and walking.visible, "an advancing Mycean Mage must show walking")
 	_check(running != null and not running.visible, "an advancing Mycean Mage must hide running")
 	_check(dead != null and not dead.visible, "an advancing Mycean Mage must hide dead")
@@ -72,6 +84,17 @@ func _run() -> void:
 	else:
 		_check(false, "Mycean Mage must expose set_dying")
 
+	if hero.has_method("set_preview_pose"):
+		hero.call("set_preview_pose")
+		_check(walking != null and not walking.visible, "Mycean Mage preview must hide walking")
+		_check(running != null and not running.visible, "Mycean Mage preview must hide running")
+		_check(dead != null and not dead.visible, "Mycean Mage preview must hide dead")
+		_check(casting != null and casting.visible, "Mycean Mage preview must loop casting")
+		_check(_has_right_hand_staff(casting), "Mycean Mage preview casting model must keep the staff in the right hand")
+		_check(not NodeProbes.playing_clips(hero).is_empty(), "Mycean Mage preview must play its casting animation")
+	else:
+		_check(false, "Mycean Mage must expose set_preview_pose")
+
 	hero.queue_free()
 	await process_frame
 	if failures == 0:
@@ -82,6 +105,20 @@ func _run() -> void:
 func _has_right_hand_staff(model: Node) -> bool:
 	var report := NodeProbes.attachment_report(model, "StaffAttachment", "MyceanMageStaff")
 	return report["bone"] == &"RightHand" and report["payload"] != null
+
+
+func _check_staff_transform(model: Node, motion_name: String) -> void:
+	var staff := NodeProbes.child(model, "MyceanMageStaff") as Node3D
+	_check(staff != null, "%s Mycean Mage must have a staff payload" % motion_name)
+	if staff == null:
+		return
+	_check(staff.scale.length() < 3.0, "%s Mycean Mage staff must keep a normal in-game scale" % motion_name)
+	_check(staff.position.is_equal_approx(Vector3(-0.02, 0.11, 0.0)),
+			"%s Mycean Mage staff must use the calibrated position" % motion_name)
+	_check(staff.rotation_degrees.is_equal_approx(Vector3(88.0, 15.0, 55.0)),
+			"%s Mycean Mage staff must use the calibrated rotation" % motion_name)
+	_check(staff.rotation_order == EULER_ORDER_YXZ,
+			"%s Mycean Mage staff must use YXZ rotation order" % motion_name)
 
 
 func _check(condition: bool, message: String) -> void:
