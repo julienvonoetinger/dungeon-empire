@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbuwt1nf6v4gd"
 path.s3tc="res://.godot/imported/wall_torch_emberstone_metallic_roughness.jpg-188e1ce17d5e81da294cd7d0f80ca27b.s3tc.ctex"
+path.etc2="res://.godot/imported/wall_torch_emberstone_metallic_roughness.jpg-188e1ce17d5e81da294cd7d0f80ca27b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/walls/wall_torch_emberstone_metallic_roughness.jpg"
-dest_files=["res://.godot/imported/wall_torch_emberstone_metallic_roughness.jpg-188e1ce17d5e81da294cd7d0f80ca27b.s3tc.ctex"]
+dest_files=["res://.godot/imported/wall_torch_emberstone_metallic_roughness.jpg-188e1ce17d5e81da294cd7d0f80ca27b.s3tc.ctex", "res://.godot/imported/wall_torch_emberstone_metallic_roughness.jpg-188e1ce17d5e81da294cd7d0f80ca27b.etc2.ctex"]
 
 [params]
 
@@ -40,5 +41,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=512
 detect_3d/compress_to=0

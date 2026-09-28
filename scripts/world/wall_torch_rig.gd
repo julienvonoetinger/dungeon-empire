@@ -4,6 +4,7 @@ const TORCH := preload("res://assets/models/walls/wall_torch_emberstone.glb")
 const PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
 const SPACING := 2.6
 var _fixtures: Dictionary = {}
+var render_profile: Resource = PROFILE
 
 func sync_cells(cells: Array[Vector2i], cell_size: float) -> void:
 	var occupied: Dictionary = {}
@@ -30,7 +31,7 @@ func sync_cells(cells: Array[Vector2i], cell_size: float) -> void:
 		return a.distance < b.distance)
 	var selected: Dictionary = {}
 	for candidate in candidates:
-		if selected.size() >= PROFILE.max_practical_lights:
+		if selected.size() >= render_profile.max_practical_lights:
 			break
 		var separated := true
 		for previous in selected.values():
@@ -64,7 +65,7 @@ func _make_fixture(candidate: Dictionary) -> Node3D:
 		visual.position = Vector3(-measured.get_center().x, -measured.position.y, -measured.get_center().z) * scalar
 		visual.position += Vector3(0, 0.18, 0.04)
 	var light := OmniLight3D.new()
-	PROFILE.configure_practical(light)
+	render_profile.configure_practical(light)
 	light.position = Vector3(0, 0.85, 0.42)
 	fixture.add_child(light)
 	return fixture

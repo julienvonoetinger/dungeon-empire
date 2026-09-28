@@ -1,6 +1,10 @@
 class_name RaidDirector
 extends RefCounted
 
+signal raid_finished(result: Dictionary)
+var last_result: Dictionary = {}
+var _completed_raid_id := -1
+
 const Tile := GameTypes.Tile
 const COLS := GameTypes.COLS
 const ROWS := GameTypes.ROWS
@@ -33,6 +37,8 @@ var kingdom_knowledge: Dictionary = {}
 var mage_pressure := 0
 
 func reset_for_new_map() -> void:
+	last_result = {}
+	_completed_raid_id = -1
 	raid_timer = RAID_DELAY
 	raid_active = false
 	raid_index = 0
@@ -169,6 +175,14 @@ func _random_hero_template() -> Dictionary:
 
 
 func _end_raid(result_text: String) -> void:
+	if _completed_raid_id == raid_index:
+		return
+	_completed_raid_id = raid_index
+	last_result = raid_stats.duplicate(true)
+	last_result.merge({"raid_id": raid_index, "core_hp": sim.core_hp,
+		"hero_kind": hero.get("kind", ""), "hero_name": hero.get("display", ""),
+		"text": result_text, "loot_remaining": sim._unsecured_loot_total(),
+		"structures_damaged": sim._damaged_structure_count()}, true)
 	raid_active = false
 	raid_timer = RAID_DELAY
 	hero = {}
@@ -187,6 +201,7 @@ func _end_raid(result_text: String) -> void:
 		sim._damaged_structure_count(),
 		sim.core_hp
 	]
+	raid_finished.emit(last_result.duplicate(true))
 
 
 func _update_hero(delta: float) -> void:

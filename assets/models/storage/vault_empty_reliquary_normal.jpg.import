@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byr628g4t8cbl"
-path="res://.godot/imported/vault_empty_reliquary_normal.jpg-5617ee457d5102bd56ea7225a1a81653.ctex"
+path.s3tc="res://.godot/imported/vault_empty_reliquary_normal.jpg-5617ee457d5102bd56ea7225a1a81653.s3tc.ctex"
+path.etc2="res://.godot/imported/vault_empty_reliquary_normal.jpg-5617ee457d5102bd56ea7225a1a81653.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "7a1d5d6e0a99e50a897c4d8ba1a5ef24"
@@ -14,11 +16,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/storage/vault_empty_reliquary_normal.jpg"
-dest_files=["res://.godot/imported/vault_empty_reliquary_normal.jpg-5617ee457d5102bd56ea7225a1a81653.ctex"]
+dest_files=["res://.godot/imported/vault_empty_reliquary_normal.jpg-5617ee457d5102bd56ea7225a1a81653.s3tc.ctex", "res://.godot/imported/vault_empty_reliquary_normal.jpg-5617ee457d5102bd56ea7225a1a81653.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -39,5 +41,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1024
 detect_3d/compress_to=1

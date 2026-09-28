@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deepi3mbptjle"
-path="res://.godot/imported/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png-5a8eeeea7c2c0d4f6d9b4d2b48968485.ctex"
+path.s3tc="res://.godot/imported/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png-5a8eeeea7c2c0d4f6d9b4d2b48968485.s3tc.ctex"
+path.etc2="res://.godot/imported/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png-5a8eeeea7c2c0d4f6d9b4d2b48968485.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "fda5d3d28c56d6cdc12095927f4d8a58"
@@ -14,11 +16,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/characters/saurian/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png"
-dest_files=["res://.godot/imported/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png-5a8eeeea7c2c0d4f6d9b4d2b48968485.ctex"]
+dest_files=["res://.godot/imported/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png-5a8eeeea7c2c0d4f6d9b4d2b48968485.s3tc.ctex", "res://.godot/imported/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png-5a8eeeea7c2c0d4f6d9b4d2b48968485.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -39,5 +41,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=512
 detect_3d/compress_to=1

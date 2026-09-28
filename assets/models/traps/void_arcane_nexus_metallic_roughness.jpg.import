@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://sutmdd01l3aw"
 path.s3tc="res://.godot/imported/void_arcane_nexus_metallic_roughness.jpg-36768ca85c39dd34844252b1a57fd9ee.s3tc.ctex"
+path.etc2="res://.godot/imported/void_arcane_nexus_metallic_roughness.jpg-36768ca85c39dd34844252b1a57fd9ee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/traps/void_arcane_nexus_metallic_roughness.jpg"
-dest_files=["res://.godot/imported/void_arcane_nexus_metallic_roughness.jpg-36768ca85c39dd34844252b1a57fd9ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/void_arcane_nexus_metallic_roughness.jpg-36768ca85c39dd34844252b1a57fd9ee.s3tc.ctex", "res://.godot/imported/void_arcane_nexus_metallic_roughness.jpg-36768ca85c39dd34844252b1a57fd9ee.etc2.ctex"]
 
 [params]
 
@@ -40,5 +41,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=512
 detect_3d/compress_to=0

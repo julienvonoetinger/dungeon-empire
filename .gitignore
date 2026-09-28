@@ -7,8 +7,14 @@
 .godot/
 *.translation
 export.cfg
-export_presets.cfg
 .import/
+
+# Android build output and local signing material
+/artifacts/android/
+/artifacts/**/*.log
+/artifacts/*.log
+*.keystore
+*.jks
 
 # OS / editor
 .DS_Store

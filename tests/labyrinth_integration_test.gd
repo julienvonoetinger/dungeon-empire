@@ -22,6 +22,11 @@ func _initialize() -> void:
 	capture = OS.get_cmdline_user_args().has("--capture")
 	root.size = Vector2i(1600, 1000)
 	game = load("res://Main.tscn").instantiate()
+	# This fixture exercises the desktop mesh/toolbar contract and fixed economy.
+	# Mobile commands, rewards and visuals have their own integration suites.
+	game.mobile_enabled = false
+	game.persistence_enabled = false
+	game.starter_enabled = false
 	root.add_child(game)
 	call_deferred("_run")
 

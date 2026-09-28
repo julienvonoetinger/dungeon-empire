@@ -7,6 +7,8 @@ extends Resource
 @export_range(0.0, 2.0, 0.01) var ambient_energy := 0.22
 @export_range(0.1, 4.0, 0.01) var exposure := 1.05
 @export var fog_enabled := true
+@export var compatibility_effects := false
+@export var shadows_enabled := true
 @export var fog_color := Color("#17161B")
 @export_range(0.0, 1.0, 0.001) var fog_density := 0.012
 
@@ -33,24 +35,31 @@ func apply_to_environment(env: Environment) -> void:
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = ambient_color
 	env.ambient_light_energy = ambient_energy
-	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	env.tonemap_mode = Environment.TONE_MAPPER_LINEAR if compatibility_effects else Environment.TONE_MAPPER_FILMIC
 	env.tonemap_exposure = exposure
 	env.fog_enabled = fog_enabled
 	env.fog_light_color = fog_color
 	env.fog_density = fog_density
+	if compatibility_effects:
+		env.ssao_enabled = false
+		env.ssil_enabled = false
+		env.ssr_enabled = false
+		env.sdfgi_enabled = false
+		env.glow_enabled = false
+		env.volumetric_fog_enabled = false
 
 func configure_key(light: DirectionalLight3D) -> void:
 	light.light_color = key_color
 	light.light_energy = key_energy
 	light.rotation_degrees = key_rotation_degrees
-	light.shadow_enabled = true
+	light.shadow_enabled = shadows_enabled
 	light.shadow_opacity = key_shadow_opacity
 
 func configure_practical(light: OmniLight3D) -> void:
 	light.light_color = practical_color
 	light.light_energy = practical_energy
 	light.omni_range = practical_range
-	light.shadow_enabled = true
+	light.shadow_enabled = shadows_enabled
 
 func configure_core(light: OmniLight3D) -> void:
 	light.light_color = core_color

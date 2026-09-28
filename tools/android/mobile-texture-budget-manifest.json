@@ -1,0 +1,1286 @@
+{
+	"files": {
+		"res://assets/mobile/command-atlas-v1.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"mipmaps/generate": {
+				"after": true,
+				"before": false
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/mobile/core-monument-v1.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"mipmaps/generate": {
+				"after": true,
+				"before": false
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/mobile/hero-portraits-v1.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_attack_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_attack_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_dead_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_dead_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_jump_trap_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_jump_trap_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_quiver_0.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_quiver_1.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_quiver_2.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_running_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_running_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_walking_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_walking_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_weapon_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_weapon_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/batrafian/hero_batrafian_ranger_weapon_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/aegis_of_the_golden_s_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/aegis_of_the_golden_s_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/aegis_of_the_golden_s_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/gilded_stonehammer_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/gilded_stonehammer_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/gilded_stonehammer_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/hero_lithide_paladin_axe_spin_attack_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/hero_lithide_paladin_running_v3_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/lithide/hero_lithide_paladin_walking_v3_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_cast_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_cast_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_dead_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_dead_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_running_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_running_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_walking_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/hero_mycean_mage_walking_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/mycean_mage_staff_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/mycean_mage_staff_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/mycean/mycean_mage_staff_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_cast_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_cast_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_dead_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_dead_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_running_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_running_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_walking_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_walking_texture_0_metallic_roughness.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_wings_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_wings_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/nocturne/hero_nocturne_priest_wings_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_attack_texture_0.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_attack_texture_0_metallic_roughness.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_dead_texture_0.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_dead_texture_0_metallic_roughness.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_running_texture_0.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_running_texture_0_metallic_roughness.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_walking_texture_0.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_walking_texture_0_metallic_roughness.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_weapon_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_weapon_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/saurian/hero_saurian_scalelord_weapon_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_collect_gold_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_collect_gold_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_dying_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_dying_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_jump_trap_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_jump_trap_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_lockpicking_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_lockpicking_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_running_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_running_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_walking_texture_0.png.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/characters/vulpin/hero_vulpin_walking_texture_0_metallic_roughness.png.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/core_void_nexus_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/core_void_nexus_destroyed_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/core_void_nexus_destroyed_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/core_void_nexus_destroyed_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/core_void_nexus_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/core_void_nexus_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_damaged_0.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_damaged_1.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_damaged_2.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_damaged_3.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_closed_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_closed_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_closed_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_destroyed_derived_Image_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_destroyed_derived_Image_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_destroyed_derived_Image_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_open_derived_Image_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_open_derived_Image_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/doors/wall_v2/door_square_open_derived_Image_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/entrance_stairs_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/entrance_stairs_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/entrance_stairs_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/floor_tile_trap_match_1x1_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/floor_tile_trap_match_1x1_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/floor_tile_trap_match_1x1_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/floor_tile_trap_match_1x1_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/town_portal_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/town_portal_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/town_portal_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/wall_straight_controlled_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/wall_straight_controlled_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/wall_straight_controlled_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/environment/wall_straight_controlled_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/floors/floor_violet_rift_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/floors/floor_violet_rift_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/floors/floor_violet_rift_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/loot/gold_loot_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/loot/gold_loot_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/loot/gold_loot_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/storage/vault_empty_reliquary_base_color.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/storage/vault_empty_reliquary_metallic_roughness.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/storage/vault_empty_reliquary_normal.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/storage/vault_skull_treasure_base_color.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/storage/vault_skull_treasure_metallic_roughness.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/storage/vault_skull_treasure_normal.jpg.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_armed_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_armed_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_armed_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_armed_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_broken_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_broken_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_broken_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_broken_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_sprung_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_sprung_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_sprung_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/snare_sprung_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_armed_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_armed_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_armed_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_armed_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_broken_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_broken_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_broken_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_broken_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_sprung_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_sprung_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_sprung_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/spike_sprung_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_armed_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_armed_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_armed_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_armed_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_broken_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_broken_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_broken_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_broken_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_sprung_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_sprung_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_sprung_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/paver_v3/void_sprung_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_broken_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_broken_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_broken_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_sprung_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_sprung_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/snare_voidstone_nexus_sprung_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_broken_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_broken_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_broken_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_sprung_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_sprung_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/spike_voidspike_sprung_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_arcane_nexus_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_arcane_nexus_broken_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_arcane_nexus_broken_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_arcane_nexus_broken_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_arcane_nexus_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_arcane_nexus_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_violet_gateway_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_violet_gateway_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/traps/void_violet_gateway_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/rock_block_match_door_v2_0.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/rock_block_match_door_v2_1.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/rock_block_match_door_v2_2.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/rock_block_match_door_v2_3.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/wall_pillar_meshy_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/wall_pillar_meshy_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/wall_pillar_meshy_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/wall_torch_emberstone_base_color.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/wall_torch_emberstone_metallic_roughness.jpg.import": {
+			"process/size_limit": {
+				"after": 512.0,
+				"before": 0.0
+			}
+		},
+		"res://assets/models/walls/wall_torch_emberstone_normal.jpg.import": {
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://production/textures/floor/floor_controlled_seamless.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"mipmaps/generate": {
+				"after": true,
+				"before": false
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		},
+		"res://production/textures/rock/diggable_rock_slab.png.import": {
+			"compress/mode": {
+				"after": 2.0,
+				"before": 0.0
+			},
+			"mipmaps/generate": {
+				"after": true,
+				"before": false
+			},
+			"process/size_limit": {
+				"after": 1024.0,
+				"before": 0.0
+			}
+		}
+	}
+}

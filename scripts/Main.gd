@@ -77,6 +77,11 @@ const SPRITE_FILES := GameTypes.SPRITE_FILES
 var sim: DungeonSim = DungeonSim.new()
 var raid: RaidDirector = RaidDirector.new()
 var toolbar: GameToolbar = GameToolbar.new()
+@export var mobile_enabled := false
+@export var persistence_enabled := false
+@export var starter_enabled := false
+var mobile_ui: Control
+var mobile_selection := Vector2i(-1, -1)
 
 var PORTAL_HOLD: float:
 	get:
@@ -381,9 +386,15 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	resized.connect(_layout_toolbar)
 	_ensure_camera_actions()
-	_load_sprites()
+	if not mobile_enabled:
+		_load_sprites()
 	_setup_world3d()
 	_new_map()
+	if mobile_enabled:
+		mobile_ui = load("res://scripts/mobile/mobile_session.gd").new()
+		mobile_ui.g = self
+		add_child(mobile_ui)
+		return
 	_setup_toolbar_buttons()
 	_layout_toolbar()
 
@@ -425,7 +436,12 @@ func _setup_world3d() -> void:
 	_world_port.transparent_bg = false
 	_world_port.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	_world_port.handle_input_locally = false
-	_world_port.msaa_3d = Viewport.MSAA_4X
+	_world_port.msaa_3d = Viewport.MSAA_2X if mobile_enabled else Viewport.MSAA_4X
+	if mobile_enabled:
+		_world_port.mesh_lod_threshold = 2.0
+	if mobile_enabled and OS.has_feature("mobile"):
+		_world_port.scaling_3d_scale = 0.75
+		Engine.max_fps = 30
 	_world_port.size = _world_pixel_size()
 	_world_host.add_child(_world_port)
 	if dungeon.get_parent() != _world_port:
@@ -436,6 +452,8 @@ func _setup_world3d() -> void:
 func _ensure_dungeon() -> Node3D:
 	if dungeon == null:
 		dungeon = load("res://scripts/world/dungeon_world.gd").new()
+		if mobile_enabled:
+			dungeon.set("mobile_mode", true)
 	return dungeon
 
 func _sync_world() -> void:
@@ -466,6 +484,8 @@ func _from_world_screen(screen: Vector2) -> Vector2:
 
 func _play_rect() -> Rect2:
 	var s := _view_size()
+	if mobile_enabled:
+		return Rect2(Vector2.ZERO, s)
 	var top := HUD_TOP
 	var bottom := 48.0
 	return Rect2(PLAY_MARGIN, top, maxf(64.0, s.x - PLAY_MARGIN * 2.0), maxf(64.0, s.y - top - bottom))
@@ -752,6 +772,10 @@ func _draw_seamless(tex: Texture2D, dest: Rect2, fallback: Color, modulate: Colo
 		dx += slice_w
 		remain_x -= slice_w
 func _process(delta: float) -> void:
+	if mobile_enabled:
+		if mobile_ui != null:
+			mobile_ui.tick(delta)
+		return
 	# While the application is not running nothing is simulated: the Master is absent.
 	var pan := Vector2.ZERO
 	if Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT):
@@ -882,6 +906,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
+	if mobile_enabled:
+		if mobile_ui != null:
+			mobile_ui.route(event)
+		return
 	_handle_event(event)
 
 func _mouse_pos(event: InputEvent) -> Vector2:
@@ -1231,6 +1259,8 @@ func _dungeon_modulate(base: Color = Color.WHITE) -> Color:
 	return base * Color(0.68, 0.74, 0.88)
 
 func _draw() -> void:
+	if mobile_enabled:
+		return
 	var s := _view_size()
 	draw_rect(Rect2(Vector2.ZERO, Vector2(s.x, 68)), Color(0.09, 0.09, 0.11, 0.72))
 	draw_string(font, Vector2(34, 35), "Dungeon Empire — Prototype v0.2", HORIZONTAL_ALIGNMENT_LEFT, -1, 24, C_TEXT)

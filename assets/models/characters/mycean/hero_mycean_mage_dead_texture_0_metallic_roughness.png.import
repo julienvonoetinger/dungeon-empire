@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://s14a3u7yxcnm"
 path.s3tc="res://.godot/imported/hero_mycean_mage_dead_texture_0_metallic_roughness.png-02b94dddc83a032cf012d0c996c477c8.s3tc.ctex"
+path.etc2="res://.godot/imported/hero_mycean_mage_dead_texture_0_metallic_roughness.png-02b94dddc83a032cf012d0c996c477c8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/characters/mycean/hero_mycean_mage_dead_texture_0_metallic_roughness.png"
-dest_files=["res://.godot/imported/hero_mycean_mage_dead_texture_0_metallic_roughness.png-02b94dddc83a032cf012d0c996c477c8.s3tc.ctex"]
+dest_files=["res://.godot/imported/hero_mycean_mage_dead_texture_0_metallic_roughness.png-02b94dddc83a032cf012d0c996c477c8.s3tc.ctex", "res://.godot/imported/hero_mycean_mage_dead_texture_0_metallic_roughness.png-02b94dddc83a032cf012d0c996c477c8.etc2.ctex"]
 
 [params]
 
@@ -40,5 +41,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=512
 detect_3d/compress_to=0
