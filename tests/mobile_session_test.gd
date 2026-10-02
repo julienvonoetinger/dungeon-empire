@@ -19,6 +19,11 @@ func _run() -> void:
 	await process_frame
 	var ui = game.mobile_ui
 	check(ui != null, "Mobile UI ready")
+	ui.size = Vector2(1280, 720)
+	ui._layout()
+	check(ui.walls_button != null, "manual wall visibility button exists")
+	if ui.walls_button != null:
+		check(ui.walls_button.get_global_rect().end.y <= 720, "wall visibility button fits the 720 logical viewport")
 	ui.paused = true
 	ui.selected = Vector2i(6, 6)
 	ui._update_preview()
@@ -41,7 +46,11 @@ func _run() -> void:
 	ui._choose_tool(GameTypes.Tool.TRAP_SNARE)
 	ui.selected = Vector2i(5, 6)
 	ui._update_preview()
-	check(not ui.preview.valid, "Progression gate used by actual session")
+	check(ui.preview.valid, "Playtest session unlocks Entrave at level one")
+	ui.profile.testing_unlock_defenses = false
+	ui._update_preview()
+	check(not ui.preview.valid, "Progression gate still works outside playtest mode")
+	ui.profile.testing_unlock_defenses = true
 	ui._cancel()
 	game.core_hp = 90
 	for y in range(8, 11):

@@ -5,6 +5,7 @@ const FLOOR_TEXTURE := preload("res://production/textures/floor/floor_controlled
 const STONE_RELIEF := preload("res://scripts/world/stone_floor_relief.gd")
 
 var _signature := ""
+var mobile_mode := false
 var _relief: Node3D
 
 func _init() -> void:
@@ -13,11 +14,11 @@ func _init() -> void:
 func sync_cells(open_cells: Array[Vector2i], cell_size: float, inset_cells: Array[Vector2i] = []) -> void:
 	var ordered := open_cells.duplicate()
 	ordered.sort_custom(func(a: Vector2i, b: Vector2i) -> bool: return a.y < b.y or (a.y == b.y and a.x < b.x))
-	var signature := "%s|%.4f|%s" % [str(ordered), cell_size, str(inset_cells)]
+	var signature := "%s|%.4f|%s|%s" % [str(ordered), cell_size, str(inset_cells), mobile_mode]
 	if signature == _signature:
 		return
 	_signature = signature
-	if _relief == null:
+	if _relief == null and not mobile_mode:
 		_relief = STONE_RELIEF.new()
 		_relief.name = "MeshyStoneRelief"
 		add_child(_relief)
@@ -27,7 +28,10 @@ func sync_cells(open_cells: Array[Vector2i], cell_size: float, inset_cells: Arra
 	for cell in ordered:
 		if not inset_cells.has(cell):
 			relief_cells.append(cell)
-	_relief.sync_cells(relief_cells, cell_size)
+	if _relief != null:
+		_relief.visible = not mobile_mode
+		if not mobile_mode:
+			_relief.sync_cells(relief_cells, cell_size)
 	if ordered.is_empty():
 		mesh = null
 		return
@@ -36,7 +40,7 @@ func sync_cells(open_cells: Array[Vector2i], cell_size: float, inset_cells: Arra
 	var uvs := PackedVector2Array()
 	var indices := PackedInt32Array()
 	for cell in ordered:
-		var surface_y := 0.12
+		var surface_y := 0.175 if mobile_mode else 0.12
 		var x0 := float(cell.x) * cell_size
 		var z0 := float(cell.y) * cell_size
 		var x1 := x0 + cell_size
@@ -68,7 +72,7 @@ func surface_count() -> int:
 
 func _make_material() -> StandardMaterial3D:
 	var material := StandardMaterial3D.new()
-	material.albedo_texture = FLOOR_TEXTURE
+	material.albedo_texture = load("res://assets/mobile/floor-pavers-v3.png") if mobile_mode else FLOOR_TEXTURE
 	material.uv1_scale = Vector3(0.25, 0.25, 1.0)
 	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	material.roughness = 0.9

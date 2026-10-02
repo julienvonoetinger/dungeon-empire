@@ -37,6 +37,7 @@ const DAMAGE_SPIKE_PALADIN := 20
 const DAMAGE_SNARE := 16
 
 const TURN_TIME := 0.48
+const TRAP_JUMP_TIME := 1.0
 # Matches the 76-frame / 30 FPS Axe Spin Attack clip used by the Lithide paladin.
 const CORE_STRIKE_HOLD := 76.0 / 30.0
 # Matches the 181-frame / 30 FPS Collect Object clip used by the Vulpin thief.

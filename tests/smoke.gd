@@ -336,7 +336,8 @@ func ensure_entrance() -> void:
     if m._has_entrance():
         return
     var c: Vector2i = core_cell()
-    var p := Vector2i(c.x - 1, c.y)
+    var p := Vector2i(c.x - 1, c.y - 1)
+    ensure_floor(p + Vector2i.DOWN)
     ensure_floor(p)
     click_named(m.Tool.BUILD_ENTRANCE)
     click_cell(p)
@@ -467,7 +468,8 @@ func _test_sealed_core_start() -> void:
         m._process(0.5)
     check(not m.raid_active, "a raid started before any entrance existed")
     check(is_equal_approx(m.raid_timer, timer_before), "raid countdown ran with no entrance")
-    var west: Vector2i = c + Vector2i.LEFT
+    var west: Vector2i = c + Vector2i(-1, -1)
+    ensure_floor(west + Vector2i.DOWN)
     ensure_floor(west)
     m.toolbar.open_at(west, Vector2(400, 300))
     check(m.toolbar._tool_enabled(m.Tool.BUILD_ENTRANCE), "Entrance disabled before it is placed")
@@ -973,6 +975,7 @@ func _build_test_dungeon() -> void:
         click_cell(p)
     click_named(m.Tool.STORE)
     click_cell(north + Vector2i.LEFT * 3)
+    ensure_storage_capacity(m.gold)
     click_named(m.Tool.TRAP_SPIKE)
     click_cell(core_east_floor())
     click_named(m.Tool.TRAP_SNARE)

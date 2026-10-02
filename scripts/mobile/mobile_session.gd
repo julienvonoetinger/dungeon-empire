@@ -4,6 +4,7 @@ const Profile = preload("res://scripts/game/core_progression.gd")
 const Router = preload("res://scripts/mobile/mobile_input_router.gd")
 const Commands = preload("res://scripts/mobile/mobile_build.gd")
 const SAVE_PATH := "user://mobile_run_v1.save"
+const UI_PREFS_PATH := "user://mobile_ui.cfg"
 const Tool := GameTypes.Tool
 const GREEN := Color("65d9ad")
 const GOLD := Color("f1cb72")
@@ -34,8 +35,12 @@ var result_open := false
 var paused := false
 var top: PanelContainer
 var bottom: PanelContainer
+var tray_toggle: Button
+var tray_collapsed := false
 var actions: PanelContainer
 var cameras: VBoxContainer
+var walls_button: Button
+var _anchor_layout := false
 var wealth: Label
 var integrity: Label
 var level_label: Label
@@ -71,8 +76,20 @@ var _selected_tool_style: StyleBoxFlat
 var _pre_raid_view := {}
 var build_options: HBoxContainer
 var _raid_layout := false
+var _memory_log_wait := 0.0
+var _diagnostics: RefCounted
+var _diagnostics_saved := true
+var _copy_current_button: Button
+var _copy_previous_button: Button
 
 func _ready() -> void:
+	profile.testing_unlock_defenses = bool(ProjectSettings.get_setting("testing/unlock_defenses", false))
+	if OS.is_debug_build() and (OS.has_feature("android") or "--memory-probe" in OS.get_cmdline_user_args()) and g.persistence_enabled:
+		_diagnostics = preload("res://scripts/mobile/mobile_diagnostics.gd").new()
+		_diagnostics_saved = _diagnostics.begin("user://mobile_memory_v2.json") == OK
+	g.raid.solid_core = true
+	if g.persistence_enabled:
+		_load_tray_preference()
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if ResourceLoader.exists("res://assets/mobile/cinzel.ttf"):
@@ -83,6 +100,10 @@ func _ready() -> void:
 		icon.atlas = atlas
 		icon.region = Rect2(Vector2(index % 4, index / 4) * Vector2(atlas.get_width() / 4.0, atlas.get_height() / 3.0), Vector2(atlas.get_width() / 4.0, atlas.get_height() / 3.0))
 		icons[index] = icon
+	icons[Tool.TRAP_SNARE] = preload("res://assets/mobile/grasp-active-v2.png")
+	icons[Tool.TRAP_SPIKE] = preload("res://assets/mobile/spikes-icon-v2.png")
+	icons[Tool.TRAP_VOID] = preload("res://assets/mobile/void-active-v3.png")
+	icons[Tool.BUILD_ENTRANCE] = preload("res://assets/mobile/entrance-arch-v2.png")
 	var portrait_atlas: Texture2D = load("res://assets/mobile/hero-portraits-v1.png")
 	var kinds := ["thief", "paladin", "ranger", "mage"]
 	for index in 4:
@@ -104,8 +125,7 @@ func _ready() -> void:
 			var data: Dictionary = save_api.read_save(SAVE_PATH)
 			if not data.is_empty():
 				restored = save_api.apply(data, g.sim, g.raid, profile)
-	if not restored and g.starter_enabled and ResourceLoader.exists("res://scripts/mobile/mobile_starter.gd"):
-		load("res://scripts/mobile/mobile_starter.gd").populate(g.sim, g.raid)
+	if not restored:
 		_save()
 	g.cam_zoom = 2.0
 	g.cam_yaw = 45.0
@@ -119,6 +139,17 @@ func _ready() -> void:
 	if g.game_over:
 		_show_defeat_recovery()
 	_refresh()
+	if _diagnostics != null and not _diagnostics.previous.is_empty():
+		_pause_menu()
+
+func _is_empty_dungeon() -> bool:
+	if g.grid.is_empty():
+		return false
+	for row in g.grid:
+		for tile in row:
+			if int(tile) != GameTypes.Tile.ROCK:
+				return false
+	return true
 
 func _style(color: Color, border: Color = Color.TRANSPARENT) -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
@@ -184,6 +215,18 @@ func _build_ui() -> void:
 	header.add_child(level_label)
 	header.add_child(_button("II", _pause_menu, "Pause"))
 	bottom = _band()
+	tray_toggle = _button("⌄", _toggle_tray, "Replier les outils")
+	tray_toggle.custom_minimum_size = Vector2(48, 24)
+	tray_toggle.add_theme_font_size_override("font_size", 16)
+	for state in ["normal", "hover", "pressed", "disabled"]:
+		var tab_style := tray_toggle.get_theme_stylebox(state).duplicate() as StyleBoxFlat
+		tab_style.content_margin_left = 4
+		tab_style.content_margin_right = 4
+		tab_style.content_margin_top = 0
+		tab_style.content_margin_bottom = 0
+		tab_style.border_width_bottom = 0
+		tray_toggle.add_theme_stylebox_override(state, tab_style)
+	add_child(tray_toggle)
 	var tray := VBoxContainer.new()
 	bottom.add_child(tray)
 	phase = _label("", 20, GOLD)
@@ -259,6 +302,10 @@ func _build_ui() -> void:
 	follow_button.expand_icon = true
 	follow_button.add_theme_constant_override("icon_max_width", 44)
 	cameras.add_child(follow_button)
+	walls_button = _button("▦", func(): g.dungeon.set_mobile_walls_visible(not g.dungeon.mobile_walls_visible), "Afficher / masquer les murs")
+	walls_button.toggle_mode = true
+	walls_button.button_pressed = g.dungeon.mobile_walls_visible
+	cameras.add_child(walls_button)
 	raid_button = _button("Raid", _start_raid)
 	cameras.add_child(raid_button)
 	hero_card = _band()
@@ -304,6 +351,12 @@ func _build_ui() -> void:
 	content.add_child(modal_body)
 	modal_continue = _button("Continuer", _continue)
 	content.add_child(modal_continue)
+	if _diagnostics != null:
+		_copy_current_button = _button("Copier diagnostic actuel", func(): _copy_diagnostic(false))
+		content.add_child(_copy_current_button)
+		_copy_previous_button = _button("Copier diagnostic precedent", func(): _copy_diagnostic(true))
+		_copy_previous_button.disabled = _diagnostics.previous.is_empty()
+		content.add_child(_copy_previous_button)
 	modal.hide()
 
 func _layout() -> void:
@@ -319,12 +372,18 @@ func _layout() -> void:
 			inset.w = maxf(inset.w, (physical.y - safe.end.y) * scale.y)
 	top.position = Vector2(inset.x, inset.y)
 	top.size = Vector2(size.x - inset.x - inset.z, 72)
-	var tray_height := 64 if g.raid_active else 206
-	build_options.visible = not g.raid_active
+	_anchor_layout = not g._has_core()
+	var tray_height := 72 if _anchor_layout else (64 if g.raid_active or tray_collapsed else 206)
+	build_options.visible = not g.raid_active and not _anchor_layout and not tray_collapsed
 	bottom.position = Vector2(inset.x, size.y - tray_height - inset.w)
 	bottom.size = Vector2(minf(940, size.x - 136 - inset.x - inset.z), tray_height)
-	actions.position = Vector2(inset.x, bottom.position.y - 80)
+	tray_toggle.size = tray_toggle.custom_minimum_size
+	tray_toggle.position = Vector2(bottom.position.x + (bottom.size.x - tray_toggle.size.x) * 0.5, bottom.position.y - tray_toggle.size.y)
+	actions.position = Vector2(inset.x, tray_toggle.position.y - 80)
 	actions.size = Vector2(minf(850, size.x - 160), 72)
+	if _anchor_layout:
+		actions.position = bottom.position
+		actions.size.x = bottom.size.x
 	cameras.position = Vector2(size.x - inset.z - 96, top.position.y + 86)
 	cameras.size.x = 96
 	hero_card.position = Vector2(inset.x, top.position.y + 82)
@@ -333,8 +392,35 @@ func _layout() -> void:
 	_last_size = size
 	_raid_layout = g.raid_active
 
+func _toggle_tray() -> void:
+	if _anchor_layout or g.raid_active or modal.visible:
+		return
+	tray_collapsed = not tray_collapsed
+	if g.persistence_enabled:
+		_save_tray_preference()
+	_layout()
+	_refresh()
+
+func _load_tray_preference(path: String = UI_PREFS_PATH) -> void:
+	var config := ConfigFile.new()
+	if config.load(path) == OK:
+		var value: Variant = config.get_value("interface", "tray_collapsed", false)
+		tray_collapsed = value if value is bool else false
+
+func _save_tray_preference(path: String = UI_PREFS_PATH) -> Error:
+	var config := ConfigFile.new()
+	config.load(path)
+	config.set_value("interface", "tray_collapsed", tray_collapsed)
+	return config.save(path)
+
 func tick(delta: float) -> void:
-	if size != _last_size or _raid_layout != g.raid_active:
+	walls_button.set_pressed_no_signal(g.dungeon.mobile_walls_visible)
+	walls_button.tooltip_text = "Masquer les murs" if g.dungeon.mobile_walls_visible else "Afficher les murs"
+	var memory := memory_diagnostics(delta, _diagnostics != null)
+	if not memory.is_empty():
+		_diagnostics_saved = _diagnostics.append(memory) == OK
+		print("[DungeonMemory] ", JSON.stringify(memory))
+	if size != _last_size or _raid_layout != g.raid_active or _anchor_layout == g._has_core():
 		_layout()
 	if not paused and not result_open:
 		if g.raid_active:
@@ -362,11 +448,38 @@ func tick(delta: float) -> void:
 		_refresh()
 	queue_redraw()
 
+func memory_diagnostics(delta: float, enabled: bool) -> Dictionary:
+	if not enabled:
+		return {}
+	_memory_log_wait -= delta
+	if _memory_log_wait > 0.0:
+		return {}
+	_memory_log_wait = 2.0
+	var system_memory := OS.get_memory_info()
+	# Engine counters omit some driver allocations; sample system availability too.
+	return {
+		"build": "memory-ab-2",
+		"uptime_ms": Time.get_ticks_msec(),
+		"renderer": RenderingServer.get_current_rendering_method(),
+		"driver": RenderingServer.get_current_rendering_driver_name(),
+		"rss_bytes": preload("res://scripts/mobile/mobile_diagnostics.gd").rss_bytes(FileAccess.get_file_as_string("/proc/self/status")) if OS.has_feature("android") else -1,
+		"fps": Engine.get_frames_per_second(),
+		"static_bytes": int(Performance.get_monitor(Performance.MEMORY_STATIC)),
+		"video_bytes": int(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)),
+		"texture_bytes": int(Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED)),
+		"nodes": int(Performance.get_monitor(Performance.OBJECT_NODE_COUNT)),
+		"resources": int(Performance.get_monitor(Performance.OBJECT_RESOURCE_COUNT)),
+		"system_available_bytes": system_memory.get("available", -1),
+		"system_free_bytes": system_memory.get("free", -1),
+	}
+
 func route(event: InputEvent) -> void:
 	var position := Vector2(-1, -1)
 	if event is InputEventScreenTouch or event is InputEventScreenDrag or event is InputEventMouse:
 		position = event.position
-	var over := modal.visible or top.get_global_rect().has_point(position) or bottom.get_global_rect().has_point(position) or cameras.get_global_rect().has_point(position)
+	var over := modal.visible or top.get_global_rect().has_point(position) or (bottom.visible and bottom.get_global_rect().has_point(position)) or cameras.get_global_rect().has_point(position)
+	if tray_toggle.visible and tray_toggle.get_global_rect().has_point(position):
+		over = true
 	if actions.visible and actions.get_global_rect().has_point(position):
 		over = true
 	if hero_card.visible and hero_card.get_global_rect().has_point(position):
@@ -443,22 +556,31 @@ func _pan(delta: Vector2) -> void:
 	following = false
 	camera_rules.pan = g.cam_pan
 	camera_rules.pan_by(Vector2(-delta.x, -delta.y / sin(deg_to_rad(40.0))))
-	g.cam_pan = camera_rules.pan.clamp(Vector2(-1800, -1800), Vector2(1800, 1800))
+	g.cam_pan = camera_rules.pan
+	_constrain_camera()
 
 func _zoom(position: Vector2, factor: float) -> void:
 	camera_rules.zoom = g.cam_zoom
 	camera_rules.zoom_by(factor)
 	g._zoom_at(position, camera_rules.zoom / g.cam_zoom)
+	_constrain_camera()
 
 func _rotate(steps: int) -> void:
 	camera_rules.yaw = g.cam_yaw
 	camera_rules.rotate_steps(steps)
 	g._orbit_yaw(camera_rules.yaw - g.cam_yaw)
+	_constrain_camera()
+
+func _constrain_camera() -> void:
+	var limited: Dictionary = g.dungeon.limit_mobile_camera(g.cam_zoom, g.cam_pan, g._play_view(), g.COLS, g.ROWS, g.cam_yaw)
+	g.cam_zoom = limited.zoom
+	g.cam_pan = limited.pan
 
 func _center(cell: Vector2i) -> void:
 	var point: Vector2 = g._cell_pos(cell)
 	var target := Vector2(size.x * 0.48, size.y * 0.43)
 	g.cam_pan += Vector2(point.x - target.x, (point.y - target.y) / sin(deg_to_rad(40.0)))
+	_constrain_camera()
 
 func _center_core() -> void:
 	following = false
@@ -475,9 +597,7 @@ func _start_raid() -> void:
 	_cancel()
 	_save()
 	_pre_raid_view = {"zoom": g.cam_zoom, "pan": g.cam_pan}
-	g.cam_zoom = maxf(g.cam_zoom, 2.25)
 	g._start_raid()
-	following = true
 
 func _raid_finished(result: Dictionary) -> void:
 	var reward: Dictionary = profile.claim(result)
@@ -503,11 +623,19 @@ func _pause_menu() -> void:
 	paused = true
 	modal_title.text = "Pause"
 	modal_body.text = "Cœur niveau %d\n%d XP\n\n%s" % [profile.level(), profile.xp, "Sauvegarde indisponible" if _save_failed else "Progression locale conservée"]
+	if _diagnostics != null:
+		modal_body.text += "\nRendu : " + RenderingServer.get_current_rendering_method()
+		if not _diagnostics_saved:
+			modal_body.text += "\nJournal local indisponible"
+		g._world_port.render_target_update_mode = SubViewport.UPDATE_DISABLED
+		g.dungeon.set_process(false)
 	_modal_action = "continue"
 	modal_continue.text = "Reprendre"
 	modal.show()
 
 func _continue() -> void:
+	g._world_port.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	g.dungeon.set_process(true)
 	if result_open and not _pre_raid_view.is_empty():
 		g.cam_zoom = _pre_raid_view.zoom
 		g.cam_pan = _pre_raid_view.pan
@@ -515,11 +643,31 @@ func _continue() -> void:
 	if _modal_action == "new":
 		g._new_map()
 		g.raid_index = profile.last_raid_id
+		following = false
+		_cancel()
+		category = 0
+		tool = Tool.NONE
+		g.cam_zoom = 2.0
+		g.cam_yaw = 45.0
+		g.cam_pan = Vector2.ZERO
+		g._cam_custom = true
+		g._sync_world()
 		_center_core()
+		selected = Vector2i(6, 6)
+		_update_preview()
+		g._sync_world()
 		_save()
+	_modal_action = "continue"
 	paused = false
 	result_open = false
 	modal.hide()
+	_refresh()
+
+func _copy_diagnostic(previous: bool) -> void:
+	var text: String = _diagnostics.export_previous() if previous else _diagnostics.export_current()
+	DisplayServer.clipboard_set(text)
+	var button := _copy_previous_button if previous else _copy_current_button
+	button.text = "Diagnostic copie"
 
 func _show_defeat_recovery() -> void:
 	result_open = true
@@ -534,7 +682,19 @@ func _save() -> void:
 		_save_failed = not save_api.write_save(SAVE_PATH, save_api.capture(g.sim, g.raid, profile))
 
 func _refresh() -> void:
-	wealth.text = "Or  %d / %d" % [g.gold, g._storage_capacity()]
+	var anchoring: bool = not g._has_core()
+	if _anchor_layout != anchoring:
+		_layout()
+	bottom.visible = not anchoring or selected.x < 0
+	tray_toggle.visible = not anchoring and not g.raid_active and not modal.visible
+	tray_toggle.text = "⌃" if tray_collapsed else "⌄"
+	tray_toggle.tooltip_text = "Déployer les outils" if tray_collapsed else "Replier les outils"
+	integrity.visible = not anchoring
+	raid_button.visible = not anchoring
+	follow_button.visible = not anchoring
+	walls_button.visible = true
+	confirm.text = "Ancrer" if anchoring else "Confirmer"
+	wealth.text = "Or  %d" % g.gold if anchoring else "Or  %d / %d" % [g.gold, g._storage_capacity()]
 	integrity.text = "Cœur  %d%%" % g.core_hp
 	level_label.text = "Niv. %d   %d / %d XP" % [profile.level(), profile.xp, profile.next_threshold()]
 	if profile.level() == 4:
@@ -573,13 +733,15 @@ func _refresh() -> void:
 			item.label.text = "%s %s" % [item.entry[1], str(item.entry[2]) if item.entry[2] else ""]
 	for index in category_buttons.size():
 		category_buttons[index].modulate = GOLD if category == index else Color.WHITE
-	actions.visible = selected.x >= 0 and not g.raid_active and not modal.visible
+	actions.visible = selected.x >= 0 and not g.raid_active and not modal.visible and (anchoring or not tray_collapsed)
 	if actions.visible:
 		collect.visible = g.loot_bags.any(func(bag): return bag.pos == selected)
 		collect.disabled = g.gold >= g._storage_capacity()
 		confirm.disabled = not preview.get("valid", false)
-		var title := "Cœur" if not g._has_core() else str(buttons[tool].entry[1])
+		var title := "Cœur" if anchoring else (str(buttons[tool].entry[1]) if buttons.has(tool) else "Case")
 		detail.text = "%s   (%d, %d)   %d or" % [title, selected.x + 1, selected.y + 1, int(preview.get("cost", 0))]
+		if anchoring:
+			detail.text = "Ancrage du cœur"
 		if not preview.get("valid", false):
 			detail.text += "   " + str(preview.get("reason", "Indisponible"))
 
@@ -587,6 +749,13 @@ func _draw() -> void:
 	if g == null or g.dungeon == null:
 		return
 	if selected.x >= 0 and not g.raid_active:
+		if not g._has_core():
+			var corners := PackedVector2Array()
+			for offset in [Vector2(0, 0), Vector2(2, 0), Vector2(2, 2), Vector2(0, 2), Vector2(0, 0)]:
+				var p := Vector3(selected.x + offset.x, 0.175, selected.y + offset.y)
+				corners.append(g._to_world_screen(g.dungeon._world_to_screen(p, g._play_view(), g.cam_zoom)))
+			draw_polyline(corners, GOLD if preview.get("valid", false) else RED, 2, true)
+			return
 		var point: Vector2 = g._cell_pos(selected)
 		var color := GREEN if preview.get("valid", false) else RED
 		var extent := 28.0 * float(g.cam_zoom)

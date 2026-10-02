@@ -77,6 +77,81 @@ func _initialize() -> void:
 	check(save_script.apply(defeated, sim, raid, progress), "defeated snapshot accepted")
 	check(save_script.capture(sim, raid, progress) == defeated, "defeat and consumed structures preserved")
 	check(save_script.apply(original, sim, raid, progress), "restore initial fixture")
+	var valid_sim = Sim.new()
+	var valid_raid = Raid.new()
+	var valid_progress = Progress.new()
+	valid_sim.new_map()
+	var valid_entrance := Vector2i(4, 4)
+	valid_sim.grid[4][4] = GameTypes.Tile.ENTRANCE
+	valid_sim.grid[4][5] = GameTypes.Tile.FLOOR
+	valid_raid.kingdom_knowledge = {valid_entrance: GameTypes.Tile.ENTRANCE}
+	var valid_before: Dictionary = save_script.capture(valid_sim, valid_raid, valid_progress)
+	check(save_script.apply(valid_before, valid_sim, valid_raid, valid_progress), "already valid entrance snapshot applies")
+	check(valid_sim.repair_entrance_placement().is_empty(), "valid entrance requires no migration")
+	check(save_script.capture(valid_sim, valid_raid, valid_progress) == valid_before, "valid save migration is a no-op")
+	var legacy_sim = Sim.new()
+	var legacy_raid = Raid.new()
+	var legacy_progress = Progress.new()
+	legacy_sim.new_map()
+	var old_entrance := Vector2i(8, 8)
+	for p in [old_entrance, old_entrance + Vector2i.LEFT, old_entrance + Vector2i.RIGHT,
+			old_entrance + Vector2i.UP, old_entrance + Vector2i.DOWN,
+			old_entrance + Vector2i(-1, -1), old_entrance + Vector2i(1, -1),
+			old_entrance + Vector2i(-1, 1), old_entrance + Vector2i(1, 1)]:
+		legacy_sim.grid[p.y][p.x] = GameTypes.Tile.FLOOR
+	legacy_sim.grid[old_entrance.y][old_entrance.x] = GameTypes.Tile.ENTRANCE
+	legacy_sim.grid[7][7] = GameTypes.Tile.VAULT
+	legacy_sim.grid[8][9] = GameTypes.Tile.SPIKE
+	legacy_sim.trap_charges[Vector2i(9, 8)] = 2
+	legacy_sim.gold = 321
+	legacy_sim.core_hp = 77
+	legacy_sim.loot_bags = [{"pos": Vector2i(9, 9), "gold": 23, "taken": false}]
+	legacy_sim.corpses = [{"pos": Vector2i(9, 9), "name": "Legacy", "fear": 12.0}]
+	legacy_raid.kingdom_knowledge = {old_entrance: GameTypes.Tile.ENTRANCE,
+		Vector2i(8, 7): GameTypes.Tile.FLOOR, Vector2i(8, 9): GameTypes.Tile.FLOOR,
+		Vector2i(7, 8): GameTypes.Tile.FLOOR, Vector2i(9, 8): GameTypes.Tile.FLOOR,
+		Vector2i(10, 10): GameTypes.Tile.ROCK}
+	legacy_raid.raid_index = 12
+	legacy_progress.restore({"xp": 245, "last_raid_id": 12})
+	var legacy_snapshot: Dictionary = save_script.capture(legacy_sim, legacy_raid, legacy_progress)
+	check(save_script.apply(legacy_snapshot, legacy_sim, legacy_raid, legacy_progress), "legacy center entrance snapshot accepted")
+	var repaired_entrance: Vector2i = legacy_sim._find_tile(GameTypes.Tile.ENTRANCE)
+	check(repaired_entrance != old_entrance and absi(repaired_entrance.x - old_entrance.x) + absi(repaired_entrance.y - old_entrance.y) == 1,
+		"legacy center entrance migrates to nearest connected wall opening")
+	check(legacy_sim.grid[old_entrance.y][old_entrance.x] == GameTypes.Tile.FLOOR, "old entrance cell becomes floor")
+	check(legacy_sim._wall_entrance_face(repaired_entrance) != Vector2i.ZERO, "migrated entrance has valid backing and approach")
+	check(not legacy_raid.kingdom_knowledge.has(old_entrance) and not legacy_raid.kingdom_knowledge.has(repaired_entrance),
+		"migration clears knowledge of old and new entrance cells")
+	check(legacy_raid.kingdom_knowledge.has(Vector2i(10, 10)), "migration preserves unrelated map knowledge")
+	check(legacy_sim.grid[7][7] == GameTypes.Tile.VAULT and legacy_sim.grid[8][9] == GameTypes.Tile.SPIKE
+		and legacy_sim.trap_charges[Vector2i(9, 8)] == 2, "migration preserves other structures and trap state")
+	check(legacy_sim.gold == 321 and legacy_sim.core_hp == 77 and legacy_sim.loot_bags[0].gold == 23
+		and legacy_sim.corpses[0].name == "Legacy", "migration preserves economy and world contents")
+	check(legacy_progress.snapshot() == {"xp": 245, "last_raid_id": 12} and legacy_raid.raid_index == 12,
+		"migration preserves profile and progression")
+	var migrated_snapshot: Dictionary = save_script.capture(legacy_sim, legacy_raid, legacy_progress)
+	check(save_script.apply(migrated_snapshot, legacy_sim, legacy_raid, legacy_progress), "migrated save can be loaded again")
+	check(save_script.capture(legacy_sim, legacy_raid, legacy_progress) == migrated_snapshot,
+		"entrance migration is idempotent")
+	var no_candidate_sim = Sim.new()
+	var no_candidate_raid = Raid.new()
+	var no_candidate_progress = Progress.new()
+	no_candidate_sim.new_map()
+	no_candidate_sim.grid[8][8] = GameTypes.Tile.ENTRANCE
+	no_candidate_sim.raid = no_candidate_raid
+	no_candidate_raid.sim = no_candidate_sim
+	no_candidate_raid.kingdom_knowledge = {Vector2i(8, 8): GameTypes.Tile.ENTRANCE}
+	var no_candidate: Dictionary = no_candidate_sim.repair_entrance_placement()
+	check(no_candidate.get("from") == Vector2i(8, 8) and no_candidate.get("to") == Vector2i(-1, -1),
+		"migration reports removal when no connected wall opening exists")
+	check(no_candidate_sim.grid[8][8] == GameTypes.Tile.FLOOR, "migration frees invalid entrance cell")
+	no_candidate_sim.grid[8][8] = GameTypes.Tile.ENTRANCE
+	no_candidate_raid.kingdom_knowledge = {Vector2i(8, 8): GameTypes.Tile.ENTRANCE}
+	var no_candidate_snapshot: Dictionary = save_script.capture(no_candidate_sim, no_candidate_raid, no_candidate_progress)
+	check(save_script.apply(no_candidate_snapshot, no_candidate_sim, no_candidate_raid, no_candidate_progress),
+		"save migration accepts an entrance with no replacement opening")
+	check(no_candidate_sim.grid[8][8] == GameTypes.Tile.FLOOR and not no_candidate_raid.kingdom_knowledge.has(Vector2i(8, 8)),
+		"save migration frees invalid entrance cell and invalidates its knowledge")
 	for field in original:
 		var missing := original.duplicate(true)
 		missing.erase(field)
@@ -181,5 +256,16 @@ func _initialize() -> void:
 	for suffix in ["", ".tmp", ".bak"]:
 		if FileAccess.file_exists(path + suffix):
 			DirAccess.remove_absolute(path + suffix)
+	no_candidate_sim.raid = null
+	no_candidate_raid.sim = null
+	valid_sim = null
+	valid_raid = null
+	valid_progress = null
+	legacy_sim = null
+	legacy_raid = null
+	legacy_progress = null
+	no_candidate_sim = null
+	no_candidate_raid = null
+	no_candidate_progress = null
 	print("mobile_save_test: %d failures" % failures)
 	quit(1 if failures else 0)

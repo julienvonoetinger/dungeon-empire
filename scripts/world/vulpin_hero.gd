@@ -28,6 +28,7 @@ func _ready() -> void:
 	_running = RUN_MODEL.instantiate() as Node3D
 	_collecting = COLLECT_MODEL.instantiate() as Node3D
 	_jumping = JUMP_MODEL.instantiate() as Node3D
+	preload("res://scripts/world/jump_motion.gd").prepare(_jumping)
 	_lockpicking = LOCKPICK_MODEL.instantiate() as Node3D
 	_dying = DYING_MODEL.instantiate() as Node3D
 	_walking.name = "Walking"

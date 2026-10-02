@@ -83,18 +83,44 @@ func _run() -> void:
 	for index in prop_tiles.size():
 		world._rebuild_cell(prop_cell, prop_tiles[index], game, {prop_cell: 50}, false)
 		var prop_root: Node3D = world._cells[prop_cell]
-		var prop: Sprite3D = prop_root.get_node("MobileProp")
-		var region := prop.texture as AtlasTexture
-		_check(region != null and region.filter_clip, "mobile prop uses clipped atlas region")
-		var atlas_cell := Vector2(region.atlas.get_width() / 4.0, region.atlas.get_height() / 3.0)
-		_check(region.region.position.is_equal_approx(Vector2((index + 1) % 4, floori((index + 1) / 4.0)) * atlas_cell), "mobile prop selects matching HUD icon")
-		_check(prop_root.find_children("*", "MeshInstance3D", true, false).is_empty(), "mobile prop skips old model")
-		_check(not prop.shaded and not prop.no_depth_test, "mobile prop is unshaded and depth tested")
+		var prop: Node3D = prop_root.get_node("MobileProp")
+		if index == 0:
+			_check(prop is Sprite3D and prop.texture.resource_path.ends_with("chest-full-v1.png"), "vault uses dedicated full image")
+		else:
+			_check(not prop is Sprite3D, "traps are floor-bound mechanisms")
+			_check(not prop.get_children().is_empty(), "trap geometry exists")
 		_check((prop_root.get_node_or_null("MobileTrapCharges") != null) == (index > 0), "only traps have count marker")
 	game.trap_charges[prop_cell] = 0
+	for gold in [0, 50, 0]:
+		world._rebuild_cell(prop_cell, GameTypes.Tile.VAULT, game, {prop_cell: gold}, false)
+		var chest: Sprite3D = world._cells[prop_cell].get_node("MobileProp")
+		_check(chest.modulate == Color.WHITE, "empty and full chests retain colors")
+		_check(chest.texture.resource_path.ends_with("chest-empty-v1.png" if gold == 0 else "chest-full-v1.png"), "chest changes image on depletion and refill")
+		_check(chest.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD, "chest writes depth")
+		var footprint := Vector2(chest.texture.get_width() * 0.48, chest.texture.get_height() * 0.76)
+		var anchor := Vector2(chest.texture.get_width() * 0.5 - chest.offset.x, chest.texture.get_height() * 0.5 + chest.offset.y)
+		_check(anchor.is_equal_approx(footprint), "chest anchors its ground-footprint center, not its front foot")
+		_check(chest.material_override is ShaderMaterial, "centered chest stays above paving with normal occlusion")
 	world._rebuild_cell(prop_cell, GameTypes.Tile.SPIKE, game, {}, true)
 	var broken: Node3D = world._cells[prop_cell]
-	_check(broken.get_node("MobileProp").modulate.r < 0.5 and broken.get_node("MobileTrapCharges").text == "0", "spent trap dims and shows zero charges")
+	_check(broken.get_node("MobileTrapCharges").text == "0", "spent trap shows zero charges")
+	var broken_spikes := broken.get_node("MobileProp").find_children("Spike*", "Sprite3D", false, false)
+	_check(broken_spikes.size() == 9, "spent trap preserves nine spike positions")
+	for part in broken_spikes:
+		_check(part.texture.resource_path.ends_with("spike-broken-v2.png"), "spent spikes use fractured artwork")
+		_check(part.pixel_size * part.texture.get_height() <= 0.26, "broken spikes stay close to floor")
+	game.hero["trap_sprung_at"] = prop_cell
+	world._rebuild_cell(prop_cell, GameTypes.Tile.SPIKE, game, {}, true)
+	var last_spike: Sprite3D = world._cells[prop_cell].get_node("MobileProp/Spike0")
+	_check(last_spike.texture.resource_path.ends_with("spike-active-v2.png"), "last charge activates before breaking")
+	game.hero.erase("trap_sprung_at")
+	for absorbing in [true, false]:
+		if absorbing:
+			game.hero["trap_sprung_at"] = prop_cell
+		world._rebuild_cell(prop_cell, GameTypes.Tile.VOID, game, {}, true)
+		var void_floor: Sprite3D = world._cells[prop_cell].get_node("MobileProp/VoidFloor")
+		_check(void_floor.texture.resource_path.ends_with("void-active-v3.png" if absorbing else "void-broken-v3.png"), "Void stays open until absorption finishes")
+		game.hero.erase("trap_sprung_at")
 	world._sync_dig_bounds(game)
 	world._sync_expand_pads(game)
 	_check(world._dig_bound == null and world._expand_root == null, "mobile omits debug border and per-cell build markers")
@@ -104,14 +130,30 @@ func _run() -> void:
 	var monument: Sprite3D = world._core_spin.get_node("CoreMonument")
 	_check(monument != null and monument.texture != null, "mobile Core uses generated monument")
 	_check(world._core_spin.get_script() == null and world._core_spin.find_children("*", "MeshInstance3D", true, false).is_empty(), "mobile skips old procedural Core")
-	_check(is_equal_approx(monument.pixel_size * monument.texture.get_width(), 2.5), "Core billboard is 2.5 world units wide")
-	_check(not monument.no_depth_test and not monument.shaded, "Core billboard is unshaded with depth test")
+	_check(is_equal_approx(monument.pixel_size * monument.texture.get_width(), 2.2), "Core fits reserved footprint")
+	_check(monument.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD, "Core writes opaque depth")
+	var states := {100: "core-monument-v2.png", 51: "core-monument-v2.png", 50: "core-damaged-v2.png", 1: "core-damaged-v2.png", 0: "core-destroyed-v2.png"}
+	for hp in [100, 51, 50, 1, 0, 50, 100]:
+		world._sync_mobile_core_health(hp)
+		_check(monument.modulate == Color.WHITE, "all Core states preserve artwork color")
+		_check(monument.texture.resource_path.ends_with(states[hp]), "Core image follows health and repair at %d" % hp)
+		_check(is_equal_approx(monument.pixel_size * monument.texture.get_width(), 2.2), "Core state preserves canvas width")
+		_check(is_equal_approx(monument.offset.y / monument.texture.get_height(), 0.14), "Core states preserve ground registration")
+		_check(is_equal_approx(monument.material_override.get_shader_parameter("rune_energy"), 0.8 if hp > 0 else 0.0), "Destroyed Core has no emissive runes")
+		var artwork := monument.texture.get_image()
+		if artwork.is_compressed():
+			artwork.decompress()
+		_check(artwork.get_width() == artwork.get_height(), "Core state keeps square canvas")
+		_check(artwork.get_pixel(0, 0).a == 0.0 and artwork.get_pixel(artwork.get_width() - 1, artwork.get_height() - 1).a == 0.0, "Core assets have real transparent backgrounds")
+	_check(not monument.no_depth_test and monument.shaded, "Core stone receives dungeon lighting with depth test")
+	_check(monument.material_override.shader.resource_path.ends_with("core_masonry.gdshader"), "Core has its own lit grounded material")
 	_check(monument.billboard == BaseMaterial3D.BILLBOARD_ENABLED, "Core follows camera rotation")
 	world._core_spin = null
 	core_root.free()
 	var before := game.hero.duplicate(true)
 	world._sync_mobile_focus(game)
 	_check(world._mobile_focus == world.cell_center(game.mobile_selection, 0.6), "selection is build focus")
+	_check(world.mobile_walls_visible, "mobile walls default visible")
 	var wall := Node3D.new()
 	world.add_child(wall)
 	wall.position = world._mobile_focus + Vector3(0, -0.6, 1)
@@ -122,18 +164,57 @@ func _run() -> void:
 	mesh.position.y = 1
 	wall.add_child(mesh)
 	world._register_mobile_wall(wall)
-	world.camera.rotation = Vector3.ZERO
-	world._update_mobile_cutaway(1.0)
-	_check(is_equal_approx(wall.scale.y, 0.16), "foreground wall reduced")
+	_check(wall.scale.is_equal_approx(Vector3.ONE), "newly registered wall keeps full height")
+	world.set_mobile_walls_visible(false)
+	_check(not world.mobile_walls_visible, "manual wall toggle records hidden state")
+	_check(is_equal_approx(wall.scale.y, 0.16), "hidden wall keeps foundation")
+	world._sync_mobile_focus(game)
+	_check(wall.scale.is_equal_approx(Vector3(1, 0.16, 1)), "focus changes do not alter hidden wall height")
+	world._sync_hero(game)
+	_check(wall.scale.is_equal_approx(Vector3(1, 0.16, 1)), "hero updates do not alter hidden wall height")
+	world.set_mobile_walls_visible(true)
+	_check(world.mobile_walls_visible and wall.scale.is_equal_approx(Vector3.ONE), "manual toggle restores original wall height")
 	wall.position.x += 1.8
 	world._mobile_walls.clear()
 	wall.scale = Vector3.ONE
 	world._register_mobile_wall(wall)
-	world._update_mobile_cutaway(1.0)
-	_check(is_equal_approx(wall.scale.y, 0.16), "cutaway exposes room beside focus")
-	world.camera.rotation.y = PI
-	world._update_mobile_cutaway(1.0)
-	_check(is_equal_approx(wall.scale.y, 1.0), "camera rotation restores wall")
+	_check(wall.scale.is_equal_approx(Vector3.ONE), "newly registered wall honors visible state")
+	world.set_mobile_walls_visible(false)
+	_check(is_equal_approx(wall.scale.y, 0.16), "newly registered wall honors hidden state")
+	world.set_mobile_walls_visible(true)
+	_check(wall.scale.is_equal_approx(Vector3.ONE), "new wall restores its full height")
+	var masonry_holder := Node3D.new()
+	world.add_child(masonry_holder)
+	masonry_holder.name = "MobileMasonry"
+	var masonry := MeshInstance3D.new()
+	masonry.name = "MobileMasonryMesh"
+	masonry.mesh = BoxMesh.new()
+	(masonry.mesh as BoxMesh).size = Vector3(1, 1.1, 0.28)
+	var foundation := BoxMesh.new()
+	foundation.size = Vector3(1, 0.23, 0.28)
+	masonry.set_meta("full_mesh", masonry.mesh)
+	masonry.set_meta("foundation_mesh", foundation)
+	masonry_holder.add_child(masonry)
+	world._register_mobile_wall(masonry_holder)
+	var original_masonry_mesh: Mesh = masonry.mesh
+	world.set_mobile_walls_visible(false)
+	_check(masonry_holder.scale.is_equal_approx(Vector3.ONE), "real masonry visibility does not squash its holder")
+	_check(masonry.mesh != original_masonry_mesh and masonry.mesh.get_aabb().size.y < original_masonry_mesh.get_aabb().size.y, "real masonry swaps to a foundation mesh")
+	world.set_mobile_walls_visible(true)
+	_check(masonry_holder.scale.is_equal_approx(Vector3.ONE) and masonry.mesh == original_masonry_mesh, "real masonry restores original mesh and scale")
+	masonry_holder.free()
+	var rock_mass := Node3D.new()
+	rock_mass.name = "MobileRockMass"
+	world.add_child(rock_mass)
+	rock_mass.set_meta("mobile_natural_rock", true)
+	var rock_mesh := MeshInstance3D.new()
+	rock_mesh.mesh = BoxMesh.new()
+	rock_mass.add_child(rock_mesh)
+	world._register_mobile_wall(rock_mass)
+	_check(world._mobile_walls.has(rock_mass), "natural rock remains registered for picking cutaway")
+	world.set_mobile_walls_visible(false)
+	_check(is_equal_approx(rock_mass.scale.y, 0.16), "natural rock uses reduced-height fallback")
+	rock_mass.free()
 	game.raid_active = true
 	world._sync_hero(game)
 	world._sync_mobile_focus(game)
@@ -143,6 +224,12 @@ func _run() -> void:
 	_check(not world._hero_bar.visible and not world._hero_tag.visible, "3D hero HUD hidden")
 	_check(world._hero.process_mode == Node.PROCESS_MODE_INHERIT and world._lithide.process_mode == Node.PROCESS_MODE_DISABLED, "active hero enabled, hidden archetypes disabled")
 	_check(game.hero == before, "visual updates do not mutate simulation")
+	game.hero.core_striking = true
+	game.hero.facing = Vector2i.RIGHT
+	world._hero.rotation.y = PI
+	world._sync_hero(game)
+	_check(is_equal_approx(world._hero.rotation.y, PI / 2.0), "stationary Core attack faces target")
+	game.hero.erase("core_striking")
 	game.hero.void_absorbing = true
 	game.hero.portal_t = 0.5
 	world._sync_hero(game)
@@ -161,14 +248,12 @@ func _run() -> void:
 	world._core_spin = null
 	core.free()
 	wall.free()
-	world._update_mobile_cutaway(1.0)
-	_check(world._mobile_walls.is_empty(), "freed walls pruned")
 	legacy.free()
 	game.free()
 	world.free()
 	_test_mobile_picking()
 	if failures == 0:
-		print("OK: mobile rendering profile, lights, hero and reversible cutaways")
+		print("OK: mobile rendering profile, lights, hero and manual wall visibility")
 	quit(1 if failures else 0)
 
 func _test_mobile_picking() -> void:
@@ -183,26 +268,64 @@ func _test_mobile_picking() -> void:
 	game.grid[cell.y][cell.x] = GameTypes.Tile.FLOOR
 	game.mobile_selection = cell
 	game.dungeon.sync(game)
+	var entrance_pos := Vector2i(2, 10)
+	var entrance_root: Node3D = game.dungeon._cells[entrance_pos]
+	var entrance_arch := entrance_root.find_child("EntranceArch", true, false) as MeshInstance3D
+	_check(entrance_arch != null and entrance_arch.mesh != null and entrance_arch.get_aabb().size.z >= 0.4,
+		"starter entrance uses a volumetric masonry arch")
+	_check(entrance_root.find_children("*", "Sprite3D", true, false).is_empty(), "entrance has no billboard sprite fixtures")
+	if entrance_arch != null:
+		game.dungeon.set_mobile_walls_visible(false)
+		_check(entrance_arch.is_visible_in_tree(), "entrance remains visible when walls are hidden")
+	var face: Vector3 = game.dungeon._entrance_face(entrance_pos, game)
+	var direction := Vector2i(roundi(face.x), roundi(face.z))
+	var hole_cell := entrance_pos - direction
+	_check(game.dungeon._wall_span(hole_cell, direction, game) == 0, "entrance opens the wall on its actual facing")
+	var along := Vector2i.RIGHT if direction.y != 0 else Vector2i.DOWN
+	var coordinate := hole_cell.x if direction.y != 0 else hole_cell.y
+	var paired_cell := hole_cell - along if posmod(coordinate, 2) == 1 else hole_cell + along
+	_check(game.dungeon._wall_span(paired_cell, direction, game) == 1,
+		"entrance hole breaks the adjacent paired wall span")
+	var backing_cell: Vector2i = game.dungeon._outside_cell(entrance_pos, game)
+	var backing_rock: Node3D = game.dungeon._cells.get(backing_cell)
+	var backing_mass := backing_rock.get_node_or_null("MobileRockMass") as Node3D if backing_rock != null else null
+	var backing_mesh := backing_mass.find_child("*", true, false) as MeshInstance3D if backing_mass != null else null
+	var backing_trimmed := backing_mesh != null and minf(backing_mesh.get_aabb().size.x, backing_mesh.get_aabb().size.z) < 0.9
+	_check(game.grid[backing_cell.y][backing_cell.x] == GameTypes.Tile.ROCK and backing_mass != null
+		and backing_mass.get_meta("mobile_natural_rock", false) and backing_trimmed,
+		"wall opening preserves trimmed natural backface rock")
+	_check(is_equal_approx(game.dungeon._mobile_hero_ground(entrance_pos, game), game.dungeon.FLOOR_H),
+		"mobile hero stands on the entrance floor, not the old model top")
+	var stale_wall := Node3D.new()
+	game.dungeon.add_child(stale_wall)
+	var stale_mesh := MeshInstance3D.new()
+	stale_mesh.mesh = BoxMesh.new()
+	stale_wall.add_child(stale_mesh)
+	game.dungeon._register_mobile_wall(stale_wall)
+	stale_wall.free()
+	game.dungeon.sync(game)
+	_check(not game.dungeon._mobile_walls.has(stale_wall), "freed walls pruned on world sync")
 	var view := Vector2(1280, 720)
 	var rock := Vector2i(12, 3)
 	var marker_screen: Vector2 = game.dungeon.cell_to_screen(rock, view, 1.35, Vector2.ZERO, game.COLS, game.ROWS, 45, game)
 	_check(game.dungeon._expand_cell_from_ground(marker_screen, view, 1.35, game) == Vector2i(-1, -1), "hidden mobile dig markers cannot intercept picking")
+	game.dungeon.set_mobile_walls_visible(false)
 	for yaw in [45.0, 135.0, 225.0, 315.0]:
 		var screen: Vector2 = game.dungeon.cell_to_screen(cell, view, 1.35, Vector2.ZERO, game.COLS, game.ROWS, yaw, game)
 		game.dungeon._update_mobile_cutaway(1.0)
 		var picked: Vector2i = game.dungeon.screen_to_cell(screen, view, 1.35, Vector2.ZERO, game.COLS, game.ROWS, yaw, game)
 		_check(picked == cell, "visible starter floor roundtrip at yaw %s: got %s" % [yaw, picked])
-	# A real foreground rock must remain pickable until its visual is cut away.
+	# A real foreground rock blocks picking while walls are visible; hiding walls reveals the same floor.
 	var foreground := Vector2i(12, 5)
 	game.grid[foreground.y][foreground.x] = GameTypes.Tile.ROCK
 	game.dungeon.sync(game)
+	game.dungeon.set_mobile_walls_visible(true)
 	var screen: Vector2 = game.dungeon.cell_to_screen(cell, view, 1.35, Vector2.ZERO, game.COLS, game.ROWS, 45, game)
 	game.dungeon._mobile_has_focus = false
-	game.dungeon._update_mobile_cutaway(1.0)
+	game.dungeon.set_mobile_walls_visible(true)
 	var blocked: Vector2i = game.dungeon.screen_to_cell(screen, view, 1.35, Vector2.ZERO, game.COLS, game.ROWS, 45, game)
 	_check(blocked != cell, "unreduced foreground rock blocks floor picking")
-	game.dungeon._sync_mobile_focus(game)
-	game.dungeon._update_mobile_cutaway(1.0)
+	game.dungeon.set_mobile_walls_visible(false)
 	var revealed: Vector2i = game.dungeon.screen_to_cell(screen, view, 1.35, Vector2.ZERO, game.COLS, game.ROWS, 45, game)
 	_check(revealed == cell, "cutaway reduction exposes the same floor to picking")
 	game.free()

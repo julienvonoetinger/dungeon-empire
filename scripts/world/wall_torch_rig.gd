@@ -5,8 +5,14 @@ const PROFILE := preload("res://assets/rendering/dungeon_render_profile.tres")
 const SPACING := 2.6
 var _fixtures: Dictionary = {}
 var render_profile: Resource = PROFILE
+var wall_visuals_visible := true
 
-func sync_cells(cells: Array[Vector2i], cell_size: float) -> void:
+func set_wall_visuals_visible(value: bool) -> void:
+	wall_visuals_visible = value
+	for fixture in _fixtures.values():
+		fixture.get_child(0).visible = value and fixture.get_meta("show_model", true)
+
+func sync_cells(cells: Array[Vector2i], cell_size: float, hidden_visual_cells: Array[Vector2i] = []) -> void:
 	var occupied: Dictionary = {}
 	var center := Vector3.ZERO
 	for cell in cells:
@@ -24,7 +30,7 @@ func sync_cells(cells: Array[Vector2i], cell_size: float) -> void:
 			var inward := Vector3(-direction.x, 0, -direction.y)
 			var point := Vector3(cell.x + 0.5, 0, cell.y + 0.5) * cell_size - inward * cell_size * 0.48
 			var key := "%d,%d:%d,%d" % [cell.x, cell.y, direction.x, direction.y]
-			candidates.append({"key": key, "point": point, "inward": inward, "distance": point.distance_squared_to(center)})
+			candidates.append({"key": key, "point": point, "inward": inward, "distance": point.distance_squared_to(center), "show_model": not hidden_visual_cells.has(cell)})
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		if is_equal_approx(a.distance, b.distance):
 			return a.key < b.key
@@ -49,14 +55,25 @@ func sync_cells(cells: Array[Vector2i], cell_size: float) -> void:
 	for key in selected:
 		if not _fixtures.has(key):
 			_fixtures[key] = _make_fixture(selected[key])
+		_fixtures[key].set_meta("show_model", selected[key].show_model)
+		_fixtures[key].get_child(0).visible = wall_visuals_visible and selected[key].show_model
 
 func _make_fixture(candidate: Dictionary) -> Node3D:
 	var fixture := Node3D.new()
 	fixture.position = candidate.point
 	fixture.rotation.y = atan2(candidate.inward.x, candidate.inward.z)
 	add_child(fixture)
-	var visual := TORCH.instantiate() as Node3D
+	var visual := create_visual()
 	fixture.add_child(visual)
+	visual.visible = wall_visuals_visible
+	var light := OmniLight3D.new()
+	render_profile.configure_practical(light)
+	light.position = Vector3(0, 0.85, 0.42)
+	fixture.add_child(light)
+	return fixture
+
+static func create_visual() -> Node3D:
+	var visual := TORCH.instantiate() as Node3D
 	var measured := _bounds(visual, Transform3D.IDENTITY)
 	if measured.size.y > 0.001:
 		var scalar := 0.65 / measured.size.y
@@ -64,13 +81,9 @@ func _make_fixture(candidate: Dictionary) -> Node3D:
 		visual.scale *= scalar
 		visual.position = Vector3(-measured.get_center().x, -measured.position.y, -measured.get_center().z) * scalar
 		visual.position += Vector3(0, 0.18, 0.04)
-	var light := OmniLight3D.new()
-	render_profile.configure_practical(light)
-	light.position = Vector3(0, 0.85, 0.42)
-	fixture.add_child(light)
-	return fixture
+	return visual
 
-func _bounds(node: Node, parent_transform: Transform3D) -> AABB:
+static func _bounds(node: Node, parent_transform: Transform3D) -> AABB:
 	var transform := parent_transform
 	if node is Node3D:
 		transform *= node.transform

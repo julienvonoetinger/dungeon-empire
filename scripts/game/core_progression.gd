@@ -9,6 +9,8 @@ const REQUIRED_LEVEL := {
 }
 var xp := 0
 var last_raid_id := 0
+# Runtime-only playtest override; never persisted in progression saves.
+var testing_unlock_defenses := false
 
 func level() -> int:
 	var value := 1
@@ -18,7 +20,7 @@ func level() -> int:
 	return value
 
 func allows(tool: int) -> bool:
-	return tool >= 0 and tool < GameTypes.Tool.size() and level() >= required_level(tool)
+	return tool >= 0 and tool < GameTypes.Tool.size() and (testing_unlock_defenses or level() >= required_level(tool))
 
 func required_level(tool: int) -> int:
 	return int(REQUIRED_LEVEL.get(tool, 1))

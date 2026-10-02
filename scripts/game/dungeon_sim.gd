@@ -137,8 +137,56 @@ func _is_door_tile(t: int) -> bool:
 func _trap_max_charges(t: int) -> int:
 	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES
 
-# Stairs only connect along their run: corridor mouth, not the left/right flanks.
+func _wall_entrance_face(p: Vector2i) -> Vector2i:
+	if not _inside(p) or int(grid[p.y][p.x]) not in [Tile.FLOOR, Tile.ENTRANCE]:
+		return Vector2i.ZERO
+	var core := _core_origin()
+	var best := Vector2i.ZERO
+	var best_score := -INF
+	for direction in DIRS:
+		if _walkable(p - direction) or not _walkable(p + direction):
+			continue
+		if int(grid[p.y + direction.y][p.x + direction.x]) == Tile.ENTRANCE:
+			continue
+		var score := Vector2(direction).dot(Vector2(core - p)) if core.x >= 0 else 0.0
+		if score > best_score:
+			best = direction
+			best_score = score
+	return best
+
+func repair_entrance_placement() -> Dictionary:
+	var old := _find_tile(Tile.ENTRANCE)
+	if old.x < 0 or _wall_entrance_face(old) != Vector2i.ZERO:
+		return {}
+	# Migrate only the entrance, never overwrite a paid structure or excavate rock.
+	grid[old.y][old.x] = Tile.FLOOR
+	var queue: Array[Vector2i] = [old]
+	var seen := {old: true}
+	var cursor := 0
+	var destination := Vector2i(-1, -1)
+	while cursor < queue.size():
+		var cell := queue[cursor]
+		cursor += 1
+		if int(grid[cell.y][cell.x]) == Tile.FLOOR and _wall_entrance_face(cell) != Vector2i.ZERO:
+			destination = cell
+			break
+		for direction in DIRS:
+			var next := cell + direction
+			if not seen.has(next) and _walkable(next) and int(grid[next.y][next.x]) != Tile.CORE:
+				seen[next] = true
+				queue.append(next)
+	if destination.x >= 0:
+		grid[destination.y][destination.x] = Tile.ENTRANCE
+		message = "Entree replacee contre une paroi."
+	else:
+		message = "Ancienne entree retiree : placez gratuitement une entree contre une paroi."
+	return {"from": old, "to": destination}
+
+# Entrances connect through their mouth, never through their stone backing.
 func _entrance_mouth(p: Vector2i) -> Vector2i:
+	var wall_face := _wall_entrance_face(p)
+	if wall_face != Vector2i.ZERO:
+		return wall_face
 	var core := _core_origin()
 	if core.x < 0:
 		return Vector2i.RIGHT
@@ -319,6 +367,11 @@ func _build_at(gp: Vector2i) -> void:
 
 
 func _try_dig(gp: Vector2i) -> void:
+	for direction in DIRS:
+		var neighbour := gp + direction
+		if _inside(neighbour) and int(grid[neighbour.y][neighbour.x]) == Tile.ENTRANCE:
+			message = "Ce rocher soutient l'entree."
+			return
 	if not _has_open_neighbour(gp):
 		message = "You must dig from an existing passage."
 		return
@@ -336,8 +389,8 @@ func _place_entrance(p: Vector2i) -> void:
 	if _has_entrance():
 		message = "The entrance stair is already set. It cannot be moved."
 		return
-	if int(grid[p.y][p.x]) != Tile.FLOOR:
-		message = "Place the stair on an open passage."
+	if not _inside(p) or int(grid[p.y][p.x]) != Tile.FLOOR or _wall_entrance_face(p) == Vector2i.ZERO:
+		message = "Placez l'entree contre une paroi, avec un passage libre devant."
 		return
 	grid[p.y][p.x] = Tile.ENTRANCE
 	if raid != null:

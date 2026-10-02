@@ -45,6 +45,52 @@ func _initialize() -> void:
 		printerr("FAIL: cell ordering must not change the selected fixtures")
 		quit(1)
 		return
+	rig.set_wall_visuals_visible(false)
+	for fixture in rig.get_children():
+		var fixture_lights := fixture.find_children("*", "OmniLight3D", true, false)
+		var visuals := fixture.get_children().filter(func(child: Node) -> bool: return not child is OmniLight3D)
+		if fixture_lights.size() != 1 or not fixture_lights[0].visible or visuals.is_empty() or visuals[0].visible:
+			printerr("FAIL: hiding wall fixtures must preserve their floor lights")
+			quit(1)
+			return
+	var small_cells: Array[Vector2i] = [Vector2i.ZERO]
+	rig.sync_cells(small_cells, 1.0)
+	for fixture in rig.get_children():
+		if fixture.get_child(0).visible:
+			printerr("FAIL: new fixtures inherit hidden visual state")
+			quit(1)
+			return
+	rig.set_wall_visuals_visible(true)
+	for fixture in rig.get_children():
+		if not fixture.get_child(0).visible or not fixture.get_child(1).visible:
+			printerr("FAIL: restoring fixtures shows the model and preserves its light")
+			quit(1)
+			return
+	rig.sync_cells(small_cells, 1.0, [Vector2i.ZERO])
+	var hidden_light_count := rig.find_children("*", "OmniLight3D", true, false).size()
+	if hidden_light_count != 1:
+		printerr("FAIL: hidden entrance fixture must retain its practical light")
+		quit(1)
+		return
+	for fixture in rig.get_children():
+		var model := fixture.get_child(0)
+		var light := fixture.get_child(1) as OmniLight3D
+		if model.visible or light == null or not light.visible:
+			printerr("FAIL: hidden_visual_cells hides only the fixture model")
+			quit(1)
+			return
+	rig.set_wall_visuals_visible(false)
+	rig.set_wall_visuals_visible(true)
+	for fixture in rig.get_children():
+		if fixture.get_child(0).visible or not fixture.get_child(1).visible:
+			printerr("FAIL: global visibility toggle preserves per-cell hidden visual override")
+			quit(1)
+			return
+	rig.sync_cells(small_cells, 1.0)
+	if rig.get_child_count() != 1 or not rig.get_child(0).get_child(0).visible:
+		printerr("FAIL: removing hidden_visual_cells restores the reused model")
+		quit(1)
+		return
 	if rig.find_children("*", "OmniLight3D", true, false).size() > PROFILE.max_practical_lights:
 		printerr("FAIL: synchronization exceeds light budget before deferred deletion")
 		quit(1)

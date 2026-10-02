@@ -37,6 +37,7 @@ func _ready() -> void:
 	_running = RUN_MODEL.instantiate() as Node3D
 	_dead = DEAD_MODEL.instantiate() as Node3D
 	_jumping = JUMP_MODEL.instantiate() as Node3D
+	preload("res://scripts/world/jump_motion.gd").prepare(_jumping)
 	_attack = ATTACK_MODEL.instantiate() as Node3D
 	_walking.name = "Walking"
 	_running.name = "Running"

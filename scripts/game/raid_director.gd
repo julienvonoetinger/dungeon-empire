@@ -35,6 +35,7 @@ var hero: Dictionary = {}
 var raid_stats: Dictionary = {}
 var kingdom_knowledge: Dictionary = {}
 var mage_pressure := 0
+var solid_core: bool = false
 
 func reset_for_new_map() -> void:
 	last_result = {}
@@ -207,6 +208,8 @@ func _end_raid(result_text: String) -> void:
 func _update_hero(delta: float) -> void:
 	if hero.is_empty():
 		return
+	if solid_core and not _recover_from_core():
+		return
 	if bool(hero.get("dying", false)):
 		hero["dying_t"] = float(hero.get("dying_t", 0.0)) - delta
 		if float(hero["dying_t"]) <= 0.0:
@@ -263,6 +266,7 @@ func _update_hero(delta: float) -> void:
 		if float(hero["jump_t"]) <= 0.0:
 			hero.erase("jumping_trap")
 			hero.erase("jump_t")
+			hero.erase("jump_from")
 		return
 
 	if bool(hero.get("core_striking", false)):
@@ -310,13 +314,20 @@ func _update_hero(delta: float) -> void:
 	if next == pos:
 		_open_town_portal("%s gives up exploring for lack of a useful path." % hero["display"])
 		return
+	if solid_core and int(sim.grid[next.y][next.x]) == Tile.CORE:
+		hero["facing"] = next - pos
+		if _can_attack_core(hero):
+			_hero_reaches_core()
+		return
 
 	# An intact door blocks: it has to be broken before passing through.
 	if sim._door_intact(next):
 		hero["facing"] = next - pos
 		_attack_door(next)
 		return
-	if _try_trap_jump(pos, next):
+	# A jump may skip a straight route segment, never the junction where we turn.
+	var planned_landing: Vector2i = hero.get("route_second_step", Vector2i(-1, -1))
+	if planned_landing == next + (next - pos) and _try_trap_jump(pos, next):
 		return
 
 	hero["facing"] = next - pos
@@ -328,6 +339,10 @@ func _update_hero(delta: float) -> void:
 
 
 func _try_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
+	if absi(trap.x - from.x) + absi(trap.y - from.y) != 1:
+		return false
+	if not sim._inside(from) or not sim._can_step(from, trap):
+		return false
 	var kind := String(hero.get("kind", ""))
 	if kind != "thief" and kind != "ranger":
 		return false
@@ -336,7 +351,9 @@ func _try_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
 	if int(sim.trap_charges.get(trap, 0)) <= 0:
 		return false
 	var landing := trap + (trap - from)
-	if not sim._inside(landing) or not sim._walkable(landing):
+	if not sim._can_step(trap, landing) or sim._door_intact(landing):
+		return false
+	if solid_core and int(sim.grid[landing.y][landing.x]) == Tile.CORE:
 		return false
 	if sim._is_trap_tile(int(sim.grid[landing.y][landing.x])) and int(sim.trap_charges.get(landing, 0)) > 0:
 		return false
@@ -344,13 +361,44 @@ func _try_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
 	hero["visited"][landing] = int(hero["visited"].get(landing, 0)) + 1
 	hero["pos"] = landing
 	hero["jumping_trap"] = true
-	hero["jump_t"] = 1.0
+	hero["jump_from"] = from
+	hero["jump_t"] = GameTypes.TRAP_JUMP_TIME
 	_resolve_cell(landing)
 	return true
 
 
 func _try_vulpin_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
 	return _try_trap_jump(from, trap)
+
+
+func _can_attack_core(h: Dictionary) -> bool:
+	return String(h.get("kind", "")) != "thief" and not bool(h.get("fleeing", false))
+
+
+func _recover_from_core() -> bool:
+	var start: Vector2i = hero["pos"]
+	if int(sim.grid[start.y][start.x]) != Tile.CORE:
+		return true
+	# A mode change can leave a legacy hero inside the footprint. Search only
+	# the connected Core cells for a free perimeter tile, never through walls.
+	var pending: Array[Vector2i] = [start]
+	var seen := {start: true}
+	while not pending.is_empty():
+		var cell: Vector2i = pending.pop_front()
+		for direction in DIRS:
+			var next: Vector2i = cell + direction
+			if seen.has(next) or not sim._can_step(cell, next):
+				continue
+			seen[next] = true
+			if int(sim.grid[next.y][next.x]) == Tile.CORE:
+				pending.append(next)
+			elif not sim._door_intact(next):
+				hero["pos"] = next
+				hero["facing"] = cell - next
+				hero["visited"][next] = int(hero["visited"].get(next, 0)) + 1
+				return true
+	_end_raid("%s cannot leave the sealed Core chamber." % hero["display"])
+	return false
 
 
 func _update_flee_state() -> void:
@@ -693,11 +741,14 @@ func _target_tile(h: Dictionary) -> int:
 # GAME_DESIGN.md §10: "high-level AI decides what it wants, pathfinding decides
 # how to reach what it currently knows".
 func _choose_next_step(h: Dictionary) -> Vector2i:
+	h.erase("route_second_step")
 	var start: Vector2i = h["pos"]
 	var candidates: Array[Vector2i] = []
 	for d in DIRS:
 		var q := start + d
 		if sim._can_step(start, q):
+			if solid_core and int(sim.grid[q.y][q.x]) == Tile.CORE and not _can_attack_core(h):
+				continue
 			if sim._door_intact(q) and String(h.get("kind", "")) == "ranger":
 				continue
 			if sim._door_intact(q) and bool(h.get("avoided_doors", {}).get(q, false)):
@@ -757,6 +808,8 @@ func _frontier_cells(h: Dictionary) -> Dictionary:
 		var p: Vector2i = k
 		if int(h["known"][p]) == Tile.ROCK:
 			continue
+		if solid_core and int(h["known"][p]) == Tile.CORE:
+			continue
 		for d in DIRS:
 			var n := p + d
 			if sim._inside(n) and not h["known"].has(n):
@@ -772,6 +825,8 @@ func _least_visited_cells(h: Dictionary) -> Dictionary:
 	for k in h["known"].keys():
 		var p: Vector2i = k
 		if int(h["known"][p]) == Tile.ROCK or p == start:
+			continue
+		if solid_core and int(h["known"][p]) == Tile.CORE and not _can_attack_core(h):
 			continue
 		var seen_count := int(h["visited"].get(p, 0))
 		if seen_count < lowest:
@@ -807,6 +862,7 @@ func _step_cost(h: Dictionary, p: Vector2i) -> float:
 # Cheapest route to any of the goals, over the mental map alone (never the real
 # grid). Returns the first step, or the current cell when nothing is reachable.
 func _route_step(h: Dictionary, goals: Dictionary) -> Vector2i:
+	h.erase("route_second_step")
 	var start: Vector2i = h["pos"]
 	if goals.is_empty():
 		return start
@@ -838,6 +894,10 @@ func _route_step(h: Dictionary, goals: Dictionary) -> Vector2i:
 				continue
 			if not sim._can_step(cur, n):
 				continue
+			# Core goals terminate an attack route; no route may pass through it.
+			if solid_core and int(sim.grid[n.y][n.x]) == Tile.CORE:
+				if not goals.has(n) or not _can_attack_core(h):
+					continue
 			var nd := float(dist[cur]) + _step_cost(h, n)
 			if nd < float(dist.get(n, INF)):
 				dist[n] = nd
@@ -848,10 +908,13 @@ func _route_step(h: Dictionary, goals: Dictionary) -> Vector2i:
 		return start
 	# Walk the parent chain back down to the cell right next to the hero.
 	var cur2 := reached
+	var second := Vector2i(-1, -1)
 	while came.has(cur2) and came[cur2] != start:
+		second = cur2
 		cur2 = came[cur2]
 	if not came.has(cur2):
 		return start
+	h["route_second_step"] = second
 	return cur2
 
 # Last resort, used only when the whole known dungeon is already routed out:

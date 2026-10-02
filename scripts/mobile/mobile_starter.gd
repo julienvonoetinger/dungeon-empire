@@ -24,6 +24,6 @@ static func populate(sim: DungeonSim, raid: RaidDirector) -> void:
 	for spike in [Vector2i(10, 4), Vector2i(11, 4)]:
 		sim.grid[spike.y][spike.x] = GameTypes.Tile.SPIKE
 		sim.trap_charges[spike] = GameTypes.TRAP_MAX_CHARGES
-	sim.grid[10][3] = GameTypes.Tile.ENTRANCE
+	sim.grid[10][2] = GameTypes.Tile.ENTRANCE
 	sim.gold = 140
 	sim.message = "The dungeon is ready."

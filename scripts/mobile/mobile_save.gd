@@ -32,6 +32,10 @@ static func apply(data: Dictionary, sim, raid, progression) -> bool:
 	raid.kingdom_knowledge = snapshot.kingdom_knowledge
 	raid.raid_index = snapshot.raid_index
 	raid.mage_pressure = snapshot.mage_pressure
+	var moved: Dictionary = sim.repair_entrance_placement()
+	if not moved.is_empty():
+		raid.kingdom_knowledge.erase(moved["from"])
+		raid.kingdom_knowledge.erase(moved["to"])
 	return true
 
 static func write_save(path: String, data: Dictionary) -> bool:
