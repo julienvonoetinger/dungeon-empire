@@ -14,13 +14,14 @@ func _run() -> void:
 	ui.paused = true
 	ui._cancel()
 	ui._refresh()
-	assert(not ui.tray_collapsed and ui.tray_toggle.visible)
+	assert(ui.tray_collapsed and ui.navigation.visible and not ui.tray_toggle.visible, "Fresh HUD shows categories only")
+	ui._toggle_tray()
+	assert(not ui.tray_collapsed)
 	assert(ui.profile.level() == 1 and ui.profile.testing_unlock_defenses)
 	for defense in [GameTypes.Tool.TRAP_SNARE, GameTypes.Tool.TRAP_VOID, GameTypes.Tool.BUILD_MAGIC_DOOR]:
 		assert(not ui.buttons[defense].button.disabled, "Playtest defense buttons are unlocked")
 		assert(not "Niv." in ui.buttons[defense].label.text, "Unlocked defenses display their price")
-	assert(ui.tray_toggle.size == Vector2(48, 24), "Thin tray tab occupies only 24px above the toolbar: %s" % ui.tray_toggle.size)
-	assert(ui.tray_toggle.get_theme_font_size("font_size") == 16, "Chevron fits the thin tab")
+	assert(ui.tray_toggle.custom_minimum_size == Vector2(56, 104), "Back occupies the same row as tools")
 	ui.selected = Vector2i(4, 7)
 	ui._update_preview()
 	ui._refresh()
@@ -43,7 +44,7 @@ func _run() -> void:
 	game.raid_active = false
 	ui._layout()
 	ui._refresh()
-	assert(ui.tray_collapsed and ui.tray_toggle.visible and not ui.build_options.visible)
+	assert(ui.tray_collapsed and ui.navigation.visible and not ui.build_options.visible)
 	ui._toggle_tray()
 	assert(ui.selected == Vector2i(4, 7) and ui.actions.visible)
 	game.queue_free()

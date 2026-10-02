@@ -58,6 +58,25 @@ func _run(game: Node) -> void:
 	check(not game.dungeon.mobile_walls_visible, "restart preserves hidden wall preference without persistence")
 	check(not ui.walls_button.button_pressed, "wall button synchronizes with preserved hidden preference")
 	check(not game.persistence_enabled, "restart test never writes a live save")
+	var restart: Button
+	for button in ui.cameras.get_children():
+		if button.tooltip_text == "Recommencer le donjon":
+			restart = button
+	check(restart != null, "right menu offers restart")
+	if restart != null:
+		game.grid[8][8] = GameTypes.Tile.FLOOR
+		restart.pressed.emit()
+		check(ui.paused and ui.modal.visible, "restart confirmation pauses the game")
+		check(game.grid[8][8] == GameTypes.Tile.FLOOR, "asking does not reset the dungeon")
+		ui.modal_cancel.pressed.emit()
+		check(not ui.paused and not ui.modal.visible and game.grid[8][8] == GameTypes.Tile.FLOOR, "cancel preserves the dungeon and resumes")
+		game.raid_active = true
+		restart.pressed.emit()
+		ui.modal_continue.pressed.emit()
+		check(not game.raid_active and ui._is_empty_dungeon(), "confirmed restart clears an active raid")
+		check(ui.profile.xp == 275 and game.raid_index == 19, "manual restart preserves progression")
+		check(not ui.paused and not ui.modal.visible and not ui.modal_cancel.visible, "restart resumes and hides confirmation controls")
+		check(game._world_port.render_target_update_mode == SubViewport.UPDATE_ALWAYS, "restart restores rendering")
 	game.queue_free()
 	await process_frame
 	print("Mobile restart: %d failures" % failures)

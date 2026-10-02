@@ -11,7 +11,7 @@ static func add_to(parent: Node3D, spent: bool, sprung: bool) -> void:
 	trap.name = "VoidFloor"
 	# Keep the abyss open throughout the final-charge absorption.
 	trap.texture = ACTIVE if sprung else BROKEN if spent else ARMED
-	trap.pixel_size = 0.98 / trap.texture.get_width()
+	trap.pixel_size = 0.52 / trap.texture.get_width()
 	trap.position = Vector3(0.5, 0.181, 0.5)
 	trap.rotation.x = -PI / 2
 	trap.billboard = BaseMaterial3D.BILLBOARD_DISABLED
@@ -20,6 +20,7 @@ static func add_to(parent: Node3D, spent: bool, sprung: bool) -> void:
 		var material := ShaderMaterial.new()
 		material.shader = FLOOR_SHADER
 		material.set_shader_parameter("artwork", trap.texture)
+		material.set_shader_parameter("exhausted", trap.texture == BROKEN)
 		_materials[trap.texture] = material
 	trap.material_override = _materials[trap.texture]
 	trap.no_depth_test = false

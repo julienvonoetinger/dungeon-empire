@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://kkmrc7pwfo8u"
 path.s3tc="res://.godot/imported/door_standard_recolor_from_wall_3.jpg-cf0c22dcfac4d0667975387694cb9832.s3tc.ctex"
+path.etc2="res://.godot/imported/door_standard_recolor_from_wall_3.jpg-cf0c22dcfac4d0667975387694cb9832.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/doors/door_standard_recolor_from_wall_3.jpg"
-dest_files=["res://.godot/imported/door_standard_recolor_from_wall_3.jpg-cf0c22dcfac4d0667975387694cb9832.s3tc.ctex"]
+dest_files=["res://.godot/imported/door_standard_recolor_from_wall_3.jpg-cf0c22dcfac4d0667975387694cb9832.s3tc.ctex", "res://.godot/imported/door_standard_recolor_from_wall_3.jpg-cf0c22dcfac4d0667975387694cb9832.etc2.ctex"]
 
 [params]
 

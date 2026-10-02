@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cudlfmat3wth5"
 path.s3tc="res://.godot/imported/core_healthy_3.jpg-efd1438b050b157199efcb9b7a59e1d9.s3tc.ctex"
+path.etc2="res://.godot/imported/core_healthy_3.jpg-efd1438b050b157199efcb9b7a59e1d9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/core_healthy_3.jpg"
-dest_files=["res://.godot/imported/core_healthy_3.jpg-efd1438b050b157199efcb9b7a59e1d9.s3tc.ctex"]
+dest_files=["res://.godot/imported/core_healthy_3.jpg-efd1438b050b157199efcb9b7a59e1d9.s3tc.ctex", "res://.godot/imported/core_healthy_3.jpg-efd1438b050b157199efcb9b7a59e1d9.etc2.ctex"]
 
 [params]
 

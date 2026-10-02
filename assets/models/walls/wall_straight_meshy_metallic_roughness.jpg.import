@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbg1wv71lulgp"
 path.s3tc="res://.godot/imported/wall_straight_meshy_metallic_roughness.jpg-ee12e25b1afe0972e71ae45f5b60f7ee.s3tc.ctex"
+path.etc2="res://.godot/imported/wall_straight_meshy_metallic_roughness.jpg-ee12e25b1afe0972e71ae45f5b60f7ee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/walls/wall_straight_meshy_metallic_roughness.jpg"
-dest_files=["res://.godot/imported/wall_straight_meshy_metallic_roughness.jpg-ee12e25b1afe0972e71ae45f5b60f7ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/wall_straight_meshy_metallic_roughness.jpg-ee12e25b1afe0972e71ae45f5b60f7ee.s3tc.ctex", "res://.godot/imported/wall_straight_meshy_metallic_roughness.jpg-ee12e25b1afe0972e71ae45f5b60f7ee.etc2.ctex"]
 
 [params]
 

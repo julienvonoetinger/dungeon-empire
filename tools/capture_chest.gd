@@ -17,7 +17,7 @@ func _run() -> void:
 	var cell := Vector2i(2, 3)
 	game.mobile_ui.selected = Vector2i(-1, -1)
 	game.mobile_selection = cell
-	game.cam_zoom = 2.6
+	game.cam_zoom = 4.8
 	for yaw in [45, 135, 225, 315]:
 		game.cam_yaw = yaw
 		game.mobile_ui._center(cell)
@@ -27,9 +27,12 @@ func _run() -> void:
 				game.gold = gold
 				game._sync_world()
 				for i in 8:
+					game.mobile_ui.modal.hide()
 					await process_frame
 				var chest: Sprite3D = game.dungeon._cells[cell].get_node("MobileProp")
 				var point := chest.global_position
+				if not walls and gold == 0:
+					print("Chest anchor ", yaw, ": ", game.dungeon.camera.unproject_position(point), " viewport=", game.dungeon.camera.get_viewport().size)
 				assert(is_equal_approx(point.x, cell.x + 0.5) and is_equal_approx(point.z, cell.y + 0.5))
 				assert(root.get_texture().get_image().save_png("res://artifacts/chest-%d-%s-%s.png" % [yaw, "walls" if walls else "open", "full" if gold else "empty"]) == OK)
 	game.queue_free()

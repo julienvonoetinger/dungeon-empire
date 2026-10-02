@@ -1,0 +1,10 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://assets/rendering/chest_contact.gdshader" id="1"]
+
+[sub_resource type="ShaderMaterial" id="Material"]
+shader = ExtResource("1")
+
+[resource]
+material = SubResource("Material")
+size = Vector2(0.64, 0.64)

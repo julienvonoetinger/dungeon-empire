@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpvo1syl2ylob"
 path.s3tc="res://.godot/imported/wall_match_door_light_3.jpg-c23caf00ca183d04c2c37c652a321bab.s3tc.ctex"
+path.etc2="res://.godot/imported/wall_match_door_light_3.jpg-c23caf00ca183d04c2c37c652a321bab.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/walls/wall_match_door_light_3.jpg"
-dest_files=["res://.godot/imported/wall_match_door_light_3.jpg-c23caf00ca183d04c2c37c652a321bab.s3tc.ctex"]
+dest_files=["res://.godot/imported/wall_match_door_light_3.jpg-c23caf00ca183d04c2c37c652a321bab.s3tc.ctex", "res://.godot/imported/wall_match_door_light_3.jpg-c23caf00ca183d04c2c37c652a321bab.etc2.ctex"]
 
 [params]
 

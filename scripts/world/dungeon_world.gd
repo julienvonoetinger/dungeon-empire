@@ -11,6 +11,7 @@ const BASE_ORTHO := 15.5
 const FLOOR_Y := 0.12
 const ROCK_H := 1.12
 const ROCK_BLOCK_H := 0.70
+const MOBILE_CUTAWAY_SCALE := 0.16
 const FLOOR_H := 0.16
 const FLOOR_OVERLAP := 1.08
 const ROCK_SLAB_OVERLAP := 1.02
@@ -18,7 +19,7 @@ const MESH_PAD := 1.002
 const WALL_THICK := 0.22
 const PILLAR_W := 0.28
 const WALL_JOIN := 0.1
-const MESH_VER := 119
+const MESH_VER := 120
 const SHOW_HERO_PREVIEW := true
 const EXPAND_PAD := 0.88
 const CORE_ANCHOR_PAD := 2.0
@@ -52,6 +53,7 @@ var _mobile_stone_shader: Shader
 var _mobile_stone_materials: Dictionary = {}
 var _mobile_rock_mesh: ArrayMesh
 var _mobile_chest_textures: Dictionary = {}
+var _mobile_chest_pick_images: Dictionary = {}
 var _mobile_core_textures: Dictionary = {}
 const FLOOR_RENDERER_SCRIPT := preload("res://scripts/world/floor_renderer.gd")
 const TORCH_RIG_SCRIPT := preload("res://scripts/world/wall_torch_rig.gd")
@@ -652,6 +654,10 @@ func _ray_aabb_t(origin: Vector3, dir: Vector3, aabb: AABB) -> float:
 func screen_to_cell(screen: Vector2, view: Vector2, zoom: float, pan: Vector2, cols: int, rows: int, yaw: float = 45.0, game: Node = null) -> Vector2i:
 	apply_camera(zoom, pan, view, cols, rows, yaw)
 	if game != null and not game.grid.is_empty():
+		if mobile_mode:
+			var vault := _mobile_vault_at_screen(screen, view, zoom, game)
+			if vault.x >= 0:
+				return vault
 		if not bool(game.raid_active) and not (mobile_mode and game.has_method("_has_core") and game._has_core()):
 			var pad := _expand_cell_from_ground(screen, view, zoom, game)
 			if pad.x >= 0:
@@ -681,6 +687,38 @@ func screen_to_cell(screen: Vector2, view: Vector2, zoom: float, pan: Vector2, c
 			return best
 	var hit := screen_to_ground(screen, view, zoom)
 	return Vector2i(floori(hit.x / CELL), floori(hit.z / CELL))
+
+func _mobile_vault_at_screen(screen: Vector2, view: Vector2, zoom: float, game: Node) -> Vector2i:
+	var best := Vector2i(-1, -1)
+	var nearest := INF
+	var basis := _cam_basis()
+	for cell in _cells:
+		if int(game.grid[cell.y][cell.x]) != GameTypes.Tile.VAULT:
+			continue
+		var sprite := _cells[cell].get_node_or_null("MobileProp") as Sprite3D
+		if sprite == null or not sprite.is_visible_in_tree() or sprite.texture == null:
+			continue
+		var texture := sprite.texture
+		var scale_px := view.y / ortho_size(zoom) * sprite.pixel_size
+		var center := _world_to_screen(sprite.global_position, view, zoom)
+		# Grounding shifts vertices along the view ray, preserving this screen footprint.
+		center += Vector2(sprite.offset.x, -sprite.offset.y) * scale_px
+		var pixel := (screen - center) / scale_px + texture.get_size() * 0.5
+		if not Rect2(Vector2.ZERO, texture.get_size()).has_point(pixel):
+			continue
+		if not _mobile_chest_pick_images.has(texture):
+			var pixels := texture.get_image()
+			if pixels.is_compressed():
+				pixels.decompress()
+			_mobile_chest_pick_images[texture] = pixels
+		var pixels: Image = _mobile_chest_pick_images[texture]
+		if pixels.get_pixel(int(pixel.x), int(pixel.y)).a <= sprite.alpha_scissor_threshold:
+			continue
+		var depth := -basis.z.dot(sprite.global_position - _look)
+		if depth < nearest:
+			nearest = depth
+			best = cell
+	return best
 
 func _expand_cell_from_ground(screen: Vector2, view: Vector2, zoom: float, game: Node) -> Vector2i:
 	if game == null or not game.has_method("_is_diggable_rock"):
@@ -815,6 +853,7 @@ func sync(game: Node) -> void:
 			_mobile_backdrop.name = "MobileRockBackdrop"
 			add_child(_mobile_backdrop)
 		_mobile_backdrop.build(cols, rows)
+		_mobile_backdrop.scale.y = 1.0 if mobile_walls_visible else MOBILE_CUTAWAY_SCALE
 	apply_camera(game.cam_zoom, game.cam_pan, view, cols, rows, float(game.cam_yaw))
 	var grid: Array = game.grid
 	if grid.is_empty():
@@ -822,8 +861,24 @@ func sync(game: Node) -> void:
 	var open_cells: Array[Vector2i] = []
 	var entrance_cells: Array[Vector2i] = []
 	var inset_cells: Array[Vector2i] = []
+	var treasury_cells: Array[Vector2i] = []
+	var empty_treasury_cells: Array[Vector2i] = []
+	var spike_cells: Array[Vector2i] = []
+	var snare_cells: Array[Vector2i] = []
+	var void_cells: Array[Vector2i] = []
+	var vaults: Dictionary = game._storage_state()["vaults"]
 	for y in rows:
 		for x in cols:
+			if mobile_mode and int(grid[y][x]) == game.Tile.SPIKE:
+				spike_cells.append(Vector2i(x, y))
+			if mobile_mode and int(grid[y][x]) == game.Tile.SNARE:
+				snare_cells.append(Vector2i(x, y))
+			if mobile_mode and int(grid[y][x]) == game.Tile.VOID:
+				void_cells.append(Vector2i(x, y))
+			if mobile_mode and int(grid[y][x]) == game.Tile.VAULT:
+				treasury_cells.append(Vector2i(x, y))
+				if int(vaults.get(Vector2i(x, y), 0)) <= 0:
+					empty_treasury_cells.append(Vector2i(x, y))
 			if mobile_mode and int(grid[y][x]) == game.Tile.ENTRANCE:
 				entrance_cells.append(Vector2i(x, y))
 			if int(grid[y][x]) != game.Tile.ROCK:
@@ -831,9 +886,8 @@ func sync(game: Node) -> void:
 			if not mobile_mode and game._is_trap_tile(int(grid[y][x])):
 				inset_cells.append(Vector2i(x, y))
 	_floor_renderer.mobile_mode = mobile_mode
-	_floor_renderer.sync_cells(open_cells, CELL, inset_cells)
+	_floor_renderer.sync_cells(open_cells, CELL, inset_cells, treasury_cells, empty_treasury_cells, spike_cells, snare_cells, void_cells)
 	_torch_rig.sync_cells(open_cells, CELL, entrance_cells)
-	var vaults: Dictionary = game._storage_state()["vaults"]
 	for y in rows:
 		for x in cols:
 			var p := Vector2i(x, y)
@@ -851,6 +905,8 @@ func sync(game: Node) -> void:
 				sig += ":e%.0f,%.0f" % [o.x, o.z]
 			if t == game.Tile.ROCK:
 				sig += ":f%d" % _rock_face_mask(p, game)
+				if mobile_mode:
+					sig += ":g%d" % int(_mobile_rock_group_full(p, game))
 				sig += ":core%s" % str(game.has_method("_has_core") and game._has_core())
 				var co := _cliff_outward_for_rock(p, game)
 				if co != Vector3.ZERO:
@@ -885,12 +941,18 @@ func sync(game: Node) -> void:
 				_mobile_walls.erase(wall)
 
 func _rebuild_cell(p: Vector2i, t: int, game: Node, vaults: Dictionary, spent: bool) -> void:
+	var previous_door_angle := NAN
 	if _cells.has(p):
 		var old: Node = _cells[p]
+		var old_hinge := old.get_node_or_null("MobileDoor/LeafHinge") as Node3D
+		if old_hinge != null:
+			previous_door_angle = old_hinge.rotation.y
 		remove_child(old)
 		old.queue_free()
 		_cells.erase(p)
 	var root := Node3D.new()
+	if not is_nan(previous_door_angle):
+		root.set_meta("previous_door_angle", previous_door_angle)
 	root.position = Vector3(float(p.x) * CELL, 0, float(p.y) * CELL)
 	add_child(root)
 	_cells[p] = root
@@ -974,6 +1036,8 @@ func _build_mobile_prop(parent: Node3D, cell: Vector2i, tile: int, game: Node, v
 		preload("res://scripts/world/mobile_surfaces.gd").trap(mechanism, tile, spent, _trap_sprung(cell, game, spent))
 		var counter := Label3D.new()
 		counter.name = "MobileTrapCharges"
+		# The screen-space remaining-charge badge replaces this legacy marker.
+		counter.visible = false
 		counter.text = str(maxi(0, int(game.trap_charges.get(cell, game._trap_max_charges(tile)))))
 		counter.font_size = 40
 		counter.pixel_size = 0.004
@@ -989,7 +1053,7 @@ func _build_mobile_prop(parent: Node3D, cell: Vector2i, tile: int, game: Node, v
 		return true
 	if tile != GameTypes.Tile.VAULT:
 		return false
-	var path := "res://assets/mobile/chest-full-v1.png" if int(vaults.get(cell, 0)) > 0 else "res://assets/mobile/chest-empty-v1.png"
+	var path := "res://assets/mobile/chest-full-v3.png" if int(vaults.get(cell, 0)) > 0 else "res://assets/mobile/chest-empty-v3.png"
 	if not _mobile_chest_textures.has(path):
 		_mobile_chest_textures[path] = _load_texture_with_image_fallback(path)
 	var texture: Texture2D = _mobile_chest_textures[path]
@@ -998,10 +1062,10 @@ func _build_mobile_prop(parent: Node3D, cell: Vector2i, tile: int, game: Node, v
 	var prop := Sprite3D.new()
 	prop.name = "MobileProp"
 	prop.texture = texture
-	prop.pixel_size = 1.0 / float(texture.get_width())
+	prop.pixel_size = 0.78 / float(texture.get_width())
 	prop.position = Vector3(CELL * 0.5, FLOOR_H + 0.015, CELL * 0.5)
-	# Both chest images share a ground-footprint center at (48%, 76%).
-	prop.offset = Vector2(texture.get_width() * 0.02, texture.get_height() * 0.26)
+	# Footprint center stays on the treasury tile; the image has no floor or plinth.
+	prop.offset = Vector2(0.0, texture.get_height() * 0.19)
 	prop.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	prop.shaded = false
 	prop.no_depth_test = false
@@ -1158,10 +1222,10 @@ func _sync_core_placement_preview(game: Node) -> void:
 		_mobile_core_room.position = Vector3(selection.x, 0, selection.y)
 	if show_preview:
 		var walls := _mobile_core_room.get_node("Walls").get_children()
-		walls[0].position.z = 0.0 if selection.y == 0 else -0.28
-		walls[1].position.z = 1.72 if selection.y + 2 == game.ROWS else 2.0
-		walls[2].position.x = 0.28 if selection.x == 0 else 0.0
-		walls[3].position.x = 2.0 if selection.x + 2 == game.COLS else 2.28
+		walls[0].position.z = -0.28
+		walls[1].position.z = 2.0
+		walls[2].position.x = 0.0
+		walls[3].position.x = 2.28
 		for part in walls + _mobile_core_room.get_node("Corners").get_children():
 			part.mesh = part.get_meta("full_mesh" if mobile_walls_visible else "foundation_mesh")
 		for y in 2:
@@ -1171,6 +1235,13 @@ func _sync_core_placement_preview(game: Node) -> void:
 					var rock: Node3D = _cells[cell]
 					rock.hide()
 					_preview_covered_rocks.append(rock)
+				# A two-cell formation can originate just outside the preview.
+				var origin := Vector2i(cell.x - cell.x % 2, cell.y - cell.y % 2)
+				if _cells.has(origin) and _mobile_rock_group_full(cell, game):
+					var group: Node3D = _cells[origin]
+					if not _preview_covered_rocks.has(group):
+						group.hide()
+						_preview_covered_rocks.append(group)
 	if _mobile_core_preview == null and show_preview:
 		_mobile_core_preview = Sprite3D.new()
 		_mobile_core_preview.name = "CorePlacementPreview"
@@ -1286,6 +1357,10 @@ func _build_rock(root: Node3D, p: Vector2i, game: Node) -> void:
 			_add_edge_wall_box(root, d, span)
 
 func _add_diggable_rock_slab(root: Node3D, p: Vector2i, game: Node) -> void:
+	if mobile_mode and _mobile_rock_group_full(p, game):
+		if p.x % 2 == 0 and p.y % 2 == 0:
+			_add_mobile_rock_mass(root, p, Vector2(0.08, 0.08), Vector2(1.92, 1.92))
+		return
 	var slab := MeshInstance3D.new()
 	slab.name = "DiggableRockSlab"
 	var mesh := BoxMesh.new()
@@ -1320,6 +1395,16 @@ func _add_diggable_rock_slab(root: Node3D, p: Vector2i, game: Node) -> void:
 	slab.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	root.add_child(slab)
 
+func _mobile_rock_group_full(cell: Vector2i, game: Node) -> bool:
+	var origin := Vector2i(cell.x - cell.x % 2, cell.y - cell.y % 2)
+	# Keep large formations one cell away from excavation, leaving a low shoulder.
+	for y in range(origin.y - 1, origin.y + 3):
+		for x in range(origin.x - 1, origin.x + 3):
+			var p := Vector2i(x, y)
+			if game._inside(p) and game.grid[y][x] != game.Tile.ROCK:
+				return false
+	return origin.x + 1 < game.COLS and origin.y + 1 < game.ROWS
+
 func _add_map_limit_walls(root: Node3D, p: Vector2i, game: Node) -> void:
 	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
 		if game._inside(p + d):
@@ -1327,7 +1412,7 @@ func _add_map_limit_walls(root: Node3D, p: Vector2i, game: Node) -> void:
 		var span := _wall_span(p, d, game, true)
 		if span == 0:
 			continue
-		if not _add_edge_wall(root, d, span):
+		if not _add_edge_wall(root, d, span, true):
 			_add_edge_wall_box(root, d, span)
 
 func _wall_span(p: Vector2i, toward: Vector2i, game: Node, border: bool = false) -> int:
@@ -1674,7 +1759,7 @@ func _add_pillar(parent: Node3D, pos: Vector3) -> void:
 	_prep_core_meshes(inst)
 	_register_mobile_wall(holder)
 
-func _add_edge_wall(root: Node3D, toward: Vector2i, span: int = 1) -> bool:
+func _add_edge_wall(root: Node3D, toward: Vector2i, span: int = 1, map_border: bool = false) -> bool:
 	if mobile_mode:
 		var holder := Node3D.new()
 		holder.name = "MobileMasonry"
@@ -1690,6 +1775,9 @@ func _add_edge_wall(root: Node3D, toward: Vector2i, span: int = 1) -> bool:
 		else:
 			holder.rotation.y = -PI * 0.5
 			holder.position.x = 1.0 if toward.x > 0 else 0.28
+		if map_border:
+			# Border walls occupy the outside, like walls in adjacent rock cells.
+			holder.position += Vector3(toward.x, 0.0, toward.y) * 0.28
 		_register_mobile_wall(holder)
 		return true
 	var packed := _wall_scene(WALL_STRAIGHT_GLB)
@@ -2028,6 +2116,7 @@ func _build_entrance(root: Node3D, p: Vector2i, game: Node) -> void:
 	var face := _entrance_face(p, game)
 	if mobile_mode:
 		preload("res://scripts/world/mobile_entrance.gd").add_to(root, face)
+		_register_mobile_wall(root.get_node("MobileEntrance/WallJoins"))
 		root.set_meta("hero_ground", FLOOR_H)
 		return
 	if _add_fitted_stairs(root, face):
@@ -2104,7 +2193,7 @@ func _door_yaw(p: Vector2i, game: Node) -> float:
 	return 0.0
 
 func _door_is_rock(n: Vector2i, game: Node) -> bool:
-	return game._inside(n) and int(game.grid[n.y][n.x]) == game.Tile.ROCK
+	return not game._inside(n) or int(game.grid[n.y][n.x]) == game.Tile.ROCK
 
 func _door_is_open(n: Vector2i, game: Node) -> bool:
 	return game._inside(n) and game._walkable(n) and int(game.grid[n.y][n.x]) != game.Tile.ROCK
@@ -2116,6 +2205,13 @@ func _build_door(root: Node3D, p: Vector2i, game: Node) -> void:
 	var magic: bool = int(game.grid[p.y][p.x]) == game.Tile.MAGIC_DOOR
 	if mobile_mode:
 		preload("res://scripts/world/mobile_door.gd").add_to(root, _door_yaw(p, game), magic, hp, game.DOOR_MAX_HP, opened)
+		if not magic:
+			_register_mobile_wall(root.get_node("MobileDoor/WallConnections"))
+		var hinge := root.get_node_or_null("MobileDoor/LeafHinge") as Node3D
+		if hinge != null and opened and root.has_meta("previous_door_angle"):
+			var target := hinge.rotation.y
+			hinge.rotation.y = float(root.get_meta("previous_door_angle"))
+			root.create_tween().tween_property(hinge, "rotation:y", target, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		return
 	var intact: bool = hp > 0
 	var frame := Node3D.new()
@@ -2583,6 +2679,13 @@ func _sync_hero(game: Node) -> void:
 		_hero.position = target_position
 		_hero_move_elapsed = HERO_MOVE_TIME
 	_hero_jump_active = jumping
+	if game.hero.has("trap_arrival_t"):
+		var arrival_progress := clampf(1.0 - float(game.hero["trap_arrival_t"]) / GameTypes.TURN_TIME, 0.0, 1.0)
+		_hero.position = _hero_move_from.lerp(target_position, arrival_progress)
+		_hero_move_elapsed = HERO_MOVE_TIME
+	elif game.hero.get("trap_sprung_at", Vector2i(-1, -1)) == p:
+		_hero.position = target_position
+		_hero_move_elapsed = HERO_MOVE_TIME
 	var action_door: Vector2i = game.hero.get("lockpick_pos", game.hero.get("door_strike_pos", game.hero.get("arcane_open_pos", Vector2i(-1, -1))))
 	if mobile_mode and bool(game.hero.get("core_striking", false)):
 		_orient_hero(game.hero.get("facing", Vector2i.DOWN))
@@ -2817,6 +2920,8 @@ func _register_mobile_wall(wall: Node3D) -> void:
 
 func set_mobile_walls_visible(value: bool) -> void:
 	mobile_walls_visible = value
+	if is_instance_valid(_mobile_backdrop):
+		_mobile_backdrop.scale.y = 1.0 if value else MOBILE_CUTAWAY_SCALE
 	if is_instance_valid(_torch_rig):
 		_torch_rig.set_wall_visuals_visible(value)
 	_update_mobile_cutaway(0.0)
@@ -2830,7 +2935,7 @@ func _apply_wall_visibility(wall: Node3D) -> void:
 	var original: Vector3 = _mobile_walls[wall].scale
 	wall.scale = original
 	if not has_foundation and not mobile_walls_visible:
-		wall.scale.y = original.y * 0.16
+		wall.scale.y = original.y * MOBILE_CUTAWAY_SCALE
 
 func _sync_mobile_focus(game: Node) -> void:
 	_mobile_has_focus = false
@@ -2864,7 +2969,16 @@ func _add_mobile_rock_mass(parent: Node3D, cell: Vector2i, low: Vector2, high: V
 	holder.set_meta("mobile_natural_rock", true)
 	parent.add_child(holder)
 	var rock := MeshInstance3D.new()
-	rock.mesh = preload("res://scripts/world/mobile_surfaces.gd").rock(cell, low.max(Vector2.ZERO), high.min(Vector2.ONE))
+	var library := preload("res://scripts/world/mobile_rock_library.gd")
+	var data := library.placement(cell)
+	rock.mesh = library.mesh(data.variant)
+	var size := high - low
+	var width: float = minf(size.x, size.y) * data.width
+	var height: float = data.height * minf(1.0, width * 0.6)
+	rock.scale = Vector3(width, height, width)
+	rock.rotation.y = data.yaw
+	rock.position = Vector3((low.x + high.x) * 0.5, 0.025, (low.y + high.y) * 0.5)
+	rock.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	holder.add_child(rock)
 	_register_mobile_wall(holder)
 

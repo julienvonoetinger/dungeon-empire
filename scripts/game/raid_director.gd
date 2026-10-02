@@ -208,6 +208,13 @@ func _end_raid(result_text: String) -> void:
 func _update_hero(delta: float) -> void:
 	if hero.is_empty():
 		return
+	if hero.has("trap_arrival_t"):
+		hero["trap_arrival_t"] = maxf(0.0, float(hero["trap_arrival_t"]) - delta)
+		if float(hero["trap_arrival_t"]) <= 0.00001:
+			hero.erase("trap_arrival_t")
+			hero["move_cd"] = 0.12
+			_resolve_cell(hero["pos"])
+		return
 	if solid_core and not _recover_from_core():
 		return
 	if bool(hero.get("dying", false)):
@@ -335,7 +342,10 @@ func _update_hero(delta: float) -> void:
 	hero["pos"] = next
 	if hero.get("trap_sprung_at", Vector2i(-1, -1)) != next:
 		hero.erase("trap_sprung_at")
-	_resolve_cell(next)
+	if sim._is_trap_tile(int(sim.grid[next.y][next.x])):
+		hero["trap_arrival_t"] = TURN_TIME
+	else:
+		_resolve_cell(next)
 
 
 func _try_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
@@ -481,7 +491,7 @@ func _trigger_trap(p: Vector2i, tile: int) -> void:
 		_banish_via_void()
 	else:
 		hero["hp"] = int(hero["hp"]) - GameTypes.DAMAGE_SNARE
-		hero["move_cd"] = float(hero["move_cd"]) + 0.55
+		hero["move_cd"] = GameTypes.SNARE_HOLD_TIME
 		hero["trap_sprung_at"] = p
 
 
@@ -607,7 +617,7 @@ func _try_rob_vault(p: Vector2i) -> void:
 		return
 	var amount := mini(available, remaining_capacity)
 	var left := available - amount
-	sim.gold -= amount
+	sim.withdraw_vault_gold(p, amount)
 	hero["carried_gold"] = int(hero.get("carried_gold", 0)) + amount
 	hero["stolen_gold"] = int(hero.get("stolen_gold", 0)) + amount
 	raid_stats["stolen"] = int(raid_stats["stolen"]) + amount
@@ -635,7 +645,7 @@ func _finish_vulpin_collect() -> void:
 	var amount := int(hero.get("collect_gold", 0))
 	var vault: Vector2i = hero.get("collect_vault", Vector2i(-1, -1))
 	if amount > 0:
-		sim.gold -= amount
+		amount = sim.withdraw_vault_gold(vault, amount)
 		hero["carried_gold"] = int(hero.get("carried_gold", 0)) + amount
 		hero["stolen_gold"] = int(hero.get("stolen_gold", 0)) + amount
 		raid_stats["stolen"] = int(raid_stats["stolen"]) + amount

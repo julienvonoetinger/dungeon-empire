@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://raxfhym1on4u"
 path.s3tc="res://.godot/imported/door_shadowgem_gate_normal.jpg-e565d2d2ed78d8e9d32f3625d9fd4446.s3tc.ctex"
+path.etc2="res://.godot/imported/door_shadowgem_gate_normal.jpg-e565d2d2ed78d8e9d32f3625d9fd4446.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/doors/door_shadowgem_gate_normal.jpg"
-dest_files=["res://.godot/imported/door_shadowgem_gate_normal.jpg-e565d2d2ed78d8e9d32f3625d9fd4446.s3tc.ctex"]
+dest_files=["res://.godot/imported/door_shadowgem_gate_normal.jpg-e565d2d2ed78d8e9d32f3625d9fd4446.s3tc.ctex", "res://.godot/imported/door_shadowgem_gate_normal.jpg-e565d2d2ed78d8e9d32f3625d9fd4446.etc2.ctex"]
 
 [params]
 

@@ -48,7 +48,7 @@ func _run() -> void:
 	root.add_child(world)
 	world.set_process(false)
 	_check(world.render_profile == profile, "profile selected before ready")
-	_check(profile.practical_energy >= 2.0 and profile.practical_range >= 3.8, "warm torch pools reach room floors")
+	_check(profile.practical_energy >= 1.5 and profile.practical_range >= 2.5 and profile.practical_range <= 3.2, "warm torch pools reach nearby paving without tinting whole rooms")
 	_check(profile.core_range <= 2.5, "purple light remains local to Core")
 	_check(not world._mat_floor.emission_enabled, "stone floor does not emit purple")
 	var stone_source := StandardMaterial3D.new()
@@ -85,25 +85,29 @@ func _run() -> void:
 		var prop_root: Node3D = world._cells[prop_cell]
 		var prop: Node3D = prop_root.get_node("MobileProp")
 		if index == 0:
-			_check(prop is Sprite3D and prop.texture.resource_path.ends_with("chest-full-v1.png"), "vault uses dedicated full image")
+			_check(prop is Sprite3D and prop.texture.resource_path.ends_with("chest-full-v3.png"), "vault uses updated chest without a billboard floor")
 		else:
 			_check(not prop is Sprite3D, "traps are floor-bound mechanisms")
-			_check(not prop.get_children().is_empty(), "trap geometry exists")
+			_check(prop.get_children().is_empty() if prop_tiles[index] == GameTypes.Tile.SNARE else not prop.get_children().is_empty(), "armed snare belongs to floor; other trap geometry exists")
 		_check((prop_root.get_node_or_null("MobileTrapCharges") != null) == (index > 0), "only traps have count marker")
 	game.trap_charges[prop_cell] = 0
 	for gold in [0, 50, 0]:
 		world._rebuild_cell(prop_cell, GameTypes.Tile.VAULT, game, {prop_cell: gold}, false)
 		var chest: Sprite3D = world._cells[prop_cell].get_node("MobileProp")
 		_check(chest.modulate == Color.WHITE, "empty and full chests retain colors")
-		_check(chest.texture.resource_path.ends_with("chest-empty-v1.png" if gold == 0 else "chest-full-v1.png"), "chest changes image on depletion and refill")
+		_check(chest.texture.resource_path.ends_with("chest-empty-v3.png" if gold == 0 else "chest-full-v3.png"), "chest changes image on depletion and refill")
 		_check(chest.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD, "chest writes depth")
-		var footprint := Vector2(chest.texture.get_width() * 0.48, chest.texture.get_height() * 0.76)
+		_check(is_equal_approx(chest.pixel_size * chest.texture.get_width(), 0.78), "chest has a compact tile-relative size")
+		var contact = world._cells[prop_cell].get_node_or_null("ChestContact")
+		_check(contact == null, "integral stone base replaces detached shadow")
+		var footprint := Vector2(chest.texture.get_width() * 0.50, chest.texture.get_height() * 0.69)
 		var anchor := Vector2(chest.texture.get_width() * 0.5 - chest.offset.x, chest.texture.get_height() * 0.5 + chest.offset.y)
 		_check(anchor.is_equal_approx(footprint), "chest anchors its ground-footprint center, not its front foot")
 		_check(chest.material_override is ShaderMaterial, "centered chest stays above paving with normal occlusion")
 	world._rebuild_cell(prop_cell, GameTypes.Tile.SPIKE, game, {}, true)
 	var broken: Node3D = world._cells[prop_cell]
 	_check(broken.get_node("MobileTrapCharges").text == "0", "spent trap shows zero charges")
+	_check(not broken.get_node("MobileTrapCharges").visible, "screen-space charge badge replaces legacy count")
 	var broken_spikes := broken.get_node("MobileProp").find_children("Spike*", "Sprite3D", false, false)
 	_check(broken_spikes.size() == 9, "spent trap preserves nine spike positions")
 	for part in broken_spikes:
@@ -207,6 +211,7 @@ func _run() -> void:
 	rock_mass.name = "MobileRockMass"
 	world.add_child(rock_mass)
 	rock_mass.set_meta("mobile_natural_rock", true)
+	rock_mass.set_meta("preserve_rock_height", true)
 	var rock_mesh := MeshInstance3D.new()
 	rock_mesh.mesh = BoxMesh.new()
 	rock_mass.add_child(rock_mesh)
@@ -214,6 +219,14 @@ func _run() -> void:
 	_check(world._mobile_walls.has(rock_mass), "natural rock remains registered for picking cutaway")
 	world.set_mobile_walls_visible(false)
 	_check(is_equal_approx(rock_mass.scale.y, 0.16), "natural rock uses reduced-height fallback")
+	world._mobile_backdrop = Node3D.new()
+	world.add_child(world._mobile_backdrop)
+	world.set_mobile_walls_visible(false)
+	_check(is_equal_approx(world._mobile_backdrop.scale.y, rock_mass.scale.y), "distant rocks and passage rocks share the same cutaway height")
+	world.set_mobile_walls_visible(true)
+	_check(world._mobile_backdrop.scale.is_equal_approx(Vector3.ONE) and rock_mass.scale.is_equal_approx(Vector3.ONE), "wall toggle restores all geological relief")
+	world._mobile_backdrop.free()
+	world._mobile_backdrop = null
 	rock_mass.free()
 	game.raid_active = true
 	world._sync_hero(game)
@@ -250,6 +263,18 @@ func _run() -> void:
 	wall.free()
 	legacy.free()
 	game.free()
+	for direction in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+		var border_root := Node3D.new()
+		world.add_child(border_root)
+		world._add_edge_wall(border_root, direction, 1, true)
+		var holder: Node3D = border_root.get_child(0)
+		var stone: MeshInstance3D = holder.get_child(0)
+		for full in [true, false]:
+			world.set_mobile_walls_visible(full)
+			var bounds: AABB = holder.transform * stone.transform * stone.get_aabb()
+			var outside := bounds.end.x <= 0.001 if direction == Vector2i.LEFT else bounds.position.x >= 0.999 if direction == Vector2i.RIGHT else bounds.end.z <= 0.001 if direction == Vector2i.UP else bounds.position.z >= 0.999
+			_check(outside, "border walls leave the whole floor cell available, raised or hidden")
+		border_root.free()
 	world.free()
 	_test_mobile_picking()
 	if failures == 0:

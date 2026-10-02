@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ciqcrjqg34vkg"
 path.s3tc="res://.godot/imported/door_opened_metallic_roughness.jpg-dc859ab7c70524863435051562ff2ff5.s3tc.ctex"
+path.etc2="res://.godot/imported/door_opened_metallic_roughness.jpg-dc859ab7c70524863435051562ff2ff5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/doors/door_opened_metallic_roughness.jpg"
-dest_files=["res://.godot/imported/door_opened_metallic_roughness.jpg-dc859ab7c70524863435051562ff2ff5.s3tc.ctex"]
+dest_files=["res://.godot/imported/door_opened_metallic_roughness.jpg-dc859ab7c70524863435051562ff2ff5.s3tc.ctex", "res://.godot/imported/door_opened_metallic_roughness.jpg-dc859ab7c70524863435051562ff2ff5.etc2.ctex"]
 
 [params]
 

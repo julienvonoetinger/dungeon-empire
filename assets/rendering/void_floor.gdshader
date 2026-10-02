@@ -2,8 +2,11 @@ shader_type spatial;
 render_mode cull_disabled;
 
 uniform sampler2D artwork : source_color, filter_linear_mipmap, repeat_disable;
+uniform bool exhausted = false;
 
 void fragment() {
+	// The floor owns the stone rim; only the inner abyss overlays its recess.
+	if (exhausted || distance(UV, vec2(0.5)) > 0.34) discard;
 	vec4 texel = texture(artwork, UV);
 	// Use the same albedo and lighting response as the continuous paving.
 	ALBEDO = texel.rgb;

@@ -23,7 +23,8 @@ func _initialize() -> void:
 		assert(trap.texture.resource_path.ends_with("void-%s-v3.png" % state))
 		assert(not trap.no_depth_test and trap.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD)
 		assert(trap.texture.get_width() <= 512)
-		assert(is_equal_approx(trap.pixel_size * trap.texture.get_width(), 0.98))
+		assert(is_equal_approx(trap.pixel_size * trap.texture.get_width(), 0.52))
+		assert(trap.material_override.get_shader_parameter("exhausted") == (state == "broken"))
 		if not textures.is_empty():
 			assert(trap.transform.is_equal_approx(transform), "no state footprint jump")
 		transform = trap.transform

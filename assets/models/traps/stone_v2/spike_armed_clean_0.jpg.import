@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqerc3mxka7dy"
 path.s3tc="res://.godot/imported/spike_armed_clean_0.jpg-a08f95b30bd902b7f57eed1c2d8d6f87.s3tc.ctex"
+path.etc2="res://.godot/imported/spike_armed_clean_0.jpg-a08f95b30bd902b7f57eed1c2d8d6f87.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/traps/stone_v2/spike_armed_clean_0.jpg"
-dest_files=["res://.godot/imported/spike_armed_clean_0.jpg-a08f95b30bd902b7f57eed1c2d8d6f87.s3tc.ctex"]
+dest_files=["res://.godot/imported/spike_armed_clean_0.jpg-a08f95b30bd902b7f57eed1c2d8d6f87.s3tc.ctex", "res://.godot/imported/spike_armed_clean_0.jpg-a08f95b30bd902b7f57eed1c2d8d6f87.etc2.ctex"]
 
 [params]
 

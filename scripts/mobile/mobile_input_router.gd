@@ -6,6 +6,9 @@ signal panned(delta: Vector2)
 signal pinched(position: Vector2, factor: float)
 signal rotated(steps: int)
 signal cancelled()
+signal painted(from: Vector2, to: Vector2)
+
+var painting_enabled := false
 
 const DRAG_THRESHOLD: float = 12.0
 const WHEEL_FACTOR: float = 1.1
@@ -22,13 +25,13 @@ func handle_event(event: InputEvent, over_ui: bool = false) -> void:
 	if event is InputEventScreenTouch:
 		_handle_touch(event, over_ui)
 	elif event is InputEventScreenDrag:
-		_handle_drag(event)
+		_handle_drag(event, over_ui)
 	elif event is InputEventMouseButton:
 		if _touches.is_empty():
 			_handle_mouse_button(event, over_ui)
 	elif event is InputEventMouseMotion:
 		if _touches.is_empty() and not _mouse.is_empty():
-			_move_pointer(_mouse, event.position)
+			_move_pointer(_mouse, event.position, over_ui)
 	elif event is InputEventKey:
 		if not event.pressed or event.echo:
 			return
@@ -48,7 +51,7 @@ func cancel() -> void:
 	cancelled.emit()
 
 func _pointer(position: Vector2, over_ui: bool) -> Dictionary:
-	return {"start": position, "position": position, "ui": over_ui, "dragging": false}
+	return {"start": position, "position": position, "ui": over_ui, "dragging": false, "paint": painting_enabled, "blocked": over_ui, "pinched": false}
 
 func _world_fingers() -> Array:
 	var fingers: Array = []
@@ -70,12 +73,13 @@ func _handle_touch(event: InputEventScreenTouch, over_ui: bool) -> void:
 			# Every participant stays in drag mode even after the pinch ends.
 			for index in fingers:
 				_touches[index].dragging = true
+				_touches[index].pinched = true
 	elif _touches.has(event.index):
 		var pointer: Dictionary = _touches[event.index]
 		_touches.erase(event.index)
 		_release_pointer(pointer, event.position, over_ui)
 
-func _handle_drag(event: InputEventScreenDrag) -> void:
+func _handle_drag(event: InputEventScreenDrag, over_ui: bool = false) -> void:
 	if not _touches.has(event.index):
 		return
 	var pointer: Dictionary = _touches[event.index]
@@ -84,7 +88,7 @@ func _handle_drag(event: InputEventScreenDrag) -> void:
 		return
 	var fingers := _world_fingers()
 	if fingers.size() < 2:
-		_move_pointer(pointer, event.position)
+		_move_pointer(pointer, event.position, over_ui)
 		return
 	var first: Dictionary = _touches[fingers[0]]
 	var second: Dictionary = _touches[fingers[1]]
@@ -96,10 +100,21 @@ func _handle_drag(event: InputEventScreenDrag) -> void:
 	if old_distance > 0.0 and new_distance > 0.0:
 		pinched.emit((first.position + second.position) * 0.5, new_distance / old_distance)
 
-func _move_pointer(pointer: Dictionary, position: Vector2) -> void:
+func _move_pointer(pointer: Dictionary, position: Vector2, over_ui: bool = false) -> void:
+	var previous: Vector2 = pointer.position
 	var delta: Vector2 = position - pointer.position
 	pointer.position = position
 	if pointer.ui:
+		return
+	if pointer.paint:
+		if pointer.pinched:
+			return
+		if not pointer.dragging and position.distance_to(pointer.start) > DRAG_THRESHOLD:
+			pointer.dragging = true
+			previous = pointer.start
+		if pointer.dragging and not over_ui and painting_enabled:
+			painted.emit(position if pointer.blocked else previous, position)
+		pointer.blocked = over_ui
 		return
 	if not pointer.dragging and position.distance_to(pointer.start) > DRAG_THRESHOLD:
 		pointer.dragging = true
@@ -124,6 +139,7 @@ func _handle_mouse_button(event: InputEventMouseButton, over_ui: bool) -> void:
 			return
 		_mouse_button = event.button_index
 		_mouse = _pointer(event.position, over_ui)
+		_mouse.paint = painting_enabled and event.button_index == MOUSE_BUTTON_LEFT
 		_mouse.dragging = event.button_index == MOUSE_BUTTON_RIGHT
 	elif event.button_index == _mouse_button:
 		var pointer := _mouse

@@ -27,6 +27,7 @@ const DIRS := GameTypes.DIRS
 var grid: Array = []
 var selected_tool: int = Tool.NONE
 var gold := START_GOLD
+var vault_gold: Dictionary = {}
 var core_hp := CORE_MAX
 var loot_bags: Array = []
 var corpses: Array = []
@@ -40,6 +41,7 @@ var reset_armed := false
 var raid = null
 
 func new_map() -> void:
+	vault_gold.clear()
 	grid.clear()
 	door_hp.clear()
 	door_opened.clear()
@@ -242,6 +244,7 @@ func _storage_free() -> int:
 
 
 func _deposit_gold(amount: int) -> int:
+	_storage_state()
 	var take := mini(maxi(0, amount), _storage_free())
 	gold += take
 	return take
@@ -263,20 +266,48 @@ func _vault_positions() -> Array[Vector2i]:
 				out.append(Vector2i(x, y))
 	return out
 
-# Dungeon wealth is physical: it fills the storages one by one and the
-# surplus stays exposed next to the Core (GAME_DESIGN.md §5).
-
-
-# Dungeon wealth is physical: it fills the storages one by one and the
-# surplus stays exposed next to the Core (GAME_DESIGN.md §5).
+# Preserve assigned balances; reconcile purchases, deposits and removed vaults
+# against the total treasury. New or legacy vaults fill in grid order.
 func _storage_state() -> Dictionary:
 	var vaults := {}
-	var remaining := gold
 	for p in _vault_positions():
-		var amount := mini(remaining, VAULT_CAPACITY)
-		vaults[p] = amount
-		remaining -= amount
-	return {"vaults": vaults, "unstored": maxi(0, remaining), "capacity": _storage_capacity()}
+		vaults[p] = clampi(int(vault_gold.get(p, 0)), 0, VAULT_CAPACITY)
+	var assigned := 0
+	for amount in vaults.values():
+		assigned += int(amount)
+	var difference := gold - assigned
+	for p in vaults:
+		var change := mini(difference, VAULT_CAPACITY - int(vaults[p])) if difference >= 0 else -mini(-difference, int(vaults[p]))
+		vaults[p] += change
+		difference -= change
+	vault_gold = vaults.duplicate()
+	return {"vaults": vaults, "unstored": maxi(0, difference), "capacity": vaults.size() * VAULT_CAPACITY}
+
+
+func transfer_gold(source: Vector2i, destination: Vector2i, requested: int) -> int:
+	if game_over or (raid != null and raid.raid_active) or requested <= 0 or source == destination:
+		return 0
+	var balances: Dictionary = _storage_state().vaults
+	if not balances.has(source) or not balances.has(destination):
+		return 0
+	var amount := mini(requested, mini(int(balances[source]), VAULT_CAPACITY - int(balances[destination])))
+	if amount <= 0:
+		return 0
+	vault_gold[source] -= amount
+	vault_gold[destination] += amount
+	if raid != null:
+		raid.invalidate_kingdom_knowledge(source)
+		raid.invalidate_kingdom_knowledge(destination)
+	return amount
+
+
+func withdraw_vault_gold(cell: Vector2i, requested: int) -> int:
+	var balances: Dictionary = _storage_state().vaults
+	var amount := mini(maxi(0, requested), int(balances.get(cell, 0)))
+	if amount > 0:
+		vault_gold[cell] -= amount
+		gold -= amount
+	return amount
 
 
 func _has_open_neighbour(p: Vector2i) -> bool:
@@ -433,6 +464,8 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 
 
 func _door_between_walls(p: Vector2i) -> bool:
+	if not _inside(p):
+		return false
 	# Opposite rocks: a 1-tile corridor or a hole punched through a wall.
 	var ew := _is_rock_cell(p + Vector2i.LEFT) and _is_rock_cell(p + Vector2i.RIGHT)
 	var ns := _is_rock_cell(p + Vector2i.UP) and _is_rock_cell(p + Vector2i.DOWN)
@@ -440,9 +473,39 @@ func _door_between_walls(p: Vector2i) -> bool:
 
 
 func _is_rock_cell(n: Vector2i) -> bool:
-	return _inside(n) and int(grid[n.y][n.x]) == Tile.ROCK
+	# The map boundary has the same solid wall as an unexcavated cell.
+	return not _inside(n) or int(grid[n.y][n.x]) == Tile.ROCK
 
 # Repairs: outside raids only (GAME_DESIGN.md §7).
+func repair_trap(p: Vector2i) -> int:
+	if game_over or (raid != null and raid.raid_active) or not _inside(p):
+		return 0
+	var tile := int(grid[p.y][p.x])
+	if not _is_trap_tile(tile):
+		return 0
+	var charges := 0
+	while int(trap_charges.get(p, _trap_max_charges(tile))) < _trap_max_charges(tile) and gold >= COST_REPAIR_TRAP:
+		gold -= COST_REPAIR_TRAP
+		trap_charges[p] = int(trap_charges[p]) + 1
+		if raid != null:
+			raid.invalidate_kingdom_knowledge(p)
+		charges += 1
+	return charges
+
+func repair_door(p: Vector2i) -> bool:
+	if game_over or (raid != null and raid.raid_active) or not _inside(p):
+		return false
+	if not _is_door_tile(int(grid[p.y][p.x])) or gold < COST_REPAIR_DOOR:
+		return false
+	if int(door_hp.get(p, DOOR_MAX_HP)) >= DOOR_MAX_HP and not bool(door_opened.get(p, false)):
+		return false
+	gold -= COST_REPAIR_DOOR
+	door_hp[p] = DOOR_MAX_HP
+	door_opened.erase(p)
+	if raid != null:
+		raid.invalidate_kingdom_knowledge(p)
+	return true
+
 func _repair_structures() -> void:
 	var doors := 0
 	var charges := 0

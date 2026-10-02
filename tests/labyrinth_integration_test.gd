@@ -57,11 +57,10 @@ func _run() -> void:
 		for charge in 3:
 			game.hero.pos = point
 			var hp_before: int = game.hero.hp
-			var cooldown: float = game.hero.move_cd
 			game._resolve_cell(point)
 			check(game.hero.hp < hp_before, "%s must deal damage" % _label(point))
 			if point == SNARE:
-				check(game.hero.move_cd > cooldown, "snare must slow movement")
+				check(is_equal_approx(game.hero.move_cd, GameTypes.SNARE_HOLD_TIME), "snare must hold for its full configured duration")
 			_check_visual(point, "sprung")
 			if charge < 2:
 				await _snapshot("%s_%d_charges" % [_label(point), int(game.trap_charges[point])], point)

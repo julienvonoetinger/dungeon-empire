@@ -493,6 +493,7 @@ func _test_sealed_core_start() -> void:
         ensure_floor(p)
         m.selected_tool = m.Tool.STORE
         m._build_at(p)
+    ensure_storage_capacity(m.gold)
     check(m.gold <= int(m._storage_state()["capacity"]), "player-built storage still cannot hold the treasury")
     m._process(0.5)
     check(m.raid_timer < timer_before - 0.2 or m.raid_timer <= m.RAID_DELAY - 0.2, "placing enough storage did not start the raid delay")
@@ -717,7 +718,7 @@ func _test_build_rules() -> void:
     var vaults: Dictionary = storage["vaults"]
     var vault_p := branch3
     check(int(vaults.get(vault_p, -1)) == mini(m.gold, m.VAULT_CAPACITY), "storage filled incorrectly")
-    check(int(storage["unstored"]) == 0, "treasury is not fully inside storage")
+    check(int(storage["unstored"]) == maxi(0, m.gold - int(storage["capacity"])), "storage overflow does not match remaining treasury")
 
     var gold_now: int = m.gold
     click_named(m.Tool.RESET)

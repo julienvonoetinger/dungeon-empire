@@ -19,6 +19,8 @@ func _run() -> void:
 	game = load("res://Main.tscn").instantiate()
 	game.persistence_enabled = false
 	root.add_child(game)
+	preload("res://scripts/mobile/mobile_starter.gd").populate(game.sim, game.raid)
+	game.mobile_ui._cancel()
 	game.mobile_ui.paused = true
 	for i in 20:
 		await process_frame

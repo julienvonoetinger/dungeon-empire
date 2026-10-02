@@ -2,16 +2,9 @@ extends RefCounted
 
 const ACTIVE: Texture2D = preload("res://assets/mobile/grasp-active-v2.png")
 const BROKEN: Texture2D = preload("res://assets/mobile/grasp-broken-v2.png")
-const FISSURES: Texture2D = preload("res://assets/mobile/grasp-fissures-v2.png")
 
 static func add_to(parent: Node3D, spent: bool, sprung: bool) -> void:
 	# The last charge still shows its activation before becoming rubble.
-	if not spent or sprung:
-		var floor_mark := _sprite(FISSURES, 0.90)
-		floor_mark.name = "GraspFissures"
-		floor_mark.rotation.x = -PI / 2
-		floor_mark.position = Vector3(0.5, 0.181, 0.5)
-		parent.add_child(floor_mark)
 	if not sprung and not spent:
 		return
 	var hand := _sprite(ACTIVE if sprung else BROKEN, 0.80)

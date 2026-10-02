@@ -28,30 +28,68 @@ func _run(world: Node) -> void:
 		root.add_child(second)
 		first.build(16, 16)
 		second.build(16, 16)
-		var first_batches := _collect_batches(first)
-		var second_batches := _collect_batches(second)
-		check(first.get_child_count() <= 65, "backdrop stays within 65 scene nodes")
+		var first_batches := _collect_rock_batches(first)
+		var second_batches := _collect_rock_batches(second)
+		check(first.get_child_count() <= 7, "backdrop stays within seven scene nodes")
+		check(first.get_node_or_null("RockUnderlay") is MeshInstance3D, "backdrop has a continuous rock underlay")
+		check(first_batches.size() == 6, "backdrop creates six MultiMesh rock batches")
 		var first_node_count := first.get_child_count()
+		var original_signature := _batch_signature(first_batches)
+		var original_ids := _resource_ids(first, first_batches)
 		first.build(16, 16)
 		check(first.get_child_count() == first_node_count, "rebuilding same dimensions does not duplicate backdrop nodes")
-		var instances := 0
-		var footprint_ok := true
-		var footprint_detail := ""
+		check(_batch_signature(_collect_rock_batches(first)) == original_signature, "rebuilding same dimensions retains exact transforms")
+		check(_resource_ids(first, _collect_rock_batches(first)) == original_ids,
+			"rebuilding same dimensions does not recreate meshes or MultiMeshes")
+		var outside_playable := true
+		var triangle_count := 0
+		var bad_bounds := ""
+		var exterior_sides := {"left": false, "right": false, "top": false, "bottom": false}
+		var check_gpu_transforms := DisplayServer.get_name() != "headless"
+		var underlay: MeshInstance3D = first.get_node("RockUnderlay")
+		var underlay_arrays: Array = underlay.mesh.surface_get_arrays(0)
+		var underlay_indices: PackedInt32Array = underlay_arrays[Mesh.ARRAY_INDEX]
+		triangle_count += underlay_indices.size() / 3
 		for batch in first_batches:
-			instances += batch.multimesh.instance_count
-			var instance_data: PackedFloat32Array = batch.multimesh.buffer
-			if instance_data.size() != batch.multimesh.instance_count * 12:
+			var multimesh: MultiMesh = batch.multimesh
+			if multimesh == null or multimesh.mesh == null:
+				outside_playable = false
 				continue
-			for index in batch.multimesh.instance_count:
-				var instance_transform: Transform3D = batch.multimesh.get_instance_transform(index)
-				var bounds: AABB = instance_transform * batch.multimesh.mesh.get_aabb()
-				if bounds.position.x < 16.0 and bounds.end.x > 0.0 and bounds.position.z < 16.0 and bounds.end.z > 0.0:
-					footprint_ok = false
-					if footprint_detail.is_empty():
-						footprint_detail = "%s transform=%s" % [bounds, instance_transform]
-		check(instances == 2880, "backdrop builds exactly 2880 rock instances")
-		check(footprint_ok, "transformed rock footprint stays outside the playable map: " + footprint_detail)
-		check(_batch_signature(first_batches) == _batch_signature(second_batches), "backdrop placement is deterministic")
+			var mesh: Mesh = multimesh.mesh
+			var arrays: Array = mesh.surface_get_arrays(0)
+			var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+			var placements: Array = batch.get_meta("placements", [])
+			check(placements.size() == multimesh.instance_count,
+				"CPU placement table matches batch instance count for " + batch.name)
+			triangle_count += indices.size() / 3 * placements.size()
+			var mesh_bounds: AABB = mesh.get_aabb()
+			for instance_index in placements.size():
+				var transform: Transform3D = placements[instance_index]
+				if check_gpu_transforms:
+					check(multimesh.get_instance_transform(instance_index) == transform,
+						"rendered instance transform matches CPU placement for %s[%d]" % [batch.name, instance_index])
+				var bounds: AABB = batch.global_transform * transform * mesh_bounds
+				if bounds.end.x <= 0.0001 and bounds.end.z > 0 and bounds.position.z < 16:
+					exterior_sides.left = true
+				if bounds.position.x >= 15.9999 and bounds.end.z > 0 and bounds.position.z < 16:
+					exterior_sides.right = true
+				if bounds.end.z <= 0.0001 and bounds.end.x > 0 and bounds.position.x < 16:
+					exterior_sides.top = true
+				if bounds.position.z >= 15.9999 and bounds.end.x > 0 and bounds.position.x < 16:
+					exterior_sides.bottom = true
+				if bounds.position.x < 16 and bounds.end.x > 0 and bounds.position.z < 16 and bounds.end.z > 0:
+					outside_playable = false
+					if bad_bounds.is_empty():
+						bad_bounds = "%s[%s,%s] z[%s,%s] instance=%s mesh=%s" % [batch.name, bounds.position.x, bounds.end.x, bounds.position.z, bounds.end.z, transform.origin, mesh_bounds]
+		check(exterior_sides.left and exterior_sides.right and exterior_sides.top and exterior_sides.bottom,
+			"transformed batches provide exterior rock coverage on all four map sides")
+		print("Backdrop triangle budget: ", triangle_count)
+		check(triangle_count > 0 and triangle_count < 500000, "exterior backdrop stays below the 500000 triangle budget")
+		check(outside_playable, "transformed rock instance bounds stay outside the playable map: " + bad_bounds)
+		check(_batch_signature(first_batches) == _batch_signature(second_batches), "backdrop transforms are deterministic")
+		for variant in 6:
+			check(first_batches[variant].multimesh.mesh == second_batches[variant].multimesh.mesh,
+				"backdrop variants share cached meshes across instances")
 		first.queue_free()
 		second.queue_free()
 	if world.has_method("limit_mobile_camera"):
@@ -81,18 +119,27 @@ func _run(world: Node) -> void:
 	await process_frame
 	quit(1 if failures else 0)
 
-func _collect_batches(root_node: Node) -> Array[MultiMeshInstance3D]:
+func _collect_rock_batches(root_node: Node) -> Array[MultiMeshInstance3D]:
 	var batches: Array[MultiMeshInstance3D] = []
-	for child in root_node.find_children("*", "MultiMeshInstance3D", true, false):
-		batches.append(child)
+	for variant in 6:
+		var batch := root_node.get_node_or_null("RockBatch_%d" % variant) as MultiMeshInstance3D
+		if batch != null:
+			batches.append(batch)
 	return batches
+
 
 func _batch_signature(batches: Array[MultiMeshInstance3D]) -> Array:
 	var signature: Array = []
 	for batch in batches:
-		var positions: Array = []
-		for index in batch.multimesh.instance_count:
-			positions.append(batch.multimesh.get_instance_transform(index))
-		positions.sort_custom(func(a, b): return str(a) < str(b))
-		signature.append(positions)
+		var multimesh: MultiMesh = batch.multimesh
+		var transforms: Array = batch.get_meta("placements", [])
+		signature.append([batch.name, multimesh.mesh, transforms])
 	return signature
+
+
+func _resource_ids(root_node: Node, batches: Array[MultiMeshInstance3D]) -> Array[int]:
+	var ids: Array[int] = [root_node.get_node("RockUnderlay").mesh.get_instance_id()]
+	for batch in batches:
+		ids.append(batch.multimesh.get_instance_id())
+		ids.append(batch.multimesh.mesh.get_instance_id())
+	return ids

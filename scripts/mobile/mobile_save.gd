@@ -10,8 +10,9 @@ const SIM_FIELDS := ["grid", "gold", "core_hp", "door_hp", "door_opened", "trap_
 const FIELDS := ["version", "grid", "gold", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over", "kingdom_knowledge", "raid_index", "mage_pressure", "progression"]
 
 static func capture(sim, raid, progression) -> Dictionary:
+	sim._storage_state()
 	var data := {"version": VERSION, "kingdom_knowledge": raid.kingdom_knowledge,
-		"raid_index": raid.raid_index, "mage_pressure": raid.mage_pressure, "progression": progression.snapshot()}
+		"raid_index": raid.raid_index, "mage_pressure": raid.mage_pressure, "progression": progression.snapshot(), "vault_gold": sim.vault_gold}
 	for field in SIM_FIELDS:
 		data[field] = sim.get(field)
 	return data.duplicate(true)
@@ -24,6 +25,7 @@ static func apply(data: Dictionary, sim, raid, progression) -> bool:
 		return false
 	for field in SIM_FIELDS:
 		sim.set(field, snapshot[field])
+	sim.vault_gold = snapshot.get("vault_gold", {})
 	sim.selected_tool = Types.Tool.NONE
 	sim.reset_armed = false
 	sim.message = ""
@@ -110,7 +112,10 @@ static func _tile(value) -> bool:
 	return value is int and value in Types.Tile.values()
 
 static func _valid(data: Dictionary) -> bool:
-	if not _keys(data, FIELDS) or not data.version is int or data.version != VERSION:
+	var fields := FIELDS.duplicate()
+	if data.has("vault_gold"):
+		fields.append("vault_gold")
+	if not _keys(data, fields) or not data.version is int or data.version != VERSION:
 		return false
 	if not _integer(data.gold) or not _integer(data.core_hp, Types.CORE_MAX) or not _integer(data.raid_index):
 		return false
@@ -130,6 +135,16 @@ static func _valid(data: Dictionary) -> bool:
 		for tile in row:
 			if not _tile(tile):
 				return false
+	var balances = data.get("vault_gold", {})
+	if not balances is Dictionary or balances.size() > Types.COLS * Types.ROWS:
+		return false
+	var stored := 0
+	for pos in balances:
+		if not _coord(pos) or data.grid[pos.y][pos.x] != Types.Tile.VAULT or not _integer(balances[pos], Types.VAULT_CAPACITY):
+			return false
+		stored += int(balances[pos])
+	if stored > data.gold:
+		return false
 	for field in ["door_hp", "door_opened", "trap_charges", "kingdom_knowledge"]:
 		if not data[field] is Dictionary or data[field].size() > Types.COLS * Types.ROWS:
 			return false

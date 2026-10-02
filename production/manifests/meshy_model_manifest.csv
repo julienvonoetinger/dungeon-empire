@@ -1,4 +1,11 @@
 ﻿mesh_output,strategy,families,source_images
+models/walls/rock_formation_reference_v1.glb,variant_mesh,rock_formation_reference,walls/rock_formation_reference_v1.png
+models/walls/rock_crag_high_v1.glb,variant_mesh,rock_crag_high,walls/rock_crag_high_v1.png
+models/walls/rock_shelf_low_v1.glb,variant_mesh,rock_shelf_low,walls/rock_shelf_low_v1.png
+models/walls/rock_compact_mid_v1.glb,variant_mesh,rock_compact_mid,walls/rock_compact_mid_v1.png
+models/walls/rock_split_mid_v1.glb,variant_mesh,rock_split_mid,walls/rock_split_mid_v1.png
+models/walls/rock_broken_low_v1.glb,variant_mesh,rock_broken_low,walls/rock_broken_low_v1.png
+models/walls/entrance_rock_arch_v1.glb,variant_mesh,entrance_rock_arch,walls/entrance_rock_arch_v1.png
 models/doors/door_standard.glb,shared_hinged_mesh,door_standard,doors/standard/door_standard_reference.png | doors/standard/door_standard_closed.png | doors/standard/door_standard_open.png
 models/doors/wall_v2/door_closed.glb,variant_mesh,door_wall_v2,doors/wall_v2/door_closed.png
 models/doors/wall_v2/door_open.glb,variant_mesh,door_wall_v2,doors/wall_v2/door_open.png

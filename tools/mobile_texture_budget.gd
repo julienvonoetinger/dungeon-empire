@@ -88,7 +88,7 @@ func _budget(path: String) -> void:
 		return
 	inspected += 1
 	var is_ui := path.begins_with("res://assets/mobile/")
-	var is_world_atlas := path.get_file() in ["command-atlas-v1.png.import", "core-monument-v1.png.import", "core-monument-v2.png.import", "core-damaged-v2.png.import", "core-destroyed-v2.png.import"]
+	var is_world_atlas := path.get_file() in ["command-atlas-v1.png.import", "core-monument-v1.png.import", "core-monument-v2.png.import", "core-damaged-v2.png.import", "core-destroyed-v2.png.import", "floor-pavers-v4.png.import", "bedrock-v2.png.import"]
 	var limit := 512 if "metallic" in path or "roughness" in path else 1024
 	var existing := int(config.get_value("params", "process/size_limit", 0))
 	if existing > 0:

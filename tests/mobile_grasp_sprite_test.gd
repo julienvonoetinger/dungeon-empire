@@ -6,16 +6,7 @@ func _initialize() -> void:
 	for state in ["hidden", "active", "broken"]:
 		var parent := Node3D.new()
 		surfaces.trap(parent, GameTypes.Tile.SNARE, state == "broken", state == "active")
-		var floor_mark := parent.get_node_or_null("GraspFissures") as Sprite3D
-		if state != "broken" and floor_mark == null:
-			push_error("FAIL: approved grasp needs a transparent floor-bound fissure, not a block hand")
-			parent.free()
-			quit(1)
-			return
-		if floor_mark != null:
-			assert(floor_mark.billboard == BaseMaterial3D.BILLBOARD_DISABLED)
-			assert(is_equal_approx(floor_mark.rotation.x, -PI / 2))
-			assert(floor_mark.position.y > 0.17 and floor_mark.position.y < 0.20)
+		assert(not parent.has_node("GraspFissures"), "the dedicated floor replaces the fissure overlay")
 		var hand := parent.get_node_or_null("StoneGrasp") as Sprite3D
 		assert((hand == null) == (state == "hidden"))
 		if hand != null:

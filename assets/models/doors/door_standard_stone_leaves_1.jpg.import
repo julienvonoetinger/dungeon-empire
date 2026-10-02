@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk3oy0nsgyt8b"
 path.s3tc="res://.godot/imported/door_standard_stone_leaves_1.jpg-8b194f669885be04a706ca0b97d166f4.s3tc.ctex"
+path.etc2="res://.godot/imported/door_standard_stone_leaves_1.jpg-8b194f669885be04a706ca0b97d166f4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/doors/door_standard_stone_leaves_1.jpg"
-dest_files=["res://.godot/imported/door_standard_stone_leaves_1.jpg-8b194f669885be04a706ca0b97d166f4.s3tc.ctex"]
+dest_files=["res://.godot/imported/door_standard_stone_leaves_1.jpg-8b194f669885be04a706ca0b97d166f4.s3tc.ctex", "res://.godot/imported/door_standard_stone_leaves_1.jpg-8b194f669885be04a706ca0b97d166f4.etc2.ctex"]
 
 [params]
 

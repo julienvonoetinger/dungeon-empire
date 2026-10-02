@@ -121,11 +121,11 @@ func _run(game: Node) -> void:
 		if edge_room != null:
 			var wall_nodes: Array = edge_room.get_node("Walls").get_children()
 			if edge == Vector2i.ZERO:
-				check(is_zero_approx(wall_nodes[0].position.z) and is_equal_approx(wall_nodes[2].position.x, 0.28),
-					"top-left preview walls fit inside the map boundary")
+				check(is_equal_approx(wall_nodes[0].position.z, -0.28) and is_zero_approx(wall_nodes[2].position.x),
+					"top-left preview walls stay outside playable floor")
 			else:
-				check(is_equal_approx(wall_nodes[1].position.z, 1.72) and is_equal_approx(wall_nodes[3].position.x, 2.0),
-					"bottom-right preview walls fit inside the map boundary")
+				check(is_equal_approx(wall_nodes[1].position.z, 2.0) and is_equal_approx(wall_nodes[3].position.x, 2.28),
+					"bottom-right preview walls stay outside playable floor")
 		check(_hidden_cell_count(world) == 4, "edge preview hides only its four covered roots")
 		check(edge_room != null and edge_room.get_instance_id() == first_id, "edge anchors reuse cached preview geometry")
 	game.mobile_selection = Vector2i(-1, -1)

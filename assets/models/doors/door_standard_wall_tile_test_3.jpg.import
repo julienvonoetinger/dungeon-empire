@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://r4t8q1wdovqx"
 path.s3tc="res://.godot/imported/door_standard_wall_tile_test_3.jpg-c68e33f40d56307e63267edb9f66d33d.s3tc.ctex"
+path.etc2="res://.godot/imported/door_standard_wall_tile_test_3.jpg-c68e33f40d56307e63267edb9f66d33d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/doors/door_standard_wall_tile_test_3.jpg"
-dest_files=["res://.godot/imported/door_standard_wall_tile_test_3.jpg-c68e33f40d56307e63267edb9f66d33d.s3tc.ctex"]
+dest_files=["res://.godot/imported/door_standard_wall_tile_test_3.jpg-c68e33f40d56307e63267edb9f66d33d.s3tc.ctex", "res://.godot/imported/door_standard_wall_tile_test_3.jpg-c68e33f40d56307e63267edb9f66d33d.etc2.ctex"]
 
 [params]
 

@@ -3,7 +3,6 @@ extends SceneTree
 func _initialize() -> void:
 	var surfaces = load("res://scripts/world/mobile_surfaces.gd")
 	var textures := {}
-	var socket_mesh: Mesh
 	for state in ["armed", "active", "broken"]:
 		var parent := Node3D.new()
 		surfaces.trap(parent, GameTypes.Tile.SPIKE, state == "broken", state == "active")
@@ -22,16 +21,13 @@ func _initialize() -> void:
 			assert(spike.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD)
 			assert(spike.texture.get_width() <= 512)
 			assert(spike.position.y > 0.17 and spike.position.y < 0.20)
+			if state == "active":
+				assert(is_equal_approx(spike.pixel_size * spike.texture.get_height(), 0.36), "extended spike must fit the new floor sockets")
 			if textures.has(state):
 				assert(textures[state] == spike.texture)
 			textures[state] = spike.texture
-		var sockets := parent.get_node("SpikeSockets") as MeshInstance3D
-		assert(sockets.mesh.get_aabb().end.y < 0.20)
-		assert(sockets.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].size() == 54)
-		if socket_mesh != null:
-			assert(socket_mesh == sockets.mesh, "share floor geometry across states")
-		socket_mesh = sockets.mesh
-		assert(parent.get_child_count() == 10)
+		assert(not parent.has_node("SpikeSockets"), "sockets belong to the floor texture, not floating squares")
+		assert(parent.get_child_count() == 9)
 		parent.free()
 	assert(textures.armed != textures.active and textures.active != textures.broken)
 	for i in 20:
@@ -39,5 +35,5 @@ func _initialize() -> void:
 		surfaces.trap(parent, GameTypes.Tile.SPIKE, true, true)
 		assert(parent.get_node("Spike0").texture == textures.active, "last charge still activates; texture reused")
 		parent.free()
-	print("OK: nine spines, distinct states, flush shared sockets, cached textures and final-charge priority")
+	print("OK: nine spines, distinct states, no overlay squares, cached textures and final-charge priority")
 	quit()

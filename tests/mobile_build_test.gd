@@ -62,7 +62,13 @@ func _init() -> void:
 	assert(not commands.commit(sim, profile, GameTypes.Tool.STORE, Vector2i(5, 6)))
 	raid.raid_active = false
 	sim.gold = 0
-	assert(not commands.commit(sim, profile, GameTypes.Tool.STORE, Vector2i(5, 6)))
+	var vault_preview: Dictionary = commands.preview(sim, profile, GameTypes.Tool.STORE, Vector2i(5, 6))
+	assert(vault_preview.valid and vault_preview.cost == 0, "Vault placement is free even without gold")
+	assert(commands.commit(sim, profile, GameTypes.Tool.STORE, Vector2i(5, 6)))
+	assert(sim.gold == 0 and sim.grid[6][5] == GameTypes.Tile.VAULT)
+	assert(not commands.commit(sim, profile, GameTypes.Tool.STORE, Vector2i(5, 6)), "Existing vault is unchanged")
+	assert(not commands.preview(sim, profile, GameTypes.Tool.STORE, Vector2i(4, 6)).valid, "Free vaults still require excavated ground")
+	assert(not commands.preview(sim, profile, GameTypes.Tool.STORE, Vector2i(6, 6)).valid, "Core remains protected")
 	assert(not commands.preview(sim, profile, GameTypes.Tool.DIG, Vector2i(-1, 0)).valid)
 	sim.raid = null
 	raid.sim = null

@@ -19,10 +19,6 @@ config/icon="res://assets/mobile/app-icon-v1.png"
 
 file_logging/enable_file_logging.pc=false
 
-[testing]
-
-unlock_defenses=true
-
 [display]
 
 window/size/viewport_width=1280
@@ -38,3 +34,7 @@ tls/certificate_bundle_override="res://certs/ca-bundle.crt"
 
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+
+[testing]
+
+unlock_defenses=true

@@ -1,7 +1,7 @@
 class_name MobileBuild
 extends RefCounted
 
-const FIELDS := ["grid", "gold", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over"]
+const FIELDS := ["grid", "gold", "vault_gold", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over"]
 
 func preview(sim: DungeonSim, profile, tool: int, cell: Vector2i) -> Dictionary:
 	if sim.game_over or (sim.raid != null and sim.raid.raid_active):

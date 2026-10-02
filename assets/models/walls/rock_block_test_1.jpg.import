@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbegydb6n3qab"
 path.s3tc="res://.godot/imported/rock_block_test_1.jpg-06e944f952020d3f55c0eb25194b21ae.s3tc.ctex"
+path.etc2="res://.godot/imported/rock_block_test_1.jpg-06e944f952020d3f55c0eb25194b21ae.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/walls/rock_block_test_1.jpg"
-dest_files=["res://.godot/imported/rock_block_test_1.jpg-06e944f952020d3f55c0eb25194b21ae.s3tc.ctex"]
+dest_files=["res://.godot/imported/rock_block_test_1.jpg-06e944f952020d3f55c0eb25194b21ae.s3tc.ctex", "res://.godot/imported/rock_block_test_1.jpg-06e944f952020d3f55c0eb25194b21ae.etc2.ctex"]
 
 [params]
 

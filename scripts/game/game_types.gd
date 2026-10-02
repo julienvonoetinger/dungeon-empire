@@ -23,7 +23,7 @@ const VAULT_CAPACITY := 150
 const START_GOLD := 320
 
 const COST_DIG := 5
-const COST_VAULT := 60
+const COST_VAULT := 0
 const COST_SPIKE := 35
 const COST_SNARE := 30
 const COST_VOID := 45
@@ -37,6 +37,7 @@ const DAMAGE_SPIKE_PALADIN := 20
 const DAMAGE_SNARE := 16
 
 const TURN_TIME := 0.48
+const SNARE_HOLD_TIME := 3.0
 const TRAP_JUMP_TIME := 1.0
 # Matches the 76-frame / 30 FPS Axe Spin Attack clip used by the Lithide paladin.
 const CORE_STRIKE_HOLD := 76.0 / 30.0
@@ -128,7 +129,7 @@ static func core_origin_cell() -> Vector2i:
 
 static func toolbar_defs() -> Array:
 	return [
-		{"tool": Tool.STORE, "label": "Storage", "cost": "60"},
+		{"tool": Tool.STORE, "label": "Storage", "cost": "free"},
 		{"tool": Tool.TRAP_SPIKE, "label": "Spikes", "cost": "35"},
 		{"tool": Tool.TRAP_SNARE, "label": "Snare", "cost": "30"},
 		{"tool": Tool.TRAP_VOID, "label": "Void", "cost": "45"},
