@@ -1,7 +1,7 @@
 # Persistent heroes and expedition XP
 
-Status: design for user review; not implemented. This document does not override
-GAME_DESIGN.md section 0 until the implementation and its tests are complete.
+Status: approved and implemented 2026-10-03. GAME_DESIGN.md section 0 records
+the current implementation; this document records the approved design.
 
 ## Goal and approved rules
 

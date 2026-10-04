@@ -19,6 +19,8 @@ var failures: Array[String] = []
 var capture := false
 
 func _initialize() -> void:
+	# This suite exercises the normal roster, independent of manual test overrides.
+	ProjectSettings.set_setting("testing/vulpin_only", false)
 	capture = OS.get_cmdline_user_args().has("--capture")
 	root.size = Vector2i(1600, 1000)
 	game = load("res://Main.tscn").instantiate()
@@ -55,6 +57,10 @@ func _run() -> void:
 	game.hero.kind = "thief"
 	for point in [SPIKE, SNARE]:
 		for charge in 3:
+			game._start_raid()
+			game.hero.hp = 300
+			game.hero.max_hp = 300
+			game.hero.kind = "thief"
 			game.hero.pos = point
 			var hp_before: int = game.hero.hp
 			game._resolve_cell(point)
@@ -68,8 +74,11 @@ func _run() -> void:
 				await _snapshot("%s_last_trigger" % _label(point), point)
 			game.hero.erase("trap_sprung_at")
 			game.hero.pos = Vector2i(5, 5)
+			_check_visual(point, "sprung")
+			game._end_raid("Controlled trap activation completed")
 			_check_visual(point, "broken" if charge == 2 else "armed")
 		check(game.trap_charges[point] == 0, "three activations must exhaust %s" % _label(point))
+		game._start_raid()
 		var hp: int = game.hero.hp
 		game._resolve_cell(point)
 		check(game.hero.hp == hp, "spent %s must not deal damage" % _label(point))
@@ -90,19 +99,20 @@ func _run() -> void:
 	_check_visual(VOID, "broken")
 	await _snapshot("void_broken", VOID)
 	check(game.corpses.is_empty(), "banishment must not leave a corpse")
-	# Exactly enough starting gold remains for all seven replacement charges.
+	# Three route cells are now free Core access floor, saving fifteen gold.
 	game._apply_toolbar_tool(game.Tool.REPAIR)
 	for point in [SPIKE, SNARE, VOID]:
 		check(game.trap_charges[point] == (1 if point == VOID else 3), "repair must recharge %s" % _label(point))
 		_check_visual(point, "armed")
-	check(game.gold == 0, "construction and repairs must respect the original 320-gold budget")
+	check(game.gold == 15, "construction and repairs retain fifteen gold saved by the access ring")
 	await _snapshot("labyrinth_repaired", Vector2i(-1, -1))
 	await _natural_raids()
+	_test_controlled_door_route()
 	var report := "Labyrinth integration: %d failure(s)\n" % failures.size()
 	for failure in failures:
 		report += "FAIL: %s\n" % failure
 	if failures.is_empty():
-		report += "PASS: 20 excavations, entrance, door, all trap states, repairs, 12 natural raids.\n"
+		report += "PASS: 17 excavations, 3 free access cells, entrance, controlled door route, all trap states, repairs, natural roster raids.\n"
 	print(report)
 	var file := FileAccess.open("res://artifacts/labyrinth_test_report.txt", FileAccess.WRITE)
 	file.store_string(report)
@@ -121,7 +131,7 @@ func _build_labyrinth() -> void:
 	for placement in [[SPIKE, game.Tool.TRAP_SPIKE], [SNARE, game.Tool.TRAP_SNARE], [VOID, game.Tool.TRAP_VOID], [DOOR, game.Tool.BUILD_DOOR], [ENTRANCE, game.Tool.BUILD_ENTRANCE]]:
 		game.selected_tool = placement[1]
 		game._build_at(placement[0])
-	check(game.gold == 70, "legal construction should cost 250 gold")
+	check(game.gold == 85, "legal construction should cost 235 gold including seventeen paid excavations")
 	check(game._has_entrance(), "entrance construction failed")
 	check(game._can_step(ENTRANCE, Vector2i(1, 2)), "stair mouth must connect to the labyrinth")
 	game.dungeon.sync(game)
@@ -198,7 +208,7 @@ func _natural_raids() -> void:
 	var kinds := {}
 	var opened_door := false
 	for run in 30:
-		if kinds.size() == 4 and opened_door and not encountered.values().has(false):
+		if kinds.size() == 4 and not encountered.values().has(false):
 			break
 		seed(8200 + run)
 		_build_labyrinth()
@@ -229,17 +239,34 @@ func _natural_raids() -> void:
 				else:
 					_check_door_visual("destroyed")
 			if previous != departed and encountered.has(departed):
-				_check_visual(departed, "broken" if game.trap_charges[departed] == 0 else "armed")
+				_check_visual(departed, "sprung" if game.hero.get("triggered_traps", {}).has(departed) else "broken" if game.trap_charges[departed] == 0 else "armed")
 			if step % 8 == 0:
 				await process_frame
 		check(not game.raid_active, "natural raid %d did not terminate" % run)
 		for point in encountered:
 			_check_visual(point, "broken" if game.trap_charges[point] == 0 else "armed")
 	check(kinds.size() == 4, "natural raids should exercise all four adventurer archetypes")
-	check(opened_door, "natural exploration must reach and break the corridor door")
 	for point in encountered:
 		check(encountered[point], "natural exploration never triggered %s" % _label(point))
 	print("Natural raids: archetypes=", kinds.keys(), " traps=", encountered, " door broken=", opened_door)
+
+func _test_controlled_door_route() -> void:
+	# Natural raids may retreat after trap damage; isolate door navigation and visuals.
+	_build_labyrinth()
+	var vault := Vector2i(3, 7)
+	game.grid[vault.y][vault.x] = game.Tile.VAULT
+	game._start_raid()
+	game.hero.merge({"kind": "thief", "level": 1, "pos": Vector2i(3, 5),
+		"objective": "vault", "lockpick_success_chance": 1.0,
+		"flee_ratio": 0.01, "patience": 1000, "known": {DOOR: game.Tile.DOOR, vault: game.Tile.VAULT}}, true)
+	for step in 100:
+		game._update_hero(0.1)
+		if bool(game.door_opened.get(DOOR, false)):
+			break
+	check(bool(game.door_opened.get(DOOR, false)), "Vulpin must unlock a door on its route to known treasure")
+	check(int(game.door_hp[DOOR]) == 0, "unlocked door must become traversable")
+	game.dungeon.sync(game)
+	_check_open_door_visual()
 
 
 func _valid_trap_jump(previous: Vector2i, point: Vector2i) -> bool:

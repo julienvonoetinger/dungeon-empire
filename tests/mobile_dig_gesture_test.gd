@@ -68,29 +68,56 @@ func _run() -> void:
 	ui.tray_collapsed = false
 	ui.tool = GameTypes.Tool.DIG
 	ui._cancel()
-	for cell in [Vector2i(5, 6), Vector2i(4, 6)]:
+	game.dungeon.mobile_walls_visible = false
+	game.dungeon.sync(game)
+	var unreachable := Vector2i(3, 5)
+	var unreachable_point := _point(game, unreachable)
+	ui._dig_pointer = unreachable_point
+	ui._dig_pointer_over_ui = false
+	ui._update_dig_hover()
+	assert(ui.dig_hover.x < 0 and not ui.dig_hint.visible, "Unreachable rock has no marker or price")
+	ui._tap(unreachable_point)
+	ui._update_dig_hover()
+	assert(ui.selected.x < 0 and not ui.actions.visible and not ui.dig_hint.visible, "Invalid click stays silent")
+	assert(game.gold == 10 and game.grid[unreachable.y][unreachable.x] == GameTypes.Tile.ROCK)
+	for cell in [Vector2i(4, 6), Vector2i(3, 6)]:
 		game.dungeon.mobile_walls_visible = false
 		game.dungeon.sync(game)
 		var point: Vector2 = _point(game, cell)
 		assert(game._screen_to_grid(point) == cell)
+		ui._dig_pointer = point
+		ui._dig_pointer_over_ui = false
+		ui._update_dig_hover()
+		assert(ui.dig_hover == cell and ui.dig_hover_valid, "Hover targets the exact dig cell")
+		assert(ui.selected.x < 0 and not ui.actions.visible, "Hover never opens confirmation")
+		if "--capture" in OS.get_cmdline_user_args():
+			for frame in 3:
+				await process_frame
+			root.get_texture().get_image().save_png("res://artifacts/dig-hover.png")
 		ui._tap(point)
 		assert(game.grid[cell.y][cell.x] == GameTypes.Tile.FLOOR)
 		assert(ui.selected.x < 0 and not ui.actions.visible)
 		ui._dig_stroke(point, point)
 	assert(game.gold == 0, "Only new rock costs gold")
-	ui._tap(game._cell_pos(Vector2i(3, 6)))
-	assert(game.grid[6][3] == GameTypes.Tile.ROCK, "Stop without funds")
+	ui._dig_pointer = _point(game, Vector2i(2, 6))
+	ui._update_dig_hover()
+	assert(ui.dig_hover.x < 0 and not ui.dig_hint.visible, "No funds hides unavailable excavation")
+	ui._dig_pointer_over_ui = true
+	ui._update_dig_hover()
+	assert(ui.dig_hover.x < 0, "No hover through UI")
+	ui._tap(game._cell_pos(Vector2i(2, 6)))
+	assert(game.grid[6][2] == GameTypes.Tile.ROCK, "Stop without funds")
 	game.gold = 100
 	game.raid_active = true
-	ui._dig_stroke(game._cell_pos(Vector2i(3, 6)), game._cell_pos(Vector2i(3, 6)))
-	assert(game.gold == 100 and game.grid[6][3] == GameTypes.Tile.ROCK)
+	ui._dig_stroke(game._cell_pos(Vector2i(2, 6)), game._cell_pos(Vector2i(2, 6)))
+	assert(game.gold == 100 and game.grid[6][2] == GameTypes.Tile.ROCK)
 	game.raid_active = false
 	game.dungeon.sync(game)
-	var start := _point(game, Vector2i(3, 6))
-	var finish := _point(game, Vector2i(2, 6))
+	var start := _point(game, Vector2i(2, 6))
+	var finish := _point(game, Vector2i(1, 6))
 	var pan: Vector2 = game.cam_pan
 	ui._dig_stroke(start, finish)
-	assert(game.grid[6][3] == GameTypes.Tile.FLOOR and game.grid[6][2] == GameTypes.Tile.FLOOR, "A long stroke digs connected cells")
+	assert(game.grid[6][2] == GameTypes.Tile.FLOOR and game.grid[6][1] == GameTypes.Tile.FLOOR, "A long stroke digs connected cells")
 	assert(game.cam_pan == pan, "Digging does not move camera")
 	game.grid[6][5] = GameTypes.Tile.SPIKE
 	ui._dig_stroke(_point(game, Vector2i(5, 6)), _point(game, Vector2i(5, 6)))

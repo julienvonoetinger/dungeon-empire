@@ -103,6 +103,16 @@ func set_collecting(value: bool) -> void:
 	set_running(_is_running)
 
 
+func set_jump_progress(progress: float) -> void:
+	if not _is_jumping:
+		return
+	for player: AnimationPlayer in _jumping.find_children("*", "AnimationPlayer", true, false):
+		var clip := player.get_animation(player.current_animation)
+		if clip != null:
+			# The simulation timer drives both the pose and the world displacement.
+			player.speed_scale = 0.0
+			player.seek(clip.length * clampf(progress, 0.0, 1.0), true)
+
 func set_jumping(value: bool) -> void:
 	if _preview_pose:
 		return

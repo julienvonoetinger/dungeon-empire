@@ -153,12 +153,12 @@ func _initialize() -> void:
 	check(no_candidate_sim.grid[8][8] == GameTypes.Tile.FLOOR and not no_candidate_raid.kingdom_knowledge.has(Vector2i(8, 8)),
 		"save migration frees invalid entrance cell and invalidates its knowledge")
 	for field in original:
-		if field == "vault_gold":
+		if field in ["vault_gold", "vault_locks", "vault_opened", "hero_roster"]:
 			continue # Optional in legacy version-one saves.
 		var missing := original.duplicate(true)
 		missing.erase(field)
 		reject(missing, "missing " + field)
-	for field in ["version", "gold", "vault_gold", "core_hp", "raid_index", "mage_pressure", "game_over", "grid", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "kingdom_knowledge", "progression"]:
+	for field in ["version", "gold", "vault_gold", "vault_locks", "vault_opened", "core_hp", "raid_index", "mage_pressure", "game_over", "grid", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "kingdom_knowledge", "progression"]:
 		var wrong := original.duplicate(true)
 		wrong[field] = "invalid"
 		reject(wrong, "wrong type " + field)

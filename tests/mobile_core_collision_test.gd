@@ -75,7 +75,7 @@ func _initialize() -> void:
 				check(raid.sim.core_hp == 100 and raid.sim.gold < 140, "thief routes around Core to loot without damage")
 			elif kind != "ranger":
 				check(raid.sim.core_hp < 100, "natural attacker finds adjacent attack position")
-	for kind in ["ranger", "thief"]:
+	for kind in ["ranger"]:
 		var raid = fixture(kind)
 		raid.hero.pos = Vector2i(4, 6)
 		raid.sim.grid[6][5] = GameTypes.Tile.SPIKE

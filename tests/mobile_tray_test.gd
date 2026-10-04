@@ -25,15 +25,14 @@ func _run() -> void:
 	ui.selected = Vector2i(4, 7)
 	ui._update_preview()
 	ui._refresh()
-	var selected_tool: int = ui.tool
 	var selected_category: int = ui.category
 	ui._toggle_tray()
 	assert(ui.tray_collapsed and not ui.build_options.visible and not ui.actions.visible)
-	assert(ui.selected == Vector2i(4, 7) and ui.tool == selected_tool and ui.category == selected_category)
+	assert(ui.selected.x < 0 and ui.tool == GameTypes.Tool.NONE and ui.category == selected_category, "Back cancels placement")
 	var path := "user://tray-test-%d.cfg" % Time.get_ticks_usec()
 	assert(ui._save_tray_preference(path) == OK)
 	ui._toggle_tray()
-	assert(not ui.tray_collapsed and ui.build_options.visible and ui.actions.visible)
+	assert(not ui.tray_collapsed and ui.build_options.visible and not ui.actions.visible)
 	ui._load_tray_preference(path)
 	assert(ui.tray_collapsed, "Preference reload restores collapsed state")
 	assert(DirAccess.remove_absolute(path) == OK)
@@ -46,8 +45,8 @@ func _run() -> void:
 	ui._refresh()
 	assert(ui.tray_collapsed and ui.navigation.visible and not ui.build_options.visible)
 	ui._toggle_tray()
-	assert(ui.selected == Vector2i(4, 7) and ui.actions.visible)
+	assert(ui.selected.x < 0 and not ui.actions.visible)
 	game.queue_free()
 	await process_frame
-	print("OK: tray toggles, preserves selection, restores preference and survives raid transitions")
+	print("OK: tray toggles, cancels selection, restores preference and survives raid transitions")
 	quit()

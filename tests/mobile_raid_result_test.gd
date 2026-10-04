@@ -65,7 +65,7 @@ func _test_death_result() -> void:
 	_check(result.get("loot_remaining") == 37, "snapshot includes dropped hero loot")
 	_check(result.get("structures_damaged") == 0, "snapshot includes structure damage count")
 	_check("Test Paladin (Brave) dies" in str(result.get("text", "")), "snapshot preserves outcome text")
-	_check(rewards[0].get("xp") == 65 and rewards[0].get("gold") == 70, "death result awards expected XP and gold")
+	_check(rewards[0].get("xp") == 65 and rewards[0].get("gold") == 0, "death result awards XP without creating gold")
 	_check(progression.xp == 65 and progression.last_raid_id == 1, "first reward is recorded")
 
 	var preserved := raid.last_result.duplicate(true)
@@ -109,7 +109,7 @@ func _test_portal_result() -> void:
 	_check(result.get("escaped") == 1 and result.get("killed") == 0, "portal outcome uses fresh counters")
 	_check(result.get("carried_out") == 18 and result.get("stolen") == 18, "portal snapshot preserves escaped gold")
 	_check(result.get("core_hp") == 60 and result.get("core_lost") == 25, "portal snapshot preserves Core state")
-	_check(rewards[1].get("xp") == 25 and rewards[1].get("gold") == 30, "second raid can award a distinct reward")
+	_check(rewards[1].get("xp") == 25 and rewards[1].get("gold") == 0, "second raid awards XP without creating gold")
 	_check(progression.xp == 90 and progression.last_raid_id == 2, "two distinct raids award exactly once each")
 	var preserved := raid.last_result.duplicate(true)
 	raid._update_hero(10.0)

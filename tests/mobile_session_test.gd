@@ -36,7 +36,7 @@ func _run() -> void:
 	ui._center_core()
 	check(first.distance_to(game.cam_pan) < 0.01, "Recenter converges without drift")
 	ui._choose_tool(GameTypes.Tool.DIG)
-	ui.selected = Vector2i(5, 6)
+	ui.selected = Vector2i(4, 6)
 	ui._update_preview()
 	check(ui.preview.cost == 5, "Dig cost shown")
 	ui._confirm()

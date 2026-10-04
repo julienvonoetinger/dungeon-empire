@@ -78,6 +78,9 @@ func _run(game: Node) -> void:
 					corners += 1
 		check(floors == 1 and walls == 4 and corners == 4,
 			"preview contains one floor, four walls and four corners (got %d/%d/%d)" % [floors, walls, corners])
+		check(room.get_meta("bounds") == Rect2i(-1, -1, 4, 4), "interior preview includes all twelve access cells")
+		check(is_equal_approx(room.get_node("Floor").get_aabb().size.x, 4.0), "preview floor really spans four cells")
+		await _capture(game, "center")
 	var first_id := room.get_instance_id() if room != null else 0
 	if room != null:
 		world.set_mobile_walls_visible(false)
@@ -94,8 +97,8 @@ func _run(game: Node) -> void:
 			full_ok = full_ok and part.has_meta("full_mesh") and part.mesh == part.get_meta("full_mesh")
 		check(full_ok, "all preview walls and corners restore full meshes when walls are visible")
 	check(not _covered_cells_visible(world, first_anchor), "preview hides only its four covered rock roots")
-	check(_hidden_cell_count(world) == 4, "preview hides exactly four grid roots")
-	var second_anchor := Vector2i(8, 8)
+	check(_hidden_cell_count(world) >= 16, "preview hides the full Core and access ring")
+	var second_anchor := Vector2i(10, 8)
 	game.mobile_selection = second_anchor
 	world.sync(game)
 	var moved_room := _get_core_room(world)
@@ -103,7 +106,7 @@ func _run(game: Node) -> void:
 		"moving the anchor reuses the same preview room node")
 	check(_covered_cells_visible(world, first_anchor), "moving preview restores the previous four rock roots")
 	check(not _covered_cells_visible(world, second_anchor), "moving preview hides the new four covered roots")
-	check(_hidden_cell_count(world) == 4, "moved preview still hides exactly four grid roots")
+	check(_hidden_cell_count(world) >= 16, "moved preview hides the full Core and access ring")
 	game.mobile_selection = Vector2i(-1, -1)
 	world.sync(game)
 	var cancelled_room := _get_core_room(world)
@@ -112,7 +115,7 @@ func _run(game: Node) -> void:
 	check(_hidden_cell_count(world) == 0, "cancelling preview restores every grid root")
 	check(game.grid == original_grid and game.gold == original_gold,
 		"preview movement and cancellation do not mutate dungeon or gold")
-	for edge in [Vector2i.ZERO, Vector2i(game.COLS - 2, game.ROWS - 2)]:
+	for edge in [Vector2i.ZERO, Vector2i(game.COLS - 2, game.ROWS - 2), Vector2i(0, 6)]:
 		game.mobile_selection = edge
 		world.sync(game)
 		var edge_room := _get_core_room(world)
@@ -123,10 +126,13 @@ func _run(game: Node) -> void:
 			if edge == Vector2i.ZERO:
 				check(is_equal_approx(wall_nodes[0].position.z, -0.28) and is_zero_approx(wall_nodes[2].position.x),
 					"top-left preview walls stay outside playable floor")
-			else:
+			elif edge.x > 0:
 				check(is_equal_approx(wall_nodes[1].position.z, 2.0) and is_equal_approx(wall_nodes[3].position.x, 2.28),
 					"bottom-right preview walls stay outside playable floor")
-		check(_hidden_cell_count(world) == 4, "edge preview hides only its four covered roots")
+		var expected_size := Vector2i(3, 4) if edge == Vector2i(0, 6) else Vector2i(3, 3)
+		check(edge_room.get_meta("bounds").size == expected_size, "preview ring is clipped to map bounds")
+		check(_hidden_cell_count(world) >= expected_size.x * expected_size.y, "edge preview hides its clipped footprint")
+		await _capture(game, "edge-%d-%d" % [edge.x, edge.y])
 		check(edge_room != null and edge_room.get_instance_id() == first_id, "edge anchors reuse cached preview geometry")
 	game.mobile_selection = Vector2i(-1, -1)
 	world.sync(game)
@@ -140,7 +146,20 @@ func _run(game: Node) -> void:
 	check(placed_room == null or not placed_room.visible, "committing anchor removes the room preview")
 	check(_covered_cells_visible(world, second_anchor), "committing anchor restores the abandoned preview rocks")
 	check(not game.persistence_enabled, "preview test does not access a real save")
+	await _capture(game, "placed")
 	game.queue_free()
 	await process_frame
 	print("Mobile Core room preview: %d failures" % failures)
 	quit(1 if failures else 0)
+
+func _capture(game: Node, label: String) -> void:
+	if "--capture" not in OS.get_cmdline_user_args():
+		return
+	game.mobile_ui.paused = true
+	game.mobile_ui.selected = game.mobile_selection
+	game.mobile_ui._update_preview()
+	game.mobile_ui._center(game.mobile_selection if game.mobile_selection.x >= 0 else game._core_origin())
+	for frame in 3:
+		await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png("res://artifacts/core-ring-%s.png" % label)

@@ -4,6 +4,7 @@ var m: Control
 var failures: Array[String] = []
 
 func _initialize() -> void:
+    ProjectSettings.set_setting("testing/vulpin_only", false)
     var script: GDScript = load("res://scripts/Main.gd")
     m = script.new()
     root.add_child(m)
@@ -76,7 +77,7 @@ func _test_paladin_core_attack_hold() -> void:
     check(m.core_hp == m.CORE_MAX, "paladin must not damage the Core before the 2.533-second axe spin finishes")
     m._update_hero(0.04)
     check(m.core_hp == m.CORE_MAX - 42, "paladin must damage the Core when the axe spin reaches its impact")
-    check(bool(m.hero.get("portaling", false)), "paladin must portal after completing its Core strike")
+    check(bool(m.hero.get("fleeing", false)) and not bool(m.hero.get("portaling", false)), "paladin returns on foot after its Core strike")
     m._new_map()
 
 
@@ -180,9 +181,10 @@ func _test_vulpin_lockpicking_hold() -> void:
     m.hero["kind"] = "thief"
     m.hero["display"] = "Vulpin Thief"
     m.hero["lockpick_success_chance"] = 0.0
+    m.hero["level"] = 3
     m._attack_door(door)
     m._update_hero(3.04)
-    check(bool(m.hero.get("lockpicking", false)), "a Vulpin gets one final lockpicking attempt after a failure")
+    check(bool(m.hero.get("lockpicking", false)), "a level 3 Vulpin gets one final lockpicking attempt after a failure")
     m._update_hero(3.04)
     check(int(m.door_hp[door]) == m.DOOR_MAX_HP, "failed lockpicking must not damage a door")
     check(bool(m.hero.get("avoided_doors", {}).get(door, false)), "a Vulpin must abandon a door after two failed lockpicks")
@@ -217,11 +219,15 @@ func _test_magic_door_rules() -> void:
     check(int(m.door_hp[door]) == m.DOOR_MAX_HP, "Paladin damaged an invulnerable magic door")
     check(not bool(m.door_opened.get(door, false)), "Paladin opened a magic door")
     check(bool(m.hero.get("saw_magic_door_blocker", false)), "Paladin did not remember that the raid needs a mage")
-    m.raid._open_town_portal("test exit")
-    m.raid._finish_town_portal()
+    m.hero.pos = m._find_tile(m.Tile.ENTRANCE)
+    m.raid._hero_escapes()
+    m._update_hero(GameTypes.TURN_TIME + 0.01)
     check(int(m.raid.mage_pressure) == 1, "first non-mage magic-door escape did not increase mage pressure")
 
-    m.raid_active = true
+    var vulpin_override = ProjectSettings.get_setting("testing/vulpin_only", false)
+    ProjectSettings.set_setting("testing/vulpin_only", true)
+    m._start_raid()
+    ProjectSettings.set_setting("testing/vulpin_only", vulpin_override)
     m.hero["kind"] = "thief"
     m.hero["display"] = "Vulpin Thief"
     m.hero["portaling"] = false
@@ -230,8 +236,9 @@ func _test_magic_door_rules() -> void:
     check(int(m.door_hp[door]) == m.DOOR_MAX_HP, "Vulpin damaged a magic door")
     check(not bool(m.door_opened.get(door, false)), "Vulpin lockpicked a magic door")
     check(bool(m.hero.get("avoided_doors", {}).get(door, false)), "Vulpin did not mark a magic door as impossible")
-    m.raid._open_town_portal("test exit")
-    m.raid._finish_town_portal()
+    m.hero.pos = m._find_tile(m.Tile.ENTRANCE)
+    m.raid._hero_escapes()
+    m._update_hero(GameTypes.TURN_TIME + 0.01)
     check(int(m.raid.mage_pressure) == 2, "mage pressure is not cumulative after repeated non-mage escapes")
     m.raid.mage_pressure = 999
     check(String(m.raid._random_hero_template()["kind"]) == "mage", "high magic-door pressure did not force the next mage")
@@ -336,8 +343,8 @@ func ensure_entrance() -> void:
     if m._has_entrance():
         return
     var c: Vector2i = core_cell()
-    var p := Vector2i(c.x - 1, c.y - 1)
-    ensure_floor(p + Vector2i.DOWN)
+    var p := Vector2i(c.x - 2, c.y - 1)
+    ensure_floor(p + Vector2i.RIGHT)
     ensure_floor(p)
     click_named(m.Tool.BUILD_ENTRANCE)
     click_cell(p)
@@ -447,7 +454,7 @@ func _test_sealed_core_start() -> void:
             elif t == m.Tile.FLOOR:
                 floors += 1
     check(cores == m.CORE_W * m.CORE_H, "Core is not 2x2 (got %d cells)" % cores)
-    check(floors == 0, "Core placement must not dig automatic corridors or a starter room (got %d floors)" % floors)
+    check(floors == 12, "Core placement opens its twelve access cells (got %d floors)" % floors)
     m._new_map()
     check(m._place_core(Vector2i(14, 14)), "Core cannot be placed against the influence boundary")
     check(tile(Vector2i(14, 14)) == m.Tile.CORE and tile(Vector2i(15, 15)) == m.Tile.CORE, "boundary Core placement is not a 2x2 footprint")
@@ -468,8 +475,8 @@ func _test_sealed_core_start() -> void:
         m._process(0.5)
     check(not m.raid_active, "a raid started before any entrance existed")
     check(is_equal_approx(m.raid_timer, timer_before), "raid countdown ran with no entrance")
-    var west: Vector2i = c + Vector2i(-1, -1)
-    ensure_floor(west + Vector2i.DOWN)
+    var west: Vector2i = c + Vector2i(-2, -1)
+    ensure_floor(west + Vector2i.RIGHT)
     ensure_floor(west)
     m.toolbar.open_at(west, Vector2(400, 300))
     check(m.toolbar._tool_enabled(m.Tool.BUILD_ENTRANCE), "Entrance disabled before it is placed")
@@ -477,7 +484,7 @@ func _test_sealed_core_start() -> void:
     click_named(m.Tool.BUILD_ENTRANCE)
     check(m.selected_tool == m.Tool.BUILD_ENTRANCE, "Entrance tool did not stay selected")
     click_cell(west)
-    check(tile(west) == m.Tile.ENTRANCE, "free entrance not placed on a ring floor")
+    check(tile(west) == m.Tile.ENTRANCE, "free entrance not placed outside the access ring")
     check(m.gold == gold_before, "entrance was not free")
     m.toolbar.open_at(core_east_floor(), Vector2(400, 300))
     check(not m.toolbar._tool_enabled(m.Tool.BUILD_ENTRANCE), "Entrance still enabled after it is placed")
@@ -525,7 +532,7 @@ func _test_sprite_pack() -> void:
     check(m._sprite("floor").get_width() >= 256, "floor wrap texture too small")
 
 func wait_town_portal() -> void:
-    for i in range(100):
+    for i in range(2000):
         if not m.raid_active:
             return
         m._process(0.1)
@@ -648,8 +655,8 @@ func _test_build_rules() -> void:
     check(m.gold == gold_before, "gold spent on a rejected dig")
     check(not m._is_diggable_rock(Vector2i(15, 1)), "far rock marked diggable")
     check(m._is_excavated(c), "core is not part of the excavated area")
-    var north := c + Vector2i.UP
-    check(m._is_diggable_rock(north), "rock on the core ring is not marked diggable")
+    var north := c + Vector2i.UP * 2
+    check(m._is_diggable_rock(north), "rock beyond the core ring is not marked diggable")
     check(not m._is_excavated(north), "undug rock counted as excavated")
     m._reset_camera()
     check(m._screen_to_grid(m._board_to_screen(m._cell_pos(north))) == north, "dig expand pad is not picked")
@@ -696,7 +703,7 @@ func _test_build_rules() -> void:
     click_named(m.Tool.BUILD_DOOR)
     click_cell(open_room)
     check(tile(open_room) != m.Tile.DOOR, "door placed in the open room")
-    check(m.message.contains("between two walls"), "misplaced door was not rejected")
+    check(m.message.contains("passage autour du coeur"), "door on the access ring was not rejected")
     var slot := corridor_south()
     m.toolbar.open_at(slot, Vector2(400, 300))
     check(m.toolbar._tool_enabled(m.Tool.BUILD_DOOR), "Door disabled in the radial menu on a valid wall gap")
@@ -760,8 +767,10 @@ func _test_trap_wear_and_repair() -> void:
     m.hero["max_hp"] = 300
     m.hero["door_damage"] = 18
 
-    # Every trigger consumes one charge and wounds the hero.
+    # One activation per raid: a new visitor can consume the next charge.
     for i in range(m.TRAP_MAX_CHARGES):
+        m._start_raid()
+        m.hero.merge({"kind": "paladin", "hp": 300, "max_hp": 300, "door_damage": 18}, true)
         var hp_before: int = int(m.hero["hp"])
         m.hero["pos"] = spike
         m._resolve_cell(spike)
@@ -873,16 +882,18 @@ func _test_death_and_theft() -> void:
     m.hero["steal_capacity"] = 40
     m.hero["pos"] = vault
     m._resolve_cell(vault)
-    check(m.gold == treasury - 40, "theft not limited by carrying capacity (%d -> %d)" % [treasury, m.gold])
-    check(int(m.hero.get("stolen_gold", 0)) == 40, "the thief must track gold stolen toward bag capacity")
+    check(m.gold == treasury, "gold remains in the chest until collection finishes")
+    check(int(m.hero.get("stolen_gold", 0)) == 0, "pending gold is not stolen twice")
     check(bool(m.hero.get("collecting_gold", false)), "a thief must collect gold before opening the town portal")
     check(not bool(m.hero.get("portaling", false)), "a thief must not portal before the collect animation finishes")
     m._update_hero(6.0)
     check(bool(m.hero.get("collecting_gold", false)), "the thief must still collect before the 6.033-second clip ends")
     m._update_hero(0.04)
-    check(bool(m.hero.get("portaling", false)), "the thief must portal after the collect animation finishes")
+    check(m.gold == treasury - 40, "theft is limited by carrying capacity")
+    check(int(m.hero.get("stolen_gold", 0)) == 40, "completed theft tracks stolen gold")
+    check(bool(m.hero.get("fleeing", false)) and not bool(m.hero.get("portaling", false)), "the thief must return on foot after collecting")
     wait_town_portal()
-    check(not m.raid_active, "the thief does not teleport out after stealing")
+    check(not m.raid_active, "the thief must finish its return after stealing")
 
     # What the thief could not carry stays in the storage (single vault, no surplus).
     m.gold = 100
@@ -891,6 +902,7 @@ func _test_death_and_theft() -> void:
     m.hero["steal_capacity"] = 40
     m.hero["pos"] = vault
     m._resolve_cell(vault)
+    m._update_hero(GameTypes.VULPIN_COLLECT_HOLD + 0.01)
     var left: Dictionary = m._storage_state()
     check(m.gold == 60, "partial theft took the wrong amount (%d left)" % m.gold)
     check(int((left["vaults"] as Dictionary).get(vault, -1)) == 60, "the rest of the hoard did not stay in the storage")
@@ -902,6 +914,7 @@ func _test_death_and_theft() -> void:
     m.hero["steal_capacity"] = 500
     m.hero["pos"] = vault
     m._resolve_cell(vault)
+    m._update_hero(GameTypes.VULPIN_COLLECT_HOLD + 0.01)
     check(m.gold == 0, "large capacity did not empty the storage (%d left)" % m.gold)
 
     # An empty storage does not end the raid: the thief ignores it afterwards.

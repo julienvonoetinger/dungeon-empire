@@ -43,7 +43,7 @@ func _run(game: Node) -> void:
 	ui._confirm()
 	check(game._has_core(), "confirmed selection places Core")
 	var dug := true
-	for x in range(5, 0, -1):
+	for x in range(4, 0, -1):
 		dug = _place(ui, game, GameTypes.Tool.DIG, Vector2i(x, 6)) and dug
 	check(dug, "player can manually dig a passage from the Core")
 	var stored := _place(ui, game, GameTypes.Tool.STORE, Vector2i(5, 6))

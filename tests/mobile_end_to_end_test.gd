@@ -12,6 +12,7 @@ func check(condition: bool, text: String) -> void:
 		push_error(text)
 
 func _initialize() -> void:
+	ProjectSettings.set_setting("testing/vulpin_only", false)
 	var sim := DungeonSim.new()
 	var raid := RaidDirector.new()
 	var progress := Progress.new()

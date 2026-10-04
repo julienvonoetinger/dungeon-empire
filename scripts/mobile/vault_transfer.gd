@@ -11,6 +11,10 @@ var target: OptionButton
 var quantity: SpinBox
 var submit: Button
 var panel: PanelContainer
+var protection: Label
+var upgrade_locked: Button
+var upgrade_magic: Button
+var repair: Button
 
 func setup(ui) -> void:
 	session = ui
@@ -28,6 +32,14 @@ func setup(ui) -> void:
 	content.add_child(title)
 	balance = ui._label("", 20)
 	content.add_child(balance)
+	protection = ui._label("", 18)
+	content.add_child(protection)
+	upgrade_locked = ui._button("Verrouiller : 40 or", func(): _protect(1))
+	upgrade_magic = ui._button("Sceller : 80 or", func(): _protect(2))
+	repair = ui._button("Reverrouiller : 15 or", _repair)
+	for action in [upgrade_locked, upgrade_magic, repair]:
+		action.custom_minimum_size.y = 44
+		content.add_child(action)
 	choose = ui._button("Transf\u00e9rer", _choose_destination)
 	choose.custom_minimum_size.y = 44
 	content.add_child(choose)
@@ -79,6 +91,20 @@ func open(cell: Vector2i) -> void:
 	session.paused = true
 	title.text = "Coffre (%d, %d)" % [cell.x, cell.y]
 	balance.text = "%d / %d or" % [vaults[cell], GameTypes.VAULT_CAPACITY]
+	var tier := int(session.g.sim.vault_locks.get(cell, 0))
+	var intact: bool = session.g.sim.vault_protected(cell)
+	protection.text = "Sans protection" if tier == 0 else ("Verrou intact" if tier == 1 else "Sceau intact") if intact else "Protection ouverte"
+	protection.modulate = Color("c985ec") if tier == 2 and intact else session.GOLD if intact else Color("b4b4b4")
+	upgrade_locked.visible = tier == 0
+	upgrade_locked.disabled = session.g.gold < GameTypes.VAULT_PROTECTION_COSTS[1]
+	upgrade_magic.visible = tier < 2
+	var magic_cost: int = GameTypes.VAULT_PROTECTION_COSTS[2] - GameTypes.VAULT_PROTECTION_COSTS[tier]
+	var unlocked: bool = session.profile.allows(GameTypes.Tool.STORE_MAGIC)
+	upgrade_magic.text = "Sceller : %d or" % magic_cost if unlocked else "Sceau : niveau 4 requis"
+	upgrade_magic.disabled = not unlocked or session.g.gold < magic_cost
+	repair.visible = tier > 0 and not intact
+	repair.text = "Reverrouiller : 15 or" if tier == 1 else "Restaurer le sceau : 15 or"
+	repair.disabled = session.g.gold < GameTypes.COST_REPAIR_VAULT
 	destinations.clear()
 	target.clear()
 	for p in vaults:
@@ -99,6 +125,24 @@ func _choose_destination() -> void:
 	options.show()
 	target.select(0)
 	_update_limit()
+
+func _protect(tier: int) -> void:
+	if not visible or tier not in [1, 2]:
+		return
+	var tool := GameTypes.Tool.STORE_LOCKED if tier == 1 else GameTypes.Tool.STORE_MAGIC
+	if session.commands.commit(session.g.sim, session.profile, tool, source):
+		_after_protection_change()
+
+func _repair() -> void:
+	if visible and session.g.sim.repair_vault(source):
+		_after_protection_change()
+
+func _after_protection_change() -> void:
+	session._save()
+	session.g._sync_world()
+	session._sync_vault_badges()
+	close()
+	open(source)
 
 func _update_limit() -> void:
 	var vaults: Dictionary = session.g._storage_state().vaults

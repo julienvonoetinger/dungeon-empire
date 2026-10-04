@@ -2,6 +2,7 @@ class_name MobileSave
 extends RefCounted
 
 const Types = preload("res://scripts/game/game_types.gd")
+const Roster = preload("res://scripts/game/hero_roster.gd")
 const VERSION := 1
 const MAX_FILE_BYTES := 4 * 1024 * 1024
 const MAX_VALUE := 2147483647
@@ -15,6 +16,9 @@ static func capture(sim, raid, progression) -> Dictionary:
 		"raid_index": raid.raid_index, "mage_pressure": raid.mage_pressure, "progression": progression.snapshot(), "vault_gold": sim.vault_gold}
 	for field in SIM_FIELDS:
 		data[field] = sim.get(field)
+	data["vault_locks"] = sim.vault_locks
+	data["vault_opened"] = sim.vault_opened
+	data["hero_roster"] = raid.roster.snapshot()
 	return data.duplicate(true)
 
 static func apply(data: Dictionary, sim, raid, progression) -> bool:
@@ -26,14 +30,20 @@ static func apply(data: Dictionary, sim, raid, progression) -> bool:
 	for field in SIM_FIELDS:
 		sim.set(field, snapshot[field])
 	sim.vault_gold = snapshot.get("vault_gold", {})
+	sim.vault_locks = snapshot.get("vault_locks", {})
+	sim.vault_opened = snapshot.get("vault_opened", {})
 	sim.selected_tool = Types.Tool.NONE
 	sim.reset_armed = false
 	sim.message = ""
 	sim.report = ""
 	raid.reset_for_new_map()
+	if snapshot.has("hero_roster"):
+		raid.roster.restore(snapshot.hero_roster)
 	raid.kingdom_knowledge = snapshot.kingdom_knowledge
 	raid.raid_index = snapshot.raid_index
 	raid.mage_pressure = snapshot.mage_pressure
+	for cell in sim.repair_core_access():
+		raid.kingdom_knowledge.erase(cell)
 	var moved: Dictionary = sim.repair_entrance_placement()
 	if not moved.is_empty():
 		raid.kingdom_knowledge.erase(moved["from"])
@@ -115,7 +125,12 @@ static func _valid(data: Dictionary) -> bool:
 	var fields := FIELDS.duplicate()
 	if data.has("vault_gold"):
 		fields.append("vault_gold")
+	for field in ["vault_locks", "vault_opened", "hero_roster"]:
+		if data.has(field):
+			fields.append(field)
 	if not _keys(data, fields) or not data.version is int or data.version != VERSION:
+		return false
+	if data.has("hero_roster") and not Roster.valid_snapshot(data.hero_roster):
 		return false
 	if not _integer(data.gold) or not _integer(data.core_hp, Types.CORE_MAX) or not _integer(data.raid_index):
 		return false
@@ -145,6 +160,16 @@ static func _valid(data: Dictionary) -> bool:
 		stored += int(balances[pos])
 	if stored > data.gold:
 		return false
+	var locks = data.get("vault_locks", {})
+	var opened = data.get("vault_opened", {})
+	if not locks is Dictionary or not opened is Dictionary or locks.size() > Types.COLS * Types.ROWS or opened.size() > locks.size():
+		return false
+	for pos in locks:
+		if not _coord(pos) or data.grid[pos.y][pos.x] != Types.Tile.VAULT or not locks[pos] is int or locks[pos] not in [1, 2]:
+			return false
+	for pos in opened:
+		if not locks.has(pos) or not opened[pos] is bool:
+			return false
 	for field in ["door_hp", "door_opened", "trap_charges", "kingdom_knowledge"]:
 		if not data[field] is Dictionary or data[field].size() > Types.COLS * Types.ROWS:
 			return false

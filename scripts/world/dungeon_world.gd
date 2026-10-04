@@ -116,6 +116,9 @@ var _hero_bar: MeshInstance3D
 var _hero_tag: Label3D
 var _hero_preview_root: Node3D
 var _hero_cell := Vector2i(-1, -1)
+var _hero_raid_index := -1
+var _hero_vault_anchor := Vector2i(-1, -1)
+var _hero_vault_offset := Vector3.ZERO
 var _hero_move_from := Vector3.ZERO
 var _hero_move_to := Vector3.ZERO
 var _hero_move_elapsed := HERO_MOVE_TIME
@@ -916,6 +919,7 @@ func sync(game: Node) -> void:
 			if t == game.Tile.VAULT:
 				var vf := _vault_open_face(p, game)
 				sig += ":v%.0f,%.0f" % [vf.x, vf.z]
+				sig += ":lock%d:%s" % [int(game.sim.vault_locks.get(p, 0)), str(game.sim.vault_protected(p))]
 			if str(_last_sig.get(p, "")) != sig:
 				_last_sig[p] = sig
 				_rebuild_cell(p, t, game, vaults, spent)
@@ -936,6 +940,12 @@ func sync(game: Node) -> void:
 	if mobile_mode:
 		_sync_mobile_focus(game)
 		_sync_core_placement_preview(game)
+		var trap_preview := get_node_or_null("TrapPlacementPreview")
+		if trap_preview == null:
+			trap_preview = preload("res://scripts/world/trap_placement_preview.gd").new()
+			trap_preview.name = "TrapPlacementPreview"
+			add_child(trap_preview)
+		trap_preview.sync(game)
 		for wall in _mobile_walls.keys():
 			if not is_instance_valid(wall) or wall.is_queued_for_deletion() or not wall.is_inside_tree():
 				_mobile_walls.erase(wall)
@@ -1054,6 +1064,12 @@ func _build_mobile_prop(parent: Node3D, cell: Vector2i, tile: int, game: Node, v
 	if tile != GameTypes.Tile.VAULT:
 		return false
 	var path := "res://assets/mobile/chest-full-v3.png" if int(vaults.get(cell, 0)) > 0 else "res://assets/mobile/chest-empty-v3.png"
+	if game.sim.vault_protected(cell):
+		path = "res://assets/mobile/chest-locked-v1.png" if int(game.sim.vault_locks[cell]) == 1 else "res://assets/mobile/chest-sealed-v1.png"
+	elif int(game.sim.vault_locks.get(cell, 0)) > 0:
+		var protection := "locked" if int(game.sim.vault_locks[cell]) == 1 else "sealed"
+		var stock := "full" if int(vaults.get(cell, 0)) > 0 else "empty"
+		path = "res://assets/mobile/chest-%s-open-%s-v1.png" % [protection, stock]
 	if not _mobile_chest_textures.has(path):
 		_mobile_chest_textures[path] = _load_texture_with_image_fallback(path)
 	var texture: Texture2D = _mobile_chest_textures[path]
@@ -1221,20 +1237,20 @@ func _sync_core_placement_preview(game: Node) -> void:
 		_mobile_core_room.visible = show_preview
 		_mobile_core_room.position = Vector3(selection.x, 0, selection.y)
 	if show_preview:
+		var minimum := Vector2i(maxi(-1, -selection.x), maxi(-1, -selection.y))
+		var maximum := Vector2i(mini(3, game.COLS - selection.x), mini(3, game.ROWS - selection.y))
+		_resize_core_room_preview(Rect2i(minimum, maximum - minimum))
 		var walls := _mobile_core_room.get_node("Walls").get_children()
-		walls[0].position.z = -0.28
-		walls[1].position.z = 2.0
-		walls[2].position.x = 0.0
-		walls[3].position.x = 2.28
 		for part in walls + _mobile_core_room.get_node("Corners").get_children():
 			part.mesh = part.get_meta("full_mesh" if mobile_walls_visible else "foundation_mesh")
-		for y in 2:
-			for x in 2:
+		for y in range(minimum.y, maximum.y):
+			for x in range(minimum.x, maximum.x):
 				var cell := selection + Vector2i(x, y)
 				if _cells.has(cell):
 					var rock: Node3D = _cells[cell]
 					rock.hide()
-					_preview_covered_rocks.append(rock)
+					if not _preview_covered_rocks.has(rock):
+						_preview_covered_rocks.append(rock)
 				# A two-cell formation can originate just outside the preview.
 				var origin := Vector2i(cell.x - cell.x % 2, cell.y - cell.y % 2)
 				if _cells.has(origin) and _mobile_rock_group_full(cell, game):
@@ -1296,6 +1312,30 @@ func _build_core_room_preview() -> void:
 		pillar.set_meta("foundation_mesh", pillar_foundation)
 		pillar.position = point
 		corners.add_child(pillar)
+
+func _resize_core_room_preview(bounds: Rect2i) -> void:
+	if _mobile_core_room.get_meta("bounds", Rect2i()) == bounds:
+		return
+	_mobile_core_room.set_meta("bounds", bounds)
+	var cells: Array[Vector2i] = []
+	for y in range(bounds.position.y, bounds.end.y):
+		for x in range(bounds.position.x, bounds.end.x):
+			cells.append(Vector2i(x, y))
+	_mobile_core_room.get_node("Floor").sync_cells(cells, CELL)
+	var surfaces = preload("res://scripts/world/mobile_surfaces.gd")
+	var walls := _mobile_core_room.get_node("Walls").get_children()
+	var lo := bounds.position
+	var hi := bounds.end
+	var positions := [Vector3(lo.x, 0, lo.y - 0.28), Vector3(lo.x, 0, hi.y), Vector3(lo.x, 0, lo.y), Vector3(hi.x + 0.28, 0, lo.y)]
+	for i in 4:
+		var length: int = bounds.size.x if i < 2 else bounds.size.y
+		walls[i].set_meta("full_mesh", surfaces.wall(length, i))
+		walls[i].set_meta("foundation_mesh", surfaces.wall(length, i, true))
+		walls[i].position = positions[i]
+	var corners := _mobile_core_room.get_node("Corners").get_children()
+	var points := [Vector3(lo.x, 0, lo.y), Vector3(hi.x, 0, lo.y), Vector3(lo.x, 0, hi.y), Vector3(hi.x, 0, hi.y)]
+	for i in 4:
+		corners[i].position = points[i]
 
 func _sync_mobile_core_health(hp: int) -> void:
 	_core_fill_base = render_profile.core_energy if hp > 0 else 0.0
@@ -1491,11 +1531,10 @@ func _add_fitted_floor(root: Node3D) -> bool:
 func _spike_sprung(p: Vector2i, game: Node) -> bool:
 	if game.hero.is_empty():
 		return false
-	return game.hero.get("trap_sprung_at", Vector2i(-1, -1)) == p
+	return game.hero.get("triggered_traps", {}).has(p) or game.hero.get("trap_sprung_at", Vector2i(-1, -1)) == p
 
 func _trap_sprung(p: Vector2i, game: Node, _spent: bool) -> bool:
-	# The final charge still has an activation. Exhaustion follows departure,
-	# or the end of the banishment, rather than hiding the last trigger immediately.
+	# A fired mechanism stays sprung for this entire raid, even on its last charge.
 	return _spike_sprung(p, game)
 
 func _add_fitted_spike(root: Node3D, spent: bool, sprung: bool) -> bool:
@@ -2646,13 +2685,43 @@ func _sync_hero(game: Node) -> void:
 		_hero_cell = Vector2i(-1, -1)
 		_hero_move_elapsed = HERO_MOVE_TIME
 		_hero_absorbing = false
+		_hero_vault_anchor = Vector2i(-1, -1)
 		return
+	var raid_id := int(game.hero.get("raid_id", 0))
+	if _hero_raid_index != raid_id:
+		_hero_raid_index = raid_id
+		_hero_cell = Vector2i(-1, -1)
+		_hero_vault_anchor = Vector2i(-1, -1)
 	var p: Vector2i = game.hero["pos"]
 	var hero_scale := 1.4 if mobile_mode else 1.0
 	var ground := _mobile_hero_ground(p, game) if mobile_mode else FLOOR_H
 	var target_position := cell_center(p, ground + (0.48 - FLOOR_H) * hero_scale)
+	if _hero_vault_anchor != p:
+		_hero_vault_anchor = Vector2i(-1, -1)
+	var action_cell: Vector2i = game.hero.get("lockpick_pos", game.hero.get("door_strike_pos", game.hero.get("arcane_open_pos", Vector2i(-1, -1))))
+	if action_cell.x >= 0 and action_cell != p:
+		_hero_vault_anchor = Vector2i(-1, -1)
+	var vault_action := bool(game.hero.get("collecting_gold", false)) or action_cell == p
+	var vault_approach := false
+	if game.hero.has("vault_arrival_t") and not bool(game.hero.get("fleeing", false)):
+		var tier: int = game.sim.vault_locks.get(p, 0) if game.sim.vault_protected(p) else 0
+		var kind: String = game.hero.get("kind", "")
+		vault_approach = (kind == "thief" and (tier == 1 or (tier == 0 and int(game.sim._storage_state().vaults.get(p, 0)) > 0))) or (kind == "mage" and tier == 2)
+	# Use one anchor for approach, lockpicking and collection, including gaps between actions.
+	if (vault_action or vault_approach) and _hero_vault_anchor != p:
+		var facing: Vector2i = game.hero.get("facing", Vector2i.DOWN)
+		_hero_vault_anchor = p
+		_hero_vault_offset = -Vector3(facing.x, 0.0, facing.y) * VAULT_COLLECT_OFFSET
+	if _hero_vault_anchor == p:
+		target_position += _hero_vault_offset
 	var jumping: bool = game.hero.get("jumping_trap", false)
-	if jumping:
+	if bool(game.hero.get("exiting", false)):
+		var facing: Vector2i = game.hero.get("facing", Vector2i.DOWN)
+		var progress := clampf(1.0 - float(game.hero.get("exit_t", 0.0)) / GameTypes.TURN_TIME, 0.0, 1.0)
+		_hero.position = target_position + Vector3(facing.x, 0, facing.y) * 0.7 * progress
+		_hero_move_elapsed = HERO_MOVE_TIME
+		_orient_hero(facing)
+	elif jumping:
 		var from: Vector2i = game.hero.get("jump_from", p - game.hero.get("facing", Vector2i.DOWN) * 2)
 		var from_ground := _mobile_hero_ground(from, game) if mobile_mode else FLOOR_H
 		_hero_move_from = cell_center(from, from_ground + (0.48 - FLOOR_H) * hero_scale)
@@ -2664,10 +2733,12 @@ func _sync_hero(game: Node) -> void:
 		_orient_hero(game.hero.get("facing", Vector2i.DOWN))
 	elif _hero_cell.x < 0:
 		_hero_cell = p
-		_hero.position = target_position
-		_hero_move_from = target_position
+		var from: Vector2i = game.hero.get("move_from", p)
+		var from_ground := _mobile_hero_ground(from, game) if mobile_mode else FLOOR_H
+		_hero_move_from = cell_center(from, from_ground + (0.48 - FLOOR_H) * hero_scale) if from != p else target_position
+		_hero.position = _hero_move_from
 		_hero_move_to = target_position
-		_hero_move_elapsed = HERO_MOVE_TIME
+		_hero_move_elapsed = 0.0 if from != p else HERO_MOVE_TIME
 		_orient_hero(game.hero.get("facing", Vector2i.DOWN))
 	elif p != _hero_cell:
 		_hero_cell = p
@@ -2679,8 +2750,9 @@ func _sync_hero(game: Node) -> void:
 		_hero.position = target_position
 		_hero_move_elapsed = HERO_MOVE_TIME
 	_hero_jump_active = jumping
-	if game.hero.has("trap_arrival_t"):
-		var arrival_progress := clampf(1.0 - float(game.hero["trap_arrival_t"]) / GameTypes.TURN_TIME, 0.0, 1.0)
+	if game.hero.has("trap_arrival_t") or game.hero.has("vault_arrival_t") or game.hero.has("exit_arrival_t"):
+		var arrival_time: float = game.hero.get("trap_arrival_t", game.hero.get("vault_arrival_t", game.hero.get("exit_arrival_t", 0.0)))
+		var arrival_progress := clampf(1.0 - arrival_time / GameTypes.TURN_TIME, 0.0, 1.0)
 		_hero.position = _hero_move_from.lerp(target_position, arrival_progress)
 		_hero_move_elapsed = HERO_MOVE_TIME
 	elif game.hero.get("trap_sprung_at", Vector2i(-1, -1)) == p:
@@ -2691,6 +2763,14 @@ func _sync_hero(game: Node) -> void:
 		_orient_hero(game.hero.get("facing", Vector2i.DOWN))
 	if (bool(game.hero.get("lockpicking", false)) or bool(game.hero.get("door_striking", false)) or bool(game.hero.get("arcane_opening", false))) and action_door.x >= 0:
 		var to_door := action_door - p
+		if to_door == Vector2i.ZERO and int(game.grid[p.y][p.x]) == GameTypes.Tile.VAULT:
+			var facing: Vector2i = game.hero.get("facing", Vector2i.DOWN)
+			_orient_hero(facing)
+			var action_position := target_position
+			_hero.position = action_position
+			_hero_move_from = action_position
+			_hero_move_to = action_position
+			_hero_move_elapsed = HERO_MOVE_TIME
 		if to_door != Vector2i.ZERO:
 			_orient_hero(to_door)
 			var action_position := target_position + Vector3(float(to_door.x), 0.0, float(to_door.y)) * DOOR_ACTION_OFFSET
@@ -2702,7 +2782,7 @@ func _sync_hero(game: Node) -> void:
 		var facing: Vector2i = game.hero.get("facing", Vector2i.DOWN)
 		if facing != Vector2i.ZERO:
 			_orient_hero(facing)
-			var collect_position := target_position - Vector3(float(facing.x), 0.0, float(facing.y)) * VAULT_COLLECT_OFFSET
+			var collect_position := target_position
 			_hero.position = collect_position
 			_hero_move_from = collect_position
 			_hero_move_to = collect_position
@@ -2719,6 +2799,8 @@ func _sync_hero(game: Node) -> void:
 			_vulpin.set_running(bool(game.hero["fleeing"]))
 			_vulpin.set_collecting(bool(game.hero.get("collecting_gold", false)))
 			_vulpin.set_jumping(bool(game.hero.get("jumping_trap", false)))
+			if jumping:
+				_vulpin.set_jump_progress(1.0 - float(game.hero.get("jump_t", 0.0)) / GameTypes.TRAP_JUMP_TIME)
 			_vulpin.set_lockpicking(bool(game.hero.get("lockpicking", false)))
 			_vulpin.set_dying(bool(game.hero.get("dying", false)))
 	if _lithide != null:
@@ -2809,9 +2891,9 @@ func _mobile_hero_ground(cell: Vector2i, game: Node) -> float:
 		entrance.set_meta("hero_ground", height + 0.025)
 	return float(entrance.get_meta("hero_ground"))
 
-func hero_screen_anchor() -> Vector2:
+func hero_screen_anchor(elevation: float = 0.15) -> Vector2:
 	# The HUD can follow the interpolated torso instead of the tile picking plane.
-	return camera.unproject_position(_hero.global_position + Vector3.UP * 0.15)
+	return camera.unproject_position(_hero.global_position + Vector3.UP * elevation)
 
 func _orient_hero(facing: Vector2i) -> void:
 	if facing == Vector2i.ZERO:

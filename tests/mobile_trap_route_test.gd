@@ -55,9 +55,12 @@ func _test_junction(direction: Vector2i, kind: String) -> void:
 	if not arrived or trace.size() > 3:
 		failures += 1
 		printerr("FAIL: hero must turn on trapped junction instead of jumping back and forth")
+	if kind == "thief" and int(raid.sim.trap_charges[raid.sim._find_tile(GameTypes.Tile.SNARE)]) != 2:
+		failures += 1
+		printerr("FAIL: Vulpin must trigger the junction trap through normal arrival")
 
 func _test_straight() -> void:
-	var raid := _fixture(Vector2i.RIGHT, false, "thief")
+	var raid := _fixture(Vector2i.RIGHT, false, "ranger")
 	raid._update_hero(0.1)
 	if not raid.hero.get("jumping_trap", false) or raid.hero.pos != Vector2i(9, 7):
 		failures += 1
@@ -71,7 +74,7 @@ func _test_straight() -> void:
 		printerr("FAIL: failed route must clear old jump intent")
 
 func _test_two_traps() -> void:
-	var raid := _fixture(Vector2i.RIGHT, true, "thief")
+	var raid := _fixture(Vector2i.RIGHT, true, "ranger")
 	var second_trap := Vector2i(8, 8)
 	var goal := Vector2i(8, 9)
 	raid.sim.grid[8][8] = GameTypes.Tile.SNARE
@@ -81,11 +84,11 @@ func _test_two_traps() -> void:
 	raid.hero.known[goal] = GameTypes.Tile.VAULT
 	for i in 200:
 		raid._update_hero(0.1)
-		if raid.hero.get("collecting_gold", false):
+		if raid.hero.get("pos", Vector2i.ZERO) == goal and not raid.hero.get("jumping_trap", false):
 			break
-	if raid.hero.get("pos", Vector2i.ZERO) != goal or not raid.hero.get("collecting_gold", false):
+	if raid.hero.get("pos", Vector2i.ZERO) != goal or raid.hero.get("collecting_gold", false):
 		failures += 1
-		printerr("FAIL: thief must reach treasure beyond two traps and a turn")
+		printerr("FAIL: ranger must reach treasure beyond two traps and a turn")
 	if raid.sim.trap_charges[Vector2i(8, 7)] != 2 or raid.sim.trap_charges[second_trap] != 3:
 		failures += 1
 		printerr("FAIL: unavoidable turning trap triggers; straight second trap is jumped")

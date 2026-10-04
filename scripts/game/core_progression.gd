@@ -6,6 +6,7 @@ const REQUIRED_LEVEL := {
 	GameTypes.Tool.TRAP_SNARE: 2,
 	GameTypes.Tool.TRAP_VOID: 3,
 	GameTypes.Tool.BUILD_MAGIC_DOOR: 4,
+	GameTypes.Tool.STORE_MAGIC: 4,
 }
 var xp := 0
 var last_raid_id := 0
@@ -40,10 +41,9 @@ func claim(result: Dictionary) -> Dictionary:
 	var earned := (20 if survived else 0) + (25 if killed else 0)
 	earned += (10 if protected_gold else 0) + (10 if intact else 0)
 	earned += clampi(int(result.get("traps_spent", 0)), 0, 3) * 5
-	var gold := (30 if survived else 0) + (25 if killed else 0) + (15 if protected_gold else 0)
 	xp += earned
 	last_raid_id = id
-	return {"xp": earned, "gold": gold, "before_level": before, "level": level()}
+	return {"xp": earned, "gold": 0, "before_level": before, "level": level()}
 
 func snapshot() -> Dictionary:
 	return {"xp": xp, "last_raid_id": last_raid_id}

@@ -10,7 +10,7 @@ func _initialize() -> void:
 	assert(not progress.allows(GameTypes.Tool.TRAP_SNARE))
 	var result := {"raid_id": 1, "core_hp": 100, "killed": 1, "carried_out": 0, "traps_spent": 9, "core_lost": 0}
 	var reward: Dictionary = progress.claim(result)
-	assert(reward.xp == 80 and reward.gold == 70)
+	assert(reward.xp == 80 and reward.gold == 0)
 	assert(progress.level() == 2 and progress.allows(GameTypes.Tool.TRAP_SNARE))
 	assert(progress.claim(result).is_empty())
 	assert(progress.xp == 80)

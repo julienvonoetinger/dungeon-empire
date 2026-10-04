@@ -10,16 +10,16 @@ const GREEN := Color("65d9ad")
 const GOLD := Color("f1cb72")
 const RED := Color("f17b82")
 const TOOLS := [
-	[Tool.DIG, "Creuser", 5],
 	[Tool.STORE, "Réserve", GameTypes.COST_VAULT],
+	[Tool.STORE_LOCKED, "Verrou", 40],
+	[Tool.STORE_MAGIC, "Runique", 80],
 	[Tool.TRAP_SPIKE, "Pointes", 35],
 	[Tool.TRAP_SNARE, "Entrave", 30],
 	[Tool.TRAP_VOID, "Néant", 45],
 	[Tool.BUILD_DOOR, "Porte", 40],
 	[Tool.BUILD_MAGIC_DOOR, "Sceau", 80],
-	[Tool.BUILD_ENTRANCE, "Entrée", 0],
-	[Tool.REPAIR, "Réparer", 0],
-	[Tool.ABSORB, "Absorber", 0]]
+	[Tool.BUILD_ENTRANCE, "Entrée", 0]]
+const CATEGORIES := [[Tool.BUILD_DOOR, Tool.BUILD_MAGIC_DOOR, Tool.BUILD_ENTRANCE], [Tool.STORE, Tool.STORE_LOCKED, Tool.STORE_MAGIC], [Tool.TRAP_SPIKE, Tool.TRAP_SNARE, Tool.TRAP_VOID]]
 
 var g
 var profile = Profile.new()
@@ -27,9 +27,15 @@ var router = Router.new()
 var commands = Commands.new()
 var camera_rules = preload("res://scripts/mobile/mobile_camera_controller.gd").new()
 var save_api
-var tool := Tool.DIG
+var tool := Tool.NONE
 var selected := Vector2i(-1, -1)
 var preview := {}
+var dig_hover := Vector2i(-1, -1)
+var dig_hover_valid := false
+var diggable_cells: Array[Vector2i] = []
+var dig_hint: PanelContainer
+var _dig_pointer := Vector2(-1, -1)
+var _dig_pointer_over_ui := true
 var following := false
 var result_open := false
 var paused := false
@@ -50,6 +56,7 @@ var wealth: Label
 var integrity: Label
 var level_label: Label
 var phase: Label
+var raid_emblem: TextureRect
 var detail: Label
 var confirm: Button
 var collect: Button
@@ -62,22 +69,20 @@ var modal_continue: Button
 var modal_cancel: Button
 var buttons := {}
 var icons := {}
+var badge_icons := {}
 var _last_size := Vector2.ZERO
 var _refresh_time := 0.0
 var _modal_action := "continue"
 var _save_failed := false
 var display_font: Font
 var portraits := {}
-var hero_card: PanelContainer
+var hero_badge: Control
 var vault_badges: Dictionary = {}
 var vault_transfer: ColorRect
 var trap_badges: Dictionary = {}
 var door_badges: Dictionary = {}
 var vault_layer: Control
 var core_badge: Control
-var hero_picture: TextureRect
-var hero_name: Label
-var hero_health: ProgressBar
 var category := 0
 var category_buttons: Array[Button] = []
 var damage_popups: Array = []
@@ -106,18 +111,9 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if ResourceLoader.exists("res://assets/mobile/cinzel.ttf"):
 		display_font = load("res://assets/mobile/cinzel.ttf")
-	var atlas: Texture2D = load("res://assets/mobile/command-atlas-v1.png")
-	for index in 12:
-		var icon := AtlasTexture.new()
-		icon.atlas = atlas
-		icon.region = Rect2(Vector2(index % 4, index / 4) * Vector2(atlas.get_width() / 4.0, atlas.get_height() / 3.0), Vector2(atlas.get_width() / 4.0, atlas.get_height() / 3.0))
-		icons[index] = icon
-	icons[Tool.TRAP_SNARE] = preload("res://assets/mobile/grasp-active-v2.png")
-	icons[Tool.TRAP_SPIKE] = preload("res://assets/mobile/spikes-icon-v2.png")
-	icons[Tool.TRAP_VOID] = preload("res://assets/mobile/void-active-v3.png")
-	icons[Tool.BUILD_ENTRANCE] = preload("res://assets/mobile/entrance-arch-v2.png")
-	icons[Tool.STORE] = preload("res://assets/mobile/chest-full-v3.png")
-	icons[Tool.BUILD_DOOR] = preload("res://assets/mobile/door-front-icon-v1.png")
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	icons = preload("res://scripts/mobile/ui_icons.gd").load_icons()
+	badge_icons = preload("res://scripts/mobile/ui_icons.gd").load_badge_icons(icons)
 	var portrait_atlas: Texture2D = load("res://assets/mobile/hero-portraits-v1.png")
 	var kinds := ["thief", "paladin", "ranger", "mage"]
 	for index in 4:
@@ -214,9 +210,33 @@ func _build_ui() -> void:
 	vault_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(vault_layer)
 	core_badge = preload("res://scripts/mobile/core_badge.gd").new()
-	core_badge.icon = preload("res://scripts/mobile/menu_icon.gd").centered(icons[11])
+	core_badge.icon = badge_icons[11]
 	core_badge.hide()
 	vault_layer.add_child(core_badge)
+	hero_badge = preload("res://scripts/mobile/hero_badge.gd").new()
+	hero_badge.hide()
+	vault_layer.add_child(hero_badge)
+	dig_hint = _band()
+	dig_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dig_hint.size = Vector2(98, 38)
+	var dig_row := HBoxContainer.new()
+	dig_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dig_row.add_theme_constant_override("separation", 6)
+	dig_hint.add_child(dig_row)
+	var dig_icon := TextureRect.new()
+	dig_icon.texture = icons[Tool.DIG]
+	var dig_ink := Shader.new()
+	dig_ink.code = "shader_type canvas_item; void fragment() { COLOR = vec4(0.945, 0.796, 0.447, texture(TEXTURE, UV).a * COLOR.a); }"
+	var dig_material := ShaderMaterial.new()
+	dig_material.shader = dig_ink
+	dig_icon.material = dig_material
+	dig_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	dig_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	dig_icon.custom_minimum_size = Vector2(22, 22)
+	dig_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dig_row.add_child(dig_icon)
+	dig_row.add_child(_label("%d or" % GameTypes.COST_DIG, 16, GOLD))
+	dig_hint.hide()
 	_normal_tool_style = _style(Color("101619"), Color("947440"))
 	_selected_tool_style = _style(Color("252326"), GOLD)
 	top = _band()
@@ -244,9 +264,27 @@ func _build_ui() -> void:
 	menu_button = _button("☰", func(): cameras.visible = not cameras.visible, "Commandes de vue")
 	add_child(menu_button)
 	status_panel = _band()
+	var raid_frame := preload("res://scripts/mobile/raid_frame.gd").new()
+	raid_frame.content_margin_left = 28
+	raid_frame.content_margin_right = 28
+	raid_frame.content_margin_top = 8
+	raid_frame.content_margin_bottom = 8
+	status_panel.add_theme_stylebox_override("panel", raid_frame)
+	var status_row := HBoxContainer.new()
+	status_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	status_row.add_theme_constant_override("separation", 14)
+	status_panel.add_child(status_row)
+	raid_emblem = TextureRect.new()
+	raid_emblem.texture = preload("res://scripts/mobile/menu_icon.gd").centered(load("res://assets/mobile/raid-skull-v2.png"))
+	raid_emblem.custom_minimum_size = Vector2(48, 48)
+	raid_emblem.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	raid_emblem.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	raid_emblem.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	raid_emblem.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	status_row.add_child(raid_emblem)
 	phase = _label("", 18, GOLD)
 	phase.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	status_panel.add_child(phase)
+	status_row.add_child(phase)
 	bottom = _band()
 	bottom.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	tray_toggle = _button("←", _toggle_tray, "Retour aux catégories")
@@ -270,7 +308,7 @@ func _build_ui() -> void:
 	navigation.add_theme_constant_override("separation", 12)
 	add_child(navigation)
 	for index in 3:
-		var button := _button("", func(): _category(index), ["Bâtir", "Pièges", "Cœur"][index])
+		var button := _button("", func(): _category(index), ["Portes", "Coffres", "Pièges"][index])
 		button.custom_minimum_size = Vector2(150, 104)
 		var contents := VBoxContainer.new()
 		contents.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -278,14 +316,14 @@ func _build_ui() -> void:
 		contents.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		contents.offset_top = 6
 		var picture := TextureRect.new()
-		picture.texture = preload("res://scripts/mobile/menu_icon.gd").centered(icons[[Tool.DIG, Tool.TRAP_SPIKE, 11][index]])
+		picture.texture = preload("res://scripts/mobile/menu_icon.gd").centered(icons[[Tool.BUILD_DOOR, Tool.STORE, Tool.TRAP_SPIKE][index]])
 		picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		picture.custom_minimum_size = Vector2(56, 64)
 		picture.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		contents.add_child(picture)
-		var caption := _label(["BÂTIR", "PIÈGES", "CŒUR"][index], 18, Color("fff0d0"))
+		var caption := _label(["PORTES", "COFFRES", "PIÈGES"][index], 18, Color("fff0d0"))
 		caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		contents.add_child(caption)
 		navigation.add_child(button)
@@ -344,11 +382,13 @@ func _build_ui() -> void:
 	var core_button := _button("", _center_core, "Recentrer sur le Cœur")
 	core_button.icon = icons[11]
 	core_button.expand_icon = true
+	core_button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	core_button.add_theme_constant_override("icon_max_width", 40)
 	cameras.add_child(core_button)
 	follow_button = _button("", _toggle_follow, "Suivre le héros")
 	follow_button.icon = portraits.thief
 	follow_button.expand_icon = true
+	follow_button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	follow_button.add_theme_constant_override("icon_max_width", 44)
 	cameras.add_child(follow_button)
 	walls_button = _button("▦", func(): g.dungeon.set_mobile_walls_visible(not g.dungeon.mobile_walls_visible), "Afficher / masquer les murs")
@@ -360,27 +400,6 @@ func _build_ui() -> void:
 	add_child(raid_button)
 	for camera_button in cameras.get_children():
 		camera_button.custom_minimum_size = Vector2(56, 44)
-	hero_card = _band()
-	var hero_row := HBoxContainer.new()
-	hero_card.add_child(hero_row)
-	hero_picture = TextureRect.new()
-	hero_picture.custom_minimum_size = Vector2(76, 76)
-	hero_picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	hero_picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	hero_row.add_child(hero_picture)
-	var hero_info := VBoxContainer.new()
-	hero_info.custom_minimum_size.x = 240
-	hero_row.add_child(hero_info)
-	hero_name = _label("", 20, GOLD)
-	hero_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	hero_info.add_child(hero_name)
-	hero_health = ProgressBar.new()
-	hero_health.custom_minimum_size = Vector2(240, 24)
-	hero_health.show_percentage = false
-	hero_health.add_theme_stylebox_override("fill", _style(GREEN))
-	hero_health.add_theme_stylebox_override("background", _style(Color("080d0c")))
-	hero_info.add_child(hero_health)
-	hero_card.hide()
 	modal = ColorRect.new()
 	modal.color = Color(0.02, 0.03, 0.04, 0.8)
 	modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -430,7 +449,9 @@ func _layout() -> void:
 	core_panel.position = Vector2(inset.x + 212, inset.y)
 	core_panel.size = Vector2(184, 64)
 	status_panel.size = Vector2(300, 64)
-	status_panel.position = Vector2(maxf(inset.x + 408, (size.x - 300) * 0.5), inset.y)
+	status_panel.position = Vector2((size.x - 300) * 0.5, 0)
+	if status_panel.position.x < core_panel.get_rect().end.x + 12:
+		status_panel.position.y += maxf(top.size.y, core_panel.size.y) + 12
 	menu_button.position = Vector2(size.x - inset.z - 64, inset.y)
 	pause_button.position = menu_button.position - Vector2(72, 0)
 	_anchor_layout = not g._has_core()
@@ -438,7 +459,7 @@ func _layout() -> void:
 	navigation.size = Vector2(474, 104)
 	navigation.position = Vector2((size.x - navigation.size.x) * 0.5, size.y - inset.w - 104)
 	navigation.visible = not _anchor_layout and not g.raid_active and tray_collapsed
-	bottom.size = Vector2(minf(624, size.x - inset.x - inset.z), 104)
+	bottom.size = Vector2(minf(72 + CATEGORIES[category].size() * 140, size.x - inset.x - inset.z), 104)
 	bottom.position = Vector2((size.x - bottom.size.x) * 0.5, navigation.position.y)
 	actions.size = Vector2(minf(650, size.x - 160), 64)
 	actions.position = Vector2((size.x - actions.size.x) * 0.5, bottom.position.y - 80)
@@ -448,12 +469,14 @@ func _layout() -> void:
 	cameras.size.x = 64
 	raid_button.position = Vector2(size.x - inset.z - 88, size.y - inset.w - 56)
 	raid_button.size = Vector2(88, 56)
-	hero_card.position = Vector2(inset.x, top.position.y + 82)
-	hero_card.size = Vector2(360, 96)
 	g._world_host.size = size
 	_last_size = size
 	_raid_layout = g.raid_active
 	_align_header_height()
+
+func _clock_text(seconds: float) -> String:
+	var total := maxi(0, floori(seconds))
+	return "%02d:%02d" % [total / 60, total % 60]
 
 func _align_header_height() -> void:
 	var height := 64.0
@@ -466,6 +489,8 @@ func _toggle_tray() -> void:
 	if _anchor_layout or g.raid_active or modal.visible:
 		return
 	tray_collapsed = not tray_collapsed
+	tool = Tool.NONE
+	_cancel()
 	if g.persistence_enabled:
 		_save_tray_preference()
 	_layout()
@@ -503,9 +528,11 @@ func tick(delta: float) -> void:
 		_center(g.hero.pos)
 	g._sync_world()
 	_sync_vault_badges()
+	_update_dig_hover()
 	_sync_trap_badges()
 	_sync_core_badge()
 	_sync_door_badges()
+	_sync_hero_badge()
 	for popup in damage_popups:
 		popup.time -= delta
 	damage_popups = damage_popups.filter(func(popup): return popup.time > 0)
@@ -535,7 +562,7 @@ func _sync_vault_badges() -> void:
 	for cell in vaults:
 		if not vault_badges.has(cell):
 			var badge := preload("res://scripts/mobile/vault_badge.gd").new()
-			badge.icon = icons[10]
+			badge.icon = badge_icons[10]
 			vault_layer.add_child(badge)
 			var hit := Button.new()
 			badge.add_child(hit)
@@ -547,6 +574,7 @@ func _sync_vault_badges() -> void:
 			vault_badges[cell] = badge
 		var badge: Control = vault_badges[cell]
 		badge.set_amount(int(vaults[cell]), GameTypes.VAULT_CAPACITY)
+		badge.set_protection(int(g.sim.vault_locks.get(cell, 0)), g.sim.vault_protected(cell))
 		_place_world_badge(badge, cell, 0.49, camera, viewport_size)
 
 func _sync_trap_badges() -> void:
@@ -572,7 +600,7 @@ func _sync_trap_badges() -> void:
 			vault_layer.add_child(badge)
 			trap_badges[cell] = badge
 		var badge: Control = trap_badges[cell]
-		var next_icon: Texture2D = icons[trap_icons[traps[cell]]]
+		var next_icon: Texture2D = badge_icons[trap_icons[traps[cell]]]
 		if badge.icon != next_icon:
 			badge.icon = next_icon
 			badge.queue_redraw()
@@ -596,6 +624,21 @@ func _repair_trap(cell: Vector2i) -> void:
 		g._sync_world()
 		_sync_trap_badges()
 		_refresh()
+
+func _sync_hero_badge() -> void:
+	if not g.raid_active or g.hero.is_empty() or g.dungeon.camera == null:
+		hero_badge.hide()
+		return
+	hero_badge.set_hero(g.hero, portraits.get(str(g.hero.get("kind", "thief"))))
+	var camera: Camera3D = g.dungeon.camera
+	var screen: Vector2 = g.dungeon.hero_screen_anchor(0.7) * size / Vector2(camera.get_viewport().size)
+	hero_badge.position = screen - Vector2(21, hero_badge.size.y + 8)
+	_update_badge_visibility(hero_badge)
+	# Keep the moving hero label readable over nearby structure badges.
+	if hero_badge.visible:
+		for badge in vault_badges.values() + trap_badges.values() + door_badges.values() + [core_badge]:
+			if badge.visible and badge.get_rect().intersects(hero_badge.get_rect()):
+				badge.hide()
 
 func _sync_core_badge() -> void:
 	if not g._has_core() or g.dungeon.camera == null:
@@ -626,7 +669,7 @@ func _sync_door_badges() -> void:
 			vault_layer.add_child(badge)
 			door_badges[cell] = badge
 		var badge: Control = door_badges[cell]
-		var icon: Texture2D = icons[Tool.BUILD_MAGIC_DOOR if doors[cell] == GameTypes.Tile.MAGIC_DOOR else Tool.BUILD_DOOR]
+		var icon: Texture2D = badge_icons[Tool.BUILD_MAGIC_DOOR if doors[cell] == GameTypes.Tile.MAGIC_DOOR else Tool.BUILD_DOOR]
 		if badge.icon != icon:
 			badge.icon = icon
 			badge.queue_redraw()
@@ -650,8 +693,13 @@ func _place_world_badge(badge: Control, cell: Vector2i, elevation: float, camera
 	var point := Vector3(cell.x + 0.5, 0.175, cell.y + 0.5) + center_offset + camera.global_basis.y * elevation
 	var screen := camera.unproject_position(point) * size / viewport_size
 	badge.position = screen - Vector2(badge.size.x * 0.5 if anchor_x < 0 else anchor_x, badge.size.y + 8)
-	badge.visible = not camera.is_position_behind(point) and Rect2(Vector2.ZERO, size).encloses(badge.get_rect())
-	for panel in [top, core_panel, status_panel, bottom, navigation, actions, cameras, hero_card, pause_button, menu_button, raid_button]:
+	_update_badge_visibility(badge)
+	if camera.is_position_behind(point):
+		badge.hide()
+
+func _update_badge_visibility(badge: Control) -> void:
+	badge.visible = Rect2(Vector2.ZERO, size).encloses(badge.get_rect())
+	for panel in [top, core_panel, status_panel, bottom, navigation, actions, cameras, pause_button, menu_button, raid_button]:
 		if panel.visible and badge.get_rect().intersects(panel.get_rect()):
 			badge.hide()
 	if modal.visible:
@@ -700,14 +748,20 @@ func route(event: InputEvent) -> void:
 		over = true
 	if actions.visible and actions.get_global_rect().has_point(position):
 		over = true
-	if hero_card.visible and hero_card.get_global_rect().has_point(position):
-		over = true
 	router.painting_enabled = _dig_enabled()
 	router.handle_event(event, over)
+	if event is InputEventMouse or event is InputEventScreenTouch or event is InputEventScreenDrag:
+		_dig_pointer = position
+		_dig_pointer_over_ui = over
+		if event is InputEventScreenTouch and not event.pressed:
+			_dig_pointer_over_ui = true
+		_update_dig_hover()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
 		router.cancel()
+		_dig_pointer_over_ui = true
+		_update_dig_hover()
 		paused = true
 		if is_instance_valid(modal) and not result_open:
 			_pause_menu()
@@ -724,6 +778,7 @@ func _category(index: int) -> void:
 		return
 	tray_collapsed = category == index and not tray_collapsed
 	category = index
+	tool = Tool.NONE
 	if g.persistence_enabled:
 		_save_tray_preference()
 	_cancel()
@@ -733,7 +788,7 @@ func _category(index: int) -> void:
 func _tap(position: Vector2) -> void:
 	if paused or result_open or g.raid_active or g.game_over:
 		return
-	var cell: Vector2i = g._screen_to_grid(position)
+	var cell: Vector2i = _dig_cell_at(position) if _dig_enabled() else g._screen_to_grid(position)
 	if not g._inside(cell):
 		_cancel()
 		return
@@ -743,14 +798,47 @@ func _tap(position: Vector2) -> void:
 	if _dig_enabled() and g.grid[cell.y][cell.x] == GameTypes.Tile.ROCK:
 		_dig_stroke(position, position)
 		return
+	if g._has_core() and tool in [Tool.NONE, Tool.DIG]:
+		if g.corpses.any(func(corpse): return corpse.pos == cell):
+			tool = Tool.ABSORB
+		elif not g.loot_bags.any(func(bag): return bag.pos == cell):
+			_cancel()
+			return
 	selected = cell
 	if not g._has_core():
 		selected = Vector2i(cell.x / 2 * 2, cell.y / 2 * 2)
 	_update_preview()
 	_refresh()
 
+func _update_dig_hover() -> void:
+	dig_hover = Vector2i(-1, -1)
+	dig_hover_valid = false
+	diggable_cells.clear()
+	if _dig_enabled():
+		for y in g.ROWS:
+			for x in g.COLS:
+				var cell := Vector2i(x, y)
+				if g.sim.dig_failure_reason(cell).is_empty():
+					diggable_cells.append(cell)
+	if _dig_enabled() and not _dig_pointer_over_ui and Rect2(Vector2.ZERO, size).has_point(_dig_pointer):
+		var cell: Vector2i = _dig_cell_at(_dig_pointer)
+		if cell in diggable_cells:
+			dig_hover = cell
+			dig_hover_valid = true
+	dig_hint.hide()
+	if dig_hover.x >= 0:
+		var points := _dig_tile_corners(dig_hover)
+		var top_point := points[0]
+		for point in points:
+			if point.y < top_point.y:
+				top_point = point
+		dig_hint.position = Vector2(clampf(top_point.x + 12, 8, size.x - dig_hint.size.x - 8), clampf(top_point.y - dig_hint.size.y - 8, 8, size.y - dig_hint.size.y - 8))
+		dig_hint.modulate = Color.WHITE if dig_hover_valid else RED
+		_update_badge_visibility(dig_hint)
+	queue_redraw()
+
 func _dig_enabled() -> bool:
-	return tool == Tool.DIG and category == 0 and not tray_collapsed and g._has_core() and not paused and not result_open and not g.raid_active and not g.game_over and not modal.visible and not vault_transfer.visible
+	return tool in [Tool.NONE, Tool.DIG] and g._has_core() and not paused and not result_open and not g.raid_active and not g.game_over and not modal.visible and not vault_transfer.visible
 
 func _dig_stroke(from: Vector2, to: Vector2) -> void:
 	if not _dig_enabled():
@@ -760,7 +848,7 @@ func _dig_stroke(from: Vector2, to: Vector2) -> void:
 	for index in range(steps + 1):
 		if g.gold < GameTypes.COST_DIG:
 			break
-		var cell: Vector2i = g._screen_to_grid(from.lerp(to, float(index) / steps))
+		var cell: Vector2i = _dig_cell_at(from.lerp(to, float(index) / steps))
 		if g._inside(cell) and g.grid[cell.y][cell.x] == GameTypes.Tile.ROCK:
 			if commands.commit(g.sim, profile, Tool.DIG, cell):
 				changed = true
@@ -798,6 +886,8 @@ func _confirm() -> void:
 	_refresh()
 
 func _cancel() -> void:
+	if tool == Tool.ABSORB:
+		tool = Tool.NONE
 	selected = Vector2i(-1, -1)
 	g.mobile_selection = selected
 	preview = {}
@@ -855,14 +945,11 @@ func _raid_finished(result: Dictionary) -> void:
 	var reward: Dictionary = profile.claim(result)
 	if reward.is_empty():
 		return
-	g.gold += int(reward.gold)
-	if g._has_core():
-		g.sim._spill_overflow_at(g._core_origin())
 	_save()
 	result_open = true
 	following = false
 	modal_title.text = "Cœur détruit" if g.game_over else "Raid terminé"
-	modal_body.text = "Héros vaincus : %d    Fuites : %d\nOr emporté : %d    Butin restant : %d\nIntégrité : %d / 100\n\n+%d XP    +%d or    Cœur niveau %d" % [int(result.get("killed", 0)), int(result.get("escaped", 0)), int(result.get("carried_out", 0)), g.sim._unsecured_loot_total(), g.core_hp, reward.xp, reward.gold, profile.level()]
+	modal_body.text = "Héros vaincus : %d    Fuites : %d\nOr emporté : %d\nOr disponible : %d    Or au sol : %d\nIntégrité : %d / 100\n\n+%d XP    Cœur niveau %d" % [int(result.get("killed", 0)), int(result.get("escaped", 0)), int(result.get("carried_out", 0)), g.gold, g.sim._unsecured_loot_total(), g.core_hp, reward.xp, profile.level()]
 	if reward.level > reward.before_level:
 		modal_body.text += "\nDébloqué : " + {2: "Entrave", 3: "Néant", 4: "Sceau magique"}.get(int(reward.level), "")
 	_modal_action = "new" if g.game_over else "continue"
@@ -972,14 +1059,12 @@ func _refresh() -> void:
 	level_label.text = "Niv. %d   %d / %d XP" % [profile.level(), profile.xp, profile.next_threshold()]
 	if profile.level() == 4:
 		level_label.text = "Niv. 4   MAX   %d XP" % profile.xp
+	raid_emblem.visible = g.raid_active
+	phase.add_theme_font_size_override("font_size", 24 if g.raid_active else 18)
+	phase.add_theme_color_override("font_color", Color("f6ac40") if g.raid_active else GOLD)
 	if g.raid_active and not g.hero.is_empty():
-		phase.text = "RAID %d" % g.raid_index
-		hero_card.show()
-		hero_picture.texture = portraits.get(str(g.hero.get("kind", "thief")))
-		follow_button.icon = hero_picture.texture
-		hero_name.text = "%s   %d PV" % [str(g.hero.get("name", "Héros")), g.hero.hp]
-		hero_health.max_value = g.hero.max_hp
-		hero_health.value = g.hero.hp
+		phase.text = "RAID %s" % _clock_text(g.raid.elapsed_seconds)
+		follow_button.icon = portraits.get(str(g.hero.get("kind", "thief")))
 	elif not g._has_core():
 		phase.text = "ANCRAGE DU CŒUR"
 	elif not g._has_entrance():
@@ -987,18 +1072,17 @@ func _refresh() -> void:
 	elif not g._has_required_storage():
 		phase.text = "PRÉPARATION\nRéserve insuffisante"
 	else:
-		phase.text = "PRÉPARATION\nProchain raid : %ds" % ceili(g.raid_timer)
-	if not g.raid_active:
-		hero_card.hide()
+		phase.text = "Prochain raid dans\n%s" % _clock_text(ceili(g.raid_timer))
 	if _save_failed:
-		phase.text += "   Sauvegarde indisponible"
+		phase.text = "Sauvegarde\nindisponible"
+		raid_emblem.hide()
 	_align_header_height()
 	raid_button.disabled = not g._ready_for_raid() or g.raid_active or g.game_over
 	follow_button.disabled = not g.raid_active
 	follow_button.add_theme_stylebox_override("normal", _selected_tool_style if following else _normal_tool_style)
 	for id in buttons:
 		var item: Dictionary = buttons[id]
-		item.button.visible = id in [[Tool.DIG, Tool.STORE, Tool.BUILD_DOOR, Tool.BUILD_ENTRANCE], [Tool.TRAP_SPIKE, Tool.TRAP_SNARE, Tool.TRAP_VOID, Tool.BUILD_MAGIC_DOOR], [Tool.REPAIR, Tool.ABSORB]][category]
+		item.button.visible = id in CATEGORIES[category]
 		item.button.disabled = g.raid_active or not profile.allows(id) or g.game_over
 		item.button.add_theme_stylebox_override("normal", _selected_tool_style if tool == id else _normal_tool_style)
 		if not profile.allows(id):
@@ -1007,45 +1091,91 @@ func _refresh() -> void:
 			item.label.text = "%s %s" % [item.entry[1], str(item.entry[2]) if item.entry[2] else ""]
 	for index in category_buttons.size():
 		category_buttons[index].add_theme_stylebox_override("normal", _selected_tool_style if category == index and not tray_collapsed else _normal_tool_style)
-	actions.visible = selected.x >= 0 and not g.raid_active and not modal.visible and (anchoring or not tray_collapsed)
+	var context_action: bool = tool == Tool.ABSORB or g.loot_bags.any(func(bag): return bag.pos == selected)
+	actions.visible = selected.x >= 0 and not g.raid_active and not modal.visible and (anchoring or not tray_collapsed or context_action)
 	if actions.visible:
 		collect.visible = g.loot_bags.any(func(bag): return bag.pos == selected)
 		collect.disabled = g.gold >= g._storage_capacity()
 		confirm.disabled = not preview.get("valid", false)
 		var title := "Cœur" if anchoring else (str(buttons[tool].entry[1]) if buttons.has(tool) else "Case")
+		if tool == Tool.ABSORB:
+			title = "Absorber"
 		detail.text = "%s   (%d, %d)   %d or" % [title, selected.x + 1, selected.y + 1, int(preview.get("cost", 0))]
 		if anchoring:
 			detail.text = "Ancrage du cœur"
 		if not preview.get("valid", false):
 			detail.text += "   " + str(preview.get("reason", "Indisponible"))
 
+func _dig_tile_corners(cell: Vector2i) -> PackedVector2Array:
+	var points := PackedVector2Array()
+	var height: float = g.dungeon.ROCK_H
+	if not g.dungeon.mobile_walls_visible:
+		height = maxf(g.dungeon.FLOOR_H, height * g.dungeon.MOBILE_CUTAWAY_SCALE)
+	height += 0.025
+	for offset in [Vector2(0.08, 0.08), Vector2(0.92, 0.08), Vector2(0.92, 0.92), Vector2(0.08, 0.92)]:
+		var point := Vector3(cell.x + offset.x, height, cell.y + offset.y)
+		points.append(g._to_world_screen(g.dungeon._world_to_screen(point, g._play_view(), g.cam_zoom)))
+	return points
+
+func _dig_cell_at(position: Vector2) -> Vector2i:
+	var physical: Vector2i = g._screen_to_grid(position)
+	# Chest interaction keeps priority; rock relief must not displace the marked target.
+	if g._inside(physical) and g.grid[physical.y][physical.x] == GameTypes.Tile.VAULT:
+		return physical
+	for y in g.ROWS:
+		for x in g.COLS:
+			var cell := Vector2i(x, y)
+			if g.sim.dig_failure_reason(cell).is_empty() and Geometry2D.is_point_in_polygon(position, _dig_tile_corners(cell)):
+				return cell
+	return physical
+
+func _dig_corner_lines(points: PackedVector2Array) -> PackedVector2Array:
+	var lines := PackedVector2Array()
+	for index in 4:
+		for neighbour in [(index + 3) % 4, (index + 1) % 4]:
+			lines.append(points[index])
+			lines.append(points[index].lerp(points[neighbour], 0.18))
+	return lines
+
 func _draw() -> void:
 	if g == null or g.dungeon == null:
 		return
+	if _dig_enabled():
+		for cell in diggable_cells:
+			if cell == dig_hover:
+				continue
+			draw_multiline(_dig_corner_lines(_dig_tile_corners(cell)), Color(GOLD, 0.65), 1.5, true)
+	if dig_hover.x >= 0 and _dig_enabled():
+		var color := GOLD if dig_hover_valid else RED
+		var points := _dig_tile_corners(dig_hover)
+		draw_colored_polygon(points, Color(color, 0.06))
+		draw_multiline(_dig_corner_lines(points), color, 2.5, true)
 	if selected.x >= 0 and not g.raid_active:
 		if not g._has_core():
 			var corners := PackedVector2Array()
-			for offset in [Vector2(0, 0), Vector2(2, 0), Vector2(2, 2), Vector2(0, 2), Vector2(0, 0)]:
-				var p := Vector3(selected.x + offset.x, 0.175, selected.y + offset.y)
+			var lo := Vector2i(maxi(0, selected.x - 1), maxi(0, selected.y - 1))
+			var hi := Vector2i(mini(g.COLS, selected.x + 3), mini(g.ROWS, selected.y + 3))
+			for point in [lo, Vector2i(hi.x, lo.y), hi, Vector2i(lo.x, hi.y), lo]:
+				var p := Vector3(point.x, 0.175, point.y)
 				corners.append(g._to_world_screen(g.dungeon._world_to_screen(p, g._play_view(), g.cam_zoom)))
 			draw_polyline(corners, GOLD if preview.get("valid", false) else RED, 2, true)
 			return
 		var point: Vector2 = g._cell_pos(selected)
 		var color := GREEN if preview.get("valid", false) else RED
-		var extent := 28.0 * float(g.cam_zoom)
-		var diamond := PackedVector2Array([point + Vector2(0, -extent * 0.5), point + Vector2(extent, 0), point + Vector2(0, extent * 0.5), point + Vector2(-extent, 0)])
-		draw_colored_polygon(diamond, Color(color, 0.22))
+		var diamond := _placement_corners(selected)
+		draw_colored_polygon(diamond, Color(color, 0.04))
 		diamond.append(diamond[0])
-		draw_polyline(diamond, color, 3, true)
-		if icons.has(tool) and g._has_core():
-			draw_texture_rect(icons[tool], Rect2(point - Vector2(30, 72), Vector2(60, 60)), false, Color(color, 0.8))
-	if g.raid_active and not g.hero.is_empty():
-		var point: Vector2 = g.dungeon.hero_screen_anchor()
-		point.x = clampf(point.x, 32, size.x - 120)
-		point.y = clampf(point.y, 125, bottom.position.y - 32)
-		draw_arc(point, 24, 0, TAU, 32, GOLD, 3, true)
-		var hp := float(g.hero.hp) / maxf(1, float(g.hero.max_hp))
-		draw_rect(Rect2(point + Vector2(-30, -44), Vector2(60, 8)), Color("171c20"))
-		draw_rect(Rect2(point + Vector2(-30, -44), Vector2(60 * hp, 8)), GREEN)
+		draw_polyline(diamond, color, 1.5, true)
+		if icons.has(tool) and g._has_core() and tool not in [Tool.TRAP_SPIKE, Tool.TRAP_SNARE, Tool.TRAP_VOID]:
+			var icon_size: Vector2 = icons[tool].get_size()
+			icon_size *= 60.0 / maxf(icon_size.x, icon_size.y)
+			draw_texture_rect(icons[tool], Rect2(point + Vector2(0, -42) - icon_size * 0.5, icon_size), false, Color(color, 0.8))
 	for popup in damage_popups:
 		draw_string(ThemeDB.fallback_font, popup.point + Vector2(-20, -65 - (1.0 - popup.time) * 35), popup.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color(RED, popup.time))
+
+func _placement_corners(cell: Vector2i) -> PackedVector2Array:
+	var points := PackedVector2Array()
+	for offset in [Vector2i.ZERO, Vector2i.RIGHT, Vector2i.ONE, Vector2i.DOWN]:
+		var world := Vector3(cell.x + offset.x, 0.185, cell.y + offset.y)
+		points.append(g._to_world_screen(g.dungeon._world_to_screen(world, g._play_view(), g.cam_zoom)))
+	return points

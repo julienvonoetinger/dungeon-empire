@@ -18,10 +18,10 @@ func _init() -> void:
 	assert(commands.commit(sim, profile, GameTypes.Tool.NONE, Vector2i(6, 6)))
 	assert(sim._has_core())
 	var money := sim.gold
-	var preview: Dictionary = commands.preview(sim, profile, GameTypes.Tool.DIG, Vector2i(5, 6))
+	var preview: Dictionary = commands.preview(sim, profile, GameTypes.Tool.DIG, Vector2i(4, 6))
 	assert(preview.valid and preview.cost == 5)
-	assert(sim.gold == money and sim.grid[6][5] == GameTypes.Tile.ROCK)
-	assert(commands.commit(sim, profile, GameTypes.Tool.DIG, Vector2i(5, 6)))
+	assert(sim.gold == money and sim.grid[6][4] == GameTypes.Tile.ROCK)
+	assert(commands.commit(sim, profile, GameTypes.Tool.DIG, Vector2i(4, 6)))
 	assert(sim.gold == money - 5)
 	assert(not commands.preview(sim, profile, GameTypes.Tool.TRAP_SNARE, Vector2i(5, 6)).valid)
 	var saved_profile: Dictionary = profile.snapshot()
@@ -67,7 +67,7 @@ func _init() -> void:
 	assert(commands.commit(sim, profile, GameTypes.Tool.STORE, Vector2i(5, 6)))
 	assert(sim.gold == 0 and sim.grid[6][5] == GameTypes.Tile.VAULT)
 	assert(not commands.commit(sim, profile, GameTypes.Tool.STORE, Vector2i(5, 6)), "Existing vault is unchanged")
-	assert(not commands.preview(sim, profile, GameTypes.Tool.STORE, Vector2i(4, 6)).valid, "Free vaults still require excavated ground")
+	assert(not commands.preview(sim, profile, GameTypes.Tool.STORE, Vector2i(3, 6)).valid, "Free vaults still require excavated ground")
 	assert(not commands.preview(sim, profile, GameTypes.Tool.STORE, Vector2i(6, 6)).valid, "Core remains protected")
 	assert(not commands.preview(sim, profile, GameTypes.Tool.DIG, Vector2i(-1, 0)).valid)
 	sim.raid = null

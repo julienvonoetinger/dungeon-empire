@@ -8,6 +8,9 @@ class FakeGame:
 	const Tile = GameTypes.Tile
 	var trap_charges := {}
 	var grid: Array = []
+	var sim := DungeonSim.new()
+	func _init() -> void:
+		sim.new_map()
 	func _trap_max_charges(_tile: int) -> int:
 		return 3
 	func _inside(_cell: Vector2i) -> bool:
