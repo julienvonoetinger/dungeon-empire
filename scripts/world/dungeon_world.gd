@@ -25,6 +25,14 @@ const EXPAND_PAD := 0.88
 const CORE_ANCHOR_PAD := 2.0
 const EXPAND_PICK_H := 0.34
 const HERO_MOVE_TIME := GameTypes.TURN_TIME
+# Planted-foot backward speed at playback rate 1 and the actors' base scale.
+# Values are in world units/second for walking and running respectively.
+const HERO_GAIT_SPEEDS := {
+	"VulpinHero": Vector2(0.53, 1.78),
+	"LithideHero": Vector2(0.72, 2.32),
+	"BatrafianHero": Vector2(0.48, 1.58),
+	"MyceanHero": Vector2(0.62, 2.10),
+}
 const DOOR_ACTION_OFFSET := 0.32
 const VAULT_COLLECT_OFFSET := 0.34
 const CORE_ANOMALY := preload("res://scripts/world/core_anomaly.gd")
@@ -122,6 +130,7 @@ var _hero_vault_offset := Vector3.ZERO
 var _hero_move_from := Vector3.ZERO
 var _hero_move_to := Vector3.ZERO
 var _hero_move_elapsed := HERO_MOVE_TIME
+var _hero_scripted_move_speed := 0.0
 var _hero_jump_active := false
 var _hero_absorbing := false
 var _core_spin: Node3D
@@ -2674,6 +2683,7 @@ func _add_fitted_loot_marker(p: Vector2i) -> bool:
 func _sync_hero(game: Node) -> void:
 	if _hero == null:
 		return
+	_hero_scripted_move_speed = 0.0
 	var show: bool = bool(game.raid_active) and not game.hero.is_empty()
 	_hero.visible = show
 	if mobile_mode:
@@ -2719,6 +2729,8 @@ func _sync_hero(game: Node) -> void:
 		var facing: Vector2i = game.hero.get("facing", Vector2i.DOWN)
 		var progress := clampf(1.0 - float(game.hero.get("exit_t", 0.0)) / GameTypes.TURN_TIME, 0.0, 1.0)
 		_hero.position = target_position + Vector3(facing.x, 0, facing.y) * 0.7 * progress
+		if progress < 1.0:
+			_hero_scripted_move_speed = 0.7 / HERO_MOVE_TIME
 		_hero_move_elapsed = HERO_MOVE_TIME
 		_orient_hero(facing)
 	elif jumping:
@@ -2754,6 +2766,8 @@ func _sync_hero(game: Node) -> void:
 		var arrival_time: float = game.hero.get("trap_arrival_t", game.hero.get("vault_arrival_t", game.hero.get("exit_arrival_t", 0.0)))
 		var arrival_progress := clampf(1.0 - arrival_time / GameTypes.TURN_TIME, 0.0, 1.0)
 		_hero.position = _hero_move_from.lerp(target_position, arrival_progress)
+		if arrival_progress < 1.0:
+			_hero_scripted_move_speed = Vector2(target_position.x - _hero_move_from.x, target_position.z - _hero_move_from.z).length() / HERO_MOVE_TIME
 		_hero_move_elapsed = HERO_MOVE_TIME
 	elif game.hero.get("trap_sprung_at", Vector2i(-1, -1)) == p:
 		_hero.position = target_position
@@ -2853,6 +2867,7 @@ func _sync_hero(game: Node) -> void:
 	var hp_ratio := clampf(float(game.hero["hp"]) / float(game.hero["max_hp"]), 0.05, 1.0)
 	_hero_bar.visible = not absorbing and not mobile_mode
 	_hero_tag.visible = not absorbing and not mobile_mode
+	_sync_hero_locomotion()
 	if mobile_mode:
 		return
 	# Update the transform, not the GPU mesh/material, on each health change.
@@ -2906,7 +2921,31 @@ func _advance_hero_visual(delta: float) -> void:
 	_hero_move_elapsed = minf(HERO_MOVE_TIME, _hero_move_elapsed + delta)
 	var progress := _hero_move_elapsed / HERO_MOVE_TIME
 	_hero.position = _hero_move_from.lerp(_hero_move_to, progress)
+	_sync_hero_locomotion()
 	_position_hero_ui()
+
+func _sync_hero_locomotion() -> void:
+	var speed := _hero_scripted_move_speed
+	if _hero_move_elapsed < HERO_MOVE_TIME:
+		speed = Vector2(_hero_move_to.x - _hero_move_from.x, _hero_move_to.z - _hero_move_from.z).length() / HERO_MOVE_TIME
+	if _hero_absorbing or _hero_jump_active:
+		speed = 0.0
+	for actor in [_vulpin, _lithide, _mycean, _batrafian]:
+		if actor == null or not actor.visible:
+			continue
+		var gait_speeds: Vector2 = HERO_GAIT_SPEEDS[String(actor.name)]
+		for model_name in ["Walking", "Running"]:
+			var model := actor.find_child(model_name, true, false) as Node3D
+			if model == null or not model.visible:
+				continue
+			for node in model.find_children("*", "AnimationPlayer", true, false):
+				var player := node as AnimationPlayer
+				if player.current_animation.is_empty():
+					continue
+				player.get_animation(player.current_animation).loop_mode = Animation.LOOP_LINEAR
+				var authored_speed := gait_speeds.x if model_name == "Walking" else gait_speeds.y
+				# The mobile view enlarges the hero by 1.4, including its stride.
+				player.speed_scale = speed / (authored_speed * _hero.scale.x)
 
 func _position_hero_ui() -> void:
 	if _hero == null:

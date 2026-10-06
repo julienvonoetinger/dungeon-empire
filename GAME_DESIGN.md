@@ -228,6 +228,11 @@ base roll multiplied by greed. Non-thief classes never rob vaults, irrespective
 of their unused internal capacity value.
 
 All heroes move cardinally, normally one cell per 0.48-second decision interval.
+Walking/running clips loop and their playback rate follows actual horizontal
+travel speed and rendered hero scale (1.4 in the mobile view), so planted feet
+do not slide along with the character. This also applies to timed approaches
+to traps/chests/the entrance and the exit threshold. Stationary heroes hold
+their locomotion pose; interaction, jump and death clips keep their own timing.
 Each walking step records its source cell, so the first rendered frame starts
 at the entrance even if simulation has already selected the adjacent cell.
 New raid visuals reset their interpolation rather than reusing the previous hero.
