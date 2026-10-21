@@ -34,13 +34,7 @@ func claim(result: Dictionary) -> Dictionary:
 	if id <= last_raid_id:
 		return {}
 	var before := level()
-	var survived := int(result.get("core_hp", 0)) > 0
-	var killed := int(result.get("killed", 0)) > 0
-	var protected_gold := int(result.get("carried_out", 0)) == 0
-	var intact := int(result.get("core_lost", 0)) == 0
-	var earned := (20 if survived else 0) + (25 if killed else 0)
-	earned += (10 if protected_gold else 0) + (10 if intact else 0)
-	earned += clampi(int(result.get("traps_spent", 0)), 0, 3) * 5
+	var earned := maxi(0, int(result.get("killed", 0))) * 25
 	xp += earned
 	last_raid_id = id
 	return {"xp": earned, "gold": 0, "before_level": before, "level": level()}

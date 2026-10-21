@@ -14,6 +14,7 @@ func _run() -> void:
 	preload("res://scripts/mobile/mobile_starter.gd").populate(game.sim, game.raid)
 	game.gold = 0
 	game.sim.vault_gold.clear()
+	var initial_xp: int = ui.profile.xp
 	for index in 3:
 		game.raid._start_raid()
 		game.raid._hero_escapes()
@@ -22,6 +23,7 @@ func _run() -> void:
 		assert(not game.game_over and game._ready_for_raid(), "Zero gold still permits future raids")
 		assert("Or disponible : 0" in ui.modal_body.text and "Or au sol : 0" in ui.modal_body.text)
 		assert(not "+30 or" in ui.modal_body.text)
+		assert(ui.profile.xp == initial_xp, "Escaped raids must not generate passive Core XP")
 	game.raid._start_raid()
 	game.hero.kind = "paladin"
 	game.hero.carried_gold = 37
@@ -33,7 +35,7 @@ func _run() -> void:
 	ui.selected = game.sim.loot_bags[0].pos
 	ui._collect()
 	assert(game.gold == 37 and game.sim._unsecured_loot_total() == 0, "A bankrupt dungeon can recover dropped gold")
-	assert(ui.profile.xp > 0, "Core XP rewards remain")
+	assert(ui.profile.xp == initial_xp + 25, "One killed hero grants exactly 25 Core XP")
 	game.queue_free()
 	await process_frame
 	print("OK: no raid gold creation, zero-gold raids, real loot recovery and clear totals")

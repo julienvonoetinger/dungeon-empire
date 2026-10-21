@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bctxjmunpy6d2"
-path="res://.godot/imported/entrance_rock_arch_v1_0.jpg-1aeefbbd71ea8ce4b133b49401f0dad4.ctex"
+path.s3tc="res://.godot/imported/entrance_rock_arch_v1_0.jpg-1aeefbbd71ea8ce4b133b49401f0dad4.s3tc.ctex"
+path.etc2="res://.godot/imported/entrance_rock_arch_v1_0.jpg-1aeefbbd71ea8ce4b133b49401f0dad4.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "4c1c502b3d537beb7c8695e6a765602d"
@@ -14,11 +16,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/walls/entrance_rock_arch_v1_0.jpg"
-dest_files=["res://.godot/imported/entrance_rock_arch_v1_0.jpg-1aeefbbd71ea8ce4b133b49401f0dad4.ctex"]
+dest_files=["res://.godot/imported/entrance_rock_arch_v1_0.jpg-1aeefbbd71ea8ce4b133b49401f0dad4.s3tc.ctex", "res://.godot/imported/entrance_rock_arch_v1_0.jpg-1aeefbbd71ea8ce4b133b49401f0dad4.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -40,4 +42,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=1024
-detect_3d/compress_to=1
+detect_3d/compress_to=0

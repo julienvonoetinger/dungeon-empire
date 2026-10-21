@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdnjp4irtk4il"
 path.s3tc="res://.godot/imported/paladin_base_right_hand_outward_texture_0.png-6ac3cfaeba21fe0c6bf34abcb952532e.s3tc.ctex"
+path.etc2="res://.godot/imported/paladin_base_right_hand_outward_texture_0.png-6ac3cfaeba21fe0c6bf34abcb952532e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://art/models/paladin_base_right_hand_outward_texture_0.png"
-dest_files=["res://.godot/imported/paladin_base_right_hand_outward_texture_0.png-6ac3cfaeba21fe0c6bf34abcb952532e.s3tc.ctex"]
+dest_files=["res://.godot/imported/paladin_base_right_hand_outward_texture_0.png-6ac3cfaeba21fe0c6bf34abcb952532e.s3tc.ctex", "res://.godot/imported/paladin_base_right_hand_outward_texture_0.png-6ac3cfaeba21fe0c6bf34abcb952532e.etc2.ctex"]
 
 [params]
 

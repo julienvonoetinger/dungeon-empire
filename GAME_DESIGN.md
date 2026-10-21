@@ -533,9 +533,12 @@ Level 4 is currently maximum. Normal unlocks are Snare at 2, Void at 3 and
 Magic Door and magically sealed chest at 4; current playtest override makes them
 all selectable immediately.
 
-Each unique raid result grants XP: +20 if Core survives, +25 if a hero was killed,
-+10 if carried_out is zero, +10 if Core lost no HP, and +5 per trap charge spent
-up to three charges. These XP conditions are additive, not mutually exclusive.
+Each unique raid result grants exactly 25 Core XP per hero killed. A raid with
+no hero killed grants zero Core XP, regardless of survival, remaining Core HP,
+protected treasure or trap charges spent. Void banishment and retreat are not
+kills. A kill still counts if the Core is destroyed in that raid. Zero-reward
+results are recorded to prevent replay, just like rewarded results. Existing
+saved Core XP and unlocks are preserved; individual hero XP is unchanged.
 Raids never grant automatic gold rewards, regardless of survival, kills or
 protected treasure. Hero deaths leave only their actual carried gold as ground
 loot, which must be collected; no kill bonus is added to the treasury.

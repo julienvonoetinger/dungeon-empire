@@ -65,14 +65,14 @@ func _test_death_result() -> void:
 	_check(result.get("loot_remaining") == 37, "snapshot includes dropped hero loot")
 	_check(result.get("structures_damaged") == 0, "snapshot includes structure damage count")
 	_check("Test Paladin (Brave) dies" in str(result.get("text", "")), "snapshot preserves outcome text")
-	_check(rewards[0].get("xp") == 65 and rewards[0].get("gold") == 0, "death result awards XP without creating gold")
-	_check(progression.xp == 65 and progression.last_raid_id == 1, "first reward is recorded")
+	_check(rewards[0].get("xp") == 25 and rewards[0].get("gold") == 0, "death result awards XP without creating gold")
+	_check(progression.xp == 25 and progression.last_raid_id == 1, "first reward is recorded")
 
 	var preserved := raid.last_result.duplicate(true)
 	raid._end_raid("duplicate completion after return")
 	_check(received.size() == 1 and raid.last_result == preserved, "repeated completion preserves original result")
 	_check(progression.claim(preserved).is_empty(), "reopening result cannot claim twice")
-	_check(progression.xp == 65, "duplicate claim leaves XP unchanged")
+	_check(progression.xp == 25, "duplicate claim leaves XP unchanged")
 	raid.raid_stats["killed"] = 99
 	sim.core_hp = 1
 	sim.loot_bags.clear()
@@ -81,7 +81,7 @@ func _test_death_result() -> void:
 	result["killed"] = 99
 	_check(raid.last_result == preserved, "listener mutation cannot alter stored result")
 	_check(progression.claim(result).is_empty(), "modified payload with same ID cannot claim twice")
-	_check(progression.xp == 65, "modified duplicate leaves XP unchanged")
+	_check(progression.xp == 25, "modified duplicate leaves XP unchanged")
 
 
 func _test_portal_result() -> void:
@@ -109,18 +109,18 @@ func _test_portal_result() -> void:
 	_check(result.get("escaped") == 1 and result.get("killed") == 0, "portal outcome uses fresh counters")
 	_check(result.get("carried_out") == 18 and result.get("stolen") == 18, "portal snapshot preserves escaped gold")
 	_check(result.get("core_hp") == 60 and result.get("core_lost") == 25, "portal snapshot preserves Core state")
-	_check(rewards[1].get("xp") == 25 and rewards[1].get("gold") == 0, "second raid awards XP without creating gold")
-	_check(progression.xp == 90 and progression.last_raid_id == 2, "two distinct raids award exactly once each")
+	_check(rewards[1].get("xp") == 0 and rewards[1].get("gold") == 0, "escaped hero grants neither XP nor gold")
+	_check(progression.xp == 25 and progression.last_raid_id == 2, "zero-reward raid is recorded without adding XP")
 	var preserved := raid.last_result.duplicate(true)
 	raid._update_hero(10.0)
 	raid._end_raid("late duplicate")
 	_check(received.size() == 2 and raid.last_result == preserved, "post-completion updates preserve result and signal count")
 	_check(progression.claim(result).is_empty(), "latest result cannot be claimed again")
 	_check(progression.claim(previous).is_empty(), "older result cannot be reclaimed after a newer raid")
-	_check(progression.xp == 90, "all duplicate claims preserve total XP")
+	_check(progression.xp == 25, "all duplicate claims preserve total XP")
 	var restored := CoreProgression.new()
 	_check(restored.restore(progression.snapshot()), "progression snapshot restores")
-	_check(restored.claim(preserved).is_empty() and restored.xp == 90, "saved claim history prevents replay after restore")
+	_check(restored.claim(preserved).is_empty() and restored.xp == 25, "saved claim history prevents replay after restore")
 
 
 func _check(condition: bool, description: String) -> void:

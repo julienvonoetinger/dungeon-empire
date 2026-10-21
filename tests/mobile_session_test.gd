@@ -74,10 +74,10 @@ func _run() -> void:
 	game.raid_stats = {"killed": 1, "escaped": 0, "carried_out": 0, "traps_spent": 3, "core_lost": 0}
 	game._end_raid("Victory")
 	check(ui.result_open and ui.modal.visible, "Result opens")
-	check(ui.profile.xp == 80, "XP awarded")
+	check(ui.profile.xp == 25, "Only the defeated hero awards XP")
 	var reward_gold: int = game.gold
 	ui._raid_finished(game.raid.last_result)
-	check(ui.profile.xp == 80 and game.gold == reward_gold, "Result cannot double reward")
+	check(ui.profile.xp == 25 and game.gold == reward_gold, "Result cannot double reward")
 	ui._continue()
 	check(not ui.result_open and not ui.paused, "Continue resumes prep")
 	game.core_hp = 0
@@ -87,7 +87,7 @@ func _run() -> void:
 	game._end_raid("Defeat")
 	ui._continue()
 	check(not game.game_over and not game._has_core(), "Defeat permits new dungeon")
-	check(game.raid_index == ui.profile.last_raid_id and ui.profile.xp == 80, "New dungeon retains profile and monotonic raid IDs")
+	check(game.raid_index == ui.profile.last_raid_id and ui.profile.xp == 25, "New dungeon retains profile and monotonic raid IDs")
 	game.queue_free()
 	await process_frame
 	print("Mobile session: %d failures" % failures)
