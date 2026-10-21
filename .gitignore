@@ -1,20 +1,14 @@
-# Secrets
+# Local configuration and signing material
 .env
 .env.*
-!.env.example
+*.keystore
+*.jks
 
 # Godot
 .godot/
-*.translation
-export.cfg
-.import/
-
-# Android build output and local signing material
-/artifacts/android/
-/artifacts/**/*.log
-/artifacts/*.log
-*.keystore
-*.jks
+/artifacts/*
+!/artifacts/.gdignore
+/build/
 
 # OS / editor
 .DS_Store
@@ -24,8 +18,4 @@ Thumbs.db
 __pycache__/
 *.pyc
 
-# Local isolated implementation worktrees
-.worktrees/
-
-# Local Meshy task state (may contain remote task identifiers)
-.meshy/
+.superpowers/

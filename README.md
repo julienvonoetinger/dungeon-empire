@@ -1,85 +1,63 @@
-# Dungeon Empire — Godot Prototype v0.2
+# Dungeon Empire — nouvelle base 2D
 
-Godot 4.x prototype built to test the core loop of the dungeon builder.
+Une scène Godot qui reproduit le donjon approuvé avec ses vrais éléments 2D :
+six salles, des couloirs ouverts, des dalles bleues et des murs en pierre.
 
-## What this version brings
-- two clear phases: **Preparation** and **Raid**;
-- during a raid the player can **not** build, move, repair or collect anything;
-- the dungeon persists from one raid to the next;
-- 3 adventurer archetypes: Vulpin Thief, Lithide Paladin, Batrafian Ranger;
-- destructible doors with HP, repairable only during preparation;
-- a hero's death slightly regenerates the Dungeon Core;
-- persistent corpses: they change the perceived danger of a path;
-- loot left where a hero died: a later adventurer can pick it up;
-- dungeon wealth exists only in storages (150 gold each); the run starts with vaults around the Core holding the treasury;
-- dead heroes leave loot on the body until you store it — it stays there if storage is full;
-- after a raid the player can click a loot bag to move gold into storage (if there is room);
-- after a raid the player can absorb a corpse (+2 Core) or leave it to influence future raids;
-- an intact door **blocks**: it has to be broken before passing through;
-- traps have limited charges: a spent defense stays inert until repaired;
-- a thief carries away only what fits in its bag, then teleports out — the rest of the hoard stays;
-- a badly wounded hero, or one that has explored enough, flees to the entrance with whatever it carries;
-- every hero rolls its own personality (Greedy, Cautious, Stubborn, Cowardly) and its own weights, so no layout stays solved;
-- AI still based on partial exploration + memory + probabilistic scoring;
-- end-of-raid report (killed, escaped, gold stolen, doors destroyed, charges spent, Core);
-- Core at 0 = campaign lost, no further raid starts;
-- no offline simulation: while the application is closed, no raid advances.
+## Ouvrir la scène
 
-## Controls
-During the preparation phase:
-- **Dig**: turns rock adjacent to an existing passage into a passage (5 gold), or clears a structure;
-- **Storage** (60 gold): holds the dungeon's wealth, the Vulpin's favourite target;
-- **Spikes** (35 gold): direct damage, 3 charges;
-- **Snare** (30 gold): damage + slowdown, 3 charges;
-- **Door** (40 gold): destructible obstacle that blocks the way;
-- **Repair**: restores damaged doors (15 gold) and trap charges (10 gold);
-- **Absorb corpse**: dedicated tool; clicking a corpse consumes it and heals the Core by 2 points;
-- **Reset**: asks for confirmation (second click) before wiping the run;
-- clicking a **yellow loot bag**: moves its gold into storage if there is room;
+1. Importer `project.godot` dans Godot 4.3 ou plus récent.
+2. Lancer le projet avec **F5**.
 
-During a raid the whole dungeon is locked: you only watch the outcome of your preparation. The hero's trait is shown above it; its internal weights are never displayed.
+La scène principale est `scenes/DungeonPreview.tscn`. La caméra cadre
+automatiquement toute la carte quand la fenêtre change de taille. Le rendu
+utilise GL Compatibility. Aucun service externe ni téléchargement d'assets
+n'est nécessaire.
 
-Placeholder colors come from `art_bible/palette/COLOR_PALETTE.md`, so the prototype already reads on-brand.
+## Contenu actuel
 
-## Running
-1. Install Godot 4.x.
-2. Open this folder as a Godot project.
-3. Run the project (F6/F5).
+- Carte fixe de 28 × 18 cases, avec 255 dalles et des couloirs de deux cases.
+- 19 sprites du kit approuvé, plus une petite texture de fond.
+- Murs et angles choisis à partir des cases voisines ; le sol conserve toute
+  la largeur des passages.
+- Aucune mécanique de jeu, interaction, interface ou sauvegarde pour l'instant.
 
-## Project structure
+La carte est dans `assets/layouts/preview.tres` : chaque chiffre de `0` à `7`
+choisit une variante de sol, chaque point représente une case vide.
+Le rendu utilise les PNG de `assets/dungeon/`, et non une image du donjon entier.
+Les proportions des sprites sont prévues pour des cases de **54 px**.
 
-Gameplay code is split so `Main` only wires systems. Follow `docs/GODOT_PROJECT_STRUCTURE.md` when adding features (`GameTypes`, `DungeonSim`, `RaidDirector`, HUD, `DungeonWorld`).
+## Organisation
 
-## Quick verification
-A headless harness simulates building, raids, deaths, thefts, wear and defeat:
+| Dossier | Contenu |
+| --- | --- |
+| `assets/dungeon/` | Sprites, fond et coordonnées de découpe des sources |
+| `assets/layouts/` | Carte fixe |
+| `scenes/` | Scène principale |
+| `scripts/` | Données de carte, dessin 2D et cadrage |
+| `docs/reference/` | Prototype source, kit et composition approuvée |
+| `tools/` | Vérification de scène et capture du rendu Godot |
 
-```
-godot --headless --path . --script res://tests/smoke.gd
-```
+`GAME_DESIGN.md` décrit le périmètre implémenté et les limites de cette étape.
+Les références de `docs/` sont exclues de l'import Godot.
 
-It prints `OK: all checks pass.` and returns 0 when everything is fine.
-
-For the PC rendering baseline, use the installed Steam Godot executable from PowerShell:
+## Vérification sous Windows
 
 ```powershell
-$godot = 'C:\Program Files (x86)\Steam\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe'
-& $godot --headless --path . --script res://tests/smoke.gd
-& $godot --headless --path . --script res://tools/validate_runtime_models.gd
-& $godot --path . --script res://tools/capture_render_lab.gd
-& $godot --path . --script res://tools/capture_entrance.gd
+./tools/test-mobile.ps1 -All
+./tools/test-mobile.ps1 -All -Capture
 ```
 
-The capture commands produce `artifacts/render_lab.png` and `artifacts/dungeon_baseline.png`. These generated comparison images are intentionally ignored by Git.
+Si nécessaire, ajouter `-Godot 'C:\chemin\godot.exe'` ou définir `GODOT_BIN`.
+Le script importe le projet, vérifie les connexions et le cadrage en quatre
+formats, puis lance brièvement la scène principale. `-Capture` produit
+`artifacts/dungeon-2d.png` avec le moteur graphique ; une session graphique est
+nécessaire pour cette option. Les sorties et captures restent locales.
 
-## Meshy pipeline
+Le nom `test-mobile.ps1` est conservé comme point d'entrée. Il vérifie désormais
+la base 2D : il ne certifie pas encore un export ni les performances sur téléphone.
 
-Preview one explicit manifest job without network access or credit use:
+## Ancienne version
 
-```powershell
-python tools/meshy_pipeline.py models/environment/wall_straight_controlled.glb
-```
-
-Paid submission requires the additional `--execute` flag. Resume, overwrite and recovery behavior are documented in `production/docs/MESHY_API_PIPELINE.md`.
-
-## Deliberately out of scope
-No world map, kingdoms, multiple dungeons, floors, expansion sanctum, save/cloud, adventuring parties or final art yet. The goal is still to test whether building the labyrinth and watching the behaviours are fun.
+Le prototype 3D et ses ressources ont été retirés de cette branche. La version
+précédente reste disponible dans Git au tag **`v1.0.0`**. L'historique Git garde
+donc les anciennes ressources, même si elles ne font plus partie du projet actif.
