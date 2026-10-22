@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-22",
+  "status": "Historical v6 revision; superseded by native-transitions-generation.json",
+  "asset": "cap-elbows-blue-v6.png",
+  "purpose": "Repaint grey v5 L corners to the existing straight-cap blue material. Remove tiny shoulder spacers through whole-wall native-port alignment.",
+  "edit_target": "cap-elbows-v5.png",
+  "material_reference": "../../../artifacts/complete-cap-style-reference.png (complete Rect2(365,0,525,435) original cap slot exported by Godot; no silhouette cutout)",
+  "reference_source": "cap-continuous-v10.png",
+  "processing": "Built-in ImageGen with true transparency. Selected PNG copied unchanged. No pixel edits, alpha erasure, masks, silhouette clipping, rotation or nonuniform scaling. Atlas slots select full sprites with native gutters.",
+  "regions": "Original modular_study_kit.gd nw/ne/sw/se slots and anchors; center Rect2(365,435,525,380) complete top stone retained for short open terminal runs, not paired shoulder returns.",
+  "native_ports": {
+    "nw": [
+      -18,
+      162
+    ],
+    "ne": [
+      -18,
+      162
+    ],
+    "sw": [
+      -56,
+      105
+    ],
+    "se": [
+      -56,
+      104
+    ]
+  },
+  "assembly": "For short paired returns, move entire horizontal wall rows by half the CALIBRATED native port gap (+/-14.60 source units at upper3x3 returns, about+/-8.584 at lower returns). The former+/-19 described the rejected initial v6 placement. Straight cap scales .99/.97, cadence476 and facade offset88 remain shared; central pavers unchanged. All connected-study sprite Z layers raised1 above opaque parent background, exposing whole support pavers previously hidden atZ-1.",
+  "profile_calibration": {
+    "method": "Runtime placement and UNIFORM sprite scale only; no new image generation or source pixel edits. Correct the initial v6 steps and facade ledges reported by the user.",
+    "native_horizontal_profiles": {"nw_ne": [-18,92], "sw_se": [-2,105]},
+    "target": "Derived from modular_wall_profile.CAP_REGIONS and cap_scale, same as the actual straight cap sprites.",
+    "north_target": [-11.88,94.05],
+    "south_target": [-11.64,99.91],
+    "uniform_factors_north": {"nw_ne": 0.963, "sw_se": 0.99},
+    "uniform_factors_south": {"nw_ne": 1.0140909091, "sw_se": 1.0425233645},
+    "placement": "TranslateY aligns profile tops; translateX preserves the vertical strip center at41 source units. Apply the same transform to the raw native_ports above before positioning adjoining sides/returns.",
+    "facade": "Closed corner endpoints stop at corner anchors, retaining75 under NW/NE down arms. The reference -12/+14 facade extensions remain at OPEN endpoints only."
+  },
+  "generations": [
+    {
+      "prompt": "Use case: precise-object-edit.\nAsset type: native-transparent modular 2D dungeon stone wall sprite atlas, 1254 x 1254.\nImage 1 is the EDIT TARGET, the ORIGINAL sharp blue cap-continuous wall kit. Image 2 is a STYLE AND COLOR REFERENCE exported as one whole horizontal-cap slot from that SAME kit. Preserve that exact slate-blue hue, saturation, broad crisp painted planes, thin dark outline, restrained bright bevel and down-facing dark blue thickness. Do NOT add cloudy gray haze, lavender, yellow, a white rim glow, blur or new lighting.\n\nChange ONLY the vertical leg geometry on the FOUR CORNER modules in Image 1. Keep their entire horizontal arms, horizontal face heights, positions, widths, cracks and painted material unchanged. Keep the original canvas and all other sprites unchanged.\n- Top-left and top-right L corners currently have two long vertical stones. Redraw each vertical leg as ONE continuous complete bent L stone, no separate terminal brick and no join across the vertical arm. Its painted top remains at source y~72 and its complete flat bottom now ends at y~266. Keep the existing upper horizontal arm and horizontal neighbor stone unchanged. Width of the upright top-view arm stays about82 source pixels.\n- Bottom-left and bottom-right L corners currently have a separate vertical terminal stone above the bend. Replace the terminal plus bend's vertical arm by ONE complete continuous L stone, no extra brick joint. The complete flat top of its vertical leg now begins at source y~930 (within the bottom corner slot), while its existing horizontal arm and visible dark horizontal face remain in the same location, ending near y~1108. Keep the horizontal neighbor stone unchanged. Width of the upright top-view arm stays about82 source pixels.\nThe end dimensions are essential: these complete L stones must join directly in a short perpendicular wall return, with no tiny spacer brick. Vertical legs show TOPS ONLY: no dark vertical face, pillar, plinth, foot or backing. Only the horizontal arms show the original front thickness.\nPaint the entire native-alpha silhouettes; no chopped edges. Preserve truly transparent background and gutters. No text, no labels, no floor-scene illustration. Do not move or restyle the center straight caps, bottom straight caps, middle side stones or center floor tile.",
+      "original": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-d32ec309-850f-4ee3-88de-e03e5c48ab30.png",
+      "status": "unused draft: geometry did not shorten the long arms"
+    },
+    {
+      "prompt": "Use case: precise-object-edit. Geometry correction ONLY to the FOUR L-shaped corner sprites in this atlas. Preserve their current BLUE material, crisp planes, color, shading, outlines, horizontal cap stones, horizontal fronts, source alpha, positions and everything else EXACTLY.\nThe four vertical legs are STILL TOO LONG. Shorten each one by ONE THIRD of its visible length, removing length only from the free vertical end, away from the bend:\nTOP-LEFT and TOP-RIGHT L: move their complete BOTTOM ends UP from current image y~355 to y~262. Keep their top bends and horizontal arms fixed.\nBOTTOM-LEFT and BOTTOM-RIGHT L: move their complete TOP ends DOWN from current y~840 to y~930. Keep their lower bends and horizontal arms fixed.\nRedraw each resulting whole L stone as a continuous intact shape with its flat terminal end and native beveled outline, no separate little terminal stone. The L's vertical total reach should now be about 2.3 strip widths, not 3.5 strip widths. Do not just erase the joining crack: genuinely SHORTEN the leg silhouette.\nKeep all horizontal arms and adjacent horizontal stones exactly where they are and the same size. No change to middle floor, side stones or straight cap rows. Genuine transparent background/gutters, no extra sprites.",
+      "original": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-a1067851-9178-41c5-b2bb-8261136c2bec.png",
+      "status": "unused draft: shifted horizontal arms and unequal requested length"
+    },
+    {
+      "prompt": "Use case: precise-object-edit. Image1 is the edit target: the SHORT L-corner atlas. Image2 is the material/color reference: the existing BLUE straight wall cap.\nCorrect ONLY the four L corner sprites in Image1:\n1. Match the corner stones to Image2 EXACTLY in blue hue/saturation, crisp large painted planes, thin bevel highlights and dark blue front thickness. Remove their cloudy grey/lavender coloration. The four corners must look painted as part of the same kit as Image2.\n2. Extend each short vertical leg by ONLY20 source pixels at its free end. Top-left and top-right L corners: extend the flat bottom end DOWN20px, from y246 to y266. Bottom-left and bottom-right L corners: extend the flat top end UP20px, from y950 to y930. Paint each extended leg as a SINGLE complete continuous bent L stone, no tiny extra brick, no divider across that leg. Keep the bends, horizontal arms and horizontal neighbor stones fixed in position and size. Vertical legs are top surfaces only.\nKeep canvas1254x1254, all corner horizontal positions, all horizontal arm/front-face heights, all OTHER sprites and genuine transparent gutters unchanged. Do not move the horizontal arms, scale the atlas, add more bricks, stretch the drawing or add pillars/backing/shadows. Complete native-transparent sprites.",
+      "original": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-29b13dc7-e5cb-4aca-8147-c2c3a2c44a78.png",
+      "status": "unused draft: unwanted dark front foot on vertical arms"
+    },
+    {
+      "prompt": "Use case: precise-object-edit.\nImage1 is the edit target. Image2 is the material reference.\nRepaint ONLY the FOUR L corner stones and their horizontal neighbor stones in Image1 to match Image2's more saturated slate BLUE stone, crisp broad planar painting, thin bevel highlights and dark blue horizontal front face. The corners currently look cloudy grey; make their material indistinguishable from Image2. No glow, no grey haze, no lavender.\nABSOLUTELY PRESERVE EVERY SILHOUETTE, DIMENSION, STONE POSITION, LEG LENGTH, BEVEL SHAPE, CANVAS AND ALPHA OF IMAGE1. This is a MATERIAL edit only, not a geometry edit. Preserve all other sprites unchanged. Vertical legs remain tops only, no front foot. Genuine native transparent background and gutters.",
+      "original": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-59e8b65f-e437-4064-a76b-8f61874d75f5.png",
+      "status": "selected asset cap-elbows-blue-v6.png; visual acceptance pending"
+    }
+  ],
+  "review": "Godot renders1x/2x and4x junction captures, all16 masks and lengths1/2/3, before/after junction-continuity-comparison.png and junction-profile-comparison.png. Straight2x1 comparison camera now follows the connected wall's shifted origin. Visual review remains the acceptance method.",
+  "limitations": "Single odd rectangular room plus centered cardinal branches; reviewed3x3. Physical wall ports follow source art; no validated player construction/navigation grid or arbitrary dungeon renderer.",
+  "previous_provenance": "shared-joins-generation.json"
+}

@@ -1,0 +1,17 @@
+{
+  "generator": "built-in image_gen",
+  "file": "side-junctions-v2.png",
+  "original": "exec-aa60361c-205a-48ea-9331-e912dd1d44fc.png",
+  "reference": "walls-v1.png",
+  "prompt": "Precise object edit of the attached 1254x1254 transparent dungeon sprite atlas. Keep layout, image dimensions, style, colors, light, and ALL THREE CENTER COLUMN sprites exactly as they are. Modify ONLY the SIX OUTER COLUMN sprites to fix a reusable modular wall kit. Must keep native true alpha; no background or labels.\n\nRequired fixes:\n1. Every north-south LIGHT cap strip, both the four corner vertical arms and the two middle-row straight wall modules, must have the SAME 80-pixel width and aligned straight outside/inside edges. Keep the chunky blue painted stone style, subtle bevels. Do not make the middle-row pieces wider than the corners.\n2. Draw a CONTINUOUS DARK INNER MASONRY FACE alongside the light cap for the FULL LENGTH of each vertical arm and straight section. This dark face is 42 pixels wide on the ROOM side: to the RIGHT of the left-column sprites and to the LEFT of the right-column sprites. Dark navy blue, small staggered masonry courses matching the dark inner returns already visible in the top corners. No void or missing face at either end. These faces need to join into one continuous inside wall when the pieces are placed end to end. This is not a bright extra row or an exterior backing.\n3. The upper corners currently have a dead-end dark foot under their last cap, and their dark inner return stops early. Extend the inner face all the way to the bottom. Redraw each vertical arm's terminal cap join as a flush repeatable section end with a thin mortar line, no thick beveled projecting lip or rounded notch.\n4. The bottom corners' dark INNER returns must begin at the very TOP of their vertical arm and continue down to the inside of the L, not start halfway down. Preserve their two full horizontal dark front-facade courses below the L cap.\n\nGeometry on this exact sheet (keep the original sprite positions):\nUpper-left cap vertical arm outside x=66, inside x=146, running roughly y=90..350; dark return x=146..188 through to y=410.\nUpper-right cap vertical arm outside x=1187, inside x=1107, dark return x=1065..1107 through to y=410.\nMiddle-left cap x=129..209, y=470..785; dark interior face x=209..251 along ALL y=470..785.\nMiddle-right cap x=1040..1120, y=470..785; dark interior face x=998..1040 along ALL y=470..785.\nBottom-left vertical arm cap x=66..146, starts y=844; dark interior face x=146..188 starts y=844 and continues to the L corner turn.\nBottom-right arm cap x=1107..1187 starts y=844; dark interior face x=1065..1107 starts y=844 and continues to the L corner turn.\nKeep the horizontal arms of the four L corners and all center sprites as close to original as possible. Do NOT draw any whole room. Exactly the same nine independent sprites in same slots, complete transparent gutters. No outer backing added to these six sprites. No glow or new motifs.",
+  "used_slots": [
+    "nw",
+    "ne",
+    "west",
+    "east",
+    "sw",
+    "se"
+  ],
+  "alpha": "Native generated transparency retained without pixel edits.",
+  "placement": "Uniform relative scale 0.93 for straight sides; measured cap edges anchor at sheet x118 and x1135. Whole sprites overlap at mortar joints; no mask or silhouette trim."
+}

@@ -1,0 +1,235 @@
+{
+  "date": "2026-10-22",
+  "status": "Historical native-transitions revision; superseded by port-width-generation.json. Not user-approved.",
+  "verification": {
+    "captures": "Godot capture_room_corridors, capture_modular_room and capture_module_connections completed; inspected1x/2x, four complete short returns4x, north/south sides4x,16 masks and lengths1/2/3.",
+    "baseline": "Six captures unchanged byte-for-byte:1x1,2x1,3x1 and their2x versions. Eight captures intentionally change due to shared vertical material.",
+    "source_integrity": "All three active PNG hashes equal original ImageGen outputs. JSON parse and git diff --check completed.",
+    "suite": "tools/test-mobile.ps1 -All -Capture stops at preexisting verify-scene expectation that F5 launches SixRoomPreview. Actual deliberate target remains3x3CellRoom. Full suite not passing.",
+    "review": "Fresh read-only code review found no concrete defect; artistic acceptance remains pending."
+  },
+  "method": "Built-in ImageGen, genuine source alpha. Generated outputs copied byte-for-byte. Rectangular atlas regions preserve whole sprites and transparent gutters; no pixel edits, silhouettes, masks, color removal, painted-end clipping, rotations or nonuniform scales.",
+  "assets": [
+    {
+      "file": "cap-elbows-flush-v9.png",
+      "original": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-ba479195-42b6-4782-a31c-99984a50b612.png",
+      "prompt_chain": [
+        "Use case: precise-object-edit.\nImage1 is the EDIT TARGET: the existing short-L dungeon cap atlas. Image2 is the approved straight-cap MATERIAL AND EDGE reference.\nCorrect the FOUR L modules at the four corners of Image1, including each one's attached horizontal neighbor stone:\n- REMOVE the very heavy black outer contour. Repaint every entire stone with the SAME THIN outline as Image2. No broad black band, halo or black cushion around the stone. The source alpha must already contain the finished thin edge, with true transparency immediately outside it.\n- Match Image2's slate-blue hue, quiet broad painted planes, restrained bevel and dark blue front face. No grey haze, bright white glow or lavender.\n- Every horizontal stone within each L module must have its VISIBLE PAINTED TOP EDGE on one perfectly STRAIGHT horizontal line, and its FRONT FACE BOTTOM EDGE on a second straight horizontal line. The bent stone and its adjacent rectangular stone must be exactly the same course height, top-plane depth and front-face thickness. No vertical step, overhanging lip, staggered silhouette or raised border between them. Their dividing line is only a thin native joint.\n- Vertical L legs show TOPS ONLY; keep their current short length and width and their complete flat terminal ends. No dark foot or front face at the vertical ends.\nPreserve the exact1254x1254 canvas, existing four corner slots, positions of the bends, horizontal reaches and all other atlas sprites. Do not add a floor scene, labels, columns or new stones. Whole COMPLETE native-alpha sprites with existing transparent gutters; don't clip or crop painted ends.",
+        "Use case: precise-object-edit. Edit ONLY the DARK DOWNWARD-FACING FRONT THICKNESS on the FOUR CORNER modules of this atlas.\nTheir outlines and slate-blue top planes are now correct. Keep every visible BLUE TOP EDGE, bevel line, horizontal width, bend position, vertical leg, thin outline style, material and all OTHER sprites EXACTLY unchanged.\nThe horizontal dark front face is a little too shallow. Repaint that dark horizontal face about30 percent DEEPER downward on BOTH the bent corner stone and its horizontal neighbor stone, consistently across each module:\n- Top-left/top-right L modules: dark horizontal front BOTTOM should now finish at source y177 instead of y170.\n- Bottom-left/bottom-right L modules: dark horizontal front BOTTOM should now finish at source y1112 instead of y1105.\nDraw complete intact front ends, with a thin clean outline, no overhanging lip or extra step at stone joints. ALL horizontal stone fronts within a module share exactly one bottom line.\nDo NOT deepen the vertical leg ends: the vertical legs remain tops only, no foot, dark face or backing. Do NOT move any top surface, resize a stone horizontally, thicken the outline, add glow/fringe or change the1254x1254 canvas/gutters. Native transparent background; complete generated silhouettes.",
+        "Use case: precise-object-edit. One small geometry change ONLY to the two BOTTOM CORNER modules in this atlas.\nKeep their blue TOP SURFACES, bevel line, every horizontal width, every vertical leg, positions, thin outlines, texture, colors, all other sprites and1254x1254 transparent canvas unchanged.\nExtend ONLY the downward DARK HORIZONTAL FRONT faces on BOTH stones in each bottom L module by8 more pixels DOWN. Their dark bottom line currently finishes around source y1111; it must finish around y1119. Make this extension consistent along the complete horizontal front on both bent and rectangular stones. A single flush bottom line, no lip/step, complete intact stone ends.\nDo NOT deepen the vertical stems or add a dark foot to them. Do NOT alter the upper corners. True transparent gutters/background and thin outlines immediately outside complete native-alpha silhouettes."
+      ],
+      "intermediates": [
+        "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-5610ef18-46d2-4aec-ba90-99f21c83c7fc.png",
+        "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-f20cc06e-5a32-4940-89be-db26d33a3b3d.png"
+      ],
+      "canvas": [
+        1254,
+        1254
+      ],
+      "regions": [
+        [
+          0,
+          0,
+          365,
+          435
+        ],
+        [
+          890,
+          0,
+          364,
+          435
+        ],
+        [
+          0,
+          815,
+          365,
+          439
+        ],
+        [
+          890,
+          815,
+          364,
+          439
+        ]
+      ],
+      "native_horizontal_profiles": {
+        "nw_ne": [
+          -14,
+          99
+        ],
+        "sw_se": [
+          1,
+          114
+        ]
+      },
+      "native_vertical_ports": {
+        "nw_ne": [
+          -14,
+          159
+        ],
+        "sw_se": [
+          -55,
+          114
+        ]
+      },
+      "calibration": "horizontal_fit derives target from shared CAP_REGIONS and scales .99/.97. Uniform factors north105.93/113, south111.55/113. Apply identical transform to vertical ports."
+    },
+    {
+      "file": "paired-cap-transitions-v1.png",
+      "original": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-2ec0b043-fbe5-4960-ada3-4f4f040c15d5.png",
+      "prompt": "Use case: precise-object-edit.\nImage1 is an EDIT TARGET: a1536x1024 transparent atlas with FOUR COMPLETE narrow wall-top TRANSITION MODULES, one in each768x512 quadrant. Each module is a short horizontal course of FOUR stones, with one upward vertical return and one downward vertical return. Image2 is the MATERIAL AND THIN-EDGE reference.\nRedraw each whole transition as ONE coherent native-alpha module:\n1. Give its FOUR horizontal stones ONE common VISIBLE BLUE TOP LINE and ONE common DARK FRONT BOTTOM LINE. Make the blue top-plane depth, bevel line and front-face thickness IDENTICAL across ALL FOUR stones in that module. No little steps between stones, including the two bends. The current middle joints contain overlapping/double outlines: redraw these as thin ordinary joints between FOUR INTACT stones, without slicing any stone.\n2. Remove the broad BLACK CUSHION around the art. Draw only the same thin dark outline as Image2, with true transparency immediately outside it. No glow, halo, colored fringe or thick black gutter.\n3. Match Image2's slate-blue stone, broad quiet painterly planes, restrained bevel and modest cracks. No white light rim, cloudy grey or lavender.\nPreserve the exact1536x1024 canvas, four quadrant slots, the LEFT and RIGHT outer vertical stem positions, their widths and their complete terminal ends. Preserve the overall horizontal span. Upper-row course front thickness stays like the existing north reference; lower-row courses retain the slightly deeper south profile. Vertical returns show TOPS ONLY, never dark upright faces, feet or backing.\nThis is four small reusable DOUBLE-BEND cap modules, not a room/scene illustration. Do not add floor, facade courses, columns, extra stones, labels or background. Paint each COMPLETE module silhouette with genuine native alpha, ample existing gutters, flat intact free ends.",
+      "canvas": [
+        1536,
+        1024
+      ],
+      "regions": [
+        [
+          0,
+          0,
+          768,
+          512
+        ],
+        [
+          768,
+          0,
+          768,
+          512
+        ],
+        [
+          0,
+          512,
+          768,
+          512
+        ],
+        [
+          768,
+          512,
+          768,
+          512
+        ]
+      ],
+      "local_anchor": [
+        96,
+        256
+      ],
+      "cases": [
+        "NW-SE north",
+        "SW-NE north",
+        "SW-NE south",
+        "NW-SE south"
+      ],
+      "ports": {
+        "north_down": [
+          -8,
+          158
+        ],
+        "north_up": [
+          -62,
+          88
+        ],
+        "south_down": [
+          -16,
+          155
+        ],
+        "south_up": [
+          -75,
+          81
+        ]
+      },
+      "selection": "One logical horizontal segment with both matching closed bends; whole four-stone double-bend transition replaces the two overlapping two-stone L modules.",
+      "reference": "artifacts/paired-caps-reference.png: transparent Godot export of complete existing sprite regions at uniform scale for shape reference only; never a production texture."
+    },
+    {
+      "file": "wall-tops-blue-v11.png",
+      "original": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-02fcf53e-13a3-4e32-a362-f0b92347b165.png",
+      "prompt": "Use case: stylized-concept. Asset type: a NEW1024x1024 native-transparent sprite atlas, FOUR separate modular vertical wall TOP modules in four512x512 quadrants.\nThe attached image is MATERIAL AND PALETTE REFERENCE ONLY. Generate new shapes, not a copy of its horizontal wall faces.\nMatch its subdued SLATE-BLUE TOP SURFACES: moderately dark blue-grey, broad soft painted planes, quiet fine texture, one or two subtle cracks, narrow restrained bevel highlights. Absolutely NO bright white rim. A THIN dark blue-grey outline,2-3px, not thick black. No glow/halo/shadow outside silhouettes.\nFOUR sprites, fully contained within their quadrants with large truly transparent gutters:\nUpper-left: one PAIR of two complete narrow vertical top stones stacked neatly end-to-end; total painted width120px, total height345px; ordinary thin joint between the two stones.\nUpper-right: one complete vertical stone width160px, height280px.\nLower-left: one complete vertical stone width160px, height350px.\nLower-right: one complete vertical stone width160px, height450px.\nCenter each sprite in its quadrant. All ends flat and intact with small chamfered corners. Same stone material and same subdued blue shade on all four modules, modest variation of cracks only.\nDIRECT OVERHEAD TOP VIEW ONLY: NO front thickness or dark upright face, no feet, plinths, backing row, floor, text, scenery, checkerboard or backdrop. Each is a WHOLE native-alpha sprite with genuine transparency immediately outside the thin painted outline.",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "regions": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          627,
+          570
+        ],
+        [
+          0,
+          627,
+          627,
+          627
+        ],
+        [
+          627,
+          570,
+          627,
+          684
+        ]
+      ],
+      "anchors": [
+        [
+          240,
+          44
+        ],
+        [
+          215,
+          87
+        ],
+        [
+          212,
+          63
+        ],
+        [
+          215,
+          47
+        ]
+      ],
+      "body_sizes": [
+        [
+          146,
+          512
+        ],
+        [
+          199,
+          415
+        ],
+        [
+          206,
+          474
+        ],
+        [
+          199,
+          608
+        ]
+      ],
+      "region_note": "Actual generated canvas differs from requested1024. Rectangular selection uses actual empty gutters, including right-column division at570.",
+      "shared_tint": [
+        1.08,
+        1.13,
+        1.16,
+        1
+      ],
+      "legacy_pair": "Uniform normalization to315 source units, centerline +/-41, top-15; retain original side placement and .92/.95 scales.",
+      "connected_runs": "Choose1-4 whole stones to approach source width82; uniform fit to measured transformed ports. Very short gaps may use complete center plate from cap-elbows-flush-v9, region[365,435,525,380], anchor[153,138], body[219,111]."
+    }
+  ],
+  "shared_rendering": "modular_wall_profile.gd retains cap scales .99/.97, cadence476, continuous facade courses fromy88. modular_side_kit.gd supplies all seven isolated studies plus connection study. Small scenes intentionally change vertical material; approved floor layout, PNGs, tints and horizontal standalone corridor captures remain unchanged.",
+  "history": "v6 corner placement/profile and pale side v9/v3 were rejected. Intermediate cap v7/v8 and material-only side edit attempts remain unused. Older provenance is historical.",
+  "captures": [
+    "junction-native-parts-comparison.png",
+    "vertical-material-comparison.png",
+    "junction-all-returns.png",
+    "3x3RoomFourCorridors.png",
+    "3x3RoomFourCorridors-2x.png",
+    "connection-masks-comparison.png",
+    "connection-lengths-comparison.png"
+  ],
+  "limits": "One odd rectangular room plus centered cardinal branches, reviewed at3x3. No player editor, arbitrary multi-room renderer, navigation-grid guarantee, gameplay or saving. Visual captures do not establish artistic acceptance."
+}

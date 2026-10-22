@@ -1,63 +1,219 @@
-# Dungeon Empire — nouvelle base 2D
+# Dungeon Empire — base 2D
 
-Une scène Godot qui reproduit le donjon approuvé avec ses vrais éléments 2D :
-six salles, des couloirs ouverts, des dalles bleues et des murs en pierre.
+Une carte fixe de six salles reliées par des couloirs, avec entrée et cœur du
+donjon. Le rendu utilise des sprites complets à transparence native : sols,
+murs, piliers, raccords, porte, torches et cœur. Aucun gameplay n'est implémenté.
 
-## Ouvrir la scène
+**Rendu en correction :** l'assemblage actuel des murs et piliers a été rejeté
+visuellement le 21 octobre 2026. La transparence native est implémentée, mais la
+perspective et la fidélité au dessin d'origine restent à corriger. Les captures
+et tests techniques ne constituent pas une approbation de cette apparence.
 
-1. Importer `project.godot` dans Godot 4.3 ou plus récent.
-2. Lancer le projet avec **F5**.
+## Lancer
 
-La scène principale est `scenes/DungeonPreview.tscn`. La caméra cadre
-automatiquement toute la carte quand la fenêtre change de taille. Le rendu
-utilise GL Compatibility. Aucun service externe ni téléchargement d'assets
-n'est nécessaire.
+Ouvrir `project.godot` dans Godot puis **F5**.
+La configuration courante de **F5** lance `scenes/3x3CellRoom.tscn`.
+La carte à six salles reste dans `scenes/SixRoomPreview.tscn`.
+La caméra affiche la carte entière en conservant ses proportions.
 
-## Contenu actuel
+- **Stone Variation** et **Variation Seed** se règlent sur le nœud `Dungeon`.
+  Valeurs par défaut : activé, graine **173**.
+- L'aperçu éditeur s'actualise lors des changements ; **Actualiser le rendu**
+  permet une reconstruction manuelle.
+- **F6** lance la scène sélectionnée, notamment les études séparées ci-dessous.
 
-- Carte fixe de 28 × 18 cases, avec 255 dalles et des couloirs de deux cases.
-- 19 sprites du kit approuvé, plus une petite texture de fond.
-- Murs et angles choisis à partir des cases voisines ; le sol conserve toute
-  la largeur des passages.
-- Aucune mécanique de jeu, interaction, interface ou sauvegarde pour l'instant.
+## Inspecter les positions
 
-La carte est dans `assets/layouts/preview.tres` : chaque chiffre de `0` à `7`
-choisit une variante de sol, chaque point représente une case vide.
-Le rendu utilise les PNG de `assets/dungeon/`, et non une image du donjon entier.
-Les proportions des sprites sont prévues pour des cases de **54 px**.
+### Salles et couloirs — études des raccords
 
-## Organisation
+Ouvrir une de ces scènes dans Godot, puis **F6** :
 
-| Dossier | Contenu |
+| Salles fermées | Couloirs ouverts dans leur axe |
 | --- | --- |
-| `assets/dungeon/` | Sprites, fond et coordonnées de découpe des sources |
-| `assets/layouts/` | Carte fixe |
-| `scenes/` | Scène principale |
-| `scripts/` | Données de carte, dessin 2D et cadrage |
-| `docs/reference/` | Prototype source, kit et composition approuvée |
-| `tools/` | Vérification de scène et capture du rendu Godot |
+| `scenes/1x1CellRoom.tscn` | `scenes/1x2Corridor.tscn` — nord/sud |
+| `scenes/2x2CellRoom.tscn` | `scenes/2x1Corridor.tscn` — ouest/est |
+| `scenes/3x3CellRoom.tscn` | `scenes/1x3Corridor.tscn` — nord/sud |
+| | `scenes/3x1Corridor.tscn` — ouest/est |
 
-`GAME_DESIGN.md` décrit le périmètre implémenté et les limites de cette étape.
-Les références de `docs/` sont exclues de l'import Godot.
+L'ancienne `SingleCellRoom.tscn` a été renommée **2x2CellRoom**. Une case logique
+contribue deux rangées de petites dalles de largeurs variées. Tous les cas
+partagent les mêmes coins, murs et variantes : douze dalles dans trois formats,
+dont six fissures différentes, et quatre dessins de brique dans deux longueurs.
+Le sol conserve ses variations validées, avec des teintes plus claires et sans
+gravure centrale. Les pierres horizontales gardent leur épaisseur ; les deux
+rangées de façade passent en continu sous les coins et les chapeaux, à joints
+décalés. Les côtés présentent une texture harmonisée avec les coins et de
+légers retraits/débords, sans grosse face sombre répétée sous chaque pierre.
 
-## Vérification sous Windows
+Les images conservent leur alpha natif et leurs proportions. Aucun sprite
+ne contient une salle complète.
+
+**Nouvelle étude des raccords :** ouvrir `scenes/3x3RoomFourCorridors.tscn`,
+puis **F6**. Par défaut, la salle 3×3 a quatre couloirs centrés, ouverts au bout,
+de longueur logique **3 à gauche/droite et 4 en haut/bas** pour examiner la
+continuité. `vertical_corridor_length=4` ajoute une case aux branches verticales ;
+zéro reprend la longueur commune (défaut du script : 2).
+`connections` active chaque direction (N1/E2/S4/W8,
+défaut15) ; `corridor_length` va de 1 à 3. Leur modification reconstruit le rendu.
+Les arêtes exposées et les angles sont déduits des cases occupées.
+
+Les angles en L dédiés remplacent les carrés rejetés. Les murs droits utilisent
+les mêmes échelles, espacements et assises que les sept petites scènes. Les
+couloirs latéraux prolongent les rangées de la salle sans recouvrir ses dalles.
+Les petites entretoises entre les angles sont supprimées. Les courts retours
+utilisent `paired-cap-transitions-v7.png`, une assise complète à quatre pierres
+et deux coudes. Leurs deux centres verticaux sont désormais recalés ensemble
+sur les ports logiques ; les extrémités utilisent le même transform uniforme.
+Les angles individuels compatibles restent `cap-elbows-flush-v9.png`.
+`wall-tops-ports-v12.png` fournit les dessus verticaux à teinte blanche, avec
+leur couleur directement dans le PNG. Les passages isolés et raccordés partagent
+la composition des longueurs, qui évite de changer fortement la largeur des
+pierres pour remplir un couloir plus long. Le dallage reste inchangé.
+Prompts, régions et variantes écartées :
+`assets/dungeon/modular-study/port-width-generation.json`.
+Le rendu reste à apprécier visuellement ; il ne valide pas des plans arbitraires.
+Les bras natifs des angles ajoutent une transition à la longueur des modules
+droits ; le calage d'une future grille de construction reste à définir.
+Il n'y a pas encore d'éditeur joueur ni de rendu complet pour plans arbitraires.
+
+Captures : `godot --path . --script tools/capture_room_corridors.gd`.
+Voir `artifacts/3x3RoomFourCorridors.png`, sa version `-2x.png` et ses quatre
+jonctions `-{north,south,west,east}-4x.png`.
+Les détails `-west-floor-4x.png`, `-corridor-wall-foot-4x.png` et
+`-corner-style-4x.png` ciblent les trois problèmes signalés.
+`godot --path . --script tools/capture_module_connections.gd` produit aussi :
+
+- `junction-perspective-comparison.png` : carrés rejetés / angles en L ;
+- `junction-continuity-comparison.png` : entretoises et angles gris / retours actuels ;
+- `junction-profile-comparison.png` : marches et débords / calage des profils ;
+- `wall-profile-shared-comparison.png` : couloir 2×1 / couloir raccordé, à ×4 ;
+- `junction-native-parts-comparison.png` : retour inférieur avant/après, à ×4 ;
+- `vertical-material-comparison.png` : matière des murs verticaux avant/après, à ×4 ;
+- `junction-all-returns.png` : les quatre retours courts en entier, à ×4 ;
+- `junction-ports-west-upper-return-comparison.png` et `junction-ports-west-lower-return-comparison.png` : largeur/alignement avant et après ;
+- `junction-ports-north-comparison.png` et `junction-ports-south-comparison.png` : coins et branches verticales avant et après ;
+- `connection-masks-comparison.png` : les 16 combinaisons de directions ;
+- `connection-lengths-comparison.png` : longueurs 1, 2 et 3 ;
+- `connections/rebuild-roundtrip.png` : fermeture et réouverture sur la même instance.
+
+```powershell
+godot --path . --script tools/capture_modular_room.gd
+```
+
+Cette commande capture uniquement le rendu, sans sondes ni assertions :
+
+- `artifacts/cell-rooms-comparison.png` : les trois salles à la même échelle ;
+- `artifacts/corridors-comparison.png` : les quatre couloirs ;
+- `artifacts/<NomDeScene>-2x.png` : vue agrandie ;
+- `artifacts/<NomDeScene>-{west,east,north,south}-4x.png` : détails des raccords.
+
+Ces études restent à apprécier visuellement et se lancent séparément avec **F6**.
+PNG et prompts : `assets/dungeon/modular-study/`.
+
+### Étude visuelle de la référence
+
+Ouvrir `scenes/ReferenceCalibration.tscn`, puis **F6**, pour voir la portion de
+salle en cours de recalage. Cette étude n'est pas encore approuvée. Elle utilise
+des sprites complets à transparence native et ne remplace pas la carte F5.
+Les captures sont dans `artifacts/reference-calibration.png`,
+`reference-calibration-2x.png` et `reference-calibration-comparison.png`.
+L'arche et les pierres environnantes forment désormais un module de maçonnerie
+commun ; le vantail séparé se place derrière ses embrasures. Les pieds avancent
+sur les dalles. `door-masonry-comparison.png` montre l'original, l'état précédent
+rejeté et le rendu actuel ; `door-integration-opening.png` masque uniquement le
+vantail. La capture ciblée contrôle l'ouverture, l'ordre de rendu, l'appui des
+pieds sur le sol et le chargement des PNG :
+`godot --path . --script tools/capture_reference_calibration.gd`.
+La porte a été resserrée avec son arche ; `door-proportions-comparison.png`
+montre l'original, la version trop large et le rendu actuel. Cette correction
+concerne l'étude F6. Le contrôle de proportions complète la comparaison visuelle.
+Le bois et les ferrures du battant ont ensuite été repeints pour harmoniser
+leur traitement avec les pierres : voir `artifacts/door-style-comparison.png`.
+
+### Sondes de la carte
+
+Après F5, **F3** affiche **644 sondes** et rend **858 éléments** inspectables.
+
+- Clic : origine, emprise, Z, PNG source, région d'atlas et UV locales.
+- Filtres : sols, murs, piliers, entrée, cœur, lumières et effets.
+- **R / Actualiser** recalcule ; **F3 / Échap** masque le diagnostic.
+- **Exporter JSON** écrit `user://dungeon-probes.json` et affiche son chemin.
+
+Les cadres représentent les sprites complets ; la sélection tient compte de
+leur alpha. Les sondes vérifient des positions fixes et ne remplacent pas
+l'inspection visuelle des raccords.
+
+## Images et assemblage
+
+`assets/dungeon/alpha-kit/` contient huit PNG utilisés et leur provenance dans
+`generation.json`. `scripts/alpha_kit.gd` définit 27 sprites complets avec leurs
+marges transparentes et leurs ancrages. La torche utilise son PNG partagé dans
+`assets/dungeon/torches/`. `walls.png` est un brouillon inutilisé.
+
+**Règle du projet : aucun détourage programmatique**, même préparé hors moteur.
+Générer les variantes nécessaires avec leur véritable alpha, conserver leurs
+proportions et assembler les images entières. Aucun masque de silhouette ni
+shader de détourage n'est utilisé dans la scène principale.
+
+Les corps des murs et leurs bords extérieurs sont des sprites indépendants.
+Les bords s'arrêtent aux angles et façades ; les pierres du corps reprennent
+au pied des piliers. Les motifs des colonnes sont placés sur leur face verticale.
+
+| Fichier | Rôle |
+| --- | --- |
+| `assets/layouts/six_rooms.tres` | Plan fixe, grille et entrée |
+| `scripts/alpha_kit.gd` | Catalogue de sprites entiers |
+| `scripts/six_room_view.gd` | Assemblage, recouvrements, lumières et actualisation |
+| `scripts/stone_variation.gd` | Choix de variantes et teintes reproductibles |
+| `scenes/DungeonHeart.tscn` | Cœur transparent et lumière, instance préservée |
+| `scenes/DungeonTorch.tscn` | Torche transparente et ancrage |
+| `scripts/probe_fixtures.gd` | Positions attendues des sondes |
+| `scripts/dungeon_probes.gd` | Inspection, sélection alpha et rapports |
+| `scripts/probe_overlay.gd` | Interface F3 |
+| `GAME_DESIGN.md` | Valeurs implémentées et limites |
+
+## Vérifier
 
 ```powershell
 ./tools/test-mobile.ps1 -All
 ./tools/test-mobile.ps1 -All -Capture
 ```
 
-Si nécessaire, ajouter `-Godot 'C:\chemin\godot.exe'` ou définir `GODOT_BIN`.
-Le script importe le projet, vérifie les connexions et le cadrage en quatre
-formats, puis lance brièvement la scène principale. `-Capture` produit
-`artifacts/dungeon-2d.png` avec le moteur graphique ; une session graphique est
-nécessaire pour cette option. Les sorties et captures restent locales.
+La suite contrôle la transparence des sources, les régions d'atlas, les
+proportions, le plan, les sondes, les variantes, l'actualisation dans un éditeur
+isolé et le cadrage dans quatre formats. Des défauts temporaires sont injectés
+pour vérifier les diagnostics.
 
-Le nom `test-mobile.ps1` est conservé comme point d'entrée. Il vérifie désormais
-la base 2D : il ne certifie pas encore un export ni les performances sur téléphone.
+`-Capture` ajoute les contrôles de pixels GPU et les captures réelles :
 
-## Ancienne version
+- `artifacts/dungeon-2d.png` : carte complète ;
+- `six-room-details.png` et `vertical-wall-details.png` : détails ;
+- `alpha-joins-2x.png` : raccords et murs latéraux à ×2 ;
+- `wall-projection-comparison.png` : entrée et salle haute à la même échelle ;
+- `entrance-seams-detail.png` et `heart-detail.png` : entrée et cœur à ×2 ;
+- `stone-variation-before-after.png` : comparaison des variations ;
+- `dungeon-probes.png`, `probe-wall-detail.png`, `probe-failure-example.png`
+  et `dungeon-probes.json` : diagnostic et défaut volontaire ;
+- `alpha-six_rooms-report.json`, `entry-seams-report.json`,
+  `alpha-heart-report.json` : composition alpha GPU ;
+- `reference-comparison.png` : étude historique de l'entrée, pas une comparaison
+  de toute la nouvelle scène.
 
-Le prototype 3D et ses ressources ont été retirés de cette branche. La version
-précédente reste disponible dans Git au tag **`v1.0.0`**. L'historique Git garde
-donc les anciennes ressources, même si elles ne font plus partie du projet actif.
+Les contrôles GPU comparent 599 points de carte, 3828 d'entrée et 2809 du cœur
+à la composition attendue des sprites actuels. Ils ne prouvent pas à eux seuls
+la fidélité artistique ; inspecter aussi les captures normales et à ×2.
+
+Rendu GL Compatibility, vérifié avec Godot **4.7.2**. Utiliser `-Godot <chemin>`
+ou `GODOT_BIN` si nécessaire. Les captures demandent une session graphique.
+
+## Périmètre
+
+La carte reste fixe, sans animation, interaction, sauvegarde ni génération.
+Les autres dispositions et portes latérales nécessitent des variantes adaptées.
+L'optimisation mémoire, les exports et les contrôles tactiles sur téléphone
+restent à réaliser ; en portrait la carte entière est affichée à petite échelle.
+
+`assets/dungeon/perspective/reference-atlas.png` conserve la référence artistique.
+L'étude `PerspectiveRoom.tscn` garde son ancien assemblage de calibration ;
+ce pipeline de découpe n'est plus utilisé par la scène principale.
+Le prototype 3D reste dans Git au tag **v1.0.0**.

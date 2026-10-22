@@ -2,10 +2,38 @@
 class_name DungeonLayout
 extends Resource
 
+enum WallSide { NORTH, EAST, SOUTH, WEST }
+const OUTWARD: Array[Vector2i] = [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
+
 ## Fixed floor map. Dots are empty; digits select one of the eight floor sprites.
 @export var cell_size: int = 54
 @export var margin: int = 90
 @export var rows: PackedStringArray = []
+@export_group("Entrance")
+@export var entrance_enabled: bool = false
+@export var entrance_cell: Vector2i = Vector2i(3, 3)
+@export var entrance_side: WallSide = WallSide.NORTH
+
+
+func get_entrance_cells() -> Array[Vector2i]:
+	var along := Vector2i.RIGHT if entrance_side in [WallSide.NORTH, WallSide.SOUTH] else Vector2i.DOWN
+	return [entrance_cell, entrance_cell + along]
+
+
+func has_valid_entrance() -> bool:
+	if not entrance_enabled or entrance_side < 0 or entrance_side >= OUTWARD.size():
+		return false
+	var along := Vector2i.RIGHT if entrance_side in [WallSide.NORTH, WallSide.SOUTH] else Vector2i.DOWN
+	# Require two floor cells and a straight wall on either side of the frame.
+	for offset in range(-1, 3):
+		var cell := entrance_cell + along * offset
+		if not has_floor(cell) or has_floor(cell + OUTWARD[entrance_side]):
+			return false
+	return true
+
+
+func is_entrance_edge(cell: Vector2i, side: WallSide) -> bool:
+	return has_valid_entrance() and side == entrance_side and cell in get_entrance_cells()
 
 
 func get_grid_size() -> Vector2i:

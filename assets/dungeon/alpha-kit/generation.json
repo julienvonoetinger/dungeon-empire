@@ -1,0 +1,129 @@
+{
+  "wall-units": {
+    "prompt": "Generate a genuine transparent RGBA 2D game SPRITE SHEET with EXACTLY SIX small modular masonry units, 2 columns by 3 rows. Reference image gives slate-blue painted stone style and orthographic overhead/front projection. Each sprite separate with generous transparent gutters. Row 1: two NORTH wall units, each is NARROW AND TALL, width:height 0.82:1 (NOT a long horizontal strip). It has ONE broad cap block at top, and two staggered dark brick courses below; full vertical facade. Row 2: two SOUTH wall units, width:height 0.95:1; ONE broad top cap, two dark courses below. Row 3: WEST and EAST sidewall units, width:height 1.3:1, each has ONE square blue CAP stone with a narrow dark external flank: LEFT flank on west sprite, RIGHT flank on east sprite. Same upper-left painted lighting, no mirroring. These are unit pieces, not long walls. All six approximately the same drawn WIDTH. Flat aligned edges for modular joining, beveled outer shape, no pieces cut off. Dark mortar inside each unit. No floors, pillars, decorations, text, aura or backdrop. No shadow beyond sprite silhouette. Use smooth stylized brush texture matching reference and not overly detailed.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-fd9e9afc-849d-495e-9c21-8c157f37b4f7.png",
+    "used": false,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "floors": {
+    "prompt": "Use case: stylized-concept. Create a production sprite sheet with SIX isolated FLOOR SLAB sprites on genuine transparent RGBA background. Reference image gives exact slate-blue hand-painted dungeon stone style. No other objects, no wall, no text, no ground behind sprites. Arrange 2 columns x 3 rows, equal cell grid, generous transparent gutters. Top row: two slightly different BROAD floor flagstones, width:height 4:3. Middle row: two MEDIUM flagstones width:height 1:1. Bottom row: two NARROW flagstones width:height 2:3. All SIX have IDENTICAL drawn HEIGHT, same perspective, lighting, bevel depth and amount of detail. Nearly rectangular silhouettes with slightly chipped small rounded corners, dark blue mortar edge and restrained upper-left cool bevel, mostly flat matte blue-gray interior. EXACT reference color approx #3b517a, no purple baked lighting. Overhead orthographic view with horizontal and vertical axes, no isometric diagonals, no thick vertical wall facade, only thin dark edge. Subtle variations of texture and a few hairline cracks, broad flat areas like reference. Every whole stone complete and separate, entire outside transparent. These are floor tiles and must stay visually quieter than walls.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-cc1b53b7-50d5-41b5-a2ef-cb0890b5ac65.png",
+    "used": true,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "piers": {
+    "prompt": "A clean 2D GAME SPRITE SHEET on TRANSPARENT RGBA, exactly four complete separate slate-blue stone pillars laid out horizontally in one row with wide empty gaps. All exterior space is invisible alpha zero. Absolutely no aura, no ambient glow, no vignette, no drop shadow, no gradients behind objects. Art: chunky hand-painted beveled blue dungeon masonry, black ink outline, soft upper-left highlights and deep blue fronts. Camera orthographic overhead/front, axes screen aligned. First pillar short: square top with inset diamond, one dark front block underneath. Second pillar medium: same square top then two dark front stones. Third pillar tall: plain cap, a long upright front carved with a simple diamond, bottom square foot. Fourth pillar tallest: same as third plus one extra dark base stone. Same width for all four, height ratios 1.3, 2, 2.6, 3.3. Do not include a setting or backdrop at all. No floor. No light effects. Each sharp-edged complete stone sprite floats alone with transparent negative space around it. Match reference masonry shapes and subdued blue colors. The entire object outline must be intact with minimum 24 pixels transparent margin.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-478117f4-30ce-40ec-ab52-f571166f90c4.png",
+    "used": false,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "joins": {
+    "prompt": "Make a new sprite sheet based only on the attached clean sprite sheet. Keep exactly its dark muted blue colors, clean fully transparent background, thick outline, and NO exterior glow or haze. Exactly TWO sprites horizontally separated on invisible transparent RGBA. LEFT: take the SECOND pillar in the reference (diamond on square cap with dark plain stones below) and add ONE matching dark rectangular brick course underneath, yielding one square diamond cap plus THREE dark flat facade bricks, total height about three times width. RIGHT: take the THIRD pillar from reference, preserve the square cap and diamond decorated long middle, REMOVE its bottom square foot entirely, leaving just two stones. Both same width. No background shading anywhere: all space beyond stone outlines remains fully transparent. No labels. Complete uncropped shapes with wide transparent margins.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-31fb36c7-8b46-43c5-86ec-8d3a71cb5212.png",
+    "used": false,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "entrance": {
+    "prompt": "Use case: background-extraction / precise-object-edit. From the attached approved dungeon image, recreate ONLY the wooden north ENTRANCE DOOR WITH ITS STONE ARCH as a single complete reusable game sprite, on genuine transparent background. Match the exact reference design, perspective and proportions: rounded arch of chunky irregular slate-blue stones, upper cap peaked slightly, orange-brown wood planks, two dark metal straps and ring handle on right. The door is seen front-on from slight overhead, with symmetrical vertical jambs and flat bottom threshold. Same painterly stylized stone detail, not a redesign. Door plus stone arch only. Remove the two torches, ALL neighboring wall, ALL floor, all cast shadows on surroundings, all UI. Keep a small clean native alpha margin around the full silhouette; holes between stones inside the arch retain dark mortar. NO glowing background, NO black backdrop, NO floor patch, NO surrounding rectangles, NO dropped stone debris. Center in image, complete feet included, approximately width:height 1:1.1, fill 85 percent of canvas height. Do not show an interior room through door. Native RGBA alpha.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-a14b64dd-ec08-4f4d-9164-e6259da1fa49.png",
+    "used": true,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "heart": {
+    "prompt": "Use case: background-extraction. Recreate ONLY the dungeon HEART from the attached reference as ONE complete game sprite on actual transparent RGBA background. Preserve approved exact design: square slate-blue stone pedestal aligned to screen horizontal/vertical axes, four small square corner blocks, shallow blue stone inner basin, a floating dark violet BLACK HOLE SPHERE above its center, thin luminous violet rim, small purple energy tendril vertically linking sphere to basin. Camera: same overhead/front orthographic dungeon perspective as source, NOT isometric, pedestal front edge horizontal, no diamond floor footprint. No metal rings. No extra pillars above/behind sphere. Match simple painterly chunky blue masonry and restrained detail of source. Include entire pedestal, all four corner blocks, floating sphere, and tiny local glow immediately next to sphere only. Outside object silhouette must have real transparency with no floor, no wall, no blue haze, no cast shadow ellipse, no surrounding gradient or vignette. Do not add UI or props. Single centered sprite, generous transparent margin. Keep square base and sphere size proportions matching reference exactly.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-d4458a36-c563-43e4-b4dd-44db0afce279.png",
+    "used": true,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "entrance-walls": {
+    "prompt": "Production sprite sheet for attached dungeon style, genuine transparent RGBA. EXACTLY TWO isolated complete NORTH WALL modules side by side, equal size. Each module width:height about 1.4:1, one row of broad cool slate-blue cap blocks at top and THREE staggered courses of DARK blue masonry underneath, so it is tall enough for a doorway. Camera is orthographic front with slightly visible top caps like the reference, horizontal edges horizontal. Flat front, no end towers/pillars, no doorway, no floor, no torches. The left and right ends are straight dark mortar joints for overlapping a few pixels, upper cap edge lightly irregular, bottom edge natural complete dark stones. Two variations, subtle cracks and different joints, keep same dimensions. Match exact simple painterly chunky stones from reference; no photorealism, no extra detail. No aura, no ambient glow or cast shadow outside walls, no background gradients. Transparent outside both whole wall silhouettes and a large transparent gutter between sprites. Full silhouettes, do not clip any stone.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-0c289c14-4b1e-422a-a533-bd2c41dbe29d.png",
+    "used": false,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "walls-draft": {
+    "prompt": "Use case: stylized-concept. Production sprite sheet for the attached 2D dungeon. Reference image: approved game perspective/style ONLY. Generate a genuine transparent RGBA background sheet containing EXACTLY 6 completely isolated full masonry modules in a regular 2 columns x 3 rows grid, no labels, no frames. Each cell has generous transparent margins, no pixels touch adjacent cells. Preserve the reference hand painted slate-blue chunky stones, restrained highlights, thick dark mortar and subtle cracks, not pixel art, no isometric rotation. Orthographic Zelda-like overhead/front view, horizontal edges stay horizontal, vertical edges vertical. Row 1: two variants of a NORTH horizontal wall section, each wide rectangle aspect 2:1, top 1/3 broad bevelled cap blocks, lower 2/3 dark blue vertical brick facade, EXACTLY like the reference horizontal back walls. Row 2: two variants of SOUTH horizontal foreground wall section same 2:1 aspect, broad pale blue top cap, dark facade hanging below. Row 3: WEST vertical wall section on left and EAST vertical wall section on right, each aspect 1:2; chunky broad cap stones in vertical stack, narrow DARK OUTER FLANK ON LEFT for west and ON RIGHT for east. Do not mirror lighting, both lit from upper left. Wall modules must have almost straight mating ends with dark mortar so complete sprites can overlap by a few pixels to join; organically bevelled exterior contour with native alpha. No floor, doorway, torches, objects, text, backgrounds or cast shadows outside the modules. Match original stone detail and shades closely; NOT a redesign.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "generated_file": "exec-be17d46e-ba9e-4aad-a1be-b4b7bf115572.png",
+    "used": false,
+    "postprocessing": "None. Source PNG copied verbatim; complete rectangular sprite regions preserve original alpha. Anchor measurements are not masks."
+  },
+  "wall-blocks-v2": {
+    "id": "wall-blocks-v2",
+    "file": "wall-blocks-v2.png",
+    "generated_file": "exec-c3d77fbd-39c6-4e21-8c43-3037c30d87aa.png",
+    "prompt": "Create a genuinely transparent RGBA sprite sheet of SIX COMPLETE SMALL wall building blocks, arranged two columns and three rows, with large transparent gutters. Faithfully recreate the chunky matte SLATE BLUE painted stone style and overhead-front camera of the attached original dungeon. Use rounded uneven corners, subtle soft blue bevels, dark navy mortar. Not shiny, not faceted crystal, no repeated diagonal scratches or white outlines. No scene or background, no atmospheric glow, no floor.\n\nTop row: TWO individual cap blocks for walls that run vertically UP/DOWN the game screen. Each block has overall width:height about 1:1. The visible upper plane is a squat rounded rectangle, and a short darker SOUTH-facing thickness occupies the bottom quarter. Both blocks face exactly the same direction as the wall caps in the reference. The upper plane is not a face-on vertical UI rectangle. Their left/right boundaries do not contain any narrow row of bricks. Plain stones, no carved decoration. Whole silhouette, no connecting stubs or clipped edges.\n\nMiddle row: TWO individual narrow OUTSIDE BACKING STONES, one west and one east. Each about width:height 1:2, dark muted blue. These are completely SEPARATE from the top-row cap blocks, to place behind a wall when appropriate. A single side-face stone, not a ladder of small squares, not a column, no pale cap on top.\nBottom row: TWO SHORT OUTSIDE BACKING STONES, same dark style, about width:height 1:1, rounded block ends.\n\nThese six sprites are aligned orthographically to horizontal/vertical screen axes, never isometric. All elevation faces project toward screen bottom, not to different left/right camera angles. True alpha outside all six isolated objects; no floor shadows or backdrop.",
+    "alpha_edit_prompt": null,
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "used": true,
+    "postprocessing": "Source PNG copied verbatim. Complete atlas cells only; anchor measurements do not alter pixels or alpha.",
+    "reference": "assets/dungeon/perspective/reference-atlas.png",
+    "sha256": "3728ad6ab380a3f9af8d18fd0ed42bdcb07da3a568cf947747bae0f1eb1c9e80"
+  },
+  "piers-v2": {
+    "id": "piers-v2",
+    "file": "piers-v2.png",
+    "generated_file": "exec-1da07fd0-843f-474f-abf0-bc9c340b1131.png",
+    "prompt": "Create FIVE whole masonry pier sprites on true transparent RGBA background, arranged in one horizontal row with wide clear gaps. Faithfully repaint the WALL PIERS from attached original blue dungeon, same soft matte blue-slate brushwork, chunky slightly irregular stones, subdued bevels, no sharp white strokes, no crystalline facets or diagonal hatch scratches. They belong to one overhead/front game camera: a short visible cap top, a SOUTH-facing front below. No side-facing/isometric columns. Not UI buttons, not flat stacks of tiles.\n\nAll five have SAME apparent width. Left to right:\n1. LOW CORNER: plain broad cap stone at top, width:height cap about 1.5:1, one squat darker front stone below. Total width:height 1:1.35.\n2. MEDIUM CORNER: SAME plain broad cap and a tall uninterrupted FRONT stone below it with a modest shallow diamond engraving. Total width:height 1:1.9.\n3. SIDE BUTTRESS: SAME cap and one tall stone front carrying the reference's subtle elongated diamond motif; a short plain foot. Total width:height 1:2.3.\n4. JOINED CORNER: SAME cap and one continuous dark front with ONE subtle engraved diamond high on the FRONT, and a modest lower stone foot. Total width:height 1:2.6.\n5. TALL ENTRANCE PIER: SAME cap, one elongated stone shaft with subtle diamond engraving ON ITS FRONT, and two short darker foot blocks. Total width:height 1:3.3.\n\nCritical perspective: the top caps are PLAIN, no symbols on the top planes. All symbols belong to the SOUTH-facing fronts BELOW the caps. Top and face are visibly different planes, like the source reference, coherent across ALL five heights. Thickness lies towards screen bottom, never a big flat symbol plaque presented as a floor tile. Faces remain blue-gray, not black floating blocks. Whole connected silhouettes, no exterior side brick rows; no walls or scenery around them; no cast shadows, aura, glow, labels, floor or background.",
+    "alpha_edit_prompt": null,
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "used": true,
+    "postprocessing": "Source PNG copied verbatim. Complete atlas cells only; anchor measurements do not alter pixels or alpha.",
+    "reference": "assets/dungeon/perspective/reference-atlas.png",
+    "sha256": "334cca4e991946d40c159606c11d56b5b831922ede851acdbdefee6e137610d1"
+  },
+  "facades-v2": {
+    "id": "facades-v2",
+    "file": "facades-v2.png",
+    "generated_file": "exec-00fb0442-558c-4a37-8fe2-c9938835695a.png",
+    "prompt": "Six complete HORIZONTAL WALL FACADE sprites only, on genuinely empty TRANSPARENT RGBA background with zero alpha between sprites. Two columns, three rows, generous gutters. Use attached original dungeon's soft chunky matte blue-slate painted masonry exactly: broad simple surfaces, rounded slightly irregular edges, subtle restrained bevels and navy mortar, no shiny hard white outlines, no diagonal hatching. These are raised walls from the original game's overhead/front camera.\n\nAll six walls contain FOUR CAP BLOCKS across with identical drawn stone size and same width. Each block has a shallow top plane and a small darker lip facing screen bottom. Beneath the continuous cap course is a SOUTH-FACING DARK MASONRY FACADE, with large staggered bricks. Different heights come only from extra masonry courses, not scaling stones.\n\nTop row: two variants NORTH WALL about 3.3 times wider than high. The cap course is about 1/3 of the total height; underneath are TWO restrained staggered masonry courses.\nMiddle row: two variants SOUTH WALL about 3.6 times wider than high. Same size cap stones and a slightly shallower dark facade.\nBottom row: two variants TALL ENTRANCE WALL about 2 times wider than high. SAME cap block dimensions as above and THREE large dark masonry courses below. No door.\nAll walls end at whole stones, entire connected silhouettes. Cap courses have natural slightly chipped upper contours and continuous mortared joints, no giant border. No pillars, external side rows, end projections, lamps, door, floor, text or shadows outside their shapes. Do not draw any background color, gradient, haze or illumination around the sprites. Source artwork must have actual transparency, not a dark backdrop.",
+    "alpha_edit_prompt": "Edit this sprite sheet: REMOVE ALL of the blue-gray atmospheric background, shading, haze and glow surrounding the six stone wall sprites. The result MUST have genuine fully transparent zero-alpha space between and outside the six objects. Keep all SIX wall sprites themselves, their painted colors, shapes, details, positioning and size exactly unchanged. Every whole masonry silhouette remains complete. No backdrop whatsoever, no contact-shadow outside walls. This is a native transparent game sprite sheet, not an illustration on a dark background.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "used": true,
+    "postprocessing": "Source PNG copied verbatim. Complete atlas cells only; anchor measurements do not alter pixels or alpha.",
+    "reference": "assets/dungeon/perspective/reference-atlas.png",
+    "sha256": "17d2284b5348f89498e4f68cf840bfc243820c719cbd3038a94908452fb0fc87"
+  },
+  "wall-units-v2": {
+    "id": "wall-units-v2",
+    "file": "wall-units-v2.png",
+    "generated_file": "exec-c26f94c3-58fc-406b-b5e6-4f9cfe591598.png",
+    "prompt": "Create exactly TWO isolated COMPACT SQUARE BLUE MASONRY WALL MODULES side by side on genuine transparent RGBA. Each entire module silhouette must be SQUARE (equal width and height), not a long horizontal wall. Example dimensions per module: width 300 pixels, height 300 pixels. Each has ONE top cap stone 300 wide x 100 high, and two staggered dark masonry rows beneath, each 100 high. Total 300x300. Two subtle wear variants of same module, identical dimensions. No other objects, no additional rows of modules.\nUse the attached original dungeon's soft chunky matte slate-blue painted stone, simple broad planes and soft imperfect corners. The top cap is seen from above with its south-facing lip; brick facade below faces viewer toward screen bottom. Match the wall facade beside the source door. No shiny crystalline edges, no hatching, no sharp white bevel border, no 3D isometric side faces. Complete connected silhouette; fully transparent outside both modules, wide gutters and no glow, background, shadow or atmosphere.",
+    "alpha_edit_prompt": null,
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "used": true,
+    "postprocessing": "Source PNG copied verbatim. Complete atlas cells only; anchor measurements do not alter pixels or alpha.",
+    "reference": "assets/dungeon/perspective/reference-atlas.png",
+    "sha256": "e191107ed10d30bfa4b2c1233263a567802758706f73882b01ef16f108f2d201"
+  },
+  "short-caps-v2": {
+    "id": "short-caps-v2",
+    "file": "short-caps-v2.png",
+    "generated_file": "exec-b853b612-aafb-4cca-a606-97c5c882456c.png",
+    "prompt": "Generate exactly TWO small complete shallow BLUE wall cap stones as separate sprites on true transparent RGBA background, side by side. Original reference's matte slate-blue chunky painted masonry. Both stones are VERY WIDE AND SHALLOW: width about 3 times overall height, example 300 wide by 100 high. One squat rectangular top plane, softly uneven rounded corners, thin dark SOUTH-facing lip below, no side flanks. Two subtle wear variants, identical proportions. Restrained soft bevel and dark navy mortar outline, no white shiny lines, no hatching or crystal facets. No wall courses underneath, just one shallow cap stone per sprite. No scene, floor, text, glow, shadow, atmosphere or background. Large fully transparent margins. Orthographic overhead-front game projection, elevation toward screen bottom.",
+    "tool": "built-in image_gen",
+    "transparent_background": true,
+    "used": true,
+    "postprocessing": "None; PNG copied verbatim. Complete sprite regions and uniform scale only.",
+    "sha256": "b9bd9e76ed7f1f6d6fc5051235335219d18459642fb731f3a65554e0df1e5ccd"
+  }
+}

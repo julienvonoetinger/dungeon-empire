@@ -1,0 +1,224 @@
+{
+  "status": "Unapproved visual calibration assets; not main-scene dependencies",
+  "tool": "image_gen",
+  "transparent_background": true,
+  "reference": "assets/dungeon/perspective/reference-atlas.png",
+  "selected": [
+    "floor-patch-v2.png",
+    "entry-masonry-v3.png",
+    "door-leaf-v4.png",
+    "east-corner-v1.png",
+    "exterior-v1.png"
+  ],
+  "assets": [
+    {
+      "path": "entrance-v2.png",
+      "source": "exec-bfca44bd-e5ce-461c-9c54-2cb972f0d814.png",
+      "prompt": "Use case: precise-object-edit, game sprite perspective correction.\nImage 1: APPROVED original dungeon, the authority for the door design and camera.\nImage 2: current isolated door sprite to correct.\nImage 3: actual Godot scene where the corrected sprite will be placed. Use only as scale/placement context.\nReturn ONLY the complete corrected door and its stone arch on genuine transparent background.\n\nProblem: Image 2 was painted like a flat straight-on icon. The original game looks down on the wall from above. Correct the drawn projection, not just its size. Use the original non-isometric overhead/front-facade projection: camera centered directly in front of the north wall but elevated approximately 35 degrees looking downward. No side rotation, skewed axes or vanishing-point convergence.\nMake the arch a solid masonry arch embedded in a thick wall. Its stone roof has a clearly readable TOP SURFACE receding upward/backward in screen space. The front arch face sits slightly lower than that rear/top silhouette, so we see the actual thickness of the arch above it, matching the visible tops of the wall blocks. Keep that depth restrained like the original, not an enormous projecting gateway. The front arch crown should align with the top front edge of the surrounding wall in Image 3; only the upper/rear thickness rises above it.\nThe wooden door leaf is RECESSED behind the front jamb faces, with visible dark inner reveals and a narrow stone threshold between the jamb feet, seen from above. The bottom of the wooden leaf is visibly higher in screen space than the front feet, because the threshold has depth. The vertical wooden leaf is mildly foreshortened by the elevated viewpoint. No frontal flat sticker look.\nKeep the same warm vertical wooden planks, two dark iron straps, ring handle on the right, softly painted slate-blue masonry, irregular rounded arch stones and single unobtrusive diamond on the crown as the approved original. Avoid thick black cartoon strokes, glossy white bevels, crystalline facets, extra ornament, extra columns, steps protruding out onto the floor or redesigning the entrance.\nPreserve approximately the current sprite footprint and canvas: 1536 by 1024 landscape canvas, centered full arch about 920 pixels wide, complete front feet near y=930. Rear arch top near y=90, front crown lower around y=200 to show the top depth. These are framing guides, not visible guides or text. All geometry, the ring handle and threshold must share the SAME elevated camera.\nNo surrounding wall, floor patch, torches, lighting bloom, background halo, UI, characters, drop shadow or labels. Fully clear alpha outside the natural masonry silhouette. Keep image 1's original soft art style. Produce the entire complete sprite, with no cropping of painted edges.",
+      "used_in_study": false,
+      "sha256": "ced2c6a5b3faeb4f1fa1a421bdde30203a71bef1f44d1b42e3ad12c5d68e0893"
+    },
+    {
+      "path": "floor-patch-v2.png",
+      "source": "exec-71ee96ba-5c23-437e-9cd9-8b0b8d657233.png",
+      "prompt": "Use case: precise-object-edit.\nImage 1 is the ORIGINAL approved artwork and the visual authority. Image 2 is the floor patch to correct.\nKeep Image 2's overall footprint, genuine transparent outside and one continuous patch, but replace the oversized wide brick-like slabs with the original game's almost-square flat floor slabs. The current patch looks like wall bricks laid sideways. Match Image 1's softly painted flat floor: broadly square slabs with restrained variation of width, roughly 0.8 to 1.35 times their height, about EIGHT slabs across and SEVEN rows down. Offset row joints subtly so no seam runs vertically for more than two rows; do not align all columns or arrange alternating big-brick/tiny-brick pairs.\nUse the original understated blue-grey slate, faint mottled shading, soft irregular edge highlights, thin joints and modest worn corners. Avoid thick raised bevels, bright continuous outlines, diagonal brush striations, large cracks, high contrast, generic glossy game icons or facets. The floor must read as a flat walkable plane. Preserve transparent outside gutters, opaque internal mortar and complete boundary stones. No walls, objects, effects, frame, text or cast shadows.",
+      "sha256": "9c25ae7a9cb9bb692657fc6ed7ff482fde7e3ff1fa07edd6239bf178425f02cf",
+      "used_in_study": true
+    },
+    {
+      "path": "wall-corner-v1.png",
+      "source": "exec-a17f3bc9-5779-40a8-b63e-1a49ed69dff4.png",
+      "prompt": "Use case: background-extraction / faithful game architecture asset.\nThe attached image is the APPROVED ORIGINAL, not inspiration for a redesign. Reconstruct its upper-right room's NORTH WALL and EAST WALL as one coherent connected L-shaped architecture sprite, on genuine transparent background. Keep the original painterly slate-blue stone style, softness, irregular worn bevels, lighting, exact overhead/front-facade camera convention and stone scale. Reproduce the right-angle connection as it is understood in the reference.\nNorth arm runs horizontally across the top of the image, with a broad readable vertical masonry facade beneath a shallow top edge. East arm goes straight vertically down the right of the image. Its stones are the narrow continuous side-wall band visible on the original right room edge, NOT a stack of square floor tiles and NOT repeated isolated pillars. Only one modest integrated pier at the north/east junction, and one complete finished pier at the south end. Engraved diamonds only as in the reference, on upright pier faces. Ordinary north facade has consistent masonry elevation and staggered joints, including space where a door could later sit. Do not make an extra-tall door section.\nCopy the original low-contrast smooth flat stone surfaces. No crystalline facets, diagonal hatching, shiny white borders, tiny filler strips or strongly raised floor-like blocks. No isometric diagonal axes. No perspective vanishing point. Horizontal courses stay horizontal, east boundary stays vertical.\nAll surrounding space and the interior opening of the L must be transparent. No floor, no torches, no door, no character, no treasure, no UI, no letters. No cast floor shadows. Render only the actual connected masonry. The narrow dark OUTSIDE backing strip must be OMITTED from this core sprite because it will be a separate asset. Preserve shaded front faces that belong to the wall itself.\nCanvas roughly square, generous clear gutters. North arm about 7 original floor-slab widths long, east arm about 6 floor-slab lengths. Facade roughly 2 slab heights tall; side wall thickness about three quarters of one slab width. This is a source sprite for an actual Godot assembled visual study. Fidelity to the supplied artwork is more important than adding detail.",
+      "sha256": "5ab8562cc2645806e63974d8c91ee87452bce463007cf1ce795c1ad7175b25bd",
+      "used_in_study": false
+    },
+    {
+      "path": "floor-patch-v1.png",
+      "source": "exec-2b20a361-1b29-478b-a37e-dffe41f26f67.png",
+      "prompt": "Use case: background-extraction / faithful game floor asset.\nAttached image is the approved original dungeon. Reproduce ONLY a patch of its blue slate FLOOR, such as the clear floor in the right room. Genuine transparent background outside the patch. It must look like the original low-relief floor seen from above, with softly rounded flat slabs, soft blue highlights and narrow dark joints. Precisely match its painted texture and camera, not the upright wall bricks.\nOne complete patch of about seven slabs across and six rows down. Stagger vertical joints from row to row; use restrained varying slab widths and subtle wear. No long continuous vertical seam across three or more rows. All slabs lie on a single flat plane. Straight image axes, no isometric diamonds. No front-facing vertical brick faces, no thick raised lips, no glossy crystalline facets, no all-over cracks, no tiny pebbles. Moderate understated variation, most slabs intact. Matte blue/slate palette exactly from the reference's unlit floor, without baked purple torch pools.\nThe patch has complete softly worn stones at its outer perimeter with native alpha around that perimeter. Tiny mortar gaps INSIDE the patch are dark stone/mortar, not transparent holes. Transparent canvas gutters outside. No walls, columns, torches, characters, chests, doorways, UI, borders, lettering, cast shadows or dark backdrop.\nThis floor patch will be placed underneath separate wall and door sprites in a real Godot scene, so it must contain ONLY the continuous flat floor. Preserve the reference style and stone scale rather than inventing a new look.",
+      "sha256": "46bb5441e855ad282fbba79851344ba8cb265036709fa02b8038bf905db1cfef",
+      "used_in_study": false
+    },
+    {
+      "path": "entrance-v1.png",
+      "source": "exec-8c56f587-4f28-439e-8c24-7b9ee41af64f.png",
+      "prompt": "Use case: background-extraction. The attached ORIGINAL dungeon image is the edit target. Extract/reconstruct ONLY its wooden north entrance door with the complete surrounding stone arch, faithfully preserving that exact design, proportions, painted slate-blue stone, chunky irregular rounded arch stones, warm wooden planks, two iron straps and round iron handle. This is not a new door design. Keep original soft-painted texture and frontal-overhead 2D camera, not crystalline faceting or shiny white vector outlines. The entire arch silhouette must be complete and genuinely surrounded by transparent alpha. Remove every surrounding wall, floor, torch, torch light pool, character, UI and dark background. No detached stone bits or floor slab under the feet. Flat base contact line with naturally rounded stone bottoms. Match source at high resolution but do not add extra etched details or stronger contrast. One isolated complete game sprite centered with clear transparent gutters. This will be assembled over separate walls and floors in Godot.",
+      "sha256": "cca7736ef675b062846912e4852e61875de82a5193e41ffe2af3a85f1149327d",
+      "used_in_study": false
+    },
+    {
+      "path": "exterior-v1.png",
+      "source": "exec-d877355d-8640-4526-a655-3aa89eccd1c4.png",
+      "prompt": "Use case: background-extraction / game architecture companion layer.\nImage 1 is an L-shaped wall CORE sprite. Image 2 is the approved original game artwork for style. Generate ONLY the narrow dark exterior thickness strip that belongs OUTSIDE the vertical east wall of Image 1, as a separate complete transparent sprite. Do not include the wall core, floor, pillar faces, door, or any background.\nIt is a slender continuous vertical dark-blue stone edge, roughly 1/4 as wide as the side-wall core. From the top-right corner down to the foot of the bottom pier, cover the full outside silhouette, including beside the pier instead of omitting those exposed lengths. A small finished cap at the very top and a finished foot at the bottom, not loose floating stones. Match the painted soft stone and shading of the original, with subdued seams, staggered joints and uneven native edges. No bright highlights, glossy bevels, etched motifs, random protruding blocks, perspective diagonals or horizontal ladder rungs. Keep stone size compatible with the east side-wall stones of Image 1.\nShow only this single slender exterior-depth strip, vertically oriented on genuine transparent canvas. Its width-to-height ratio approximately 1:25. Generous transparent gutters. No text, comparison panel or other objects. This layer will be scaled uniformly and placed immediately behind the core's outside edge in Godot; its natural native alpha must be preserved.",
+      "sha256": "b140a812aa890a277b4e68ce55339a2fc1c203e9de0051e28b2ab96238458c49",
+      "used_in_study": true
+    },
+    {
+      "path": "entry-wall-left-v1.png",
+      "source": "exec-def354eb-efce-4265-9cd3-726c98c14323.png",
+      "prompt": "Use case: precise-object-edit.\nThe input is a north wall to shorten. Return ONE very short complete section of this same wall on true transparent background.\nKeep only about ONE CAP STONE'S WIDTH of masonry. The complete wall section should be roughly as WIDE as it is HIGH, width:height about 1.15:1. It must NOT be a long horizontal strip.\nRetain the top-to-bottom structure exactly: pale blue cap top, dark front lip under that cap, then a lower course of darker facade stones. The upper course has ONE broad cap stone and a short complete end stone; lower course is TWO softly rounded blue stones with offset joint. Same stone sizes, shading and painted texture.\nThe RIGHT end has the fitted finish shown in the input: upper cap projects a little further right than the lower course, with a subtle dark side return. This complete shaped end will tuck behind a separate door arch. LEFT end is an ordinary finished wall end.\nNo door or arch, no column, no diamond emblem. No floor, shadow, glow, background or other object.\nCenter the small roughly square wall piece with transparent margins. Preserve the entire natural silhouette with genuine alpha.",
+      "sha256": "78a8cb4d4315754d9339c1f137eca7f72fefa32c1e3306bca069557cb399ed29",
+      "used_in_study": false
+    },
+    {
+      "path": "entry-wall-left-v2.png",
+      "source": "exec-a3c5b737-9aef-4389-8228-955dd49c6e41.png",
+      "prompt": "Use case: precise-object-edit.\nEdit the supplied short blue wall piece. Make it only HALF AS WIDE, keeping exactly the same height and same top/front camera.\nReplace its TWO side-by-side cap stones with ONE single broad cap stone. Below it, use one wide facade stone plus a modest narrower stone with their joint offset. The entire asset must be slightly TALLER than it is wide, roughly width 420 and height 450 relative to the existing asset's size.\nPreserve the existing upper cap's pale TOP, the dark front lip immediately below it, and the lower dark masonry course. Preserve original colors and lighting. The right end should have the subtle fitted side return, with the cap extending a little further right than the lower course. No extra upper or lower rows. This is a short wall section, NOT an upright freestanding pillar: do not add a separate capital, base or motif.\nComplete naturally finished edges. Single roughly square narrow wall piece centered on genuine transparent background with generous gutters. No other objects, no floor, no outline frame, no black background, no arch, no door. Do not include the removed extra-width masonry.",
+      "sha256": "49a25ec71410131ff12f6f102eedab575e9206433571c2ee744ba8360ece7b4d",
+      "used_in_study": false
+    },
+    {
+      "path": "entry-wall-right-v1.png",
+      "source": "exec-fd812d7f-4c4d-4f8d-a9e4-52121b4da714.png",
+      "prompt": "Use case: precise-object-edit. Remove a specific part of the artwork, native transparent background.\nEdit Image 1 ONLY, the blue L-shaped wall. Image 2 is original approved style.\nPreserve the full canvas framing and every stone in the right two thirds of Image 1. Preserve its exact east wall, corner pier and all coordinates.\n\nREMOVE the left part of the north horizontal wall up to x=490. That removed area must be truly transparent, not a black rectangle.\nThe remaining north wall starts with complete fitted masonry at its LEFT end: the upper course reaches left to about x=450 at y=178, with a small natural angled stone end. The lower course begins about x=490 at y=300, and ends at the existing floor line y=400. This creates a short sloping recessed return, fitted for a separate arch overlapping from the left. Match existing rounded blue stones, horizontal courses and mortar. Keep complete stones at the new end.\nNO arch, keystone, doorway frame, extra jamb, independent pier or door. ONLY the right-hand wall piece with its shaped end and the original L-shaped east wall. Keep Image 1's size 1254 x 1254 and unchanged wall elsewhere. No floor, lights, shadows, text, backdrop or exterior border. Transparent everywhere except the remaining complete masonry piece.",
+      "sha256": "4df3f4d094036086ba5d006ad7d6709639e65eb69b9560762d918cb95aa2d448",
+      "used_in_study": false
+    },
+    {
+      "path": "entry-masonry-v1.png",
+      "source": "exec-8f7dde6c-4f9d-478c-9a0b-23fe61133756.png",
+      "prompt": "Use case: precise-object-edit. Edit the supplied integrated wall module with minimal changes.\nPreserve the whole horizontal wall, its three stone courses, left/right ends, palette, texture and native transparent background exactly. Keep arch and wall bonded together as one piece.\nThe arch currently rises too high above the wall and the opening is too broad. Lower the arch crown by about40 source pixels and lower the top of its inner opening by about50 source pixels. Narrow ONLY the clear inner aperture by about40 pixels total, equally on both sides. Keep the center of the entrance, wall top/foot and the sides of the outer arch in the same locations. The result should have a modest crown rise and a squat, recessed doorway like the original game.\nExtend ONLY the two front jamb feet and the front threshold lip downward by about18 source pixels so they project beyond the wall foot. No additional step or floor slab; just the existing stone feet with slightly more visible top depth.\nMaintain natural interlocking mortar where the wall meets the arch. Do not introduce an outline around a separate external portal, a second arch, thin filler fragments or any new decoration.\nNo wood, floor, torches, shadow or labels. True alpha outside the complete architecture and through the entire door aperture.",
+      "sha256": "8446faf379dcbe88b1dc8f259419f9824583d6b3f935b7a3f256530d9d25e254",
+      "used_in_study": false,
+      "prior_generation_prompts": [
+        "Use case: precise-object-edit / game architecture.\nImage 1 is the APPROVED original dungeon and the exact artistic reference.\nImage 2 is the current Godot study to CORRECT. Its detached portal frame pasted on the wall is the defect.\nCreate one complete native-transparent architectural sprite: the NORTH WALL together with its structurally integrated stone doorway, but WITHOUT the wooden leaf. No floor or torches.\n\nDraw the doorway and adjacent masonry as ONE BUILT WALL. The horizontal brick courses terminate into and interlock with the radial arch stones. Alternate long bonding stones into the jambs. The outer arch must NOT have a continuous black sticker outline or a second freestanding rectangular casing in front of the wall. Remove that external second frame completely. Use the original's simple rounded arch ring, with a shallow top surface seen from above and a single unobtrusive crown diamond. Around its outside, sculpt the surrounding wall stones to the curve with natural staggered mortar joints. Keep all faces on a shared wall plane. Dark inner reveals show a wooden leaf can be recessed. The inner arched aperture itself is genuine clear alpha. No black fill, leaf or handle in the opening.\n\nMatch Image 1's soft painterly slate-blue palette, subdued worn highlights and slightly irregular blocks. Do NOT copy Image 2's bright white bevels, crystalline cuts, heavy separate frame or flat glossy icon style.\nFixed elevated frontal 2D camera, no isometric diagonals. Wall height and stone scale identical on both sides of the entrance. Only the front jamb feet and shallow threshold advance onto the floor by about 20 pixels at game scale. No large steps. No floor patch or floor shadows.\n\nFraming guides for 1536x768 canvas: complete horizontal wall from x=80 to x=1450. Ordinary wall top y=150, wall foot y=480. Arch center x=608, crown y=90. Inner doorway width about190, from x=513 to703, crown of inner opening y=255, leaf seat/threshold back y=480. Outer arch spans about x=380..840. Front feet/threshold lip finish at y=525. End the far left and far right with complete masonry stones. No end pillars. The module will be scaled uniformly by0.5 and put next to a separate corner module.\nNo east wall, exterior backing, props, torches, glows, wood, UI or text. Only the ONE complete masonry module, true alpha outside and inside the arched aperture. Not a full scene.",
+        "Use case: precise-object-edit.\nImage 1 is the integrated masonry module to correct. Image 2 is the original approved dungeon. Keep the joined architecture of Image 1: wall courses actually bond into the arch, no floating portal outline.\nCorrect only its PROPORTIONS to match Image 2:\n- The inner opening is too narrow and tall. Make it broader and squatter: its clear width should be about 80% of its clear height, like the original wooden door.\n- Reduce the wall from FOUR horizontal courses to THREE. Remove the extra bottom course, and shorten the lower jambs accordingly. The ordinary wall foot is slightly behind the doorway: the two jamb feet and shallow threshold project about one quarter of a stone-height below the wall foot. The floor will show under these feet. No floor in this image.\n- Shorten the far left wall by about one large cap-stone width; keep the right wing long. This doorway sits toward the left side of a long horizontal wall. There should be about one and a half cap stones before the arch on the left, and four after the arch on the right.\n- Make the arch ring simpler and thinner as in Image 2. Remove the excessive second outer ring/casing. Around the outside of the arch, adjacent wall blocks fit to its curve and are flush with it. The upper wall courses join its shoulders seamlessly. No thick black outline separating the doorway from the wall.\n- Match Image 2's restrained soft slate-blue masonry, gentle worn corners and shading. No white shiny outlines.\n\nOutput ONLY this complete horizontal architectural wall-and-arch module with a TRUE TRANSPARENT inner door opening and TRUE TRANSPARENT surrounding canvas. No wooden leaf, no torches, no floor, no pillars, no exterior border, no shadows, no backdrop, no labels. Preserve elevated frontal game camera."
+      ]
+    },
+    {
+      "path": "door-leaf-v1.png",
+      "source": "exec-242e3a59-4d5d-48de-a039-9d088e592895.png",
+      "prompt": "Use case: background-extraction / game sprite.\nImage 1 is the original approved dungeon door design. Image 2 is the new integrated stone doorway it must fit.\nGenerate ONLY the WOODEN DOOR LEAF with its two dark iron horizontal straps, round rivets and round iron ring handle on the right. No stone whatsoever.\nThe whole leaf has a shallow rounded arched top and a flat bottom; its complete silhouette is approximately as wide as it is tall. It will sit slightly BEHIND the inner stone reveals of Image 2, which cover its outer few pixels. Warm ochre-brown vertical wooden planks, simple soft painted texture exactly like Image 1, dark subdued iron. Match the elevated frontal game camera, no side yaw or isometric tilt. Keep details simple, not more elaborate than the original. Broad upper strap around the upper third, lower strap near the bottom, ring handle at mid-right.\nTrue alpha outside the complete leaf, no stone arch/frame/jamb, no threshold, wall, floor, shadow, halo or labels. One complete sprite centered with clear gutters. No shiny gold metal or additional ornament.",
+      "sha256": "8c60ecfab68bca0250c8a98d13325fdefce2605928f0e2c63d2a6aeda1ab7035",
+      "used_in_study": false
+    },
+    {
+      "path": "door-leaf-v2.png",
+      "source": "exec-539c0b99-dcb5-474a-8c7c-55147f6d2c3b.png",
+      "prompt": "Use case: precise-object-edit.\nImage 1 is the approved original game's wooden door. Image 2 is a generated wooden leaf that is TOO TALL for the opening.\nReturn a new, SHORT and BROAD wooden leaf only, on native transparent background. Its complete painted body must be a little WIDER than it is tall: width-to-height ratio 1.1:1. This is a squat arched hatch shape, not a tall medieval door. Shorten the vertical plank area and flatten the arch to reach those proportions. Preserve all details as whole artwork, not by crop or stretch.\nUse the original design: warm vertical oak planks; a short dark iron upper strap on the LEFT TWO THIRDS of the leaf, with two round rivets, about one-third down from its shallow arched crown; a thinner full-width lower iron strap with two rivets near the bottom; a simple round iron ring handle on the right. Leave visible wood above the upper strap. No strap running across the crown. Softer painted style of Image 1, no extra bevel detail.\nThe leaf will fit a 120px-wide by115px-high clear arched opening in an actual game wall. Its full art must therefore have similar broad proportions so its wooden crown and both straps are all visible when placed behind that opening.\nOnly the complete wood-and-iron leaf, centered with transparent gutters. No wall, stone frame, arch stones, threshold, floor, shadows or labels. TRUE TRANSPARENT background.",
+      "sha256": "1f1feb8c06c262c547575232c50a813b20fa0b583c61d581d50a535b3cda36a0",
+      "used_in_study": false
+    },
+    {
+      "path": "east-corner-v1.png",
+      "source": "exec-0db0d8b3-0857-4b50-baec-78220a83f1aa.png",
+      "prompt": "Use case: precise-object-edit.\nEdit the supplied L-shaped blue masonry sprite. Keep ONLY the existing right corner pier, the short north wall to its right, and the complete long vertical east wall. Remove the north wall extending LEFT of the corner pier entirely to genuine transparent alpha.\nPreserve EXACTLY the original canvas1254x1254, positions, scale, style and geometry of all retained stones:\nthe diamond corner pier around x=885..1000,y=155..430; the north wall from that pier toward x=1180; the east wall going straight down to y=1200; its finished bottom pier.\nThe new leftmost edge is the full natural outline of the existing corner pier. Do not add cut bricks, stubs, new side faces or a left wall strip. No new arch, doorway, floor, shadow or decoration. True transparent alpha left of the corner and everywhere outside the retained masonry. Retain the independent outside backing policy: no exterior dark row in this image.\nThis is a companion architectural sprite for an adjoining separately drawn north facade.",
+      "sha256": "5aef655ef2f0f569b945868381622cbb9deaee58120408f42460b59b3b802674",
+      "used_in_study": true
+    },
+    {
+      "path": "entry-masonry-v2.png",
+      "source": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-04f2715a-17d1-4f04-b8a7-a64301593884.png",
+      "prompt": "Precise asset edit. Image 1 is the transparent masonry module to edit. Image 2 is the ORIGINAL game reference and is authoritative for the doorway proportions.\nThe current doorway aperture is too wide/squat. Redraw ONLY the arch and aperture to be noticeably narrower like the original, and infill the adjacent masonry with matching stones. Keep the whole wall strip, its exact height, three courses, overall length, palette, painting, lighting, perspective and transparent background. Do NOT squeeze or scale the wall.\nKeep canvas 1774 by 887, wall runs approximately x52..1722, ordinary wall top y330 and foot y704. Door center stays x630. Crown stays near y274 and projecting jamb feet near y748. Change aperture from about 270 wide x260 high to about 220 wide x280 high: aperture straight sides x520 and740, opening crown near y380, bottom y660. Its ratio should be about 0.79 width/height, like the original single-person door. Outer arch sides about x400 and860, substantially narrower than before, with modest thick stone jambs. A rounded arched opening, never a flat window. Preserve inner dark stone reveals and projecting threshold. Surrounding courses must meet the arch as one integrated structure. Keep the arch above the ordinary wall top and feet below wall base. No wooden door leaf, no torches, no floor, no props, no scene or UI, no added decoration. Keep genuine alpha outside masonry AND through the doorway. All stone silhouettes complete. Preserve the restrained blue stone art from the reference; no new style or isometric projection.",
+      "sha256": "b09481f81ccfe8538024edcfd835137d9735fbd85d8aacc021ca4996b61a4531",
+      "used_in_study": false
+    },
+    {
+      "path": "entry-masonry-v3.png",
+      "source": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-51ff3faa-4cbb-4ba5-acd3-c1e14fa28953.png",
+      "prompt": "Precise final proportion adjustment to this transparent masonry sprite. Keep every aspect of this asset: same 1774x887 canvas, exact wall height and ends, all three horizontal courses, colors, complete alpha silhouettes, projection, arch crown height, threshold height and projecting feet.\nMake ONE SMALL correction: the transparent opening is presently about 200 pixels wide and 270 high, slightly too slender. Widen its interior to about 225 pixels, keeping its height 270, center x637 and top/bottom unchanged. Move the left jamb about 12 pixels left and the right jamb about 12 pixels right, retaining jamb stone thickness; redraw adjoining courses naturally to meet them. The opening should be approximately 0.83 width/height. Do not widen more than this. Round-arched tall single-person doorway. Do not increase the height or scale the wall. Leave all remaining masonry untouched. The door aperture and the whole surrounding background must remain genuinely transparent; no wooden leaf, no floor, no torches, no new items.",
+      "sha256": "355813920c38d5959288bb3e53e9b9c5e05d0be276970c7c35b9cfabd85b9cfc",
+      "used_in_study": true
+    },
+    {
+      "path": "door-leaf-v3.png",
+      "source": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c5656324-5729-41b7-87e2-78ab559be7e2.png",
+      "prompt": "Precise object edit for a transparent Godot sprite. Image 1 is the leaf to edit, Image 2 is the original dungeon art for hardware/design reference. Preserve the complete wooden door leaf silhouette, upright aspect ratio, tall arched top, painted cartoon texture, dark outlines, lighting and orange-brown planks of image 1. Change ONLY the hardware to match image 2: shorten the TOP horizontal iron hinge strap to the LEFT roughly 55% of the leaf width, with two modest round rivets. Leave the right side clear above the ring. Keep the lower strap across the full width, use modest rivets like the original. Keep the right-hand iron ring handle. This is only a single wooden door leaf without any masonry, frame, jambs, hinges protruding out of its silhouette, floor, backdrop, shadow outside or other props. Keep genuine transparent background. Keep exactly the tall/narrow existing silhouette; do not widen the door or flatten its arch. Complete uncropped object with transparent margins.",
+      "sha256": "aeab41fe788e113c3a7745a9c8c6882b8d54a020cc8389aa89eed0783726be20",
+      "used_in_study": false
+    },
+    {
+      "path": "door-leaf-v4.png",
+      "source": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-94ca9de1-7f1e-4fff-9d3e-8ecc220ed85d.png",
+      "prompt": "Use case: precise-object-edit / style matching for a transparent Godot game sprite.\nInput 1 is the wooden door leaf to EDIT. Input 2 is the original approved blue dungeon; match the hand-painted door in its upper left. Input 3 is the current blue masonry for texture softness and level of detail.\nRepaint the leaf so it belongs to the same understated stylized 2D dungeon. Preserve its exact outline, tall rounded top, canvas dimensions 1261x1247, placement within the canvas, and hardware positions. The painted body stays approximately x250..1010 and y90..1154. Do not alter the door width or perspective.\nReplace the overly orange shiny splintered wood with subdued medium walnut / umber brown planks: broad calm painted color patches, a few soft irregular edges, restrained bevels, 4 to 5 clear boards and minimal grain. Warm brown like the original door, but no vivid orange, golden edges, saturated rust, elaborate scratches or fine grain. Match the soft chunky painterly surface of the surrounding stone.\nRepaint metal as worn matte dark charcoal iron with muted blue-gray shading. Small simple rivets and a chunky modest iron ring on the right. Greatly reduce the silver-white rim and spherical chrome highlights: no reflective chrome, glitter, photorealism or glossy metal. Preserve the SHORT upper-left strap, FULL lower strap and the current ring position. Keep their physical thickness readable and dark outlines soft like the original game art. No extra decorative fittings.\nThis must look like the modest original dungeon door rendered by the same artist as the stones, not a collectible glossy item illustration. Broad low-frequency shading, controlled contrast, legible at a final leaf size around110x130 pixels. Neutral soft upper-left lighting; no baked purple halo.\nReturn ONLY the complete single wooden leaf and its attached hardware on genuine transparency. No stone arch, frame, wall, floor, shadow outside, labels, scenery or background. Preserve native alpha, no clipping of any part.",
+      "sha256": "4e135e2f814f7c4b477a7c30d88659531e486591e50bfac7621970dfaf88fc6e",
+      "used_in_study": true,
+      "note": "Style correction: calmer brown painted wood, darker iron highlights. Selected as a complete native-alpha sprite; no pixel edits."
+    }
+  ],
+  "entrance_integration": {
+    "method": "Unified native-alpha masonry containing wall courses, arch, inner reveals and projecting threshold; wooden leaf rendered behind its transparent aperture. No image masking or silhouette editing.",
+    "masonry": {
+      "position": [
+        27,
+        -86
+      ],
+      "scale": 0.44,
+      "z_index": 3
+    },
+    "leaf": {
+      "position": [
+        238,
+        43
+      ],
+      "scale": 0.128,
+      "tint": [
+        0.78,
+        0.8,
+        0.85,
+        1
+      ],
+      "z_index": 2,
+      "source_size": [
+        1137,
+        1383
+      ],
+      "style": "Muted brown wood with broad painted shading and dark matte iron, replacing the rejected orange/chrome treatment."
+    },
+    "corner": {
+      "position": [
+        0,
+        -75
+      ],
+      "scale": 0.75,
+      "tint": [
+        0.9,
+        0.9,
+        0.9,
+        1
+      ],
+      "z_index": 4
+    },
+    "wall_foot_y": 225,
+    "jamb_foot_y": 243,
+    "light_mask": 2,
+    "torch_scale": 0.36,
+    "torch_placement": {
+      "arch_axis_x": 310,
+      "symmetric_offset_x": 150,
+      "feet": [
+        [
+          160,
+          225
+        ],
+        [
+          460,
+          225
+        ]
+      ],
+      "light_offset_from_feet": [
+        0,
+        -48.75
+      ],
+      "note": "Recentered around the visible v3 arch after its proportions changed; sprite source, scale and y anchors preserved."
+    },
+    "aperture_pixels": {
+      "previous": [
+        118,
+        113
+      ],
+      "current": [
+        107,
+        119
+      ],
+      "measurement": "Horizontal alpha span at y=160; vertical alpha span at x=307 in the study. Technical regression only, not artistic approval."
+    }
+  },
+  "discarded_generations": [
+    {
+      "source": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-52688d06-b014-41d4-987c-8d61797e07d3.png",
+      "prompt": "Edit this single native-alpha wooden door leaf for the final opening dimensions. Preserve its style, warm wood, dark outlines, short left upper iron strap with two rivets, full bottom strap and right ring handle. Preserve the leaf width. Reduce its total height slightly by about 15%, by REDRAWING the planks and spacing of the hardware, never flattening the ring or metal rivets. Target the complete painted leaf silhouette width-to-height ratio approximately 0.83 (example 760 pixels wide, 915 pixels tall). It should remain a tall arched single-person door, not a wide gate. Give it a smoothly rounded upper arch. Keep the full lower strap near its bottom and the upper strap about 35% down from its top; ring near 65% down. Genuine transparency around the complete uncut wooden leaf. No frame, masonry, background, floor, cast shadow or new items.",
+      "reason": "Did not follow the requested silhouette proportion; not copied into the game."
+    }
+  ]
+}

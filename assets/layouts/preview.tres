@@ -6,6 +6,9 @@
 script = ExtResource("1")
 cell_size = 54
 margin = 90
+entrance_enabled = true
+entrance_cell = Vector2i(3, 3)
+entrance_side = 0
 rows = PackedStringArray(
 "..........645424............",
 "..........103664............",

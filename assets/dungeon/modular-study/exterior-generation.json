@@ -1,0 +1,8 @@
+{
+  "generator": "built-in image_gen",
+  "file": "exterior-v1.png",
+  "original": "exec-db3c460d-3d8f-4e10-a7a7-b8219829a28e.png",
+  "reference": "walls-v1.png",
+  "prompt": "Create one transparent PNG asset sheet containing ONLY TWO independent narrow dark-blue exterior masonry strips for the attached dungeon wall kit. These are the separate outside backing of left and right walls, not wall top surfaces. Each vertical strip is about 55 px wide by 920 px tall, built of 10 to 12 dark stone blocks with slight varied heights and subtle joints, dark navy low contrast. Same hand-painted blue stone style and perpendicular straight-down RPG camera as the reference. The two strips are parallel upright columns, spaced widely apart in a 512x1024 transparent image, one centered x=150 and the other x=362, both y=52..972. Keep genuine alpha around each entire strip. No floors, rooms, L shapes, end pillars, symbols, bright caps, bevel ledges, glows, shadows spilling beyond stones, background or labels. Each is a complete independent sprite for placing BEHIND the bright side-wall cap. The left strip's visible outward edge is left, right strip's outward edge is right. Stone color dark blue #142345 with subtly lighter edge flecks. Keep them narrow, irregular hand-hewn silhouette, quiet dark faces. Reference is style only, do not reproduce the sheet.",
+  "alpha": "Native generated transparency preserved. No pixel edits."
+}

@@ -63,7 +63,35 @@ func _run() -> void:
 		_check(is_equal_approx(transform.x.length(), transform.y.length()), "Aspect ratio preserved at %s" % dimensions)
 	viewport.queue_free()
 	await process_frame
+	await _check_reference_study()
 	_finish()
+
+func _check_reference_study() -> void:
+	_check(ProjectSettings.get_setting("application/run/main_scene") == "res://scenes/SixRoomPreview.tscn",
+		"F5 opens the complete six-room composition")
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(560, 510)
+	root.add_child(viewport)
+	var preview = load("res://scenes/PerspectiveRoom.tscn").instantiate()
+	viewport.add_child(preview)
+	await process_frame
+	_check(preview.get_source_frame() == Rect2i(0,120,560,510), "The reference study uses the agreed source frame")
+	_check(preview.get_art_pieces().size() >= 25, "The reference study has separate architectural elements")
+	for piece: Polygon2D in preview.get_art_pieces():
+		_check(piece.scale == Vector2.ONE, "Native proportions for " + str(piece.name))
+		_check(not Geometry2D.triangulate_polygon(piece.polygon).is_empty(), "Valid contour for " + str(piece.name))
+	for dimensions in [Vector2i(1280,720), Vector2i(720,1280), Vector2i(800,800), Vector2i(640,360)]:
+		viewport.size = dimensions
+		await process_frame
+		await process_frame
+		var transform: Transform2D = preview.get_global_transform_with_canvas()
+		var start: Vector2 = transform * Vector2.ZERO
+		var end: Vector2 = transform * Vector2(560,510)
+		_check(start.x >= -1 and start.y >= -1 and end.x <= dimensions.x + 1 and end.y <= dimensions.y + 1,
+			"Reference study fits " + str(dimensions))
+		_check(is_equal_approx(transform.x.length(), transform.y.length()), "Reference study preserves proportions at " + str(dimensions))
+	viewport.queue_free()
+	await process_frame
 
 func _check(condition: bool, message: String) -> void:
 	if not condition:
@@ -73,5 +101,5 @@ func _finish() -> void:
 	for failure in failures:
 		push_error("FAIL: " + failure)
 	if failures.is_empty():
-		print("PASS: 2D scene loads, rooms connect, corridors stay open, camera fits four viewport sizes")
+		print("PASS: six-room F5 setting, reference study and four viewport sizes; previous map connectivity preserved")
 	quit(0 if failures.is_empty() else 1)

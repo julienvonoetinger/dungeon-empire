@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-22",
+  "status": "Historical v5/v6 revision; superseded by native-transitions-generation.json",
+  "purpose": "Dedicated complete native-alpha L corners compatible with the existing modular wall profile. Replace rejected square junction-keystone variants.",
+  "historical_assets": [
+    "cap-elbows-blue-v6.png",
+    "junction-side-lengths-v3.png"
+  ],
+  "unchanged_shared_assets": [
+    "cap-continuous-v10.png",
+    "side-texture-v9.png",
+    "floor-varied-v2.png",
+    "brick-soft-v2.png"
+  ],
+  "source_reference": "cap-continuous-v10.png, complete native-alpha corner regions; original source pixels remain unchanged in the isolated studies. Current blue-material/direct-return revision: corner-continuity-generation.json; v5 is rejected for grey material and tiny spacer joints.",
+  "processing": "ImageGen native transparency requested for every generation. Generated PNGs copied unchanged. No silhouette cutouts, masks, color removal, rotations or nonuniform scaling. Rectangular atlas regions select complete sprites with transparent gutters.",
+  "current_regions": {
+    "nw": [
+      0,
+      0,
+      365,
+      435
+    ],
+    "ne": [
+      890,
+      0,
+      364,
+      435
+    ],
+    "sw": [
+      0,
+      815,
+      365,
+      439
+    ],
+    "se": [
+      890,
+      815,
+      364,
+      439
+    ],
+    "short_overhead_infill": [
+      365,
+      435,
+      525,
+      380
+    ]
+  },
+  "note": "The region numbers are atlas slots, not silhouette masks. Original KIT definitions remain authoritative for corners. Infill body measurements 228x119 and anchor149,134 affect placement/uniform scale only.",
+  "generations": [
+    {
+      "asset": "cap-compact-turns-v2.png",
+      "status": "unused intermediate draft",
+      "source_output": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-2b87be9d-6a53-459b-b287-009fccc980f8.png",
+      "prompt": "Use case: precise-object-edit. This ORIGINAL 1254x1254 wall-cap atlas is the EDIT TARGET. Preserve its canvas, positions, painting, horizontal arms, horizontal cap thickness, widths, native alpha and all unchanged sprites. This is a short-leg variation of the SAME kit, not a repaint or a new style.\nChange ONLY the vertical terminal stones on the four L corners:\n1. Top-left and top-right corners: the separate BOTTOM vertical stone is currently tall (roughly y205..355). Redraw that one complete stone with height about 45 pixels, keeping its TOP joining edge in the same location. Its bottom should now end around y250..260. Preserve its native thin outline and complete flat end. TOP FACE ONLY, no dark upright front on that vertical end.\n2. Bottom-left and bottom-right corners: the separate TOP vertical stone is currently around y835..955. Redraw that one complete stone with height about 30 pixels, keeping its BOTTOM joining edge in the same location. Its top should start around y920..930. Preserve its native thin outline and complete flat end. TOP FACE ONLY.\nKeep ALL bent corner stones and all horizontal arms exactly the original size and shape, including their visible down-facing front thickness. The four L corners retain their original roughly 279-pixel horizontal reach, but compact vertical legs (roughly 175 pixels total painted height). Do not move or resize the corner's horizontal stones.\nKeep the central straight north/south modules, side modules and floor region unchanged. Do not make a square keystone, tall pillar, new facade courses, backing, feet, shadows or backdrop. Each shortened terminal stone must be repainted as a whole complete native-alpha stone, never a chopped or cropped silhouette. All source gutters stay actually transparent."
+    },
+    {
+      "asset": "cap-compact-turns-v3.png",
+      "status": "unused intermediate draft",
+      "source_output": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-e484297e-7480-4abf-bd7f-456f9dce991a.png",
+      "prompt": "Use case: precise-object-edit. Preserve this atlas's original stone painting, horizontal corner arms, full straight modules, canvas, alpha and positions. Only shorten the four independent terminal stones another ONE THIRD of their present painted height, keeping their joining edge against the bent corner fixed.\nUpper corners: shorten each bottom terminal stone from its present roughly 75-pixel height to about 50 pixels. Keep its top joint fixed; its bottom end should be near y260 rather than y284.\nLower corners: shorten each top terminal stone from its present roughly 45-pixel height to about 30 pixels. Keep its bottom joint fixed; its top end should be near y924 rather than y909.\nAll shortened stones remain whole, flat-ended, top-view only with a thin bevel, NO dark upright end face. Do not crop, mask, stretch other stones or change any horizontal width/front thickness. Leave all other painting and silhouettes unchanged and all gutters genuinely transparent."
+    },
+    {
+      "asset": "cap-elbows-v4.png",
+      "status": "unused intermediate draft",
+      "source_output": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-3ad38b4d-9780-44fe-9a40-88bb3eea3d94.png",
+      "prompt": "Use case: precise-object-edit. Edit this existing wall atlas with true native alpha. Preserve ALL bent corner stones, horizontal arms, horizontal front thickness, stone painting, horizontal dimensions and atlas layout.\nChange TWO things:\n1. REMOVE the FOUR tiny terminal stones added at the free vertical tips of the four corner modules, leaving the bent corner stone and horizontal companion intact. Top corners: remove the tiny bottom stone below the bend. Bottom corners: remove the tiny top stone above the bend. The result is four complete compact L-shaped elbows with their own complete flat vertical joining ends, not sliced stones. Do not remove or reshape the bent stone. All removed areas become genuinely transparent.\n2. REPLACE the big central FLOOR rectangle with ONE standalone SQUARE OVERHEAD WALL-TOP stone, centered in that middle atlas slot with generous transparent gutters. Its painted top is square (equal width and height), matching the color, soft coarse paint, pale irregular bevel and thin outline of the VERTICAL side stones. TOP ONLY, absolutely no thick dark front face, foot, pillar or shadow. One small quiet crack, not an X. This one whole square wall-top stone will fill the straight vertical gap between two compact L elbows.\nLeave north/south straight cap modules and middle left/right side pairs unchanged. Keep genuine transparency everywhere around each separate whole sprite, no backdrop, glow, shadow, floor, new facades or labels."
+    },
+    {
+      "asset": "cap-elbows-v5.png",
+      "status": "rejected 2026-10-22: grey/cloudy corner material and unnecessary tiny spacer stones; superseded by cap-elbows-blue-v6.png",
+      "source_output": "C:/Users/A/.codex/generated_images/01a1621f-6938-73d2-9bcf-77c9c5c95681/exec-f61b63db-d34c-4c58-973f-455cfd79b1fd.png",
+      "prompt": "Use case: precise-object-edit. Preserve the entire atlas, four L elbows, straight caps, side pairs, horizontal faces, source alpha, positions and painting EXACTLY.\nONE geometry correction ONLY to the standalone stone in the CENTER slot: redraw that one whole overhead top stone with HALF its present painted HEIGHT, preserving its painted WIDTH. It is currently about 226 pixels wide by 230 pixels high. Make it about 226 pixels wide by 115 pixels high, centered in the same slot. Repaint the complete stone and its bevel/outline as a low wide rectangle, with flat intact ends; no chopped silhouette. Keep TOP VIEW ONLY, no front face, foot, backing or shadow. Preserve its color, coarse soft stone texture and quiet crack. The rest of the atlas stays unchanged, with genuine transparent gutters."
+    }
+  ],
+  "unused_drafts": [
+    "junction-turns-v1.png",
+    "cap-short-v1.png",
+    "cap-compact-turns-v2.png",
+    "cap-compact-turns-v3.png",
+    "cap-elbows-v4.png",
+    "junction-corners-v1.png",
+    "junction-keystone-v1.png",
+    "junction-keystone-v2.png",
+    "junction-keystone-v3.png",
+    "junction-keystone-v4.png",
+    "junction-side-stone-v1.png"
+  ],
+  "older_provenance": [
+    "junction-generation.json",
+    "continuous-courses-generation.json"
+  ],
+  "validation": "Actual Godot captures at1x/2x and junctions4x; comparisons to isolated2x1 wall; all16 cardinal masks and length1/2/3, same-instance close/reopen. These do not establish artistic approval or arbitrary-layout support.",
+  "limitations": "Central odd rectangular room with centered cardinal branches. Branch logical length counts straight cap modules plus native corner transition; physical ports are not yet a player construction/navigation grid."
+}
