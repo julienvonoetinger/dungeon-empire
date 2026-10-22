@@ -1,29 +1,31 @@
 extends RefCounted
 
-## Dedicated short-leg variants of the existing L corners; never square cubes.
-const CAPS := preload("res://assets/dungeon/modular-study/cap-elbows-flush-v9.png")
-const PAIRED := preload("res://assets/dungeon/modular-study/paired-cap-transitions-v7.png")
+## Square L turns with a horizontal front lip; no diagonal corner face.
+const CAPS := preload("res://assets/dungeon/modular-study/cap-elbows-square-v7.png")
+const PAIRED := preload("res://assets/dungeon/modular-study/paired-cap-square-v7.png")
 const SIDE_ART := preload("res://scripts/modular_side_kit.gd")
 const WALL_PROFILE := preload("res://scripts/modular_wall_profile.gd")
 
 const SHORT_PORTS := {
-	"nw": Vector2(-14,159), "ne": Vector2(-14,159),
-	"sw": Vector2(-55,114), "se": Vector2(-55,114),
+	"nw": Vector2(-19,165), "ne": Vector2(-19,164),
+	"sw": Vector2(-61,120), "se": Vector2(-61,120),
 }
+# Retain the calibrated connection frame of the source atlas. Including the
+# outer black rim in the scale calculation shrinks the complete horizontal arm.
 const SHAFTS := {"nw": Vector2(-8,89), "ne": Vector2(-86,11), "sw": Vector2(-7,90), "se": Vector2(-87,11)}
 const PROFILES := {"nw": Vector2(-14,99), "ne": Vector2(-14,99), "sw": Vector2(1,114), "se": Vector2(1,114)}
 const PAIRED_SHAFTS := [
-	[Vector2(-17,83),Vector2(480,582)], [Vector2(-4,97),Vector2(494,595)],
-	[Vector2(-17,84),Vector2(486,592)], [Vector2(-16,89),Vector2(494,595)],
+	[Vector2(-18,89),Vector2(482,591)], [Vector2(-13,95),Vector2(489,595)],
+	[Vector2(-18,88),Vector2(483,591)], [Vector2(-13,95),Vector2(490,595)],
 ]
-const PAIRED_PROFILES := [Vector2(-17,92),Vector2(-17,93),Vector2(-56,60),Vector2(-55,60)]
+const PAIRED_PROFILES := [Vector2(-26,95),Vector2(-26,95),Vector2(-91,32),Vector2(-91,32)]
 const PAIRED_PORTS := [
-	[Vector2(-17,160),Vector2(-79,92)], [Vector2(-79,93),Vector2(-17,160)],
-	[Vector2(-126,60),Vector2(-56,128)], [Vector2(-55,128),Vector2(-126,60)],
+	[Vector2(-26,154),Vector2(-89,96)], [Vector2(-89,95),Vector2(-26,154)],
+	[Vector2(-153,32),Vector2(-91,90)], [Vector2(-91,91),Vector2(-153,32)],
 ]
 const ORIGINAL_PORTS := {
-	"nw": Vector2(-13,278), "ne": Vector2(-13,278),
-	"sw": Vector2(-168,99), "se": Vector2(-168,99),
+	"nw": Vector2(-17,WALL_PROFILE.CLOSED_SIDE_TOP), "ne": Vector2(-17,WALL_PROFILE.CLOSED_SIDE_TOP),
+	"sw": Vector2(WALL_PROFILE.CLOSED_SIDE_BOTTOM,106), "se": Vector2(WALL_PROFILE.CLOSED_SIDE_BOTTOM,106),
 }
 
 static func horizontal_fit(id: String, south: bool) -> Vector3:

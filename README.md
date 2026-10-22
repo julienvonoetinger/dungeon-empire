@@ -22,6 +22,11 @@ La caméra affiche la carte entière en conservant ses proportions.
   permet une reconstruction manuelle.
 - **F6** lance la scène sélectionnée, notamment les études séparées ci-dessous.
 
+Pour les études modulaires, le bouton **Actualiser le rendu** du nœud `Dungeon`
+fournit sa fonction via un getter afin de rester valide après rechargement des
+scripts. Si un ancien onglet affiche encore un aperçu vide ou l'erreur
+`refresh_action is Nil`, fermer puis rouvrir cet onglet après la mise à jour.
+
 ## Inspecter les positions
 
 ### Salles et couloirs — études des raccords
@@ -39,11 +44,21 @@ L'ancienne `SingleCellRoom.tscn` a été renommée **2x2CellRoom**. Une case log
 contribue deux rangées de petites dalles de largeurs variées. Tous les cas
 partagent les mêmes coins, murs et variantes : douze dalles dans trois formats,
 dont six fissures différentes, et quatre dessins de brique dans deux longueurs.
-Le sol conserve ses variations validées, avec des teintes plus claires et sans
-gravure centrale. Les pierres horizontales gardent leur épaisseur ; les deux
+Le sol conserve ses formats et fissures variés, avec des surfaces plus lisses,
+plus unies et sans gravure centrale. La palette de l'ensemble est assombrie et
+désaturée d'après le concept. Les pierres horizontales gardent leur épaisseur ; les deux
 rangées de façade passent en continu sous les coins et les chapeaux, à joints
-décalés. Les côtés présentent une texture harmonisée avec les coins et de
-légers retraits/débords, sans grosse face sombre répétée sous chaque pierre.
+décalés. Les côtés utilisent des contours noirs renforcés et une matière reprise
+d'après les coins, sans grosse face sombre répétée sous chaque pierre.
+Le placement par paires superposées est remplacé par un remplissage entre les
+extrémités des coins, partagé avec les couloirs.
+
+**Point de retour avant palette : `2584f57`.** Les neuf nouvelles images et
+leurs prompts ImageGen sont répertoriés dans
+`assets/dungeon/modular-study/calm-palette-generation.json`. Tous les sprites
+modulaires utilisent une modulation blanche ; les couleurs et l'assombrissement
+des supports sont peints dans les PNG. Les captures précédentes sont conservées
+dans `artifacts/palette-before/`. La nouvelle palette reste à apprécier visuellement.
 
 Les images conservent leur alpha natif et leurs proportions. Aucun sprite
 ne contient une salle complète.
@@ -113,16 +128,35 @@ Les angles en L dédiés remplacent les carrés rejetés. Les murs droits utilis
 les mêmes échelles, espacements et assises que les sept petites scènes. Les
 couloirs latéraux prolongent les rangées de la salle sans recouvrir ses dalles.
 Les petites entretoises entre les angles sont supprimées. Les courts retours
-utilisent `paired-cap-transitions-v7.png`, une assise complète à quatre pierres
+utilisent `paired-cap-square-v7.png`, une assise complète à quatre pierres
 et deux coudes. Leurs deux centres verticaux sont désormais recalés ensemble
 sur les ports logiques ; les extrémités utilisent le même transform uniforme.
-Les angles individuels compatibles restent `cap-elbows-flush-v9.png`.
-`wall-tops-ports-v12.png` fournit les dessus verticaux à teinte blanche, avec
-leur couleur directement dans le PNG. Les passages isolés et raccordés partagent
-la composition des longueurs, qui évite de changer fortement la largeur des
-pierres pour remplir un couloir plus long. Le dallage reste inchangé.
+Les angles individuels compatibles utilisent `cap-elbows-square-v7.png`.
+Les côtés utilisent les deux paires de `cap-tight-v13.png`, les deux paires
+compactes de `cap-compact-pairs-v24.png` et `wall-tight-v22/v23.png`.
+Les paires compactes corrigent les carrés isolés de la2×2 ; la largeur commune
+des raccords aux coins fermés est fixe à101 unités source. Le kit choisit ces
+modules selon la longueur disponible, sans condition sur le nom de scène.
+Prompts ImageGen, source et captures : `compact-pairs-generation.json`.
+Les longueurs complémentaires remplacent les extrémités trop noires de
+v17/v18. Les coins fermés viennent de cap-square-v3 ; les chapeaux droits
+gardent cap-muted-v11. La v16 avait été écartée pour sa couleur et sa largeur.
+Les salles et passages isolés ou raccordés partagent la composition des longueurs
+à largeur fixe : remplir un mur plus long ne change plus la largeur des pierres.
+Le dallage reste inchangé.
+Les extrémités des coins prolongent la pierre bleue jusqu'au bord extérieur.
+Les essais qui comblaient le biseau avec une plaque noire sont écartés.
+Prompts, variantes et ports : `assets/dungeon/modular-study/square-corners-generation.json`.
+La capture `artifacts/5x5RoomVerticalCornerCorridors-north-span-2.5x.png`
+montre les deux extrémités du mur au-dessus de leurs assises.
+Les façades commencent désormais à 96 unités source au nord et 105 au sud,
+sous le pied peint des chapeaux, pour conserver la première brique entière.
+Les captures `artifacts/3x3CellRoom-west-4x.png` et
+`artifacts/3x3CellRoom-southwest-4x.png` montrent les deux raccords signalés.
 Prompts, régions et variantes écartées :
 `assets/dungeon/modular-study/port-width-generation.json`.
+La correction des contours et du chevauchement est consignée dans
+`assets/dungeon/modular-study/tight-joints-generation.json`.
 Le rendu reste à apprécier visuellement ; il ne valide pas des plans arbitraires.
 Les bras natifs des angles ajoutent une transition à la longueur des modules
 droits ; le calage d'une future grille de construction reste à définir.

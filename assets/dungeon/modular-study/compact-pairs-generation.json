@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-22",
+  "square_corner_followup": {"provenance": "square-corners-generation.json", "closed_ports": [279,-166], "current_2x2_span": 236, "selected_pair": 11, "pair_height": 234.49565217391304, "gap_each": 0.7521739130434781, "note": "The original237-unit/pair10 stage below is retained as history. The shared catalogue and fixed101 width are unchanged."},
+  "request": "2x2 vertical wall stones look as if they float.",
+  "status": "Integrated and visually inspected in actual Godot captures. Artistic approval pending.",
+  "diagnosis": "The 237-unit closed span selected two separate short square sprites with different face/outline proportions and repeated end borders. Compact native pairs were missing from the shared length catalogue.",
+  "method": "Built-in image_gen with transparent_background=true. Source PNG copied unchanged; no pixel edits, cutouts, masks, runtime tints, shaders or nonuniform scaling. Read-only alpha bounds determine anchors and uniform scale.",
+  "file": "cap-compact-pairs-v24.png",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "sprites": [
+    {
+      "index": 10,
+      "orientation": "vertical",
+      "region": [
+        50,
+        450,
+        230,
+        350
+      ],
+      "anchor": [
+        46,
+        52
+      ],
+      "body": [
+        113,
+        265
+      ],
+      "ports": {
+        "top": [
+          56.5,
+          0
+        ],
+        "bottom": [
+          56.5,
+          265
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "orientation": "vertical",
+      "region": [
+        980,
+        450,
+        250,
+        350
+      ],
+      "anchor": [
+        71,
+        52
+      ],
+      "body": [
+        115,
+        267
+      ],
+      "ports": {
+        "top": [
+          57.5,
+          0
+        ],
+        "bottom": [
+          57.5,
+          267
+        ]
+      }
+    }
+  ],
+  "assembly": {
+    "rule": "Whole compact pairs participate in the same native-length search as all other side pieces, independent of scene names. Paired indices0,1,10,11 cost2; singles cost5. Existing gap scoring retained.",
+    "closed_side_width": 101,
+    "previous_closed_side_width": 103,
+    "width_calibration": "A fixed common shaft calibration for closed-corner ports, 2source units narrower (0.58 game pixels at art scale0.29). It is never recomputed from run height. Corner positions and silhouettes are unchanged. Standalone passage width stays94.",
+    "closed_ports": [
+      276,
+      -168
+    ],
+    "target_2x2_span": 237,
+    "selected_2x2_index": 10,
+    "selected_2x2_height": 236.858407079646,
+    "positive_external_gap_each": 0.07079646017699304,
+    "note": "No painted ends overlap. Other configurations can select different catalogue pieces after the common calibration. The1x1 has no positive side gap and stays unchanged."
+  },
+  "generations": [
+    {
+      "id": "v14",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c432a3ce-5eb6-402d-9e4c-8ec257c6e27b.png",
+      "input": "cap-tight-v13.png",
+      "status": "Rejected: pair too long at fixed shaft width.",
+      "prompt": "Edit this native-transparent dungeon sprite atlas. Only change the TWO SEPARATE VERTICAL PAIRS in the middle row, one at the far left and one at the far right. Preserve the entire remaining atlas unchanged, its1254x1254 canvas and native transparency. The middle-left pair currently occupies x103..220,y455..802; middle-right aboutx1037..1155,y455..803. Keep each pair's EXACT existing width, x position, slate-blue material, subdued bevels, crack style, side contours and overhead view. Make each pair SHORTER overall: target middle-left body117pixels wide by265pixels tall, middle-right118wide by267tall. Keep their top at455; end them near720/722. Redraw as TWO SQUAT stone blocks JOINED INTO ONE CONTINUOUS WALL STRIP. A single very fine horizontal dark mortar joint separates the two blocks; NO transparent gap between them, NO separate black pads, no inward notches breaking the side silhouette at the center joint. The outside LEFT and RIGHT dark contours are continuous and match the reference corners. At the two free ends (top and bottom), blue face/bevel extends almost to the edge with ONLY1-2pixels of black border, not broad black bands. Corners at those ends only tiny chipped nicks, not big diagonal chamfers. Genuine transparent space outside the whole strip. Retain current quiet desaturated slate-blue material exactly; no gray recolor, brightening or new texture. No front face or downward step, no ground shadow, no pedestal. These are compact reusable top-down WALL PAIRS, not individual loose tiles. No labels. All other sprites untouched."
+    },
+    {
+      "id": "slate_v1",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c8b61ed7-b4e2-41a2-a74a-f2117d529cb2.png",
+      "input": "cap-tight-v13.png",
+      "status": "Rejected: incorrect aspect and material.",
+      "prompt": "Generate ONE isolated compact vertical wall module on true transparent background, using the supplied dungeon atlas ONLY as style/color reference. Output ONLY one narrow continuous strip of TWO overhead stones, stacked vertically and touching. No other assets. Overall OUTER silhouette aspect ratio: width100 to height228 (approximately2.28times tall as wide). The two stones are therefore almost square, a little taller than wide. NOT two long portrait rectangles. Matte muted slate-blue-gray exactly like the middle-left paired stones in the reference, same subdued blue bevel and thick near-black side contours. Entire top-down view, no visible front face. The two stones share ONE fine horizontal mortar hairline across the middle, and the outer side outline stays continuous through it. The strip is a contiguous single silhouette with no transparent slit and no hourglass pinching at its central joint. Top and bottom ends are flat with only a hairline black contour; no large dark bands, backing plate, diagonal chamfers, or drop shadow. Small softly chipped corners. One stone quiet; the second has one subtle fine crack. The connection ends must meet other stones closely. Center this ONE complete reusable two-stone module with transparent margins, large enough to see detail. Preserve proportions1:2.28 of actual painted body, not canvas. No extra stones, text, labels, ground, foot or scene."
+    },
+    {
+      "id": "v15",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-fa9cc118-6d86-49c8-ab63-5a09477bb05a.png",
+      "input": "v14",
+      "status": "Rejected: pairs too wide/short.",
+      "prompt": "On this exact transparent atlas, shorten ONLY the detached two-stone vertical strips at middle LEFT and middle RIGHT. Each of these four stones must become nearly SQUARE, rather than the current long rectangle. Reduce the overall height of each two-stone strip by about20percent while retaining its exact width. Keep the center of each strip aroundy625. Aim for painted pair widths117px and total pair heights265px on the1254px canvas. Keep the two stones closely joined with a thin single black seam. Preserve exactly their gray-blue colors, shading, crack patterns, outlines and the rest of the atlas. Nothing else changes. No labels, no new texture, native transparency."
+    },
+    {
+      "id": "v16",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-471503b3-66fb-4897-b884-2e9fd0f049a7.png",
+      "input": "v15",
+      "status": "Rejected: pairs too tall.",
+      "prompt": "Use case: precise-object-edit. Edit this transparent dungeon sprite atlas. Change ONLY the TWO isolated vertical two-stone stacks at middle-left and middle-right. Make each stack 10% NARROWER while keeping its current TOTAL HEIGHT exactly unchanged. Each pair's visible silhouette including outline should now be about 114 pixels wide and 260 pixels high on this 1254x1254 canvas, a total height/width ratio of 2.28. Keep the two stones touching along ONE thin horizontal mortar joint. Thin the black bars at the very top and very bottom of these two stacks to a fine outline so that they can be joined to the other wall sprites without a thick black gap. Keep their natural dark outer left/right outlines, slate blue stone, existing cracks, bevels, overhead perspective, and the same subdued light as the corner stones. Preserve every other sprite and its placement unchanged. Preserve native transparent background and gutters. No floor, no whole scene, no text."
+    },
+    {
+      "id": "v17",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-15c151b6-6de2-4ced-a5e1-ec3496bf3a30.png",
+      "input": "v16",
+      "status": "Rejected: width grew excessively.",
+      "prompt": "Precise small edit to this transparent sprite atlas: increase ONLY the width of the two isolated vertical two-stone stacks in the middle-left and middle-right by FIVE PERCENT. Their height stays unchanged. Current measured visible silhouette left 109x262 pixels, right 110x262 pixels. Target both approximately 115x262 pixels including black outline. This is a very slight widening, about six pixels. Extend the slate-blue stone surface within the new width, preserving the same thin bevel and dark border as the corner stones. Keep upper and lower ends flat, with just a thin dark seam, no thick padding or shadow there. Keep each pair joined at its middle seam. Preserve all other atlas sprites, material, palette, cracks, placement, perspective and genuine native transparent background. No backdrop."
+    },
+    {
+      "id": "sheet_v1",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-58eb10b4-681a-46fb-bdca-4cab821dfc29.png",
+      "input": "v15",
+      "status": "Rejected: heavy outlines and aspect unsuitable.",
+      "prompt": "Game sprite asset sheet, genuine transparent background. Use the attached image ONLY as the material/style reference. Create SIX separate compact vertical wall modules arranged in a regular 3-column by 2-row grid with generous transparent gutters. Each module is TWO vertically stacked slate-blue stone tops touching through one thin dark mortar joint. Six different subtle cracks, same color and beveled hand-painted material as the reference's corner blocks. All modules are narrow vertical rectangles: their TOTAL height is about 2.2 to 2.3 times their width. Two almost-square stones per module, not three stones. Important: top and bottom ends are straight flush connection ends with only a very fine black line. Thick dark left/right outer outline like reference. No thick black bars on top/bottom, no rounded isolated badge silhouette, no perspective front faces, no protruding feet. Each module is a single continuous wall segment, no transparent gap between its two stones. Palette muted dark slate blue, restrained soft blue-grey highlights. No labels, no text, no corners, no horizontal wall pieces, no background."
+    },
+    {
+      "id": "v18",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-28434f86-e0ec-4e92-9006-8f4cc53cf483.png",
+      "input": "v16",
+      "status": "Rejected: excessive shortening.",
+      "prompt": "Use case: precise-object-edit. Small local shape correction. The two isolated two-stone wall pairs at middle-left and middle-right must be a little SHORTER, with their WIDTH UNCHANGED. In each of these two pairs shorten ONLY the lower stone by 12 pixels, move its bottom edge upward. Keep the upper stone exactly as is. The two stones remain touching. Do not widen them. Overall visible pair rectangle is about 110 pixels wide by 250 pixels tall, height-to-width ratio 2.27. Keep their middle seam, palette, slate-blue texture, same top-down stone appearance and side outline. Preserve all other elements and all surrounding transparent space. Genuine transparent background. Do not draw new shadows."
+    },
+    {
+      "id": "v19",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-af1e6124-e2e8-4165-bda5-0ee1c49cea23.png",
+      "input": "v18",
+      "status": "Rejected: excessive length.",
+      "prompt": "Edit this dungeon atlas locally: make just the LOWER stone of each middle-left and middle-right isolated pair slightly taller. Extend its lower end downward by about 20 pixels. Keep the width, upper stone, middle seam and all other sprites unchanged. The total visible outline of each pair should be 250 pixels tall and 110 pixels wide. Keep native alpha background, muted slate blue material, fine bevels, cracks and dark outlines as in this image. No other changes."
+    },
+    {
+      "id": "v20",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-cbb13105-2a53-404a-a0b6-2a092cf3836e.png",
+      "input": "v19",
+      "status": "Rejected: insufficient length.",
+      "prompt": "Precise sprite atlas edit. Keep everything the same except the two vertical two-stone pairs isolated at middle-left and middle-right. Reduce the TOTAL HEIGHT of each of these pairs by only 4 percent, by shortening both stones slightly. Keep their width exactly unchanged. This is a very subtle change: the pairs should remain almost as tall as they are now. Keep muted blue stone, soft bevels, cracks, outlines, native alpha and all other pieces unchanged."
+    },
+    {
+      "id": "v21",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-a2328be1-91a1-43b1-8d5c-c70ba1edf9e0.png",
+      "input": "v20",
+      "status": "Rejected after GPU capture: thick black outline and grey material.",
+      "prompt": "Precise local sprite edit: increase the total height of ONLY the two isolated two-stone pairs at middle-left and middle-right by TWO PERCENT. This is a tiny elongation of both stones. Keep their WIDTH EXACTLY unchanged. Keep them touching along their existing middle seam. Preserve every other sprite, position, all cracks, muted slate-blue color, bevels and dark outlines. Genuine alpha background. No additional elements."
+    },
+    {
+      "id": "v22",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-6ce5e6de-13ee-40f5-a8d3-9d08103eed24.png",
+      "input": "v15",
+      "status": "Rejected: excessive length.",
+      "prompt": "Make a local edit to this game sprite atlas. Only the two isolated vertical two-stone pairs in the middle-left and middle-right change: make each pair 10% TALLER, keeping its present WIDTH and its slate-blue stone face exactly the same. Extend the lower stone downward, do not change the upper stone. Preserve the same edge thickness and the same muted blue color as the corner blocks. These should be ordinary stone wall segments matching the corners, not icons with a black backing plate. Keep all other sprites and all transparent gutters unchanged. Native transparent alpha background."
+    },
+    {
+      "id": "v23",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-98bbc1d5-4e12-4a04-9fed-6c52f63c149c.png",
+      "input": "v22 + cap-tight-v13.png",
+      "status": "Rejected: excessive length.",
+      "prompt": "Image 1 is edit target; image 2 is ORIGINAL MATERIAL reference. Correct only the two isolated two-stone vertical pairs at middle-left and middle-right in image 1. Reduce their height very slightly, from 306 pixels to about 296 pixels, KEEP their current 130 pixel width. More importantly match their material and outline to image 2's original corner stones: slate BLUE, not grey; restrained smooth stone, fine blue bevel, dark blue-black outer contour instead of a jet black thick backing plate. Enlarge the painted blue stone face inside each silhouette so only a narrow dark outline remains, same proportion as the original corner stones. The pair's two stones must meet at a fine mortar seam. Flat top and bottom connection ends with a fine contour. Leave all other sprites unchanged. Genuine transparent background, no painting in transparent gutters."
+    },
+    {
+      "id": "v24",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-e7bb121a-e155-4eab-a5c4-7b2cf209ff52.png",
+      "input": "v21 + cap-tight-v13.png",
+      "status": "Integrated: middle-left/right pairs only. Other redrawn atlas parts are unused.",
+      "prompt": "Image 1 is the edit target. Image 2 is the approved material and edge reference. In image 1 change ONLY the material of the two isolated vertical stone pairs at middle-left and middle-right. Keep their exact positions and OUTER silhouette and dimensions unchanged. They currently look like grey stones mounted on thick black plaques. Expand their slate-blue painted faces inside their existing silhouette so the dark border is as thin as on the corner stones in image 2. Match the blue color, bevel brightness, texture and outline color of image 2. In particular eliminate the heavy jet-black bands at the free top and bottom ends; paint stone and a fine edge bevel there inside the unchanged silhouette. Keep one narrow mortar seam where the two stones meet. Do not alter any other atlas sprites. Preserve native transparent alpha background."
+    },
+    {
+      "id": "v25",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-bac4b72c-d50b-4524-b412-0b33d4bc30d3.png",
+      "input": "v24",
+      "status": "Rejected: shortened right pair excessively.",
+      "prompt": "Edit just the isolated two-stone vertical pair at middle-RIGHT. Make this pair very slightly shorter by moving its bottom edge upward FOUR PIXELS. Keep the top edge and the WIDTH unchanged. Preserve its painted slate-blue material, bevels, outlines, cracks, middle seam, and native transparent alpha. Everything else in the atlas stays unchanged. Only a tiny shortening of the bottom stone of the middle-right pair."
+    }
+  ],
+  "visual_review": {
+    "captures": [
+      "2x2CellRoom-2x.png",
+      "2x2CellRoom-west-4x.png",
+      "2x2CellRoom-east-4x.png",
+      "3x3CellRoom-2x.png",
+      "cell-rooms-comparison.png",
+      "corridors-comparison.png",
+      "3x3RoomFourCorridors-2x.png",
+      "3x3RoomCornerCorridors-2x.png",
+      "5x5RoomVerticalCornerCorridors-corners-comparison.png"
+    ],
+    "before": [
+      "2x2CellRoom-before-compact-pairs-2x.png",
+      "2x2CellRoom-before-compact-pairs-west-4x.png",
+      "3x3CellRoom-before-compact-pairs-2x.png"
+    ],
+    "scope": "Seven isolated studies captured; three connected configurations recaptured. Visual inspection only, no programmatic artistic score. This focused change is not approval of all dungeon joins.",
+    "logs": "artifacts/compact-pairs-*.log / *.err"
+  }
+}

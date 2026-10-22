@@ -64,6 +64,16 @@ func _capture() -> void:
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		viewport.get_texture().get_image().save_png(prefix + "-" + side + "-4x.png")
+	# Show both ends of the central wall together for corner-perspective review.
+	viewport.size = Vector2i(1600, 520)
+	await process_frame
+	camera.zoom = Vector2.ONE * 2.5
+	for side in ["north", "south"]:
+		camera.position = centers[side]
+		camera.force_update_scroll()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		viewport.get_texture().get_image().save_png(prefix + "-" + side + "-span-2.5x.png")
 	# Visual regressions for the reported left join, floating facade and corner.
 	viewport.size = Vector2i(800, 640)
 	await process_frame

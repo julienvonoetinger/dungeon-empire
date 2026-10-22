@@ -231,18 +231,49 @@ pas devenir un rendu indépendant avec ses propres corrections de raccord.
   d'épaisseur, de couleur et de contour sur chaque orientation. Des contrôles
   techniques réussis ne prouvent pas l'absence de défaut artistique.
 
-**Écart actuel à migrer :** le code applique encore des modulations aux sols,
-aux façades, aux supports et aux pierres verticales. Les valeurs décrites plus
-bas documentent cet état, elles ne constituent plus une consigne à reproduire.
-Leur remplacement par des images générées doit préserver l'agencement du sol
-approuvé et l'apparence recherchée. Cette clarification ne réalise pas encore
-cette migration ni un éditeur joueur, une navigation ou une sauvegarde.
+**Palette des études modulaires, reprise du22 octobre :** les couleurs des sols,
+façades, supports et pierres verticales viennent désormais des PNG générés,
+avec modulation blanche. Les anciens multiplicateurs sont retirés de ces études.
+La scène historique SixRoomPreview demeure distincte. La reprise préserve les
+formats, la graine et l'agencement du sol ; elle n'ajoute ni éditeur joueur,
+navigation, objets ni sauvegarde. Le commit **2584f57** conserve l'état précédent.
 
 ### Études visuelles : salles et couloirs modulaires
 
 Les scènes s'ouvrent individuellement avec **F6**. Elles partagent
 `modular_room_study.gd` et `modular_study_kit.gd`. Les corrections visuelles
 restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
+
+**Aperçu dans l'éditeur :** le nœud `Dungeon` reconstruit les sprites à
+l'ouverture et via **Actualiser le rendu**. La propriété `refresh_action`
+fournit désormais un `Callable` à chaque lecture de l'Inspecteur, au lieu de
+stocker sa valeur à l'initialisation. Cela évite le bouton `Nil` après un
+rechargement de script. La scène déjà ouverte peut nécessiter une réouverture
+pour remplacer son ancienne instance. Inspection dans un projet éditeur isolé :
+`3x3RoomCornerCorridors` conserve 302 sprites après appel du bouton, puis après
+rechargement du script parent et nouvel appel. Aucun changement de géométrie,
+de palette, de règles de jeu ou de sauvegarde. Journal :
+`artifacts/editor-button-inspection.log`.
+
+**Reprise de palette :** neuf atlas natifs sont enregistrés dans
+`assets/dungeon/modular-study/calm-palette-generation.json` avec leurs prompts
+ImageGen, sources et dimensions. La référence de couleur est conservée dans
+`docs/reference/palette-concept-2026-10-22.png`. Les murs sont plus sombres et moins
+saturés ; les dessus perdent les reflets presque blancs. Le sol reçoit une
+surface lisse et unie, avec des variations douces et les fissures existantes.
+Il reste proche en luminosité des dessus des murs, au-dessus des façades sombres.
+Les anciennes images restent disponibles. La reprise de palette conservait les
+régions et ports ; la correction latérale ci-dessous remesure ensuite les côtés.
+Les dimensions des cases restent fixes. Les PNG générés sont copiés tels quels,
+sans modification de pixels ni nettoyage alpha. Les supports utilisent leur
+atlas ombré entier, au même décalage de40 unités source.
+
+Contrôle effectué par captures Godot des sept études isolées et des cinq scènes
+connectées3×3/5×5, à×1/×2 avec détails×4. La5×5 avec rangées temporaires[0,2,4]
+montre les séparateurs répétés. Les captures avant sont dans
+`artifacts/palette-before/`. Aucun test programmatique ni sonde artistique.
+La visibilité avec de vrais héros, coffres ou pièges reste à examiner lors de
+leur intégration ; ces études statiques n'en contiennent pas.
 
 | Scène | Cases (largeur × longueur) | Ouvertures | Rangées de dallage |
 | --- | --- | --- | --- |
@@ -268,41 +299,54 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   intérieure sombre ni rangée extérieure. Les faces sombres des murs horizontaux
   sont deux assises de briques indépendantes, à joints décalés, qui passent sous
   les chapeaux et les coins sans repartir aux limites des modules. La première
-  assise commence à **y=88** sous l'origine du mur ; la deuxième commence à
-  y=88 + hauteur native mise à l'échelle de la première − 2. Chaque assise
+  assise commence à **y=96 au nord, y=105 au sud** sous l'origine du mur,
+  selon `modular_wall_profile.course_top`. Son bord entier commence sous le pied
+  peint du chapeau ; l'ancien départ 88 coupait la brique sous le coin sud-ouest.
+  La deuxième commence au départ + hauteur native de la première mise à l'échelle − 2. Chaque assise
   garde une seule hauteur et une seule échelle sur toute la largeur.
-- Les chapeaux utilisent `cap-continuous-v10.png` ; les portions latérales
-  utilisent désormais `wall-tops-ports-v12.png` via `modular_side_kit.gd`.
+- Les chapeaux droits utilisent `cap-muted-v11.png` ; les coins fermés utilisent
+  `cap-square-v3.png`. Deux paires latérales restent dans `cap-tight-v13.png`.
+  Les longueurs complémentaires viennent de `wall-tight-v22/v23.png`
+  via `modular_side_kit.gd`.
   L'épaisseur des pierres horizontales
   est rétablie : l'aplatissement de v7 avait été rejeté. Le surplomb corrigé
   dans v9 est conservé dans le dessin de la face du chapeau, mais ses briques
   inférieures intégrées sont remplacées par des assises continues pour supprimer
   les décalages aux extrémités des modules. Les côtés gardent un petit biseau,
-  sans grosse face frontale répétée. La dernière révision ci-dessous utilise
-  `wall-tops-ports-v12.png` avec teinte blanche et composition partagée des
-  longueurs pour les passages verticaux. Les salles fermées conservent leur
-  placement de paires : hauteur source normalisée **315**, centres **±41**,
-  haut **−15**, petits décalages **[0,3,−2,1]** inversés à droite.
-  Le dallage et les murs horizontaux restent fixes.
+  sans grosse face frontale répétée. La variante v16 a été rejetée pour ses
+  différences de couleur et largeur. Les sources courantes utilisent une
+  modulation blanche et une composition partagée des
+  longueurs pour les salles fermées comme pour les passages verticaux.
+  L'ancien placement par paires de **315×0,92** avançait seulement de **256**,
+  soit **33,8 unités source de recouvrement**. Il est retiré, avec ses décalages.
+  Les côtés remplissent maintenant l'intervalle entre les extrémités réelles des
+  coins : haut **279**, bas **−166**, largeur cible **101**, centres **41,75**
+  à gauche et **−38** à droite, relativement aux ancres des coins.
+  La largeur est désormais fixe : aucune remise à l'échelle selon la hauteur
+  disponible. Chaque silhouette conserve ses proportions et avance de sa hauteur
+  naturelle à cette largeur, avec répartition du reliquat positif dans les joints.
+  Aucun remplissage pour un intervalle nul ou négatif ; le contact existant entre
+  les coins de la 1×1 reste inchangé. Les nouveaux contours noirs et biseaux sont
+  peints dans le PNG, sans correction alpha à l'exécution.
+  Le dallage et les chapeaux droits restent fixes ; le départ des assises est recalé.
   Aucune suppression de pixels par programme.
   Les raccords horizontaux ont été recalés pour préserver les deux extrémités
   peintes, notamment au coin sud-ouest. La façade est prolongée sous les chapeaux
   jusqu'au bord du mur, au lieu de former une bande en retrait.
-- **Douze variantes de dalle** dans `floor-varied-v2.png` : trois proportions
+- **Douze variantes de dalle** dans `floor-calm-v3.png` : trois proportions
   natives, chacune avec deux dessins calmes et deux fissures distinctes. Texture
   douce, sans gravure centrale ni veinage contrasté systématique. La précédente
   texture et les formats tous identiques de `floor-variants-v1.png` sont rejetés.
   **Quatre variantes de brique dans deux longueurs** (huit sprites) restent dans
-  `brick-soft-v2.png`, à texture adoucie, modulation RGB **1,10**.
+  `brick-muted-v3.png`, à texture adoucie, modulation blanche.
   Aucun effet de lumière ou accessoire supplémentaire.
 - Chaque dalle est un sprite entier. Graine fixe **173** : les trois formats
   sont réordonnés sur la largeur complète des rangées, sans joints ajoutés aux
-  limites des cases. Quatre variantes par format sont alternées. Cinq teintes
-  RGB discrètes sont appliquées : (0,92;0,94;1), (1,03;0,99;1),
-  (0,87;0,91;0,97), (1;1,02;1,04), (0,96;0,94;1,01).
-  Les variations de sol ont été validées par l'utilisateur et sont conservées
-  exactement. Pour éclaircir davantage le sol sans accentuer excessivement le
-  bleu, ces teintes sont multipliées par **(1,74;1,61;1,40)**, alpha toujours 1.
+  limites des cases. Quatre variantes par format sont alternées. L'agencement
+  validé reste fixe. Les cinq anciennes teintes par pierre et le multiplicateur
+  **(1,74;1,61;1,40)** sont supprimés au profit de surfaces peintes plus lisses,
+  plus unies et moins saturées. Les fissures restent discrètes ; la différence de
+  couleur entre pierres est native. Aucune correction de couleur à l'exécution.
   Les rangées se calent sur leur largeur par une échelle uniforme calculée
   d'après les largeurs natives ; leur hauteur suit les proportions des sprites.
   L'excédent passe sous les murs. Les couloirs verticaux calent uniformément
@@ -310,8 +354,8 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   Pas visuel logique d'une case toujours **(476,256)** ; le nombre de dalles
   décoratives varie selon les formats, avec deux rangées par case verticale.
 - Échelle générale **0,29** ; multiplicateurs uniformes des coins **1**, chapeaux
-  nord **0,99**, sud **0,97**, paires des salles **0,92**. Les passages verticaux utilisent désormais
-  la composition uniforme décrite ci-dessous, sans multiplicateur historique **0,95**.
+  nord **0,99**, sud **0,97**. Tous les côtés droits utilisent désormais
+  la composition uniforme décrite ci-dessous, sans multiplicateurs historiques **0,92/0,95**.
   Les briques d'une assise partagent une échelle uniforme calculée sur la somme
   de leurs largeurs ; aucun étirement horizontal ou vertical indépendant.
   Les salles fermées ont une emprise entre ancres de
@@ -406,8 +450,8 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   Il n'y a plus de double bande de dessus dans ce cas.
 - La première version à terminaisons plates (`narrow-separator-ends-v5.png`) a
   été rejetée : le dessus paraissait posé sur une façade mince, comme un rideau.
-  `modular_separator_kit.gd` utilise maintenant `narrow-separator-v3.png` pour les
-  trois pierres droites et `solid-separator-ends-v8.png` pour les terminaisons.
+  `modular_separator_kit.gd` utilise maintenant `narrow-separator-muted-v4.png` pour les
+  trois pierres droites et `solid-separator-muted-v9.png` pour les terminaisons.
   La v7 a été rejetée : sa grande face oblique introduisait une autre perspective.
   La v8 intègre deux pierres de dessus et deux assises projetées uniquement vers
   le bas. Le bord fermé garde la même abscisse du dessus au pied, sans face latérale
@@ -422,7 +466,7 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   La façade droite rejoint les ports des deux assises de la terminaison ; le
   nombre de briques entières de chaque assise est choisi selon sa hauteur native.
   Les rangées ne redémarrent pas à chaque module droit. Le dallage central reste
-  inchangé. La modulation héritée des briques reste à migrer comme indiqué plus haut.
+  inchangé. La reprise de palette utilise la variante native brick-muted-v3 sans modulation.
   Provenance et prompts : `solid-separator-generation.json` ; les essais plats
   restent consignés dans `narrow-separator-generation.json`.
 - Les bandes plus larges, les îlots fermés des deux côtés et les séparateurs
@@ -515,7 +559,7 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   des murs est partagé avec les sept petites scènes dans
   `modular_wall_profile.gd` et les fonctions de `modular_room_study.gd`.
   Chapeaux nord **0,99**, sud **0,97**, cadence **476** unités source, façade
-  commençant à **y=88** : aucune compression des chapeaux par segment et aucun
+  commençant à **y=96 au nord, y=105 au sud** : aucune compression des chapeaux par segment et aucun
   départ de façade propre à la grande scène. Les deux assises passent sous les
   angles avec des joints décalés. Les segments courts combinent des briques
   entières et demi-longues natives, à échelle uniforme pour chaque assise.
@@ -535,8 +579,9 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   signifient donc pas une branche horizontale totale de 952 unités source.**
   Le calage sur une grille de construction/navigation reste à définir.
   Des dalles de support entières, **Z0**, sont décalées de **40 unités source**
-  vers le haut derrière le pied des façades ; leur RGB est multiplié par **0,70**,
-  alpha inchangé. Elles ne remplacent ni les pierres visibles ni leur contour.
+  vers le haut derrière le pied des façades ; leur couleur assombrie vient de
+  `floor-calm-support-v1.png`, avec modulation blanche. Le multiplicateur **0,70**
+  est retiré. Elles ne remplacent ni les pierres visibles ni leur contour.
   Le fond opaque hérité est aussi à Z0 et passe avant ses enfants. L'ensemble
   des sprites de cette étude est relevé d'une couche : les supports auparavant
   à Z−1 étaient cachés sous le fond, ce qui laissait apparaître un filet de vide.
@@ -556,7 +601,7 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   module double plaçait sa tige droite au-delà de la limite logique ; les pierres
   de côté changeaient aussi de largeur selon la longueur à remplir. Un partage
   de PNG ne suffisait donc pas à garantir une géométrie commune.
-- **`paired-cap-transitions-v7.png`** fournit quatre transitions complètes à deux
+- **`paired-cap-square-v7.png`** fournit quatre transitions complètes à deux
   coudes, sans sol ni façade. Le segment horizontal fermé d'une colonne utilise
   un module entier ; les deux anciens sprites d'angle ne sont pas dessinés dessous.
   Atlas **1536×1024**, régions **768×512**, ancre source **(96,256)**. Ordre :
@@ -566,37 +611,87 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   uniforme et une translation à tout le module, puis aux mêmes ports.
   Les centres des tiges deviennent **x=41 et x=517**, soit **476** d'écart,
   relativement à l'ancre gauche. Le milieu de la tranche est aligné sur le
-  profil droit nord/sud partagé. Après génération, les hauteurs ajustées sont
-  environ **104,18 / 105,14** au nord et **109,23 / 107,76** au sud, contre
-  **105,93 / 111,55** pour les profils droits. Le centrage laisse donc au maximum
-  environ **0,55 px** de décalage par bord à l'échelle du jeu : ce n'est pas une
-  égalité parfaite des pixels ni une validation artistique. Ces mesures ne
-  découpent jamais l'image.
-- Les angles individuels compatibles restent **`cap-elbows-flush-v9.png`**.
+  profil droit nord/sud partagé. Les profils natifs remesurés de square-v7 sont
+  **[−26,95]** au nord et **[−91,32]** au sud. Les deux centres des bras déterminent
+  l'échelle uniforme ; les ports utilisent exactement ce même transform.
+  L'ancien écart de0,55px décrivait muted-v8 et ne valide pas cette nouvelle image.
+  Le contrôle actuel est visuel ; ces mesures ne découpent jamais l'image.
+- Les angles individuels compatibles utilisent **`cap-elbows-square-v7.png`**.
   Leurs régions complètes sont conservées. Profils **[−14,99]** NW/NE et
-  **[1,114]** SW/SE ; extrémités verticales **[−14,159]** / **[−55,114]**.
+  **[1,114]** SW/SE ; extrémités verticales **[−19,165]** NW, **[−19,164]** NE
+  et **[−61,120]** SW/SE.
   Leurs largeurs et centres horizontaux natifs sont maintenant mesurés aussi.
   L'échelle reste dérivée du profil droit **0,99/0,97** ; la translation x
   centre réellement chaque tige sur **±41**, au lieu de supposer son centrage.
   Le recalage des courts retours traite les intervalles positifs ET négatifs
   d'amplitude au plus **82**, en déplaçant des rangées entières ; il n'ajoute
-  ni entretoise ni chevauchement peint. Les façades conservent leur départ **88**
+  ni entretoise ni chevauchement peint. Les façades partagent les départs **96/105**
   et leurs limites sous les coins ; leur recette horizontale reste partagée.
-- **`wall-tops-ports-v12.png`** remplace les côtés v11. Quatre sprites entiers :
-  une paire et trois pierres, dans quatre régions **627×627** de l'atlas
-  **1254×1254**. Leurs ancres et corps mesurés sont dans `modular_side_kit.gd`.
+- **Extrémités carrées, correction du biseau :** les angles fermés square-v3,
+  les angles compacts square-v7 et les doubles coudes square-v7 prolongent la
+  **face bleue de la pierre** jusqu'à l'extrémité. Une plaque noire ajoutée autour
+  de l'ancien coin coupé ne convient pas : l'essai compact-v4 a été rejeté sur
+  capture par l'utilisateur. La tranche frontale reste horizontale ; les bras
+  verticaux gardent uniquement leur dessus. Les pixels viennent des PNG natifs,
+  avec leur alpha, sans masquage, retouche par programme ni modulation RGB.
+  Le cadre de calibration des profils compacts reste inchangé : inclure leur
+  contour noir supplémentaire dans l'échelle rétrécissait les bras horizontaux.
+  Les coins fermés square-v2 sont écartés : leur pierre voisine raccourcie
+  réintroduisait des espaces et des petits éléments isolés dans la2×2.
+  Prompts, sources, variantes et mesures : `square-corners-generation.json`.
+  Captures Godot des sept scènes isolées et des cinq scènes connectées, à taille
+  normale et agrandie. La vue `5x5RoomVerticalCornerCorridors-north-span-2.5x.png`
+  conserve ensemble les deux coins et la façade pour examiner cette perspective.
+  Pas de sonde artistique ni de validation de plans arbitraires ; l'approbation
+  visuelle de l'utilisateur reste distincte de cette inspection.
+- **Côtés à largeur fixe :** deux paires entières de `cap-tight-v13.png`, quatre
+  longueurs de `wall-tight-v22.png`, quatre de `wall-tight-v23.png` et deux
+  paires compactes de `cap-compact-pairs-v24.png`.
+  Ces dernières remplacent les deux carrés isolés qui semblaient flotter dans
+  la 2×2. Elles sont disponibles pour tout intervalle compatible du kit commun.
+  Régions entières **(50,450,230,350)** et **(980,450,250,350)**, ancres locales
+  **(46,52)/(71,52)**, corps natifs **113×265 / 115×267**.
+  La largeur commune des ports de coins fermés est recalibrée de **103 à101**
+  unités source (**0,58 px** de différence à l'échelle0,29), sans déplacer les
+  coins ni calculer la largeur en fonction de la hauteur. La première version
+  remplissait l'intervalle de237 de la2×2 avec la paire10 de236,858.
+  Avec les nouveaux coins square-v3, l'intervalle est **236** : la paire11 de
+  **234,496** est sélectionnée, avec **0,752** de joint positif à chaque extrémité.
+  Aucun bout peint n'est superposé.
+  Les deux atlas complémentaires mesurent **1254×1254**. V22 utilise quatre régions
+  de **627×627** ; v23 sépare les deux rangées à **y=550** dans la marge transparente,
+  avec des régions de **627×550** et **627×704**. Les silhouettes restent entières.
+  Leurs ancres et corps mesurés sont dans `modular_side_kit.gd`.
+  V16 est écartée pour sa couleur/largeur, v17/v18 pour leurs bandes noires aux
+  extrémités. Les essais v19/v20 ont conservé des bandes ou créé des débords noirs ;
+  v21 restait trop bleu. V23 ajoute les longueurs manquantes aux petits intervalles.
   Couleur et contours sont générés dans le PNG ; **modulation blanche**, aucun
   éclairage de bord ni shader. La teinte RGB latérale est supprimée.
-- `make_run` compose jusqu'à deux longueurs natives normalisées à une largeur
-  commune, puis applique un ajustement uniforme commun à toute la composition.
+- `make_run` sélectionne des longueurs natives à largeur fixe. Une recherche par
+  pas de **0,25 unité source** privilégie les paires des coins et les paires
+  compactes (indices **0,1,10,11**) : coût **2** par paire, **5** par longueur complémentaire, **0,15**
+  pour une répétition consécutive. Le reliquat est réparti entre les sprites et
+  les deux extrémités. Le score pénalise de **100** chaque unité de joint au-delà
+  de **2**, puis de **0,1** sa taille. Aucun ajustement final de largeur.
   La longueur n'est plus limitée à quatre sprites. La largeur cible vient du
   port du coin raccordé ; les couloirs verticaux isolés réutilisent cette même
   fonction avec une cible **94**. Le petit dessus v9 reste réservé aux intervalles
   plus courts que **1,5× la largeur**, jamais répété le long d'un grand mur.
-  Les salles fermées gardent leur placement historique de paires pour l'instant ;
-  elles reçoivent le nouveau PNG latéral à teinte blanche. Le dallage approuvé,
-  sa graine, ses positions et ses teintes restent fixes. La migration des teintes
-  du sol, des façades et des supports reste distincte et n'est pas réalisée ici.
+  Les salles fermées partagent cette composition entre les ports remesurés des
+  coins, au lieu des anciennes paires superposées. Le dallage approuvé,
+  sa graine et ses positions restent fixes. La reprise de palette ultérieure
+  remplace aussi les teintes des sols, façades et supports par des PNG natifs.
+  La correction des carrés flottants est documentée dans
+  `compact-pairs-generation.json` : PNG natif, essais écartés et captures des
+  sept études isolées, de3×3RoomFourCorridors, de3×3RoomCornerCorridors et
+  de5×5RoomVerticalCornerCorridors. Le sol et les façades ne changent pas.
+  `tight-joints-generation.json` conserve la correction précédente ;
+  `vertical-width-color-generation.json` conserve l'étape de largeur fixe,
+  `vertical-outline-generation.json` conserve la tentative précédente rejetée.
+  Inspection des captures Godot des sept études isolées et des scènes connectées
+  3×3 centrée, 5×5 centrée et 5×5 aux coins horizontaux/verticaux, avec détails ×4.
+  Les détails `*-southwest-4x.png` ciblent la brique auparavant coupée par le coin.
+  Aucun test programmatique. L'approbation artistique reste à l'utilisateur.
 - Les essais de coins élargis `cap-elbows-ports-v11/v12.png` et de faces plus
   profondes `paired-cap-transitions-v3.png` sont **inutilisés** : leurs proportions
   déplaçaient les jonctions horizontales ou épaississaient trop la tranche.

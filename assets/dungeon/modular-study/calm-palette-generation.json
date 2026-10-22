@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-22",
+  "square_corner_followup": {"provenance": "square-corners-generation.json", "current_corner_files": ["cap-square-v3.png", "cap-elbows-square-v7.png", "paired-cap-square-v7.png"], "note": "Supersedes the corner sources in the historical entries below. Straight caps and side-pair sources are retained."},
+  "checkpoint": "2584f57",
+  "side_followup": {"current_files": ["cap-tight-v13.png", "wall-tight-v22.png", "wall-tight-v23.png", "cap-compact-pairs-v24.png"], "provenance": "compact-pairs-generation.json", "previous_provenance": "tight-joints-generation.json", "note": "The side-v13 entry below records the original palette generation. Later compact native pairs replace floating short squares in2x2; closed-corner shaft width is now fixed101. Whole cap-tight-v13 corners/pairs remain. Straight cap strips remain cap-muted-v11."},
+  "scope": "All modular room/corridor study atlases. Legacy SixRoomPreview assets are not part of this palette revision.",
+  "intent": "Smoother more uniform pavers for future gameplay-object readability; darker desaturated slate-blue walls matching the supplied original concept.",
+  "reference": "docs/reference/palette-concept-2026-10-22.png",
+  "method": "Built-in image_gen, transparent_background=true; generated original PNGs copied unchanged. No procedural recoloring, resampling, alpha cleanup, masks or shaders.",
+  "geometry": "Material-only edits retain atlas canvas sizes, slots, anchors, measured ports, native proportions, course counts and topology selection. Seed173 and paving format/variant ordering retained.",
+  "runtime": "White modulation for all modular architecture; removed floor five tints and(1.74,1.61,1.40), facade1.10 and support0.70. A whole generated shaded paver atlas replaces support tint at the same y-40 offset.",
+  "output_directory": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da",
+  "assets": [
+    {
+      "id": "floor",
+      "source": "floor-varied-v2.png",
+      "file": "floor-calm-v3.png",
+      "output": "exec-759d2a54-b62f-403a-9ba3-356fb1c27eb7.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "prompt": "MATERIAL-ONLY REPAINT. The first image is the edit target; preserve EXACTLY its1254x1254 canvas, every sprite's position, size, contour, alpha silhouette, bevel geometry, crack paths, gutter and perspective. Do NOT redraw the layout, move edges, crop, add a border, rescale, or change the number of stones. Genuine transparent background stays transparent. The second image is the desired dungeon art reference. Repaint all12 pavers as calm smooth slate-blue floor for readable heroes, chests and traps. Each face should be broadly UNIFORM matte color, with very slight large soft value shifts only. REMOVE the diagonal crosshatch, woven grain, cloudy mottling, speckle and tiny faceted texture from target. Keep three native widths and all twelve variants. Preserve existing cracks in their current six stones, but make them fine understated dark lines, with no bright white outline. Floor main face muted blue-gray near#53627d, individual stones vary subtly near#4d5d77/#596982. Narrow soft edge bevel#65748b, dark mortar#26334a. NO white highlights, electric blue, glossy shine, ice, embossing or noisy texture. Slightly lighter, smoother floor surfaces; readable quiet background, with wall top surfaces from the reference only slightly brighter. No props or environmental shadows. Output exactly the original sheet geometry with newly painted native colors."
+    },
+    {
+      "id": "caps",
+      "source": "cap-continuous-v10.png",
+      "file": "cap-muted-v11.png",
+      "output": "exec-f8b97293-f6d2-4657-a1f4-32d4cd3e97b2.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "prompt": "MATERIAL-ONLY REPAINT. The first image is the edit target; preserve EXACTLY its1254x1254 canvas, every sprite's position, size, contour, alpha silhouette, bevel geometry, crack paths, gutter and perspective. Do NOT redraw the layout, move edges, crop, add a border, rescale, or change the number of stones. Genuine transparent background stays transparent. The second image is the desired DARK slate-blue dungeon palette. Recolor ALL wall stones consistently. The current near-white icy surfaces are far too bright. Main overhead cap surfaces muted slate-blue#4f607e, occasional subdued variation#485973/#566681, small bevel highlights#72819b, short downward front lips#303d55, deep outlines#131d30. Keep the existing top/front plane boundaries and front thickness EXACTLY. Remove white/silver/frosty edges and busy crystalline microtexture; use the calm soft hand-painted stone finish of the reference. Preserve a few existing crack paths as subdued thin darker lines, no white sparkles. The middle unused paving panel gets the same restrained palette too. No new decorations, props, lights or shadows outside sprites. Color/material change ONLY; all joins must still fit exactly."
+    },
+    {
+      "id": "side",
+      "source": "wall-tops-ports-v12.png",
+      "file": "wall-tops-muted-v13.png",
+      "output": "exec-c712e915-55bd-4680-93da-6e9da205cdf0.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "prompt": "Material/palette edit ONLY. Image1 is the target sheet. Image2 is the EXACT new dark slate-blue material reference (cap-muted-v11): match its colors, soft painted finish, subdued edge highlights and lip shadows closely. Preserve ALL of image1's original geometry, canvas, positions, size, silhouettes, crack paths, stones, joins, perspective, front-face heights, and transparent gutters. Never change the silhouette or scale a sprite. Dark blue-gray surfaces, no near-white/icy/glowing highlights; quiet broad matte shading, remove crystalline/grain/crosshatch noise. No added decoration, scenery or new drop shadows. Outside every sprite must be genuine alpha0 with NO halo/background; remove any old halo as part of image generation. All outputs remain complete reusable sprites. 1254x1254. Four original slots and original five stones (top-left pair, other three singles). ALL stones overhead surfaces like reference2's corner shafts; keep original exact widths/heights and crack positions. Face color#4f607e, muted bevel#72819b, outlines#131d30."
+    },
+    {
+      "id": "elbows",
+      "source": "cap-elbows-flush-v9.png",
+      "file": "cap-elbows-muted-v10.png",
+      "output": "exec-2c09ea68-94bc-4112-9269-3ad64893c7ce.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "prompt": "Material/palette edit ONLY. Image1 is the target sheet. Image2 is the EXACT new dark slate-blue material reference (cap-muted-v11): match its colors, soft painted finish, subdued edge highlights and lip shadows closely. Preserve ALL of image1's original geometry, canvas, positions, size, silhouettes, crack paths, stones, joins, perspective, front-face heights, and transparent gutters. Never change the silhouette or scale a sprite. Dark blue-gray surfaces, no near-white/icy/glowing highlights; quiet broad matte shading, remove crystalline/grain/crosshatch noise. No added decoration, scenery or new drop shadows. Outside every sprite must be genuine alpha0 with NO halo/background; remove any old halo as part of image generation. All outputs remain complete reusable sprites. 1254x1254. Preserve original L-corner shapes, legs, all other regions including small center plate. Top color#4f607e, muted bevel#72819b, down-facing lip#303d55. All horizontal seam heights must remain unchanged."
+    },
+    {
+      "id": "paired",
+      "source": "paired-cap-transitions-v7.png",
+      "file": "paired-cap-muted-v8.png",
+      "output": "exec-6783c016-a8c3-48f5-b77a-5f1a274d9f1a.png",
+      "canvas": [
+        1536,
+        1024
+      ],
+      "prompt": "Material/palette edit ONLY. Image1 is the target sheet. Image2 is the EXACT new dark slate-blue material reference (cap-muted-v11): match its colors, soft painted finish, subdued edge highlights and lip shadows closely. Preserve ALL of image1's original geometry, canvas, positions, size, silhouettes, crack paths, stones, joins, perspective, front-face heights, and transparent gutters. Never change the silhouette or scale a sprite. Dark blue-gray surfaces, no near-white/icy/glowing highlights; quiet broad matte shading, remove crystalline/grain/crosshatch noise. No added decoration, scenery or new drop shadows. Outside every sprite must be genuine alpha0 with NO halo/background; remove any old halo as part of image generation. All outputs remain complete reusable sprites. 1536x1024. Preserve all FOUR double-bend horizontal strips EXACTLY in their768x512 slots. Exact geometry/shaft centers/ports; recolor only. Top color#4f607e, muted bevel#72819b, down-facing lip#303d55. The glow/background around target MUST become native transparent, no soft halo."
+    },
+    {
+      "id": "facade",
+      "source": "brick-soft-v2.png",
+      "file": "brick-muted-v3.png",
+      "output": "exec-a380ce9c-8b65-41e6-8424-8e8dfcd38ac2.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "prompt": "Material/palette edit ONLY. Image1 is the target sheet. Image2 is the EXACT new dark slate-blue material reference (cap-muted-v11): match its colors, soft painted finish, subdued edge highlights and lip shadows closely. Preserve ALL of image1's original geometry, canvas, positions, size, silhouettes, crack paths, stones, joins, perspective, front-face heights, and transparent gutters. Never change the silhouette or scale a sprite. Dark blue-gray surfaces, no near-white/icy/glowing highlights; quiet broad matte shading, remove crystalline/grain/crosshatch noise. No added decoration, scenery or new drop shadows. Outside every sprite must be genuine alpha0 with NO halo/background; remove any old halo as part of image generation. All outputs remain complete reusable sprites. 1254x1254. Eight original bricks (four full, four half). These are VERTICAL FRONT FACADE, therefore darker than reference2's overhead surfaces: faces#2d3b54, discreet beveled upper edges#465571, dark joints#141d2c. Retain cracks/chips with muted contrast, smooth matte stone; remove fine grain and mottling. Preserve all bounds and corner shapes exactly."
+    },
+    {
+      "id": "separator",
+      "source": "narrow-separator-v3.png",
+      "file": "narrow-separator-muted-v4.png",
+      "output": "exec-18f0e9fd-b0e7-4f10-9db6-9d9062bb6d38.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "prompt": "Material-only edit. Image1 is target. Preserve its EXACT canvas, sprite positions, sizes, silhouette alpha, original native transparent gutters, every stone and crack path, bevel/front-face geometry and perspective. Do not rearrange/rescale anything. Change ONLY colors and surface finish. No background, no glow, no halo, no new outer shadow. Keep1254x1254. Image2 is exact new palette/finish reference. Match its muted slate-blue cap tops#4f607e, restrained edge bevels#72819b and downward lips#303d55; outlines#131d30. Remove white glitter and fine crystalline/grain texture. Quiet soft hand-painted stone, no diagonal crosshatch. Preserve the three top-row stones and two lower end shapes, their precise ports."
+    },
+    {
+      "id": "ends",
+      "source": "solid-separator-ends-v8.png",
+      "file": "solid-separator-muted-v9.png",
+      "output": "exec-a7e09c79-d1ce-4c74-9c76-b8047d1029bc.png",
+      "canvas": [
+        1964,
+        801
+      ],
+      "prompt": "Material-only edit. Image1 is target. Preserve its EXACT canvas, sprite positions, sizes, silhouette alpha, original native transparent gutters, every stone and crack path, bevel/front-face geometry and perspective. Do not rearrange/rescale anything. Change ONLY colors and surface finish. No background, no glow, no halo, no new outer shadow. Keep1964x801. Keep both square-ended orthographic terminals and every course at EXACT original coordinates. Image2 gives new overhead stone/lip colors, image3 gives new front masonry colors. Match those two references closely so cap and masonry join seamlessly with the other sprites. Cap tops muted slate-blue#4f607e, soft bevel#72819b, lips#303d55; front courses#2d3b54 with restrained bevel#465571. Quiet smooth matte stone, remove all grain and near-white highlights. Do not introduce any side plane or diagonal perspective."
+    },
+    {
+      "id": "support",
+      "source": "floor-calm-v3.png",
+      "file": "floor-calm-support-v1.png",
+      "output": "exec-811fa100-4bca-49b3-9aca-eed824079ef4.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "prompt": "Material-only edit. Image1 is target. Preserve its EXACT canvas, sprite positions, sizes, silhouette alpha, original native transparent gutters, every stone and crack path, bevel/front-face geometry and perspective. Do not rearrange/rescale anything. Change ONLY colors and surface finish. No background, no glow, no halo, no new outer shadow. Keep1254x1254. Create the shaded companion of the SAME12 floor pavers, for their portions immediately under walls. Same smooth surfaces, variation, cracks, proportions and shapes EXACTLY. Lower overall brightness of painted paver interiors and bevels to approximately70percent of their current appearance, with a neutral dark blue-gray palette near#3a4558. No new shadows outside shapes, lights or glow. No other visual or geometric change. Background remains genuinely transparent."
+    }
+  ],
+  "visual_review": {
+    "method": "Actual Godot GPU captures1x/2x and4x details; no programmatic tests/probes/artistic scores",
+    "scenes": [
+      "1x1CellRoom",
+      "2x2CellRoom",
+      "3x3CellRoom",
+      "1x2Corridor",
+      "2x1Corridor",
+      "1x3Corridor",
+      "3x1Corridor",
+      "3x3RoomFourCorridors",
+      "3x3RoomCornerCorridors",
+      "5x5RoomFourCorridors",
+      "5x5RoomCornerCorridors",
+      "5x5RoomVerticalCornerCorridors"
+    ],
+    "temporary_capture": "5x5RoomCornerCorridors --rows=0,2,4 narrow-strips; scene settings unchanged",
+    "before": "artifacts/palette-before/",
+    "approval": "Pending user artistic review; readability with actual heroes/chests/traps is not yet evaluated."
+  }
+}

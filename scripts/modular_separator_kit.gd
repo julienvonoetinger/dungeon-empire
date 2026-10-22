@@ -2,8 +2,8 @@ extends RefCounted
 
 ## Orthographic cap and solid masonry ends for a one-cell void separator.
 ## Full native-alpha regions, measured ports, uniform transforms, white tint.
-const SOURCE := preload("res://assets/dungeon/modular-study/narrow-separator-v3.png")
-const ENDS := preload("res://assets/dungeon/modular-study/solid-separator-ends-v8.png")
+const SOURCE := preload("res://assets/dungeon/modular-study/narrow-separator-muted-v4.png")
+const ENDS := preload("res://assets/dungeon/modular-study/solid-separator-muted-v9.png")
 const PITCH := 476.0
 const PARTS := {
 	"straight": {"region": Rect2(0,0,1254,620), "body": Rect2(54,152,1151,393)},

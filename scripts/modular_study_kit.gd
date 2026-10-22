@@ -2,10 +2,12 @@ extends RefCounted
 
 ## Whole generated silhouettes and transparent gutters; measurements only
 ## determine anchors and UNIFORM scale, never masks or image modifications.
-const CAPS := preload("res://assets/dungeon/modular-study/cap-continuous-v10.png")
+const CAPS := preload("res://assets/dungeon/modular-study/cap-muted-v11.png")
+const CORNERS := preload("res://assets/dungeon/modular-study/cap-square-v3.png")
 const SIDE_ART := preload("res://scripts/modular_side_kit.gd")
-const FLOOR := preload("res://assets/dungeon/modular-study/floor-varied-v2.png")
-const FACADE := preload("res://assets/dungeon/modular-study/brick-soft-v2.png")
+const FLOOR := preload("res://assets/dungeon/modular-study/floor-calm-v3.png")
+const FLOOR_SUPPORT := preload("res://assets/dungeon/modular-study/floor-calm-support-v1.png")
+const FACADE := preload("res://assets/dungeon/modular-study/brick-muted-v3.png")
 const PARTS := {
 	"nw": [Rect2(0, 0, 365, 435), Vector2(66, 85)],
 	"north": [Rect2(365, 0, 525, 435), Vector2(386, 150)],
@@ -49,15 +51,15 @@ const BODY := {
 	"brick_3": Vector2(644, 195), "brick_half_3": Vector2(341, 195),
 }
 
-static func make(id: String, uniform_scale: float) -> Sprite2D:
-	if id in ["west", "east"]:
-		return SIDE_ART.legacy_pair(id == "east", uniform_scale)
+static func make(id: String, uniform_scale: float, shaded_floor := false) -> Sprite2D:
 	var slot: Rect2 = PARTS[id][0]
 	var anchor: Vector2 = PARTS[id][1]
 	var texture := AtlasTexture.new()
 	texture.atlas = CAPS
-	if id.begins_with("floor_"):
-		texture.atlas = FLOOR
+	if id in ["nw", "ne", "sw", "se"]:
+		texture.atlas = CORNERS
+	elif id.begins_with("floor_"):
+		texture.atlas = FLOOR_SUPPORT if shaded_floor else FLOOR
 	elif id.begins_with("brick"):
 		texture.atlas = FACADE
 	texture.region = slot

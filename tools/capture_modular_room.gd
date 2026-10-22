@@ -53,6 +53,15 @@ func _capture_room(scene_name: String) -> void:
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		viewport.get_texture().get_image().save_png(prefix + "-" + wall + "-4x.png")
+	if scene_name in ROOMS:
+		viewport.size = Vector2i(480,420)
+		await process_frame
+		camera.zoom = Vector2.ONE * 4
+		camera.position = Vector2(cap.position.x + 32, cap.end.y + 4)
+		camera.force_update_scroll()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		viewport.get_texture().get_image().save_png(prefix + "-southwest-4x.png")
 	print("Visual capture: ", scene_name)
 	viewport.queue_free()
 	await process_frame

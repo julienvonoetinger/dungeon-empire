@@ -1,0 +1,286 @@
+{
+  "date": "2026-10-22",
+  "square_corner_followup": "square-corners-generation.json records the current complete square corners, closed ports279/-166 and unchanged side width101. The geometry below describes the earlier contour-repair stage.",
+  "followup": "The user rejected the floating short squares in2x2. compact-pairs-generation.json records the shared compact-pair addition and common closed shaft width101. This file retains the previous103-width stage and source history.",
+  "status": "Integrated and inspected in actual Godot GPU captures; user artistic approval pending.",
+  "request": "Reduce vertical-wall spacing and stop the lower corner from cutting the first facade brick.",
+  "diagnosis": [
+    "Native dark end bands doubled at sprite joins, even when transparent gaps were small.",
+    "The common facade start88 hid the first brick rim behind the cap/corner foot.",
+    "The initial replacement length range left excessive remaining space in2x2; v23 adds short complete lengths."
+  ],
+  "method": "Built-in ImageGen, genuine source alpha. PNGs copied unchanged. Read-only alpha bounds for anchors; no image processing, runtime tint, masks, silhouette crops or nonuniform scaling.",
+  "generations": [
+    {
+      "file": "cap-tight-v12.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-f8a816ca-8c72-491b-b079-f5f6afa2bb0c.png",
+      "status": "Rejected: end bands remained too broad.",
+      "input": "cap-muted-v11.png",
+      "prompt": "Precise LOCAL edit of this transparent1254x1254 dungeon atlas. Preserve the EXACT canvas, palette, all positions, all complete silhouette bounds and widths. Change ONLY the FREE horizontal mating ends of the VERTICAL shaft stones: bottom edge of the hanging stone below each TOP corner; top edge of the separate stone above each BOTTOM corner; and the top/bottom outer ends of BOTH middle-row two-stone vertical pairs. These ends currently have wide black bars and long clipped diagonals, making gaps when stacked. Extend the same blue stone face and small bevel INTO those black bars, leaving ONLY a2pixel dark seam at the free top/bottom straight edge. Make the end nearly flat, with only tiny3pixel corner chamfers. Keep the side outlines thick and unchanged. Keep the full outer silhouette bounding extents unchanged: paint within them; do not shorten, shift, resize, blur, add alpha halos, overlap, or add a projecting lip. The internal joints inside pairs and corners remain as they are. ALL horizontal cap stones, L bends, front lips, cracks, floor panel and all colors remain absolutely unchanged. This is not a repaint of the atlas. ONLY convert the eight vertical free ends into close-fitting thin seams. Native transparent background preserved, no backdrop."
+    },
+    {
+      "file": "wall-tight-v19.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-3bbad0e2-69d9-4101-b03d-b529f7d9f5e9.png",
+      "status": "Rejected: insufficient end-band reduction.",
+      "input": "wall-lengths-blue-v18.png",
+      "prompt": "Precise LOCAL edit of this1388x1133 transparent sprite atlas. Preserve every sprite position, silhouette bounding box, WIDTH, HEIGHT, blue color, texture and crack. Change ONLY the TOP and BOTTOM black bands of the FOUR upper-row short stones. Extend their existing blue stone faces/bevels to within3pixels of the outer top/bottom edge so the black seam is only3px there; keep the thick vertical left/right outlines unchanged. Replace the large diagonal clipped corners at these top/bottom ends with tiny4px chamfers inside the SAME bounding box. The result must have almost flat mating ends for consecutive stacking, no big black end caps, no hexagonal shadow plate. Do not shorten or scale the sprites. Do not shift their outer bounds. All lower-row stones remain unchanged. Preserve the exact existing palette and face texture. Genuine native alpha outside the complete sprites, no halo or background. Edit only these end contours, no other changes."
+    },
+    {
+      "file": "cap-tight-v13.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-6479adaa-1e3d-4bd3-a333-7dd72d7c6834.png",
+      "status": "Active for complete closed corners and middle-row pairs only; straight strips remain cap-muted-v11.",
+      "input": "cap-muted-v11.png",
+      "prompt": "Edit only the free ends of VERTICAL stones in this transparent atlas. REMOVE the black padding at these ends COMPLETELY: the blue stone face must reach all the way to the last visible pixel of each horizontal mating edge. ZERO black bar above or below these free ends. Keep dark outlines on LEFT and RIGHT sides only. Flat straight top/bottom mating edges, no corner cutouts at these ends. Targets: lowest free end of both upper corner shafts, highest free end of both lower corner shafts, top and bottom ends of the two middle-row vertical pairs. The two stones inside each pair and all other joints stay unchanged. Every horizontal wall cap, L-shaped bend/front, center panel, color, position, width and complete bounding box must stay unchanged. Paint BLUE stone into the existing black end padding, preserving the outer bounds; do not crop, shorten or resize. It must assemble into continuous stonework without black gaps. Native alpha outside all complete sprites. Strictly no other changes."
+    },
+    {
+      "file": "wall-tight-v20.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-2ede0602-cbf1-46f8-a842-4fc15a28a60d.png",
+      "status": "Rejected: black side ears at joins.",
+      "input": "wall-lengths-blue-v18.png",
+      "prompt": "Edit only the FOUR UPPER ROW stones in this transparent atlas. They must tile vertically with no black gap. REMOVE ALL the black padding at the TOP and BOTTOM of those four stones: extend the existing BLUE stone face right to the final visible pixel at those flat horizontal ends. ZERO horizontal black bars. Keep the thick black vertical LEFT and RIGHT sides unchanged. Top/bottom ends must be flat across the stone width, with no large bevelled/chopped corners; square mating edges. Preserve exact current bounding boxes and widths. Paint into the black padding, do NOT crop or shorten. Preserve existing color/texture/cracks. The bottom-row four stones remain unchanged. Native alpha outside all complete sprites, no halos or extra elements."
+    },
+    {
+      "file": "wall-tight-v21.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-84da87d7-24f6-4435-a936-e05fbe54ff23.png",
+      "status": "Superseded by v22: too blue against the corner material.",
+      "input": "cap-muted-v11.png",
+      "prompt": "Create FOUR separate reusable overhead blue dungeon wall stones on a genuinely transparent square atlas, one centered per quadrant. Match the stone color, painted texture, bevel and side-outline style of the MIDDLE-LEFT TWO-STONE PAIR in the supplied reference atlas. Use that exact slate-blue palette. Four different lengths with a COMMON width: shortest roughly square, second1.2times as tall as wide, third1.5times, fourth1.8times. The target silhouette is a softly chipped RECTANGLE with very small rounded corners, NOT a hexagon.\nCRITICAL CONNECTION GEOMETRY: each sprite consists ONLY of the actual stone and a tight dark contour. NO black backing plate, NO thick shadow mat, NO large black chamfer triangles or side ears. Blue face occupies about85percent of total width. Black left/right contour about7percent of width per side. Top and bottom free ends have only a VERY THIN black line about1.5percent of width each, almost straight across, allowing close vertical stacking. Do not add a lip, front face, foot, pedestal or external shadow. These are stone TOPS viewed straight down. Two stones mostly quiet, one with a small corner crack and one with a fine diagonal crack; no repetition of the same crack. Generous transparent gutters around each complete sprite. No text or labels. Keep matte BLUE faces matching the reference; no gray recolor, saturation increase, glitter or gloss. Four sprites only."
+    },
+    {
+      "file": "wall-tight-v22.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-a7298552-b775-4a61-922a-cf3994b05687.png",
+      "status": "Active: four supplemental complete stone lengths.",
+      "input": "wall-tight-v21.png + cap-muted-v11.png",
+      "prompt": "Edit the FIRST atlas only. Retain its four sprite positions, overall widths and heights, complete silhouettes, four-quadrant arrangement and native transparency. Image2 is the exact material/color/contour reference: match the muted desaturated slate-blue tops of its middle-left paired stones. The first atlas is currently too saturated blue and finely textured. Repaint its four faces the EXACT quiet muted gray-blue of image2, with the same soft subdued bevel highlights and painterly patches. No extra texture or crosshatch. Also narrow only the horizontal black end borders of these four stones: blue stone and bevel must reach almost the full height with just a tiny dark line at the top and bottom, about TWO percent of each stone width. Preserve thick dark side outlines matching image2. Avoid a surrounding black backing plate or big diagonal chamfer corners; very small softly rounded corner nicks. No front face or downward step, no shadow mat. Keep cracks, full sprite height and common shaft width. Transparent background, no text, no new objects."
+    },
+    {
+      "file": "wall-tight-v23.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c2daf9b2-a43e-4cb6-877c-e23cc61e4908.png",
+      "status": "Active: four supplemental complete stone lengths, including the missing small-room range. Actual ratios differ from requested ratios; measured geometry controls placement.",
+      "input": "wall-tight-v22.png",
+      "prompt": "Edit only the proportions of the four stones in this transparent game atlas. KEEP their current muted slate-blue color, painterly finish, soft edges, black side contour, crack variations and quadrant centers. Output FOUR complete sprites with transparent gutters, same square canvas and same width per stone. The first TWO (top-left and top-right) must be squat rectangles: TOTAL OUTER height exactly1.12times TOTAL OUTER width. The bottom TWO must be taller rectangles: TOTAL OUTER height exactly1.82times TOTAL OUTER width. Measure ratio INCLUDING the dark outline. This means lengthen top-left slightly, shorten top-right to match it; lengthen bottom-left a little and shorten bottom-right a little. Keep ALL left/right outer widths unchanged. Keep top and bottom outline as an extremely fine dark line, just2percent of width; do not add large black chamfer/backing plate or a front face. Preserve native transparency. Preserve the existing blue-gray material and highlights without recoloring. Four stones only, no text."
+    }
+  ],
+  "active_geometry": {
+    "cap_pairs": {
+      "regions": [
+        [
+          0,
+          435,
+          365,
+          380
+        ],
+        [
+          890,
+          435,
+          364,
+          380
+        ]
+      ],
+      "anchors": [
+        [
+          103,
+          20
+        ],
+        [
+          147,
+          20
+        ]
+      ],
+      "bodies": [
+        [
+          117,
+          347
+        ],
+        [
+          118,
+          348
+        ]
+      ]
+    },
+    "v22": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "regions": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          627,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          627
+        ],
+        [
+          627,
+          627,
+          627,
+          627
+        ]
+      ],
+      "anchors": [
+        [
+          240,
+          257
+        ],
+        [
+          168,
+          169
+        ],
+        [
+          248,
+          87
+        ],
+        [
+          168,
+          23
+        ]
+      ],
+      "bodies": [
+        [
+          248,
+          236
+        ],
+        [
+          232,
+          324
+        ],
+        [
+          220,
+          385
+        ],
+        [
+          232,
+          449
+        ]
+      ]
+    },
+    "v23": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "regions": [
+        [
+          0,
+          0,
+          627,
+          550
+        ],
+        [
+          627,
+          0,
+          627,
+          550
+        ],
+        [
+          0,
+          550,
+          627,
+          704
+        ],
+        [
+          627,
+          550,
+          627,
+          704
+        ]
+      ],
+      "anchors": [
+        [
+          240,
+          202
+        ],
+        [
+          167,
+          184
+        ],
+        [
+          246,
+          73
+        ],
+        [
+          167,
+          64
+        ]
+      ],
+      "bodies": [
+        [
+          251,
+          276
+        ],
+        [
+          237,
+          294
+        ],
+        [
+          239,
+          484
+        ],
+        [
+          236,
+          495
+        ]
+      ]
+    },
+    "closed_room_ports": {
+      "top": 276,
+      "bottom": -168,
+      "width": 103,
+      "centers": [
+        41.75,
+        -38
+      ]
+    },
+    "facade_starts": {
+      "north": 96,
+      "south": 105
+    },
+    "selection": "Existing shared length search,0.25-unit bins; uniform scale from fixed width. Remaining positive distance distributed across joins; no overlap between selected run sprites. No scene-specific length recipes.",
+    "limitations": "The pre-existing nonpositive1x1 corner-to-corner span adds no filler. The corner art and outlines still vary naturally; this is not proof of arbitrary-layout compatibility."
+  },
+  "review": {
+    "kind": "Actual GPU captures inspected visually; no programmatic tests, probes or artistic scores.",
+    "isolated": [
+      "1x1CellRoom",
+      "2x2CellRoom",
+      "3x3CellRoom",
+      "1x2Corridor",
+      "2x1Corridor",
+      "1x3Corridor",
+      "3x1Corridor"
+    ],
+    "connected": [
+      "3x3RoomFourCorridors",
+      "5x5RoomFourCorridors",
+      "3x3RoomCornerCorridors",
+      "5x5RoomCornerCorridors",
+      "5x5RoomVerticalCornerCorridors"
+    ],
+    "focused": [
+      "artifacts/3x3CellRoom-west-4x.png",
+      "artifacts/2x2CellRoom-west-4x.png",
+      "artifacts/3x3CellRoom-southwest-4x.png",
+      "artifacts/3x3RoomFourCorridors-north-4x.png",
+      "artifacts/5x5RoomCornerCorridors-corners-comparison.png",
+      "artifacts/5x5RoomVerticalCornerCorridors-corners-comparison.png"
+    ],
+    "before": [
+      "artifacts/3x3CellRoom-before-tight-joints-west-4x.png",
+      "artifacts/3x3CellRoom-before-tight-joints-south-4x.png",
+      "artifacts/3x3CellRoom-before-tight-joints-2x.png"
+    ],
+    "observed": "Reduced dark interruptions on vertical runs; first facade brick below southwest corner is fully visible. Normal-scale galleries and enlarged joins inspected. Material and outline consistency remains subject to user review."
+  }
+}

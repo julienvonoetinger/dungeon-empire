@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-22",
+  "superseded": "User rejected v16 color and width. Current source and fixed-width placement are documented in vertical-width-color-generation.json.",
+  "scope": "Shared straight vertical wall sprites and placement in modular room/corridor studies.",
+  "request": "Repair visible overlaps and thinner black outlines compared with corner and horizontal cap stones.",
+  "diagnosis": "Closed-room pairs had height315*0.92=289.8 but advanced256 source units, producing33.8 units of overlap. The native outline also became thinner after scaling the old side atlas to corner width.",
+  "method": "Built-in ImageGen with genuine native alpha. Original generated PNG copied unchanged; no recoloring, cutouts, alpha cleanup, masks, independent-axis scale, runtime tint or shader.",
+  "style_reference": "assets/dungeon/modular-study/cap-muted-v11.png",
+  "output_directory": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da",
+  "generations": [
+    {
+      "version": "v14",
+      "status": "Rejected after actual Godot capture: too heavy borders, angular faces, long stones.",
+      "output": "exec-3fd3dd37-4224-4a03-bafe-767bbc77ff08.png",
+      "references": [
+        "wall-tops-muted-v13.png",
+        "cap-muted-v11.png"
+      ],
+      "prompt": "Edit image1, the four-slot sheet of overhead vertical wall stones. Image2 is the matching wall/corner sprite sheet and is the EXACT style reference. Keep image1's1254x1254 canvas and all four sprite positions, complete silhouette dimensions, native transparent gutters and cracks. Top-left is a two-stone pair; the other slots are single stones of three lengths. Keep these exact pieces, never stretch, crop or add a side facade.\nFix their BLACK OUTLINE and painted stone STYLE to match image2 at game scale. These vertical stones are displayed at about62percent of native scale next to reference2 corners displayed at100percent. Therefore image1 needs a substantially THICKER dark outer outline, approximately18native pixels at the straight vertical edges, rather than the current8-10px. Paint that added thickness INWARD within the existing silhouette. Make the top and bottom outlines similarly substantial, about15-18px, including both stones of the pair and their internal joint. No hairline borders or bright rim. Outline color must match the very dark blue-black #080e19/#0c1422 of reference2; uniform clear dark outline, without shadow haze.\nINSIDE that dark outline, use a narrow softly irregular bevel and the SAME restrained broad painterly stone planes as reference2's vertical corner shafts. Face muted blue-gray around#4f607e, bevel near#687a97, avoid a smooth gray plastic/pillow surface or frosty cloudy texture. Subtle broad faceting, no fine grain. Keep top-down perspective and natural small chipped corners. Existing cracks may stay but as subdued dark lines. Preserve exact overall widths and lengths so these reusable stones still fit the current ports. All outside pixels genuine transparent alpha, no new halo or backdrop."
+    },
+    {
+      "version": "v15",
+      "status": "Intermediate: improved style and native length family; shorter top-right stone still needed.",
+      "output": "exec-af899ee1-1abe-4b6f-978e-db9b33edb52d.png",
+      "references": [
+        "cap-muted-v11.png",
+        "wall-tops-muted-v13.png"
+      ],
+      "prompt": "Create a replacement vertical wall-stone atlas using image1 ONLY for the EXACT stone material/style, color, black linework and top-down perspective. Image2 shows the previous skinny stones that need replacing; do NOT keep their very long proportions.\nCanvas1254x1254, genuine transparent background. FOUR slots, one sprite per quadrant:\nTOP LEFT: a connected pair of TWO short vertical stones, combined complete bounds x247..431,y70..486 (184wide,416high). Each stone about184wide x208high. Small mortar seam between the two, same style as two vertical stones joined in image1.\nTOP RIGHT: ONE shorter stone, complete bounds x850..1034,y180..380 (184wide,200high).\nBOTTOM LEFT: ONE medium stone, complete bounds x247..431,y720..960 (184wide,240high).\nBOTTOM RIGHT: ONE longer stone, complete bounds x850..1034,y700..980 (184wide,280high).\nKeep these exact positions and overall body dimensions; blank gutters, no extras.\nAll stones look like the VERTICAL SHAFT stones inside the corners of image1: slightly irregular rounded/chipped rectangles seen purely from above. Match soft muted slate-blue#4f607e surface, sparse quiet broad cloudy brush planes and narrow dim bevel. NO hard low-poly triangles, crystal facets, ice, plastic, noisy grain or diagonal woven texture. Keep a few fine understated crack variations (one diagonal, one tiny edge crack, one branching, one mostly uncracked) without bright white outlines.\nNative dark blue-black#080e19 outline around EACH stone: about17-18px along vertical sides, only9-10px along top/bottom edges so adjoining stones do NOT make thick black horizontal bands. SMALL corner bevel/chamfer, maximum14px. The outline is the contour itself, NOT a giant shadow plate outside the stone. Fill the specified bounds with the complete stone and contour; no exterior halo, shadow or pedestal. No visible front face, no stair-step front lip. These sprites will be uniformly scaled to about100pixels wide to join image1's corners. Preserve native alpha0 outside complete shapes."
+    },
+    {
+      "version": "v16",
+      "status": "Active; visual approval pending.",
+      "file": "wall-tops-outline-v16.png",
+      "output": "exec-3759cb68-1763-48e8-a9d5-2bf23d2cd5d7.png",
+      "references": [
+        "exec-af899ee1-1abe-4b6f-978e-db9b33edb52d.png"
+      ],
+      "prompt": "Precise local edit of this transparent1254x1254 atlas. Preserve the top-left two-stone pair and BOTH bottom stones absolutely unchanged: positions, silhouettes, texture, palette, cracks and alpha. Change ONLY the single stone in the TOP-RIGHT quadrant.\nThat stone currently occupies approximatelyx857..1049,y249..515 (192wide,266high). Make it a SHORTER, almost-square native stone occupyingx857..1049,y249..465 (same192width, now216height). Keep its top exactlyy249 and its left/right x coordinates. Move only the lower edge upward50pixels; repaint the interior and shorten the diagonal crack naturally. Preserve the same side outline thickness, small chamfers, bevel, stone color and soft painterly finish. DO NOT uniformly resize it or narrow it. This is a new shorter-length variant with the same width as before.\nAll three other sprites and their spacing remain EXACTLY unchanged. Native alpha0 outside complete shapes, no halo/background. No additional ornaments, no style/color change."
+    }
+  ],
+  "active_geometry": {
+    "canvas": [
+      1254,
+      1254
+    ],
+    "regions": [
+      [
+        0,
+        0,
+        627,
+        627
+      ],
+      [
+        627,
+        0,
+        627,
+        627
+      ],
+      [
+        0,
+        627,
+        627,
+        627
+      ],
+      [
+        627,
+        627,
+        627,
+        627
+      ]
+    ],
+    "anchors_relative_to_slot": [
+      [
+        248,
+        80
+      ],
+      [
+        229,
+        248
+      ],
+      [
+        244,
+        160
+      ],
+      [
+        220,
+        118
+      ]
+    ],
+    "silhouette_bodies": [
+      [
+        182,
+        509
+      ],
+      [
+        194,
+        228
+      ],
+      [
+        215,
+        338
+      ],
+      [
+        213,
+        396
+      ]
+    ],
+    "measurement": "Read-only alpha bounds used only as anchors and uniform-scale measurements. Full quadrant regions retain complete native transparent gutters.",
+    "short_terminal": "Unchanged whole center plate from cap-elbows-muted-v10, only when span<1.5*targetwidth."
+  },
+  "assembly": {
+    "shared_function": "modular_side_kit.gd:make_run",
+    "closed_corner_ports": {
+      "top": 280,
+      "bottom": -169,
+      "target_width": 103,
+      "west_center": 41.75,
+      "east_center": -38
+    },
+    "selection": "Enumerate combinations of up to two native lengths. Score=abs(height-span)+12*repeated_variant_count+0.05*sprite_count. A pair contains two painted stones. Fit totalheight to span with one common uniform factor and common width.",
+    "placement": "Advance cursor by each whole silhouette height after uniform scale. No deliberate overlap. Closed rooms and original-corner connected sides now use this same function; legacy_pair removed.",
+    "limits": "Nonpositive gaps add no filler; pre-existing1x1 corner-to-corner contact is unchanged. Not a proof that every arbitrary future layout fits."
+  },
+  "visual_review": {
+    "method": "Actual Godot GPU renders only; no programmatic tests/probes/scores.",
+    "scenes": [
+      "1x1CellRoom",
+      "2x2CellRoom",
+      "3x3CellRoom",
+      "1x2Corridor",
+      "2x1Corridor",
+      "1x3Corridor",
+      "3x1Corridor",
+      "3x3RoomFourCorridors",
+      "5x5RoomFourCorridors",
+      "5x5RoomCornerCorridors",
+      "5x5RoomVerticalCornerCorridors"
+    ],
+    "captures": [
+      "artifacts/3x3CellRoom-2x.png",
+      "artifacts/3x3CellRoom-west-4x.png",
+      "artifacts/cell-rooms-comparison.png",
+      "artifacts/corridors-comparison.png",
+      "artifacts/3x3RoomFourCorridors-north-4x.png",
+      "artifacts/5x5RoomCornerCorridors-west-4x.png"
+    ],
+    "before": [
+      "artifacts/3x3CellRoom-before-side-repair-2x.png",
+      "artifacts/3x3CellRoom-before-side-repair-west-4x.png"
+    ],
+    "status": "Overlap removed from inserted closed-room side runs; outline/material reworked against existing corners. User artistic approval pending."
+  }
+}

@@ -3,8 +3,13 @@ extends RefCounted
 ## Single source of wall proportions for isolated and connected modules.
 const CELL_PITCH := Vector2(476, 256)
 const BORDER := 82.0
+const CLOSED_SIDE_TOP := 279.0
+const CLOSED_SIDE_BOTTOM := -166.0
+const CLOSED_SIDE_WIDTH := 101.0
+const CLOSED_SIDE_CENTERS := Vector2(41.75, -38.0)
 const SOUTH_PROJECTION := 169.0
-const COURSE_TOP := 88.0
+const NORTH_COURSE_TOP := 96.0
+const SOUTH_COURSE_TOP := 105.0
 const NORTH_SCALE := 0.99
 const SOUTH_SCALE := 0.97
 const NORTH_COUNTS := [2, 4, 7]
@@ -13,6 +18,10 @@ const CAP_REGIONS := {"north": Rect2(-6, -12, 495, 107), "south": Rect2(-11, -12
 
 static func cap_scale(south: bool) -> float:
 	return SOUTH_SCALE if south else NORTH_SCALE
+
+static func course_top(south: bool) -> float:
+	# Place the complete brick rim below the cap's painted foot.
+	return SOUTH_COURSE_TOP if south else NORTH_COURSE_TOP
 
 static func cap_first(south: bool, closed_left: bool) -> float:
 	return (284.0 if south else 278.0) if closed_left else (3.0 if south else -4.0)

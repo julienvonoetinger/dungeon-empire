@@ -389,7 +389,7 @@ func _draw_horizontal_run(run: Dictionary) -> void:
 	elif not left_closed and not right_closed:
 		masonry_count = WALL_PROFILE.face_count(count, south, false)
 	# No per-scene minimum-height offset or rescaling of cap rows.
-	_facade_courses(face_left, face_right, y + WALL_PROFILE.COURSE_TOP, masonry_count, 2 if south else 0)
+	_facade_courses(face_left, face_right, y + WALL_PROFILE.course_top(south), masonry_count, 2 if south else 0)
 	if a.x < 0:
 		_west_end = minf(_west_end, left)
 	if b.x > _cells().x:
@@ -410,17 +410,14 @@ func _draw_vertical_run(run: Dictionary) -> void:
 	if run.has("separator"):
 		return
 	var a: Vector2i = run.a
-	var b: Vector2i = run.b
 	var upper: Dictionary = run.left_turn
 	var lower: Dictionary = run.right_turn
 	var east: bool = run.side == PLAN.EAST
 	var x := a.x * CELL_STEP.x
 	if not upper.is_empty() and not lower.is_empty() and not upper.compact and not lower.compact and not upper.has("vertical_shift") and not lower.has("vertical_shift"):
-		# Original closed-room assembly is retained exactly.
-		for section in range(b.y - a.y - 1):
-			var shift: float = SIDE_OFFSETS[section % SIDE_OFFSETS.size()]
-			_place("east" if east else "west",
-				Vector2(x + 82 - shift if east else x + shift, upper.anchor.y + 270 + section * CELL_STEP.y), 3, 0.92)
+		var center: float = upper.anchor.x + (WALL_PROFILE.CLOSED_SIDE_CENTERS.y if east else WALL_PROFILE.CLOSED_SIDE_CENTERS.x)
+		_side_gap(center - 41.0, upper.anchor.y + _turn_port(upper,true),
+			lower.anchor.y + _turn_port(lower,false), WALL_PROFILE.CLOSED_SIDE_WIDTH)
 		return
 	var top := _north_floor_top
 	var bottom := _floor_bottom + _vertical_length() * CELL_STEP.y + 6.0
@@ -440,7 +437,7 @@ func _draw_vertical_run(run: Dictionary) -> void:
 		elif turn.compact:
 			width = JOINS.shaft_width(turn.id,turn.mask in [1,2,7,11])
 		else:
-			width = 82.0
+			width = WALL_PROFILE.CLOSED_SIDE_WIDTH
 		break
 	_side_gap(x, top, bottom, width)
 
@@ -511,15 +508,13 @@ func _extend_row(row: Array, row_index: int, start: float, end: float, top: floa
 		step += 1
 
 func _extension_stone(id: String, cursor: float, top: float, factor: float, direction: int,
-		row: Array, row_index: int, step: int) -> float:
+		_row: Array, row_index: int, _step: int) -> float:
 	var width: float = KIT.BODY[id].x * factor
 	if direction < 0:
 		cursor -= width
-	var stone := _place(id, Vector2(cursor, top), 0, factor)
-	stone.self_modulate = (row[(step + row_index) % row.size()] as Sprite2D).self_modulate
+	_place(id, Vector2(cursor, top), 0, factor)
 	if row_index % 2 == 0:
-		var support := _place(id, Vector2(cursor, top - 40), -1, factor)
-		support.self_modulate = stone.self_modulate * Color(0.7,0.7,0.7,1)
+		_place(id, Vector2(cursor, top - 40), -1, factor, true)
 	if direction > 0:
 		cursor += width
 	return cursor

@@ -64,12 +64,16 @@
   runtime RGB/alpha tinting, clipping, stretching or overlapping painted ends.
   This rule concerns dungeon architecture; separately authored gameplay lights
   such as torches are outside this asset correction.
-- This direction supersedes older instructions below that prescribe RGB
-  multipliers. Existing code still tints floors, facades, supports and vertical
-  stones: that is a known migration task, NOT compliance with pure-image rendering.
-  Preserve the approved floor arrangement and intended appearance when replacing
-  those adjustments with generated art. Do not silently remove them and claim
-  that the visual migration is complete.
+- This direction supersedes older RGB instructions. The modular studies now use
+  native palette PNGs with white modulation: floor-calm-v3, brick-muted-v3,
+  cap-muted-v11, cap-square-v3, cap-tight-v13, wall-tight-v22/v23, cap-compact-pairs-v24,
+  cap-elbows-square-v7, paired-cap-square-v7,
+  narrow-separator-muted-v4 and solid-separator-muted-v9. Their geometry follows
+  the former atlases listed below; floor-calm-support-v1 supplies shaded supports.
+  No floor brightness multiplier, per-stone runtime tint, facade1.10 or support0.70
+  remains in the modular renderer. Earlier six-room art is a separate legacy scene.
+  Commit2584f57 preserves the state before this palette revision. Exact prompts,
+  source mappings and visual-review scope: calm-palette-generation.json.
 - Review each shared change against the existing small room/corridor scenes and
   connected configurations at normal scale and enlarged. Reopening connections
   must select the same shared art. Gaps, ledges and painted-end overlaps remain
@@ -78,6 +82,11 @@
 
 ## Current rendering scope
 
+- The modular `Dungeon` inspector refresh button uses a computed Callable getter,
+  not a stored initializer: hot reload can leave the stored property Nil.
+  Keep this in the shared modular_room_study.gd base for connected studies too.
+  The isolated editor diagnosis in artifacts/editor-button-inspection.log invoked
+  it before/after parent-script reload and retained302 sprites in3x3RoomCornerCorridors.
 - The current modular art studies are the closed rooms `1x1CellRoom.tscn`,
   `2x2CellRoom.tscn`, `3x3CellRoom.tscn` and the OPEN corridors
   `1x2Corridor.tscn`, `2x1Corridor.tscn`, `1x3Corridor.tscn`,
@@ -134,7 +143,7 @@
   one broad cap and a complete solid terminal replace them. The original flat
   v5 ends were rejected: the facade looked like a curtain below a thin slab.
   `modular_separator_kit.gd` registers complete regions/ports from
-  `narrow-separator-v3.png` and `solid-separator-ends-v8.png`, with white tint,
+  `narrow-separator-muted-v4.png` and `solid-separator-muted-v9.png`, with white tint,
   uniform scaling and476 straight cadence. Original open-end bounds are retained.
   The rule depends on exposed edges, not room size or scene name. Wider voids,
   enclosed islands and vertical dividers remain outside this new selection rule.
@@ -148,48 +157,81 @@
   Two separator-tip details replace the four consumed corner details in this
   scene's capture. Provenance: `solid-separator-generation.json`. User visual
   approval remains pending; this does not validate arbitrary layouts.
-- The latest width/alignment correction uses `paired-cap-transitions-v7.png`
+- The current square-turn correction uses `paired-cap-square-v7.png`
   (four whole double-bend modules, slots768x512, anchor96,256) and existing
-  `cap-elbows-flush-v9.png` for compatible single corners. Earlier paired-v1
+  `cap-elbows-square-v7.png` for compatible single corners. Earlier paired-v1
   and width/depth experiments cap-elbows-ports-v11/v12, paired-v2/v3/v5/v6 are unused.
   Paired-v4 was rejected for a high-alpha backdrop; no alpha cleanup attempted.
   The latter experiments displaced horizontal joins or made fronts too deep.
-  Provenance/prompts: `port-width-generation.json`. Visual approval pending.
+  Historical width provenance: `port-width-generation.json`; current native
+  square turns: `square-corners-generation.json`. Visual approval pending.
 - `modular_join_kit.gd` measures each paired shaft's horizontal extent and its
   actual vertical ends, plus the horizontal strip profile. `paired_fit` maps
   the TWO shaft centers to41/517 at476 spacing with ONE uniform transform;
-  apply that SAME transform to y ports. Native profile fit remains approximate:
-  maximum edge difference about0.55 game pixels, not exact pixel equality. Single corners use their measured
+  apply that SAME transform to y ports. Native profile fit remains approximate;
+  the old0.55px estimate described muted-v8, not the new square atlas. Single corners use their measured
   shaft centers, not an assumed center41. Preserve complete original regions.
   Their native profiles remain NW/NE[-14,99], SW/SE[1,114]; raw y ports
-  [-14,159]/[-55,114]. Full horizontal extents are in SHAFTS.
+  NW[-19,165], NE[-19,164], SW/SE[-61,120]. Full horizontal extents are in SHAFTS.
+  Retain the calibrated compact profile frame: fitting its extra black rim
+  as stone thickness shrinks the horizontal arms and opens their connections.
+- Outside bends must continue the BLUE stone face to the outside end. Do not
+  square an old chamfer by adding a black backing rectangle. This failed in
+  cap-elbows-square-v4 and was explicitly rejected by the user. The active
+  compact-v7, closed-v3 and paired-v7 native images extend the front face itself.
+  Whole regions, uniform scale and white modulation remain mandatory. Inspect
+  `5x5RoomVerticalCornerCorridors-north-span-2.5x.png` with both cap ends and
+  the facade visible, plus the individual corner captures. The square closed-v2
+  attempt shortened adjacent stones and broke the2x2 side cadence; it is unused.
 - Short returns align signed gaps with absolute value at most82, shifting
   WHOLE horizontal runs by half the gap. This also separates negative gaps
   instead of leaving painted ends overlapped. No tiny spacer between shoulders.
 - Small and connected studies retain the shared horizontal profile: north/south
-  cap scale .99/.97, cadence476, facade top88 and continuous staggered courses.
+  cap scale .99/.97, cadence476 and continuous staggered courses. Facade starts
+  come from course_top:96 north,105 south, below the complete painted cap feet.
   Never reinstate per-span cap compression or per-scene facade heights. Stop
   facades at closed corner anchors (retain75 under NW/NE downward arms);
   -12/+14 extensions belong only to open ends. Central approved paving stays
   fixed; west/east continue its exact rows2/3. Supports remain whole pavers,
-  y-40; their legacy RGB0.70 remains a separate migration task.
-- `modular_side_kit.gd` uses `wall-tops-ports-v12.png`: four complete sprites
-  (pair plus three single lengths), four627x627 regions on1254x1254 canvas.
-  NO runtime color tint, white modulation. A composition of up to two native
-  lengths minimizes fit error at a common target width, then all pieces receive
-  one common uniform fit. No arbitrary four-piece limit, no independent x/y
-  scale. Width comes from the connected corner port, default94 for standalone
-  vertical passages. The v9 center plate is allowed only for gaps shorter than
+  y-40; their shade is now painted in floor-calm-support-v1.png, white modulation.
+- `modular_side_kit.gd` uses two whole native pairs from cap-tight-v13,
+  two compact pairs from cap-compact-pairs-v24, plus eight complementary
+  singles from wall-tight-v22/v23. Compact pairs fill short spans without two
+  isolated filler squares; they participate in the same shared length search.
+  Pair indices0,1,10,11 cost2, singles cost5. The v16
+  replacement was rejected for color and width differences; v17/v18 still left
+  excessive dark end bands. Native blue color,
+  bevels and outlines stay in the PNGs; white modulation only.
+  Width is FIXED by the connected corner port (default94 for standalone
+  passages). Never multiply it by a height-fit factor. A0.25-unit length search
+  chooses whole sprites at that width, preferring the existing cap-atlas pairs.
+  Remaining positive length is distributed over joints, with a strong penalty
+  above2 source units per joint. There is no stretching or painted-end overlap.
+  The short center plate is allowed only for gaps shorter than
   1.5 times target width, never repeated as a long wall cadence.
-- Standalone vertical corridors and connected side runs share make_run. Closed
-  rooms still retain their legacy pair positions (normalize315, center+/-41,
-  top-15, scale.92) using the new source/white tint. Do not claim all14 old
-  captures unchanged: their vertical art intentionally changes. Floors and
-  horizontal standalone corridors stay fixed. Alpha-native generation alone
+- Closed rooms, standalone vertical corridors and connected side runs now share
+  make_run. The old315*.92 pair at256 cadence overlapped by33.8 source units;
+  never restore that placement. Closed corner ports are top279/bottom-166,
+  shaft width101, centers41.75 west/-38 east, in modular_wall_profile.gd.
+  Width was calibrated from103 to101 for all closed-corner ports, never fitted
+  per span. With square closed-v3, the2x2 span is236 and selects compact pair11:
+  height234.496, each external gap0.752. The prior237-unit span selected pair10.
+  Native dimensions,
+  all generation attempts and capture scope: compact-pairs-generation.json.
+  Complete silhouettes use uniform scale from width alone.
+  cap-square-v3 supplies whole closed corners; cap-tight-v13 retains side pairs;
+  horizontal straight strips remain cap-muted-v11. No painted edge is cropped.
+  No filler is added for nonpositive gaps; the pre-existing1x1 corner-to-corner
+  contact is unchanged. Provenance: tight-joints-generation.json; earlier attempts
+  remain recorded in vertical-width-color-generation.json.
+  Do not claim old captures unchanged: vertical art and facade starts change.
+  Floors stay fixed. Alpha-native generation alone
   does not establish perfect joints or artistic approval.
 - Connected sprite layers remain supportZ0/floorZ1/facadeZ2, etc., above the
   opaque background. Frame bounds use complete sprite rectangles plus40px
-  margin, never rendered masks. Original closed corner art remains unchanged.
+  margin, never rendered masks. Closed corner regions retain their original anchors.
+  Inspect the isolated rooms' southwest-4x captures for the full first brick below
+  the corner, plus west/east-4x for double end outlines and spacing.
 - Inspect `3x3RoomFourCorridors.png`, its 2x version, four junctions and the
   focused west-floor/corridor-wall-foot/corner-style captures at4x with
   `tools/capture_room_corridors.gd`. `tools/capture_module_connections.gd`
@@ -210,34 +252,34 @@
   mixed native widths vary the number of individual decorative pavers.
   `modular_room_study.gd` and `modular_study_kit.gd` share
   complete native-alpha sprites across all seven scenes; never create a room
-  or half-room image instead of modular parts. F5's six-room map is unchanged.
+  or half-room image instead of modular parts. The legacy six-room map stays separate.
 - Latest perspective correction overrides earlier requests for dark inner faces:
   vertical sides show TOPS ONLY, no dark inner strip and no exterior backing.
-  Original caps/corners use `cap-continuous-v10.png`; shared sides now use
-  `wall-tops-ports-v12.png`. Connected corners/transitions use v9/paired-v7 above.
+  Straight caps use `cap-muted-v11.png`, closed corners use `cap-square-v3.png`;
+  shared sides use cap-tight-v13, wall-tight-v22/v23 and compact-pairs-v24.
+  Connected corners/transitions use the square-v7 atlases above.
   Horizontal stones retain their visible front thickness. The flattened v7
   caps were rejected; integrated v9 walls corrected the overhang but introduced
   course-height steps at module ends. The current cap preserves that flush
-  front face while separate brick-soft-v2 courses run across the ENTIRE wall,
-  starting at y=88 relative to the cap anchor. Never restart them at corners.
-  Side textures now use white modulation. Closed-room pair placement retains
-  offsets [0,3,-2,1] mirrored on east/west; open vertical passages use make_run. No stair feet.
+  front face while separate brick-muted-v3 courses run across the ENTIRE wall,
+  starting at y=96 north/y=105 south relative to the cap anchor. Never restart them at corners.
+  Side textures use white modulation and all straight sides use make_run.
+  The legacy pair placement and its [0,3,-2,1] shifts are removed. No stair feet.
   Keep facade faces flush beneath the caps.
   Do not overlap painted cap ends to hide joints: that sliced the next stone.
   Thick black outer contours were corrected with ImageGen native alpha, never
-  programmatic trimming. Retain the thin native outlines and complete ends.
-- `floor-varied-v2.png` supplies twelve pavers in three native proportions:
+  programmatic trimming. Retain the matching native outlines and complete ends.
+- `floor-calm-v3.png` supplies twelve pavers in three native proportions:
   six quiet stones and six different cracks, with softer texture. The user
   rejected the busy texture and repeated identical sizes in floor-variants-v1.
-  No engraved center tile. Seed 173, whole-row width ordering and five subtle
-  per-stone tints provide deterministic variety. The user approved these floor
-  variations; keep their exact layout and PNG. Multiply their existing RGB
-  modulation by (1.74,1.61,1.40) to lighten the floor without excessive blue;
-  alpha remains 1. Floor rows cross logical-cell
+  No engraved center tile. Seed173 and whole-row width ordering retain the
+  approved arrangement. The new material is smoother and more uniform, with
+  subdued cracks and native color variation. White modulation only: the former
+  five tints and(1.74,1.61,1.40) correction are removed. Floor rows cross logical-cell
   boundaries without extra gutters. Each row scales uniformly to its span;
   open vertical passages fit the whole paving composition uniformly to their
-  length. Native proportions are preserved. `brick-soft-v2.png` supplies four
-  softer masonry variants in two lengths, RGB1.10. Cell pitch (476,256), scale0.29.
+  length. Native proportions are preserved. `brick-muted-v3.png` supplies four
+  softer masonry variants in two lengths, white modulation. Cell pitch(476,256), scale0.29.
   Regions select whole sprites and their transparent gutters only.
 - The user explicitly requested VISUAL inspection, not the old programmatic
   tests or probes, for this art correction. `capture_modular_room.gd` renders

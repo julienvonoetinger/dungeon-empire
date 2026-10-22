@@ -11,12 +11,13 @@ const CELL_STEP := WALL_PROFILE.CELL_PITCH
 const SMALL_ROOM := Vector2(558, 425)
 const BASE_ORIGIN := Vector2(57, 63)
 const VISUAL_SEED := 173
-const FLOOR_LIGHT_RGB := Color(1.74, 1.61, 1.40, 1.0)
-const SIDE_OFFSETS := [0.0, 3.0, -2.0, 1.0]
 
 @export var layout: DungeonLayout
 @export_enum("Closed room", "North–south passage", "West–east passage") var open_axis: int = 0
-@export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable = refresh_preview
+# Resolve on each inspector read: a stored Callable can become Nil on hot reload.
+@export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable:
+	get:
+		return Callable(self, "refresh_preview")
 var _pieces: Array[Sprite2D] = []
 var _origin := BASE_ORIGIN
 
@@ -70,8 +71,8 @@ func refresh_preview() -> void:
 	var north_counts: Array = WALL_PROFILE.NORTH_COUNTS
 	var south_counts: Array = WALL_PROFILE.SOUTH_COUNTS
 	var north_count: int = south_counts[cells.x - 1] if open_axis == 2 else north_counts[cells.x - 1]
-	_facade_courses(-12 if open_axis == 2 else 75, width + 14 if open_axis == 2 else width - 75, WALL_PROFILE.COURSE_TOP, north_count, 0)
-	_facade_courses(-12, width + 14, south_y + WALL_PROFILE.COURSE_TOP, south_counts[cells.x - 1], 2)
+	_facade_courses(-12 if open_axis == 2 else 75, width + 14 if open_axis == 2 else width - 75, WALL_PROFILE.course_top(false), north_count, 0)
+	_facade_courses(-12, width + 14, south_y + WALL_PROFILE.course_top(true), south_counts[cells.x - 1], 2)
 	if open_axis == 2:
 		_horizontal_caps(Vector2.ZERO, cells.x, false)
 		_horizontal_caps(Vector2(0, south_y), cells.x, true)
@@ -83,10 +84,15 @@ func refresh_preview() -> void:
 		_place("south", Vector2(284 + section * CELL_STEP.x, south_y), 4, WALL_PROFILE.SOUTH_SCALE)
 	_place("nw", Vector2.ZERO, 2)
 	_place("ne", Vector2(width, 0), 2)
-	for section in range(cells.y - 1):
-		var shift: float = SIDE_OFFSETS[section % SIDE_OFFSETS.size()]
-		_place("west", Vector2(shift, 270 + section * CELL_STEP.y), 3, 0.92)
-		_place("east", Vector2(width - shift, 270 + section * CELL_STEP.y), 3, 0.92)
+	# Fill the actual ports once. The former315*.92 pairs advanced only256,
+	# overlapping each other and the lower corner by about34 source units.
+	for center in [WALL_PROFILE.CLOSED_SIDE_CENTERS.x, width + WALL_PROFILE.CLOSED_SIDE_CENTERS.y]:
+		for sprite: Sprite2D in KIT.SIDE_ART.make_run(center - 41.0,
+				WALL_PROFILE.CLOSED_SIDE_TOP, south_y + WALL_PROFILE.CLOSED_SIDE_BOTTOM,
+				ART_SCALE, WALL_PROFILE.CLOSED_SIDE_WIDTH):
+			sprite.position += _origin
+			add_child(sprite)
+			_pieces.append(sprite)
 	_place("sw", Vector2(0, south_y), 5)
 	_place("se", Vector2(width, south_y), 5)
 	queue_redraw()
@@ -107,7 +113,6 @@ func _paving(cells: Vector2i, passage_length: float = -1.0) -> void:
 	rng.seed = VISUAL_SEED
 	var used := [0, 0, 0]
 	var variants := [0, 2, 1, 3]
-	var shades := [Color(0.92, 0.94, 1.0), Color(1.03, 0.99, 1.0), Color(0.87, 0.91, 0.97), Color(1.0, 1.02, 1.04), Color(0.96, 0.94, 1.01)]
 	var rows: Array[Dictionary] = []
 	var total_height := 0.0
 	for row in range(cells.y * 2):
@@ -148,9 +153,7 @@ func _paving(cells: Vector2i, passage_length: float = -1.0) -> void:
 		var cursor := 0.0 if open_axis == 2 else 40.0 + (cells.x * CELL_STEP.x + 4.0) * (1.0 - fit) * 0.5
 		for index in range(ids.size()):
 			var id := ids[index]
-			var sprite := _place(id, Vector2(cursor, top), 0, factor)
-			var shade: Color = shades[(index * 3 + row * 2) % shades.size()]
-			sprite.self_modulate = Color(shade.r * FLOOR_LIGHT_RGB.r, shade.g * FLOOR_LIGHT_RGB.g, shade.b * FLOOR_LIGHT_RGB.b, 1.0)
+			_place(id, Vector2(cursor, top), 0, factor)
 			cursor += KIT.BODY[id].x * factor
 		# Native edge outlines touch; the surplus at the ends sits under walls.
 		top += rows[row].advance * fit
@@ -197,12 +200,11 @@ func _facade_courses(left: float, right: float, top: float, count: float, phase:
 func _draw_course(row: Dictionary, left: float, top: float) -> void:
 	var cursor := left
 	for id in row.ids:
-		var brick := _place(id, Vector2(cursor, top), 1, row.scale)
-		brick.self_modulate = Color(1.10, 1.10, 1.10, 1.0)
+		_place(id, Vector2(cursor, top), 1, row.scale)
 		cursor += KIT.BODY[id].x * row.scale + row.gap
 
-func _place(id: String, anchor: Vector2, layer: int, relative_scale := 1.0) -> Sprite2D:
-	var sprite := KIT.make(id, ART_SCALE * relative_scale)
+func _place(id: String, anchor: Vector2, layer: int, relative_scale := 1.0, shaded_floor := false) -> Sprite2D:
+	var sprite := KIT.make(id, ART_SCALE * relative_scale, shaded_floor)
 	sprite.name = id.capitalize() + str(_pieces.size())
 	sprite.position = _origin + anchor * ART_SCALE
 	sprite.z_index = layer
