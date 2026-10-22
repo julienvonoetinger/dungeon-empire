@@ -95,10 +95,59 @@
   length for occupancy, end openings, floors, side walls and detail framing.
   Far ends remain open. The occupancy/perimeter
   resolver is `modular_connection_plan.gd`; floor assembly currently supports
-  one odd rectangular room and centered cardinal branches, reviewed at 3x3.
+  one odd rectangular room with configurable N/S attachment columns and W/E
+  attachment rows, captured at3x3 and5x5. Empty horizontal_attachment_rows keeps centered ports;
+  explicit rows are sorted/deduplicated, invalid indices ignored. All-invalid
+  explicit list gives no horizontal branches. Floor extensions use each branch's
+  own two paving rows and physical end bounds; supports follow its first row.
   No player editor, navigation, saving or arbitrary multi-room renderer exists.
   Branch logical length counts straight modules; their native corner arms add
   physical span. Do not claim these ports already fit a future navigation grid.
+- `scenes/5x5RoomFourCorridors.tscn` is the new UNAPPROVED comparison: layout
+  study_5x5 (25cells,10floor rows), same renderer/kit, horizontal3/vertical4,
+  connections15. Physical anchor span2462x1449 atscale.29. Closed shoulders
+  span2columns, so shared single corners/straight caps are used, not1column
+  paired modules. Do not add scene-specific art repairs. Capture with
+  `tools/capture_room_corridors.gd -- --scene=5x5RoomFourCorridors`.
+  Review full/2x and12 individual corner-X-Y4x images plus corners-comparison.
+  Corner centers derive from actual plan anchors; generic shoulder details do
+  not fit all5x5 corners in one crop. F5 target stays3x3CellRoom.
+- `scenes/5x5RoomVerticalCornerCorridors.tscn` is UNAPPROVED: shared5x5 layout,
+  vertical_attachment_columns[0,4], connections5, corridor_length3, four open
+  north/south far ends. The new shared column setting mirrors horizontal rows:
+  empty centers, explicit indices normalize/sort/deduplicate, all-invalid disables
+  vertical branches. Each column reuses the existing whole passage paving; central
+  pavers remain fixed. No new art. Capture --scene=5x5RoomVerticalCornerCorridors
+  and inspect1x/2x/four inner corners4x; shaft/corner contour differences remain.
+- `scenes/5x5RoomCornerCorridors.tscn` is the UNAPPROVED5x5 counterpart:
+  shared study_5x5 layout, horizontal_attachment_rows[0,4], connections10,
+  corridor_length3. No renderer or asset changes. Capture with
+  --scene=5x5RoomCornerCorridors; inspect full1x/2x and four inner corners4x.
+- `scenes/3x3RoomCornerCorridors.tscn` is UNAPPROVED: shared3x3 layout,
+  horizontal_attachment_rows[0,2], connections10 (E/W), length3, four open far ends.
+  Capture with --scene=3x3RoomCornerCorridors and inspect its two separator tips
+  in corners-comparison. Long open/open horizontal runs use native end bounds
+  established by closed-turn runs; choose WHOLE count/origin at fixed476 cadence,
+  never per-span compression. Opposing horizontal boundaries enclosing one empty
+  logical row, with one common closed end and one open end, now select a shared
+  separator. The two caps, two corner sprites and short side return are omitted;
+  one broad cap and a complete solid terminal replace them. The original flat
+  v5 ends were rejected: the facade looked like a curtain below a thin slab.
+  `modular_separator_kit.gd` registers complete regions/ports from
+  `narrow-separator-v3.png` and `solid-separator-ends-v8.png`, with white tint,
+  uniform scaling and476 straight cadence. Original open-end bounds are retained.
+  The rule depends on exposed edges, not room size or scene name. Wider voids,
+  enclosed islands and vertical dividers remain outside this new selection rule.
+  The v7 oblique end face was rejected for inconsistent perspective. The v8 PNG
+  includes two cap stones and both masonry courses in the shared orthographic
+  projection: height runs straight down; the closed edge stays at the same x
+  from cap to foot, without a diagonal side plane. Separate bricks stop at its connecting edge; none
+  render below the terminal. Native top/course/base ports select whole brick
+  counts for each straight course. Terminal regions are982x801 on1964x801;
+  body bounds are(202,166,669,539)/(1094,166,671,539), cap height316.
+  Two separator-tip details replace the four consumed corner details in this
+  scene's capture. Provenance: `solid-separator-generation.json`. User visual
+  approval remains pending; this does not validate arbitrary layouts.
 - The latest width/alignment correction uses `paired-cap-transitions-v7.png`
   (four whole double-bend modules, slots768x512, anchor96,256) and existing
   `cap-elbows-flush-v9.png` for compatible single corners. Earlier paired-v1

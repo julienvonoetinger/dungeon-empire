@@ -5,19 +5,45 @@ func _initialize() -> void:
 	_capture.call_deferred()
 
 func _capture() -> void:
+	var args := OS.get_cmdline_user_args()
+	var scene_name := "3x3RoomFourCorridors"
+	var suffix := ""
+	var rows_override := PackedInt32Array()
+	var has_rows_override := false
+	var columns_override := PackedInt32Array()
+	var has_columns_override := false
+	var connections_override := -1
+	for argument in args:
+		if argument.begins_with("--scene="):
+			scene_name = argument.trim_prefix("--scene=").validate_filename()
+		elif argument.begins_with("--rows="):
+			has_rows_override = true
+			for row in argument.trim_prefix("--rows=").split(",",false):
+				rows_override.append(row.to_int())
+		elif argument.begins_with("--columns="):
+			has_columns_override = true
+			for column in argument.trim_prefix("--columns=").split(",",false):
+				columns_override.append(column.to_int())
+		elif argument.begins_with("--connections="):
+			connections_override = argument.trim_prefix("--connections=").to_int()
+		else:
+			suffix = "-" + argument.validate_filename()
 	var viewport := SubViewport.new()
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(viewport)
 	viewport.size = Vector2i(1280, 720)
-	var scene: Node2D = load("res://scenes/3x3RoomFourCorridors.tscn").instantiate()
+	var scene: Node2D = load("res://scenes/" + scene_name + ".tscn").instantiate()
 	var dungeon = scene.get_node("Dungeon")
+	if has_rows_override:
+		dungeon.horizontal_attachment_rows = rows_override
+	if has_columns_override:
+		dungeon.vertical_attachment_columns = columns_override
+	if connections_override >= 0:
+		dungeon.connections = connections_override
 	viewport.add_child(scene)
 	var frame: Rect2 = dungeon.get_content_rect()
 	viewport.size = Vector2i(frame.size)
-	var prefix := "res://artifacts/3x3RoomFourCorridors"
-	var args := OS.get_cmdline_user_args()
-	if not args.is_empty():
-		prefix += "-" + args[0].validate_filename()
+	var prefix := "res://artifacts/" + scene_name + suffix
 	await process_frame
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
@@ -49,12 +75,47 @@ func _capture() -> void:
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		viewport.get_texture().get_image().save_png(prefix + "-" + detail + "-4x.png")
-	print("Visual captures: 3x3 room, horizontal_length=%d, vertical_length=%d, 1x/2x, four junctions and focused upper/lower returns and side materials at 4x." % [dungeon.corridor_length,dungeon._vertical_length()])
+	var corners: Dictionary = dungeon.get_corner_detail_centers()
+	for corner in corners:
+		camera.position = corners[corner]
+		camera.force_update_scroll()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		viewport.get_texture().get_image().save_png(prefix + "-" + corner + "-4x.png")
+	print("Visual captures: %s, horizontal_length=%d, vertical_length=%d, 1x/2x, junctions, details and %d corner/tip details at4x." % [scene_name,dungeon.corridor_length,dungeon._vertical_length(),corners.size()])
 	viewport.queue_free()
 	await process_frame
-	if args.is_empty():
+	await _corner_gallery(prefix,corners.keys())
+	if scene_name == "3x3RoomFourCorridors" and suffix.is_empty():
 		await _comparison()
 	quit()
+
+func _corner_gallery(prefix: String, names: Array) -> void:
+	if names.is_empty():
+		return
+	var viewport := SubViewport.new()
+	var panel := Vector2i(820,700)
+	var columns := mini(4,names.size())
+	viewport.size = Vector2i(panel.x * columns,panel.y * ceili(float(names.size()) / columns))
+	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	root.add_child(viewport)
+	for index in range(names.size()):
+		var origin := Vector2(index % columns,int(index / columns)) * Vector2(panel)
+		var picture := Sprite2D.new()
+		picture.texture = ImageTexture.create_from_image(Image.load_from_file(prefix + "-" + names[index] + "-4x.png"))
+		picture.position = origin + Vector2(410,370)
+		viewport.add_child(picture)
+		var label := Label.new()
+		label.text = names[index] + " — x4"
+		label.position = origin + Vector2(12,8)
+		label.add_theme_font_size_override("font_size",18)
+		viewport.add_child(label)
+	await process_frame
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	viewport.get_texture().get_image().save_png(prefix + "-corners-comparison.png")
+	viewport.queue_free()
+	await process_frame
 
 func _comparison() -> void:
 	var before_path := "res://artifacts/3x3RoomFourCorridors-before-fixes.png"

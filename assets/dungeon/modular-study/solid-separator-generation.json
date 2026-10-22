@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-22",
+  "reason": "User rejected v7's oblique end plane because its perspective differed from the existing dungeon. Replace it with an orthographic end: overhead cap and front masonry projected only down.",
+  "method": "Built-in image_gen, transparent_background=true. Original PNGs copied unchanged into the repository. No cutouts, alpha cleanup, resampling, masks or procedural raster edits.",
+  "active": {
+    "straight": "narrow-separator-v3.png",
+    "terminal": "solid-separator-ends-v8.png",
+    "terminal_output": "exec-6d72ceae-fd85-4954-bd5f-f9468778fff8.png",
+    "atlas_size": [
+      1964,
+      801
+    ],
+    "parts": [
+      {
+        "id": "left_end",
+        "region": [
+          0,
+          0,
+          982,
+          801
+        ],
+        "body": [
+          202,
+          166,
+          669,
+          539
+        ]
+      },
+      {
+        "id": "right_end",
+        "region": [
+          982,
+          0,
+          982,
+          801
+        ],
+        "body": [
+          1094,
+          166,
+          671,
+          539
+        ]
+      }
+    ],
+    "ports_relative_to_body_top": {
+      "cap_bottom": 316,
+      "first_course": 322,
+      "second_course": 422,
+      "base": 539
+    },
+    "uniform_factor": "(393*476/1151)/316",
+    "tint": "white",
+    "selection": "Same shared one-empty-row separator topology in modular_connection_plan.gd; no scene-specific condition."
+  },
+  "assembly": "Complete terminal owns two cap stones and two staggered front courses. Orthographic projection: top and base share the same closed x edge; height projects down, with no diagonal side plane. Straight caps retain476 cadence. Separate facade bricks stop at the terminal connecting edge, match its native course ports and are never drawn underneath it. All regions preserve original native alpha, including transparent gutters; body measurements set anchors only.",
+  "history": [
+    {
+      "output": "exec-9e1d7569-8ff4-483c-ac56-23b03c12e364.png",
+      "prompt": "Game asset creation, native transparent PNG. References: image1 provides the blue cap style; image2 the blue-gray masonry stone style; image3 shows the REJECTED assembly, which looks like a floating lid over a thin curtain. Fix that lack of solid wall volume.\nCreate TWO COMPLETE SOLID WALL TERMINAL sprites, left-closed and right-closed. These are reusable ends of one horizontal dividing wall, not an entire room or pillars placed in front of a wall. Each sprite must include the TOP, FRONT MASONRY, and a clearly readable CHAMFERED END RETURN descending all the way to the base. A solid block of interlocked stone, NOT a flat lid over two unrelated strips.\nUse a1254x1024 canvas, transparent background. Left-closed module in left half, right-closed in right half. Each painted module roughly520px wide and520px tall, with about300px of overhead cap/top including its short front edge, and220px of front masonry beneath (two staggered courses110px high each). Put both painted bodies at y200..720; left x60..580, right x674..1194. Large clear gutter between.\nEach broad top is one or two naturally varied blue-gray stone tops. The closed terminal must have a generous rounded/chamfered outside corner whose angled END FACE continues downward through BOTH masonry courses, visibly connecting the roof and the foot. That end return is about50px wide, with alternating interlocked quoin blocks, subtle different shading on its plane. At the far left edge of left sprite (and far right of right sprite), the silhouette follows the full solid end all the way to the base. No arrow-tip slab floating above a square facade. Cap does not overhang the masonry footprint.\nThe opposite connecting end of each sprite is a perfectly VERTICAL intact connection edge: level top, front lip and two horizontal masonry courses ready to meet a straight wall. Both sprites same top/lip/course/bottom heights. Front stones medium-dark slate blue, not black; believable substantial beveled blocks, fine joints, soft painted texture. Strong connected 3D mass using the same overhead + south-facing-front camera as reference3, NOT an isometric diagonal wall. No side perspective on connecting end.\nNO curtains, no sheet-like facade, no detached floating pieces, no pedestal/base plinth, no decorations, no lights or cast shadow outside silhouettes, no floor. Avoid frosted ice, diagonal texture grid and glowing outlines. Real alpha0 everywhere outside complete opaque sprites.",
+      "status": "Solid volume established; too wide for local port."
+    },
+    {
+      "file": "solid-separator-ends-v6.png",
+      "output": "exec-5dfe26f9-a26a-4fd6-8ef8-ba31c18985ec.png",
+      "prompt": "Edit these TWO solid masonry wall ends. Keep canvas1962x801 and native transparent background. Preserve vertical coordinates EXACTLY: topy187, bottom of cap/frontlipy488, masonry course breaky590, basey702. Keep the two complete front courses, interlocked terminal return, existing style, color, texture and opaque alpha.\nThe terminal blocks are too long horizontally. Repaint each module at only64percent of its current WIDTH while retaining FULL current HEIGHT. Desired painted bounds: left sprite x220..765,y187..702; right sprite x1197..1742,y187..702. Each module about545wide x515high. This is nearly a square complete wall end, not a long wall section. Keep TOP+lip height301; two masonry courses below214 combined. Maintain clean vertical straight CONNECTING side, and a solid chamfered CLOSED END return reaching the base. End return horizontal extent roughly95px, integrated into both courses. Reduce the length of broad top and front blocks naturally; do not change perspective, do not shrink the whole picture uniformly, do not flatten depth, do not add/remove a masonry course. All outside space transparent, no glow or cast shadows.",
+      "status": "Width repair; superseded by matched cap bevel and undecorated surface."
+    },
+    {
+      "file": "solid-separator-ends-v7.png",
+      "output": "exec-4ebb2555-9be1-44bc-bbcb-4f18c5cb3939.png",
+      "prompt": "Precise edit of these two complete masonry terminal sprites. Preserve1964x801canvas, exact complete silhouettes and native alpha, their positions, solid side returns and all masonry course geometry. Change ONLY the upper cap surface/front-lip transition:\nThe straight connection ports must match an existing wall. At each CONNECTING vertical side, keep topy183 and cap bottomy488. Move the boundary between the pale overhead top face and darker FRONT LIP DOWN from abouty419 toy441. So the top face extends22px farther down, and the front lip becomes47px high, not69px. Keep the cap bottom exactlyy488 and the first brick course below it exactly in place. Apply this throughout BOTH cap stones, including their closed chamfered corners; preserve the end-face perspective and full wall body. Do not thin the wall body, just align the roof bevel to the neighbor. Remove the small pale flower/snowflake-shaped marks from the top stone, leaving quiet natural cloudlike blue-gray stone. No new ornament or cracks. All pixels outside the intact silhouettes remain genuinely transparent.",
+      "status": "Rejected by user: large oblique end face has inconsistent perspective."
+    },
+    {
+      "file": "solid-separator-ends-v8.png",
+      "output": "exec-6d72ceae-fd85-4954-bd5f-f9468778fff8.png",
+      "prompt": "Edit target image1: the two slate-blue masonry wall-end sprites. Image2 supplies the matching existing cap stone finish and bevel; image3 supplies CAMERA/PERSPECTIVE ONLY. Preserve image1 canvas1964x801 and native transparent background.\nCORRECT THE CAMERA: use the same top-down orthographic game projection as image3. All wall height projects STRAIGHT DOWN the screen. Top rectangles have horizontal upper/lower edges and vertical left/right edges. Front masonry has horizontal beds. REMOVE the large diagonal end planes and arrow-shaped/chamfered noses from image1 completely. There must be NO visible left/right side plane, NO isometric perspective, NO converging edges, NO 45degree end panel. At each closed end, the top's outer x coordinate and ALL front masonry outer x coordinates are the SAME, from top to foot. Only tiny natural 10px corner bevels, never a large diagonal cut.\nLayout EXACT: left module full opaque bounds x241..856,y177..710. Right module x1110..1725,y177..710. Each module615wide x533high. Straight rectangular overall footprint with small organic bevels. Transparent space elsewhere. Left module's left edge is the CLOSED end, right edge is the connection port. Right module's right edge is CLOSED, left edge is the connection port.\nEach module contains TWO adjoining cap stones, each about307pxwide, sharing one vertical mortar joint near the middle; these are the same scale as the three cap stones in reference2. Overhead top fromy177 toy441. Subtle blue front lip fromy441 toy488, horizontal across BOTH stones. Medium-dark slate-blue FRONT masonry below: first coursey494..594, second coursey600..710. Both courses run all the way to the closed end DIRECTLY BELOW the cap. Two or three staggered, interlocked native stones per course with closed rounded bevel edges, consistent with target texture. No continuous vertical seam through both front courses. Connecting ends at x856 and x1110 stay straight with those precise shared row heights.\nKeep blue palette, restrained cloudy painted texture, dark mortar, crisp small beveled edges of image2. Avoid grain, frosty ice, overbright white outline, ornament. No free cast shadow, no floor, no lighting halo. This must read as a solid ordinary dungeon wall ending squarely in the same camera as the rest of the dungeon, not a pedestal viewed from another angle. Output the COMPLETE TWO reusable native-alpha sprites only.",
+      "status": "Active, user artistic approval pending"
+    }
+  ],
+  "output_directory": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da",
+  "visual_review": "Actual Godot3x3 captures1x/2x and both ends4x, shared5x5 rows[0,2,4] narrow-strips capture and seven isolated studies. No programmatic tests or probes. v7 before-perspective captures retained. User artistic approval pending."
+}

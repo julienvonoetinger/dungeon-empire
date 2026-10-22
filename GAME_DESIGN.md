@@ -332,7 +332,157 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   à la même échelle. La commande ne contient ni assertions, ni sondes, ni scores.
   L'ancien `verify_single_cell.gd` est historique et hors suite active.
 
-### Étude de raccord : salle 3×3 et quatre couloirs
+### Études de raccord : salles 3×3 et 5×5 à quatre couloirs
+
+- **Version 5×5 avec couloirs verticaux aux coins :**
+  `scenes/5x5RoomVerticalCornerCorridors.tscn`, à ouvrir avec **F6**. Même plan
+  central de **25 cases**, quatre branches de largeur **1** et longueur **3**,
+  deux vers le nord et deux vers le sud, sur les colonnes **0 et 4**.
+  `connections=5` et `vertical_attachment_columns=[0,4]` ; bouts éloignés ouverts.
+  Le réglage partagé `vertical_attachment_columns` suit les mêmes conventions
+  que les rangées horizontales : liste vide = colonne centrale, liste explicite
+  triée et dédoublonnée, indices hors plan ignorés, liste entièrement invalide =
+  aucune branche verticale. Modifier le réglage reconstruit le plan et place le
+  même dallage de passage dans chaque colonne ; le sol central reste fixe.
+  Les murs proviennent du contour occupé et des mêmes sprites entiers. Aucun
+  rendu propre à la scène, nouvelle image, interaction ou sauvegarde n'est ajouté.
+  Capturer avec `godot --path . --script tools/capture_room_corridors.gd -- --scene=5x5RoomVerticalCornerCorridors`.
+  Voir `artifacts/5x5RoomVerticalCornerCorridors.png`, `-2x.png` et
+  `5x5RoomVerticalCornerCorridors-corners-comparison.png` pour les quatre angles
+  internes à **×4**. Étude non approuvée : de petits écarts de largeur et de
+  contour restent visibles entre les coins et les pierres verticales.
+  Vérification : captures **×1/×2/×4** sans erreur Godot, variantes toutes colonnes,
+  colonnes invalides et retour au centre recapturées ; la variante invalide est
+  identique à la salle fermée. Les **huit captures ×1/×2** des quatre études
+  précédentes (cardinales 3×3/5×5, coins horizontaux 3×3/5×5) sont identiques
+  octet pour octet à leur état avant ce changement. La suite globale s'arrête
+  encore sur `verify-scene`, qui attend SixRoomPreview pour F5 au lieu de la
+  cible actuelle 3x3CellRoom. Les captures ont été exécutées directement.
+- **Version 5×5 avec couloirs horizontaux aux coins :**
+  `scenes/5x5RoomCornerCorridors.tscn`, à ouvrir avec **F6**. Le plan partagé
+  `study_5x5.tres` apporte **25 cases** centrales et **10 rangées de dallage**.
+  Quatre branches horizontales de largeur **1**, longueur **3**, se raccordent
+  aux rangées **0 et 4** à l'ouest et à l'est : `connections=10`,
+  `horizontal_attachment_rows=[0,4]`. Leurs bouts éloignés restent ouverts.
+  Cette scène utilise exactement les scripts et sprites de la version 3×3 ;
+  seul le plan et la liste des rangées changent. Aucune règle de rendu spéciale,
+  nouvelle image, interaction ou sauvegarde n'est ajoutée. Étude non approuvée.
+  Capturer avec `godot --path . --script tools/capture_room_corridors.gd -- --scene=5x5RoomCornerCorridors` ;
+  examiner `artifacts/5x5RoomCornerCorridors.png`, `-2x.png` et
+  `5x5RoomCornerCorridors-corners-comparison.png` pour les quatre angles à **×4**.
+  Captures produites sans erreur Godot et inspectées à **×1/×2/×4** : les murs
+  intérieurs opposés sont séparés dans cette version, mais les jonctions entre
+  coins et pierres verticales montrent encore des écarts de contour et de largeur.
+  Aucun raccord parfait n'est validé. La suite `tools/test-mobile.ps1 -All -Capture`
+  s'arrête toujours sur l'ancien contrôle `verify-scene` de la cible F5 ; les
+  captures de cette scène ont donc été exécutées directement.
+- **Couloirs horizontaux aux quatre coins : `scenes/3x3RoomCornerCorridors.tscn`**,
+  à ouvrir avec **F6**. Salle centrale **3×3** (9 cases, 6 rangées de dallage),
+  quatre branches horizontales de largeur **une case** et longueur **3** :
+  ouest/est sur les rangées logiques **0 et 2**, bouts éloignés ouverts.
+  `connections=10` active uniquement est/ouest ; il n'y a pas de branche nord/sud.
+  Le plan 3×3, les sprites et les fonctions de rendu restent partagés.
+- Le nouveau réglage réutilisable `horizontal_attachment_rows` est une liste
+  de rangées commune aux côtés est/ouest activés. Par défaut, la liste vide
+  conserve le raccord central. Une liste explicite ignore les doublons et les
+  indices négatifs ou supérieurs/égaux au nombre de lignes, puis trie les indices.
+  Une liste explicite entièrement invalide ne crée aucun couloir horizontal.
+  Changer les rangées reconstruit le plan et le rendu ; aucun état n'est sauvegardé.
+  Les deux rangées de dalles de chaque case de raccord se prolongent sans déplacer
+  le sol central. Les bornes physiques sont conservées par branche. Les supports
+  hérités sont posés sous la première rangée de chaque passage.
+- Les longues rangées de chapeaux ouvertes aux deux bouts et traversant la salle
+  utilisent les extrémités natives établies par les murs à angles. Leur nombre
+  de modules entiers et leur origine se calent sur ces bornes, avec cadence **476**
+  et échelles **0,99/0,97** inchangées : aucune compression par segment ou coupe.
+- **Séparateur étroit commun :** deux frontières horizontales opposées, séparées
+  par une seule rangée logique vide, sélectionnent désormais un séparateur si
+  elles ont la même portée, une extrémité commune fermée et l'autre ouverte.
+  La règle vient du contour dans `modular_connection_plan.gd`, sans nom de scène
+  ni taille de salle particulière. Les deux rangées de chapeaux, les deux angles
+  et le petit retour vertical sont retirés de l'assemblage. Un dessus large
+  unique, une terminaison maçonnée complète gauche/droite et deux assises droites
+  les remplacent.
+  Il n'y a plus de double bande de dessus dans ce cas.
+- La première version à terminaisons plates (`narrow-separator-ends-v5.png`) a
+  été rejetée : le dessus paraissait posé sur une façade mince, comme un rideau.
+  `modular_separator_kit.gd` utilise maintenant `narrow-separator-v3.png` pour les
+  trois pierres droites et `solid-separator-ends-v8.png` pour les terminaisons.
+  La v7 a été rejetée : sa grande face oblique introduisait une autre perspective.
+  La v8 intègre deux pierres de dessus et deux assises projetées uniquement vers
+  le bas. Le bord fermé garde la même abscisse du dessus au pied, sans face latérale
+  en diagonale. Aucun lit de briques séparé n'est dessiné dessous.
+  L'atlas **1964×801** contient deux régions complètes **982×801**.
+  Régions complètes à alpha natif, teinte blanche, échelles uniformes seulement ;
+  cadence **476**, hauteur commune d'environ **162** unités source avant ×0,29.
+  Les bouts ouverts gardent leurs bornes d'origine ; le nez suit les dimensions
+  natives de ses nouvelles pierres (environ **344/345×277** unités pour le module
+  entier gauche/droite). Les corps natifs mesurent **669/671×539**, hauteur de
+  chapeau **316** ; ports d'assises **322/422** depuis le haut du corps.
+  La façade droite rejoint les ports des deux assises de la terminaison ; le
+  nombre de briques entières de chaque assise est choisi selon sa hauteur native.
+  Les rangées ne redémarrent pas à chaque module droit. Le dallage central reste
+  inchangé. La modulation héritée des briques reste à migrer comme indiqué plus haut.
+  Provenance et prompts : `solid-separator-generation.json` ; les essais plats
+  restent consignés dans `narrow-separator-generation.json`.
+- Les bandes plus larges, les îlots fermés des deux côtés et les séparateurs
+  verticaux ne sont pas couverts par cette nouvelle règle. La scène reste **en
+  attente d'approbation visuelle** ; elle ne valide pas des donjons arbitraires.
+- Capturer avec `godot --path . --script tools/capture_room_corridors.gd -- --scene=3x3RoomCornerCorridors`.
+  Voir `artifacts/3x3RoomCornerCorridors.png`, `-2x.png` et
+  `3x3RoomCornerCorridors-corners-comparison.png` : les **deux terminaisons**
+  du séparateur à **×4**, en remplacement des quatre anciens angles superposés.
+  Les coins extérieurs de la salle sont traversés par des murs horizontaux continus.
+- Contrôles précédents, avant le séparateur commun : captures à **×1/×2** et des quatre angles
+  à **×4**, ainsi que des variantes toutes rangées, liste invalide et retour au
+  réglage central. La liste invalide rend la même image que la salle fermée.
+  Les quatre captures **×1/×2** des anciennes scènes cardinales **3×3/5×5** sont
+  identiques octet pour octet à leurs références avant ce changement. La matrice
+  des 16 masques et longueurs 1/2/3 a été recapturée. La commande globale
+  `tools/test-mobile.ps1 -All -Capture` reste arrêtée par `verify-scene`, qui
+  attend SixRoomPreview pour F5 alors que la cible actuelle est 3x3CellRoom.
+  Ces anciens contrôles n'avaient pas résolu le chevauchement intérieur.
+- Vérification de la correction du séparateur : inspection des captures Godot
+  **×1/×2**, des deux nez **×4**, des sept études isolées, de la 3×3 à couloirs
+  centrés, de la 5×5 à couloirs horizontaux éloignés et de la 5×5 à branches
+  verticales aux coins. Une capture supplémentaire de la 5×5 avec
+  `--rows=0,2,4 narrow-strips` montre quatre séparateurs sélectionnés par la même
+  règle. Ce réglage est temporaire pour la capture ; les scènes enregistrées
+  conservent leurs paramètres. Aucun score ni sonde programmatique dans cette
+  correction, conformément à la demande de contrôle visuel de l'utilisateur.
+- Reprise de perspective v8 : captures Godot de la 3×3 à **×1/×2** et des deux
+  terminaisons à **×4**, de la 5×5 temporaire `--rows=0,2,4 narrow-strips`, et des
+  sept études isolées. Les images `3x3RoomCornerCorridors-before-perspective.png`
+  et `-before-perspective-details.png` conservent la v7 rejetée. Cette inspection
+  visuelle ne remplace pas l'approbation artistique de l'utilisateur.
+
+- **Nouvelle scène de comparaison : `scenes/5x5RoomFourCorridors.tscn`**, à ouvrir
+  avec **F6**. `assets/layouts/study_5x5.tres` définit **5 colonnes × 5 lignes**,
+  soit **25 cases** centrales et **10 rangées** de dallage. Les quatre branches
+  centrées sont actives (**15**), largeur **une case**, longueur **3** ouest/est
+  et **4** nord/sud comme la scène 3×3. Il n'y a pas d'entrée, gameplay ni sauvegarde.
+  La scène sélectionne une autre ressource de plan ; elle utilise les mêmes
+  scripts `room_corridor_study.gd`, `modular_connection_plan.gd` et les mêmes
+  sprites. Aucun rendu ou correctif de raccord propre à la taille 5×5 n'est ajouté.
+  Emprise entre ancres : **2462×1449 unités source**, échelle **0,29**.
+- Cette taille expose des segments horizontaux fermés de **deux colonnes**
+  autour des branches nord/sud : ils utilisent les angles séparés et chapeaux
+  droits partagés. Les modules doubles réservés à **une colonne** ne sont donc
+  pas utilisés dans cette configuration à quatre branches. L'étude sert à
+  examiner ces raccords ; sa création ne valide pas leur qualité artistique.
+- Capturer avec `godot --path . --script tools/capture_room_corridors.gd -- --scene=5x5RoomFourCorridors`.
+  Sorties `artifacts/5x5RoomFourCorridors.png`, `-2x.png`, quatre directions à
+  **×4**, et **12 coins individuels** `-corner-X-Y-4x.png`, déduits du plan et
+  des ancres réelles. `5x5RoomFourCorridors-corners-comparison.png` les regroupe
+  à leur échelle **×4**. Les anciens détails de portions de mur ne couvrent pas
+  toute la largeur 5×5 : utiliser les douze gros plans pour examiner tous les coins.
+- Vérification de cette étude : captures **×1/×2**, quatre directions et douze
+  coins **×4** produites et examinées. Les captures générales 3×3 avant/après
+  restent identiques. Les raccords coins/chapeaux séparés restent à apprécier
+  visuellement : cette scène expose leurs variations, elle ne les corrige pas
+  à l'aide d'une recette propre au 5×5. La commande globale
+  `tools/test-mobile.ps1 -All -Capture` s'arrête encore au contrôle historique
+  F5 qui attend la scène à six salles ; les captures ont été lancées directement.
 
 - `scenes/3x3RoomFourCorridors.tscn`, à ouvrir puis lancer avec **F6** :
   une salle **3×3**, avec des couloirs centrés de largeur logique **une case**.
@@ -355,7 +505,9 @@ restent à apprécier par l'utilisateur ; aucun score technique ne les approuve.
   de l'occupation logique, puis rassemble les segments droits. Les ouvertures
   terminales sont explicites. Ce calcul prépare la construction future ; le
   rendu de sol accepte actuellement une salle rectangulaire impaire d'au moins
-  3×3 et des branches cardinales centrées. **Seule la salle 3×3 est examinée ici.**
+  3×3, des branches nord/sud centrées et des branches horizontales sur des rangées
+  configurables. **Les scènes 3×3 et 5×5 sont examinées ici,
+  sans approbation artistique ni validation de toutes les tailles impaires.**
   Aucun éditeur joueur, navigation, collision ni plan arbitraire complet n'est
   implémenté. Les contacts diagonaux et les plans de plusieurs salles restent
   à traiter et à examiner visuellement.

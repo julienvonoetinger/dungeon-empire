@@ -57,6 +57,58 @@ zéro reprend la longueur commune (défaut du script : 2).
 défaut15) ; `corridor_length` va de 1 à 3. Leur modification reconstruit le rendu.
 Les arêtes exposées et les angles sont déduits des cases occupées.
 
+**Comparaison 5×5 :** ouvrir `scenes/5x5RoomFourCorridors.tscn`, puis **F6**.
+Même assemblage et mêmes longueurs de couloir que la 3×3 ; seule la ressource
+de plan change. Les douze coins exposent notamment les raccords avec des
+portions droites plus longues. Captures :
+
+```powershell
+godot --path . --script tools/capture_room_corridors.gd -- --scene=5x5RoomFourCorridors
+```
+
+Voir `artifacts/5x5RoomFourCorridors.png`, `-2x.png` et
+`5x5RoomFourCorridors-corners-comparison.png` pour les douze coins à ×4.
+Cette étude reste à valider visuellement.
+
+**Quatre couloirs horizontaux aux coins :** ouvrir
+`scenes/3x3RoomCornerCorridors.tscn`, puis **F6**. La salle 3×3 utilise les mêmes
+scripts, avec `horizontal_attachment_rows=[0,2]`, `connections=10` et longueur3.
+Deux passages partent vers la gauche et deux vers la droite. La liste vide
+garde le placement central des autres scènes.
+
+```powershell
+godot --path . --script tools/capture_room_corridors.gd -- --scene=3x3RoomCornerCorridors
+```
+
+Voir `artifacts/3x3RoomCornerCorridors.png`, sa version `-2x.png` et
+`3x3RoomCornerCorridors-corners-comparison.png`. Les deux murs intérieurs opposés
+utilisent maintenant un **séparateur commun**, avec un seul dessus large et une
+terminaison maçonnée complète vers la salle. Ses deux pierres de dessus et ses
+deux assises sont réunies dans le même sprite ; la façade descend verticalement,
+avec un bord fermé aligné du dessus au pied. La façade droite s'arrête à son bord
+de connexion. Les anciens bouts plats ont été rejetés pour leur effet de
+« rideau », puis les bouts à face oblique pour leur perspective. La règle détecte une bande vide d'une case
+dans le contour et remplace les anciens coins et chapeaux superposés. Les deux
+nez sont capturés à ×4. Les nouveaux sprites gardent leur alpha natif ; aucune
+découpe ou superposition de bouts peints ne fabrique la jonction.
+L'approbation visuelle de cette nouvelle version reste à recueillir.
+
+**Même disposition en 5×5 :** ouvrir `scenes/5x5RoomCornerCorridors.tscn`, puis
+**F6**. Les quatre couloirs horizontaux de longueur 3 se raccordent aux rangées
+0 et 4, avec les mêmes sprites et le même assemblage partagé. Capturer avec
+`godot --path . --script tools/capture_room_corridors.gd -- --scene=5x5RoomCornerCorridors`.
+Voir `artifacts/5x5RoomCornerCorridors.png`, `-2x.png` et
+`5x5RoomCornerCorridors-corners-comparison.png`. Étude à valider visuellement.
+
+**Couloirs verticaux aux coins de la 5×5 :** ouvrir
+`scenes/5x5RoomVerticalCornerCorridors.tscn`, puis **F6**. Deux couloirs partent
+vers le haut et deux vers le bas, aux colonnes 0 et 4, longueur 3, bouts ouverts.
+Le réglage partagé est `vertical_attachment_columns=[0,4]`, `connections=5`.
+Capturer avec `godot --path . --script tools/capture_room_corridors.gd -- --scene=5x5RoomVerticalCornerCorridors`.
+Voir `artifacts/5x5RoomVerticalCornerCorridors.png`, `-2x.png` et
+`5x5RoomVerticalCornerCorridors-corners-comparison.png`. Les raccords restent
+à valider visuellement.
+
 Les angles en L dédiés remplacent les carrés rejetés. Les murs droits utilisent
 les mêmes échelles, espacements et assises que les sept petites scènes. Les
 couloirs latéraux prolongent les rangées de la salle sans recouvrir ses dalles.

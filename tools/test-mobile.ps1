@@ -88,6 +88,10 @@ Invoke-GodotCheck 'editor-refresh' @('--headless', '--editor', 'res://tools/fixt
 if ($Capture) {
     Invoke-GodotCheck 'modular-rooms' @('--script', 'res://tools/capture_modular_room.gd')
     Invoke-GodotCheck 'room-corridors' @('--script', 'res://tools/capture_room_corridors.gd')
+    Invoke-GodotCheck 'room-corridors-5x5' @('--script', 'res://tools/capture_room_corridors.gd', '--', '--scene=5x5RoomFourCorridors')
+    Invoke-GodotCheck 'corner-corridors' @('--script', 'res://tools/capture_room_corridors.gd', '--', '--scene=3x3RoomCornerCorridors')
+    Invoke-GodotCheck 'corner-corridors-5x5' @('--script', 'res://tools/capture_room_corridors.gd', '--', '--scene=5x5RoomCornerCorridors')
+    Invoke-GodotCheck 'vertical-corner-corridors-5x5' @('--script', 'res://tools/capture_room_corridors.gd', '--', '--scene=5x5RoomVerticalCornerCorridors')
     Invoke-GodotCheck 'module-connections' @('--script', 'res://tools/capture_module_connections.gd')
     Invoke-GodotCheck 'capture' @('--script', 'res://tools/capture_scene.gd')
     Invoke-GodotCheck 'verify-reference' @('--script', 'res://tools/verify_reference.gd')
