@@ -3,6 +3,67 @@
 État : 23 octobre 2026. Intégration demandée par l'utilisateur, après la préparation
 des images isolées. La géométrie et les matières sont partagées par toutes les scènes.
 
+## Raccords de pierres entières
+
+Le comparatif des raccords horizontal et vertical a été approuvé. Le compositeur
+connecté utilise maintenant le voisinage 3×3 pour retrouver les faces complètes
+des pierres qui traversent une frontière de case. Leur matière, cadrage de texture,
+graine d'arrondi et accent sont stables dans ce repère. Les PNG sont découpés
+seulement après cette peinture commune ; les guides géométriques restent inchangés.
+
+Une garde de deux pixels de référence (huit pixels source) existe uniquement
+dans le volume opaque commun. Elle protège le raccord du filtrage et des mipmaps.
+Sur le contour transparent, une seule case porte la couverture alpha commune.
+L'alpha **individuel** change donc près des interfaces ; l'ancien constat « mêmes
+masques alpha qu'avant B » ci-dessous décrit uniquement la promotion précédente.
+La garde ne doit jamais agrandir la silhouette de l'assemblage ni combler un vide.
+
+Le catalogue contient les voisinages ordinaires de huit voisins et les extrémités
+ouvertes, ainsi que les quatre portes/escaliers et les voisinages spéciaux des
+scènes inventoriées. Les images identiques sont partagées. Les chemins de PNG
+sont chargés à la demande, afin de ne pas réserver la mémoire de toutes les
+combinaisons à l'ouverture d'une scène. Un sol commun puis au plus une structure
+complète sont toujours placés sur chaque case, sans texture ni géométrie créée
+pendant le rendu.
+
+Reproduction :
+
+```sh
+godot --headless --path . --script res://tools/export_painted_scene_contexts.gd
+node tools/export_painted_connected_kit.cjs
+godot --headless --editor --path . --import
+```
+
+L'inventaire `painted-scene-contexts.json` décrit des configurations locales, avec
+les scènes uniquement comme provenance. Pour une nouvelle combinaison de portes
+et d'escaliers voisins, refaire cet inventaire et l'export avant la revue des
+raccords. L'aperçu utilise sinon la variante générique préparée et signale le
+contexte manquant ; cette variante de secours ne valide pas la continuité.
+
+Le comparatif approuvé est figé dans `wall-join-review/`, avec ses PNG d'origine
+dans `source/` (commit ab9ebe7). Il ne lit plus les images actives comme « avant ».
+Les exports isolés restent disponibles pour contrôler un élément seul ; les
+scènes assemblées utilisent exclusivement le catalogue connecté.
+
+## Revue de la généralisation
+
+Les 20 scènes d'architecture ont été capturées dans Godot à 1280×960 et
+2560×1920, sans erreur ni avertissement. Les murs nord/ouest/sud ont été examinés
+en détail ; les quatre portes, quatre escaliers et les jonctions autour des
+piliers ont été revus. Une occultation de traits d'escalier sur l'arche a été
+corrigée, puis les sept scènes contenant les pièces spéciales ont été recapturées.
+Voir `wall-join-review/godot-final-details.png` et `godot-final-arch.png`.
+
+L'export rapporte zéro pixel intérieur non peint et zéro différence d'alpha
+avec son modèle de contexte. Les empreintes des sources et des 737 structures
+correspondent au catalogue. 208 PNG intermédiaires non référencés ont été retirés
+du projet actif ; copie récupérable dans `artifacts/whole-stone-retired/`.
+Logs et captures complets : `artifacts/whole-stone-*.log` et
+`artifacts/wireframe-*.png`. Cette revue ne démontre pas tous les futurs
+assemblages de pièces spéciales ni tous les niveaux de zoom.
+
+## Gamme et finition précédemment approuvées
+
 La gamme active est désormais **stylisée**, approuvée par l'utilisateur le
 23 octobre : grandes facettes peintes, sol calme, bois simplifié et accents violets
 localisés. Les PNG sont réexportés avec `shared-materials/active-recipe.json` et
@@ -31,7 +92,7 @@ joints visibles : B modifie volontairement leur aspect autour des coins arrondis
 Le calque magenta conserve les traits de construction d'origine. Une correspondance
 de ces traits ne signifie pas que chaque pixel de mortier peint est sur le trait.
 
-Revue d'intégration B : export de 57 images isolées et 96 structures connectées
+Revue historique de l'intégration B, avant correction des raccords : export de 57 images isolées et 96 structures connectées
 avec un sol commun, soit 154 PNG. Leurs 154 masques alpha sont identiques à ceux
 d'avant B. Import Godot et captures effectués sans erreur pour `2x2CellRoom`,
 `3x3RoomCornerCorridors`, `WireframeDoorCross`, `WireframeClosedCorridors` et
@@ -49,21 +110,21 @@ Ils ne ferment pas l'éditeur ouvert par l'utilisateur.
 
 | Élément | Source |
 | --- | --- |
-| Textures connectées | `assets/dungeon/painted-connected/` : 96 PNG structurels + un sol |
+| Textures connectées | `assets/dungeon/painted-connected/` : 737 PNG structurels + un sol |
 | Inventaire et provenance | `assets/dungeon/painted-connected/catalog.json` |
 | Mesures d'export | `assets/dungeon/painted-connected/validation.json` |
-| Préchargement Godot | `scripts/painted_cell_catalog.gd` |
-| Sélection sur grille | `scripts/wireframe_cell_layout.gd`, inchangé |
+| Catalogue de chemins Godot | `scripts/painted_cell_catalog.gd` |
+| Sélection sur grille | `scripts/wireframe_cell_layout.gd`, clé de voisinage |
 | Placement et actualisation | `scripts/wireframe_cell_study.gd` |
 | Matières et profils communs | `assets/dungeon/shared-materials/catalog.json` |
 | Revues isolées conservées | `assets/dungeon/painted-cells/`, `docs/reference/painted-kit-review/` |
 
-Les 120 variantes ordinaires avec murs ou piliers réutilisent 88 PNG par alias.
-Quatre entrées et quatre portes portent le total à 96 images structurelles pour
-128 identifiants. Les 16 états sans structure n'ajoutent aucun sprite de murs.
-Les faces internes aux raccords sont absentes de ces PNG. Les pièces isolées de
-revue gardent leurs extrémités complètes ; ne pas substituer ces images aux variantes
-connectées dans les scènes sur grille.
+Les 1 444 clés de voisinage réutilisent 737 PNG structurels distincts ; 161 clés
+sans structure n'ajoutent aucun sprite de murs. Les 128 identifiants de base
+restent disponibles comme variantes génériques. Les portes et escaliers suivent
+la même sélection locale. Les faces internes aux raccords sont absentes des PNG.
+Les pièces isolées de revue gardent leurs extrémités complètes ; ne pas substituer
+ces images aux variantes connectées dans les scènes sur grille.
 
 ## Placement
 
@@ -93,8 +154,8 @@ Le bouton « Actualiser le rendu » conserve son getter Callable. Dans l'éditeu
 il recharge aussi chaque texture utilisée depuis son fichier importé, une seule
 fois par image, avec `ResourceLoader.CACHE_MODE_REPLACE`. Cela remplace les pixels
 gardés en mémoire après un export/import externe. Les changements de paramètres
-reconstruisent les sprites sans forcer cette lecture ; F6 utilise les préchargements
-normaux. L'éditeur et F6 partagent le même renderer. Le nom historique
+reconstruisent les sprites sans forcer cette lecture ; F6 charge les chemins sélectionnés avec le cache
+normal. L'éditeur et F6 partagent le même renderer. Le nom historique
 `wireframe_cell_study.gd` est gardé pour préserver les références des scènes.
 
 Après un remplacement des PNG, laisser Godot terminer l'import puis sélectionner
@@ -141,17 +202,24 @@ Depuis la racine, avec Node.js et `sharp` disponibles :
 ```powershell
 node tools/prepare_shared_stone_materials.cjs
 node tools/export_painted_image_catalog.cjs
+godot --headless --path . --script res://tools/export_painted_scene_contexts.gd
 node tools/export_painted_connected_kit.cjs
 godot --headless --editor --path . --import
 ```
 
-Remplacer `godot` par le chemin de l'exécutable local. L'export utilise les SVG
-connectés pour les contours, les guides isolés pour les régions de matière et la
-même bibliothèque de textures. Il génère les PNG et le catalogue GDScript.
-`--floor-only` actualise le sol et les métadonnées en conservant les structures
-existantes ; réserver cette option à une modification du sol seul. Si la géométrie
-ou le compositeur change, relancer l'export complet. `--only=doors/west` exporte un
-diagnostic ciblé sans réécrire le catalogue global.
+Remplacer `godot` par le chemin de l'exécutable local. L'export connecté réunit
+les guides des cases voisines avant d'extraire les pierres complètes. Il masque
+les traits occultés par une pièce voisine, notamment un escalier derrière une
+arche. Les matériaux utilisent la bibliothèque partagée. L'export génère les PNG
+et le catalogue de chemins GDScript.
+
+`--floor-only` actualise le sol en conservant les structures, leurs métadonnées
+et le sélecteur. `--specials-only` actualise seulement les contextes contenant
+une porte ou un escalier ; l'utiliser uniquement après une modification limitée
+à ces contextes, sur un catalogue complet existant. Pour tout changement commun
+de géométrie, matière ou finition, relancer l'export complet. Le diagnostic
+`--only=doors/west` appartient à l'exporteur isolé
+`export_painted_image_catalog.cjs` ; il est refusé par l'exporteur connecté.
 
 Les variantes d'entrée isolées utilisées par EntranceVariants sont produites par
 `tools/export_painted_image_catalog.cjs` et importées avec mipmaps.

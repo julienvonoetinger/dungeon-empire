@@ -1,0 +1,2921 @@
+{
+	"contexts": {
+		"n000_e00": {
+			"scenes": [
+				"1x1CellRoom.tscn",
+				"SingleCellRoom.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w15_p00_e00",
+					"x": 0,
+					"y": 0
+				}
+			]
+		},
+		"n001_e00|0=entrances/north": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "entrances/north",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				}
+			]
+		},
+		"n001_e00|0=entrances/north|1=doors/south": {
+			"scenes": [
+				"ReferenceCalibration.tscn"
+			],
+			"tiles": [
+				{
+					"id": "entrances/north",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/south",
+					"x": 0,
+					"y": -1
+				}
+			]
+		},
+		"n001_e00|1=doors/south": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w14_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/south",
+					"x": 0,
+					"y": -1
+				}
+			]
+		},
+		"n001_e04": {
+			"scenes": [
+				"1x2Corridor.tscn",
+				"1x3Corridor.tscn",
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e04",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e01",
+					"x": 0,
+					"y": -1
+				}
+			]
+		},
+		"n002_e00|0=entrances/east": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "entrances/east",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				}
+			]
+		},
+		"n002_e00|2=doors/west": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w13_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/west",
+					"x": 1,
+					"y": 0
+				}
+			]
+		},
+		"n002_e08": {
+			"scenes": [
+				"2x1Corridor.tscn",
+				"3x1Corridor.tscn",
+				"3x3RoomCornerCorridors.tscn",
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e08",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e02",
+					"x": 1,
+					"y": 0
+				}
+			]
+		},
+		"n004_e00|0=entrances/south": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "entrances/south",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n004_e00|0=entrances/south|3=doors/south": {
+			"scenes": [
+				"ReferenceCalibration.tscn"
+			],
+			"tiles": [
+				{
+					"id": "entrances/south",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/south",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n004_e00|3=doors/north": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w11_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/north",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n004_e01": {
+			"scenes": [
+				"1x2Corridor.tscn",
+				"1x3Corridor.tscn",
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e01",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e04",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n005_e00": {
+			"scenes": [
+				"1x3Corridor.tscn",
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e01",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e04",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n005_e00|0=doors/north": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "doors/north",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w11_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n005_e00|0=doors/south": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "doors/south",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w14_p00_e00",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n005_e00|0=doors/south|1=entrances/south|3=entrances/north": {
+			"scenes": [
+				"ReferenceCalibration.tscn"
+			],
+			"tiles": [
+				{
+					"id": "doors/south",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "entrances/south",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "entrances/north",
+					"x": 0,
+					"y": 1
+				}
+			]
+		},
+		"n008_e00|0=entrances/west": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "entrances/west",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				}
+			]
+		},
+		"n008_e00|4=doors/east": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w07_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/east",
+					"x": -1,
+					"y": 0
+				}
+			]
+		},
+		"n008_e02": {
+			"scenes": [
+				"2x1Corridor.tscn",
+				"3x1Corridor.tscn",
+				"3x3RoomCornerCorridors.tscn",
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e02",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e08",
+					"x": -1,
+					"y": 0
+				}
+			]
+		},
+		"n010_e00": {
+			"scenes": [
+				"3x1Corridor.tscn",
+				"3x3RoomCornerCorridors.tscn",
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e02",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e08",
+					"x": -1,
+					"y": 0
+				}
+			]
+		},
+		"n010_e00|0=doors/east": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "doors/east",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w07_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				}
+			]
+		},
+		"n010_e00|0=doors/west": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "doors/west",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w13_p00_e00",
+					"x": -1,
+					"y": 0
+				}
+			]
+		},
+		"n015_e00": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p15_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				}
+			]
+		},
+		"n021_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p08_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": -1
+				}
+			]
+		},
+		"n025_e00": {
+			"scenes": [
+				"2x2CellRoom.tscn",
+				"3x3CellRoom.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": -1
+				}
+			]
+		},
+		"n026_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w04_p02_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": -1,
+					"y": -1
+				}
+			]
+		},
+		"n027_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w04_p02_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				}
+			]
+		},
+		"n029_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w02_p08_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				}
+			]
+		},
+		"n035_e00": {
+			"scenes": [
+				"2x2CellRoom.tscn",
+				"3x3CellRoom.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w12_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n037_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p04_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n039_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w08_p04_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n042_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w04_p01_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n043_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w04_p01_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n053_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n053_e00|3=doors/south": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p15_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "doors/south",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n053_e00|3=entrances/north": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "entrances/north",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n057_e00": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p04_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n059_e00": {
+			"scenes": [
+				"3x3CellRoom.tscn",
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n063_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p12_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p09_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p06_e00",
+					"x": 1,
+					"y": -1
+				}
+			]
+		},
+		"n069_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w08_p02_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n070_e00": {
+			"scenes": [
+				"2x2CellRoom.tscn",
+				"3x3CellRoom.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n071_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w08_p02_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n074_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p08_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n078_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w01_p08_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n102_e00|6=entrances/south": {
+			"scenes": [
+				"PerspectiveRoom.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "entrances/south",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n103_e00": {
+			"scenes": [
+				"3x3CellRoom.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n106_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p09_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n106_e00|4=doors/west": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p15_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "doors/west",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n106_e00|4=entrances/east": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p09_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "entrances/east",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n111_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p09_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n115_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w12_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p09_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n119_e00": {
+			"scenes": [
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p08_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n123_e00": {
+			"scenes": [
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n127_e00": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p08_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p04_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 1,
+					"y": 1
+				}
+			]
+		},
+		"n133_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p01_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n138_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p04_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n140_e00": {
+			"scenes": [
+				"2x2CellRoom.tscn",
+				"3x3CellRoom.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n141_e00": {
+			"scenes": [
+				"5x5RoomVerticalCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w02_p01_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n142_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w01_p04_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n154_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p06_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n154_e00|2=doors/east": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/east",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p15_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n154_e00|2=entrances/west": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "entrances/west",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p06_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n156_e00|5=entrances/south": {
+			"scenes": [
+				"PerspectiveRoom.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "entrances/south",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n157_e00": {
+			"scenes": [
+				"3x3CellRoom.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n159_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p06_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n185_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p06_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n187_e00": {
+			"scenes": [
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p12_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n189_e00": {
+			"scenes": [
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p04_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n191_e00": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p04_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p08_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n196_e00|0=entrances/south": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "entrances/south",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n197_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n197_e00|1=doors/north": {
+			"scenes": [
+				"WireframeDoorCross.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "doors/north",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p15_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n197_e00|1=entrances/south": {
+			"scenes": [
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "entrances/south",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n206_e00": {
+			"scenes": [
+				"3x3CellRoom.tscn",
+				"3x3RoomCornerCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n207_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p06_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p09_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n207_e00|1=entrances/south": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "entrances/south",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n220_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p06_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n221_e00": {
+			"scenes": [
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p02_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n222_e00": {
+			"scenes": [
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n222_e00|5=entrances/south": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "entrances/south",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n223_e00": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p02_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p04_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n230_e00": {
+			"scenes": [
+				"3x3RoomFourCorridors.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w09_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p09_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n231_e00": {
+			"scenes": [
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w04_p01_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n238_e00": {
+			"scenes": [
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w10_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n238_e00|6=entrances/south": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p03_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "entrances/south",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n239_e00": {
+			"scenes": [
+				"DungeonPreview.tscn",
+				"SixRoomPreview.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p01_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p02_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w00_p08_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p04_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n247_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w08_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p08_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w04_p01_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n253_e00": {
+			"scenes": [
+				"3x3RoomCornerCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p04_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w04_p02_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w00_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w05_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		},
+		"n255_e00": {
+			"scenes": [
+				"3x3CellRoom.tscn",
+				"3x3RoomCornerCorridors.tscn",
+				"3x3RoomFourCorridors.tscn",
+				"5x5RoomCornerCorridors.tscn",
+				"5x5RoomFourCorridors.tscn",
+				"5x5RoomVerticalCornerCorridors.tscn",
+				"DungeonPreview.tscn",
+				"PerspectiveRoom.tscn",
+				"SixRoomPreview.tscn",
+				"WireframeClosedCorridors.tscn"
+			],
+			"tiles": [
+				{
+					"id": "cells/w00_p00_e00",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"id": "cells/w01_p00_e00",
+					"x": 0,
+					"y": -1
+				},
+				{
+					"id": "cells/w02_p00_e00",
+					"x": 1,
+					"y": 0
+				},
+				{
+					"id": "cells/w04_p00_e00",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"id": "cells/w08_p00_e00",
+					"x": -1,
+					"y": 0
+				},
+				{
+					"id": "cells/w09_p00_e00",
+					"x": -1,
+					"y": -1
+				},
+				{
+					"id": "cells/w03_p00_e00",
+					"x": 1,
+					"y": -1
+				},
+				{
+					"id": "cells/w06_p00_e00",
+					"x": 1,
+					"y": 1
+				},
+				{
+					"id": "cells/w12_p00_e00",
+					"x": -1,
+					"y": 1
+				}
+			]
+		}
+	},
+	"purpose": "Offline local context inventory"
+}

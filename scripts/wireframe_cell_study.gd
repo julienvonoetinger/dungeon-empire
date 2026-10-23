@@ -62,6 +62,7 @@ var _frame := Rect2(0, 0, 256, 256)
 var _pending := false
 var _reload_editor_textures := false
 var _refreshed_textures: Dictionary[String, Texture2D] = {}
+var _missing_contexts: Dictionary = {}
 
 
 func _ready() -> void:
@@ -96,40 +97,66 @@ func refresh_preview(reload_textures: bool = true) -> void:
 	var ordered: Array = cells.keys()
 	ordered.sort_custom(func(a: Vector2i, b: Vector2i) -> bool:
 		return a.y < b.y if a.y != b.y else a.x < b.x)
-	var door_images: Dictionary = {}
+	var specials: Dictionary = {}
 	for cell: Vector2i in door_cells:
 		var facing: String = door_cells[cell]
-		if not cells.has(cell) or not KIT.DOORS.has(facing):
+		if not cells.has(cell) or not KIT.DOOR_VARIANTS.has(facing):
 			push_warning("Invalid door placement: %s at %s" % [facing, cell])
 			continue
 		var variant: String = GRID.variant(cell, cells, _plan.openings)
 		if variant != KIT.DOOR_VARIANTS[facing]:
 			push_warning("Door %s requires a connected straight passage at %s; found %s" % [facing, cell, variant])
 			continue
-		door_images[cell] = KIT.DOORS[facing]
+		specials[cell] = "doors/" + facing
+	for cell: Vector2i in ordered:
+		var variant: String = GRID.variant(cell, cells, _plan.openings)
+		if not specials.has(cell) and entrance_at_closed_ends and KIT.TERMINAL_DIRECTIONS.has(variant):
+			specials[cell] = "entrances/" + KIT.TERMINAL_DIRECTIONS[variant]
+	var prepared_images: Dictionary = {}
+	var loaded_paths: Dictionary = {}
+	for cell: Vector2i in ordered:
+		var variant: String = GRID.variant(cell, cells, _plan.openings)
+		if not specials.has(cell) and KIT.EMPTY_VARIANTS.has(variant):
+			continue
+		var context: String = GRID.context_key(cell, cells, _plan.openings, specials)
+		var image_path: String = KIT.CONTEXT_PATHS.get(context, "")
+		if not KIT.CONTEXT_PATHS.has(context):
+			# Authoring a new special adjacency needs an offline export. Keep a
+			# prepared generic image visible, and explicitly flag the missing join.
+			var fallback: String = specials.get(cell, "cells/" + variant)
+			image_path = KIT.FALLBACK_PATHS.get(fallback, "")
+			if not _missing_contexts.has(context):
+				push_warning("Prepared stone context missing at %s: %s. Export scene contexts and PNGs before reviewing this join." % [cell, context])
+				_missing_contexts[context] = true
+		if image_path.is_empty():
+			push_error("Missing prepared painted cell image: %s at %s" % [variant, cell])
+			continue
+		if not loaded_paths.has(image_path):
+			loaded_paths[image_path] = ResourceLoader.load(image_path, "Texture2D") as Texture2D
+		if loaded_paths[image_path] == null:
+			push_error("Could not load prepared painted cell: %s" % image_path)
+			continue
+		prepared_images[cell] = loaded_paths[image_path]
 	var first := true
 	for cell: Vector2i in ordered:
 		var position_on_grid := Vector2(cell) * KIT.CELL_PIXELS
 		var tile_bounds := Rect2(position_on_grid - KIT.WALL_ANCHOR, Vector2(304, 352))
-		if door_images.has(cell):
-			var texture: Texture2D = door_images[cell]
+		if str(specials.get(cell, "")).begins_with("doors/") and prepared_images.has(cell):
+			var texture: Texture2D = prepared_images[cell]
 			tile_bounds = Rect2(position_on_grid - KIT.DOOR_ANCHOR, texture.get_size() * KIT.TEXTURE_SCALE)
 		_frame = tile_bounds if first else _frame.merge(tile_bounds)
 		first = false
 		_add_sprite(KIT.FLOOR, position_on_grid - KIT.FLOOR_ANCHOR, 0, "Floor_%d_%d" % [cell.x, cell.y])
 	for cell: Vector2i in ordered:
-		var variant: String = GRID.variant(cell, cells, _plan.openings)
-		if door_images.has(cell):
-			_add_sprite(door_images[cell], Vector2(cell) * KIT.CELL_PIXELS - KIT.DOOR_ANCHOR,
-				1, "Door_%d_%d_%s" % [cell.x, cell.y, door_cells[cell]])
-		elif entrance_at_closed_ends and KIT.TERMINALS.has(variant):
-			_add_sprite(KIT.TERMINALS[variant], Vector2(cell) * KIT.CELL_PIXELS - KIT.ENTRANCE_ANCHOR,
-				1, "Entrance_%d_%d_%s" % [cell.x, cell.y, variant])
-		elif KIT.WALLS.has(variant):
-			_add_sprite(KIT.WALLS[variant], Vector2(cell) * KIT.CELL_PIXELS - KIT.WALL_ANCHOR,
-				1, "Walls_%d_%d_%s" % [cell.x, cell.y, variant])
-		elif not KIT.EMPTY_VARIANTS.has(variant):
-			push_error("Missing prepared painted cell image: %s at %s" % [variant, cell])
+		if not prepared_images.has(cell):
+			continue
+		var special: String = specials.get(cell, "")
+		var is_door := special.begins_with("doors/")
+		var anchor: Vector2 = KIT.DOOR_ANCHOR if is_door else KIT.WALL_ANCHOR
+		var prefix := "Door" if is_door else ("Entrance" if not special.is_empty() else "Walls")
+		var label: String = door_cells[cell] if is_door else GRID.variant(cell, cells, _plan.openings)
+		_add_sprite(prepared_images[cell], Vector2(cell) * KIT.CELL_PIXELS - anchor,
+			1, "%s_%d_%d_%s" % [prefix, cell.x, cell.y, label])
 	if first:
 		_frame = Rect2(0, 0, KIT.CELL_PIXELS, KIT.CELL_PIXELS)
 	_frame = _frame.grow(24.0)

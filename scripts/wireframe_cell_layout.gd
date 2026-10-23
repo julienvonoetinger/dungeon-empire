@@ -3,6 +3,25 @@ extends RefCounted
 ## Only logical grid rules; no stone lengths, pixel fitting or scene-specific joins.
 const DIRECTIONS := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 const CORNER_SIDES := [[3, 0], [0, 1], [1, 2], [2, 3]] # NW NE SE SW
+const DIAGONALS := [Vector2i(-1, -1), Vector2i(1, -1), Vector2i(1, 1), Vector2i(-1, 1)]
+
+
+static func context_key(cell: Vector2i, cells: Dictionary, openings: Dictionary,
+
+		specials: Dictionary) -> String:
+	var mask := 0
+	var offsets: Array = DIRECTIONS + DIAGONALS
+	for index in range(8):
+		if cells.has(cell + offsets[index]):
+			mask |= 1 << index
+	var ends := int(openings.get(cell, 0)) & (15 ^ (mask & 15))
+	var result := "n%03d_e%02d" % [mask, ends]
+	var neighbourhood: Array = [Vector2i.ZERO] + offsets
+	for index in range(neighbourhood.size()):
+		var at: Vector2i = cell + neighbourhood[index]
+		if specials.has(at):
+			result += "|%d=%s" % [index, specials[at]]
+	return result
 
 
 static func attachment_indices(requested: PackedInt32Array, count: int) -> PackedInt32Array:

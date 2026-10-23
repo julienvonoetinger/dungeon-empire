@@ -2,6 +2,22 @@
 
 ## 0. État implémenté : études visuelles de donjon avec sprites peints
 
+### Continuité des pierres aux limites de cases — 23 octobre 2026
+
+Les structures connectées sont peintes hors ligne à partir des pierres entières
+d'un voisinage local, puis exportées en PNG par case. La sélection tient compte
+des huit voisins et des portes/escaliers proches. La grille, les dimensions,
+la gamme stylisée et la finition B restent communes. Une garde intérieure de
+filtrage évite les filets sombres entre PNG, sans agrandir le volume assemblé.
+Godot charge seulement les images sélectionnées ; il ne peint rien à l'exécution.
+
+Les scènes existantes fournissent l'inventaire des voisinages spéciaux. Une
+nouvelle combinaison de portes/escaliers absente de cet inventaire demande un
+nouvel export hors ligne ; l'aperçu affiche la variante générique et un avertissement
+en attendant. Cela ne constitue pas encore un éditeur de donjon libre validant
+toutes les combinaisons de pièces spéciales. Aucun coût, interaction, collision,
+navigation, progression ou format de sauvegarde n'est ajouté.
+
 ### Nettoyage des essais antérieurs aux wireframes — 23 octobre 2026
 
 Les anciennes familles d'architecture, leurs renderers et leurs outils spécifiques
@@ -42,10 +58,11 @@ sur la géométrie wireframe. Les 16 scènes déjà sur grille conservent leur l
 leurs dimensions, branches, portes et escaliers. SixRoomPreview garde ses
 256 cases et ses couloirs de deux cases de large, sans torches ni cœur.
 
-Le catalogue connecté `assets/dungeon/painted-connected/` contient **96 PNG
-structurels distincts** couvrant 128 variantes (120 de murs/piliers, quatre
-escaliers, quatre portes), plus **un sol raccordable**. Les 16 états sans mur
-n'ajoutent aucune structure. `scripts/painted_cell_catalog.gd` référence les PNG.
+Le catalogue connecté `assets/dungeon/painted-connected/` contient **737 PNG
+structurels distincts** pour **1 444 clés de voisinage**, plus **un sol raccordable**.
+Les 161 contextes sans structure n'ajoutent aucun sprite de murs. Les 128
+identifiants génériques de murs/piliers, portes et escaliers restent disponibles.
+`scripts/painted_cell_catalog.gd` conserve les chemins des PNG sélectionnables.
 Le renderer conserve son nom `wireframe_cell_study.gd` pour les scènes existantes.
 Il place un sol sur chaque case à z=0, puis au plus une structure à z=1.
 Les images préparées à ×4 sont affichées à l'échelle uniforme 0,25, avec mipmaps ;

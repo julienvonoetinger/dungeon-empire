@@ -47,6 +47,7 @@ Avec Node.js et `sharp` disponibles, depuis la racine :
 ```powershell
 node tools/prepare_shared_stone_materials.cjs
 node tools/export_painted_image_catalog.cjs
+godot --headless --path . --script res://tools/export_painted_scene_contexts.gd
 node tools/export_painted_connected_kit.cjs
 godot --headless --editor --path . --import
 ```

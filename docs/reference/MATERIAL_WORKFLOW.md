@@ -25,6 +25,19 @@ Le générateur crée **la matière**, sans décider de la silhouette, de la per
 des briques ou des joints. L'export hors jeu applique la matière dans les faces
 exactes. Godot affiche désormais les sprites préparés via le catalogue connecté décrit plus bas.
 
+## Peindre les pierres entières aux raccords
+
+Le compositeur connecté réunit les guides d'un voisinage local avant de peindre
+les faces. Une pierre traversant une frontière de case garde la même matière,
+les mêmes coordonnées de texture, le même arrondi B et les mêmes reflets. Les
+PNG des cases sont découpés ensuite, avec une garde de filtrage uniquement dans
+le volume opaque commun. Les traits cachés derrière une pièce voisine sont
+retirés avant la subdivision en faces ; une marche derrière une arche ne doit
+pas devenir un joint peint sur cette arche.
+
+Voir `PAINTED_GODOT.md` pour l'inventaire des voisinages spéciaux, le catalogue
+actif, les commandes et les limites. Godot sélectionne des PNG déjà préparés.
+
 ## Bibliothèque active et historique des revues
 
 ### Gamme stylisée approuvée et active — 23 octobre 2026
@@ -47,14 +60,16 @@ Préparation et export de la gamme active :
 ```powershell
 node tools/prepare_shared_stone_materials.cjs
 node tools/export_painted_image_catalog.cjs
+godot --headless --path . --script res://tools/export_painted_scene_contexts.gd
 node tools/export_painted_connected_kit.cjs
 ```
 
 La préparation utilise cette recette par défaut, contrôle ses empreintes et
 recalcule les métadonnées de provenance et de couleur. Elle ne revient plus aux
-anciens atlas réalistes. Les 57 images isolées et les 96 structures connectées,
-ainsi que le sol raccordable, utilisent la même bibliothèque. La géométrie,
-les masques, les joints, le dallage périodique et les paramètres Godot restent fixes.
+anciens atlas réalistes. Les images isolées, les structures connectées et le sol
+raccordable utilisent la même bibliothèque. La correction des raccords modifie
+les masques individuels aux interfaces pour protéger le filtrage ; la géométrie,
+la projection, le dallage périodique et les paramètres de placement restent fixes.
 
 ### Correction : retrouver le dessin stylisé de la maquette
 
@@ -206,21 +221,21 @@ les références de revue. Les scènes utilisent les variantes connectées ci-de
 ## Intégration des scènes — 23 octobre 2026
 
 L'utilisateur a demandé de mettre à jour toutes les scènes Godot. L'export
-`node tools/export_painted_connected_kit.cjs` prépare 96 PNG structurels
-et un sol raccordable dans `assets/dungeon/painted-connected/`, puis génère
-`scripts/painted_cell_catalog.gd`. Les 128 identifiants de structure réutilisent
-les images identiques par alias ; 16 états ordinaires n'ont pas de murs.
+`node tools/export_painted_connected_kit.cjs` prépare les PNG structurels et un
+sol raccordable dans `assets/dungeon/painted-connected/`, puis génère
+`scripts/painted_cell_catalog.gd`. Le catalogue courant et ses nombres de
+contextes/images sont décrits dans `PAINTED_GODOT.md`.
 
-Les guides isolés servent à identifier les régions de matière. Les contours
-connectés décident de la visibilité finale et des traits : les faces internes
-aux raccords sont retirées hors jeu. Les polygones projetés ont un sens de parcours
+Les guides connectés voisins servent à identifier les pierres entières. La
+visibilité finale masque les traits cachés par les volumes voisins ; les faces
+internes aux raccords sont retirées hors jeu. Les polygones projetés ont un sens de parcours
 commun pour que leur union ne crée aucun trou. Les portes conservent la séparation
 pierre/bois par leur volume. Sol à z=0 puis structure à z=1 dans Godot.
 
 Le sol reprend ses 26 traits connectés. Les trois contours de fermeture nécessaires
 à la revue isolée ne sont pas ajoutés au PNG connecté. `--floor-only` réexporte
-uniquement ce sol, en conservant le catalogue structurel existant ; `--only=doors/west`
-reste un export de diagnostic sans réécriture du catalogue global.
+uniquement ce sol, en conservant le catalogue structurel existant. Le diagnostic
+`--only=doors/west` est réservé à l’exporteur isolé, sans réécriture de son catalogue.
 
 Correction du raccord vertical : retirer les traits seuls ne suffisait pas,
 car les reflets des bords et les coordonnées de texture repartaient à chaque

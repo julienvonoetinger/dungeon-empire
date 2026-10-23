@@ -28,7 +28,7 @@
     0.15666666666666665
   ],
   "sourceHashes": {
-    "tools/painted_material_renderer.cjs": "e9187df910a83a5168ae75d5b728dc1a2842da5ba2c6170a7b57b4acbc177e41",
+    "tools/painted_material_renderer.cjs": "22762128ce5cc477857e4a199af921d29339c6788e97028c39c0f62e5b728850",
     "tools/stone_edge_finish.cjs": "aa0a2afd6274748a3b6752f89aa9307abb1367b2b6436e6f50ca6720dff19ae1",
     "tools/write_generated_file.cjs": "a1a1e25099d66deb88a1f071d4c2e689dd9ac330d18d4891b9004e33eb946d62",
     "assets/dungeon/shared-materials/stone-finish.json": "8df9d7601c5222a2734d28d69776370d5d8800f3a047c74630646111780cd1de",
@@ -1349,7 +1349,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/north.svg",
       "guideSha256": "63083f3ce52bc04de08b71540864f017bc960b3aee1c40b6fd18c72296026911",
-      "sha256": "e933bc457dc411cc5c80685b4ec7ca6f2eb0e991f3e5469ef97db39de763fdb7",
+      "sha256": "ff0208e0aaff84a245fd4db0d42e9b275754c34ef483e2d83c17286731e25861",
       "materials": [
         "walls-pits",
         "door-oak",
@@ -1376,7 +1376,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/east.svg",
       "guideSha256": "9b57c84f69aad667f3990e18aae14e593bf6060c5fc6a6af7a5a35046d82e78e",
-      "sha256": "2c1eb719cd1b0860a88812a724fca5dd9045d104416615e4c999221a3421f6c8",
+      "sha256": "bb2f4c9f498f91aca831b5d82e0b06cddf293b8648b331a00af2ecbd7d32895f",
       "materials": [
         "walls-layers",
         "walls-fissures",
@@ -1404,7 +1404,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/south.svg",
       "guideSha256": "8997e73c5d6f232e78b2334dcd013eb3de45d897ebef5ecb2fe7a60289ba4dc2",
-      "sha256": "1841c2955fdfabdb5a5f9521a3ae8b2d1b7d0adc0e897b36c01b07921215a1f7",
+      "sha256": "9c6dac46d24c60e46c2789c07d757479e76a77b47f889fb30c3b04b2b2a0c442",
       "materials": [
         "walls-fissures",
         "walls-pits",
@@ -1431,7 +1431,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/west.svg",
       "guideSha256": "85ee686a045eab6fb0013526712c442d40b7b393ef5057a7010570e8ea9cd2b5",
-      "sha256": "2f1e4f4ae0d999002af6e13d8cd7286f601189fbb516711a62b2d571ccc2c8fc",
+      "sha256": "e041009eead13b5928434a892e5da0b3fc6797d0208f7535962c448d4bd8a290",
       "materials": [
         "walls-planes",
         "walls-fissures",

@@ -1,0 +1,968 @@
+{
+  "id": "join-review/vertical-corner",
+  "canvas": [
+    2240,
+    2432
+  ],
+  "anchor": [
+    96,
+    352
+  ],
+  "cellPitch": 1024,
+  "guideSha256": "5824814a68f82800794eb9b5191db96410d11a6c9b89d00e6bf90a8500fec870",
+  "segmentCount": 55,
+  "outputFrame": [
+    0,
+    0,
+    560,
+    608
+  ],
+  "repeatInkY": 0,
+  "constructionJointLayerMatchesGuide": true,
+  "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+  "stoneFinish": "soft-stone-b-v1",
+  "omittedFinishEdges": 0,
+  "alphaPixelsDifferentFromModel": 0,
+  "unpaintedInteriorPixels": 0,
+  "extraInteriorPixels": 0,
+  "faces": [
+    {
+      "points": [
+        [
+          77.82827,
+          485.14133000000004
+        ],
+        [
+          77.82827,
+          527.808
+        ],
+        [
+          9.5616,
+          527.808
+        ],
+        [
+          9.5616,
+          421.14133000000004
+        ],
+        [
+          52.22827,
+          421.14133000000004
+        ],
+        [
+          52.22827,
+          485.14133000000004
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          9.5616,
+          271.808
+        ],
+        [
+          9.5616,
+          165.14133
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          158.89493,
+          527.808
+        ],
+        [
+          158.89492999999996,
+          485.14133000000004
+        ],
+        [
+          265.5616,
+          485.14133000000004
+        ],
+        [
+          265.5616,
+          527.808
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          414.89493,
+          485.14133000000004
+        ],
+        [
+          521.5616,
+          485.14133000000004
+        ],
+        [
+          521.5616,
+          527.808
+        ],
+        [
+          414.89493,
+          527.808
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          422.11413,
+          563.904
+        ],
+        [
+          414.89493,
+          527.808
+        ],
+        [
+          521.5616,
+          527.808
+        ],
+        [
+          528.7808,
+          563.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          166.11413,
+          563.904
+        ],
+        [
+          158.89493,
+          527.808
+        ],
+        [
+          265.5616,
+          527.808
+        ],
+        [
+          272.7808,
+          563.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          77.82827,
+          527.808
+        ],
+        [
+          77.82827,
+          485.14133000000004
+        ],
+        [
+          158.89492999999996,
+          485.14133000000004
+        ],
+        [
+          158.89493,
+          527.808
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          340.07466999999997
+        ],
+        [
+          52.22827,
+          421.14133000000004
+        ],
+        [
+          9.5616,
+          421.14133000000004
+        ],
+        [
+          9.5616,
+          340.07466999999997
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          9.5616,
+          165.14133
+        ],
+        [
+          9.5616,
+          84.07467
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          333.82827,
+          485.14133000000004
+        ],
+        [
+          414.89493,
+          485.14133000000004
+        ],
+        [
+          414.89493,
+          527.808
+        ],
+        [
+          333.82827,
+          527.808
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          216,
+          600
+        ],
+        [
+          208.7808,
+          563.904
+        ],
+        [
+          302.64747,
+          563.904
+        ],
+        [
+          309.86667,
+          600
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          134.93333,
+          600
+        ],
+        [
+          127.71413000000001,
+          563.904
+        ],
+        [
+          208.7808,
+          563.904
+        ],
+        [
+          216,
+          600
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          390.93333,
+          600
+        ],
+        [
+          383.71413,
+          563.904
+        ],
+        [
+          464.7808,
+          563.904
+        ],
+        [
+          472,
+          600
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          309.86667,
+          600
+        ],
+        [
+          302.64747,
+          563.904
+        ],
+        [
+          383.71413,
+          563.904
+        ],
+        [
+          390.93333,
+          600
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          341.04747,
+          563.904
+        ],
+        [
+          333.82827,
+          527.808
+        ],
+        [
+          414.89493,
+          527.808
+        ],
+        [
+          422.11413,
+          563.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          53.86667,
+          600
+        ],
+        [
+          46.64747,
+          563.904
+        ],
+        [
+          127.71413000000001,
+          563.904
+        ],
+        [
+          134.93333,
+          600
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          85.04747,
+          563.904
+        ],
+        [
+          77.82827,
+          527.808
+        ],
+        [
+          158.89493,
+          527.808
+        ],
+        [
+          166.11413,
+          563.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          265.5616,
+          527.808
+        ],
+        [
+          265.5616,
+          485.14133000000004
+        ],
+        [
+          333.82827,
+          485.14133000000004
+        ],
+        [
+          333.82827,
+          527.808
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          9.5616,
+          84.07467
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          52.22827,
+          340.07466999999997
+        ],
+        [
+          9.5616,
+          340.07466999999997
+        ],
+        [
+          9.5616,
+          271.808
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          527.808
+        ],
+        [
+          77.82827,
+          527.808
+        ],
+        [
+          85.04747,
+          563.904
+        ],
+        [
+          16.7808,
+          563.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          272.7808,
+          563.904
+        ],
+        [
+          265.5616,
+          527.808
+        ],
+        [
+          333.82827,
+          527.808
+        ],
+        [
+          341.04747,
+          563.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          472,
+          600
+        ],
+        [
+          464.7808,
+          563.904
+        ],
+        [
+          528.7808,
+          563.904
+        ],
+        [
+          536,
+          600
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          24,
+          600
+        ],
+        [
+          16.7808,
+          563.904
+        ],
+        [
+          46.64747,
+          563.904
+        ],
+        [
+          53.86667,
+          600
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          52.22827,
+          165.14133
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          280
+        ],
+        [
+          66.66667,
+          373.86667
+        ],
+        [
+          59.44747,
+          337.77067
+        ],
+        [
+          59.44747,
+          243.904
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          198.93333
+        ],
+        [
+          66.66667,
+          280
+        ],
+        [
+          59.44747,
+          243.904
+        ],
+        [
+          59.44747,
+          162.83733000000004
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          376.17067
+        ],
+        [
+          59.44747,
+          457.23733
+        ],
+        [
+          52.22827,
+          421.14133000000004
+        ],
+        [
+          52.22827,
+          340.07466999999997
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          52.22827,
+          84.07467
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          117.86667
+        ],
+        [
+          66.66667,
+          198.93333
+        ],
+        [
+          59.44747,
+          162.83733000000004
+        ],
+        [
+          59.44747,
+          81.77067
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          373.86667
+        ],
+        [
+          66.66667,
+          454.93333
+        ],
+        [
+          59.44747,
+          418.83733
+        ],
+        [
+          59.44747,
+          337.77067
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          59.44747,
+          51.90400000000001
+        ],
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          52.22827,
+          84.07467
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          59.44747,
+          376.17067
+        ],
+        [
+          52.22827,
+          340.07466999999997
+        ],
+        [
+          52.22827,
+          271.808
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          454.93333
+        ],
+        [
+          66.66667,
+          485.14133000000004
+        ],
+        [
+          59.44747,
+          485.14133000000004
+        ],
+        [
+          59.44747,
+          418.83733
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          457.23733
+        ],
+        [
+          59.44747,
+          485.14133000000004
+        ],
+        [
+          52.22827,
+          485.14133000000004
+        ],
+        [
+          52.22827,
+          421.14133000000004
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          521.5616,
+          485.14133000000004
+        ],
+        [
+          528.7808,
+          521.2373299999999
+        ],
+        [
+          528.7808,
+          563.904
+        ],
+        [
+          521.5616,
+          527.808
+        ]
+      ],
+      "kind": "west",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          536,
+          557.3333299999999
+        ],
+        [
+          536,
+          600
+        ],
+        [
+          528.7808,
+          563.904
+        ],
+        [
+          528.7808,
+          521.2373299999999
+        ]
+      ],
+      "kind": "west",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          88
+        ],
+        [
+          66.66667,
+          117.86667
+        ],
+        [
+          59.44747,
+          81.77067
+        ],
+        [
+          59.44747,
+          51.90400000000001
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "walls-planes"
+    }
+  ],
+  "materials": [
+    "walls-planes",
+    "walls-fissures",
+    "walls-layers",
+    "walls-pits"
+  ],
+  "sourceHashes": {
+    "assets/dungeon/wireframe-cells/w08_p00_e01.svg": "9cf9c33d8ded20d89236c5d69127c70e8ab9b6132637213acc86a8e3c5a43a1d",
+    "assets/dungeon/painted-connected/cells/w08_p00_e01.png": "66cad985521fda793f32495887334198ee2a608f407d32d68a33e41750db7996",
+    "assets/dungeon/wireframe-cells/w12_p00_e00.svg": "fc6c4d3da6f47e928f604ddcc31a1f4ff0551a4c2e84d180ba671eb435b66fce",
+    "assets/dungeon/painted-connected/cells/w12_p00_e00.png": "13be00a3471d2c6f6e6630a30e0a41d15384f0a3bc6d6222ac3cf38c532e70ae",
+    "assets/dungeon/wireframe-cells/w04_p00_e02.svg": "2d787cdc52d99e731832562f248ff729c80383600b5f063ea28ca0d7d6e68bf9",
+    "assets/dungeon/painted-connected/cells/w04_p00_e02.png": "7376a7e1e5e764e77891b9ef9584be424e3f2b30597bdcd77e78b6acdfe6dc3b"
+  },
+  "tiles": [
+    {
+      "file": "docs/reference/wall-join-review/vertical-corner/w08_p00_e01.png",
+      "cell": [
+        0,
+        0
+      ],
+      "sha256": "168947f79842b66af517fa51bc254fa99d5f75e8b01e3985f1e57c509e3bb39f",
+      "alphaSha256": "d295efcf72486be86982df90ef3196c1bf89e27832e292129ed20da49f76686d",
+      "changedAlphaPixels": 1,
+      "filterGuardPixels": 4726
+    },
+    {
+      "file": "docs/reference/wall-join-review/vertical-corner/w12_p00_e00.png",
+      "cell": [
+        0,
+        1
+      ],
+      "sha256": "f96aa9c708e262d09c402a9dad9909e3b08bf8c0665b4e8f7a94fb7e72890137",
+      "alphaSha256": "021a4099ea8f570ef974a83bbfa0b22be425a2d4108ac3345b20ef04c4bdcb7e",
+      "changedAlphaPixels": 2,
+      "filterGuardPixels": 9454
+    },
+    {
+      "file": "docs/reference/wall-join-review/vertical-corner/w04_p00_e02.png",
+      "cell": [
+        1,
+        1
+      ],
+      "sha256": "5ca003365af3e6c25ece781c2d9cd79d4b80d9014f10ed6774b17f1aa2f9cea3",
+      "alphaSha256": "c3fd23d4806c7c94c957d4c9f73f73e4906ba08463f9cee52ebdbecf5455df88",
+      "changedAlphaPixels": 1,
+      "filterGuardPixels": 4785
+    }
+  ],
+  "sharedCoveragePixels": 2,
+  "filterGuardSourcePixels": 8,
+  "reassembly": {
+    "alphaPixelsDifferentFromWhole": 0,
+    "maxAlphaDifference": 0
+  },
+  "scope": "Two focused assemblies. Shared border pixels use common RGB, interior overlap for mipmaps and single-cell alpha ownership on nonopaque contour pixels. Common whole-stone painting, existing cell positions and volumes. Not a replacement for the production catalog."
+}

@@ -1,5 +1,35 @@
 # Repository instructions
 
+## Approved wall join correction — 2026-10-23
+
+- User found texture seams inside stones spanning cells after B. Root cause:
+  fragment-local material IDs, UV framing and finish gradients. Floor wrapping
+  did not cover walls; unchanged alpha alone did not prove texture continuity.
+- User approved the enlarged horizontal/vertical comparison and requested
+  generalization to the kit and Godot. Preserve the approved material crops,
+  B finish, projection, wall geometry and scene layouts.
+  `tools/prepare_wall_join_review.cjs` produces `docs/reference/wall-join-review/`;
+  `tools/capture_wall_join_review.gd` captures its separate PNGs in Godot at 1x/2x.
+- The proposal paints whole stones in a shared geometric context, then exports
+  cell sprites. A single union mask and identical interior edge pixels prevent
+  alpha/filter seams. See the review README for alpha changes and exact scope.
+- Production export now uses reusable local contexts and stable stone identities
+  in `tools/connected_stone_context.cjs`. The connected export selects complete
+  face regions across the neighbour guides before painting/cutting cell PNGs.
+  Material, UV, finish seed and accents must not depend on a fragment's bounds
+  or the order of faces. Never bake a scene-sized production image.
+- The baseline PNGs of the accepted comparison are frozen under
+  `docs/reference/wall-join-review/source/` from ab9ebe7. Do not replace them
+  with the promoted assets when reproducing the before/after comparison.
+- Godot selects a prepared local-context PNG, with existing anchors and scale.
+  Context paths load on demand; do not preload the entire context family into
+  VRAM. Keep the floor image shared. Local special-neighbour configurations are
+  inventoried by `tools/export_painted_scene_contexts.gd` before PNG export.
+- Combined special contexts must also hide source lines behind neighbouring
+  volumes before finding stone faces. ReferenceCalibration exposed stair lines
+  painting across an arch; compare source depth against the combined model.
+  Preserve the generic fallback warning for new, unexported special contexts.
+
 ## Approved soft stone B — 2026-10-23
 
 - User approved B: "ok pour B". Apply its modest rounding to existing isolated

@@ -56,7 +56,8 @@ function classify(model,p){const h=cast(model,p);if(!h)return null;const n=h.nor
   if(h.part==='floor'){kind='floor';materialId=floorMap.get(floorKey(h.p))||'floors-calm';}
   else if(h.part==='step'){kind=top?'floor':kind;materialId=top?'floors-worn':'walls-planes';}
   else if(h.part==='closed-door'){
-    const local=model.inverse(h.p),d=model.door;
+    const owner=h.surface.materialOwner||{model,offset:[0,0]},materialModel=owner.model;
+    const local=materialModel.inverse(h.p.map((v,i)=>v-(owner.offset[i]||0))),d=materialModel.door;
     const metal=Math.abs(local[1]-d.yMin)<1e-5||Math.abs(local[1]-d.yMax)<1e-5;
     const onBand=metal&&d.bands.some(b=>local[0]>b.x0-1e-6&&local[0]<b.x1+1e-6&&Math.abs(local[2]-b.z)<b.half+1e-6);
     const onHandle=metal&&Math.hypot(local[0]-d.handle.x,local[2]-d.handle.z)<d.handle.radius+1e-6;
@@ -78,7 +79,7 @@ async function visiblePartMasks(model){
     const a=project(tri.a),b=project(tri.b),c=project(tri.c),den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1]);if(Math.abs(den)<1e-10)continue;
     const minx=Math.max(0,Math.floor(Math.min(a[0],b[0],c[0]))),maxx=Math.min(width-1,Math.ceil(Math.max(a[0],b[0],c[0]))),miny=Math.max(0,Math.floor(Math.min(a[1],b[1],c[1]))),maxy=Math.min(height-1,Math.ceil(Math.max(a[1],b[1],c[1]))),tag=parts.indexOf(tri.surface.part);
     for(let y=miny;y<=maxy;y++)for(let x=minx;x<=maxx;x++){
-      const u=((b[1]-c[1])*(x+.5-c[0])+(c[0]-b[0])*(y+.5-c[1]))/den,v=((c[1]-a[1])*(x+.5-c[0])+(a[0]-c[0])*(y+.5-c[1]))/den,w=1-u-v;if(u<0||v<0||w<0)continue;
+      const u=((b[1]-c[1])*(x+.5-c[0])+(c[0]-b[0])*(y+.5-c[1]))/den,v=((c[1]-a[1])*(x+.5-c[0])+(a[0]-c[0])*(y+.5-c[1]))/den,w=1-u-v;if(u<-.000001||v<-.000001||w<-.000001)continue;
       const z=u*a[2]+v*b[2]+w*c[2],k=y*width+x;if(z>depth[k]+1e-7){depth[k]=z;tags[k]=tag;}
     }
   }
@@ -95,7 +96,11 @@ function regionPartProbes(points,visibility){
   const minx=Math.max(0,Math.floor(Math.min(...points.map(p=>p[0]))*SCALE)),maxx=Math.min(width-1,Math.ceil(Math.max(...points.map(p=>p[0]))*SCALE)),miny=Math.max(0,Math.floor(Math.min(...points.map(p=>p[1]))*SCALE)),maxy=Math.min(height-1,Math.ceil(Math.max(...points.map(p=>p[1]))*SCALE));
   for(let y=miny;y<=maxy;y++)for(let x=minx;x<=maxx;x++){
     const tag=tags[y*width+x];if(!tag)continue;const point=[(x+.5)/SCALE,(y+.5)/SCALE];if(!inside(point,points))continue;
-    const distance=dot(sub(point,center),sub(point,center));if(!found.has(tag)||distance<found.get(tag).distance)found.set(tag,{point,distance});
+    // Coplanar wall/pier boundaries can pass exactly through a pixel centre.
+    // Choose a sample inside the raster part, not its ambiguous shared edge.
+    const k=y*width+x,interior=x>0&&y>0&&x+1<width&&y+1<height&&tags[k-1]===tag&&tags[k+1]===tag&&tags[k-width]===tag&&tags[k+width]===tag;
+    const distance=dot(sub(point,center),sub(point,center)),old=found.get(tag);
+    if(!old||(interior&&!old.interior)||(interior===old.interior&&distance<old.distance))found.set(tag,{point,distance,interior});
   }
   return [...found].map(([tag,{point}])=>({point,tag}));
 }
@@ -131,23 +136,31 @@ function wrapFloorFaces(model,faces){
     }
   }
 }
-async function render(model,guide,materials){
-  const frame=model.outputFrame||[0,0,...model.size],canvas=frame.slice(2).map(v=>v*SCALE),anchor=model.anchor.map((v,i)=>(v-frame[i])*SCALE);
-  const document=b=>`<svg xmlns="http://www.w3.org/2000/svg" width="${canvas[0]}" height="${canvas[1]}" viewBox="${frame.join(' ')}">${b}</svg>`;
+async function prepareFaces(model,guide){
   // Open floor edges may be uninked in the source (notably lateral doors).
   // Close their MATERIAL masks using visible world boundaries, never by adding
   // strokes or fitting a silhouette to painted pixels.
-  prepareModel(model);const lines=parseLines(guide),maskEdges=floorMaskEdges(model),regions=regionsFromLines([...parseLines(model.paintGuide||guide),...maskEdges]),faces=[],visibility=model.door?await visiblePartMasks(model):null;
+  prepareModel(model);const lines=parseLines(guide),maskEdges=floorMaskEdges(model),regions=regionsFromLines([...parseLines(model.paintGuide||guide),...maskEdges]),faces=[],visibility=model.door||model.requirePartMasks?await visiblePartMasks(model):null;
   for(const points of regions){
     const samples=visibility?regionPartProbes(points,visibility):[{point:probe(points)}];
-    for(const {point,tag} of samples){const h=classify(model,point);if(h){if(visibility&&visibility.parts[tag]!==h.part)throw Error(`${model.id}: visibility/material identity mismatch`);faces.push({points,probe:point,partMask:tag,...h});}}
+    for(const {point,tag} of samples){const h=classify(model,point);if(h){if(visibility&&visibility.parts[tag]!==h.part)throw Error(`${model.id}: visibility/material identity mismatch at ${point}: ${visibility.parts[tag]} / ${h.part}`);faces.push({points,probe:point,partMask:tag,...h});}}
   }
+  // Offline review assemblies can assign one material identity per complete
+  // stone in their wider coordinate frame. Normal cell exports keep defaults.
+  if(model.resolveMaterials)model.resolveMaterials(faces);
   if(model.wrapFloorX)wrapFloorFaces(model,faces);
   // A concave corner's top and upper facade belong to the same physical stone.
   for(const f of faces.filter(f=>f.kind!=='top'&&/wall/.test(f.part)&&f.p[2]>=.94/6-1e-5)){
     const p=f.p.map((v,i)=>i===2?1.88/6:v-f.normal[i]*.0001),screen=[(p[0]-.18*p[2])*256+model.anchor[0],(p[1]-.9*p[2])*256+model.anchor[1]];
     const cap=faces.find(t=>t.kind==='top'&&inside(screen,t.points));if(cap)f.materialId=cap.materialId;
   }
+  if(model.filterFaces) return {lines,visibility,faces:faces.filter(model.filterFaces)};
+  return {lines,visibility,faces};
+}
+async function render(model,guide,materials){
+  const frame=model.outputFrame||[0,0,...model.size],canvas=frame.slice(2).map(v=>v*SCALE),anchor=model.anchor.map((v,i)=>(v-frame[i])*SCALE);
+  const document=b=>`<svg xmlns="http://www.w3.org/2000/svg" width="${canvas[0]}" height="${canvas[1]}" viewBox="${frame.join(' ')}">${b}</svg>`;
+  const {lines,visibility,faces}=model.renderData||await prepareFaces(model,guide);
   const profiles=materials.renderProfile;
   let defs='<defs>'+(visibility?.defs||'')+(model.clipPaint?`<clipPath id="connected-shape">${model.silhouette}</clipPath>`:''),paint='',bevels='',softPaint='',omittedFinishEdges=0;const used=new Set();
   for(let id=0;id<faces.length;id++){
@@ -160,8 +173,9 @@ async function render(model,guide,materials){
     const mask=f.partMask?`mask="url(#part-${f.partMask})"`:'',bevelStart=bevels.length;
     let textureTransform=`translate(${tx} ${ty}) scale(${span/350})`;
     if(f.kind==='wood'){
-      const d=model.door,local=model.inverse(f.p),y=Math.abs(local[1]-d.yMin)<Math.abs(local[1]-d.yMax)?d.yMin:d.yMax,z=Math.max(...d.profileXZ.map(p=>p[1]));
-      const project=p=>{const [x,y,z]=model.forward(p);return [(x-.18*z)*256+model.anchor[0],(y-.9*z)*256+model.anchor[1]];};
+      const owner=f.surface.materialOwner||{model,offset:[0,0]},materialModel=owner.model;
+      const d=materialModel.door,local=materialModel.inverse(f.p.map((v,i)=>v-(owner.offset[i]||0))),y=Math.abs(local[1]-d.yMin)<Math.abs(local[1]-d.yMax)?d.yMin:d.yMax,z=Math.max(...d.profileXZ.map(p=>p[1]));
+      const project=p=>{const [x,y,z]=materialModel.forward(p).map((v,i)=>v+(owner.offset[i]||0));return [(x-.18*z)*256+model.anchor[0],(y-.9*z)*256+model.anchor[1]];};
       const a=project([1/6,y,z]),u=sub(project([5/6,y,z]),a).map(v=>v/350),v=sub(project([1/6,y,0]),a).map(v=>v/350);
       textureTransform=`matrix(${u[0]} ${u[1]} ${v[0]} ${v[1]} ${a[0]} ${a[1]})`;
     }
@@ -191,15 +205,15 @@ async function render(model,guide,materials){
   const tiledInk=ink+(model.repeatInkY?`<g transform="translate(0 ${model.repeatInkY})">${ink}</g>`:'');
   // Small accent is selected only in a sufficiently large lower facade face.
   let accent='';const eligible=faces.filter(f=>/wall|pillar/.test(f.part)&&f.kind==='north'&&f.p[2]<.94/6&&area(f.points)>250);
-  if(eligible.length){const f=eligible.at(-1),ps=f.points,mid=ps.reduce((a,b)=>a.map((v,i)=>v+b[i]/ps.length),[0,0]),index=faces.indexOf(f);accent=`<path d="M${mid[0]+3} ${mid[1]+5}l-4 -6 3 -4 -2 -3 m-1 7 -5 -2" stroke="#aa79de" stroke-width=".55" opacity=".8" fill="none" clip-path="url(#f${index})"/>`;}
+  for(const f of model.stableStones?eligible.filter(f=>f.bevelSeed%7===0):eligible.slice(-1)){const ps=f.points,mid=ps.reduce((a,b)=>a.map((v,i)=>v+b[i]/ps.length),[0,0]),index=faces.indexOf(f);accent+=`<path d="M${mid[0]+3} ${mid[1]+5}l-4 -6 3 -4 -2 -3 m-1 7 -5 -2" stroke="#aa79de" stroke-width=".55" opacity=".8" fill="none" clip-path="url(#f${index})"/>`;}
   const artwork=paint+bevels+accent;
   const drawing=document(defs+(model.clipPaint?`<g clip-path="url(#connected-shape)">${artwork}</g>`:artwork)+tiledInk);
   // Independently projected model volume, not the extracted planar regions.
   const silhouette=document(model.silhouette+tiledInk);
-  const expected=await sharp(Buffer.from(silhouette)).ensureAlpha().raw().toBuffer();
+  const expected=model.alphaMask||await sharp(Buffer.from(silhouette)).ensureAlpha().raw().toBuffer();
   let actual=await sharp(Buffer.from(drawing)).ensureAlpha().raw().toBuffer();
   let holes=0,excess=0;
-  for(let i=3;i<expected.length;i+=4){if(expected[i]>250&&actual[i]<128)holes++;if(expected[i]===0&&actual[i]>128)excess++;}
+  for(let i=3;i<expected.length;i+=4){if(expected[i]>250&&actual[i]<128)holes++;if(!model.alphaMask&&expected[i]===0&&actual[i]>128)excess++;}
   if(holes>8||excess>8)throw Object.assign(Error(`${model.id}: face coverage mismatch (${holes} holes, ${excess} excess)`),{diagnostic:{drawing,silhouette,model,faces,holes,excess}});
   // Fixed construction mask: permitted offline workflow. Never fit to artwork.
   for(let i=3;i<actual.length;i+=4)actual[i]=expected[i];
@@ -218,4 +232,4 @@ async function render(model,guide,materials){
   const jointsEqual=JSON.stringify(tuples(ink))===JSON.stringify(tuples(guide));
   return {png,overlay:composite,report:{id:model.id,canvas,anchor,cellPitch:256*SCALE,guideSha256:hash(guide),segmentCount:lines.length,outputFrame:frame,repeatInkY:model.repeatInkY||0,constructionJointLayerMatchesGuide:jointsEqual,visibleStoneJoints:'Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.',stoneFinish:finish.id,omittedFinishEdges,alphaPixelsDifferentFromModel:alphaDiff,unpaintedInteriorPixels:holes,extraInteriorPixels:excess,faces:faces.map(f=>({points:f.points,kind:f.kind,part:f.part,materialId:f.materialId})),materials:[...new Set(faces.map(f=>f.materialId))]},recipe:document(faces.map(f=>polygon(f.points,`fill="#fff"`)).join('')+tiledInk)};
 }
-module.exports={ROOT,SCALE,read,hash,body,sub,dot,cross3,inside,polygon,svg,parseLines,regionsFromLines,probe,prepareModel,cast,render};
+module.exports={ROOT,SCALE,read,hash,body,sub,dot,cross3,inside,polygon,svg,parseLines,regionsFromLines,probe,prepareModel,cast,prepareFaces,render};
