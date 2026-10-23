@@ -1,0 +1,672 @@
+{
+  "id": "cells/w09_p00_e00",
+  "canvas": [
+    1216,
+    1408
+  ],
+  "anchor": [
+    96,
+    352
+  ],
+  "cellPitch": 1024,
+  "guideSha256": "b5429568385568bde960ee175ceff52ef679a8f833f266008d0d69adc059c664",
+  "segmentCount": 38,
+  "outputFrame": [
+    0,
+    0,
+    304,
+    352
+  ],
+  "repeatInkY": 0,
+  "constructionJointLayerMatchesGuide": true,
+  "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+  "stoneFinish": "soft-stone-b-v1",
+  "omittedFinishEdges": 0,
+  "alphaPixelsDifferentFromModel": 0,
+  "unpaintedInteriorPixels": 0,
+  "extraInteriorPixels": 0,
+  "faces": [
+    {
+      "points": [
+        [
+          256.53333,
+          216
+        ],
+        [
+          256.53333,
+          344
+        ],
+        [
+          122.13333,
+          344
+        ],
+        [
+          122.13333,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "variation-floor-3"
+    },
+    {
+      "points": [
+        [
+          73.06667,
+          130.66667
+        ],
+        [
+          203.2,
+          130.66667
+        ],
+        [
+          203.2,
+          216
+        ],
+        [
+          73.06667,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "variation-floor-6"
+    },
+    {
+      "points": [
+        [
+          122.13333,
+          216
+        ],
+        [
+          122.13333,
+          344
+        ],
+        [
+          66.66667,
+          344
+        ],
+        [
+          66.66667,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "variation-floor-4"
+    },
+    {
+      "points": [
+        [
+          203.2,
+          130.66667
+        ],
+        [
+          280,
+          130.66667
+        ],
+        [
+          280,
+          216
+        ],
+        [
+          203.2,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "variation-floor-2"
+    },
+    {
+      "points": [
+        [
+          158.89493,
+          15.808
+        ],
+        [
+          265.5616,
+          15.808
+        ],
+        [
+          265.5616,
+          58.47467
+        ],
+        [
+          158.89492999999996,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "variation-wall-3"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          165.14133
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          9.5616,
+          271.808
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "variation-wall-5"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          77.82827,
+          15.808
+        ],
+        [
+          77.82827,
+          58.47467
+        ],
+        [
+          52.22827,
+          58.47467
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          9.5616,
+          84.07467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "variation-wall-6"
+    },
+    {
+      "points": [
+        [
+          166.11412999999996,
+          94.57067
+        ],
+        [
+          158.89492999999996,
+          58.47467
+        ],
+        [
+          265.5616,
+          58.47467
+        ],
+        [
+          272.7808,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "variation-wall-3"
+    },
+    {
+      "points": [
+        [
+          77.82827,
+          15.808
+        ],
+        [
+          158.89493,
+          15.808
+        ],
+        [
+          158.89492999999996,
+          58.47467
+        ],
+        [
+          77.82827,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "variation-wall-7"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          84.07467
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          9.5616,
+          165.14133
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "variation-wall-2"
+    },
+    {
+      "points": [
+        [
+          256.53333,
+          216
+        ],
+        [
+          280,
+          216
+        ],
+        [
+          280,
+          344
+        ],
+        [
+          256.53333,
+          344
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "variation-floor-4"
+    },
+    {
+      "points": [
+        [
+          134.93333,
+          130.66667
+        ],
+        [
+          127.71412999999998,
+          94.57067
+        ],
+        [
+          208.7808,
+          94.57067
+        ],
+        [
+          216,
+          130.66667
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "variation-wall-4"
+    },
+    {
+      "points": [
+        [
+          85.04747,
+          94.57067
+        ],
+        [
+          77.82827,
+          58.47467
+        ],
+        [
+          158.89492999999996,
+          58.47467
+        ],
+        [
+          166.11412999999996,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "variation-wall-7"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          130.66667
+        ],
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          127.71412999999998,
+          94.57067
+        ],
+        [
+          134.93333,
+          130.66667
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "variation-wall-2"
+    },
+    {
+      "points": [
+        [
+          280,
+          130.66667
+        ],
+        [
+          216,
+          130.66667
+        ],
+        [
+          208.7808,
+          94.57067
+        ],
+        [
+          272.7808,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "variation-wall-6"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          271.808
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          16.7808,
+          307.904
+        ]
+      ],
+      "kind": "north",
+      "part": "west-wall",
+      "materialId": "variation-wall-5"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          344
+        ],
+        [
+          24,
+          344
+        ],
+        [
+          16.7808,
+          307.904
+        ],
+        [
+          59.44747,
+          307.904
+        ]
+      ],
+      "kind": "north",
+      "part": "west-wall",
+      "materialId": "variation-wall-3"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          52.22827,
+          58.47467
+        ],
+        [
+          77.82827,
+          58.47467
+        ],
+        [
+          85.04747,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "variation-wall-6"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          52.22827,
+          165.14133
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-5"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          280
+        ],
+        [
+          59.44747,
+          243.90400000000002
+        ],
+        [
+          59.44747,
+          162.83733
+        ],
+        [
+          66.66667,
+          198.93333
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-1"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          52.22827,
+          84.07467
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-2"
+    },
+    {
+      "points": [
+        [
+          73.06667,
+          130.66667
+        ],
+        [
+          73.06667,
+          216
+        ],
+        [
+          66.66667,
+          216
+        ],
+        [
+          66.66667,
+          130.66667
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "variation-floor-6"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          130.66667
+        ],
+        [
+          66.66667,
+          198.93333
+        ],
+        [
+          59.44747,
+          162.83733
+        ],
+        [
+          59.44747,
+          94.57067
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-4"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          344
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          59.44747,
+          243.90400000000002
+        ],
+        [
+          66.66667,
+          280
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-3"
+    },
+    {
+      "points": [
+        [
+          265.5616,
+          15.808
+        ],
+        [
+          272.7808,
+          51.903999999999996
+        ],
+        [
+          272.7808,
+          94.57067
+        ],
+        [
+          265.5616,
+          58.47467
+        ]
+      ],
+      "kind": "west",
+      "part": "north-wall",
+      "materialId": "variation-wall-3"
+    },
+    {
+      "points": [
+        [
+          280,
+          130.66667
+        ],
+        [
+          272.7808,
+          94.57067
+        ],
+        [
+          272.7808,
+          51.903999999999996
+        ],
+        [
+          280,
+          88
+        ]
+      ],
+      "kind": "west",
+      "part": "north-wall",
+      "materialId": "variation-wall-4"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          52.22827,
+          58.47467
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-6"
+    }
+  ],
+  "materials": [
+    "variation-floor-3",
+    "variation-floor-6",
+    "variation-floor-4",
+    "variation-floor-2",
+    "variation-wall-3",
+    "variation-wall-5",
+    "variation-wall-6",
+    "variation-wall-7",
+    "variation-wall-2",
+    "variation-wall-4",
+    "variation-wall-1"
+  ]
+}

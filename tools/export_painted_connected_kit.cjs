@@ -67,6 +67,8 @@ async function main(){
   if(floorLines.length!==JSON.parse(read('docs/reference/floor-periodic-cell.json')).connectedSegmentCount)throw Error('Unexpected connected floor source joints');
   const floorGuide=`<svg xmlns="http://www.w3.org/2000/svg" width="264" height="264" viewBox="0 0 264 264">${floorLines.join('')}</svg>`;
   const floorModel=makeModel('floor',isolated.entries.floor);
+  floorModel.floorFinish=materials.floorFinish;
+  floorModel.floorMaterialPattern=materials.floorPattern?.cells;
   floorModel.paintGuide=read('docs/reference/wireframe-overlays/'+isolated.entries.floor.svg).toString();
   floorModel.wrapFloorX=true;
   floorModel.clipPaint=true;
@@ -80,7 +82,11 @@ async function main(){
   write('artifacts/painted-connected/floor-guide.svg',floorGuide);
   manifest.floor={file:'floor.png',sha256:hash(floorResult.png),source:floorSource,sourceSha256:hash(floorInput),guideSha256:hash(floorGuide),imageSize:floorResult.report.canvas,imageAnchor:floorResult.report.anchor,materialContinuity:'Periodic X: boundary fragments share one complete slab, material, texture coordinates and bevel seed; clip only at offline export.'};
   manifest.floorAnchor=[0,0];
-  manifest.sourceHashes={...manifest.sourceHashes,...Object.fromEntries(['docs/reference/floor-periodic-cell.json','tools/painted_material_renderer.cjs','tools/stone_edge_finish.cjs','tools/write_generated_file.cjs','assets/dungeon/shared-materials/stone-finish.json','tools/export_painted_connected_kit.cjs','tools/export_painted_image_catalog.cjs','assets/dungeon/shared-materials/catalog.json','assets/dungeon/wireframe-cells/catalog.json','assets/dungeon/wireframe-entrances/catalog.json','assets/dungeon/wireframe-doors/catalog.json'].map(p=>[p,hash(read(p))]))};
+  manifest.floor.geometryId=JSON.parse(read('docs/reference/floor-periodic-cell.json')).id;
+  manifest.floor.sourceHashes=Object.fromEntries(['docs/reference/floor-periodic-cell.json','tools/painted_material_renderer.cjs','tools/stone_edge_finish.cjs','tools/write_generated_file.cjs','assets/dungeon/shared-materials/stone-finish.json','tools/export_painted_connected_kit.cjs','tools/export_painted_image_catalog.cjs','assets/dungeon/shared-materials/catalog.json','assets/dungeon/wireframe-cells/catalog.json','docs/reference/wireframe-overlays/floor.svg'].map(p=>[p,hash(read(p))]));
+  // A floor-only refresh does not reauthor the structural PNGs. Preserve their
+  // original source fingerprints; the refreshed floor records its own inputs.
+  if(!floorOnly)manifest.sourceHashes={...manifest.sourceHashes,...manifest.floor.sourceHashes};
   json(OUT+'/catalog.json',manifest);
   const validation=floorOnly?JSON.parse(read(OUT+'/validation.json')):{uniqueStructuralImages:reports.length,logicalStructuralVariants:jobs.length,emptyVariants:manifest.emptyVariants.length,allConstructionJointLayersMatch:reports.every(r=>r.constructionJointLayerMatchesGuide),alphaPixelsDifferentFromModel:reports.reduce((n,r)=>n+r.alphaPixelsDifferentFromModel,0),unpaintedInteriorPixels:reports.reduce((n,r)=>n+r.unpaintedInteriorPixels,0),extraInteriorPixels:reports.reduce((n,r)=>n+r.extraInteriorPixels,0),reports};
   const {faces:floorFaces,...floorReport}=floorResult.report;

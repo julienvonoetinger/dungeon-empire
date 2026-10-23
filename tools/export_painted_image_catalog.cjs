@@ -60,7 +60,7 @@ async function sheet(ids,file,title,{overlay=false,columns=4}={}){
     labels+=`<text x="${x+8}" y="${y+407}" font-size="15" fill="#b7c3d8">${id}</text>`;
   }
   const bg=`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="100%" height="100%" fill="#0a101c"/><g font-family="Arial,sans-serif"><text x="24" y="34" font-size="24" fill="#e5edff">${title}</text>${labels}</g></svg>`;
-  await sharp(Buffer.from(bg)).composite(layers).png().toFile(path.join(ROOT,REVIEW,file));
+  write(`${REVIEW}/${file}`,await sharp(Buffer.from(bg)).composite(layers).png().toBuffer());
 }
 async function main(){
   const materials=JSON.parse(read('assets/dungeon/shared-materials/catalog.json')),unique=new Map(),aliases={};
@@ -69,7 +69,10 @@ async function main(){
   for(const {id,entry,guide} of unique.values()){
     if(only&&!only.includes(id))continue;
     try{
-      const result=await render(makeModel(id,entry),guide,materials);
+      const model=makeModel(id,entry);
+      model.floorFinish=materials.floorFinish;
+      model.floorMaterialPattern=materials.floorPattern?.cells;
+      const result=await render(model,guide,materials);
       write(`${OUT}/${id}.png`,result.png);write(`${REVIEW}/${id}-overlay.png`,result.overlay);
       write(`${REVIEW}/${id}-regions.svg`,result.recipe);
       json(`${REVIEW}/${id}-report.json`,result.report);reports.push(result.report);

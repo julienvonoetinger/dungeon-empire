@@ -2,6 +2,15 @@
 
 ## 0. État implémenté : études visuelles de donjon avec sprites peints
 
+### Sol lisse aux coins arrondis — 23 octobre 2026
+
+Le sol C utilise la surface douce approuvée, peu contrastée pour laisser ressortir
+les futurs objets. Les coins sont arrondis ; le motif garde deux rangées et quatre
+pierres entières périodiques par case. Recette : shared-materials/active-recipe.json.
+Les fragments sont peints comme une pierre entière avant export. Les marches
+utilisent la palette douce et gardent B. Murs, plans et placements restent fixes.
+La lisibilité en jeu avec personnages et objets reste à examiner.
+
 ### Continuité des pierres aux limites de cases — 23 octobre 2026
 
 Les structures connectées sont peintes hors ligne à partir des pierres entières
@@ -67,7 +76,7 @@ Le renderer conserve son nom `wireframe_cell_study.gd` pour les scènes existant
 Il place un sol sur chaque case à z=0, puis au plus une structure à z=1.
 Les images préparées à ×4 sont affichées à l'échelle uniforme 0,25, avec mipmaps ;
 le pas reste 256 px. Les faces internes sont retirées **avant** l'export PNG.
-Le sol connecté reprend ses 26 traits du motif révisé, sans les trois contours de
+Le sol connecté reprend les six traits du motif C, sans les trois contours de
 fermeture ajoutés pour la revue isolée. Aucun masque, maillage, éclairage,
 retournement ou retouche de matière n'est calculé pendant le rendu Godot.
 
@@ -93,16 +102,20 @@ coût, interaction, collision, navigation, progression ou sauvegarde ajouté.
 Le catalogue isolé reste disponible pour les superpositions de contrôle.
 Documentation de reproduction et inventaire : [PAINTED_GODOT.md](docs/reference/PAINTED_GODOT.md).
 
-### Correction des colonnes de grandes dalles
+### Grandes dalles C approuvées — 23 octobre 2026
 
-Le sol suit maintenant `floor-periodic-cell.json` : six rangées, 26 fragments
-par image et 20 pierres périodiques. Les premières et dernières portions de
-chaque rangée appartiennent à une même pierre traversant la frontière. Sa
-largeur totale reste entre 0,24 et 0,40 case, comme les pierres intérieures.
-Les joints verticaux sont répartis sur toute la largeur et décalés entre rangées.
-Cela remplace le motif ancien qui formait une bande de dalles très longues
-aux mêmes coordonnées. Les guides, PNG isolés et PNG connectés sont réexportés.
-Les hauteurs de rangée, la grille et les volumes architecturaux sont conservés.
+Le sol suit `floor-periodic-cell.json`, option C choisie par l'utilisateur : deux
+rangées par case, six fragments et quatre pierres périodiques complètes. Chaque
+rangée mesure une demi-case de haut ; les pierres complètes font entre 0,475 et
+0,525 case de large. Les fragments gauche et droit partagent une même pierre,
+son cadrage de texture et sa finition. Les joints restent décalés entre rangées.
+
+Ce découpage remplace les six rangées et vingt pierres du motif intermédiaire,
+jugé trop dense par rapport à la maquette. Les guides et PNG isolés des cases,
+portes et escaliers sont réexportés, ainsi que le sol connecté commun. La grille
+1×1, les murs, la finition B et les matières actives restent identiques. La
+nouvelle proposition de textures variées n'est pas promue par ce choix de taille.
+Le sol répète encore un motif préparé ; aucune génération à l'exécution n'est ajoutée.
 
 ### Catalogue d'images peintes pour revue — 23 octobre 2026
 

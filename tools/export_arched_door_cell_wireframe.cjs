@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const wallSource = 'docs/reference/two-course-square-room.json';
-const floorSource = 'docs/reference/floor-only-cell-wireframe.json';
+const floorSource = 'docs/reference/floor-periodic-cell.json';
 const source = JSON.parse(fs.readFileSync(path.join(root, wallSource), 'utf8'));
 const floor = JSON.parse(fs.readFileSync(path.join(root, floorSource), 'utf8')).floor;
 const T = source.wallThickness, H = source.models.after.height;

@@ -9,8 +9,8 @@
     352
   ],
   "cellPitch": 1024,
-  "guideSha256": "e4171f6547af5058c8bc0f2ecc2efe98558efc71236c46f4c70042136e683a8b",
-  "segmentCount": 56,
+  "guideSha256": "84596324d14aad9ad4e8547d269b62c262bfdd0bf81e403cfca2597be043e139",
+  "segmentCount": 49,
   "outputFrame": [
     0,
     0,
@@ -21,11 +21,48 @@
   "constructionJointLayerMatchesGuide": true,
   "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
   "stoneFinish": "soft-stone-b-v1",
+  "floorFinish": {
+    "id": "smooth-floor-rounded-v1",
+    "status": "user_approved",
+    "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+    "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+    "radius": 10.5,
+    "inset": 0.55,
+    "unevenness": 0.12,
+    "bevel": 2.2,
+    "floorFactor": 0.63,
+    "narrowFaceReference": 14,
+    "mortar": "#0c1220",
+    "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+  },
   "omittedFinishEdges": 0,
   "alphaPixelsDifferentFromModel": 0,
   "unpaintedInteriorPixels": 0,
   "extraInteriorPixels": 0,
   "faces": [
+    {
+      "points": [
+        [
+          73.06667,
+          130.66667
+        ],
+        [
+          203.2,
+          130.66667
+        ],
+        [
+          203.2,
+          216
+        ],
+        [
+          73.06667,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-calm"
+    },
     {
       "points": [
         [
@@ -172,29 +209,6 @@
       "kind": "north",
       "part": "south-wall",
       "materialId": "walls-fissures"
-    },
-    {
-      "points": [
-        [
-          169.91999999999996,
-          139.2
-        ],
-        [
-          169.92,
-          180.16
-        ],
-        [
-          82.88,
-          180.16
-        ],
-        [
-          82.88,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-marks"
     },
     {
       "points": [
@@ -406,29 +420,6 @@
     {
       "points": [
         [
-          185.28,
-          180.16
-        ],
-        [
-          185.28,
-          221.12
-        ],
-        [
-          118.72,
-          221.12
-        ],
-        [
-          118.72,
-          180.16
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
           9.5616,
           271.808
         ],
@@ -521,66 +512,43 @@
     {
       "points": [
         [
-          222.89493,
-          139.2
+          203.2,
+          130.66667
         ],
         [
           222.89493,
-          180.16
+          130.66667
         ],
         [
-          169.92,
-          180.16
+          222.89493,
+          216
         ],
         [
-          169.91999999999996,
-          139.2
+          203.2,
+          216
         ]
       ],
       "kind": "floor",
       "part": "floor",
-      "materialId": "floors-worn"
+      "materialId": "floors-fine-crack"
     },
     {
       "points": [
         [
-          118.72,
-          180.16
-        ],
-        [
-          118.72,
-          221.12
-        ],
-        [
-          66.66667,
-          221.12
-        ],
-        [
-          66.66667,
-          180.16
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          185.28,
-          180.16
+          222.89493,
+          216
         ],
         [
           222.89493,
-          180.16
+          229.14133
         ],
         [
-          222.89493,
-          221.12
+          122.13333,
+          229.14133
         ],
         [
-          185.28,
-          221.12
+          122.13333,
+          216
         ]
       ],
       "kind": "floor",
@@ -659,71 +627,25 @@
     {
       "points": [
         [
-          121.28,
-          130.66667
+          122.13333,
+          216
         ],
         [
-          208.32,
-          130.66667
-        ],
-        [
-          208.32,
-          139.2
-        ],
-        [
-          121.28,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          177.59999999999997,
-          221.12
-        ],
-        [
-          177.6,
+          122.13333,
           229.14133
         ],
         [
-          90.56,
-          229.14133
+          66.66667,
+          229.14132999999998
         ],
         [
-          90.56,
-          221.12
+          66.66667,
+          216
         ]
       ],
       "kind": "floor",
       "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          66.66667,
-          139.2
-        ],
-        [
-          82.88,
-          139.2
-        ],
-        [
-          82.88,
-          180.16
-        ],
-        [
-          66.66667,
-          180.16
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
+      "materialId": "floors-worn"
     },
     {
       "points": [
@@ -820,6 +742,29 @@
     {
       "points": [
         [
+          73.06667,
+          130.66667
+        ],
+        [
+          73.06667,
+          216
+        ],
+        [
+          66.66667,
+          216
+        ],
+        [
+          66.66667,
+          130.66667
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-fine-crack"
+    },
+    {
+      "points": [
+        [
           265.5616,
           15.808
         ],
@@ -844,6 +789,10 @@
       "points": [
         [
           66.66667,
+          130.66667
+        ],
+        [
+          66.66667,
           198.93333
         ],
         [
@@ -853,38 +802,11 @@
         [
           59.44747,
           94.57067
-        ],
-        [
-          66.66667,
-          130.66667
         ]
       ],
       "kind": "west",
       "part": "west-wall",
       "materialId": "walls-layers"
-    },
-    {
-      "points": [
-        [
-          121.28,
-          130.66667
-        ],
-        [
-          121.28,
-          139.2
-        ],
-        [
-          66.66667,
-          139.2
-        ],
-        [
-          66.66667,
-          130.66667
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-worn"
     },
     {
       "points": [
@@ -931,29 +853,6 @@
       "kind": "north",
       "part": "north-wall",
       "materialId": "walls-layers"
-    },
-    {
-      "points": [
-        [
-          222.89493,
-          221.12
-        ],
-        [
-          222.89493,
-          229.14133
-        ],
-        [
-          177.6,
-          229.14133
-        ],
-        [
-          177.59999999999997,
-          221.12
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-fine-crack"
     },
     {
       "points": [
@@ -1027,29 +926,6 @@
     {
       "points": [
         [
-          66.66667,
-          221.12
-        ],
-        [
-          90.56,
-          221.12
-        ],
-        [
-          90.56,
-          229.14133
-        ],
-        [
-          66.66667,
-          229.14132999999998
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
           59.44747,
           94.57067
         ],
@@ -1069,39 +945,16 @@
       "kind": "west",
       "part": "west-wall",
       "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          208.32,
-          130.66667
-        ],
-        [
-          222.89493,
-          130.66667
-        ],
-        [
-          222.89493,
-          139.2
-        ],
-        [
-          208.32,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
     }
   ],
   "materials": [
+    "floors-calm",
     "walls-fissures",
     "walls-layers",
     "walls-planes",
-    "floors-marks",
     "walls-pits",
-    "floors-calm",
-    "floors-worn",
-    "floors-fine-crack"
+    "floors-fine-crack",
+    "floors-marks",
+    "floors-worn"
   ]
 }

@@ -40,6 +40,57 @@ actif, les commandes et les limites. Godot sélectionne des PNG déjà préparé
 
 ## Bibliothèque active et historique des revues
 
+### Sol lisse aux coins arrondis approuvé et intégré — 23 octobre 2026
+
+L'utilisateur a validé le sol lisse puis l'arrondi pour intégration dans Godot.
+La recette active conserve murs, bois et métal et sélectionne les matières
+6, 2, 4 et 3 de `shared-materials/floor-smooth-atlas-v1.png`. Les huit
+échantillons restent dans l'atlas ; quatre servent aux quatre pierres entières
+périodiques C. Les IDs historiques de sol sont conservés.
+
+`active-recipe.json` conserve découpes et empreintes, opacité .55,
+`floorPattern` et `floorFinish` (rayon 10.5 avant facteur .63). Les murs et
+les marches gardent B ; les marches prennent la palette douce. La grille,
+le motif C et la projection restent fixes. La promotion initiale est conservée
+dans `tools/promote_smooth_floor_materials.cjs`. Reproduction : PAINTED_GODOT.md.
+
+Les sections de revue suivantes sont historiques. Les murs variés proposés
+restent distincts de la validation du sol.
+
+### Variété des matières sur le dallage C — proposition en attente
+
+L'utilisateur accepte désormais le sol lisse et demande des coins arrondis.
+`material-variation-review/rounded-smooth-c-comparison.png` montre cette finition
+sur le même coin avec overlay ; `rounded-smooth-floor-detail.png` agrandit les
+joints. Le rayon proposé est 10.5 avant facteur sol .63 ; seul ce paramètre
+change. Les murs gardent B et la recette active reste intacte. Reproduire avec
+`node tools/prepare_rounded_smooth_floor_c_review.cjs`. Le profil complet est dans
+`rounded-smooth-floor-recipe.json`. Cet arrondi attend une validation visuelle.
+
+Dernière correction demandée : rendre les dalles plus lisses et discrètes pour
+laisser ressortir les objets. `material-variation-review/smooth-c-comparison.png`
+montre cette révision sur le coin NW avec overlay ; `smooth-floor-comparison.png`
+compare les sols sur 3×3 cases. Huit matières douces viennent de
+`proposals/variation-review/floor-smooth-v1.png`, composées avec une opacité .55.
+Les murs proposés, le dallage C et la finition B restent fixes. Reproduire avec
+`node tools/prepare_smooth_floor_c_review.cjs` ; provenance et recette dans
+`smooth-floor-generation.json` et `smooth-floor-recipe.json`. Cette révision reste
+en attente d'approbation visuelle et n'a pas remplacé les matières actives.
+
+Après validation des grandes dalles C, l'étude
+`material-variation-review/corner-c-comparison.png` applique la bibliothèque
+proposée de huit murs/huit sols au coin NW actuel. Le troisième panneau porte
+les lignes magenta. `appearance-c-comparison.png` présente un mur long et un sol
+3×3 pour juger la répétition. Reproduire avec
+`node tools/prepare_material_variety_c_review.cjs`.
+
+Les matières viennent de `proposals/variation-review/atlas-calm.png`, déjà généré
+à partir de la référence stylisée. La petite branche violette ajoutée par code
+est retirée dans ces aperçus. Les accents restants viennent des crevasses peintes.
+Le dallage C, la projection et la finition B restent fixes. La gamme active
+ci-dessous n'est pas encore remplacée ; la recette et les rapports du nouvel
+aperçu sont conservés dans `appearance-c-recipe.json`.
+
 ### Gamme stylisée approuvée et active — 23 octobre 2026
 
 L'utilisateur a accepté le dernier aperçu : **« oui utilise cette nouvelle gamme

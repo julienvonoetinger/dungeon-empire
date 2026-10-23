@@ -49,11 +49,11 @@ const wallIds=['walls-planes','walls-fissures','walls-layers','walls-pits'];
 const floorSource=JSON.parse(read('docs/reference/floor-periodic-cell.json')).floor;
 const floorRows=[0];for(const h of floorSource.rowHeights)floorRows.push(floorRows.at(-1)+h/5);
 const oldFaces=JSON.parse(read('docs/reference/nw-material-review-v2/validation.json')).faces;
-function floorKey(p){let r=floorRows.findIndex((y,i)=>i<6&&p[1]>=y-1e-7&&p[1]<floorRows[i+1]-1e-7);if(r<0)r=5;let x=0,c=0;for(const w of floorSource.rowWidths[r]){x+=w/6;if(p[0]<x-1e-7)break;c++;}return `${r}:${c}`;}
+function floorKey(p){const count=floorSource.rowHeights.length;let r=floorRows.findIndex((y,i)=>i<count&&p[1]>=y-1e-7&&p[1]<floorRows[i+1]-1e-7);if(r<0)r=p[1]<0?0:count-1;let x=0,c=0;for(const w of floorSource.rowWidths[r]){x+=w/6;if(p[0]<x-1e-7)break;c++;}return `${r}:${c}`;}
 const floorMap=new Map(oldFaces.filter(f=>f.kind==='floor').map(f=>{const p=probe(f.points);return [floorKey([(p[0]-24)/256,(p[1]-88)/256]),f.materialId];}));
 function classify(model,p){const h=cast(model,p);if(!h)return null;const n=h.normal,top=n[2]>.7;
   let kind=top?'top':Math.abs(n[0])>Math.abs(n[1])?'west':'north',materialId;
-  if(h.part==='floor'){kind='floor';materialId=floorMap.get(floorKey(h.p))||'floors-calm';}
+  if(h.part==='floor'){kind='floor';materialId=model.floorMaterialPattern?.[floorKey(h.p)]||floorMap.get(floorKey(h.p))||'floors-calm';}
   else if(h.part==='step'){kind=top?'floor':kind;materialId=top?'floors-worn':'walls-planes';}
   else if(h.part==='closed-door'){
     const owner=h.surface.materialOwner||{model,offset:[0,0]},materialModel=owner.model;
@@ -158,6 +158,8 @@ async function prepareFaces(model,guide){
   return {lines,visibility,faces};
 }
 async function render(model,guide,materials){
+  // A review may override the floor finish without changing active wall B.
+  const floorFinish=model.floorFinish?{...finish,...model.floorFinish}:finish;
   const frame=model.outputFrame||[0,0,...model.size],canvas=frame.slice(2).map(v=>v*SCALE),anchor=model.anchor.map((v,i)=>(v-frame[i])*SCALE);
   const document=b=>`<svg xmlns="http://www.w3.org/2000/svg" width="${canvas[0]}" height="${canvas[1]}" viewBox="${frame.join(' ')}">${b}</svg>`;
   const {lines,visibility,faces}=model.renderData||await prepareFaces(model,guide);
@@ -181,7 +183,7 @@ async function render(model,guide,materials){
     }
     paint+=`<g clip-path="url(#${clip})" ${mask}>${polygon(p,`fill="${s.color}"`)}<use href="#t-${key}" transform="${textureTransform}" opacity="${s.opacity}"/></g>`;
     if(!['wood','metal'].includes(f.kind)){
-      const soft=stoneFinish({face:f,id,profile:s,textureKey:key,textureTransform,mask,guideLines:lines,connected:model.clipPaint&&!model.wrapFloorX,spec:finish});
+      const soft=stoneFinish({face:f,id,profile:s,textureKey:key,textureTransform,mask,guideLines:lines,connected:model.clipPaint&&!model.wrapFloorX,spec:f.part==='floor'?floorFinish:finish});
       defs+=soft.defs;softPaint+=soft.paint;omittedFinishEdges+=soft.omittedEdges;
     }
     const highlight=f.kind==='floor'?'#76839b':f.kind==='top'?'#8694b2':f.kind==='wood'?'#bb8249':f.kind==='metal'?'#a1a6b4':'#52617e';
@@ -205,7 +207,7 @@ async function render(model,guide,materials){
   const tiledInk=ink+(model.repeatInkY?`<g transform="translate(0 ${model.repeatInkY})">${ink}</g>`:'');
   // Small accent is selected only in a sufficiently large lower facade face.
   let accent='';const eligible=faces.filter(f=>/wall|pillar/.test(f.part)&&f.kind==='north'&&f.p[2]<.94/6&&area(f.points)>250);
-  for(const f of model.stableStones?eligible.filter(f=>f.bevelSeed%7===0):eligible.slice(-1)){const ps=f.points,mid=ps.reduce((a,b)=>a.map((v,i)=>v+b[i]/ps.length),[0,0]),index=faces.indexOf(f);accent+=`<path d="M${mid[0]+3} ${mid[1]+5}l-4 -6 3 -4 -2 -3 m-1 7 -5 -2" stroke="#aa79de" stroke-width=".55" opacity=".8" fill="none" clip-path="url(#f${index})"/>`;}
+  for(const f of model.drawAccent===false?[]:model.stableStones?eligible.filter(f=>f.bevelSeed%7===0):eligible.slice(-1)){const ps=f.points,mid=ps.reduce((a,b)=>a.map((v,i)=>v+b[i]/ps.length),[0,0]),index=faces.indexOf(f);accent+=`<path d="M${mid[0]+3} ${mid[1]+5}l-4 -6 3 -4 -2 -3 m-1 7 -5 -2" stroke="#aa79de" stroke-width=".55" opacity=".8" fill="none" clip-path="url(#f${index})"/>`;}
   const artwork=paint+bevels+accent;
   const drawing=document(defs+(model.clipPaint?`<g clip-path="url(#connected-shape)">${artwork}</g>`:artwork)+tiledInk);
   // Independently projected model volume, not the extracted planar regions.
@@ -230,6 +232,6 @@ async function render(model,guide,materials){
   const composite=await sharp(png).composite([{input:overlay}]).png().toBuffer();
   const tuples=s=>parseLines(s).map(l=>[...l.a,...l.b,l.width]);
   const jointsEqual=JSON.stringify(tuples(ink))===JSON.stringify(tuples(guide));
-  return {png,overlay:composite,report:{id:model.id,canvas,anchor,cellPitch:256*SCALE,guideSha256:hash(guide),segmentCount:lines.length,outputFrame:frame,repeatInkY:model.repeatInkY||0,constructionJointLayerMatchesGuide:jointsEqual,visibleStoneJoints:'Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.',stoneFinish:finish.id,omittedFinishEdges,alphaPixelsDifferentFromModel:alphaDiff,unpaintedInteriorPixels:holes,extraInteriorPixels:excess,faces:faces.map(f=>({points:f.points,kind:f.kind,part:f.part,materialId:f.materialId})),materials:[...new Set(faces.map(f=>f.materialId))]},recipe:document(faces.map(f=>polygon(f.points,`fill="#fff"`)).join('')+tiledInk)};
+  return {png,overlay:composite,report:{id:model.id,canvas,anchor,cellPitch:256*SCALE,guideSha256:hash(guide),segmentCount:lines.length,outputFrame:frame,repeatInkY:model.repeatInkY||0,constructionJointLayerMatchesGuide:jointsEqual,visibleStoneJoints:'Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.',stoneFinish:finish.id,...(model.floorFinish?{floorFinish}:{}),omittedFinishEdges,alphaPixelsDifferentFromModel:alphaDiff,unpaintedInteriorPixels:holes,extraInteriorPixels:excess,faces:faces.map(f=>({points:f.points,kind:f.kind,part:f.part,materialId:f.materialId})),materials:[...new Set(faces.map(f=>f.materialId))]},recipe:document(faces.map(f=>polygon(f.points,`fill="#fff"`)).join('')+tiledInk)};
 }
 module.exports={ROOT,SCALE,read,hash,body,sub,dot,cross3,inside,polygon,svg,parseLines,regionsFromLines,probe,prepareModel,cast,prepareFaces,render};

@@ -3,6 +3,68 @@
 État : 23 octobre 2026. Intégration demandée par l'utilisateur, après la préparation
 des images isolées. La géométrie et les matières sont partagées par toutes les scènes.
 
+## Sol lisse aux coins arrondis approuvé
+
+La recette active `shared-materials/active-recipe.json` conserve quatre découpes
+de `floor-smooth-atlas-v1.png`, opacité .55, rayon 10.5 avant facteur .63 et
+identités communes aux fragments d'une même pierre. Le cadrage opaque,
+la géométrie C et les placements restent fixes. Murs, bois et métal gardent
+leurs matières actives. Les murs variés de la revue restent une proposition.
+
+Les marches gardent B et prennent la palette douce. Réexporter les images isolées
+et les contextes spéciaux, en plus du sol commun :
+
+```powershell
+node tools/prepare_shared_stone_materials.cjs
+node tools/export_painted_image_catalog.cjs
+node tools/export_painted_connected_kit.cjs --specials-only
+godot --headless --editor --path . --import
+```
+
+L'export spécial actualise aussi le sol partagé. `catalog.sourceHashes` conserve
+la provenance des murs ordinaires, `specialSourceHashes` décrit les nouveaux
+contextes spéciaux et `floor.sourceHashes` le sol. Godot place les PNG préparés.
+
+Propagation terminée : 57 PNG isolés / 146 alias et catalogue connecté de 737
+images / 1444 contextes. Rapports d'export : zéro différence alpha et zéro pixel
+intérieur non peint. Import Godot et captures de 3x3CellRoom, WireframeDoorCross,
+WireframeClosedCorridors, SixRoomPreview et EntranceVariants : sorties 0, stderr
+vide. Captures à 1280×960 et 2560×1920 ; vues normales examinées. Aucun test
+automatisé exécuté. Cette revue ne prouve pas tous les futurs raccords ni la
+lisibilité avec des personnages et objets.
+
+Logs : `artifacts/smooth-rounded-*.log`. La première tentative d'export isolé
+avait échoué sur une planche verrouillée ; sa relance avec écriture atomique
+s'est terminée correctement. L'éditeur déjà ouvert garde parfois ses textures
+en mémoire : après import, cliquer « Actualiser le rendu » sur Dungeon ou F6.
+
+## Dallage C approuvé
+
+Historique de la propagation géométrique, avant la nouvelle matière ci-dessus.
+
+L'utilisateur a choisi les grandes dalles : deux rangées par case, six fragments
+représentant quatre pierres périodiques complètes. Le sol commun, les guides et
+les sprites isolés utilisent ce motif. La grille, les volumes de murs, la finition B
+et la gamme de matières active sont conservés. La gamme de textures variées reste
+une proposition séparée. Voir les dimensions et commandes à la fin de ce document.
+
+Cette propagation utilise `--floor-only` pour les scènes connectées : leurs 737
+structures n'ont pas de sol et restent inchangées. La provenance du sol actualisé
+est dans `catalog.floor.sourceHashes`, tandis que `catalog.sourceHashes` conserve
+les entrées utilisées pour produire les structures existantes.
+
+Propagation C terminée : 57 PNG isolés et 146 guides réexportés, sol connecté
+à six segments. Import Godot terminé sans erreur signalée. Aperçus produits à
+1280×960 et 2560×1920 pour 3x3CellRoom, WireframeDoorCross,
+WireframeClosedCorridors, SixRoomPreview et EntranceVariants ; vues normales
+examinées. Les rapports des exports indiquent zéro pixel intérieur non peint et
+zéro différence avec leurs masques géométriques. Aucun test automatisé exécuté.
+Ces aperçus ne valident pas tous les futurs raccords ou niveaux de zoom.
+
+Logs : `artifacts/large-floor-c-*.log`. Les motifs de texture du sol restent
+répétitifs avec la gamme actuelle ; la proposition de matières variées demeure
+distincte de l'approbation du découpage C.
+
 ## Raccords de pierres entières
 
 Le comparatif des raccords horizontal et vertical a été approuvé. Le compositeur
@@ -135,7 +197,7 @@ ces images aux variantes connectées dans les scènes sur grille.
 - Tous les sols à z=0, puis toutes les structures à z=1, ordonnées par ligne/colonne.
 - Un sol et au plus une structure par case. Les portes et escaliers connectés
   ne contiennent pas de sol ; leur image couvre celui-ci là où leur volume l'occulte.
-- Le sol reprend les 26 traits de son SVG connecté. Les trois contours ajoutés
+- Le sol reprend les six traits du motif C dans son SVG connecté. Les trois contours ajoutés
   aux guides isolés pour fermer la revue ne deviennent pas des bordures de cases.
 - Les fragments de dalle aux bords gauche/droit appartiennent à une même pierre
   qui continue dans la case voisine. Le compositeur peint cette pierre entière,
@@ -249,10 +311,12 @@ navigation, progression ou sauvegarde.
 Le précédent motif réunissait de grandes portions gauche/droite en une seule
 pierre à chaque raccord. Ces pierres mesuraient jusqu'à 0,78 case et formaient
 une colonne répétée. Le découpage est maintenant défini dans
-`docs/reference/floor-periodic-cell.json` : six rangées de hauteur inchangée,
-26 fragments dans la case, représentant 20 pierres complètes périodiques.
-Les joints sont décalés par rangée. Toutes les pierres complètes, y compris
-celles qui traversent une frontière de case, mesurent entre 0,24 et 0,40 case.
+`docs/reference/floor-periodic-cell.json`. Après une version intermédiaire à six
+rangées et vingt pierres complètes, l'utilisateur a approuvé C : deux rangées
+hautes de 0,5 case, six fragments représentant quatre pierres complètes.
+Leurs largeurs vont de 0,475 à 0,525 case. Dans le repère source 6×5, les hauteurs
+sont [2,5 ; 2,5] et les largeurs [1,15 ; 3,05 ; 1,8] puis [2,3 ; 3,15 ; 0,55].
+Les joints sont décalés par rangée ; les fragments des bords forment une pierre entière.
 
 Le fichier `floor-only-cell-wireframe.json` conserve l'étude historique.
 Le nouveau motif sert aux exports connectés, aux calques isolés et au sol visible
@@ -265,10 +329,13 @@ Ordre de reproduction après changement du découpage :
 
 ```powershell
 node tools/export_wireframe_cell_kit.cjs
+node tools/export_entrance_stair_wireframe.cjs
+node tools/export_arched_door_cell_wireframe.cjs
 node tools/export_arched_door_orientations.cjs
 node tools/export_wireframe_entrances.cjs
 node tools/export_wireframe_doors.cjs
 node tools/export_wireframe_overlays.cjs --png
 node tools/export_painted_image_catalog.cjs
-node tools/export_painted_connected_kit.cjs
+node tools/export_painted_connected_kit.cjs --floor-only
+godot --headless --editor --path . --import
 ```

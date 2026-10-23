@@ -20,6 +20,9 @@
 - Les propositions de matières plus récentes restent dans `shared-materials/proposals/`.
   La recette de matières active est `shared-materials/active-recipe.json`.
   La finition B des angles est définie dans `shared-materials/stone-finish.json`.
+  Le sol lisse utilise `shared-materials/floor-smooth-atlas-v1.png` ; ses découpes
+  et l'arrondi accru sont dans `active-recipe.json` (floorPattern, floorFinish).
+  Les murs et les marches gardent B.
 
 Les raccords utilisent désormais une peinture commune de la pierre entière,
 avant son découpage entre cases. `painted-connected/catalog.json` décrit la

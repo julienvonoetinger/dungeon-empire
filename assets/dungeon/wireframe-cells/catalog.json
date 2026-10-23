@@ -58,14 +58,19 @@
     ],
     "rows": [
       0,
-      0.2,
-      0.36,
-      0.52,
-      0.68,
-      0.8400000000000001,
+      0.5,
       1
     ],
-    "pattern": "periodic staggered motif v2: 26 fragments, 20 full periodic slabs; combined boundary widths 0.24..0.4 cells; square grid unchanged"
+    "pattern": "periodic-large-floor-c-v3",
+    "fragmentCount": 6,
+    "physicalSlabsPerRow": [
+      2,
+      2
+    ],
+    "physicalWidthRangeInCells": [
+      0.475,
+      0.525
+    ]
   },
   "entries": {
     "w00_p00_e00": {

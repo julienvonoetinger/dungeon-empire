@@ -1,6 +1,7 @@
 {
-  "id": "periodic-staggered-floor-v2",
-  "purpose": "Replace aligned long slabs at cell boundaries after user feedback; fixed square grid, staggered periodic joints.",
+  "id": "periodic-large-floor-c-v3",
+  "purpose": "User-approved C: larger near-square slabs, two decorative rows per logical 1x1 cell.",
+  "approval": {"date": "2026-10-23", "user": "oui le C", "comparison": "docs/reference/material-variation-review/floor-size-comparison.png", "option": "size-2"},
   "cell": [
     1,
     1
@@ -27,68 +28,15 @@
       5
     ],
     "z": 0,
-    "rowHeights": [
-      1,
-      0.8,
-      0.8,
-      0.8,
-      0.8,
-      0.8
-    ],
-    "rowWidths": [
-      [
-        0.42,
-        1.86,
-        2.04,
-        1.68
-      ],
-      [
-        1.38,
-        2.04,
-        1.92,
-        0.66
-      ],
-      [
-        0.72,
-        1.5,
-        1.56,
-        1.5,
-        0.72
-      ],
-      [
-        1.56,
-        2.04,
-        1.98,
-        0.42
-      ],
-      [
-        0.3,
-        1.56,
-        1.5,
-        1.5,
-        1.14
-      ],
-      [
-        1.02,
-        1.68,
-        1.92,
-        1.38
-      ]
-    ]
+    "rowHeights": [2.5, 2.5],
+    "rowWidths": [[1.15, 3.05, 1.8], [2.3, 3.15, 0.55]]
   },
-  "periodicPhysicalSlabsPerRow": [
-    3,
-    3,
-    4,
-    3,
-    4,
-    3
-  ],
-  "fragmentCount": 26,
-  "connectedSegmentCount": 26,
+  "periodicPhysicalSlabsPerRow": [2, 2],
+  "fragmentCount": 6,
+  "connectedSegmentCount": 6,
   "physicalWidthRangeInCells": [
-    0.24,
-    0.4
+    0.475,
+    0.525
   ],
-  "policy": "First and last fragments are the same crossing slab. Their COMBINED width is bounded like interior slabs. Preserve row heights and world axes; no runtime geometry, scaling changes or random layout."
+  "policy": "First and last fragments are one crossing slab, painted with shared material, UV and finish before framing. Two rows each half a cell high. Preserve square logical grid, wall geometry and world axes; no runtime geometry or random layout."
 }

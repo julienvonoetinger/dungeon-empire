@@ -1,0 +1,94 @@
+{
+  "id": "periodic-staggered-floor-v2",
+  "purpose": "Replace aligned long slabs at cell boundaries after user feedback; fixed square grid, staggered periodic joints.",
+  "cell": [
+    1,
+    1
+  ],
+  "projection": {
+    "groundX": [
+      1,
+      0
+    ],
+    "groundY": [
+      0,
+      1
+    ],
+    "heightUp": [
+      -0.18,
+      -0.9
+    ]
+  },
+  "floor": {
+    "bounds": [
+      0,
+      0,
+      6,
+      5
+    ],
+    "z": 0,
+    "rowHeights": [
+      1,
+      0.8,
+      0.8,
+      0.8,
+      0.8,
+      0.8
+    ],
+    "rowWidths": [
+      [
+        0.42,
+        1.86,
+        2.04,
+        1.68
+      ],
+      [
+        1.38,
+        2.04,
+        1.92,
+        0.66
+      ],
+      [
+        0.72,
+        1.5,
+        1.56,
+        1.5,
+        0.72
+      ],
+      [
+        1.56,
+        2.04,
+        1.98,
+        0.42
+      ],
+      [
+        0.3,
+        1.56,
+        1.5,
+        1.5,
+        1.14
+      ],
+      [
+        1.02,
+        1.68,
+        1.92,
+        1.38
+      ]
+    ]
+  },
+  "periodicPhysicalSlabsPerRow": [
+    3,
+    3,
+    4,
+    3,
+    4,
+    3
+  ],
+  "fragmentCount": 26,
+  "connectedSegmentCount": 26,
+  "physicalWidthRangeInCells": [
+    0.24,
+    0.4
+  ],
+  "policy": "First and last fragments are the same crossing slab. Their COMBINED width is bounded like interior slabs. Preserve row heights and world axes; no runtime geometry, scaling changes or random layout."
+}

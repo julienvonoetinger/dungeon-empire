@@ -17,6 +17,9 @@ async function main(){
     panels.push({id,buffer});
   }
   const catalog={id:recipe.id,status:recipe.status,approval:recipe.approval,approvedReview:recipe.approvedReview,canonicalStyle:recipe.canonicalStyle,recipe:recipePath,recipeSha256:hash(recipeBytes),purpose:'Approved stylized materials reused on fixed wireframe faces; prepared offline.',rules:['Use this exact approved source atlas and crop recipe by default.','No independent palette generation per orientation.','Preserve geometry, silhouettes, joints, anchors and projection.','Use the same material identity on a stone top and its upper facade.','Broad painted facets, sparse graphic wear and localized violet accents; no realistic grain or bark.','Godot selects finished PNGs with white modulation; no runtime appearance repair.'],renderProfile:recipe.renderProfile,entries};
+  if(recipe.floorFinish)catalog.floorFinish=recipe.floorFinish;
+  if(recipe.floorPattern)catalog.floorPattern=recipe.floorPattern;
+  if(recipe.floorApproval)catalog.floorApproval=recipe.floorApproval;
   fs.writeFileSync(path.join(dir,'catalog.json'),JSON.stringify(catalog,null,2)+'\n');
   const height=Math.ceil(panels.length/4)*315+90;
   const body=panels.map((p,i)=>{const x=24+(i%4)*270,y=82+Math.floor(i/4)*315;return `<text x="${x}" y="${y}" fill="#cbd5e8" font-size="17">${p.id}</text><image href="data:image/png;base64,${p.buffer.toString('base64')}" x="${x}" y="${y+14}" width="248" height="248"/>`;}).join('');

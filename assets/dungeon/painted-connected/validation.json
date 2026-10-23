@@ -46192,8 +46192,8 @@
       0
     ],
     "cellPitch": 1024,
-    "guideSha256": "1eb81142c7a89bf6558a4960c0c2e80a8d38bdccfbce719eea5addf3336c1bae",
-    "segmentCount": 26,
+    "guideSha256": "0d46daaec47e5e9018c1a0bd8ceb54aea1de2256c76a39af9a953017bbe2b206",
+    "segmentCount": 6,
     "outputFrame": [
       4,
       4,
@@ -46204,14 +46204,28 @@
     "constructionJointLayerMatchesGuide": true,
     "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
     "stoneFinish": "soft-stone-b-v1",
+    "floorFinish": {
+      "id": "smooth-floor-rounded-v1",
+      "status": "user_approved",
+      "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+      "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+      "radius": 10.5,
+      "inset": 0.55,
+      "unevenness": 0.12,
+      "bevel": 2.2,
+      "floorFactor": 0.63,
+      "narrowFaceReference": 14,
+      "mortar": "#0c1220",
+      "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+    },
     "omittedFinishEdges": 0,
     "alphaPixelsDifferentFromModel": 0,
     "unpaintedInteriorPixels": 0,
     "extraInteriorPixels": 0,
     "materials": [
+      "floors-marks",
       "floors-calm",
       "floors-worn",
-      "floors-marks",
       "floors-fine-crack"
     ]
   },

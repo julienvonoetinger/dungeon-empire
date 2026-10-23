@@ -9,8 +9,8 @@
     352
   ],
   "cellPitch": 1024,
-  "guideSha256": "6acdf0d39552a28f0084252c66c94226ca68330175ba7e25386579587801a432",
-  "segmentCount": 53,
+  "guideSha256": "65d878960a907a0c44fcd5d31186b730d9608ab309a088f80a81a94c7b6c7252",
+  "segmentCount": 44,
   "outputFrame": [
     0,
     0,
@@ -21,6 +21,20 @@
   "constructionJointLayerMatchesGuide": true,
   "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
   "stoneFinish": "soft-stone-b-v1",
+  "floorFinish": {
+    "id": "smooth-floor-rounded-v1",
+    "status": "user_approved",
+    "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+    "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+    "radius": 10.5,
+    "inset": 0.55,
+    "unevenness": 0.12,
+    "bevel": 2.2,
+    "floorFactor": 0.63,
+    "narrowFaceReference": 14,
+    "mortar": "#0c1220",
+    "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+  },
   "omittedFinishEdges": 0,
   "alphaPixelsDifferentFromModel": 0,
   "unpaintedInteriorPixels": 0,
@@ -29,6 +43,29 @@
     {
       "points": [
         [
+          73.06667,
+          88
+        ],
+        [
+          203.2,
+          88
+        ],
+        [
+          203.2,
+          216
+        ],
+        [
+          73.06667,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-calm"
+    },
+    {
+      "points": [
+        [
           222.89493,
           165.14133
         ],
@@ -60,764 +97,28 @@
     {
       "points": [
         [
-          121.28,
-          88
-        ],
-        [
-          208.32,
-          88
-        ],
-        [
-          208.32,
-          139.2
-        ],
-        [
-          121.28,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          272.7808,
-          307.904
-        ],
-        [
-          166.11413,
-          307.904
-        ],
-        [
-          158.89493,
-          271.808
-        ],
-        [
-          265.5616,
-          271.808
-        ]
-      ],
-      "kind": "north",
-      "part": "south-wall",
-      "materialId": "walls-fissures"
-    },
-    {
-      "points": [
-        [
-          169.92,
-          139.2
-        ],
-        [
-          169.92,
-          180.16
-        ],
-        [
-          82.88,
-          180.16
-        ],
-        [
-          82.88,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-marks"
-    },
-    {
-      "points": [
-        [
-          222.89493,
-          84.07467
-        ],
-        [
-          265.5616,
-          84.07467
-        ],
-        [
-          265.5616,
-          165.14133
-        ],
-        [
-          222.89493,
-          165.14133
-        ]
-      ],
-      "kind": "top",
-      "part": "east-wall",
-      "materialId": "walls-pits"
-    },
-    {
-      "points": [
-        [
-          158.89493000000002,
-          229.14133
-        ],
-        [
-          158.89493,
-          271.808
-        ],
-        [
-          77.82827,
-          271.808
-        ],
-        [
-          77.82827,
-          229.14133
-        ]
-      ],
-      "kind": "top",
-      "part": "south-wall",
-      "materialId": "walls-fissures"
-    },
-    {
-      "points": [
-        [
           66.66667,
           88
         ],
         [
-          121.28,
+          73.06667,
           88
         ],
         [
-          121.28,
-          139.2
+          73.06667,
+          216
         ],
         [
-          41.92,
-          139.2
+          24,
+          216
         ],
         [
-          41.92,
+          24,
           130.66667
         ],
         [
           66.66667,
           130.66667
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-worn"
-    },
-    {
-      "points": [
-        [
-          134.93333,
-          344
-        ],
-        [
-          127.71413000000001,
-          307.904
-        ],
-        [
-          208.7808,
-          307.904
-        ],
-        [
-          216,
-          344
-        ]
-      ],
-      "kind": "north",
-      "part": "south-wall",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          53.86667,
-          344
-        ],
-        [
-          46.64747,
-          307.904
-        ],
-        [
-          127.71413000000001,
-          307.904
-        ],
-        [
-          134.93333,
-          344
-        ]
-      ],
-      "kind": "north",
-      "part": "south-wall",
-      "materialId": "walls-pits"
-    },
-    {
-      "points": [
-        [
-          85.04747,
-          307.904
-        ],
-        [
-          77.82827,
-          271.808
-        ],
-        [
-          158.89493,
-          271.808
-        ],
-        [
-          166.11413,
-          307.904
-        ]
-      ],
-      "kind": "north",
-      "part": "south-wall",
-      "materialId": "walls-fissures"
-    },
-    {
-      "points": [
-        [
-          77.82827,
-          229.14133
-        ],
-        [
-          77.82827,
-          271.808
-        ],
-        [
-          9.5616,
-          271.808
-        ],
-        [
-          9.5616,
-          229.14133
-        ]
-      ],
-      "kind": "top",
-      "part": "south-wall",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          222.89493,
-          15.808
-        ],
-        [
-          265.5616,
-          15.808
-        ],
-        [
-          265.5616,
-          84.07467
-        ],
-        [
-          222.89493,
-          84.07467
-        ]
-      ],
-      "kind": "top",
-      "part": "east-wall",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          185.28,
-          180.16
-        ],
-        [
-          185.28,
-          221.12
-        ],
-        [
-          118.72,
-          221.12
-        ],
-        [
-          118.72,
-          180.16
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          118.72,
-          180.16
-        ],
-        [
-          118.72,
-          221.12
-        ],
-        [
-          54.72,
-          221.12
-        ],
-        [
-          54.72,
-          180.16
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          9.5616,
-          271.808
-        ],
-        [
-          77.82827,
-          271.808
-        ],
-        [
-          85.04747,
-          307.904
-        ],
-        [
-          16.7808,
-          307.904
-        ]
-      ],
-      "kind": "north",
-      "part": "south-wall",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          82.88,
-          139.2
-        ],
-        [
-          82.88,
-          180.16
-        ],
-        [
-          24,
-          180.16
-        ],
-        [
-          24,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          280,
-          344
-        ],
-        [
-          216,
-          344
-        ],
-        [
-          208.7808,
-          307.904
-        ],
-        [
-          272.7808,
-          307.904
-        ]
-      ],
-      "kind": "north",
-      "part": "south-wall",
-      "materialId": "walls-layers"
-    },
-    {
-      "points": [
-        [
-          222.89493,
-          139.2
-        ],
-        [
-          222.89493,
-          180.16
-        ],
-        [
-          169.92,
-          180.16
-        ],
-        [
-          169.92,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-worn"
-    },
-    {
-      "points": [
-        [
-          9.5616,
-          15.808
-        ],
-        [
-          52.22827,
-          15.808
-        ],
-        [
-          52.22827,
-          58.47467
-        ],
-        [
-          9.5616,
-          58.47467
-        ]
-      ],
-      "kind": "top",
-      "part": "pillar",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          185.28,
-          180.16
-        ],
-        [
-          222.89493,
-          180.16
-        ],
-        [
-          222.89493,
-          221.12
-        ],
-        [
-          185.28,
-          221.12
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-marks"
-    },
-    {
-      "points": [
-        [
-          24,
-          130.66667
-        ],
-        [
-          16.7808,
-          94.57067
-        ],
-        [
-          59.44747,
-          94.57067
-        ],
-        [
-          66.66667,
-          130.66667
-        ]
-      ],
-      "kind": "north",
-      "part": "pillar",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          59.44747,
-          94.57067
-        ],
-        [
-          16.7808,
-          94.57067
-        ],
-        [
-          9.5616,
-          58.47467
-        ],
-        [
-          52.22827,
-          58.47467
-        ]
-      ],
-      "kind": "north",
-      "part": "pillar",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          24,
-          180.16
-        ],
-        [
-          54.72,
-          180.16
-        ],
-        [
-          54.72,
-          221.12
-        ],
-        [
-          24,
-          221.12
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          24,
-          344
-        ],
-        [
-          16.7808,
-          307.904
-        ],
-        [
-          46.64747,
-          307.904
-        ],
-        [
-          53.86667,
-          344
-        ]
-      ],
-      "kind": "north",
-      "part": "south-wall",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          272.7808,
-          201.23733
-        ],
-        [
-          272.7808,
-          307.904
-        ],
-        [
-          265.5616,
-          271.808
-        ],
-        [
-          265.5616,
-          165.14133
-        ]
-      ],
-      "kind": "west",
-      "part": "east-wall",
-      "materialId": "walls-fissures"
-    },
-    {
-      "points": [
-        [
-          208.32,
-          88
-        ],
-        [
-          222.89493,
-          88
-        ],
-        [
-          222.89493,
-          139.2
-        ],
-        [
-          208.32,
-          139.2
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          177.6,
-          221.12
-        ],
-        [
-          177.6,
-          229.14133
-        ],
-        [
-          90.56,
-          229.14133
-        ],
-        [
-          90.56,
-          221.12
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          280,
-          198.93333
-        ],
-        [
-          280,
-          280
-        ],
-        [
-          272.7808,
-          243.904
-        ],
-        [
-          272.7808,
-          162.83733
-        ]
-      ],
-      "kind": "west",
-      "part": "east-wall",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          280,
-          117.86667
-        ],
-        [
-          280,
-          198.93333
-        ],
-        [
-          272.7808,
-          162.83733
-        ],
-        [
-          272.7808,
-          81.77067
-        ]
-      ],
-      "kind": "west",
-      "part": "east-wall",
-      "materialId": "walls-layers"
-    },
-    {
-      "points": [
-        [
-          272.7808,
-          120.17067
-        ],
-        [
-          272.7808,
-          201.23733
-        ],
-        [
-          265.5616,
-          165.14133
-        ],
-        [
-          265.5616,
-          84.07467
-        ]
-      ],
-      "kind": "west",
-      "part": "east-wall",
-      "materialId": "walls-pits"
-    },
-    {
-      "points": [
-        [
-          90.56,
-          221.12
-        ],
-        [
-          90.56,
-          229.14133
-        ],
-        [
-          24,
-          229.14133
-        ],
-        [
-          24,
-          221.12
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
-          265.5616,
-          15.808
-        ],
-        [
-          272.7808,
-          51.903999999999996
-        ],
-        [
-          272.7808,
-          120.17067
-        ],
-        [
-          265.5616,
-          84.07467
-        ]
-      ],
-      "kind": "west",
-      "part": "east-wall",
-      "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          280,
-          280
-        ],
-        [
-          280,
-          344
-        ],
-        [
-          272.7808,
-          307.904
-        ],
-        [
-          272.7808,
-          243.904
-        ]
-      ],
-      "kind": "west",
-      "part": "south-wall",
-      "materialId": "walls-layers"
-    },
-    {
-      "points": [
-        [
-          222.89493,
-          221.12
-        ],
-        [
-          222.89493,
-          229.14133
-        ],
-        [
-          177.6,
-          229.14133
-        ],
-        [
-          177.6,
-          221.12
         ]
       ],
       "kind": "floor",
@@ -827,6 +128,535 @@
     {
       "points": [
         [
+          272.7808,
+          307.904
+        ],
+        [
+          166.11413,
+          307.904
+        ],
+        [
+          158.89493,
+          271.808
+        ],
+        [
+          265.5616,
+          271.808
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          222.89493,
+          84.07467
+        ],
+        [
+          265.5616,
+          84.07467
+        ],
+        [
+          265.5616,
+          165.14133
+        ],
+        [
+          222.89493,
+          165.14133
+        ]
+      ],
+      "kind": "top",
+      "part": "east-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          158.89493000000002,
+          229.14133
+        ],
+        [
+          158.89493,
+          271.808
+        ],
+        [
+          77.82827,
+          271.808
+        ],
+        [
+          77.82827,
+          229.14133
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          134.93333,
+          344
+        ],
+        [
+          127.71413000000001,
+          307.904
+        ],
+        [
+          208.7808,
+          307.904
+        ],
+        [
+          216,
+          344
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          53.86667,
+          344
+        ],
+        [
+          46.64747,
+          307.904
+        ],
+        [
+          127.71413000000001,
+          307.904
+        ],
+        [
+          134.93333,
+          344
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          85.04747,
+          307.904
+        ],
+        [
+          77.82827,
+          271.808
+        ],
+        [
+          158.89493,
+          271.808
+        ],
+        [
+          166.11413,
+          307.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          77.82827,
+          229.14133
+        ],
+        [
+          77.82827,
+          271.808
+        ],
+        [
+          9.5616,
+          271.808
+        ],
+        [
+          9.5616,
+          229.14133
+        ]
+      ],
+      "kind": "top",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          222.89493,
+          15.808
+        ],
+        [
+          265.5616,
+          15.808
+        ],
+        [
+          265.5616,
+          84.07467
+        ],
+        [
+          222.89493,
+          84.07467
+        ]
+      ],
+      "kind": "top",
+      "part": "east-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          203.2,
+          88
+        ],
+        [
+          222.89493,
+          88
+        ],
+        [
+          222.89493,
+          216
+        ],
+        [
+          203.2,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-fine-crack"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          271.808
+        ],
+        [
+          77.82827,
+          271.808
+        ],
+        [
+          85.04747,
+          307.904
+        ],
+        [
+          16.7808,
+          307.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          280,
+          344
+        ],
+        [
+          216,
+          344
+        ],
+        [
+          208.7808,
+          307.904
+        ],
+        [
+          272.7808,
+          307.904
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          52.22827,
+          58.47467
+        ],
+        [
+          9.5616,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          24,
+          130.66667
+        ],
+        [
+          16.7808,
+          94.57067
+        ],
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          66.66667,
+          130.66667
+        ]
+      ],
+      "kind": "north",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          16.7808,
+          94.57067
+        ],
+        [
+          9.5616,
+          58.47467
+        ],
+        [
+          52.22827,
+          58.47467
+        ]
+      ],
+      "kind": "north",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          222.89493,
+          216
+        ],
+        [
+          222.89493,
+          229.14133
+        ],
+        [
+          122.13333,
+          229.14133
+        ],
+        [
+          122.13333,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-marks"
+    },
+    {
+      "points": [
+        [
+          122.13333,
+          216
+        ],
+        [
+          122.13333,
+          229.14133
+        ],
+        [
+          24,
+          229.14133
+        ],
+        [
+          24,
+          216
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-worn"
+    },
+    {
+      "points": [
+        [
+          24,
+          344
+        ],
+        [
+          16.7808,
+          307.904
+        ],
+        [
+          46.64747,
+          307.904
+        ],
+        [
+          53.86667,
+          344
+        ]
+      ],
+      "kind": "north",
+      "part": "south-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          272.7808,
+          201.23733
+        ],
+        [
+          272.7808,
+          307.904
+        ],
+        [
+          265.5616,
+          271.808
+        ],
+        [
+          265.5616,
+          165.14133
+        ]
+      ],
+      "kind": "west",
+      "part": "east-wall",
+      "materialId": "walls-fissures"
+    },
+    {
+      "points": [
+        [
+          280,
+          198.93333
+        ],
+        [
+          280,
+          280
+        ],
+        [
+          272.7808,
+          243.904
+        ],
+        [
+          272.7808,
+          162.83733
+        ]
+      ],
+      "kind": "west",
+      "part": "east-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          280,
+          117.86667
+        ],
+        [
+          280,
+          198.93333
+        ],
+        [
+          272.7808,
+          162.83733
+        ],
+        [
+          272.7808,
+          81.77067
+        ]
+      ],
+      "kind": "west",
+      "part": "east-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          272.7808,
+          120.17067
+        ],
+        [
+          272.7808,
+          201.23733
+        ],
+        [
+          265.5616,
+          165.14133
+        ],
+        [
+          265.5616,
+          84.07467
+        ]
+      ],
+      "kind": "west",
+      "part": "east-wall",
+      "materialId": "walls-pits"
+    },
+    {
+      "points": [
+        [
+          265.5616,
+          15.808
+        ],
+        [
+          272.7808,
+          51.903999999999996
+        ],
+        [
+          272.7808,
+          120.17067
+        ],
+        [
+          265.5616,
+          84.07467
+        ]
+      ],
+      "kind": "west",
+      "part": "east-wall",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          280,
+          280
+        ],
+        [
+          280,
+          344
+        ],
+        [
+          272.7808,
+          307.904
+        ],
+        [
+          272.7808,
+          243.904
+        ]
+      ],
+      "kind": "west",
+      "part": "south-wall",
+      "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
           66.66667,
           88
         ],
@@ -892,39 +722,16 @@
       "kind": "west",
       "part": "east-wall",
       "materialId": "walls-planes"
-    },
-    {
-      "points": [
-        [
-          41.92,
-          130.66667
-        ],
-        [
-          41.92,
-          139.2
-        ],
-        [
-          24,
-          139.2
-        ],
-        [
-          24,
-          130.66667
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
     }
   ],
   "materials": [
-    "walls-fissures",
     "floors-calm",
-    "floors-marks",
+    "walls-fissures",
+    "floors-fine-crack",
     "walls-pits",
-    "floors-worn",
     "walls-planes",
     "walls-layers",
-    "floors-fine-crack"
+    "floors-marks",
+    "floors-worn"
   ]
 }

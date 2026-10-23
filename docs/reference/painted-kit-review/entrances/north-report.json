@@ -9,7 +9,7 @@
     352
   ],
   "cellPitch": 1024,
-  "guideSha256": "df8968b430e2b6b7c7e8319ab087461245734909113311e6c9dc25a05dfd1c3f",
+  "guideSha256": "e0c3485072602d2693331685b85222b4a57ee288c661eb2513b3d523b10deb05",
   "segmentCount": 50,
   "outputFrame": [
     0,
@@ -21,6 +21,20 @@
   "constructionJointLayerMatchesGuide": true,
   "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
   "stoneFinish": "soft-stone-b-v1",
+  "floorFinish": {
+    "id": "smooth-floor-rounded-v1",
+    "status": "user_approved",
+    "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+    "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+    "radius": 10.5,
+    "inset": 0.55,
+    "unevenness": 0.12,
+    "bevel": 2.2,
+    "floorFactor": 0.63,
+    "narrowFaceReference": 14,
+    "mortar": "#0c1220",
+    "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+  },
   "omittedFinishEdges": 0,
   "alphaPixelsDifferentFromModel": 0,
   "unpaintedInteriorPixels": 0,
@@ -160,6 +174,29 @@
     {
       "points": [
         [
+          203.2,
+          117.44
+        ],
+        [
+          73.06666999999999,
+          117.44
+        ],
+        [
+          73.06667,
+          88
+        ],
+        [
+          203.19999999999993,
+          88
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-calm"
+    },
+    {
+      "points": [
+        [
           222.89493,
           186.304
         ],
@@ -413,29 +450,6 @@
     {
       "points": [
         [
-          208.32,
-          117.44
-        ],
-        [
-          121.28,
-          117.44
-        ],
-        [
-          121.28,
-          88
-        ],
-        [
-          208.32,
-          88
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
           272.7808,
           307.904
         ],
@@ -478,29 +492,6 @@
       "kind": "north",
       "part": "south-wall",
       "materialId": "walls-pits"
-    },
-    {
-      "points": [
-        [
-          66.66667,
-          88
-        ],
-        [
-          121.28,
-          88
-        ],
-        [
-          121.28,
-          117.44
-        ],
-        [
-          66.66667,
-          117.44
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-worn"
     },
     {
       "points": [
@@ -643,6 +634,29 @@
     {
       "points": [
         [
+          222.89493,
+          117.44
+        ],
+        [
+          203.2,
+          117.44
+        ],
+        [
+          203.19999999999993,
+          88
+        ],
+        [
+          222.89493,
+          88
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-fine-crack"
+    },
+    {
+      "points": [
+        [
           272.7808,
           307.904
         ],
@@ -728,29 +742,6 @@
     {
       "points": [
         [
-          222.89493,
-          117.44
-        ],
-        [
-          208.32,
-          117.44
-        ],
-        [
-          208.32,
-          88
-        ],
-        [
-          222.89493,
-          88
-        ]
-      ],
-      "kind": "floor",
-      "part": "floor",
-      "materialId": "floors-calm"
-    },
-    {
-      "points": [
-        [
           66.66667,
           88
         ],
@@ -805,6 +796,29 @@
       "kind": "west",
       "part": "south-wall",
       "materialId": "walls-layers"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          88
+        ],
+        [
+          73.06667,
+          88
+        ],
+        [
+          73.06666999999999,
+          117.44
+        ],
+        [
+          66.66667,
+          117.44
+        ]
+      ],
+      "kind": "floor",
+      "part": "floor",
+      "materialId": "floors-fine-crack"
     },
     {
       "points": [
@@ -868,9 +882,10 @@
   "materials": [
     "walls-planes",
     "walls-layers",
+    "floors-calm",
     "floors-worn",
     "walls-fissures",
     "walls-pits",
-    "floors-calm"
+    "floors-fine-crack"
   ]
 }

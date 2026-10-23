@@ -27,9 +27,9 @@
   },
   "policy": "Include all visible end faces and floor boundaries for a piece viewed ALONE. Keep hidden lines absent. Same geometry, camera, anchors and scale as the connected kit. Use the standalone door proposals, not the connected textures. Never use these closed-end guides as the connected runtime catalogue.",
   "sourceHashes": {
-    "assets/dungeon/wireframe-cells/floor.svg": "007589fb8c4011716883bafff537e22b0044cb04d50ef3eda1c80ff50418f753",
-    "assets/dungeon/wireframe-cells/catalog.json": "2e2273ec1b9e4a3391e10393531ba76ac3dbf67129ceef11e5c8a81c8faf5a63",
-    "tools/export_wireframe_cell_kit.cjs": "47b5fac268c3d2857f519a637c297795b4ac346ade60b9b7d997eaed9a9282d3",
+    "assets/dungeon/wireframe-cells/floor.svg": "c9330094ff66808db1027ce72623d7fce1891c352f5e801c51583b27b6fbb536",
+    "assets/dungeon/wireframe-cells/catalog.json": "feea1776dda58562f92fc9ee33d77dcea80708b4b7b3119759c72ec8c69135e9",
+    "tools/export_wireframe_cell_kit.cjs": "f76e28451bab0a63a6c3c40f93cdc119b26044578929186064a8e14f46366ac8",
     "docs/reference/two-course-square-room.json": "228ba7137e3f5f75cc5659df49adfcbc5ea8e182b4ba5fcb12dd461d2e066cd0",
     "assets/dungeon/wireframe-cells/w00_p00_e00.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
     "assets/dungeon/wireframe-cells/w00_p01_e00.svg": "9310cbaf127453ce7e7c2bfb7644ea97123e8beb7ee3d77a7231438cfc565a22",
@@ -167,13 +167,13 @@
     "assets/dungeon/wireframe-cells/w14_p00_e00.svg": "967e368fee6d9f64bb3997b022adc0b6db18e3cdc1df80dfd3fdb614f371bb89",
     "assets/dungeon/wireframe-cells/w14_p00_e01.svg": "c1994cdac836ca6c76642a53f2022c679cf15270b0adaaacbb8b7b4badbe7784",
     "assets/dungeon/wireframe-cells/w15_p00_e00.svg": "033b46a3a0340504a0742ea79f92f2fce72cbbd423ca189cac1f60f0cf73c16a",
-    "docs/reference/entrance-stairs-open-south-wireframe.json": "44b66dd7c1ad88f6d968ce51de59a8a248e66d1ea37c520e48ec9c527bc54a66",
-    "assets/dungeon/wireframe-entrances/catalog.json": "425b05cef5729b4c9162baf93895ec7f784d70ebaf79c1d9598943a611d79862",
-    "assets/dungeon/wireframe-doors/catalog.json": "475ef4914706cc40a8b4b7f11217a081d76a2b722dc6521e27242c333dc88c6e",
-    "docs/reference/door-arch-facing-north-wireframe.json": "0f301cd9d522f33119a2832a34745f213cb3d0ffd9330b385b4b8587489904f2",
-    "docs/reference/door-arch-facing-east-wireframe.json": "5b65310d9d8430c727e656f79e739ce4c20527bce9af76b39943f923672e83fb",
-    "docs/reference/door-arch-facing-south-wireframe.json": "7b62ff31032fff9f260b22d3c1a663b6aa1833d1b100fd6ebcdae19a0d1163bd",
-    "docs/reference/door-arch-facing-west-wireframe.json": "2528cd027fc0ef819577ce61a9d8f5ca6e6ac4046ab25fb796bfac706105851e"
+    "docs/reference/entrance-stairs-open-south-wireframe.json": "b9bbcfee6c32b7e4957cd37d1300263ea2d5cb034614cb2098b76358f3413e07",
+    "assets/dungeon/wireframe-entrances/catalog.json": "1d0d8a92ebedd368f9b2563a8df3dfffe1b5ef4da1bd302b2a68e21674cf6118",
+    "assets/dungeon/wireframe-doors/catalog.json": "fd49549e0f7a7352bd15a90ac75d8dab0db225d41243fc335e64fb6e7db73d5f",
+    "docs/reference/door-arch-facing-north-wireframe.json": "c92684080ca2a51f5b41223349c34bbb0d29b32f70a0ee690ec1683e4ca77376",
+    "docs/reference/door-arch-facing-east-wireframe.json": "9d7e9152c990f674f4cf18a3aff8a3194267918e9241d3ae48453d908e96ec06",
+    "docs/reference/door-arch-facing-south-wireframe.json": "d3bde72e89771ed852f05ce5bae11c7014980bf469d9a8c934ae2b66eda16540",
+    "docs/reference/door-arch-facing-west-wireframe.json": "2db7a73fd04a994c020167f337da723158c4b1eb80591cd8613940259ed30f52"
   },
   "entries": {
     "cells/w00_p00_e00": {
@@ -2537,7 +2537,7 @@
       ],
       "variant": "w13_p00_e00",
       "direction": "east",
-      "visibleSegmentCount": 67
+      "visibleSegmentCount": 62
     },
     "entrances/south": {
       "svg": "entrances/south.svg",
@@ -2555,7 +2555,7 @@
       ],
       "variant": "w11_p00_e00",
       "direction": "south",
-      "visibleSegmentCount": 64
+      "visibleSegmentCount": 61
     },
     "entrances/west": {
       "svg": "entrances/west.svg",
@@ -2573,7 +2573,7 @@
       ],
       "variant": "w07_p00_e00",
       "direction": "west",
-      "visibleSegmentCount": 53
+      "visibleSegmentCount": 49
     },
     "doors/north": {
       "svg": "doors/north.svg",
@@ -2591,7 +2591,7 @@
       ],
       "variant": "w10_p00_e00",
       "direction": "north",
-      "visibleSegmentCount": 288
+      "visibleSegmentCount": 280
     },
     "doors/east": {
       "svg": "doors/east.svg",
@@ -2609,7 +2609,7 @@
       ],
       "variant": "w05_p00_e00",
       "direction": "east",
-      "visibleSegmentCount": 291
+      "visibleSegmentCount": 278
     },
     "doors/south": {
       "svg": "doors/south.svg",
@@ -2627,7 +2627,7 @@
       ],
       "variant": "w10_p00_e00",
       "direction": "south",
-      "visibleSegmentCount": 286
+      "visibleSegmentCount": 278
     },
     "doors/west": {
       "svg": "doors/west.svg",
@@ -2645,7 +2645,7 @@
       ],
       "variant": "w05_p00_e00",
       "direction": "west",
-      "visibleSegmentCount": 253
+      "visibleSegmentCount": 240
     },
     "pillar": {
       "svg": "pillar.svg",

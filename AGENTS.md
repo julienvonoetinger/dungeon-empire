@@ -1,5 +1,114 @@
 # Repository instructions
 
+## Approved smooth rounded floor integration — 2026-10-23
+
+- User answered "Oui" to integrating the smooth floor with rounded slab corners
+  in Godot. This supersedes the proposal-only floor gates below; the proposed
+  varied wall family remains a separate review.
+- Active recipe: shared-materials/active-recipe.json. Exact accepted atlas copied
+  unchanged to shared-materials/floor-smooth-atlas-v1.png. Four existing floor IDs
+  select samples 6/2/4/3 from the eight-source atlas. They cover four complete
+  periodic C stones; both boundary fragments share one ID. Legacy names such as
+  floors-fine-crack are compatibility IDs, not descriptions of the new surface.
+- floor.opacity=.55. Active recipe floorFinish has radius 10.5 and floorFactor
+  .63; it applies only to ground slabs. Walls and stair tread rounding retain B.
+  Stairs use the smooth palette through the existing shared floor material IDs.
+  Dimensions, construction guides, alpha, anchors and layouts remain fixed.
+- Production exporters explicitly pass floorFinish and floorPattern to models.
+  Historical material reviews keep their explicit old recipes/default B finish.
+  Reproduce with prepare_shared_stone_materials.cjs, export_painted_image_catalog.cjs
+  and export_painted_connected_kit.cjs --specials-only (also refreshes shared floor),
+  then Godot import. Special contexts need re-export because they contain stairs.
+- Partial context exports preserve ordinary structures' sourceHashes and record
+  updated specialSourceHashes; floor.sourceHashes remains separate. Godot still
+  places prepared PNGs. No new runtime variation system or wall promotion here.
+
+- Completed: 57 isolated images / 146 aliases; connected 737 images / 1444
+  contexts. Godot import and five scene captures exit 0, stderr empty. Normal
+  views inspected; no automated tests. Logs: artifacts/smooth-rounded-*.log.
+  Isolated review sheets now use the same atomic writer as sprites to avoid
+  truncating a Windows-locked PNG. Source review found no Important/Critical
+  issues in the floor propagation. Existing editor refresh still requires the
+  inspector button or F6 after import.
+
+## Smooth rounded floor review history — 2026-10-23
+
+- User accepted the smoother floor direction and requested rounded slab corners
+  like the mockup. Keep its eight smooth samples and low contrast (.55 opacity).
+- `tools/prepare_rounded_smooth_floor_c_review.cjs` prepares a floor-only finish
+  proposal: radius 10.5 reference pixels, multiplied by the existing .63 floor
+  factor (about 6.6 px at 256 px/cell). Inset, bevel width, material IDs and seeds
+  stay fixed. Walls retain B; the active stone-finish.json is not changed.
+- Outputs in material-variation-review/: `rounded-smooth-floor-detail.png`,
+  `rounded-smooth-floor-comparison.png`, `rounded-smooth-c-comparison.png` with
+  magenta overlay, and `rounded-smooth-floor-recipe.json`. The previous smooth
+  images are frozen in source/*-before-rounding.png.
+- The shared compositor accepts an optional model.floorFinish, recorded in the
+  report. Production exports without this option retain their existing finish.
+  Whole floor stones are rounded before framing; connection cuts must not gain
+  a corner or bevel. Review images are not runtime assets. Corner rounding still
+  awaits visual approval before propagation; no Godot scene change at this stage.
+
+## Smoother floor material proposal — 2026-10-23
+
+- User wants smoother, quieter floor surfaces like the original mockup so future
+  objects remain distinguishable. Keep large slab C geometry and finish B.
+- `tools/prepare_smooth_floor_c_review.cjs` revises only the proposed floor
+  materials, keeping the proposed walls from `appearance-c-recipe.json`.
+  Source: `shared-materials/proposals/variation-review/floor-smooth-v1.png`, eight
+  generated smooth slate samples without large chips, holes or cracks. Floor
+  texture opacity .55 softens contrast; all other floor profile values stay fixed.
+- Review: `material-variation-review/smooth-floor-comparison.png` and
+  `smooth-c-comparison.png` (NW corner with magenta overlay). Exact prompt,
+  references and original path: `smooth-floor-generation.json`; complete material
+  recipe: `smooth-floor-recipe.json`. Previous proposal PNGs are frozen in source/.
+- This supersedes the scarred floor samples in the pending material proposal,
+  not the active production family. No Godot propagation before appearance review.
+  The corner retains 38 guide segments and matching construction alpha with no
+  interior holes. This is not a gameplay legibility test or arbitrary join proof.
+
+## Approved large floor C; material variety pending — 2026-10-23
+
+- User dislikes the small violet branching stroke, repeated wall motifs and
+  repetitive floor. Latest steering identifies floor slabs as too small versus
+  the original mockup. User approved option C: "oui le C".
+- Proposal: `docs/reference/material-variation-review/floor-size-comparison.png`
+  compares 6 / 3 / 2 decorative rows per logical cell over the same 3x3 area.
+  All three use the same proposed materials and finish B. The logical grid stays
+  1x1. C is now active in `floor-periodic-cell.json`: row heights [2.5,2.5]
+  and widths [[1.15,3.05,1.8],[2.3,3.15,.55]] in the normalized 6x5 frame.
+  Two rows, six fragments, four complete periodic stones; full widths .475..525
+  cells. The connected floor has six source segments and keeps its opaque frame.
+- `tools/prepare_material_variation_review.cjs` reproduces the appearance study;
+  `--floor-sizes-only` renders the size comparison alone. Whole stones crossing
+  cell borders are painted before framing. The previews are not production room
+  sprites or proof of arbitrary prepared tile compatibility. Frozen pre-C floor
+  source/PNG live under the review's source/ directory for reproduction.
+- Proposed source `shared-materials/proposals/variation-review/atlas-calm.png`
+  has 8 wall and 8 floor samples. Earlier atlas.png is an overly rough intermediate.
+  Generation provenance and prompts are beside the review. This new material
+  family is not promoted by the C slab-size decision. Active materials remain
+  the approved stylized family; all scenes receive the prepared large floor.
+  Isolated PNGs and transparent guides are re-exported with C too. Connected
+  structures contain no ground and stay unchanged; --floor-only preserves them.
+  Floor input hashes are stored under catalog.floor.sourceHashes, leaving the
+  retained structures' original provenance intact. The optional `drawAccent:false`
+  renderer flag suppresses the purple doodle in proposals only.
+
+- Latest material proposal after C: `corner-c-comparison.png` in the same review
+  directory shows the NW corner before/after and its magenta overlay (38 source
+  segments). `appearance-c-comparison.png` compares a six-cell wall and a 3x3 C
+  floor field with 8 proposed wall / 8 floor materials. Floors favor calm samples;
+  violet lives in rare painted crevices, with no added branch stroke.
+  Reproduce with `node tools/prepare_material_variety_c_review.cjs`.
+  The corner is a deliberately composed palette sample; field assignment uses
+  whole stone identities. Both are appearance proposals, NOT a prepared runtime
+  variant catalogue. Active textures remain unchanged pending this visual review.
+  `appearance-c-recipe.json` stores inputs, profiles and export reports. The NW
+  report records zero missing interior pixels and matching construction alpha;
+  this does not prove arbitrary future tile joins. Baseline PNGs are frozen in
+  the review's source/ directory so future regeneration retains the comparison.
+
 ## Approved wall join correction — 2026-10-23
 
 - User found texture seams inside stones spanning cells after B. Root cause:
@@ -137,11 +246,11 @@
   floor and iron materials stay unchanged. This is an appearance proposal awaiting
   user review; active Godot assets and catalogs have NOT been replaced.
 
-## Current floor rhythm correction — 2026-10-23
+## Previous floor rhythm correction — superseded by C above
 
 - User reports columns of long slabs caused by the wireframe subdivision.
-  Current paving source is `docs/reference/floor-periodic-cell.json`, superseding
-  the historic 19-fragment motif for active exports. Six unchanged row heights,
+  Paving source `docs/reference/floor-periodic-cell.json` previously superseded
+  the historic 19-fragment motif. That intermediate version had six row heights,
   26 fragments / 20 full periodic stones, full widths .24..40 cells, staggered cuts.
   Count the left+right fragments as ONE stone when assessing width; the old
   pattern joined them into stones up to .78 cells and repeated a long-stone band.

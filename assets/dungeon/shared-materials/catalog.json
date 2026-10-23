@@ -1,11 +1,11 @@
 {
-  "id": "shared-dungeon-stylized-materials-v2",
+  "id": "shared-dungeon-stylized-smooth-floor-v3",
   "status": "user_approved_material_family",
   "approval": "oui utilise cette nouvelle gamme de texture",
   "approvedReview": "docs/reference/stylized-material-review/comparison.png",
   "canonicalStyle": "assets/dungeon/shared-materials/stylized-reference.png",
   "recipe": "assets/dungeon/shared-materials/active-recipe.json",
-  "recipeSha256": "5dc05f643decff301a5ef87611de142541d4c7e8d3254e31a724fc0deed60482",
+  "recipeSha256": "06ac95d5d81ac750ba203ebe0e56907b8873d137ce0289a425a129d653fa84d7",
   "purpose": "Approved stylized materials reused on fixed wireframe faces; prepared offline.",
   "rules": [
     "Use this exact approved source atlas and crop recipe by default.",
@@ -25,7 +25,7 @@
     "floor": {
       "color": "#3c465d",
       "brightness": 0.84,
-      "opacity": 0.64,
+      "opacity": 0.55,
       "blur": 0.4
     },
     "north": {
@@ -146,76 +146,76 @@
     "floors-calm": {
       "file": "floors-calm.png",
       "family": "floors",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
-      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
       "sourceRegion": {
-        "left": 57,
-        "top": 647,
-        "width": 525,
-        "height": 525
+        "left": 449,
+        "top": 449,
+        "width": 431,
+        "height": 431
       },
-      "sha256": "ce3c46aa159393f418564bd2caa5bdb18d919b35cd526f247f3684dcd3090d1b",
+      "sha256": "59b43b21373f2c8eb5bbf6582a0e22e49af676cd2b49f6f4b8bc5454ec6e3198",
       "meanRGB": [
-        41.37,
-        50.79,
-        74.34
+        39.74,
+        51.75,
+        83.05
       ],
       "status": "user_approved_material_family"
     },
     "floors-fine-crack": {
       "file": "floors-fine-crack.png",
       "family": "floors",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
-      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
       "sourceRegion": {
-        "left": 8,
-        "top": 733,
-        "width": 513,
-        "height": 513
+        "left": 449,
+        "top": 6,
+        "width": 431,
+        "height": 431
       },
-      "sha256": "64ddcc756d436aa0639afca23c9a9148316da4296835b9fc642f089c305e5239",
+      "sha256": "e1704937c09f93feab475904efa2a1642943915e0a95bd4c98466c8340918694",
       "meanRGB": [
-        41.92,
-        51.5,
-        75.33
+        40.5,
+        52.78,
+        84.58
       ],
       "status": "user_approved_material_family"
     },
     "floors-worn": {
       "file": "floors-worn.png",
       "family": "floors",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
-      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
       "sourceRegion": {
-        "left": 106,
-        "top": 635,
-        "width": 513,
-        "height": 513
+        "left": 1335,
+        "top": 6,
+        "width": 431,
+        "height": 431
       },
-      "sha256": "0a2873e6c31961c53683d3a571d1b59591d17e284b70f05980052c586b4b7404",
+      "sha256": "fc104071e13da76253cee0bef70020ad63e3a1bd88199669c8874bc47b0a5065",
       "meanRGB": [
-        40.83,
-        50.14,
-        73.45
+        38.83,
+        50.98,
+        82.21
       ],
       "status": "user_approved_material_family"
     },
     "floors-marks": {
       "file": "floors-marks.png",
       "family": "floors",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
-      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
       "sourceRegion": {
-        "left": 39,
-        "top": 696,
-        "width": 525,
-        "height": 525
+        "left": 892,
+        "top": 6,
+        "width": 431,
+        "height": 431
       },
-      "sha256": "9294fb2d561dae9d8a3035f7ed71e3280608be086a3fabff81c0c8a17f3f6ea5",
+      "sha256": "d87d50d0b6091ec413129422666fc04103e3cb4f57dec24614771f1b9cd43a21",
       "meanRGB": [
-        41.66,
-        51.15,
-        74.83
+        41.48,
+        53.83,
+        85.72
       ],
       "status": "user_approved_material_family"
     },
@@ -256,6 +256,47 @@
         67.16
       ],
       "status": "user_approved_material_family"
+    }
+  },
+  "floorFinish": {
+    "id": "smooth-floor-rounded-v1",
+    "status": "user_approved",
+    "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+    "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+    "radius": 10.5,
+    "inset": 0.55,
+    "unevenness": 0.12,
+    "bevel": 2.2,
+    "floorFactor": 0.63,
+    "narrowFaceReference": 14,
+    "mortar": "#0c1220",
+    "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+  },
+  "floorPattern": {
+    "geometryId": "periodic-large-floor-c-v3",
+    "cells": {
+      "0:0": "floors-fine-crack",
+      "0:1": "floors-calm",
+      "0:2": "floors-fine-crack",
+      "1:0": "floors-worn",
+      "1:1": "floors-marks",
+      "1:2": "floors-worn"
+    },
+    "scope": "One periodic prepared C floor with four whole stones. Eight-source material atlas retained; no new runtime variations."
+  },
+  "floorApproval": {
+    "date": "2026-10-23",
+    "request": "Oui",
+    "review": "docs/reference/material-variation-review/rounded-smooth-c-comparison.png",
+    "detail": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+    "recipe": "docs/reference/material-variation-review/rounded-smooth-floor-recipe.json",
+    "recipeSha256": "6291ea1806929dc15f271e4b5e68c37172a98b606331be156751cb53919b8cbb",
+    "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
+    "selection": {
+      "floors-calm": 6,
+      "floors-fine-crack": 2,
+      "floors-worn": 4,
+      "floors-marks": 3
     }
   }
 }
