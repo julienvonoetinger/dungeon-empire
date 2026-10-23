@@ -1,5 +1,317 @@
 # Repository instructions
 
+## Active Godot integration — 2026-10-23
+
+- The user explicitly authorized replacing the modular study rendering with the
+  wireframe cells, and chose WIREFRAMES FIRST before painted sprites. The older
+  review-only restrictions below describe previous stages, not a current ban
+  on this integration. Artistic acceptance of the imported kit is still pending.
+- Godot must NOT generate images, paving, wall geometry or masonry at runtime.
+  `scripts/wireframe_cell_study.gd` only selects complete pre-imported textures
+  and places Sprite2D nodes on an integer square grid. One floor image and at
+  most one wall image per cell; no stone fitting, clipping, mirroring or tinting.
+- `assets/dungeon/wireframe-cells/` is a prepared SVG image catalogue, explicitly
+  preloaded by `wireframe_cell_catalog.gd`. It has 136 wall records including
+  blank states, covering the 16 cardinal combinations, concave pier combinations
+  and exposed open ends. `wireframe_cell_layout.gd` reads cardinal and diagonal
+  occupancy; pier geometry is ALREADY in the selected image, not drawn in Godot.
+- `tools/export_wireframe_cell_kit.cjs` is an OFFLINE vector preparation tool.
+  It is never invoked by Godot. Projection and wall dimensions come from the
+  `after` model of `two-course-square-room.json`: true 1x1 grid, thickness 1/6,
+  height 1.88/6, single joint at .94/6, height-up (-.18,-.9). The SVGs use neutral
+  filled faces to hide rear lines; this is a geometry prototype, not painted art.
+- The provisional invented paving pattern was withdrawn after user clarification.
+  `floor.svg` uses the EXISTING 19-slab motif of `floor-only-cell-wireframe.json`,
+  normalized from its historical 6x5 drawing bounds to a square image. This
+  repeated cell motif is distinct from the earlier global whole-room paving.
+  Never silently redesign that motif or claim the global study is pixel-identical.
+- All 13 existing modular study/alias scenes now reference the new renderer.
+  Dimensions, open endpoints and attachment settings are preserved. The explicit
+  `WireframeClosedCorridors.tscn` example has a 3x3 room plus four length-two
+  closed branches: 17 cells, eight junction piers. F6 opens this example.
+  F5 still points to `5x5RoomVerticalCornerCorridors.tscn` in project.godot.
+  SixRoomPreview and its legacy artwork are separate and were not migrated.
+- Keep the computed refresh_action Callable getter. SVG files are imported as
+  textures with mipmaps, including in editor previews. Use linear mipmap
+  filtering to avoid disappearing wireframe strokes when the map is reduced.
+  Floors and walls are separate layers;
+  hero occlusion/ysorting, collision and navigation are NOT implemented by this.
+- Human-review captures: `tools/capture_wireframe_cells.gd`, artifacts named
+  `wireframe-<scene>.png` and `-2x.png`. The older stone-specific capture helpers
+  target legacy renderer diagnostics; use the new helper for these studies.
+
+## Current user review gate — 2026-10-23
+
+- Latest grid constraint: cells must remain SQUARE 1 x 1 units so the dungeon
+  can be assembled on a regular grid. The proposed 6 x 7.5 rectangular-cell
+  comparison was explicitly rejected before any geometry changes were made.
+  Do not adopt that proposal or treat the earlier 6 x 5 drawing dimensions as
+  approval of rectangular logical cells. The user clarified that corridors must
+  remain ONE CELL wide and authorized revising visible wall height. They then
+  specifically requested removing the thin masonry level from every wall.
+- Current requested study: SQUARE GRID WITH TWO WALL COURSES.
+  `docs/reference/two-course-square-room.svg`, directional detail SVGs, JSON
+  and `two-course-square-corridor-{before,after}.svg` use true 1 x 1 cells.
+  Keep ground X/Y screen-aligned and height-up (-0.18,-0.9). Thickness is 1/6
+  of a cell, using the former six-unit horizontal width as the common scale.
+  Both comparison models share this square plan, paving, wall thickness and
+  framing; the reference is a square reconstruction, not the old 6 x 5 image.
+  Remove the former 0.32/6 thin top band: height drops from 2.2/6 to 1.88/6,
+  leaving TWO equal 0.94/6 courses and one horizontal joint. Top-stone joints
+  continue through the upper course. All wall orientations and all eight piers
+  use the same height; piers retain horizontal joints only. The 17-module
+  room keeps four closed corridors, each one cell wide. Eight terminal-wall
+  interfaces remain internal (80 source edges omitted, vs 96 with the thin band).
+  The horizontal visible floor band grows from 0.336667 to 0.384667 cell,
+  approximately 14.3%, on the shared square plan. This is a modest gain, not
+  proof of gameplay readability. The blue character is an indicative scale
+  guide (height .30, width .18 cell), near the foreground wall at local y=.64;
+  dashed portions are occluded. No production hero scale is approved by it.
+  The default view shows the full room without the thin band. This remains a
+  wireframe review proposal, without Godot or painted-asset changes.
+- Previous requested variants: FOUR THREE-WALL CELLS, ONE OPEN SIDE EACH.
+  `docs/reference/three-wall-cell-open-{north,east,south,west}.svg` and JSON
+  define U-shaped prisms in the shared 6 x 5 cell, height 2.2, thickness 1.
+  The suffix names the OPEN side. Floors: north [1,0,5,4], east [1,1,6,4],
+  south [1,1,5,5], west [0,1,5,4], all z=0. Each variant retains the shared
+  projection, course levels and masonry spacing; never rotate/mirror its
+  projected drawing. The isolated floor rows retain the shared slab joints,
+  trimmed at wall feet. Foreground-wall occlusion is intentional.
+  `room-closed-corridors-wireframe.svg` and four directional detail views append
+  one terminal cell to EACH existing corridor, giving 17 modules total. The
+  opening faces the room: N-open at (6,20), S-open at (6,-10), E-open at (-12,5),
+  W-open at (24,5). Eight full wall-end interfaces become internal (96 source
+  edges omitted). Continuous wall runs and paving span those interfaces.
+  The eight original square junction piers remain unchanged, with horizontal
+  joints only. The assembled floor contains 170 slabs in 33 rows. Overall
+  ground bounds are x=-12..30, y=-10..25. These are line-only review proposals,
+  without Godot integration or painted-asset changes. The preceding open-ended
+  room study is preserved separately.
+- Previous requested assembly: 3 x 3 ROOM WITH FOUR CENTERED CORRIDORS.
+  `docs/reference/room-four-corridors-wireframe.svg` and its north/east/south/west
+  detail SVGs/JSON extend the previous south-corridor study with three branches.
+  The 13 modules are the nine room cells plus west/east north-south-wall cells
+  at (-6,5) and (18,5), and north/south west-east-wall cells at (6,-5)/(6,15).
+  The four room edge-center cells have floor only. Eight identical 1 x 1 x 2.2
+  piers bridge full faces: (6,0), (11,0), (0,5), (0,9), (17,5), (17,9),
+  (6,14), (11,14). Piers retain horizontal joints only. All far ends are open;
+  clear widths are 4 north/south and 3 west/east, from the shared 6 x 5 cell.
+  The 142 slabs occupy 25 continuous rows. Room rows at y=6..9 extend across
+  both horizontal corridors without cell-border seams. Preserve projection,
+  wall height/thickness, masonry courses and staggered joints. This is a
+  line-only review proposal, without Godot or painted-asset changes.
+- Previous requested variant: ONE CELL WITH NORTH AND SOUTH WALLS ONLY.
+  `docs/reference/north-south-cell-wireframe.svg` and construction SVG/JSON
+  use two separate prisms at x=0..6, y=0..1 and y=4..5, height 2.2,
+  thickness 1. Floor: x=0..6, y=1..4, z=0, nine staggered slabs in three
+  rows of heights 1, 1.1 and 0.9. West/east remain open. Preserve the common
+  projection and the recent masonry divisions (1.9 spacing, phases 0.7/1.65,
+  cap joints continued down to z=1.88). The foreground wall occludes part
+  of the floor. This is a line-only proposal, without scene integration.
+- Previous requested study: CONTINUOUS PAVING AND MASONRY JOINTS.
+  `docs/reference/masonry-floor-wireframe.svg` and its floor/junction/pillar
+  views retain the 3 x 3 room, south corridor, square piers and common projection.
+  The floor pattern now spans the whole usable floor, with no decorative seams
+  at logical cell edges. The saved JSON records 111 slabs in 19 rows (13 room,
+  6 corridor), staggered widths and slightly varied row heights. Floor remains
+  at z=0 and meets the physical wall feet. This supersedes the old repeated
+  per-cell paving pattern for the current proposal only.
+  Lower wall courses have 1.9-unit brick spacing, with phases 0.7 and 1.65.
+  Cap divisions continue down their 0.32-high front edges. Corner and pier caps
+  remain whole square stones. User correction: piers have horizontal joints only,
+  with no vertical subdivision of their small faces. Wall height
+  2.2, thickness 1, course levels 0.94/1.88 and opening width 4 are unchanged.
+  This remains line-only review work, without changes to Godot or painted assets.
+- Previous requested piece: SQUARE JUNCTION PIER.
+  `docs/reference/pillar-junction-wireframe.svg`, `-pillar.svg`, `-room.svg`
+  and JSON propose a 1 x 1 x 2.2 prism, with the common projection and courses
+  at z=0.94 and 1.88. Two identical instances at (6,14,0) and (11,14,0)
+  bridge the south room walls and the corridor walls with full 1 x 2.2 faces.
+  Their footprints cover two 1 x 1 patches of the bottom-center floor cell;
+  the clear opening stays x=7..11, width 4. No projection mirroring, flared
+  base or extra height. The accent stroke identifies the proposed piers only.
+  This is a wireframe review proposal, without Godot or painted-asset changes.
+- Previous requested assembly: 3 x 3 ROOM WITH A SOUTH CORRIDOR.
+  `docs/reference/room-3x3-south-corridor-wireframe.svg` and JSON retain the
+  nine-cell room but replace its bottom-center south-wall cell with floor only.
+  A tenth cell with west/east walls is placed at (6,15), below the opening.
+  Corridor bounds: x=6..12, y=15..20; clear floor: x=7..11. Preserve the
+  common projection and dimensions. Six full wall interfaces remain internal
+  (72 source edges omitted). The corridor walls touch the room's south walls
+  only along vertical edges at (6,15) and (12,15): a full-thickness junction
+  required the dedicated return proposed above. This preserves the earlier study,
+  without scene integration or a claim of a validated junction.
+- Previous requested variant: ONE CELL WITH WEST AND EAST WALLS.
+  `docs/reference/side-walls-cell-wireframe.svg` and its construction SVG/JSON
+  use two separate prisms at x=0..1 and x=5..6, y=0..5, height 2.2, thickness 1.
+  Floor: x=1..5, y=0..5, z=0; 18 slabs retain the shared pattern's joints.
+  Both walls use the same projection and height vector. North and south are
+  open; hide occluded floor lines. This is a wireframe proposal only.
+- Previous requested assembly: ROOM OF 3 x 3 CELLS (the user corrected 3 x 2).
+  `docs/reference/room-3x3-wireframe.svg`, `-seams.svg` and JSON assemble all
+  nine studies. Top: upper-left / north / upper-right; middle: west / floor /
+  east; bottom: lower-left / south / lower-right. Cell offsets are multiples
+  of (6,5), with room bounds x=0..18, y=0..15. Keep the common projection,
+  wall height 2.2, thickness 1 and existing slab pattern. The eight shared wall
+  end faces are internal (96 source edges omitted). Visibility uses the whole
+  assembled volume. This is a wireframe proposal, without Godot integration.
+- Previous requested variant: FLOOR-ONLY CELL, with no walls.
+  `docs/reference/floor-only-cell-wireframe.svg` and JSON cover x=0..6, y=0..5
+  at z=0, preserving the shared projection and the complete slab pattern before
+  wall-foot trimming: 19 slabs in six rows (height 1 then five rows of 0.8).
+  All four sides are open. This remains a line-only geometry proposal.
+- Previous requested variant: LOWER-RIGHT CORNER CELL WITH FLOOR.
+  `docs/reference/lower-right-cell-wireframe.svg` and its construction SVG/JSON
+  join the east wall (x=5..6, y=0..5) and south wall (x=0..6, y=4..5) as
+  one L-shaped prism, height 2.2 and thickness 1. Floor: z=0, x=0..5, y=0..4.
+  Preserve the shared projection and slab joints; do not mirror the projected
+  lower-left drawing. Hide occluded lines. Top and left remain open.
+  This remains a line-only geometry proposal, without scene integration.
+- Previous requested variant: LOWER-LEFT CORNER CELL WITH FLOOR.
+  `docs/reference/lower-left-cell-wireframe.svg` and its construction SVG/JSON
+  join the west wall (x=0..1, y=0..5) and south wall (x=0..6, y=4..5) as
+  one L-shaped prism, height 2.2 and thickness 1. Floor: z=0, x=1..6, y=0..4.
+  Preserve the shared projection and slab joints. Hide lines occluded by the
+  combined volume; top and right remain open. This remains a line-only proposal.
+- Previous requested variant: ONE CELL WITH ONLY A SOUTH WALL and floor.
+  `docs/reference/south-wall-cell-wireframe.svg` and its construction SVG/JSON
+  use wall bounds x=0..6, y=4..5, height 2.2, thickness 1; floor is z=0,
+  x=0..6, y=0..4. Preserve the projection and height direction. The foreground
+  wall occludes the floor behind it; hidden lines are optional. Top/left/right
+  are open. This is still a line-only geometry proposal, without scene changes.
+- Previous requested variant: ONE CELL WITH ONLY AN EAST WALL and floor.
+  `docs/reference/east-wall-cell-wireframe.svg` and its construction SVG/JSON
+  keep the unchanged projection, thickness 1 and height 2.2. Wall: x=5..6,
+  y=0..5. Floor: z=0, x=0..5, y=0..5. Preserve the upper-right corner's slab
+  joints for y=1..5 and add one row in y=0..1. Clip floor lines hidden by the
+  wall volume. Do not mirror the west drawing; top/left/bottom remain open.
+- Previous requested variant: ONE CELL WITH ONLY A WEST WALL and floor.
+  `docs/reference/west-wall-cell-wireframe.svg` and its construction SVG/JSON
+  preserve the same projection and cell bounds. Wall: x=0..1, y=0..5,
+  height 2.2. Floor: z=0, x=1..6, y=0..5. Keep the corner's existing joints
+  for y=1..5 and add one row in y=0..1 where the north wall was removed.
+  Top/right/bottom are open; this remains a line-only geometry proposal.
+- Previous requested assembly: THREE CELLS IN A ROW — upper-left corner,
+  north-wall-only cell, then upper-right corner. See
+  `docs/reference/three-cell-wireframe-join.svg`, `-seams.svg` and JSON.
+  Offsets are (0,0,0), (6,0,0), (12,0,0); preserve all source dimensions,
+  projection and slab joints. The shared wall end faces at x=6 and x=12 are
+  internal (24 outline edges omitted); floor visibility uses the combined
+  wall volume. The two continuous floor grout lines remain part of this study.
+  This is a line-only assembly proposal, without scene integration.
+- Previous requested variant: UPPER-RIGHT CORNER CELL WITH FLOOR, recorded in
+  `docs/reference/upper-right-cell-wireframe.svg` and its construction SVG/JSON.
+  Keep the accepted projection unchanged; move the return in world coordinates
+  to x=5..6, y=0..5. Never mirror the projected upper-left image. The north wall
+  stays x=0..6, y=0..1; floor is z=0, x=0..5, y=1..5. North-only slab joints
+  are retained and trimmed at x=5. Hide floor lines occluded by the east wall.
+  This remains a line-only proposal, without scene integration.
+- Previous assembly review: place the upper-left corner cell A beside the
+  north-wall-only cell B on its right. See `docs/reference/two-cell-wireframe-join.svg`
+  and its JSON; `-seam.svg` marks the interface. B is translated by (6,0,0),
+  with no rotation or scaling. The 12 wall edges on the shared end faces become
+  internal and are omitted from the joined view. The existing slab layout is
+  preserved, including its continuous grout line at x=6; this remains an artistic
+  limitation to review. The focused report in `artifacts/two-cell-wireframe-join-report.json`
+  checks 14 matching boundary points with zero projected mismatch. This is a
+  wireframe assembly proposal, not approval of painted assets or Godot scenes.
+- Previous variant: ONE CELL WITH ONLY A NORTH WALL and floor.
+  `docs/reference/north-wall-cell-wireframe.svg` (plus construction SVG/JSON)
+  derives from the corner study: keep the north wall, remove the west return,
+  and extend floor coverage west to x=0. Cell bounds remain x=0..6, y=0..5;
+  wall height, thickness, projection and framing are unchanged. Left/right/bottom
+  are open. This is another line-only geometry proposal, not scene integration.
+- APPROVED GEOMETRY: the user accepted `wall-wireframe-aligned.svg` ("ok très
+  bien on avance") and designated it the UPPER-LEFT CORNER OF ONE CELL.
+  Preserve that wall geometry and its projection exactly: ground X=(1,0),
+  ground Y=(0,1), height-up=(-0.18,-0.9), height 2.2, thickness 1. This approval
+  concerns the wireframe geometry, not any rejected painted sprite or live scene.
+- Previous floor addition in the corner wireframe: see
+  `docs/reference/corner-cell-floor-wireframe.svg`, its construction SVG and JSON.
+  Floor is at z=0, x=1..6, y=1..5, touching the north/west WALL FEET. Its 16
+  rectangular slabs use five staggered rows. Never align the floor to elevated
+  wall-cap edges or change the accepted projection to fit the floor.
+- Continue reviewing these wireframe variants before
+  painted asset generation or scene integration unless the user directs otherwise.
+
+### Orientation correction now accepted
+
+- Latest correction: the LEFT WALL RUN must be vertical ON SCREEN, not diagonal.
+  The two-point wireframe was rejected for its orientation. Current proposal:
+  `docs/reference/wall-wireframe-aligned.svg` and
+  `wall-wireframe-aligned-construction.svg`, metadata in
+  `wall-wireframe-aligned.json`. It is a parallel oblique drawing with ground X
+  horizontal and ground Y vertical. All faces share the same height offset.
+  This is not a finite two-point camera. The user has now accepted this wireframe
+  as the cell's upper-left corner; preserve its relief offset in the floor study.
+- The user rejected `corner-parallel-courses.png` as still having
+  incorrect perspective and asked for a LINE-ONLY WIREFRAME with correct geometry
+  and vanishing lines. The first wireframe files `wall-wireframe.svg` and
+  `wall-wireframe-construction.svg` are now rejected historical proposals.
+- That rejected wireframe used a real level pinhole camera with two finite ground-plane
+  vanishing points and parallel vertical edges. Its constant-section L prism and
+  camera recorded in `wall-wireframe-two-point.json`. Do not use it as an
+  approved reference for the game's screen-aligned floor plan.
+- The old assistant-chosen oblique contract (+16,+96) is suspended for review.
+  It was never artistically approved; do not treat it as a user requirement.
+- The deterministic line drawing is explicitly requested by the user. It is
+  a geometry guide, not a programmatically repaired production sprite.
+
+### Previous sprite review (rejected)
+
+- The user requested one proposed sprite for approval before any further kit
+  generation or scene updates. Their latest feedback REJECTED
+  `assets/dungeon/gloom-kit/proposals/corner-parallel-courses.png`.
+- The user rejected `corner-straight-foot.png`: its base and perspectives were
+  still wrong. Do not use that locally straightened end as geometry. The current
+  proposal follows `docs/reference/corner-courses-guide.svg`, which draws each
+  course with the same (+32,+192) top-to-foot displacement at 2x. The final PNG
+  remains an image-generated interpretation, not proof of exact geometry.
+- The user likes the material/color of the preceding `corner-review.png` but
+  rejects its flaring foot. Preserve that second version's appearance; the wall
+  must keep constant thickness down to the ground, with no spreading base.
+- The sole palette/style reference is now `assets/dungeon/gloom-kit/reference.png`,
+  copied unchanged from the latest user mockup. The user wants darker gloomy
+  slate masonry and sparse localized violet luminous details. This supersedes
+  cap-muted-v11 and all other previous generated color references.
+- Full cleanup, regeneration and scene integration remain pending. See
+  docs/superpowers/plans/2026-10-22-gloom-kit.md. The first gloom wall atlas was
+  rejected for painting vertical top planes as facades; it must not be used.
+
+## Previous perspective convention — suspended pending wireframe review
+
+- Read `docs/reference/PERSPECTIVE.md` before any dungeon sprite generation or
+  assembly correction. The user explicitly requested one remembered camera.
+- Previous parallel oblique 2.5D proposal, contract `dungeon-parallel-v1` in
+  `docs/reference/perspective-contract.json`. Ground axes stay screen-aligned.
+  Top-to-foot projection is (+16,+96)
+  at reference scale, uniformly scaled together; never mirror it for west/east.
+  Painted lighting comes from image upper left for every orientation.
+- Attach `docs/reference/perspective-geometry.png` as the geometry guide and
+  the canonical material image to every generation. Include the prompt block
+  from PERSPECTIVE.md and record the contract ID in generation provenance.
+  Regenerate the guide with `tools/render_perspective_guide.gd` if the contract
+  is explicitly revised. The guide is documentation, never production art.
+- Use the latest original mockup's unlit wall tops as the color reference in every
+  generation. Geometry inputs and color inputs have distinct roles. Do not
+  progressively inherit a changed palette from generated variants.
+- Check left wall, right wall, horizontal cap, full facade and corners together
+  in Godot before propagating. No floating gaps; top and facade are one volume.
+- The first lateral-relief experiment was rejected for opposing perspectives,
+  different materials and open joints. Its prompts are archived in
+  lateral-volume-generation.json; its code and all 14 trial PNGs are only in
+  artifacts/lateral-volume-rejected. Never use compact-relief*, closed-relief*,
+  shorts-relief*, lengths-relief*, elbows-relief* or paired-relief* from this
+  rejected family as generation references or runtime assets. The recorded
+  prompts contain the mistaken opposing directions; they are historical data.
+  The active renderer has been returned to checkpoint 31e72bf while its replacement
+  is calibrated. The checkpoint itself is not artistic approval.
+- This convention supersedes all older projection descriptions below, including
+  historical TOPS ONLY / exterior-backing and side-specific perspective rules.
+  Older measurements describe their implementation, not this calibration contract.
+  Native-alpha asset constraints
+  and the prohibition on programmatic visual repairs still apply.
+
 ## Keep the game design synchronized
 
 - Read `GAME_DESIGN.md` before changing gameplay, balance, hero AI, controls,

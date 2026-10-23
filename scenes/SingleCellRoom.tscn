@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p0yyywdr6gxc"]
 
 [ext_resource type="Script" uid="uid://bvkd6bc0shc70" path="res://scripts/six_room_preview.gd" id="1"]
-[ext_resource type="Script" uid="uid://ciygg5d2lb5m7" path="res://scripts/modular_room_study.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/wireframe_cell_study.gd" id="2"]
 [ext_resource type="Resource" path="res://assets/layouts/single_cell.tres" id="3"]
 
 [node name="SingleCellRoom" type="Node2D" unique_id=404105245]
@@ -11,7 +11,7 @@ script = ExtResource("1")
 texture_filter = 2
 script = ExtResource("2")
 layout = ExtResource("3")
-open_axis = null
+open_axis = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1838352841]
 position = Vector2(208, 208)

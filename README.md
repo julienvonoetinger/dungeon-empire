@@ -1,10 +1,12 @@
 # Dungeon Empire — base 2D
 
-Une carte fixe de six salles reliées par des couloirs, avec entrée et cœur du
-donjon. Le rendu utilise des sprites complets à transparence native : sols,
-murs, piliers, raccords, porte, torches et cœur. Aucun gameplay n'est implémenté.
+Les études de salles et de couloirs utilisent maintenant des **images de cases
+wireframe préparées à l'avance**, sur une grille carrée 1 × 1. Godot choisit les
+images selon les voisins et les place ; il ne dessine ni murs ni dallage à la volée.
+Le rendu peint historique à six salles reste disponible séparément.
+Aucun gameplay n'est implémenté.
 
-**Rendu en correction :** l'assemblage actuel des murs et piliers a été rejeté
+**Rendu peint historique en correction :** l'assemblage des murs et piliers a été rejeté
 visuellement le 21 octobre 2026. La transparence native est implémentée, mais la
 perspective et la fidélité au dessin d'origine restent à corriger. Les captures
 et tests techniques ne constituent pas une approbation de cette apparence.
@@ -12,11 +14,25 @@ et tests techniques ne constituent pas une approbation de cette apparence.
 ## Lancer
 
 Ouvrir `project.godot` dans Godot puis **F5**.
-La configuration courante de **F5** lance `scenes/3x3CellRoom.tscn`.
+La configuration courante de **F5** lance `scenes/5x5RoomVerticalCornerCorridors.tscn`.
 La carte à six salles reste dans `scenes/SixRoomPreview.tscn`.
 La caméra affiche la carte entière en conservant ses proportions.
 
-- **Stone Variation** et **Variation Seed** se règlent sur le nœud `Dungeon`.
+Pour retrouver la salle étudiée avec ses quatre couloirs fermés, ouvrir
+**`scenes/WireframeClosedCorridors.tscn` puis F6** : 17 cases, deux rangées de
+briques, huit piliers de jonction. Les 13 études/alias existants ont également
+été raccordés au catalogue wireframe, en conservant leurs dimensions et sorties.
+
+Le catalogue `assets/dungeon/wireframe-cells/` contient les images SVG importées
+par Godot. `wireframe_cell_catalog.gd` référence les textures ; le script de
+préparation `tools/export_wireframe_cell_kit.cjs` s'exécute uniquement hors du jeu.
+Le sol reprend les 19 dalles de la case « sol seul », normalisées au format carré,
+sans le nouveau motif provisoire. Le motif se répète par case ; il ne reproduit
+pas le dallage global dessiné spécialement pour la précédente salle entière.
+Sol et murs utilisent deux couches d'images. La gestion des personnages derrière
+les murs reste à implémenter. L'aspect de ce kit attend la revue de l'utilisateur.
+
+- Dans la scène historique à six salles, **Stone Variation** et **Variation Seed** se règlent sur le nœud `Dungeon`.
   Valeurs par défaut : activé, graine **173**.
 - L'aperçu éditeur s'actualise lors des changements ; **Actualiser le rendu**
   permet une reconstruction manuelle.
@@ -27,7 +43,25 @@ fournit sa fonction via un getter afin de rester valide après rechargement des
 scripts. Si un ancien onglet affiche encore un aperçu vide ou l'erreur
 `refresh_action is Nil`, fermer puis rouvrir cet onglet après la mise à jour.
 
-## Inspecter les positions
+## Études géométriques et historique du rendu peint
+
+Les études ci-dessous conservent l'historique de la calibration. L'intégration
+actuelle est décrite plus haut et dans `docs/reference/PERSPECTIVE.md`.
+
+**Perspective en revue :** voir [PERSPECTIVE.md](docs/reference/PERSPECTIVE.md),
+le [coin avec dallage](docs/reference/corner-cell-floor-wireframe.svg) et ses
+[lignes de construction](docs/reference/corner-cell-floor-wireframe-construction.svg).
+Le wireframe des murs est accepté comme coin supérieur gauche d'une case :
+mur gauche vertical dans l'image et mur haut horizontal. Le sol a été ajouté
+au pied des murs avec cette même projection. La version carrée à deux assises
+de cette géométrie alimente désormais le catalogue des scènes modulaires.
+
+La variante [mur du haut uniquement](docs/reference/north-wall-cell-wireframe.svg)
+conserve la même perspective et étend le dallage sur toute la largeur de la case.
+Le premier essai de relief latéral a été rejeté ; le renderer est revenu au
+point de sauvegarde **31e72bf**, poussé sur `codex/2d-foundation`. La reprise
+doit appliquer une projection sommet → pied commune **(+16,+96)** et une seule
+référence de matière, avec un contrôle conjoint des murs gauche, droit et horizontal.
 
 ### Salles et couloirs — études des raccords
 

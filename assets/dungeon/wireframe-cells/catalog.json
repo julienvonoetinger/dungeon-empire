@@ -1,0 +1,1024 @@
+{
+  "id": "square-two-course-cell-kit-v1",
+  "status": "wireframe_placeholder",
+  "source": "docs/reference/two-course-square-room.json",
+  "generator": "tools/export_wireframe_cell_kit.cjs",
+  "projection": {
+    "type": "parallel_oblique_screen_aligned",
+    "groundX": [
+      1,
+      0
+    ],
+    "groundY": [
+      0,
+      1
+    ],
+    "heightUp": [
+      -0.18,
+      -0.9
+    ]
+  },
+  "cell": [
+    1,
+    1
+  ],
+  "pixelsPerCell": 256,
+  "wallThickness": 0.16666666666666666,
+  "wallHeight": 0.3133333333333333,
+  "courseJoints": [
+    0.15666666666666665
+  ],
+  "wallImageSize": [
+    304,
+    352
+  ],
+  "wallImageAnchor": [
+    24,
+    88
+  ],
+  "wallBits": {
+    "north": 1,
+    "east": 2,
+    "south": 4,
+    "west": 8
+  },
+  "pierBits": {
+    "northwest": 1,
+    "northeast": 2,
+    "southeast": 4,
+    "southwest": 8
+  },
+  "selection": "Cardinal absent neighbours create walls. Two real cardinal neighbours with an absent diagonal create a pier. Explicit open endpoints remove a wall but preserve exposed end faces. No image rotation or reflection.",
+  "floor": {
+    "file": "floor.svg",
+    "source": "docs/reference/floor-only-cell-wireframe.json",
+    "imageAnchor": [
+      4,
+      4
+    ],
+    "rows": [
+      0,
+      0.2,
+      0.36,
+      0.52,
+      0.68,
+      0.8400000000000001,
+      1
+    ],
+    "pattern": "authored 19-slab floor-only motif, normalized from drawing frame 6x5 to square 1x1; no newly invented joint pattern; repeated cell motif, not the whole-room paving study"
+  },
+  "entries": {
+    "w00_p00_e00": {
+      "file": "w00_p00_e00.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": false
+    },
+    "w00_p01_e00": {
+      "file": "w00_p01_e00.svg",
+      "walls": 0,
+      "piers": 1,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p02_e00": {
+      "file": "w00_p02_e00.svg",
+      "walls": 0,
+      "piers": 2,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p03_e00": {
+      "file": "w00_p03_e00.svg",
+      "walls": 0,
+      "piers": 3,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p04_e00": {
+      "file": "w00_p04_e00.svg",
+      "walls": 0,
+      "piers": 4,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p05_e00": {
+      "file": "w00_p05_e00.svg",
+      "walls": 0,
+      "piers": 5,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p06_e00": {
+      "file": "w00_p06_e00.svg",
+      "walls": 0,
+      "piers": 6,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p07_e00": {
+      "file": "w00_p07_e00.svg",
+      "walls": 0,
+      "piers": 7,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p08_e00": {
+      "file": "w00_p08_e00.svg",
+      "walls": 0,
+      "piers": 8,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p09_e00": {
+      "file": "w00_p09_e00.svg",
+      "walls": 0,
+      "piers": 9,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p10_e00": {
+      "file": "w00_p10_e00.svg",
+      "walls": 0,
+      "piers": 10,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p11_e00": {
+      "file": "w00_p11_e00.svg",
+      "walls": 0,
+      "piers": 11,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p12_e00": {
+      "file": "w00_p12_e00.svg",
+      "walls": 0,
+      "piers": 12,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p13_e00": {
+      "file": "w00_p13_e00.svg",
+      "walls": 0,
+      "piers": 13,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p14_e00": {
+      "file": "w00_p14_e00.svg",
+      "walls": 0,
+      "piers": 14,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p15_e00": {
+      "file": "w00_p15_e00.svg",
+      "walls": 0,
+      "piers": 15,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w00_p00_e01": {
+      "file": "w00_p00_e01.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": false
+    },
+    "w00_p04_e01": {
+      "file": "w00_p04_e01.svg",
+      "walls": 0,
+      "piers": 4,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w00_p08_e01": {
+      "file": "w00_p08_e01.svg",
+      "walls": 0,
+      "piers": 8,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w00_p12_e01": {
+      "file": "w00_p12_e01.svg",
+      "walls": 0,
+      "piers": 12,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w00_p00_e02": {
+      "file": "w00_p00_e02.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": false
+    },
+    "w00_p01_e02": {
+      "file": "w00_p01_e02.svg",
+      "walls": 0,
+      "piers": 1,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w00_p08_e02": {
+      "file": "w00_p08_e02.svg",
+      "walls": 0,
+      "piers": 8,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w00_p09_e02": {
+      "file": "w00_p09_e02.svg",
+      "walls": 0,
+      "piers": 9,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w00_p00_e03": {
+      "file": "w00_p00_e03.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 3,
+      "hasWalls": false
+    },
+    "w00_p08_e03": {
+      "file": "w00_p08_e03.svg",
+      "walls": 0,
+      "piers": 8,
+      "exposedEnds": 3,
+      "hasWalls": true
+    },
+    "w00_p00_e04": {
+      "file": "w00_p00_e04.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": false
+    },
+    "w00_p01_e04": {
+      "file": "w00_p01_e04.svg",
+      "walls": 0,
+      "piers": 1,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w00_p02_e04": {
+      "file": "w00_p02_e04.svg",
+      "walls": 0,
+      "piers": 2,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w00_p03_e04": {
+      "file": "w00_p03_e04.svg",
+      "walls": 0,
+      "piers": 3,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w00_p00_e05": {
+      "file": "w00_p00_e05.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 5,
+      "hasWalls": false
+    },
+    "w00_p00_e06": {
+      "file": "w00_p00_e06.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 6,
+      "hasWalls": false
+    },
+    "w00_p01_e06": {
+      "file": "w00_p01_e06.svg",
+      "walls": 0,
+      "piers": 1,
+      "exposedEnds": 6,
+      "hasWalls": true
+    },
+    "w00_p00_e07": {
+      "file": "w00_p00_e07.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 7,
+      "hasWalls": false
+    },
+    "w00_p00_e08": {
+      "file": "w00_p00_e08.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": false
+    },
+    "w00_p02_e08": {
+      "file": "w00_p02_e08.svg",
+      "walls": 0,
+      "piers": 2,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w00_p04_e08": {
+      "file": "w00_p04_e08.svg",
+      "walls": 0,
+      "piers": 4,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w00_p06_e08": {
+      "file": "w00_p06_e08.svg",
+      "walls": 0,
+      "piers": 6,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w00_p00_e09": {
+      "file": "w00_p00_e09.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 9,
+      "hasWalls": false
+    },
+    "w00_p04_e09": {
+      "file": "w00_p04_e09.svg",
+      "walls": 0,
+      "piers": 4,
+      "exposedEnds": 9,
+      "hasWalls": true
+    },
+    "w00_p00_e10": {
+      "file": "w00_p00_e10.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 10,
+      "hasWalls": false
+    },
+    "w00_p00_e11": {
+      "file": "w00_p00_e11.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 11,
+      "hasWalls": false
+    },
+    "w00_p00_e12": {
+      "file": "w00_p00_e12.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 12,
+      "hasWalls": false
+    },
+    "w00_p02_e12": {
+      "file": "w00_p02_e12.svg",
+      "walls": 0,
+      "piers": 2,
+      "exposedEnds": 12,
+      "hasWalls": true
+    },
+    "w00_p00_e13": {
+      "file": "w00_p00_e13.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 13,
+      "hasWalls": false
+    },
+    "w00_p00_e14": {
+      "file": "w00_p00_e14.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 14,
+      "hasWalls": false
+    },
+    "w00_p00_e15": {
+      "file": "w00_p00_e15.svg",
+      "walls": 0,
+      "piers": 0,
+      "exposedEnds": 15,
+      "hasWalls": false
+    },
+    "w01_p00_e00": {
+      "file": "w01_p00_e00.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w01_p04_e00": {
+      "file": "w01_p04_e00.svg",
+      "walls": 1,
+      "piers": 4,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w01_p08_e00": {
+      "file": "w01_p08_e00.svg",
+      "walls": 1,
+      "piers": 8,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w01_p12_e00": {
+      "file": "w01_p12_e00.svg",
+      "walls": 1,
+      "piers": 12,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w01_p00_e02": {
+      "file": "w01_p00_e02.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w01_p08_e02": {
+      "file": "w01_p08_e02.svg",
+      "walls": 1,
+      "piers": 8,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w01_p00_e04": {
+      "file": "w01_p00_e04.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w01_p00_e06": {
+      "file": "w01_p00_e06.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 6,
+      "hasWalls": true
+    },
+    "w01_p00_e08": {
+      "file": "w01_p00_e08.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w01_p04_e08": {
+      "file": "w01_p04_e08.svg",
+      "walls": 1,
+      "piers": 4,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w01_p00_e10": {
+      "file": "w01_p00_e10.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 10,
+      "hasWalls": true
+    },
+    "w01_p00_e12": {
+      "file": "w01_p00_e12.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 12,
+      "hasWalls": true
+    },
+    "w01_p00_e14": {
+      "file": "w01_p00_e14.svg",
+      "walls": 1,
+      "piers": 0,
+      "exposedEnds": 14,
+      "hasWalls": true
+    },
+    "w02_p00_e00": {
+      "file": "w02_p00_e00.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w02_p01_e00": {
+      "file": "w02_p01_e00.svg",
+      "walls": 2,
+      "piers": 1,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w02_p08_e00": {
+      "file": "w02_p08_e00.svg",
+      "walls": 2,
+      "piers": 8,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w02_p09_e00": {
+      "file": "w02_p09_e00.svg",
+      "walls": 2,
+      "piers": 9,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w02_p00_e01": {
+      "file": "w02_p00_e01.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w02_p08_e01": {
+      "file": "w02_p08_e01.svg",
+      "walls": 2,
+      "piers": 8,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w02_p00_e04": {
+      "file": "w02_p00_e04.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w02_p01_e04": {
+      "file": "w02_p01_e04.svg",
+      "walls": 2,
+      "piers": 1,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w02_p00_e05": {
+      "file": "w02_p00_e05.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 5,
+      "hasWalls": true
+    },
+    "w02_p00_e08": {
+      "file": "w02_p00_e08.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w02_p00_e09": {
+      "file": "w02_p00_e09.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 9,
+      "hasWalls": true
+    },
+    "w02_p00_e12": {
+      "file": "w02_p00_e12.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 12,
+      "hasWalls": true
+    },
+    "w02_p00_e13": {
+      "file": "w02_p00_e13.svg",
+      "walls": 2,
+      "piers": 0,
+      "exposedEnds": 13,
+      "hasWalls": true
+    },
+    "w03_p00_e00": {
+      "file": "w03_p00_e00.svg",
+      "walls": 3,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w03_p08_e00": {
+      "file": "w03_p08_e00.svg",
+      "walls": 3,
+      "piers": 8,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w03_p00_e04": {
+      "file": "w03_p00_e04.svg",
+      "walls": 3,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w03_p00_e08": {
+      "file": "w03_p00_e08.svg",
+      "walls": 3,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w03_p00_e12": {
+      "file": "w03_p00_e12.svg",
+      "walls": 3,
+      "piers": 0,
+      "exposedEnds": 12,
+      "hasWalls": true
+    },
+    "w04_p00_e00": {
+      "file": "w04_p00_e00.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w04_p01_e00": {
+      "file": "w04_p01_e00.svg",
+      "walls": 4,
+      "piers": 1,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w04_p02_e00": {
+      "file": "w04_p02_e00.svg",
+      "walls": 4,
+      "piers": 2,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w04_p03_e00": {
+      "file": "w04_p03_e00.svg",
+      "walls": 4,
+      "piers": 3,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w04_p00_e01": {
+      "file": "w04_p00_e01.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w04_p00_e02": {
+      "file": "w04_p00_e02.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w04_p01_e02": {
+      "file": "w04_p01_e02.svg",
+      "walls": 4,
+      "piers": 1,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w04_p00_e03": {
+      "file": "w04_p00_e03.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 3,
+      "hasWalls": true
+    },
+    "w04_p00_e08": {
+      "file": "w04_p00_e08.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w04_p02_e08": {
+      "file": "w04_p02_e08.svg",
+      "walls": 4,
+      "piers": 2,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w04_p00_e09": {
+      "file": "w04_p00_e09.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 9,
+      "hasWalls": true
+    },
+    "w04_p00_e10": {
+      "file": "w04_p00_e10.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 10,
+      "hasWalls": true
+    },
+    "w04_p00_e11": {
+      "file": "w04_p00_e11.svg",
+      "walls": 4,
+      "piers": 0,
+      "exposedEnds": 11,
+      "hasWalls": true
+    },
+    "w05_p00_e00": {
+      "file": "w05_p00_e00.svg",
+      "walls": 5,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w05_p00_e02": {
+      "file": "w05_p00_e02.svg",
+      "walls": 5,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w05_p00_e08": {
+      "file": "w05_p00_e08.svg",
+      "walls": 5,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w05_p00_e10": {
+      "file": "w05_p00_e10.svg",
+      "walls": 5,
+      "piers": 0,
+      "exposedEnds": 10,
+      "hasWalls": true
+    },
+    "w06_p00_e00": {
+      "file": "w06_p00_e00.svg",
+      "walls": 6,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w06_p01_e00": {
+      "file": "w06_p01_e00.svg",
+      "walls": 6,
+      "piers": 1,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w06_p00_e01": {
+      "file": "w06_p00_e01.svg",
+      "walls": 6,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w06_p00_e08": {
+      "file": "w06_p00_e08.svg",
+      "walls": 6,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w06_p00_e09": {
+      "file": "w06_p00_e09.svg",
+      "walls": 6,
+      "piers": 0,
+      "exposedEnds": 9,
+      "hasWalls": true
+    },
+    "w07_p00_e00": {
+      "file": "w07_p00_e00.svg",
+      "walls": 7,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w07_p00_e08": {
+      "file": "w07_p00_e08.svg",
+      "walls": 7,
+      "piers": 0,
+      "exposedEnds": 8,
+      "hasWalls": true
+    },
+    "w08_p00_e00": {
+      "file": "w08_p00_e00.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w08_p02_e00": {
+      "file": "w08_p02_e00.svg",
+      "walls": 8,
+      "piers": 2,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w08_p04_e00": {
+      "file": "w08_p04_e00.svg",
+      "walls": 8,
+      "piers": 4,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w08_p06_e00": {
+      "file": "w08_p06_e00.svg",
+      "walls": 8,
+      "piers": 6,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w08_p00_e01": {
+      "file": "w08_p00_e01.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w08_p04_e01": {
+      "file": "w08_p04_e01.svg",
+      "walls": 8,
+      "piers": 4,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w08_p00_e02": {
+      "file": "w08_p00_e02.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w08_p00_e03": {
+      "file": "w08_p00_e03.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 3,
+      "hasWalls": true
+    },
+    "w08_p00_e04": {
+      "file": "w08_p00_e04.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w08_p02_e04": {
+      "file": "w08_p02_e04.svg",
+      "walls": 8,
+      "piers": 2,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w08_p00_e05": {
+      "file": "w08_p00_e05.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 5,
+      "hasWalls": true
+    },
+    "w08_p00_e06": {
+      "file": "w08_p00_e06.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 6,
+      "hasWalls": true
+    },
+    "w08_p00_e07": {
+      "file": "w08_p00_e07.svg",
+      "walls": 8,
+      "piers": 0,
+      "exposedEnds": 7,
+      "hasWalls": true
+    },
+    "w09_p00_e00": {
+      "file": "w09_p00_e00.svg",
+      "walls": 9,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w09_p04_e00": {
+      "file": "w09_p04_e00.svg",
+      "walls": 9,
+      "piers": 4,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w09_p00_e02": {
+      "file": "w09_p00_e02.svg",
+      "walls": 9,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w09_p00_e04": {
+      "file": "w09_p00_e04.svg",
+      "walls": 9,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w09_p00_e06": {
+      "file": "w09_p00_e06.svg",
+      "walls": 9,
+      "piers": 0,
+      "exposedEnds": 6,
+      "hasWalls": true
+    },
+    "w10_p00_e00": {
+      "file": "w10_p00_e00.svg",
+      "walls": 10,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w10_p00_e01": {
+      "file": "w10_p00_e01.svg",
+      "walls": 10,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w10_p00_e04": {
+      "file": "w10_p00_e04.svg",
+      "walls": 10,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w10_p00_e05": {
+      "file": "w10_p00_e05.svg",
+      "walls": 10,
+      "piers": 0,
+      "exposedEnds": 5,
+      "hasWalls": true
+    },
+    "w11_p00_e00": {
+      "file": "w11_p00_e00.svg",
+      "walls": 11,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w11_p00_e04": {
+      "file": "w11_p00_e04.svg",
+      "walls": 11,
+      "piers": 0,
+      "exposedEnds": 4,
+      "hasWalls": true
+    },
+    "w12_p00_e00": {
+      "file": "w12_p00_e00.svg",
+      "walls": 12,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w12_p02_e00": {
+      "file": "w12_p02_e00.svg",
+      "walls": 12,
+      "piers": 2,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w12_p00_e01": {
+      "file": "w12_p00_e01.svg",
+      "walls": 12,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w12_p00_e02": {
+      "file": "w12_p00_e02.svg",
+      "walls": 12,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w12_p00_e03": {
+      "file": "w12_p00_e03.svg",
+      "walls": 12,
+      "piers": 0,
+      "exposedEnds": 3,
+      "hasWalls": true
+    },
+    "w13_p00_e00": {
+      "file": "w13_p00_e00.svg",
+      "walls": 13,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w13_p00_e02": {
+      "file": "w13_p00_e02.svg",
+      "walls": 13,
+      "piers": 0,
+      "exposedEnds": 2,
+      "hasWalls": true
+    },
+    "w14_p00_e00": {
+      "file": "w14_p00_e00.svg",
+      "walls": 14,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    },
+    "w14_p00_e01": {
+      "file": "w14_p00_e01.svg",
+      "walls": 14,
+      "piers": 0,
+      "exposedEnds": 1,
+      "hasWalls": true
+    },
+    "w15_p00_e00": {
+      "file": "w15_p00_e00.svg",
+      "walls": 15,
+      "piers": 0,
+      "exposedEnds": 0,
+      "hasWalls": true
+    }
+  }
+}

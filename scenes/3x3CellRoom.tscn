@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/six_room_preview.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/modular_room_study.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/wireframe_cell_study.gd" id="2"]
 [ext_resource type="Resource" path="res://assets/layouts/study_3x3.tres" id="3"]
 
 [node name="3x3CellRoom" type="Node2D"]

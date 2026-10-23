@@ -1,0 +1,38 @@
+{
+  "id": "dungeon-parallel-v1",
+  "date": "2026-10-22",
+  "status": "superseded_by_approved_aligned_geometry",
+  "replacement_proposal": "docs/reference/wall-wireframe-aligned.json",
+  "replacement_is_approved": true,
+  "replacement_approval_scope": "Wireframe geometry as the upper-left corner of a cell. Painted assets remain unapproved.",
+  "projection": "parallel_oblique_2.5D",
+  "ground_x_screen": [1, 0],
+  "ground_y_screen": [0, 1],
+  "top_to_foot": [16, 96],
+  "uniform_scaling_only": true,
+  "mirror_projection_between_sides": false,
+  "painted_light_from": "image_upper_left",
+  "style_reference": "assets/dungeon/gloom-kit/reference.png",
+  "top_material_reference": "assets/dungeon/gloom-kit/reference.png",
+  "geometry_guide": "docs/reference/perspective-geometry.png",
+  "assembled_guide": "docs/reference/perspective-room-guide.png",
+  "guide_only_colors": {
+    "top": "#485c80",
+    "front": "#34435c",
+    "side": "#263144",
+    "outline": "#0b101b",
+    "floor": "#59677e"
+  },
+  "guide_canvas": [1536, 1536],
+  "guide_modules": [
+    {"id":"horizontal", "origin":[60,150], "top":[[0,0],[360,0],[360,64],[0,64]]},
+    {"id":"vertical_long", "origin":[700,60], "top":[[0,0],[64,0],[64,300],[0,300]]},
+    {"id":"vertical_short", "origin":[1200,100], "top":[[0,0],[64,0],[64,200],[0,200]]},
+    {"id":"nw", "origin":[125,600], "top":[[0,0],[192,0],[192,64],[64,64],[64,192],[0,192]]},
+    {"id":"ne", "origin":[635,600], "top":[[0,0],[192,0],[192,192],[128,192],[128,64],[0,64]]},
+    {"id":"sw", "origin":[1145,600], "top":[[0,0],[64,0],[64,128],[192,128],[192,192],[0,192]]},
+    {"id":"se", "origin":[125,1110], "top":[[128,0],[192,0],[192,192],[0,192],[0,128],[128,128]]},
+    {"id":"horizontal_short", "origin":[630,1190], "top":[[0,0],[240,0],[240,64],[0,64]]},
+    {"id":"vertical_mid", "origin":[1200,1100], "top":[[0,0],[64,0],[64,240],[0,240]]}
+  ]
+}

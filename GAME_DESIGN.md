@@ -1,8 +1,53 @@
 # Dungeon Empire — conception
 
-## 0. État implémenté : carte statique de six salles en 2D
+## 0. État implémenté : études de cases wireframe et carte historique en 2D
 
-La scène principale `scenes/SixRoomPreview.tscn` assemble des sprites complets
+### Catalogue de cases wireframe — 23 octobre 2026
+
+À la demande de l'utilisateur, les 13 scènes d'étude modulaires, alias compris,
+chargent `wireframe_cell_study.gd` à la place de l'ancien assemblage de pierres.
+Le renderer sélectionne des
+images préparées dans `assets/dungeon/wireframe-cells/` : un sol et au plus une
+image de murs par case. Il ne génère aucune texture, dalle ou géométrie dans
+Godot. Les SVG sont convertis en textures par l'import standard de l'éditeur.
+
+La sélection repose sur l'occupation de la grille : absence d'un voisin cardinal
+= mur ; deux voisins cardinaux présents avec leur diagonale absente = pilier
+de raccord inclus dans l'image. Les sorties explicitement ouvertes conservent
+leurs faces terminales. Les 16 combinaisons de murs, les piliers et les bouts
+ouverts sont disponibles dans un catalogue de 136 états, y compris les états
+sans mur. Le placement ne dépend pas du nom de la scène.
+
+La case logique carrée mesure 1 × 1, affichée sur un pas de 256 pixels. Les murs
+ont une épaisseur de 1/6, une hauteur de 1,88/6 et deux assises égales, avec un
+seul joint horizontal à 0,94/6. Le vecteur hauteur est (-0,18,-0,9) pour toutes
+les orientations. Aucun retournement ni étirement des images. Les piliers n'ont
+pas de joint vertical. Le motif du sol vient de la case sans mur existante
+(19 dalles), normalisé de son ancien cadre de dessin 6 × 5 au carré 1 × 1.
+Le motif provisoire inventé pendant l'intégration a été retiré. Ce sol répétitif
+par case ne constitue pas une copie du dallage global de l'ancienne étude de salle.
+
+Les scènes existantes gardent leur taille, leurs branches et leurs sorties ouvertes.
+`connections` utilise N1/E2/S4/W8, défaut 0 dans le renderer partagé ; les scènes
+connectées règlent explicitement leurs directions. `corridor_length` vaut 2 par
+défaut ; `vertical_corridor_length=0` reprend cette longueur. Les listes de points
+d'attache vides prennent le centre ; les indices invalides sont ignorés et les
+doublons supprimés. `close_corridor_ends=false` conserve les bouts ouverts.
+`WireframeClosedCorridors.tscn` règle une salle 3 × 3, les quatre directions,
+une longueur 2 et `close_corridor_ends=true` : 17 cases avec huit piliers.
+
+Le bouton d'actualisation conserve son getter Callable ; les réglages provoquent
+un rechargement des sprites choisis et l'aperçu est présent dans l'éditeur.
+F5 reste configuré sur `5x5RoomVerticalCornerCorridors.tscn` ; F6 permet de voir
+la nouvelle salle fermée. Les captures de revue sont produites par
+`tools/capture_wireframe_cells.gd` aux tailles normale et double. Aucun héros,
+tri d'occultation de personnage, collision, navigation, éditeur de construction
+jouable ou sauvegarde n'est ajouté. Les couches sol/murs préparent cette future
+intégration sans l'implémenter. La validation artistique appartient à l'utilisateur.
+
+### Carte historique à six salles
+
+La scène historique `scenes/SixRoomPreview.tscn` assemble des sprites complets
 à transparence native. Le plan conserve les six salles. Les images ont été
 régénérées pour fournir des éléments indépendants : la nouvelle scène ne découpe
 plus les silhouettes dans l'illustration d'origine.
@@ -143,9 +188,177 @@ signalés ; elles ne sont pas les règles artistiques à conserver.
   animation ou sauvegarde. Les reconstructions préservent cette instance
   enregistrée et ses enfants.
 
+### Convention de perspective en cours de calibration
+
+L'utilisateur a rejeté les propositions peintes, y compris
+`corner-parallel-courses.png`, et demande un wireframe avec des lignes de fuite
+cohérentes. La première vue à deux points de fuite a été rejetée pour son
+orientation : le mur gauche doit être vertical dans le plan de l'écran.
+`docs/reference/wall-wireframe-aligned.svg` propose donc un prisme en L à
+épaisseur constante, en projection parallèle avec X horizontal et Y vertical.
+`wall-wireframe-aligned-construction.svg` montre les directions communes ;
+`wall-wireframe-aligned.json` conserve les paramètres. L'utilisateur a accepté
+ce wireframe comme coin supérieur gauche d'une case et demandé le dallage.
+`corner-cell-floor-wireframe.svg` ajoute 16 dalles rectangulaires à joints
+décalés, au niveau z=0, contre les pieds des murs, avec la même projection.
+Le découpage est décrit dans `corner-cell-floor-wireframe.json`. Il s'agit d'une
+étude géométrique : les dimensions de ce dessin ne modifient pas celles des
+cases du jeu, et aucun nouveau sprite peint n'a été accepté ni intégré.
+La variante `north-wall-cell-wireframe.svg` conserve le mur nord et retire le
+retour ouest. Le sol s'étend alors à x=0..6 (toujours y=1..5, z=0), en conservant
+la projection et les joints existants. Les trois autres côtés restent ouverts.
+L'étude `two-cell-wireframe-join.svg` place cette variante à droite du coin par
+une translation de 6 unités. Les faces de bout communes deviennent internes ;
+les niveaux de mur et de sol coïncident sur les 14 points de raccord contrôlés.
+Le joint continu du dallage entre les deux cases reste visible et à examiner.
+Cet assemblage demeure un schéma de revue, sans changement des scènes du jeu.
+La variante `upper-right-cell-wireframe.svg` ajoute ensuite le retour à droite,
+à x=5..6, avec le sol à z=0, x=0..5, y=1..5. La projection et les dimensions
+des murs restent identiques ; le mur est masque les lignes du sol situées
+derrière lui. Cette nouvelle variante reste une proposition géométrique.
+`three-cell-wireframe-join.svg` réunit maintenant les trois études dans l'ordre
+coin gauche, mur nord, coin droit, aux décalages 0, 6 et 12. Les faces de bout
+communes sont internes et le dallage conserve ses joints. Cette composition
+reste une étude en lignes, sans intégration aux scènes ni changement de gameplay.
+La case `west-wall-cell-wireframe.svg` conserve ensuite uniquement le mur gauche
+(x=0..1, y=0..5, hauteur 2,2), dans la même projection. Le dallage couvre
+x=1..6, y=0..5 à z=0 ; une rangée supplémentaire remplit l'ancienne emprise
+du mur nord. Cette variante reste également un schéma de revue.
+La case `east-wall-cell-wireframe.svg` conserve uniquement le mur droit
+(x=5..6, y=0..5), avec la même hauteur, épaisseur et projection. Le dallage
+couvre x=0..5, y=0..5 à z=0 et ses lignes masquées par le mur sont cachées.
+Comme les autres variantes, cette proposition n'est pas intégrée aux scènes.
+La case `south-wall-cell-wireframe.svg` place ensuite le mur uniquement en bas
+(x=0..6, y=4..5), avec hauteur 2,2 et épaisseur 1. Le sol couvre x=0..6,
+y=0..4 à z=0, dans la même projection. Le volume du mur au premier plan masque
+une partie du dallage. Cette variante reste un schéma, hors des scènes du jeu.
+Le coin `lower-left-cell-wireframe.svg` réunit les murs gauche et bas en un
+volume continu, toujours de hauteur 2,2 et d'épaisseur 1. Le dallage couvre
+x=1..6, y=0..4 à z=0 ; les lignes masquées sont cachées dans la projection
+commune. Cette variante reste une étude géométrique sans intégration aux scènes.
+Le coin `lower-right-cell-wireframe.svg` réunit les murs droit et bas avec les
+mêmes hauteur, épaisseur et projection. Le dallage couvre x=0..5, y=0..4
+à z=0 ; les deux murs masquent les lignes situées derrière eux. Il reste
+également une proposition en lignes, hors des scènes du jeu.
+La case `floor-only-cell-wireframe.svg` est entièrement dallée, sans mur :
+x=0..6, y=0..5 à z=0, dans la même projection. Ses 19 dalles reprennent les
+joints des autres variantes avant découpe aux pieds des murs. Cette étude
+reste hors des scènes du jeu.
+
+L'assemblage `room-3x3-wireframe.svg` réunit ensuite les neuf variantes en
+**3 × 3 cases** (correction de la demande initiale 3 × 2) : quatre coins,
+quatre murs et un centre sans mur. Les cases de 6 × 5 unités du schéma occupent
+une emprise de 18 × 15 ; murs de hauteur 2,2 et d'épaisseur 1, projection
+inchangée. Les faces de bout communes deviennent internes. Le sol conserve
+les joints des pièces et ses portions masquées par les murs sont cachées.
+Il s'agit uniquement d'une composition géométrique de revue, hors des scènes.
+
+La case `side-walls-cell-wireframe.svg` conserve ensuite les murs gauche
+(x=0..1) et droit (x=5..6), tous deux sur y=0..5, avec hauteur 2,2 et
+épaisseur 1. Le sol à z=0 couvre x=1..5, y=0..5 en 18 dalles, avec les mêmes
+joints et la même projection que les autres études. Le haut et le bas sont
+ouverts. Cette variante reste une proposition en lignes, hors des scènes.
+
+L'assemblage `room-3x3-south-corridor-wireframe.svg` remplace le mur du bas
+au centre de la pièce 3 × 3 par du dallage seul. Une dixième case à deux murs
+latéraux prolonge cette ouverture à (6,15), sur x=6..12 et y=15..20.
+La projection reste inchangée. Les murs du couloir touchent ceux de la pièce
+uniquement par leurs arêtes verticales dans cette première étude. Elle assemble
+les pièces existantes, sans modifier le jeu.
+
+La proposition `pillar-junction-wireframe.svg` ajoute ensuite un pilier carré
+de section 1 × 1 et de hauteur 2,2, avec les mêmes assises et projection.
+Deux instances à (6,14,0) et (11,14,0) relient la pièce au couloir par des
+faces complètes de 1 × 2,2. Elles occupent deux carrés de sol de 1 × 1 ;
+la largeur libre du passage reste 4, comme celle du couloir. Le modèle isolé
+et l'assemblage restent des propositions géométriques, hors des scènes du jeu.
+
+L'étude `masonry-floor-wireframe.svg` du 23 octobre 2026 revoit ensuite le
+dallage et les joints de maçonnerie. Elle conserve les volumes et la projection.
+Le dallage couvre le sol en continu : 111 dalles sur 19 rangées (13 dans la pièce,
+6 dans le couloir), sans imposer de joint aux limites des cases. Les deux assises
+de façade ont des joints espacés de 1,9, décalés de 0,95 entre rangées. Les joints
+des pierres du dessus continuent sur leur façade de hauteur 0,32. Les angles et
+piliers gardent des dessus carrés entiers. À la demande de l'utilisateur, les
+piliers ont uniquement des joints horizontaux, sans subdivision verticale.
+Sol à z=0, murs de hauteur 2,2, épaisseur 1 et ouverture de largeur 4
+restent identiques. Il s'agit toujours d'une proposition en lignes hors du jeu.
+
+La case `north-south-cell-wireframe.svg` conserve uniquement les murs du haut
+et du bas : x=0..6, y=0..1 et y=4..5, hauteur 2,2, épaisseur 1. Les côtés
+gauche et droit restent ouverts ; le dallage à z=0 occupe x=0..6, y=1..4
+en neuf dalles sur trois rangées de hauteurs 1, 1,1 et 0,9. La projection et
+les joints de maçonnerie restent identiques à l'étude précédente. Le mur
+au premier plan masque une partie du sol. Cette variante reste hors du jeu.
+
+L'assemblage `room-four-corridors-wireframe.svg` ajoute ensuite trois couloirs
+à la pièce 3 × 3 et conserve celui du bas : 13 cases au total. Les branches
+gauche/droite emploient la case à murs haut/bas, celles du haut/bas la case
+à murs gauche/droit. Les quatre cases centrales des bords de la pièce sont
+ouvertes. Huit piliers identiques de 1 × 1 × 2,2 relient les murs par faces
+complètes ; ils gardent uniquement leurs joints horizontaux. Les passages
+libres mesurent 4 au nord/sud et 3 à l'ouest/est, conformément aux cases 6 × 5.
+Les extrémités sont ouvertes. Le dallage comporte 142 dalles sur 25 rangées,
+avec des rangées continues à travers les couloirs horizontaux. La projection,
+la hauteur et l'épaisseur des murs restent communes. Les vues de détail des
+quatre raccords servent à la revue géométrique ; aucune scène Godot n'est modifiée.
+
+Les quatre variantes `three-wall-cell-open-{north,east,south,west}.svg`
+complètent ensuite les cases par trois murs et un seul côté ouvert. Le suffixe
+nomme l'ouverture ; les dimensions 6 × 5, hauteur 2,2, épaisseur 1, la projection
+et les assises sont conservées. Chaque variante est construite dans le repère
+commun, sans rotation ni miroir du dessin projeté.
+L'étude `room-closed-corridors-wireframe.svg` ajoute une case de fermeture
+à chaque couloir existant, ouverture tournée vers la pièce : haut à (6,20),
+bas à (6,-10), droite à (-12,5), gauche à (24,5). L'ensemble compte 17 cases,
+les huit piliers précédents et 170 dalles sur 33 rangées. Les huit faces de
+raccord aux nouvelles terminaisons sont internes (96 arêtes source omises).
+La continuité des murs et du dallage utilise les mêmes règles d'assemblage.
+L'étude ouverte précédente reste disponible. Ces propositions géométriques
+ne modifient aucune scène du jeu.
+
+Contrainte précisée par l'utilisateur : le donjon doit se construire sur une
+grille de cases carrées **1 × 1**. La proposition de comparaison avec des cases
+rectangulaires 6 × 7,5 a été écartée avant modification des études. Les dimensions
+de dessin historiques ne définissent donc pas une grille logique approuvée.
+L'utilisateur a ensuite confirmé que les couloirs doivent rester larges d'une
+seule case et demandé de retirer la rangée fine sur tous les murs.
+
+L'étude `two-course-square-room.svg` propose alors une reconstruction sur des
+cases véritablement carrées 1 × 1, avec la même projection et une épaisseur de
+mur de 1/6 de case. La bande fine de hauteur 0,32/6 est supprimée : les murs
+et les huit piliers passent de 2,2/6 à 1,88/6 de hauteur. Deux rangées égales
+de 0,94/6 subsistent ; les joints du dessus se prolongent dans la rangée haute.
+Les piliers gardent uniquement le joint horizontal. La salle de 17 cases
+conserve ses quatre couloirs fermés et larges d'une case. La comparaison
+avant/après utilise le même plan carré et le même dallage ; elle ne compare
+pas directement au précédent plan rectangulaire. Le sol visible entre les
+murs horizontaux passe de 0,336667 à 0,384667 case, un gain d'environ 14,3 %.
+Un gabarit indicatif de hauteur 0,30 case illustre l'occultation près du mur
+du bas, sans fixer les dimensions des futurs héros. Cette revue géométrique
+ne valide pas encore la lisibilité en jeu et ne modifie aucune scène Godot.
+
+L'ancien contrat oblique `dungeon-parallel-v1`, sommet vers pied **(+16,+96)**,
+est suspendu. Son vecteur était un choix de calibration de l'assistant, sans
+approbation artistique. La référence de couleur est désormais la dernière
+maquette `assets/dungeon/gloom-kit/reference.png`, et non `cap-muted-v11.png`.
+Voir `docs/reference/PERSPECTIVE.md` pour l'historique. Il n'y a aucun
+changement de Camera2D, de dimensions logiques ou de sprites chargés dans le jeu.
+
+Le premier essai de relief vers l'extérieur de chaque mur a été rejeté pour
+ses perspectives opposées, les écarts de matière et les vides entre pierres.
+Ses 14 PNG ont été retirés du dossier des assets et archivés localement dans
+`artifacts/lateral-volume-rejected/` avec leurs imports. Ils ne sont chargés
+par aucun script actif et ne doivent plus guider une nouvelle génération.
+Le code actif a été remis à la sauvegarde **31e72bf**, poussée avant cet essai.
+La projection acceptée pour le coin n'est pas intégrée : la calibration commune
+dessus, façade, côtés, coins et sol se poursuit dans le wireframe avec dallage.
+Les règles historiques « uniquement le dessus » ci-dessous ne décrivent plus
+la direction artistique demandée. Aucun changement de gameplay ou sauvegarde.
+
 ### Caméra et actualisation
 
-- La configuration courante de `project.godot` lance `3x3CellRoom.tscn` avec
+- La configuration courante de `project.godot` lance `5x5RoomVerticalCornerCorridors.tscn` avec
   **F5** ; `SixRoomPreview.tscn` conserve la carte complète. **F6** lance la scène sélectionnée.
   Fenêtre initiale **1280 × 720**, rendu **GL Compatibility**.
 - La caméra centre la composition et ajuste uniformément son zoom. En portrait,
