@@ -1,0 +1,19 @@
+{
+  "status": "user_approved_and_integrated",
+  "tool": "built-in image_gen",
+  "originalOutput": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c193d6f8-e730-463d-b60b-f2c508839de9.png",
+  "source": "assets/dungeon/shared-materials/proposals/stylized/atlas.png",
+  "soleArtReference": "docs/reference/stylized-material-review/reference.png",
+  "prompt": "docs/reference/stylized-material-review/prompt.txt",
+  "sourceQuadrants": [
+    "wall-plain",
+    "wall-violet",
+    "floor",
+    "wood"
+  ],
+  "userCorrection": "The preceding texture proposals look too realistic compared with the original mockup.",
+  "intent": "Broad painted shapes, limited detail, graphic wear and localized violet; keep the existing geometric masks.",
+  "runtimeIntegration": true,
+  "approval": "oui utilise cette nouvelle gamme de texture",
+  "activeRecipe": "assets/dungeon/shared-materials/active-recipe.json"
+}

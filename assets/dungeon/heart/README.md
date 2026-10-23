@@ -1,22 +1,20 @@
-# Approved dungeon heart
+# Cœur du donjon
 
-`reference.png` is an unchanged copy of the user-approved image
-`codex-clipboard-252b152a-68fc-429f-af48-2b88834cf839.png` (1672 × 941 px).
-The heart has a square blue-stone pedestal, four short corner stones and a
-floating dark violet sphere. Its orientation and proportions are preserved.
+`heart.png` est le sprite complet à alpha natif utilisé par
+`scenes/DungeonHeart.tscn` via `scripts/alpha_heart.gd`.
 
-`scenes/DungeonHeart.tscn` samples only the native contours of the pedestal,
-energy link and sphere. The local origin is source pixel (1316, 546); the sphere
-is centered at (1316, 453), with a 49 px contour radius. No source floor rectangle,
-HUD, hero or other object is drawn. No bitmap is regenerated or rescaled.
+Il a été déplacé depuis `assets/dungeon/alpha-kit/heart.png` lors du nettoyage du
+23 octobre 2026, sans modifier ses pixels ni ses réglages d'import.
+SHA-256 : `8322d1472022c2949c3a73626a8fbb9e7909e08e2e798f6fd22327795567e43c`.
 
-The scene adds a soft contact shadow, a small additive halo and one static
-floor-only violet light. The imported reference is lossless, without mipmaps
-or size reduction. Like the masonry atlas, it remains a full authoring reference;
-packing the sampled art into a compact production atlas is future work.
+Le sprite conserve le cadre entier 1269 × 1239, la mesure du corps
+(295,322,680,724), la largeur affichée de 220 et la position (-110,-147).
+Le rectangle du corps sert uniquement à l'ancrage et à l'échelle uniforme ;
+la texture entière est affichée. La lumière du sol reste définie dans la scène.
 
-Run `tools/test-mobile.ps1 -All -Capture`: the heart probe checks eight exact
-source pixels, nine clear points outside its contours, local illumination and
-unchanged rendering outside its local area. Inspect `artifacts/heart-detail.png`
-and the complete `artifacts/dungeon-2d.png`. These checks do not replace artistic
-approval of the integrated scene.
+`reference.png` est une copie inchangée de la maquette originale approuvée par
+l'utilisateur. Elle sert de référence artistique et n'est pas découpée au runtime.
+
+La provenance historique est conservée dans
+`docs/cleanup/alpha-kit-generation-before-cleanup.json`.
+Le cœur reste un prop séparé, absent du SixRoomPreview actuel.

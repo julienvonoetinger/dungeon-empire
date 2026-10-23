@@ -1,9 +1,9 @@
 {
-  "id": "shared-stone-material-library-v1-2026-10-23",
-  "status": "new_material_appearance_pending_review",
+  "id": "shared-dungeon-stylized-materials-v2-2026-10-23",
+  "status": "user_approved_material_family",
   "methodAuthorization": "User approved retaining masks as a shared-material workflow after the first NW test; requested richer textures and several variants.",
   "tool": "built-in image_gen",
-  "canonicalStyle": "assets/dungeon/gloom-kit/reference.png",
+  "canonicalStyle": "assets/dungeon/shared-materials/stylized-reference.png",
   "referenceRole": "material and palette only; architectural geometry is separately locked",
   "sources": [
     {
@@ -11,24 +11,60 @@
       "image": "walls-atlas-v1.png",
       "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-de7c4638-4858-4256-baa5-f4fdbbb74ad7.png",
       "prompt": "prompts/walls-v1.txt",
-      "variants": ["planes", "fissures", "layers", "pits"]
+      "variants": [
+        "planes",
+        "fissures",
+        "layers",
+        "pits"
+      ],
+      "role": "historical; only iron from the door atlas is retained"
     },
     {
       "family": "floors",
       "image": "floors-atlas-v1.png",
       "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-23c08a31-4e5d-4092-a5a0-54fd0480cad6.png",
       "prompt": "prompts/floors-v1.txt",
-      "variants": ["calm", "fine-crack", "worn", "marks"]
+      "variants": [
+        "calm",
+        "fine-crack",
+        "worn",
+        "marks"
+      ],
+      "role": "historical; only iron from the door atlas is retained"
     },
     {
       "family": "doors",
       "image": "door-surfaces-atlas-v1.png",
       "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-6462137b-f34a-4652-824d-8b900e1d054e.png",
       "prompt": "prompts/door-surfaces-v1.txt",
-      "variants": ["oak", "iron"]
+      "variants": [
+        "oak",
+        "iron"
+      ],
+      "role": "historical; only iron from the door atlas is retained"
+    },
+    {
+      "family": "stylized-walls-floor-wood",
+      "image": "stylized-atlas-v2.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c193d6f8-e730-463d-b60b-f2c508839de9.png",
+      "prompt": "prompts/stylized-v2.txt",
+      "variants": [
+        "walls-planes",
+        "walls-fissures",
+        "walls-layers",
+        "walls-pits",
+        "floors-calm",
+        "floors-fine-crack",
+        "floors-worn",
+        "floors-marks",
+        "door-oak"
+      ],
+      "role": "approved active family"
     }
   ],
-  "preparation": "tools/prepare_shared_stone_materials.cjs crops four opaque material swatches from each 2x2 stone atlas and two halves from the door atlas, omitting 8px around each boundary; exact source regions and hashes are in catalog.json.",
-  "currentReview": "docs/reference/painted-kit-review/overview.png",
-  "runtimeIntegration": false
+  "preparation": "tools/prepare_shared_stone_materials.cjs reads active-recipe.json, checks exact approved crop hashes and exports the shared root material files. No old atlas fallback.",
+  "currentReview": "docs/reference/stylized-material-review/comparison.png",
+  "runtimeIntegration": true,
+  "activeRecipe": "assets/dungeon/shared-materials/active-recipe.json",
+  "approval": "oui utilise cette nouvelle gamme de texture"
 }

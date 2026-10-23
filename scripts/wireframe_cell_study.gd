@@ -60,6 +60,8 @@ var _pieces: Array[Sprite2D] = []
 var _plan: Dictionary = {}
 var _frame := Rect2(0, 0, 256, 256)
 var _pending := false
+var _reload_editor_textures := false
+var _refreshed_textures: Dictionary[String, Texture2D] = {}
 
 
 func _ready() -> void:
@@ -71,13 +73,17 @@ func _request_rebuild() -> void:
 	if not is_inside_tree() or _pending:
 		return
 	_pending = true
-	call_deferred("refresh_preview")
+	call_deferred("refresh_preview", false)
 
 
-func refresh_preview() -> void:
+func refresh_preview(reload_textures: bool = true) -> void:
 	_pending = false
 	if not is_inside_tree():
 		return
+	# A separate import process can update .ctex files while this editor still
+	# holds older preloaded textures. Manual refresh must also refresh that cache.
+	_reload_editor_textures = Engine.is_editor_hint() and reload_textures
+	_refreshed_textures.clear()
 	for sprite in _pieces:
 		if is_instance_valid(sprite):
 			remove_child(sprite)
@@ -127,19 +133,34 @@ func refresh_preview() -> void:
 	if first:
 		_frame = Rect2(0, 0, KIT.CELL_PIXELS, KIT.CELL_PIXELS)
 	_frame = _frame.grow(24.0)
+	_reload_editor_textures = false
+	_refreshed_textures.clear()
 	rebuilt.emit()
 
 
 func _add_sprite(texture: Texture2D, at: Vector2, layer: int, label: String) -> void:
 	var sprite := Sprite2D.new()
 	sprite.name = label
-	sprite.texture = texture
+	sprite.texture = _texture_for_preview(texture)
 	sprite.centered = false
 	sprite.position = at
 	sprite.scale = Vector2.ONE * KIT.TEXTURE_SCALE
 	sprite.z_index = layer
 	add_child(sprite)
 	_pieces.append(sprite)
+
+
+func _texture_for_preview(texture: Texture2D) -> Texture2D:
+	if not _reload_editor_textures or texture.resource_path.is_empty():
+		return texture
+	var path := texture.resource_path
+	if not _refreshed_textures.has(path):
+		# Each shared image is read only once per refresh, regardless of cell count.
+		var refreshed := ResourceLoader.load(path, "Texture2D", ResourceLoader.CACHE_MODE_REPLACE) as Texture2D
+		if refreshed == null:
+			push_warning("Could not reload preview texture: %s" % path)
+		_refreshed_textures[path] = refreshed if refreshed != null else texture
+	return _refreshed_textures[path]
 
 
 func get_content_rect() -> Rect2:

@@ -1,0 +1,2023 @@
+{
+  "date": "2026-10-23",
+  "reason": "User-requested removal of obsolete pre-wireframe architecture trials and their exclusive loaders/tools.",
+  "recoveryCommit": "ddb80ce0c69e02f4c6d2eed7b941d19bb65081d4",
+  "movedHeart": {
+    "from": "assets/dungeon/alpha-kit/heart.png",
+    "to": "assets/dungeon/heart/heart.png",
+    "sha256": "8322d1472022c2949c3a73626a8fbb9e7909e08e2e798f6fd22327795567e43c"
+  },
+  "preservedModifiedMetadata": "docs/cleanup/alpha-kit-generation-before-cleanup.json",
+  "removed": [
+    {
+      "path": "assets/dungeon/alpha-kit/entrance-walls.png",
+      "bytes": 1152009,
+      "sha256": "b5e9e5041b154b7a450038e1680985d707b1ad017226d9c33cafbe55367c4502"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/entrance-walls.png.import",
+      "bytes": 970,
+      "sha256": "676f572ed9f55583cf894535d3206f4d9a4d56915a828cc270bed14eeabad688"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/entrance.png",
+      "bytes": 1513257,
+      "sha256": "441f73dfdf62751f692dac206cbf8ee5358cf1f9e4cdd884052bb03360890da8"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/entrance.png.import",
+      "bytes": 953,
+      "sha256": "635ad39e325d544157cfc9084a5cab4803c57c356d9fd04055427b0f5f25ca72"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/facades-v2.png",
+      "bytes": 1664297,
+      "sha256": "17d2284b5348f89498e4f68cf840bfc243820c719cbd3038a94908452fb0fc87"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/facades-v2.png.import",
+      "bytes": 959,
+      "sha256": "47ce63ccd94b033db6be75703c4367055cb498dfea565c5866a979442f7b489c"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/floors.png",
+      "bytes": 802864,
+      "sha256": "f3685d2db7ba8214fe5a2ca4c4d02159b6f5bbdc721e08e464d427396d12ec33"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/floors.png.import",
+      "bytes": 947,
+      "sha256": "85c943577495c82eea6c5e51644c6fe77a6e2cde45659483dfc52be9f67e7ac5"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/generation.json",
+      "bytes": 22437,
+      "sha256": "b1411600dc32c6143199c024f4ebe457a4f667327f640c24a40e88326ef13996"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/heart.png",
+      "bytes": 748516,
+      "sha256": "8322d1472022c2949c3a73626a8fbb9e7909e08e2e798f6fd22327795567e43c"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/heart.png.import",
+      "bytes": 944,
+      "sha256": "8a0abd7614854e70637d934a757e8b87d39f0e90e052cb4a66bdf6528a0af0aa"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/joins.png",
+      "bytes": 415401,
+      "sha256": "fa8ae32c5f87bab7e671cc191371f674ad787429558b3def88bf5b2c5a3161ea"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/joins.png.import",
+      "bytes": 944,
+      "sha256": "a1de6938ecc2cf83d37a5f49083a42abf1c8687ca68d26fb10b269dd0f6e3ca8"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/piers-v2.png",
+      "bytes": 727482,
+      "sha256": "334cca4e991946d40c159606c11d56b5b831922ede851acdbdefee6e137610d1"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/piers-v2.png.import",
+      "bytes": 953,
+      "sha256": "9a14f7635d60edc9bc21de4f8474ca9ff29a2854e470f2859fa98ec7ba5ae8b5"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/piers.png",
+      "bytes": 524748,
+      "sha256": "558c7145271bbfb063dc6dcece250ddb1b9acc0a158d5eef437f97a942cf954e"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/piers.png.import",
+      "bytes": 944,
+      "sha256": "d2778b6293b8f41054a04e83d3f70b347e2104b93fe1d0968378c982ee9dab93"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/short-caps-v2.png",
+      "bytes": 558542,
+      "sha256": "b9bd9e76ed7f1f6d6fc5051235335219d18459642fb731f3a65554e0df1e5ccd"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/short-caps-v2.png.import",
+      "bytes": 968,
+      "sha256": "0f6655cdbaed5fdb3eb5c55b7cd2bb1f186112cbb76c3518786eec7f74da9c96"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/wall-blocks-v2.png",
+      "bytes": 567070,
+      "sha256": "3728ad6ab380a3f9af8d18fd0ed42bdcb07da3a568cf947747bae0f1eb1c9e80"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/wall-blocks-v2.png.import",
+      "bytes": 971,
+      "sha256": "cc38406b687d72dfb9ffabaa8758903af4c8b27bb0c64a7003d351aab317388e"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/wall-units-v2.png",
+      "bytes": 1179375,
+      "sha256": "e191107ed10d30bfa4b2c1233263a567802758706f73882b01ef16f108f2d201"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/wall-units-v2.png.import",
+      "bytes": 967,
+      "sha256": "db93dd2c97ffd094a098163634172c080b0b89a706c9d1621b334448ffef8113"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/wall-units.png",
+      "bytes": 915601,
+      "sha256": "bf4dfa11b9f05b2257c4389e5e15dddb88b3d1bc20c9b0607f00e8e64e3bbe66"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/wall-units.png.import",
+      "bytes": 958,
+      "sha256": "75b565bd2bdbc97afff60e313c1774cf44c6cb5fa96915d61276e22b50075720"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/walls.png",
+      "bytes": 1064596,
+      "sha256": "67d1771adb9a5e8fb5f8b809033ca030609c68411a956be4c8bb860183704831"
+    },
+    {
+      "path": "assets/dungeon/alpha-kit/walls.png.import",
+      "bytes": 944,
+      "sha256": "a3b6aa1d2ca603b571e667f5da7b2ab30d431ebc5ba844a293d66e0282da6658"
+    },
+    {
+      "path": "assets/dungeon/backdrop.png",
+      "bytes": 7752,
+      "sha256": "056faa416a9cceb9bee9981d96aafa6ae0362e9e7f489f0100a52dbb7351d262"
+    },
+    {
+      "path": "assets/dungeon/backdrop.png.import",
+      "bytes": 943,
+      "sha256": "939d1cd4e3aa6378b7f4eeedc749941db7eec09c046a10e668304edce88ffcd1"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_ne.png",
+      "bytes": 4657,
+      "sha256": "31fe32c4b6e585d0ab55f897db90ca283a8be50e1f2fba5fd8a77f4a089f94d2"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_ne.png.import",
+      "bytes": 964,
+      "sha256": "0c28422498a31f57a29b56805e18d2073c98844571591d91c9289beb6ef7aff5"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_nw.png",
+      "bytes": 4683,
+      "sha256": "46239c8457e2e06a0b0f4877a357b432d7feaed83243cda322f43d8b322572a9"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_nw.png.import",
+      "bytes": 963,
+      "sha256": "7c0d3896ccd802a3edac75cf8c00a4dc00f56bc7f293575cb6f5548b95eb6ee8"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_se.png",
+      "bytes": 5309,
+      "sha256": "b1c98f10514f521e3af91cb4bea2271af073e742b60c7d50b1376ba0b947cb3a"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_se.png.import",
+      "bytes": 964,
+      "sha256": "4d6a3b19e637426f3c57da77148da3f74f7d0ecaf4105f9c246c4f93f3b3f9a6"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_sw.png",
+      "bytes": 5087,
+      "sha256": "c2c4175cae3a08d63d3ab6d2fda6aabe4f45ccc52e657840342c296db7907d95"
+    },
+    {
+      "path": "assets/dungeon/corner_inner_sw.png.import",
+      "bytes": 964,
+      "sha256": "cfc38b4735909192c288580efb7048a3698147900b4d94d552067e229fd8b6ec"
+    },
+    {
+      "path": "assets/dungeon/corner_pillar.png",
+      "bytes": 5638,
+      "sha256": "583ef169fbf3f3e8e76872c9ade7bdd495bd7b83d7f397c384d5b39474e9a505"
+    },
+    {
+      "path": "assets/dungeon/corner_pillar.png.import",
+      "bytes": 957,
+      "sha256": "84ee54fb43ec09d9c0b984cc621af52c042b9b08df6d69357d86101e1f9043e5"
+    },
+    {
+      "path": "assets/dungeon/entrances/east.png",
+      "bytes": 716076,
+      "sha256": "8417fa05b6d85147dedaf27c182bf59cbba8906d518ccb9d8a034f6d9ad1f3f5"
+    },
+    {
+      "path": "assets/dungeon/entrances/east.png.import",
+      "bytes": 943,
+      "sha256": "7212afc2f3573658056130126ec5fee9906a2228f6f8e0a891d3fcaa642ef4e3"
+    },
+    {
+      "path": "assets/dungeon/entrances/north.png",
+      "bytes": 824784,
+      "sha256": "2efbd0c9a806f2bc3cba926fef646a96c62e237195ade1f0a10e5c6b2fcfa974"
+    },
+    {
+      "path": "assets/dungeon/entrances/north.png.import",
+      "bytes": 946,
+      "sha256": "1f95c853c37bc4a106d2f1ccbbeccf0ab83c2132c8791f0a39c282536cdb5e3d"
+    },
+    {
+      "path": "assets/dungeon/entrances/south.png",
+      "bytes": 774405,
+      "sha256": "afe6db06a829793fdabe1e26e27d90c4374177fd68c28c75698d7c40f33c58a9"
+    },
+    {
+      "path": "assets/dungeon/entrances/south.png.import",
+      "bytes": 946,
+      "sha256": "b65c9a77f6256ee49a936356259ef8127a3bd7c7cc82b377b1208016c3615c3f"
+    },
+    {
+      "path": "assets/dungeon/entrances/west.png",
+      "bytes": 688795,
+      "sha256": "4bbbc37b3246710e85c70bff02f2fa27023ecd197967ae6f33f49bbbc63a430b"
+    },
+    {
+      "path": "assets/dungeon/entrances/west.png.import",
+      "bytes": 943,
+      "sha256": "6fdb16f18deae889bfdece5c54ef6d9d32cf89b850d3071c1c8ffd2a1f5dc823"
+    },
+    {
+      "path": "assets/dungeon/floor_0.png",
+      "bytes": 4240,
+      "sha256": "8409f1fea4fdfb39f4fd9c72d5e7d23d7d04c8fab2461f197592e322fc1b0cd6"
+    },
+    {
+      "path": "assets/dungeon/floor_0.png.import",
+      "bytes": 940,
+      "sha256": "be4a4dba827bcb85bce5a30a167a6dfafe4b1e86387b81a7a93d529b88e63abb"
+    },
+    {
+      "path": "assets/dungeon/floor_1.png",
+      "bytes": 4268,
+      "sha256": "8bab4cebe02614847cc3edc8d7fda2b26ec651a25152f2d062132f64a631e8b9"
+    },
+    {
+      "path": "assets/dungeon/floor_1.png.import",
+      "bytes": 939,
+      "sha256": "ff126d47f5e9578ad7929a81c8d325b21fba05884b23ea5b1a020ceb69551aff"
+    },
+    {
+      "path": "assets/dungeon/floor_2.png",
+      "bytes": 4285,
+      "sha256": "b3e4555968d44ed0eb5e62b42a5e1d5c3dc7b4887d8ebaccf7c8c73c3fdf0b81"
+    },
+    {
+      "path": "assets/dungeon/floor_2.png.import",
+      "bytes": 939,
+      "sha256": "b44192e82baba2909ae65d958a30217eb0f0c051ef2d7dc225167ad66a2f8d3b"
+    },
+    {
+      "path": "assets/dungeon/floor_3.png",
+      "bytes": 4413,
+      "sha256": "57b81f89fd698cb402f140d13789de49c1636bc4697797fdceecbbf808359f68"
+    },
+    {
+      "path": "assets/dungeon/floor_3.png.import",
+      "bytes": 939,
+      "sha256": "796b220217892f3fd0d4684f34627d471869f86f78f3c288aa2250c5300d0368"
+    },
+    {
+      "path": "assets/dungeon/floor_4.png",
+      "bytes": 4104,
+      "sha256": "80363389946e70e6bffffbd1ddf75a13d2348acd6c4ad55b5412ecd1fde4986a"
+    },
+    {
+      "path": "assets/dungeon/floor_4.png.import",
+      "bytes": 939,
+      "sha256": "0c602674f048d03560a699f54fd9459a637784108334d1e5f39f4704340efe3e"
+    },
+    {
+      "path": "assets/dungeon/floor_5.png",
+      "bytes": 4110,
+      "sha256": "af8a4a98b57b634a62dcdf911ed5bf10be063f998d78ec8c08c52c5104cbf28c"
+    },
+    {
+      "path": "assets/dungeon/floor_5.png.import",
+      "bytes": 940,
+      "sha256": "c521f80501da2968d69eec2f69b801a15c4d08fe51e2812d2eb70a9508821ac3"
+    },
+    {
+      "path": "assets/dungeon/floor_6.png",
+      "bytes": 4098,
+      "sha256": "cd3934f11c2cbb3f00a4311f8ed79aa7553a60b0468e7450cb8f80f64b0e2a39"
+    },
+    {
+      "path": "assets/dungeon/floor_6.png.import",
+      "bytes": 939,
+      "sha256": "f8548725568f05b87ab773b628a8094292adc95448811ab6c320baf9512ba82e"
+    },
+    {
+      "path": "assets/dungeon/floor_7.png",
+      "bytes": 4356,
+      "sha256": "8f94ca67123d4cff062caae6dc1bd364189a1d2bd12228260ddc71da9f3fe292"
+    },
+    {
+      "path": "assets/dungeon/floor_7.png.import",
+      "bytes": 939,
+      "sha256": "4b4f179893a5980dcd3ee8ea50342dd661602f7b89ccde40beb6aaa77b20f5c6"
+    },
+    {
+      "path": "assets/dungeon/gloom-kit/proposals/corner-parallel-courses.png",
+      "bytes": 730231,
+      "sha256": "41af054488fccf27515ecaab57a5e8feec8036678c7effaa1d706cfd146022b3"
+    },
+    {
+      "path": "assets/dungeon/gloom-kit/proposals/corner-parallel-courses.png.import",
+      "bytes": 1008,
+      "sha256": "47d457640169c200f6a7907a61781ce89cf476ef1f15e6c3701492865b96d061"
+    },
+    {
+      "path": "assets/dungeon/gloom-kit/proposals/corner-review.png",
+      "bytes": 663570,
+      "sha256": "639ed0926e51adaa89ae23044c60767849898c253ca4b6288ea27358d7beb324"
+    },
+    {
+      "path": "assets/dungeon/gloom-kit/proposals/corner-review.png.import",
+      "bytes": 977,
+      "sha256": "b357ba27e73c13cfe07c9c8220001e5a86b38eaf2071b4a1725f6d9e6b510d54"
+    },
+    {
+      "path": "assets/dungeon/gloom-kit/proposals/corner-straight-foot.png",
+      "bytes": 671844,
+      "sha256": "e2d41f8a196c996049d155d50eb38635e26be0d4804a93d777501f3711dfb339"
+    },
+    {
+      "path": "assets/dungeon/gloom-kit/proposals/corner-straight-foot.png.import",
+      "bytes": 998,
+      "sha256": "6bdbe92a18cd21afa6dab3f2a04d98fc497ef06af834a93a8e0439bf69d5c862"
+    },
+    {
+      "path": "assets/dungeon/modular-study/brick-muted-v3.png",
+      "bytes": 1072246,
+      "sha256": "bb90b6faa870e7fbb8397e705ae635982ebc43ab9b02199b1a1f99c5d720759f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/brick-muted-v3.png.import",
+      "bytes": 975,
+      "sha256": "0e4a77537c57f2af5e59908effcf172787ffc55b3fcf8bcdcf383cfde4064c62"
+    },
+    {
+      "path": "assets/dungeon/modular-study/brick-soft-v2.png",
+      "bytes": 1159344,
+      "sha256": "a672c233dcbe39374cd5628ca31eac815e640640b7c1d46fa49d0e76f52d3919"
+    },
+    {
+      "path": "assets/dungeon/modular-study/brick-soft-v2.png.import",
+      "bytes": 972,
+      "sha256": "259fe7ba0dc08477f63925512749a3d4e97d03d9bd838d210c61b95b9ca44eee"
+    },
+    {
+      "path": "assets/dungeon/modular-study/brick-variants-v1.png",
+      "bytes": 1286744,
+      "sha256": "a22fb3917ee87f73b9737ecb1e35fb32a5ded0ad07d62e6f8353ee353583c8fd"
+    },
+    {
+      "path": "assets/dungeon/modular-study/brick-variants-v1.png.import",
+      "bytes": 984,
+      "sha256": "709a44125c04af8fcdb5e69efcbd94afb9f99980a84d6ef85c58f6dd35d461f9"
+    },
+    {
+      "path": "assets/dungeon/modular-study/calm-palette-generation.json",
+      "bytes": 14155,
+      "sha256": "0a19458359a19a0b6fed8124c8b36c4ef3d08fcbb548076dbace4d49c5a634a3"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-compact-pairs-v24.png",
+      "bytes": 932549,
+      "sha256": "52e8d52b5f7765a10f7b294a478f17796c67fbd9eb68ec984a060a06326c1edb"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-compact-pairs-v24.png.import",
+      "bytes": 996,
+      "sha256": "55d1b1e00c0aeb843edaeaa281fa5921f7a3a9971b903425de3f5f70389ca0ea"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-compact-turns-v2.png",
+      "bytes": 984055,
+      "sha256": "b6a18cd3323104b731b1a4250a3aaaa64cdca5531ce9df428c34e02701b1dec6"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-compact-turns-v2.png.import",
+      "bytes": 993,
+      "sha256": "fd00f055306da3e38d5f1cac182c0d2a8d9eb65a7c64b733af23fa959cc3db3f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-compact-turns-v3.png",
+      "bytes": 954637,
+      "sha256": "e431d579719e67c0ba12249fe8d39e7e1fabf7de87901697ed9359b88cbc75a9"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-compact-turns-v3.png.import",
+      "bytes": 993,
+      "sha256": "8d58f2fd322d3738d10a1f426e5655fe26b0222b4987ef630491c90a16f74042"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-continuous-v10.png",
+      "bytes": 961209,
+      "sha256": "b9cfa69b53cbb738e4280ff4b72a87fd0ee547643039d8fe53e19331e2481a15"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-continuous-v10.png.import",
+      "bytes": 987,
+      "sha256": "2fe87fec8e5f1c673d14d5ea97e19940925142b8474925fa3b4e179c3cdf865a"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-course-v4.png",
+      "bytes": 871905,
+      "sha256": "0391f9ef41f02bcfaca54211c752ffc1c4031c9afd23f8187c451d68941a51b2"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-course-v4.png.import",
+      "bytes": 972,
+      "sha256": "3f314903e6ce5595b0980b456f19d0327dac05f977b395397728efac3ab068a4"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-blue-v6.png",
+      "bytes": 694204,
+      "sha256": "eb63055f6e359b34ffccd029de90a2c78606decdf2a46cac445f7805ccf1dfd0"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-blue-v6.png.import",
+      "bytes": 987,
+      "sha256": "07b6f82199e410191c70efedbd0a703a8574bc06312ed17be6130bf6090d7429"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-flush-v8.png",
+      "bytes": 697392,
+      "sha256": "8541e7fc2b99443f6761e209e072b7fccfc925ebd9dc06a719f27674e5e58834"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-flush-v8.png.import",
+      "bytes": 990,
+      "sha256": "d05c412429163de44f0e7b7b4d43e5375d1f8d3108e542749bcc5d5870c31614"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-flush-v9.png",
+      "bytes": 739992,
+      "sha256": "2b465fdfbe688f46467637c06cc74a9da1c710da774f0d583550064b21db10d3"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-flush-v9.png.import",
+      "bytes": 989,
+      "sha256": "9b0d92bcaa91f94ff49b52b5ecaa6d8953f71a294185585996964e1f93b8a5f1"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-muted-v10.png",
+      "bytes": 651996,
+      "sha256": "558088cb6eb4dbdc47bb719495b163f125f5ab1e4e8bca4363084ada0fa27fb1"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-muted-v10.png.import",
+      "bytes": 992,
+      "sha256": "c55367bc8744d546c6afcd71a893aa089e3f945aeeab25cf6c6c88a08e6fa399"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-ports-v11.png",
+      "bytes": 785937,
+      "sha256": "7f3c05642f98b88976bcbc64095cb8c211789114298b60d5ad1adfe6e499b63b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-ports-v11.png.import",
+      "bytes": 993,
+      "sha256": "b676767442a3a89937fce5b94828ace7e0ce40ac6e31f4f2cf5eb02fa68e1c4e"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-ports-v12.png",
+      "bytes": 830224,
+      "sha256": "a4babb69452b157418d43f323b25b67efd1ffd6028c041acf199e725848485fc"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-ports-v12.png.import",
+      "bytes": 993,
+      "sha256": "d63f902b65e54b5a32a86416246507024ea3870c5b06aac937ee20c5ede6c47f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-square-v7.png",
+      "bytes": 726888,
+      "sha256": "5af31adad3889de7d03fa9327423dc6395928a643d68e4cb6d4e36a86c1696c7"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-square-v7.png.import",
+      "bytes": 993,
+      "sha256": "9399f2c1f042b4917dd506255791c1f5b2c3ae95fe8dd043f11712d9cd5ccfc3"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-thin-v7.png",
+      "bytes": 731082,
+      "sha256": "49a672c502beeca5aec2519bf859bfc8c7a2007d9af2887e97f132d1631c73c9"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-thin-v7.png.import",
+      "bytes": 987,
+      "sha256": "fbd2dcafd420d89649aa1e07bfa8a30d8639abc9ffd50512e71d083d895b9bab"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-v4.png",
+      "bytes": 725533,
+      "sha256": "fb3a6b4f3a0a5690351a44306b2d44dc9d3958be69928534511d77cf66e56e08"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-v4.png.import",
+      "bytes": 972,
+      "sha256": "0d0eab20743ae5c9c542ce69dc6660398ce546606b4d4c19a5519eea05af6038"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-v5.png",
+      "bytes": 694599,
+      "sha256": "213aa144f629ade98b8420e6eef76b455cd5da80ffcb5723787209e955e731f3"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-elbows-v5.png.import",
+      "bytes": 972,
+      "sha256": "4aa704f60576be3bafbe721b696edb3b56731f0fb6e4337666c9f175ae8ff326"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-joins-v5.png",
+      "bytes": 961572,
+      "sha256": "5fd72e666ac12b95daf050a97d5b6cd6ebf289dff2e4f5fd914213668835af32"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-joins-v5.png.import",
+      "bytes": 968,
+      "sha256": "7499b122d6d9f8b4a961342f3d501dc6f1fe06693d1335b63d636430d981340d"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-muted-v11.png",
+      "bytes": 887590,
+      "sha256": "16092e6d518ae16e72a5fc7d812d95c6e6fa4d24f0fc8e3164e747250bd0f634"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-muted-v11.png.import",
+      "bytes": 972,
+      "sha256": "e759ed9f0943628bedf120f30cbdc0d673a3d5a669da2e61328b139259b1858d"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-relief-v8.png",
+      "bytes": 960270,
+      "sha256": "ef4aca411d92791c02521e1ff39f537dfd29211b82e4e08bc6068a748d5ba592"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-relief-v8.png.import",
+      "bytes": 971,
+      "sha256": "d07009082fa42fc0884b08eb06d5d16ef20067eff0e879c2a1163295392d767f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-short-v1.png",
+      "bytes": 642499,
+      "sha256": "2091ff373117fc255ef2e4477b2c37b88b754b944e23877206b2ea110404929d"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-short-v1.png.import",
+      "bytes": 969,
+      "sha256": "57224e9b72af807445ca9116375ff22f15a849314d8377fb6cbf80622c419c59"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-square-v3.png",
+      "bytes": 939702,
+      "sha256": "492c738b1a92946c2a2960b947c0fcd446163205f8c3ec891ab41477c20ca3d6"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-square-v3.png.import",
+      "bytes": 972,
+      "sha256": "43e71a109df2f4d8986a233b8ee29bfd744a8d79c7cf826bc04be90d45fac35f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-tight-v13.png",
+      "bytes": 898579,
+      "sha256": "cf66ea6284dd16871050e3cd56deb8a5edba7e97fa9294ebf655385711d7dd51"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-tight-v13.png.import",
+      "bytes": 971,
+      "sha256": "7897ce26c76c70d7c78c743f2632e0b907986496d9bce53c5ab13fad25f8c802"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-tops-v7.png",
+      "bytes": 945224,
+      "sha256": "af0cd940f761c11a17e1dc19debdb1668b4bc42a5d3f36f25864509a028840d5"
+    },
+    {
+      "path": "assets/dungeon/modular-study/cap-tops-v7.png.import",
+      "bytes": 966,
+      "sha256": "6ff20ff968070b6ee8b02549dc8a7c707be15bc24d45da5c7c6b3d22979971e8"
+    },
+    {
+      "path": "assets/dungeon/modular-study/compact-pairs-generation.json",
+      "bytes": 18809,
+      "sha256": "c111811a591b1fa0600c1bd159102fdba28feb51c167676f45ae9b9e06121299"
+    },
+    {
+      "path": "assets/dungeon/modular-study/continuous-courses-generation.json",
+      "bytes": 4494,
+      "sha256": "145df0f2b5d6d7f039dd734807f21ca72aed1f5645f9145e5db395cda2385564"
+    },
+    {
+      "path": "assets/dungeon/modular-study/corner-continuity-generation.json",
+      "bytes": 9914,
+      "sha256": "54a370f970d95923f27c276b18978343f8d3dfbf25b4475e4a73eee9f0b488e7"
+    },
+    {
+      "path": "assets/dungeon/modular-study/exterior-generation.json",
+      "bytes": 1429,
+      "sha256": "b1a801095bb3d3a27066e84ea76175e869869e8fdfe0bcaf42e5c2cda88fdc05"
+    },
+    {
+      "path": "assets/dungeon/modular-study/exterior-v1.png",
+      "bytes": 808016,
+      "sha256": "6bcfc6e5a0b33bacf8fdecbc0ae79fd368d80ed7acb4af21c5d1cee49d815dc9"
+    },
+    {
+      "path": "assets/dungeon/modular-study/exterior-v1.png.import",
+      "bytes": 965,
+      "sha256": "0f683d906f949e9638ac22d58f087a0fd4d43b5b095be16ad0241233088397a7"
+    },
+    {
+      "path": "assets/dungeon/modular-study/facade-stones-v4.png",
+      "bytes": 682271,
+      "sha256": "19ce9bc77c53367bde984f89922c7ab73e86f3588b7d3ca30820052de47151be"
+    },
+    {
+      "path": "assets/dungeon/modular-study/facade-stones-v4.png.import",
+      "bytes": 981,
+      "sha256": "9b6e692a03d7b0e8b2aacdd2cdcbb61286f6260c526e03c2801925ff1ace915b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/facade-units-v4.png",
+      "bytes": 785464,
+      "sha256": "d8b5ddbcb6c88d202349a744dfdf1f7c6b46479fa8c84aeaaf9bc85ec6291fc1"
+    },
+    {
+      "path": "assets/dungeon/modular-study/facade-units-v4.png.import",
+      "bytes": 978,
+      "sha256": "d004649f2633be07e14db01d681bed8fc7f7270c2f2f6b790e3fe3d2c06d0913"
+    },
+    {
+      "path": "assets/dungeon/modular-study/flat-tops-varied-floor-generation.json",
+      "bytes": 5013,
+      "sha256": "3cc201bec75999a3ec4bbdb265b99d6516cf948b5612adf41ef89937be58905f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-calm-support-v1.png",
+      "bytes": 1419144,
+      "sha256": "07e5012f141056732577b89320dae581176f97833d7fdda03a62d7980f68e8e9"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-calm-support-v1.png.import",
+      "bytes": 996,
+      "sha256": "55d1752ab4fd2524439f0f28788fd4c1a4c98d0ba1ce4edd6e54e985b91c9356"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-calm-v3.png",
+      "bytes": 1455395,
+      "sha256": "65fcb384fc9a5714d9a4f65713e00716f1ffa47d90c75f6aba1b3fdc748f3a52"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-calm-v3.png.import",
+      "bytes": 971,
+      "sha256": "b71469c6ff4c30e7126ceef8a8378255c84dd31fe4f60eb581c81bf502c49302"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-source-v1.png",
+      "bytes": 1190644,
+      "sha256": "d7f74d00555b94ece17fd01fde89ed73aec00ef71e6ce57810cadf8cc3306c8e"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-source-v1.png.import",
+      "bytes": 978,
+      "sha256": "3d9119531272b11c0dc78711b05ab499139be2b0c828416159c0e3050a3ca36b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-variants-v1.png",
+      "bytes": 1208461,
+      "sha256": "3d72dc12f918e313ee6fb6a1c026ca1f33bbaa2e45cca9c181de0f53732f67cb"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-variants-v1.png.import",
+      "bytes": 984,
+      "sha256": "25e667238635d8126f2cd0ddd4f5fb2af136eb3b847e152ba982bfe6f8dc6717"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-varied-v2.png",
+      "bytes": 1693523,
+      "sha256": "ee00875db864d086e59246af72722fc876ff77cf7c7132b1ee6379939a2fe5c6"
+    },
+    {
+      "path": "assets/dungeon/modular-study/floor-varied-v2.png.import",
+      "bytes": 978,
+      "sha256": "abd69365d4d918db0de9d2101b21a2c9b6f286dafde3830e690546280c4abe58"
+    },
+    {
+      "path": "assets/dungeon/modular-study/generation.json",
+      "bytes": 10340,
+      "sha256": "d0361f4c6dd2aefa7520b0baf35a5295694531bfafc2b37da1dfdfa1759d3f92"
+    },
+    {
+      "path": "assets/dungeon/modular-study/joins-and-variations-generation.json",
+      "bytes": 11554,
+      "sha256": "6b8c070999afad737554418488044cd004a03902939becbfef2709123633d7d5"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-corners-v1.png",
+      "bytes": 527887,
+      "sha256": "f69b039d64d0f31842c82cdc017b26c6ca6318604d59f3e4345646ba43f6ac02"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-corners-v1.png.import",
+      "bytes": 990,
+      "sha256": "3726b0878c0b5558c49f70a62ac9d9c46ac830de26de015d13e6ed8f4707c1fd"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-generation.json",
+      "bytes": 14786,
+      "sha256": "07de0b0bcf9bf99c920cc8d9f613de882efcc8673efc4050d43bb9588e3cfb05"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v1.png",
+      "bytes": 497173,
+      "sha256": "94ea33ca083fd87939717e76a06404cde0af16a4231929ba3f4e8c9d5f38af65"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v1.png.import",
+      "bytes": 993,
+      "sha256": "7a39224a9cdc8427503876a78e47b9787fa5878f8825e50bb77499dd5ba220ea"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v2.png",
+      "bytes": 682476,
+      "sha256": "99086639a2523af2463a1348670114d2cb4f2b50e467f08622727c002d917478"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v2.png.import",
+      "bytes": 993,
+      "sha256": "44704109356d33a2735281013c56bc2dae34908bd6a48fdee7664aa913af5ee4"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v3.png",
+      "bytes": 1215525,
+      "sha256": "0d697fd28b1534c280c853318875db9d56aa666473bd02098c4bcce818bd9742"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v3.png.import",
+      "bytes": 993,
+      "sha256": "1b134df0da831a7fbdd82b51a74296986c852c21d8c23a1efc93d00c12da9c94"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v4.png",
+      "bytes": 1336528,
+      "sha256": "593d96a2f89753be58ce2886e5e335efac9eebdcb1053a50019da4629c4a9ce2"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-keystone-v4.png.import",
+      "bytes": 993,
+      "sha256": "dc4a8309c7e8a7f7b9bbbd066823a88dfd75517a5f1d4432a2f190829eef27db"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-side-lengths-v3.png",
+      "bytes": 1613970,
+      "sha256": "ac5b568edbf76c6dc4166625194393cdcbd9f7d242d7bb5d1482248a9ee0b0af"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-side-lengths-v3.png.import",
+      "bytes": 1005,
+      "sha256": "d29fdbb5bd5bd885b458fe1c47e7981a0189ac3de6a2dd6cfebbe05fb2cf8b85"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-side-stone-v1.png",
+      "bytes": 682199,
+      "sha256": "aaf00a840cb08e64d9fd3181e5306bae7dde852d504ffd525793b791b72aff73"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-side-stone-v1.png.import",
+      "bytes": 999,
+      "sha256": "96a27f7fd390f7f1b1ffa00e32d701479ab3f6057b8bf478a40a4f2dcf3ee901"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-turns-v1.png",
+      "bytes": 713194,
+      "sha256": "8889aa638d5e344364640178e3e122c07090fd34cd4bf34529498211e14c782f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/junction-turns-v1.png.import",
+      "bytes": 984,
+      "sha256": "6c88835b614028537a3227a27d3e16500419db6fe780f62c924ff30c23291dbd"
+    },
+    {
+      "path": "assets/dungeon/modular-study/lateral-volume-generation.json",
+      "bytes": 31390,
+      "sha256": "6c7ea06d035626961930b6275c7c75d99d6a53815a6b380706013de13ec65311"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-ends-v4.png",
+      "bytes": 1039410,
+      "sha256": "c18563f1bad40312f0a6370656816fc25260a046e2ccca6c63c56b02fc2f668b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-ends-v4.png.import",
+      "bytes": 1005,
+      "sha256": "4e5ecac50119ab1907ff7159aea46d095fbf961337063348e59d4f1580559144"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-ends-v5.png",
+      "bytes": 1222351,
+      "sha256": "59ddee539df498cd7b6c37dbf7ce658fa9d819093f5c2a8dac5bf10075a0250a"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-ends-v5.png.import",
+      "bytes": 1004,
+      "sha256": "0024a28ba0d2d85335fe4b018deb3fd3232dbd36ea6df8468a151b0e5ad47e0e"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-generation.json",
+      "bytes": 13963,
+      "sha256": "61ff8162fb36d381c76739b4e62b937e0efa9dc634dc3eb1a6c72bedaa036f0d"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-muted-v4.png",
+      "bytes": 1141300,
+      "sha256": "90bcdc6192199597689a89cfd9ce5694423c9c97fe0285069637a019fbd24bc3"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-muted-v4.png.import",
+      "bytes": 1008,
+      "sha256": "c4c49a1fa973e0902f5bae7457f26ad002e04c38675b497de0306ca5241046e7"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-v2.png",
+      "bytes": 1278328,
+      "sha256": "4c12caf64024dd5f164eba9b376abf03cbd9e97481ba271e3b58b8ba8e1638af"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-v2.png.import",
+      "bytes": 990,
+      "sha256": "9fce3b37896fb4656c5e09d18c5e1bc7f84171c0dad81271186e557885e2bb1a"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-v3.png",
+      "bytes": 1383295,
+      "sha256": "70e355316f4d88b04d8784f7ffc731704f2ab75cd84cb1475000ba5bedc48d3b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/narrow-separator-v3.png.import",
+      "bytes": 990,
+      "sha256": "8206990e0481366995b84cdfecba448d34361b433f84ebc7dcd91fcd2bb5bbad"
+    },
+    {
+      "path": "assets/dungeon/modular-study/native-transitions-generation.json",
+      "bytes": 14101,
+      "sha256": "3ead6f1fc0c91d8c6e705da4a719276cd446205dd71a5d75bd63d435ca015388"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-muted-v8.png",
+      "bytes": 1285708,
+      "sha256": "0af70c45823cfe48fa0ea6dcaef3a7aea71397d5ce806e358ce3953b197feba6"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-muted-v8.png.import",
+      "bytes": 990,
+      "sha256": "54e055fc11a5daa836e268599caaf4506109585b44c2ca7b269a02ee4416bc6f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-square-v7.png",
+      "bytes": 1245210,
+      "sha256": "96fce8c3d0b2d059382a3bbffa72975ff1898e813a8adcedd6de7cc4e0bfd4a1"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-square-v7.png.import",
+      "bytes": 993,
+      "sha256": "c7974d48ef0c0747223e86d1dc90614f0033d84464eb862062c194ba3f97ae6a"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v1.png",
+      "bytes": 1321734,
+      "sha256": "f3b40b66ae3229ecfc0f46104d475ba1b4b638be1935cf6b384cafb7ab7acb37"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v1.png.import",
+      "bytes": 1006,
+      "sha256": "a6ed22537f09b9bb6ea6e85531c92f0fbf9bea1c093b2c0a8c0b3c35d1285eee"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v2.png",
+      "bytes": 1401085,
+      "sha256": "c36694a17a82ea643fa726bc74c65c4aaeb5e20d6539aff3f3b2e0d106f8ff86"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v2.png.import",
+      "bytes": 1008,
+      "sha256": "e7b84f43d8b8b81155ee1555bcc7144d05e22de323d3d719b221142b7f3d90d8"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v3.png",
+      "bytes": 1627915,
+      "sha256": "e4d6e953e1e309fae2e5b4e0e971c2fee2cd650d73e92d220ff70eca9bcf24fa"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v3.png.import",
+      "bytes": 1008,
+      "sha256": "0ce0fc7ab4a314786defd6e6a8a137a7ed760ec65df4ec490da850ffa1361714"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v4.png",
+      "bytes": 1856164,
+      "sha256": "625b3c733609233f9d3b974ed893ea2848b13cc5699f743fb52afc6d9caa8b2c"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v4.png.import",
+      "bytes": 1008,
+      "sha256": "5c4eb1e0e06cb3098f795582e0318747510c6ab76ec1c3cf0c09c056aa229f00"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v5.png",
+      "bytes": 1393874,
+      "sha256": "f8fa3c1c620619ee8b6237afd55206a26387b06e511e51561d619fbec60f9e87"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v5.png.import",
+      "bytes": 1008,
+      "sha256": "e2d98587b7f43ae593edb7b8ccd76cee946d494d58931e021b2d135b15739e4e"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v6.png",
+      "bytes": 1337283,
+      "sha256": "291f80602aadadb8f34953d3800e422727133f32695372b64723f98d4162d5d2"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v6.png.import",
+      "bytes": 1008,
+      "sha256": "d219b8037b845e45e70973e74b8ad6dbe68fc8e138715af7cb4ce1428ef3b630"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v7.png",
+      "bytes": 1356973,
+      "sha256": "4f37a10d3d6f61cc271bc36b0e1cb0d631941b2a5ea59fa3f07644fdb10e1add"
+    },
+    {
+      "path": "assets/dungeon/modular-study/paired-cap-transitions-v7.png.import",
+      "bytes": 1008,
+      "sha256": "a87774e124b2d6e3608b6136b6da1466a8d9527f7f6150c99aac034f281b5c1a"
+    },
+    {
+      "path": "assets/dungeon/modular-study/port-width-generation.json",
+      "bytes": 24869,
+      "sha256": "9c619b46409bc8bdca52bb76c25a4092dcf8eb009c8b706ddc4a5675db1900fa"
+    },
+    {
+      "path": "assets/dungeon/modular-study/shared-joins-generation.json",
+      "bytes": 8753,
+      "sha256": "130a5ca792c36347fb9ce3e6aa9d0fbf9c9bc8c3a079e6739bffad8f42fc2f8d"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-caps-v6.png",
+      "bytes": 933706,
+      "sha256": "917b25f0f2ecce7e56a7a20f058c23edbca2aa5f1c4944ab4bac8fe9bc55a5b3"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-caps-v6.png.import",
+      "bytes": 969,
+      "sha256": "61068f900a945104edbe44464e5771cf79dea8ac9ba839958f963cf1c27d0caf"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-junctions-v2-generation.json",
+      "bytes": 3357,
+      "sha256": "38ed368210c549699b5d607d738908604274da4b1116785b9fc83019bae762b7"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-junctions-v2.png",
+      "bytes": 1201675,
+      "sha256": "d24e6eb5c90168169d77c1dccd6a34e5d46d8975e5ad405169abc72d6cc3e364"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-junctions-v2.png.import",
+      "bytes": 983,
+      "sha256": "e03bfd1a651728e103e4d6cf203cd40381989b2eed00e1837014c5650c7ad497"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-junctions-v3-generation.json",
+      "bytes": 2986,
+      "sha256": "5e70bd3dda69c0dfa717405a13fd752b405890f743276c5a1eb46a744fd45885"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-junctions-v3.png",
+      "bytes": 1122359,
+      "sha256": "7f2b0e4e4d11108d0334d283217c0c2846506080270be57853acabcf2835513b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-junctions-v3.png.import",
+      "bytes": 984,
+      "sha256": "59b5baa0ee44116859a8e6c907b8e5d280179e85bc74655c32c96d0957eeefa2"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-relief-v8.png",
+      "bytes": 1075331,
+      "sha256": "cb79a1e593b187c4e6581e54acec9a38557a46fac77ac2e140d138f5a6f9908b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-relief-v8.png.import",
+      "bytes": 975,
+      "sha256": "6811362175dbc9deca1bfd258c96b00a4911c2e36aea53e95f0fb9b6fe803ba8"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-texture-v9.png",
+      "bytes": 944387,
+      "sha256": "c842f742f10c0b88f79183d9ce45edaef9e978215d0d214a4a602a2b23e7c053"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-texture-v9.png.import",
+      "bytes": 978,
+      "sha256": "4dbea12ba8fd4bf4b5b043f4bad55c0f7e89cc507320d15ebeb18fa8939864d8"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-tops-v7.png",
+      "bytes": 958398,
+      "sha256": "1736947d765e5acca6effa53759b55ed824d6c7704a41a38b1512ea7a697d8ea"
+    },
+    {
+      "path": "assets/dungeon/modular-study/side-tops-v7.png.import",
+      "bytes": 968,
+      "sha256": "175d4252f89a68a43587939e6fbeb95762fe6d50fed60ea8a04c26dc2ebd0fa1"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-ends-v6.png",
+      "bytes": 1116828,
+      "sha256": "82650845316f281e6cf9cbff981fdf78fa5f6bea6b592f858a8a90e5b9ea5110"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-ends-v6.png.import",
+      "bytes": 1001,
+      "sha256": "72d8d14118d1c2831382cdeb44c72e79a234ad7c3813f5535ea0d5bde45ba663"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-ends-v7.png",
+      "bytes": 1047948,
+      "sha256": "d621a2d6a53777ace5987badef6d292f0b1add7080baa3c6a1bd72a94a5e96a5"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-ends-v7.png.import",
+      "bytes": 1002,
+      "sha256": "5c69f5a77898322f779d5c33abc6381cb4c1e292a96be9247878194b518a6694"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-ends-v8.png",
+      "bytes": 1112484,
+      "sha256": "564979dc7b3bf0a06a4be68a4d8e9bde9b4b25bce56cbd9c6a4e2cbac5a24306"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-ends-v8.png.import",
+      "bytes": 1002,
+      "sha256": "6b5d89b644fa3823fc37f9ee9d06f8f564a0f1f45e49672e93a6b3631de4d9e1"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-generation.json",
+      "bytes": 10200,
+      "sha256": "3f4a3dfd78ca81e500ef6361d09a996cd0b199fc3d267c21a30ee1f406f83099"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-muted-v9.png",
+      "bytes": 981575,
+      "sha256": "cdaad772746014759e773c8f250ee3cacf2618def69b82a6048fa9e4c9149e31"
+    },
+    {
+      "path": "assets/dungeon/modular-study/solid-separator-muted-v9.png.import",
+      "bytes": 1005,
+      "sha256": "cfbd0abab67e3c9549ebd780b3b21a3e30b41d6d0f4cdfd90355a1f844dedb40"
+    },
+    {
+      "path": "assets/dungeon/modular-study/south-course-v4.png",
+      "bytes": 887088,
+      "sha256": "15326bdaa6738b6f4c30b1ca463baf39432f48c376cdc7b318088229b298a7a5"
+    },
+    {
+      "path": "assets/dungeon/modular-study/south-course-v4.png.import",
+      "bytes": 978,
+      "sha256": "020e21f05296f3180c308e99a37c1795f20d975442a3397ea1ffecaaf7a8c27b"
+    },
+    {
+      "path": "assets/dungeon/modular-study/square-corners-generation.json",
+      "bytes": 26334,
+      "sha256": "06be2c68b7db45bc19249c05e3b17573f697c898ebf424c81f8074589ca5a2c2"
+    },
+    {
+      "path": "assets/dungeon/modular-study/tight-joints-generation.json",
+      "bytes": 15188,
+      "sha256": "eff9dd12280717c3a37cc8be9d4fd010594a5911bb6c4a06e1aef99e8b3fa264"
+    },
+    {
+      "path": "assets/dungeon/modular-study/vertical-outline-generation.json",
+      "bytes": 9597,
+      "sha256": "aeed94ec2be81513f522cb19f26534bae2ddd51f15b19e3c1e18a13b73ee1120"
+    },
+    {
+      "path": "assets/dungeon/modular-study/vertical-width-color-generation.json",
+      "bytes": 7938,
+      "sha256": "64461a11bba019c59618becd79b8fdc7c59be18b8135a9435e879ea9e3b8c2c5"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-lengths-blue-v17.png",
+      "bytes": 679066,
+      "sha256": "2611898b8adf081489174c0be061e6c7cf437d544748555fc8e887f000671ac1"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-lengths-blue-v17.png.import",
+      "bytes": 995,
+      "sha256": "02f232cc857c541269036e199a192dd7d7470939bf8c075f18daf835266c2fae"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-lengths-blue-v18.png",
+      "bytes": 652937,
+      "sha256": "f6452909ed1c546730bd14255a6d420a4377e07732cef2de50bea7a9577df820"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-lengths-blue-v18.png.import",
+      "bytes": 996,
+      "sha256": "b97f3e2c4bc1ff0267960ba1ac1b09326678507a27b692334e0ab229bfe88c43"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-relief-generation.json",
+      "bytes": 10657,
+      "sha256": "0730d84689c27c7c1ba8a16c1f64ff66a3b551566a7d5b188d82870b7c4d7fa8"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tight-v22.png",
+      "bytes": 521646,
+      "sha256": "698c8be980a5adfe6d452c4b1254fb8d48138a03e49b6326ccbf1300b486456c"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tight-v22.png.import",
+      "bytes": 974,
+      "sha256": "2b949cacae6c12b6251234cf69e47c8b0aaa12e2b0b6ef90bc68e64bc44f17d3"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tight-v23.png",
+      "bytes": 576516,
+      "sha256": "8f9b4c39c026f774fafb87610d44f31dec59b7a04e1b76d9bd0fe62146a2f8ae"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tight-v23.png.import",
+      "bytes": 974,
+      "sha256": "13627e21de69d4657598620d20f2ab2d3838d4bdded49eb7a2e81504fcf397d8"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-blue-v11.png",
+      "bytes": 698803,
+      "sha256": "31d2faba4977b382eca5a5ea1aa755f27ed39cf3e1d67f2cb5a610dbcf752b1e"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-blue-v11.png.import",
+      "bytes": 986,
+      "sha256": "94e66cd405adaa6e674cb366afd477c099d09583e9e591b406b153a667b852eb"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-muted-v13.png",
+      "bytes": 441226,
+      "sha256": "f8eee5762c5b3c88cb508002f984700ec9c4557195cf318f3f44377d3bc11646"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-muted-v13.png.import",
+      "bytes": 990,
+      "sha256": "db45070f1e90287e89ef1a72d48891141b97a4f9a63b9cfff4ec406f13c4ab75"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-outline-v16.png",
+      "bytes": 483215,
+      "sha256": "1fd33f0790a3983a1d3189e4c2239862367172937c5847a6dc0ca8ae2e3df3e7"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-outline-v16.png.import",
+      "bytes": 996,
+      "sha256": "4e6df80c9b36212546d7140b08840ef02b36b96a972be288e7ad64bbafe98eae"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-ports-v12.png",
+      "bytes": 534257,
+      "sha256": "ab972afd6062be44630090ebbbfa5ded914a5544f12f91e49725223026e06a8f"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-tops-ports-v12.png.import",
+      "bytes": 990,
+      "sha256": "63c1f48c363a1f616423306537622a5b8938f65d6ccc5cbfdb8838be555fb1ab"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-volume-v9-draft.png",
+      "bytes": 1377982,
+      "sha256": "baccd1fc0c7927a7b1361ea4736a64db53f5fef16e92e9fcfea5e99d0494d354"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-volume-v9-draft.png.import",
+      "bytes": 992,
+      "sha256": "81c0b3b601884b7dccbce7f71dcacf08d4c78ca4ebf8ea8284779a1f1d4e82cf"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-volume-v9.png",
+      "bytes": 1267540,
+      "sha256": "5dd44e34bc81c5a4da412b60f7a7cfd558e3207e9be0c5540935dccdfd96daa0"
+    },
+    {
+      "path": "assets/dungeon/modular-study/wall-volume-v9.png.import",
+      "bytes": 975,
+      "sha256": "7c0b6f3e13a2477b674b74f6618f77e688aec1f48396a0b064292bffc3a0222c"
+    },
+    {
+      "path": "assets/dungeon/modular-study/walls-v1.png",
+      "bytes": 1151336,
+      "sha256": "457348ee029334fa00212da68834ac0c52776b63427682a18151237c86d6e90c"
+    },
+    {
+      "path": "assets/dungeon/modular-study/walls-v1.png.import",
+      "bytes": 957,
+      "sha256": "12ac7e4c4943262b584aa8b1def21e9e5199b202557229066c08a9a27f412229"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v1.png",
+      "bytes": 850399,
+      "sha256": "8c60ecfab68bca0250c8a98d13325fdefce2605928f0e2c63d2a6aeda1ab7035"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v1.png.import",
+      "bytes": 971,
+      "sha256": "61e09a8f9738eba4f81fb1174f3abe796a2bc0af172f8824dee853533f078afd"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v2.png",
+      "bytes": 933481,
+      "sha256": "1f1feb8c06c262c547575232c50a813b20fa0b583c61d581d50a535b3cda36a0"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v2.png.import",
+      "bytes": 971,
+      "sha256": "d8bbfc730d8b7943db29b467bda9d9d91dd4e605175298f98b8adf0d7d5bbbf4"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v3.png",
+      "bytes": 1062963,
+      "sha256": "aeab41fe788e113c3a7745a9c8c6882b8d54a020cc8389aa89eed0783726be20"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v3.png.import",
+      "bytes": 971,
+      "sha256": "dac00d4b19cd8162bb848e5f6c35b9d57c5d7c1e3c2f1ac1f90b06440af57b56"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v4.png",
+      "bytes": 1353644,
+      "sha256": "4e135e2f814f7c4b477a7c30d88659531e486591e50bfac7621970dfaf88fc6e"
+    },
+    {
+      "path": "assets/dungeon/reference-study/door-leaf-v4.png.import",
+      "bytes": 971,
+      "sha256": "dea87cdaf7ef016bdf4ac177b94d6156877ca45933a40ec4e1324687d4e57e2b"
+    },
+    {
+      "path": "assets/dungeon/reference-study/east-corner-v1.png",
+      "bytes": 339607,
+      "sha256": "5aef655ef2f0f569b945868381622cbb9deaee58120408f42460b59b3b802674"
+    },
+    {
+      "path": "assets/dungeon/reference-study/east-corner-v1.png.import",
+      "bytes": 977,
+      "sha256": "16e3613e0d11570ec1f6107b2a8d7ec287f4aa6c87a57c70cba2aea17636b782"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entrance-v1.png",
+      "bytes": 1654400,
+      "sha256": "cca7736ef675b062846912e4852e61875de82a5193e41ffe2af3a85f1149327d"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entrance-v1.png.import",
+      "bytes": 968,
+      "sha256": "d96292ec7c02a27cc29df08b1a94dcdb395663f03bce78b6c41b1d7369e1c7ba"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entrance-v2.png",
+      "bytes": 1707485,
+      "sha256": "ced2c6a5b3faeb4f1fa1a421bdde30203a71bef1f44d1b42e3ad12c5d68e0893"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entrance-v2.png.import",
+      "bytes": 968,
+      "sha256": "10fe7f936cd8f3e37fcd3fc379974b5d5f8c9405332e46e6f13db9eb9c657666"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-masonry-v1.png",
+      "bytes": 910227,
+      "sha256": "8446faf379dcbe88b1dc8f259419f9824583d6b3f935b7a3f256530d9d25e254"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-masonry-v1.png.import",
+      "bytes": 983,
+      "sha256": "2f74af5d825989cf6cdfe383ddd2effacbf3f1fe72771207652c17e1fddb34e8"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-masonry-v2.png",
+      "bytes": 919249,
+      "sha256": "b09481f81ccfe8538024edcfd835137d9735fbd85d8aacc021ca4996b61a4531"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-masonry-v2.png.import",
+      "bytes": 983,
+      "sha256": "1cc2b0d20b6184b895f6cbd5bd74c8c6db00ace44b47097821f80b7a108aa976"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-masonry-v3.png",
+      "bytes": 912132,
+      "sha256": "355813920c38d5959288bb3e53e9b9c5e05d0be276970c7c35b9cfabd85b9cfc"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-masonry-v3.png.import",
+      "bytes": 983,
+      "sha256": "6bec4196a04a6391ce8ecb51cc59f87678b6039fbb2bd5ff4cc153626d1efffa"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-wall-left-v1.png",
+      "bytes": 495306,
+      "sha256": "78a8cb4d4315754d9339c1f137eca7f72fefa32c1e3306bca069557cb399ed29"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-wall-left-v1.png.import",
+      "bytes": 989,
+      "sha256": "057a45ebcbfe7e9db52835e35d980d7b80f09bc65e90e55a34336b5ec48de095"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-wall-left-v2.png",
+      "bytes": 528359,
+      "sha256": "49a25ec71410131ff12f6f102eedab575e9206433571c2ee744ba8360ece7b4d"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-wall-left-v2.png.import",
+      "bytes": 989,
+      "sha256": "1077313e00ebacc55cdc240cbaf29775b040e70ac0d5a071d59175011cf32071"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-wall-right-v1.png",
+      "bytes": 456356,
+      "sha256": "4df3f4d094036086ba5d006ad7d6709639e65eb69b9560762d918cb95aa2d448"
+    },
+    {
+      "path": "assets/dungeon/reference-study/entry-wall-right-v1.png.import",
+      "bytes": 992,
+      "sha256": "c5dc4b21d227e95956c27ead6773b1fbf3d0fdeace99179bc4609da7d189e74b"
+    },
+    {
+      "path": "assets/dungeon/reference-study/exterior-v1.png",
+      "bytes": 361823,
+      "sha256": "b140a812aa890a277b4e68ce55339a2fc1c203e9de0051e28b2ab96238458c49"
+    },
+    {
+      "path": "assets/dungeon/reference-study/exterior-v1.png.import",
+      "bytes": 967,
+      "sha256": "617dfc9ede685675daa0182f424c675eb28f84c5465f49b9ffcaf89154356bb6"
+    },
+    {
+      "path": "assets/dungeon/reference-study/floor-patch-v1.png",
+      "bytes": 1749614,
+      "sha256": "46bb5441e855ad282fbba79851344ba8cb265036709fa02b8038bf905db1cfef"
+    },
+    {
+      "path": "assets/dungeon/reference-study/floor-patch-v1.png.import",
+      "bytes": 976,
+      "sha256": "e4b5e68c1ba501916493d5e5c55a50a1f313141e9981c0f72b93cca128e64af3"
+    },
+    {
+      "path": "assets/dungeon/reference-study/floor-patch-v2.png",
+      "bytes": 1751878,
+      "sha256": "9c25ae7a9cb9bb692657fc6ed7ff482fde7e3ff1fa07edd6239bf178425f02cf"
+    },
+    {
+      "path": "assets/dungeon/reference-study/floor-patch-v2.png.import",
+      "bytes": 977,
+      "sha256": "6ea116b9539cd74b8c60a7dbdd49d4b2cb313dc9c8b9e9efe203b0080ca73be3"
+    },
+    {
+      "path": "assets/dungeon/reference-study/generation.json",
+      "bytes": 36806,
+      "sha256": "534c984ce25a5f33bbe6241b8a48e9bfd591a8fd61f51332439fca5c24d9cef3"
+    },
+    {
+      "path": "assets/dungeon/reference-study/wall-corner-v1.png",
+      "bytes": 608088,
+      "sha256": "5ab8562cc2645806e63974d8c91ee87452bce463007cf1ce795c1ad7175b25bd"
+    },
+    {
+      "path": "assets/dungeon/reference-study/wall-corner-v1.png.import",
+      "bytes": 977,
+      "sha256": "3d8e59ceffa38d07d08a071338f79ef90b6d2352ed656d7d0168297327c9dcfb"
+    },
+    {
+      "path": "assets/dungeon/single-cell-study/generation.json",
+      "bytes": 3231,
+      "sha256": "df8c9b23567183ab1d89763a0fc53dbad90ed9b955184743a9f108a15823e91d"
+    },
+    {
+      "path": "assets/dungeon/single-cell-study/side-walls-v1.png",
+      "bytes": 1385912,
+      "sha256": "fa27a95e17b8fdcf168897d5e698d9d8d2ae94e914c6e9ed851fe6e3b14ba204"
+    },
+    {
+      "path": "assets/dungeon/single-cell-study/side-walls-v1.png.import",
+      "bytes": 976,
+      "sha256": "9a9022716c26f60a7b057b37da81acb333acdbbda7c34f9b0a18675543f2d232"
+    },
+    {
+      "path": "assets/dungeon/source-crops.json",
+      "bytes": 4201,
+      "sha256": "b0eaf907989942ea85762947a9628315001fed90a3ab4d8221a472c37772304f"
+    },
+    {
+      "path": "assets/dungeon/wall_east.png",
+      "bytes": 5295,
+      "sha256": "51953b071498090ad505ae75fc4aba9822fff4f898eb9232226b685769808186"
+    },
+    {
+      "path": "assets/dungeon/wall_east.png.import",
+      "bytes": 946,
+      "sha256": "35fa9297e3a56de9262460e72beff27bff7769bb5d9751ac1e32dc45fedec3b7"
+    },
+    {
+      "path": "assets/dungeon/wall_north_0.png",
+      "bytes": 4970,
+      "sha256": "61a08912dbda1bfa779bf0637fecdbdb403e2d1c11a41ba824173f7c476484e0"
+    },
+    {
+      "path": "assets/dungeon/wall_north_0.png.import",
+      "bytes": 955,
+      "sha256": "cf95830af110ebd609c86a91739c1e10205344566609b113fce9679ef464fce3"
+    },
+    {
+      "path": "assets/dungeon/wall_north_1.png",
+      "bytes": 4359,
+      "sha256": "2bd8413d498f2cc8a6ca04e4e053a11eabc7b06a150a59bc2d91ce2f803ce272"
+    },
+    {
+      "path": "assets/dungeon/wall_north_1.png.import",
+      "bytes": 955,
+      "sha256": "1940d2080efe3b17572835b5427dc070f00ead117cbfa68844b995ae116cf72e"
+    },
+    {
+      "path": "assets/dungeon/wall_south_0.png",
+      "bytes": 5155,
+      "sha256": "44b051fdab91e9927f5ff825f5e3176c01ce4a6cc0bd1a11afc19b35faf138b6"
+    },
+    {
+      "path": "assets/dungeon/wall_south_0.png.import",
+      "bytes": 955,
+      "sha256": "bc35a86ff83437d9f25797f0c4104438a3e8b069ab16070a8258b7d204f1dce5"
+    },
+    {
+      "path": "assets/dungeon/wall_south_1.png",
+      "bytes": 5430,
+      "sha256": "9f279c542dc23ab8b0c244e6dca361ba0fee99ff965f3effee8e700928cc0f53"
+    },
+    {
+      "path": "assets/dungeon/wall_south_1.png.import",
+      "bytes": 955,
+      "sha256": "2dcd37f75b1d8c0b1711a723109cf4a83a432406a07029256dc83e1147cc79c7"
+    },
+    {
+      "path": "assets/dungeon/wall_west.png",
+      "bytes": 5350,
+      "sha256": "c28535f927b4150868e6de381db4e67785d83c7ca4c425420327e07b3db3aa90"
+    },
+    {
+      "path": "assets/dungeon/wall_west.png.import",
+      "bytes": 946,
+      "sha256": "8f773625e95ff784ae95cc19c4190d2f6d41033faeb17b11f63a6d760ba10f7d"
+    },
+    {
+      "path": "scripts/alpha_kit.gd",
+      "bytes": 3730,
+      "sha256": "49e1dc2e44e88eef965d23c587c21123c2fabe7dbcb9db850ac3d550bb2e4287"
+    },
+    {
+      "path": "scripts/alpha_kit.gd.uid",
+      "bytes": 20,
+      "sha256": "d6b9c6d487567fd9e6472260d607e11f4a5ecee046af7fce02773b31400afa8c"
+    },
+    {
+      "path": "scripts/dungeon_preview.gd",
+      "bytes": 549,
+      "sha256": "26e76459ece17f194e1115dd16591e1013b903899ab478958e4d6b2009297d2d"
+    },
+    {
+      "path": "scripts/dungeon_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "a4668a1d3d1a421e235150c5ee28fa44120d1322d10d755ec6576a6dc567c492"
+    },
+    {
+      "path": "scripts/dungeon_probes.gd",
+      "bytes": 8898,
+      "sha256": "42f5433c4e99d452be34b1fea456cbe00cc307fc79d08b22b442ab2a5c17cee4"
+    },
+    {
+      "path": "scripts/dungeon_probes.gd.uid",
+      "bytes": 20,
+      "sha256": "d375030fca36651dbb7b361b4de2786d60f6d66e86f2da7c7a36a6753161c7d3"
+    },
+    {
+      "path": "scripts/dungeon_view.gd",
+      "bytes": 6965,
+      "sha256": "4aa2bdf7714bde358ac6933390efa762ee39262edad55bcc264cfeeda6c8cdd3"
+    },
+    {
+      "path": "scripts/dungeon_view.gd.uid",
+      "bytes": 19,
+      "sha256": "45999432ad1a682b818696ba2b560cacb584b64a66e4e2b818ed0fdf4a03d7e3"
+    },
+    {
+      "path": "scripts/entrance_pieces.gd",
+      "bytes": 1235,
+      "sha256": "5fde80c66e772be813bc734d48b0bfb8106562d3d108128a24657e3f7c798eba"
+    },
+    {
+      "path": "scripts/entrance_pieces.gd.uid",
+      "bytes": 19,
+      "sha256": "b0753cc462aba619b95897fc59ae1390e01caae3f4e0e27086454e73d919cc58"
+    },
+    {
+      "path": "scripts/modular_connection_plan.gd",
+      "bytes": 7665,
+      "sha256": "98ce832e497cca8a3efaf4bd6221d93c2ec7889cd786005f5b4a59f77ade6477"
+    },
+    {
+      "path": "scripts/modular_connection_plan.gd.uid",
+      "bytes": 20,
+      "sha256": "5e3cb1eb9d1c0a328f615bdff52ba3a77594be74adc3e7cee0abdf77cf0b31bc"
+    },
+    {
+      "path": "scripts/modular_join_kit.gd",
+      "bytes": 3969,
+      "sha256": "9c97cb6fa96558d8c9ef5a6bf2fb425fecacb7d0b880b343536fff5b8ee6046d"
+    },
+    {
+      "path": "scripts/modular_join_kit.gd.uid",
+      "bytes": 20,
+      "sha256": "e95b226512a63f147abf44adec9f469a898deb48bd3b74f1fcaf31b6b95af23a"
+    },
+    {
+      "path": "scripts/modular_room_study.gd",
+      "bytes": 9541,
+      "sha256": "449e44e18cf9e0281917730346d59f1fa82dc7f1bd4e2f34f14a7c8c7ac1756b"
+    },
+    {
+      "path": "scripts/modular_room_study.gd.uid",
+      "bytes": 20,
+      "sha256": "4b839c6fa40fd271eb26e9c0d475cabc5dc5edc88b266dd02ea914af34e6661a"
+    },
+    {
+      "path": "scripts/modular_separator_kit.gd",
+      "bytes": 2035,
+      "sha256": "e304520f6ad710f0d685b33e0bdeab5349465d6ebaac83ff6c7dcc46909187ac"
+    },
+    {
+      "path": "scripts/modular_separator_kit.gd.uid",
+      "bytes": 20,
+      "sha256": "1c94d87feea46dd8c52c3c0e5521feedd9c36cc4fe3ae2280a874fcc974b9ac0"
+    },
+    {
+      "path": "scripts/modular_side_kit.gd",
+      "bytes": 4306,
+      "sha256": "763c3f3656c8571c1082e14cfe9f1a1a99edfba5d9e8c3614b1bab1fad250d97"
+    },
+    {
+      "path": "scripts/modular_side_kit.gd.uid",
+      "bytes": 20,
+      "sha256": "865d92ff38c9f1743d5daff89a9491114894b9e4cd8b09b7d1418710e4f56dd7"
+    },
+    {
+      "path": "scripts/modular_study_kit.gd",
+      "bytes": 3703,
+      "sha256": "d7a3c8e1db5c632856cee38a8c7babb61a2d21e63d46a46b59a6fc1aa575a414"
+    },
+    {
+      "path": "scripts/modular_study_kit.gd.uid",
+      "bytes": 19,
+      "sha256": "ac2ba2807f8cf9f3d5b68d41f802017e3db95b65b70ce5e9b6b5eec4809e9503"
+    },
+    {
+      "path": "scripts/modular_wall_profile.gd",
+      "bytes": 1424,
+      "sha256": "f7191a00546688ed741d58878c562fcdfb238ed6076009bee3fd8a23253e7379"
+    },
+    {
+      "path": "scripts/modular_wall_profile.gd.uid",
+      "bytes": 20,
+      "sha256": "b39aff0a617799ababdf708062b83825189cfd877be7807cabe3b0a957f8b6f4"
+    },
+    {
+      "path": "scripts/perspective_room.gd",
+      "bytes": 1656,
+      "sha256": "c93b4046fad0769603794440456a18502ef4c3b998d6f37a315cac8d74728421"
+    },
+    {
+      "path": "scripts/perspective_room.gd.uid",
+      "bytes": 20,
+      "sha256": "a4ae6963db7020b47c080c8671b7166c0b83ab7ecd7f9ee3b33e8682151d8ed6"
+    },
+    {
+      "path": "scripts/probe_fixtures.gd",
+      "bytes": 3887,
+      "sha256": "c841f95a6b7f13d1cb9019fcc6d523107ef0334dfc80a4575e638fa2f0b4bd51"
+    },
+    {
+      "path": "scripts/probe_fixtures.gd.uid",
+      "bytes": 20,
+      "sha256": "d59fd823e548faae8ad9893e05635fddca37be34c09795e63d157675f809b6d6"
+    },
+    {
+      "path": "scripts/probe_overlay.gd",
+      "bytes": 10837,
+      "sha256": "2758747842c4fc51410d707fa14ed4f4347b04566c4d2f8b98c44e4eda24c144"
+    },
+    {
+      "path": "scripts/probe_overlay.gd.uid",
+      "bytes": 20,
+      "sha256": "bf8d568e804d5169fa6e53914543217621e38eeaefaf3c5bcd300c0f6a3044cb"
+    },
+    {
+      "path": "scripts/reference_calibration.gd",
+      "bytes": 2906,
+      "sha256": "eaaef0506eb50b931e49c738c9a484be1657168cc1de13c5ee14e5d64bb07aad"
+    },
+    {
+      "path": "scripts/reference_calibration.gd.uid",
+      "bytes": 20,
+      "sha256": "3eb9e3777193ad02b33ceceaf311be8333d97163a7c0b9b5cb3409b997e7d4a9"
+    },
+    {
+      "path": "scripts/reference_pieces.gd",
+      "bytes": 5785,
+      "sha256": "575f5d4e0d7145992e6b0033716d49d023feb20fb250a03c4adf52afd1014154"
+    },
+    {
+      "path": "scripts/reference_pieces.gd.uid",
+      "bytes": 20,
+      "sha256": "57cf404106d2697a74ba874f62afc59e610708c80cfb2f1b62d3309d4933f102"
+    },
+    {
+      "path": "scripts/room_corridor_study.gd",
+      "bytes": 23992,
+      "sha256": "09a6ccba243717c04fffdadef8b3e413fb633cd8ecb63c849b828adc00eca6a1"
+    },
+    {
+      "path": "scripts/room_corridor_study.gd.uid",
+      "bytes": 20,
+      "sha256": "4e90c97d187c8f60a8a5f6f0c326edc88de91cb1eb3f7ee622c29614963a8da4"
+    },
+    {
+      "path": "scripts/single_cell_room.gd",
+      "bytes": 5593,
+      "sha256": "39db1b287189e7135443754006118966771062ba018052124e3d4372a25b0852"
+    },
+    {
+      "path": "scripts/single_cell_room.gd.uid",
+      "bytes": 20,
+      "sha256": "08ae6ad47874e1658fe2bd5186b41933a3c3b2fb0dfa7d426f1573051b4056cb"
+    },
+    {
+      "path": "scripts/six_room_view.gd",
+      "bytes": 13868,
+      "sha256": "68c7791d94895c6279478d6e92dcfe4d5982c07209d7484493ad28dc289116f1"
+    },
+    {
+      "path": "scripts/six_room_view.gd.uid",
+      "bytes": 20,
+      "sha256": "7f8697afebd5def076b1801c985dca992a733500cb0e7802a99292d1bc18ca4c"
+    },
+    {
+      "path": "scripts/stone_variation.gd",
+      "bytes": 1355,
+      "sha256": "76a201d51772d3ccee22175fd911f1c4eb81901138839d30c055b2da2472b00f"
+    },
+    {
+      "path": "scripts/stone_variation.gd.uid",
+      "bytes": 20,
+      "sha256": "0e0c2ff7ee79e36948db74c1e8079df15ebe4d2d92ef8e53c106d5a7a7b176a0"
+    },
+    {
+      "path": "tools/build_gloom_guides.gd",
+      "bytes": 3971,
+      "sha256": "81f61d95970e560f17faa1d6b8dd5396cf05e965e95a60682f07590f41f941c3"
+    },
+    {
+      "path": "tools/build_gloom_guides.gd.uid",
+      "bytes": 20,
+      "sha256": "98e3164666de6daf9c71d07333001ef4bc7e12e997b195014cdf7d014811aa26"
+    },
+    {
+      "path": "tools/capture_alpha_joins.gd",
+      "bytes": 1718,
+      "sha256": "9b4dfc7232d492b62f7a2ea8d5e93a6ef645c0f5fd569b56bcb755848d280f6a"
+    },
+    {
+      "path": "tools/capture_alpha_joins.gd.uid",
+      "bytes": 20,
+      "sha256": "8e3d79b02e34387b649e8a82ff61fe61ff5ae12d1e38adcbb641de8ba5ea8a5a"
+    },
+    {
+      "path": "tools/capture_entry_seams.gd",
+      "bytes": 801,
+      "sha256": "ff843f798fb426aa578733f918c48e8a2e51615ba28ffd62662c6d77dc926a7f"
+    },
+    {
+      "path": "tools/capture_entry_seams.gd.uid",
+      "bytes": 20,
+      "sha256": "4093949b8d717aeb337ad34567d240bd1b6c9976fb073962400cc34e1480bec2"
+    },
+    {
+      "path": "tools/capture_modular_room.gd",
+      "bytes": 4164,
+      "sha256": "98c405de2cad76ec9a653bd2d0e0b2b2287c8a8bc94be1bd0e239f7e9d323d17"
+    },
+    {
+      "path": "tools/capture_modular_room.gd.uid",
+      "bytes": 20,
+      "sha256": "d8046235f87ab3f964cac8a227af80dd3c9c8d668761d477474188b2a783a358"
+    },
+    {
+      "path": "tools/capture_module_connections.gd",
+      "bytes": 7973,
+      "sha256": "8a26ac63d3bd5f81272300d22852ba59ebf6352ce87a9a134ecac3c021e52b1c"
+    },
+    {
+      "path": "tools/capture_module_connections.gd.uid",
+      "bytes": 20,
+      "sha256": "284e4683d7cdcd24c25468880c095c92bc84bd467ee6878101d4b696ff7f9562"
+    },
+    {
+      "path": "tools/capture_probes.gd",
+      "bytes": 4880,
+      "sha256": "879fc096de2d16498f5c3f88a55cfb32ec6cc237cb284e0bf27b35836f49c309"
+    },
+    {
+      "path": "tools/capture_probes.gd.uid",
+      "bytes": 20,
+      "sha256": "8f1473dc4e86235a727eb879f05c55a9eb178e2e59de4f3fe51e6c9237d0c230"
+    },
+    {
+      "path": "tools/capture_reference_calibration.gd",
+      "bytes": 14236,
+      "sha256": "f9fa2e8369765d0d6370d8acf912bc06966f519a6d1beba15a7bb96d62e30434"
+    },
+    {
+      "path": "tools/capture_reference_calibration.gd.uid",
+      "bytes": 19,
+      "sha256": "2de992ae89417efbe4858949cbbad06eea6a1c710ddb7ad989c0c83a44b28941"
+    },
+    {
+      "path": "tools/capture_reference_comparison.gd",
+      "bytes": 1685,
+      "sha256": "e2b0cfa70fd8fad713b5b97e1297f7e4f6d74dd500f56b56257e7ea2fac2bdf2"
+    },
+    {
+      "path": "tools/capture_reference_comparison.gd.uid",
+      "bytes": 19,
+      "sha256": "3185fa18b9d18f789467a1292d146e5646f1c46c4e859b535f495d285082a334"
+    },
+    {
+      "path": "tools/capture_room_corridors.gd",
+      "bytes": 6959,
+      "sha256": "63b92958a28c48915ffe2df33c8bf93cc68e6b4d3e57b07fc66e1cfb462d4daa"
+    },
+    {
+      "path": "tools/capture_room_corridors.gd.uid",
+      "bytes": 20,
+      "sha256": "60856a50a5988ccf838d864d956fa16dd7b6a1312b351093a9b1f97f3caba98b"
+    },
+    {
+      "path": "tools/capture_sidewall_comparison.gd",
+      "bytes": 2590,
+      "sha256": "ac0caeb162071015b2ceefcf7c5a057e6be013bc562e9546ff9703899c672c91"
+    },
+    {
+      "path": "tools/capture_sidewall_comparison.gd.uid",
+      "bytes": 19,
+      "sha256": "f5ad09aa5a541c94b2cb8900422ef7bb31e2ad04f1b03ccd362285837410f453"
+    },
+    {
+      "path": "tools/capture_six_room_details.gd",
+      "bytes": 1676,
+      "sha256": "3f0f966280a17f53b4399034389151071b78852a8e71b0891bfbb517cdff4d50"
+    },
+    {
+      "path": "tools/capture_six_room_details.gd.uid",
+      "bytes": 20,
+      "sha256": "f10cd0f3c365ea915f942b141193b78efaa0bd489c9fc71727a4252408babeb1"
+    },
+    {
+      "path": "tools/capture_stone_variation.gd",
+      "bytes": 1674,
+      "sha256": "9f53331cd2d63327502111f5a6c3f7f50452e00b788c7bd6b2d05f80aa2f1ae1"
+    },
+    {
+      "path": "tools/capture_stone_variation.gd.uid",
+      "bytes": 19,
+      "sha256": "1a70d9e1744bef7bd3c8ad6547c5f1fd64f8fd3359e240d8f38568cb71c01f15"
+    },
+    {
+      "path": "tools/capture_vertical_walls.gd",
+      "bytes": 1696,
+      "sha256": "7998a948ebf1f616e6486974be62124b2f5cbad0d75d4d212fbc554354b53038"
+    },
+    {
+      "path": "tools/capture_vertical_walls.gd.uid",
+      "bytes": 20,
+      "sha256": "0b2904990d2caba95ba1229a76c20d2433e93f2b06b13cd3616fca380f764ed6"
+    },
+    {
+      "path": "tools/capture_wall_projection.gd",
+      "bytes": 1748,
+      "sha256": "ae2db28b31a795c24757200be6fd645ebee719e87a98dfe31a72bdb091f3e18d"
+    },
+    {
+      "path": "tools/capture_wall_projection.gd.uid",
+      "bytes": 20,
+      "sha256": "02250c4f585a7976dcc09b5feddf42fdd2ed0c58586076c9278957904a453f19"
+    },
+    {
+      "path": "tools/fixtures/EditorRefreshCheck.tscn",
+      "bytes": 186,
+      "sha256": "f855fa60db40ece6c6cc4ca9d127f1600a67bb533ed716575c05e8e80d4b2b4e"
+    },
+    {
+      "path": "tools/inspect_alpha_scene.gd",
+      "bytes": 505,
+      "sha256": "59ea3b9118981452348c6f539e57efe35f9143d0813cd08b74c128a3d20902b8"
+    },
+    {
+      "path": "tools/inspect_alpha_scene.gd.uid",
+      "bytes": 19,
+      "sha256": "21d7d94e2a94e34122d6b25d91faad5a59ed5062dd9635e41eef533f4bb13650"
+    },
+    {
+      "path": "tools/inspect_wall_spans.gd",
+      "bytes": 645,
+      "sha256": "973184d23ccbca19a3c0a3f258b07ed7e971075bdea7f5e39bb6c631d54ae3ac"
+    },
+    {
+      "path": "tools/inspect_wall_spans.gd.uid",
+      "bytes": 20,
+      "sha256": "825c758e5fbb56001b36ae49319dee1bdf5cd01002a4c4e59eada15a8305f823"
+    },
+    {
+      "path": "tools/render_perspective_guide.gd",
+      "bytes": 4962,
+      "sha256": "9bd8132ac85b272cd0db57c19c7964329101b568cccbb522ff9fb875fc633762"
+    },
+    {
+      "path": "tools/render_perspective_guide.gd.uid",
+      "bytes": 20,
+      "sha256": "3ba3b5a70484dfb3505c858608ea9b8ad29517e02f75faf0a0a107fa983d0a4c"
+    },
+    {
+      "path": "tools/test-mobile.ps1",
+      "bytes": 7137,
+      "sha256": "f254f896f15403d7d6c53b7f92822ce5cbd5c08aea8be69d9896fdac2f0cbead"
+    },
+    {
+      "path": "tools/verify_alpha_assets.gd",
+      "bytes": 2566,
+      "sha256": "5d69c16d4718d0bb9e517a540f814607d84e05a5f323a545e7a474ea55e6174f"
+    },
+    {
+      "path": "tools/verify_alpha_assets.gd.uid",
+      "bytes": 19,
+      "sha256": "a64e90b11da060626def26f2ddb6ec3ccb6a0dc466d30ee28d13994fd1d3c93e"
+    },
+    {
+      "path": "tools/verify_alpha_scene.gd",
+      "bytes": 6860,
+      "sha256": "00064a4bffa2dd82b655bbc166d9c85e62fa74dac4890d4fd7b831ee4f8a19f6"
+    },
+    {
+      "path": "tools/verify_alpha_scene.gd.uid",
+      "bytes": 20,
+      "sha256": "4170be99c4f1f8d7b31d3246f3d53e351ff70487c591038b7971f7f9b37d97fe"
+    },
+    {
+      "path": "tools/verify_editor_refresh.gd",
+      "bytes": 5194,
+      "sha256": "922da6adc9520a5bee5154d84450836259a56153f40f31ad2910d18efd07dbca"
+    },
+    {
+      "path": "tools/verify_editor_refresh.gd.uid",
+      "bytes": 20,
+      "sha256": "4b626220b6a8521dcdca93b9531cce3b510491cdd766af2399c89361ad661ac5"
+    },
+    {
+      "path": "tools/verify_entry_seams.gd",
+      "bytes": 92,
+      "sha256": "71e7bbea7399780bfa0155ef78b7643cf0e682b41a9e87fd451592739faaf4a7"
+    },
+    {
+      "path": "tools/verify_entry_seams.gd.uid",
+      "bytes": 20,
+      "sha256": "bbeace9511015aa625bb7a48ef2fe4a78344770be6b5c979170638c050749be0"
+    },
+    {
+      "path": "tools/verify_heart.gd",
+      "bytes": 86,
+      "sha256": "6c53bca8713eb9d6a7befb2762a7aff3be5bb87786cb7200edfcded8034b93e9"
+    },
+    {
+      "path": "tools/verify_heart.gd.uid",
+      "bytes": 20,
+      "sha256": "91da932744f5f6c12d7fda36a47a03913af5a44af1fcc88a55559875dca7bb20"
+    },
+    {
+      "path": "tools/verify_probes.gd",
+      "bytes": 7870,
+      "sha256": "2683e28357f6b9f26375616761d1d386144bc887ba81585145eb1f81d71f9b45"
+    },
+    {
+      "path": "tools/verify_probes.gd.uid",
+      "bytes": 20,
+      "sha256": "6c5083cf209ef6da89956402a3f298c8828334cc6340601aa21014bd0164686d"
+    },
+    {
+      "path": "tools/verify_reference.gd",
+      "bytes": 6731,
+      "sha256": "f35f9d356ac8314bfa11144361f4e35867d95c110d3442fab24c53e0148bcb7a"
+    },
+    {
+      "path": "tools/verify_reference.gd.uid",
+      "bytes": 20,
+      "sha256": "08792676ebbbfa6f33cbb6dce61114a2eefef25bb38543137ef898152c0f7bc0"
+    },
+    {
+      "path": "tools/verify_scene.gd",
+      "bytes": 4966,
+      "sha256": "076d86147aef7380364916c0fc9b6f774f024e07f43f2b585e7e02db2629f889"
+    },
+    {
+      "path": "tools/verify_scene.gd.uid",
+      "bytes": 20,
+      "sha256": "c01398c9315940919bec67071b7c8b7a809f1d7b147b30aab6fc05f9378570b0"
+    },
+    {
+      "path": "tools/verify_single_cell.gd",
+      "bytes": 7705,
+      "sha256": "91ba6dfcd28bb0231ae4a295b03a6a1ecc0b406a3a785dc06147c59d5192f15f"
+    },
+    {
+      "path": "tools/verify_single_cell.gd.uid",
+      "bytes": 19,
+      "sha256": "2fd51d3ff73264817a5f7642d7e2c4c92e9e1ccbc99f232bdc0e0036b967a646"
+    },
+    {
+      "path": "tools/verify_six_rooms.gd",
+      "bytes": 90,
+      "sha256": "2f32aa7b011c944e30b0ec6657adf0e88b0f86e2f11984f181b58dadc20b11fd"
+    },
+    {
+      "path": "tools/verify_six_rooms.gd.uid",
+      "bytes": 19,
+      "sha256": "9805e3580bb3b81759aa245b1f999af9ad64de4eeecb96886796e28657d8fce4"
+    },
+    {
+      "path": "tools/verify_torches.gd",
+      "bytes": 2868,
+      "sha256": "ef582a5d08cff5c066a60f975e7e7570df2131443b1abe6c06f1b28793cad605"
+    },
+    {
+      "path": "tools/verify_torches.gd.uid",
+      "bytes": 20,
+      "sha256": "28cd22bd21bbdbc1c01739d26acb91b3265568dd6c329812dca548ee6949a0bc"
+    },
+    {
+      "path": "tools/verify_variations.gd",
+      "bytes": 91,
+      "sha256": "d8aa2910d99ef9c47dd4287812dfc3f21ecf7fdcf8285653644c2c8f4c866ebd"
+    },
+    {
+      "path": "tools/verify_variations.gd.uid",
+      "bytes": 20,
+      "sha256": "a2287482655d243e162316fee28a352efc11a9b277fb230646c100550ba229d2"
+    },
+    {
+      "path": "tools/verify_wall_layers.gd",
+      "bytes": 3000,
+      "sha256": "5f2badd5ae43ab75dda713043ed7b0cabf77c64e2f33f792a8dc1a5f9c0a2296"
+    },
+    {
+      "path": "tools/verify_wall_layers.gd.uid",
+      "bytes": 20,
+      "sha256": "4b37366d359e55bc75fb9adde0eb7b5756d9ce0b4fd04ec37822a080c0ef28c3"
+    }
+  ],
+  "bytes": 112597222,
+  "disposition": "Removed from active project by reversible local archive; files are not permanently erased.",
+  "localArchive": "artifacts/pre-wireframe-archive-2026-10-23",
+  "retiredPngCount": 134,
+  "preservedOriginalMockups": [
+    "assets/dungeon/perspective/reference-atlas.png",
+    "assets/dungeon/gloom-kit/reference.png",
+    "assets/dungeon/heart/reference.png",
+    "assets/dungeon/shared-materials/stylized-reference.png"
+  ]
+}

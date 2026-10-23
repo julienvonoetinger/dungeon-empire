@@ -1,5 +1,91 @@
 # Repository instructions
 
+## Legacy asset cleanup — 2026-10-23
+
+- User requested removal of failed architecture trials predating the wireframes.
+  `alpha-kit`, old `entrances`, `modular-study`, `reference-study`,
+  `single-cell-study`, loose original crop PNGs and three rejected gloom corners
+  are retired. Their exclusive renderers, capture scripts and obsolete checks
+  have been removed from the active tree too. Do not restore them from the
+  historical instructions below.
+- Active assets: `painted-connected`, `painted-cells`, `shared-materials` and
+  the three `wireframe-*` directories. Keep accepted geometry sources and mask
+  metadata, including `docs/reference/nw-material-review-v2/validation.json`.
+- The unchanged native-alpha heart is now `assets/dungeon/heart/heart.png`;
+  `alpha_heart.gd` loads it directly with the same region, scale and anchor.
+  Keep the separate heart/torch scenes and original user mockups.
+- Current commands: `README.md`, `assets/dungeon/README.md`, `PAINTED_GODOT.md`.
+  `tools/test-mobile.ps1` and its pre-wireframe checks are retired; they are not
+  valid checks for the current kit. Do not run/add tests without a user request.
+- `docs/cleanup/2026-10-23-pre-wireframe.json` inventories the removed paths,
+  hashes and recovery commit. Files are also retained in the ignored local
+  `artifacts/pre-wireframe-archive-2026-10-23/`, excluded from Godot by .gdignore.
+  The preexisting modified alpha-kit provenance is preserved byte-for-byte in
+  `docs/cleanup/alpha-kit-generation-before-cleanup.json`. Older prose referring
+  to retired paths is historical, not an active dependency.
+
+## Approved active stylized family — 2026-10-23
+
+- User approved the latest stylized preview: "oui utilise cette nouvelle gamme
+  de texture". Apply its exact materials to all existing painted assets and Godot
+  scenes. This supersedes the earlier proposal-only gates below.
+- Active material recipe: `assets/dungeon/shared-materials/active-recipe.json`.
+  Source: `stylized-atlas-v2.png`; exact reference: `stylized-reference.png`.
+  `tools/prepare_shared_stone_materials.cjs` now reproduces these approved crops
+  and profiles by default, checking their hashes. It must not restore old textures.
+- Keep existing material IDs. Four wall variants use plain/corrupted painted
+  stone; four floor variants use calm painted stone; wood is simplified. Iron is
+  retained from the approved preview. Older realistic sources are historical only.
+- Re-export isolated and connected kits after preparation. Preserve geometry,
+  alpha, joints, floor periodicity, anchors, scale and scene layouts. Godot still
+  places whole prepared PNGs; no generation or color correction at runtime.
+- Editor preview refresh: `wireframe_cell_study.gd` keeps its computed Callable
+  button and reloads used imported textures with `CACHE_MODE_REPLACE`, once per
+  unique path, on manual refresh / scene entry. Parameter-only rebuilds and runtime
+  retain normal preloads. After external PNG exports, finish import before clicking
+  "Actualiser le rendu"; a second Godot import process cannot refresh the memory of
+  the user's already-open editor. Do not restart that editor or discard its edits.
+
+## Current style correction — 2026-10-23
+
+- User finds the A/B/C corruption materials too realistic compared with the
+  original mockup. Do not use their grain, pits or bark as style references.
+  Prefer broad painted facets, a few deliberate scars, simplified wood grain
+  and localized violet accents. Keep the approved masks, joints and projection.
+- `docs/reference/stylized-material-review/` contains a new NW corner and north
+  door proposal, overlays, comparison, recipe, prompt and the exact user reference.
+  Its generated atlas is `assets/dungeon/shared-materials/proposals/stylized/atlas.png`.
+  Reproduce with `node tools/prepare_stylized_material_review.cjs`.
+  This preview is now approved and promoted to the active family described above.
+
+## Pending corrupted material directions — 2026-10-23
+
+- User finds ALL current materials too smooth/clean and asks for multiple evil,
+  corrupted dungeon texture proposals. This broadens the earlier door-only review.
+- Three generated material atlases: damp eroded crypt, cursed violet fissures,
+  and embedded black roots. Sources: `assets/dungeon/shared-materials/proposals/corruption/`.
+  Exact prompts and original outputs: `docs/reference/corruption-material-review/generation.json`.
+- `tools/prepare_corruption_material_review.cjs --variant=01-humide` (or
+  `02-fissures`, `03-racines`) exports one direction in a separate process.
+  Run without arguments to rebuild `comparison.png` with current art + A/B/C.
+  Each uses the same NW cell and north door geometry; masks/joints stay fixed.
+  Different rectangular crops supply variation without mirroring or rotating art.
+- These are unapproved appearance proposals only, with magenta overlays and
+  recipes. Active Godot assets/material catalogs remain unchanged. A production
+  library would need further variation and deliberate sparse corruption placement;
+  these samples do not validate connected roots or glowing veins across modules.
+
+## Pending door material review — 2026-10-23
+
+- User reports that door textures do not integrate with the dungeon. The current
+  oak is very orange with high-contrast grain. A muted aged grey-brown oak proposal
+  is saved in `assets/dungeon/shared-materials/proposals/door-oak-v2.png`.
+- `tools/prepare_door_material_review.cjs` applies it to all four existing door
+  masks and produces `docs/reference/door-material-review-v2/comparison.png`,
+  individual PNGs, magenta overlays and a reproducible recipe. Geometry, stone,
+  floor and iron materials stay unchanged. This is an appearance proposal awaiting
+  user review; active Godot assets and catalogs have NOT been replaced.
+
 ## Current floor rhythm correction — 2026-10-23
 
 - User reports columns of long slabs caused by the wireframe subdivision.

@@ -14,28 +14,122 @@ pour ce workflow. Elle ne valide pas automatiquement les nouveaux sprites.
 
 ## Références et responsabilités
 
-- Style et palette : `assets/dungeon/gloom-kit/reference.png`, la maquette utilisateur.
+- Style et palette actifs : `assets/dungeon/shared-materials/stylized-reference.png`,
+  la maquette utilisateur jointe lors de la correction de style.
 - Géométrie : wireframes approuvés et calques `wireframe-overlays/`.
 - Matières : `assets/dungeon/shared-materials/catalog.json`, fichiers PNG communs.
 - Prompts et sorties originales : `shared-materials/generation.json` et `prompts/`.
-- Présentation des huit matières : `shared-materials/material-board.png`.
+- Présentation des dix matières : `shared-materials/material-board.png`.
 
 Le générateur crée **la matière**, sans décider de la silhouette, de la perspective,
 des briques ou des joints. L'export hors jeu applique la matière dans les faces
 exactes. Godot affiche désormais les sprites préparés via le catalogue connecté décrit plus bas.
 
-## Bibliothèque actuelle, apparence à valider
+## Bibliothèque active et historique des revues
+
+### Gamme stylisée approuvée et active — 23 octobre 2026
+
+L'utilisateur a accepté le dernier aperçu : **« oui utilise cette nouvelle gamme
+de texture »**. Les matières de `stylized-material-review/` deviennent la gamme
+commune des cases, sols, piliers, escaliers et portes. Les trois pistes réalistes
+précédentes et le bois vieilli intermédiaire restent des essais historiques.
+
+`assets/dungeon/shared-materials/active-recipe.json` conserve les découpes exactes,
+les empreintes des pixels approuvés et les profils de composition. La source active
+est `stylized-atlas-v2.png` ; `stylized-reference.png` est la copie de la maquette
+utilisateur employée pour cette génération. Les identifiants de matière restent
+stables. Trois découpes de pierre simple et une de pierre corrompue fournissent les
+quatre murs ; quatre découpes du même sol calme et le bois simplifié complètent
+la gamme. Le métal reste celui de l'aperçu accepté.
+
+Préparation et export de la gamme active :
+
+```powershell
+node tools/prepare_shared_stone_materials.cjs
+node tools/export_painted_image_catalog.cjs
+node tools/export_painted_connected_kit.cjs
+```
+
+La préparation utilise cette recette par défaut, contrôle ses empreintes et
+recalcule les métadonnées de provenance et de couleur. Elle ne revient plus aux
+anciens atlas réalistes. Les 57 images isolées et les 96 structures connectées,
+ainsi que le sol raccordable, utilisent la même bibliothèque. La géométrie,
+les masques, les joints, le dallage périodique et les paramètres Godot restent fixes.
+
+### Correction : retrouver le dessin stylisé de la maquette
+
+L'utilisateur précise que les propositions A/B/C sont trop réalistes. Leur
+grain, les multiples éclats minéraux et le bois ressemblant à de l'écorce
+s'éloignent du dessin d'origine. Elles restent des essais rejetés comme
+références de style, même si leur géométrie est correcte.
+
+Le nouvel essai `stylized-material-review/comparison.png` emploie de grandes
+facettes peintes, quelques marques d'usure franches, un veinage simplifié et
+des accents violets localisés. La maquette jointe par l'utilisateur est la seule
+référence artistique de cette génération ; sa copie exacte, le prompt et
+l'original généré sont référencés dans `stylized-material-review/generation.json`.
+
+Les quatre surfaces de l'atlas sont pierre simple, pierre corrompue, sol calme
+et bois. Le fer et la construction des contours/biseaux restent ceux du
+compositeur existant. Cette proposition porte sur les matières ; elle conserve
+les masques, joints, caméra et ancrages. Les deux sorties et leurs superpositions
+magenta sont reproduites par `node tools/prepare_stylized_material_review.cjs`.
+Cet aperçu a ensuite été approuvé pour l'intégration décrite ci-dessus.
+
+### Trois pistes de corruption — 23 octobre 2026
+
+L'utilisateur juge l'ensemble trop lisse et propre et demande plusieurs variantes.
+La comparaison `corruption-material-review/comparison.png` présente l'art actuel
+puis trois propositions, sur les mêmes masques de coin NW et de porte nord :
+
+- **A — Crypte humide** : pierre rongée, taches sombres, bois dégradé, violet discret.
+- **B — Pierre maudite** : éclats et fissures avec des foyers d'énergie violette.
+- **C — Corruption organique** : racines noires incrustées, fines traces violettes.
+
+Les trois atlas générés avec imagegen contiennent chacun pierre de mur, pierre
+de sol, bois et fer. Des prélèvements rectangulaires différents dans chaque
+surface varient les pierres sans inverser leur éclairage. Les profils de
+composition sont communs aux trois propositions. Aucun fichier actif dans
+Godot n'est remplacé : le choix artistique reste à faire.
+
+Sources : `assets/dungeon/shared-materials/proposals/corruption/` ; prompts,
+originaux et recettes : `docs/reference/corruption-material-review/`.
+Reproduction : exécuter `node tools/prepare_corruption_material_review.cjs`
+avec `--variant=01-humide`, `--variant=02-fissures`, puis `--variant=03-racines`
+dans des processus séparés ; sans option, la commande assemble la comparaison.
+Les six sorties conservent les traits et l'alpha du modèle. Ce contrôle ne
+valide ni l'apparence finale ni la continuité de futurs ornements entre cases.
+
+### Proposition de bois de porte — 23 octobre 2026
+
+L'utilisateur signale que les textures des portes s'intègrent mal au donjon.
+Le bois actuel présente une dominante orange et un grain très contrasté.
+`docs/reference/door-material-review-v2/comparison.png` propose un bois brun grisé
+plus calme, appliqué aux mêmes masques, avec les pierres, ferrures et sols actuels.
+Cette apparence attend la revue utilisateur ; les PNG utilisés dans Godot et le
+catalogue actif restent ceux du commit `ddb80ce`.
+
+La source générée avec l'outil intégré imagegen est conservée dans
+`shared-materials/proposals/door-oak-v2.png`. Le prompt exact et le profil de
+composition sont dans `door-material-review-v2/prompt.txt` et `recipe.json`.
+`node tools/prepare_door_material_review.cjs` reproduit les quatre aperçus
+connectés, leurs superpositions magenta et la comparaison en couloir.
+Le nouveau bois est commun aux quatre orientations ; aucune géométrie ne change.
+
+### Catalogue actif
 
 | Famille | Variantes | Usage |
 | --- | --- | --- |
-| Murs | planes, fissures, layers, pits | Facettes, fissures fines, couches de schiste, petites cavités |
-| Sol | calm, fine-crack, worn, marks | Dalles plus douces, détails espacés, héros et objets lisibles |
-| Portes | oak, iron | Bois et ferrures communs aux quatre orientations |
+| Murs | planes, fissures, layers, pits | Trois prélèvements de pierre peinte simple et un de pierre corrompue violette |
+| Sol | calm, fine-crack, worn, marks | Quatre prélèvements du sol peint calme, avec quelques marques graphiques |
+| Portes | oak, iron | Bois stylisé et fer conservé, communs aux quatre orientations |
 
-Les atlas sont conservés sans modification. Chaque quart des atlas de pierre,
-ou moitié de l'atlas bois/métal, est extrait avec une marge intérieure de 8 px
-pour exclure la séparation entre échantillons. Ce sont
-des matières opaques, pas des silhouettes architecturales détourées.
+Les atlas sources sont conservés sans modification. Les rectangles exacts de
+`active-recipe.json` sélectionnent les matières approuvées : ils ne correspondent
+pas tous à un quart entier. Les coordonnées, tailles et empreintes doivent rester
+identiques à cette recette. Les noms historiques `layers`, `pits` et `fine-crack`
+sont conservés pour les références ; ils n'imposent pas des détails réalistes.
+Ces prélèvements sont des matières opaques, pas des silhouettes architecturales.
 
 Réutiliser ces fichiers par identifiant. Ne pas régénérer indépendamment une
 palette pour chaque orientation. Le dessus et la façade haute d'une même pierre

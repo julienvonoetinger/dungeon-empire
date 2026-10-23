@@ -3,6 +3,11 @@
 État : 23 octobre 2026. Intégration demandée par l'utilisateur, après la préparation
 des images isolées. La géométrie et les matières sont partagées par toutes les scènes.
 
+La gamme active est désormais **stylisée**, approuvée par l'utilisateur le
+23 octobre : grandes facettes peintes, sol calme, bois simplifié et accents violets
+localisés. Les PNG sont réexportés avec `shared-materials/active-recipe.json` et
+`stylized-atlas-v2.png`. Les 20 scènes conservent leurs références et leur layout.
+
 ## Catalogue actif
 
 | Élément | Source |
@@ -47,9 +52,18 @@ connectées dans les scènes sur grille.
 - Modulation blanche ; pas de miroir, de rotation, d'étirement, de masque,
   de lumière ou de dessin correctif au runtime.
 
-Le bouton « Actualiser le rendu » conserve son getter Callable. L'éditeur et F6
-partagent le même renderer. Le nom historique `wireframe_cell_study.gd` est gardé
-pour préserver les références des scènes.
+Le bouton « Actualiser le rendu » conserve son getter Callable. Dans l'éditeur,
+il recharge aussi chaque texture utilisée depuis son fichier importé, une seule
+fois par image, avec `ResourceLoader.CACHE_MODE_REPLACE`. Cela remplace les pixels
+gardés en mémoire après un export/import externe. Les changements de paramètres
+reconstruisent les sprites sans forcer cette lecture ; F6 utilise les préchargements
+normaux. L'éditeur et F6 partagent le même renderer. Le nom historique
+`wireframe_cell_study.gd` est gardé pour préserver les références des scènes.
+
+Après un remplacement des PNG, laisser Godot terminer l'import puis sélectionner
+`Dungeon` et cliquer « Actualiser le rendu ». Un import effectué par un second
+processus ne garantit pas la mise à jour des textures dans l'éditeur déjà ouvert.
+Le bouton recharge les ressources importées ; il ne remplace pas l'étape d'import.
 
 ## Scènes
 
@@ -77,14 +91,19 @@ Les **quatre anciennes démonstrations** sont remplacées par les formes du kit 
 
 DungeonHeart et DungeonTorch sont des scènes de props séparées, sans remplacement
 dans ce kit d'architecture. Elles conservent leurs assets. Les anciens scripts et
-images d'architecture restent des références historiques, sans dépendance dans
-les 20 scènes migrées.
+images d'architecture antérieurs aux wireframes ont été retirés du projet actif
+le 23 octobre. L'inventaire et le commit de récupération sont conservés dans
+`docs/cleanup/2026-10-23-pre-wireframe.json`, avec une copie locale dans
+`artifacts/pre-wireframe-archive-2026-10-23/`. Le cœur utilise désormais
+`assets/dungeon/heart/heart.png`, identique au PNG précédemment dans `alpha-kit`.
 
 ## Reproduire
 
 Depuis la racine, avec Node.js et `sharp` disponibles :
 
 ```powershell
+node tools/prepare_shared_stone_materials.cjs
+node tools/export_painted_image_catalog.cjs
 node tools/export_painted_connected_kit.cjs
 godot --headless --editor --path . --import
 ```

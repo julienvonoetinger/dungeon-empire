@@ -1,0 +1,178 @@
+{
+  "status": "appearance_proposal_awaiting_user_review",
+  "generator": "tools/prepare_door_material_review.cjs",
+  "source": "assets/dungeon/shared-materials/proposals/door-oak-v2.png",
+  "sourceSha256": "767d2d79d4d51d65277d196d6084c563f89c8206a6aa2d0a76fcc404ce41284c",
+  "woodProfile": {
+    "color": "#393534",
+    "brightness": 0.8,
+    "saturation": 0.85,
+    "opacity": 0.96,
+    "blur": 0.3
+  },
+  "unchanged": [
+    "geometry",
+    "projection",
+    "joints",
+    "wall materials",
+    "floor materials",
+    "iron material",
+    "Godot runtime catalog"
+  ],
+  "images": [
+    {
+      "direction": "north",
+      "sha256": "34e3886c55a4a9bc554cf72f8d9484402d080ab7ed340629d4ab06b14927a760",
+      "sourceGuideSha256": "6075ee6cca7ee9af679ef8ad483182a6d5517e48796da6cd958dc1c369bb76a1"
+    },
+    {
+      "direction": "east",
+      "sha256": "42c886d6e1d58e377336edf3eca0083711e7f4df9de3ff3ed684e0bfa5271385",
+      "sourceGuideSha256": "92a229d2078ce302c9192c3c06589334a4eba9f5b2ecd34acc08899ebee753f0"
+    },
+    {
+      "direction": "south",
+      "sha256": "5d323c80d983cea8c99c3e6d8167f818655ed63405455fbc6bab21b361784295",
+      "sourceGuideSha256": "9561b973264f88fbf46c3957f37ffa9c9d828088752a300d13eb65e87b850e58"
+    },
+    {
+      "direction": "west",
+      "sha256": "8d6010af2e7667c6c2641f7643caa78e299f1b546ca265f2912cd42cbf7aa6b9",
+      "sourceGuideSha256": "635d884bcfd1d9620cfd70e63fae31d1ef57f7a4f3c078fd39aa859f0a79783c"
+    }
+  ],
+  "reports": [
+    {
+      "id": "doors/north",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "08432c4e09347fae8eac349af31368e2e2b87674314bf24dfb0688fbe388ebdf",
+      "segmentCount": 268,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-pits",
+        "door-oak",
+        "walls-fissures",
+        "walls-planes",
+        "walls-layers",
+        "door-iron"
+      ]
+    },
+    {
+      "id": "doors/east",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "d32b3fea57d1bf25643a7af47b714140e25787440de7a8fadf9925cc03f23e3e",
+      "segmentCount": 263,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits",
+        "door-oak",
+        "door-iron"
+      ]
+    },
+    {
+      "id": "doors/south",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "f2a6d1118403006f703281c0d8e4ebddfd687fd3a6d73871f605a70515314e67",
+      "segmentCount": 266,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "door-oak",
+        "walls-planes",
+        "walls-layers",
+        "door-iron"
+      ]
+    },
+    {
+      "id": "doors/west",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "8d53ec72cc4344697147517c4ae16fdddd34cc89ff7e957c9285f362bfec5a1e",
+      "segmentCount": 225,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-fissures",
+        "walls-layers",
+        "walls-pits",
+        "door-oak",
+        "door-iron"
+      ]
+    }
+  ]
+}

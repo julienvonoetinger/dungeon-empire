@@ -2,6 +2,39 @@
 
 ## 0. État implémenté : études visuelles de donjon avec sprites peints
 
+### Nettoyage des essais antérieurs aux wireframes — 23 octobre 2026
+
+Les anciennes familles d'architecture, leurs renderers et leurs outils spécifiques
+ont été retirés du projet actif. Les sections historiques plus bas conservent la
+trace des essais ; leurs anciens chemins et commandes ne constituent plus des
+instructions actives. L'inventaire est dans
+`docs/cleanup/2026-10-23-pre-wireframe.json` ; une copie locale récupérable reste
+dans `artifacts/pre-wireframe-archive-2026-10-23/`, exclue de Godot et de Git.
+
+Les 20 scènes d'architecture et leurs sprites peints ne changent pas. Les scènes
+séparées DungeonTorch et DungeonHeart restent disponibles. Le cœur conserve ses
+pixels, dimensions, ancrage et lumière ; son PNG est maintenant dans
+`assets/dungeon/heart/heart.png` et ne dépend plus du kit d'architecture retiré.
+Les anciennes suites `verify_*` et `test-mobile.ps1`, liées au renderer précédent,
+sont retirées ; elles ne validaient pas le kit actuel.
+
+### Gamme de matières stylisées approuvée — 23 octobre 2026
+
+Les assets partagés utilisent maintenant la gamme acceptée par l'utilisateur :
+grandes facettes peintes, usure dessinée avec peu de détails, touches violettes
+localisées, sol calme et bois simplifié. L'aspect réaliste/granuleux des essais
+précédents est écarté. `shared-materials/active-recipe.json` sauvegarde exactement
+les matières et profils de l'aperçu validé ; tous les exports les réutilisent.
+Les sols, murs, piliers, quatre entrées et quatre portes sont réexportés avec
+cette gamme. Les scènes, dimensions, raccords et règles de placement sont conservés.
+Il s'agit d'un changement d'apparence, sans nouvelle mécanique de jeu.
+
+Dans l'éditeur, **Dungeon → Actualiser le rendu** recharge aussi les textures
+importées utilisées par la scène, une fois par fichier. Cela permet de remplacer
+les anciennes images restées en mémoire après un export/import externe. Les
+changements de paramètres et le jeu conservent le chargement normal du catalogue.
+L'import des nouveaux PNG doit être terminé avant cette actualisation.
+
 ### Intégration des sprites peints dans Godot — 23 octobre 2026
 
 Les **20 scènes d'architecture** utilisent maintenant les nouvelles matières

@@ -1,0 +1,15 @@
+{
+  "status": "appearance_proposal_awaiting_user_review",
+  "tool": "built-in image_gen",
+  "originalOutput": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-a20a338a-de49-477b-8499-f3be2cbc1b5e.png",
+  "sourceCopy": "assets/dungeon/shared-materials/proposals/door-oak-v2.png",
+  "prompt": "docs/reference/door-material-review-v2/prompt.txt",
+  "references": [
+    {"file": "assets/dungeon/gloom-kit/reference.png", "role": "Canonical game style and mood"},
+    {"file": "assets/dungeon/shared-materials/door-oak.png", "role": "Current material to replace: orange, excessive grain"},
+    {"file": "assets/dungeon/shared-materials/material-board.png", "role": "Existing stone palette and detail density"}
+  ],
+  "transparency": "Opaque material swatch; approved source geometry defines sprite alpha offline.",
+  "composition": "tools/prepare_door_material_review.cjs",
+  "runtimeIntegration": false
+}
