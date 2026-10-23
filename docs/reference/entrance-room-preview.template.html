@@ -1,0 +1,56 @@
+<div id="north-entrance-room-review">
+  <div class="viz-controls">
+    <label class="form-label">Vue
+      <select class="form-select" data-view>
+        <option value="room">Salle complète</option>
+        <option value="north">Entrée et raccord au couloir</option>
+      </select>
+    </label>
+  </div>
+  <svg role="img" aria-label="Salle 3×3 avec quatre couloirs : l'escalier remplace le cul-de-sac du haut."></svg>
+  <script type="application/json" data-assembly>__ASSEMBLY_DATA__</script>
+</div>
+<style>
+#north-entrance-room-review svg { display:block; width:100%; color:var(--foreground); }
+#north-entrance-room-review path { fill:none; stroke-linecap:round; vector-effect:non-scaling-stroke; }
+#north-entrance-room-review .outline,#north-entrance-room-review .stair { stroke:var(--foreground); stroke-width:1.7; }
+#north-entrance-room-review .joint { stroke:var(--foreground); stroke-width:1.1; }
+#north-entrance-room-review .floor { stroke:var(--muted-foreground); stroke-width:1; opacity:.65; }
+#north-entrance-room-review .character { stroke:var(--viz-series-1); stroke-width:2; }
+#north-entrance-room-review .characterHidden { stroke:var(--viz-series-1); stroke-width:1.2; stroke-dasharray:4 4; opacity:.45; }
+</style>
+<script>
+(() => {
+  const root=document.getElementById('north-entrance-room-review');
+  const data=JSON.parse(root.querySelector('[data-assembly]').textContent);
+  const select=root.querySelector('[data-view]'),svg=root.querySelector('svg');
+  const NS='http://www.w3.org/2000/svg';
+  const defs=document.createElementNS(NS,'defs'),clip=document.createElementNS(NS,'clipPath'),rect=document.createElementNS(NS,'rect');
+  clip.id='north-entrance-review-clip';clip.appendChild(rect);defs.appendChild(clip);svg.appendChild(defs);
+  const cropped=document.createElementNS(NS,'g');cropped.setAttribute('clip-path','url(#north-entrance-review-clip)');svg.appendChild(cropped);
+  const geometry=document.createElementNS(NS,'g');cropped.appendChild(geometry);
+  for(const[kind,d]of Object.entries(data.paths)) {
+    const path=document.createElementNS(NS,'path');path.setAttribute('d',d);path.setAttribute('class',kind);geometry.appendChild(path);
+  }
+  function render() {
+    const width=root.getBoundingClientRect().width;if(width<=0)return;
+    const height=Math.min(780,Math.max(360,width*.98));
+    const[x0,x1,y0,y1]=data.views[select.value];
+    const scale=Math.min((width-28)/(x1-x0),(height-28)/(y1-y0));
+    svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.style.height=`${height}px`;
+    for(const[k,v]of Object.entries({x:14,y:14,width:width-28,height:height-28}))rect.setAttribute(k,v);
+    geometry.setAttribute('transform',`translate(${(width-(x0+x1)*scale)/2} ${(height-(y0+y1)*scale)/2}) scale(${scale})`);
+  }
+  function restore(state) {
+    if(state?.modelContent?.proposal===data.id&&data.views[state.privateContent?.view])select.value=state.privateContent.view;
+  }
+  restore(window.openai?.widgetState);
+  select.addEventListener('change',()=>{
+    render();
+    window.openai?.setWidgetState?.({modelContent:{proposal:data.id,entranceCell:[1,-2],openSide:'south'},privateContent:{view:select.value}})?.catch(()=>{});
+  });
+  window.addEventListener('openai:set_globals',event=>{restore(event.detail?.globals?.widgetState);render();});
+  let lastWidth=0;new ResizeObserver(()=>{const width=root.getBoundingClientRect().width;if(width!==lastWidth){lastWidth=width;render();}}).observe(root);
+  render();
+})();
+</script>

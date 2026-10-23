@@ -13,5 +13,6 @@ layout = ExtResource("3")
 connections = 15
 corridor_length = 2
 close_corridor_ends = true
+entrance_at_closed_ends = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -224,3 +224,30 @@ La suite peinte devra conserver dimensions, projection, ancrages et ports, avec
 de vraies images à transparence native. La seule référence de palette demeure
 `assets/dungeon/gloom-kit/reference.png` : ardoise sombre et accents violets
 localisés. Les propositions peintes rejetées ne sont pas des références approuvées.
+
+## 9. Nouvelle entrée en cours de revue
+
+Les quatre orientations d'escalier sont documentées dans
+[ENTRANCE_STAIRS.md](ENTRANCE_STAIRS.md). L'exporteur séparé
+`tools/export_wireframe_entrances.cjs` prépare quatre images **complètes** dans
+`assets/dungeon/wireframe-entrances/` et leur catalogue GDScript. Les images
+comprennent déjà murs, marches et sol ; ne pas ajouter un sol ou un mur par-dessus.
+
+La scène `WireframeClosedCorridors.tscn` active `entrance_at_closed_ends=true`.
+Les quatre cellules terminales deviennent des entrées, avec leur ouverture vers
+la salle. Le réglage partagé reste `false` dans les autres scènes. Les seuls
+masques sélectionnés sont w14/w13/w11/w07, p00/e00 ; aucune image n'est construite
+dans Godot. Les quatre imports ont également `mipmaps/generate=true`.
+
+Régénérer d'abord la source de l'escalier, puis les images connectées :
+
+```powershell
+node tools/export_entrance_stair_wireframe.cjs
+node tools/export_wireframe_entrances.cjs
+```
+
+Les vrais raccords nord/ouest conservent leurs joints de pierres selon la règle
+du catalogue partagé, mais pas leurs faces de bout internes. Le remplissage ne
+contient que les faces visibles et omet la face du port connecté. Les captures
+de détail utilisent `tools/capture_wireframe_entrances.gd`, qui cadre les quatre
+entrées dans la scène réelle, avec une partie de chaque couloir voisin.

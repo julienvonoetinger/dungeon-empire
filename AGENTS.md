@@ -1,5 +1,61 @@
 # Repository instructions
 
+## Entrance stair wireframe review — 2026-10-23
+
+- Current user request authorizes the OTHER THREE DIRECTIONS AND GODOT
+  INTEGRATION after the north-end assembly looked correct. The earlier
+  review-only restriction below is historical and is superseded for this task.
+- `tools/export_wireframe_entrances.cjs` reads the reviewed south-opening
+  source and prepares four complete floor/walls/stair SVG textures in
+  `assets/dungeon/wireframe-entrances/`. Names identify the OPEN/downhill side.
+  World transforms are N(1-x,1-y,z), E(y,1-x,z), S(x,y,z), W(1-y,x,z);
+  all then use the same projection. Never rotate or mirror a projected image.
+- `wireframe_entrance_catalog.gd` maps w14/w13/w11/w07 p00/e00 to N/E/S/W
+  openings. `entrance_at_closed_ends=false` is the shared renderer default;
+  `WireframeClosedCorridors.tscn` enables it, showing four entrances in its
+  existing 17 cells. Each entrance replaces BOTH ordinary floor and wall
+  textures with one complete Sprite2D, at the same (24,88) anchor/256 pitch.
+  The floor motif remains world-aligned. Other scenes retain their old defaults.
+- Fills include only visible top/+X/+Y faces and omit open-port faces. Internal
+  end-face edges are absent. Real north/west contacts retain the same cap and
+  upper-course masonry joints as the shared wall kit (the +X/+Y cell owns them).
+  Do not lose these legitimate joints by rotating the isolated source alone.
+  No runtime clipping, tint, generated geometry or sprite repair is introduced.
+- Import all four SVGs with mipmaps. Actual Godot captures:
+  `tools/capture_wireframe_cells.gd -- WireframeClosedCorridors 2x2CellRoom`,
+  and `tools/capture_wireframe_entrances.gd` for four enlarged end views.
+  Integration is for visual review; navigation and entrance gameplay are absent.
+
+- Historical first assembly request: put the proposed entrance in the PREVIOUS TEST IMAGE,
+  replacing its north terminal cell. `room-north-entrance-wireframe.svg`,
+  `-north.svg` and JSON retain the 17-cell square room and place the entrance
+  at (1,-2,0), opening south into the existing corridor at (1,-1,0).
+  `tools/export_entrance_room_wireframe.cjs` reproduces this assembly offline.
+  Omit the entrance's ten end-face edges on the shared wall contacts; all
+  twelve sampled contact points match exactly. Review full and north detail.
+  The room's original global paving continues through the landing; the isolated
+  entrance's local catalogue floor motif is not substituted into that global
+  pattern. This is an image assembly review, not Godot scene integration or
+  final artistic approval of the staircase.
+- The user requested four dungeon entrance orientations, starting with stairs
+  descending from image top to bottom, enclosed by north/west/east walls and
+  open to the south. This was the first direction reviewed before integration.
+- Read `docs/reference/ENTRANCE_STAIRS.md`. Source/export tool:
+  `tools/export_entrance_stair_wireframe.cjs`; outputs:
+  `docs/reference/entrance-stairs-open-south-wireframe.svg` and JSON.
+  The PNG is a preview of that vector drawing, not a painted sprite.
+- Keep the current square 1x1 cell, wall thickness 1/6, height 1.88/6,
+  joint .94/6 and common projection (x-.18*z, y-.9*z). The proposed five
+  treads descend from z=.25 to the floor with .05 risers, across y=1/6..0.84.
+  Stair width is 2/3; the remaining south landing is at z=0.
+  These dimensions are retained for the authorized four-direction review.
+- Visibility uses the combined wall AND stair volumes. Do not overlay an
+  existing complete wall sprite above the staircase: that would incorrectly
+  cover stair surfaces in front of the north wall. Prepare complete imagery
+  offline. The current request authorizes the scene and catalogue update above.
+- Future directions must be constructed in world coordinates with the SAME
+  projection. Never rotate or mirror the projected drawing. No flared base.
+
 ## Active Godot integration — 2026-10-23
 
 - Before changing or regenerating wireframes, read
@@ -11,8 +67,9 @@
   on this integration. Artistic acceptance of the imported kit is still pending.
 - Godot must NOT generate images, paving, wall geometry or masonry at runtime.
   `scripts/wireframe_cell_study.gd` only selects complete pre-imported textures
-  and places Sprite2D nodes on an integer square grid. One floor image and at
-  most one wall image per cell; no stone fitting, clipping, mirroring or tinting.
+  and places Sprite2D nodes on an integer square grid. Ordinary cells use one
+  floor image and at most one wall image; entrances use one complete image.
+  No stone fitting, clipping, mirroring or tinting.
 - `assets/dungeon/wireframe-cells/` is a prepared SVG image catalogue, explicitly
   preloaded by `wireframe_cell_catalog.gd`. It has 136 wall records including
   blank states, covering the 16 cardinal combinations, concave pier combinations

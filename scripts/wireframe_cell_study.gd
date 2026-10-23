@@ -6,6 +6,7 @@ signal rebuilt
 
 const KIT = preload("res://scripts/wireframe_cell_catalog.gd")
 const GRID = preload("res://scripts/wireframe_cell_layout.gd")
+const ENTRANCES = preload("res://scripts/wireframe_entrance_catalog.gd")
 
 @export var layout: DungeonLayout:
 	set(value):
@@ -42,6 +43,10 @@ const GRID = preload("res://scripts/wireframe_cell_layout.gd")
 @export var close_corridor_ends: bool = false:
 	set(value):
 		close_corridor_ends = value
+		_request_rebuild()
+@export var entrance_at_closed_ends: bool = false:
+	set(value):
+		entrance_at_closed_ends = value
 		_request_rebuild()
 @export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable:
 	get:
@@ -87,10 +92,15 @@ func refresh_preview() -> void:
 		var tile_bounds := Rect2(position_on_grid - KIT.WALL_ANCHOR, Vector2(304, 352))
 		_frame = tile_bounds if first else _frame.merge(tile_bounds)
 		first = false
-		_add_sprite(KIT.FLOOR, position_on_grid - KIT.FLOOR_ANCHOR, 0, "Floor_%d_%d" % [cell.x, cell.y])
+		var variant: String = GRID.variant(cell, cells, _plan.openings)
+		if not (entrance_at_closed_ends and ENTRANCES.TERMINALS.has(variant)):
+			_add_sprite(KIT.FLOOR, position_on_grid - KIT.FLOOR_ANCHOR, 0, "Floor_%d_%d" % [cell.x, cell.y])
 	for cell: Vector2i in ordered:
 		var variant: String = GRID.variant(cell, cells, _plan.openings)
-		if KIT.WALLS.has(variant):
+		if entrance_at_closed_ends and ENTRANCES.TERMINALS.has(variant):
+			_add_sprite(ENTRANCES.TERMINALS[variant], Vector2(cell) * KIT.CELL_PIXELS - ENTRANCES.ANCHOR,
+				1, "Entrance_%d_%d_%s" % [cell.x, cell.y, variant])
+		elif KIT.WALLS.has(variant):
 			_add_sprite(KIT.WALLS[variant], Vector2(cell) * KIT.CELL_PIXELS - KIT.WALL_ANCHOR,
 				1, "Walls_%d_%d_%s" % [cell.x, cell.y, variant])
 		elif not KIT.EMPTY_VARIANTS.has(variant):

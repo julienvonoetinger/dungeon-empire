@@ -8,7 +8,8 @@
 chargent `wireframe_cell_study.gd` à la place de l'ancien assemblage de pierres.
 Le renderer sélectionne des
 images préparées dans `assets/dungeon/wireframe-cells/` : un sol et au plus une
-image de murs par case. Il ne génère aucune texture, dalle ou géométrie dans
+image de murs par case ordinaire. Les cases d'entrée utilisent une image complète
+du catalogue `wireframe-entrances/`. Il ne génère aucune texture, dalle ou géométrie dans
 Godot. Les SVG sont convertis en textures par l'import standard de l'éditeur.
 
 La sélection repose sur l'occupation de la grille : absence d'un voisin cardinal
@@ -35,6 +36,21 @@ d'attache vides prennent le centre ; les indices invalides sont ignorés et les
 doublons supprimés. `close_corridor_ends=false` conserve les bouts ouverts.
 `WireframeClosedCorridors.tscn` règle une salle 3 × 3, les quatre directions,
 une longueur 2 et `close_corridor_ends=true` : 17 cases avec huit piliers.
+
+Cette scène active aussi `entrance_at_closed_ends=true` pour comparer quatre
+escaliers, un à chaque extrémité, descendant vers la salle. Le réglage partagé
+vaut **false** par défaut. Lorsqu'il est activé, seules les cases fermées sur
+trois côtés, avec un voisin réel sur le quatrième, utilisent une entrée :
+masques murs 14/13/11/7 pour une ouverture nord/est/sud/ouest. Les sorties
+forcées ouvertes et les autres configurations gardent leurs textures ordinaires.
+Chaque entrée contient déjà sol, murs et cinq marches ; elle remplace les deux
+sprites ordinaires. Les marches ont une hauteur de .05 chacune, un sommet à .25
+et une largeur de 2/3 de case ; le palier mesure .16 de case dans l'axe de sortie.
+Le pas de grille 256 px et l'ancrage (24,88) sont communs aux quatre orientations.
+La géométrie tourne dans le plan avant export, puis reçoit la projection commune.
+Les images affichées ne tournent pas. Le motif local de dallage garde ses axes.
+Ce réglage est un outil de revue visuelle : aucun déclencheur d'entrée, changement
+de niveau, coût, collision ou état de sauvegarde n'est ajouté.
 
 Le bouton d'actualisation conserve son getter Callable ; les réglages provoquent
 un rechargement des sprites choisis et l'aperçu est présent dans l'éditeur.
