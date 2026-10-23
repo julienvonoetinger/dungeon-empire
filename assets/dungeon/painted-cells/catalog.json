@@ -28,8 +28,11 @@
     0.15666666666666665
   ],
   "sourceHashes": {
-    "tools/painted_material_renderer.cjs": "4d2d840450edd3877b16da8a8fc0844b5e4b337d50711ba6028fc88f028f7833",
-    "tools/export_painted_image_catalog.cjs": "91de8f27c968f60b17fbd29eb2a7018a582af7d884b0abde499203cdd402b430",
+    "tools/painted_material_renderer.cjs": "e9187df910a83a5168ae75d5b728dc1a2842da5ba2c6170a7b57b4acbc177e41",
+    "tools/stone_edge_finish.cjs": "aa0a2afd6274748a3b6752f89aa9307abb1367b2b6436e6f50ca6720dff19ae1",
+    "tools/write_generated_file.cjs": "a1a1e25099d66deb88a1f071d4c2e689dd9ac330d18d4891b9004e33eb946d62",
+    "assets/dungeon/shared-materials/stone-finish.json": "8df9d7601c5222a2734d28d69776370d5d8800f3a047c74630646111780cd1de",
+    "tools/export_painted_image_catalog.cjs": "a33c36d4ca4f5f80ad35ece71d2244ce0c5c3d7eb39f7cedce8fec08a3fce430",
     "tools/export_wireframe_cell_kit.cjs": "47b5fac268c3d2857f519a637c297795b4ac346ade60b9b7d997eaed9a9282d3",
     "docs/reference/two-course-square-room.json": "228ba7137e3f5f75cc5659df49adfcbc5ea8e182b4ba5fcb12dd461d2e066cd0",
     "docs/reference/floor-periodic-cell.json": "8835d991379888b594d053fa9a85faa6163956ad86cf9872739ce5461d76162d",
@@ -53,7 +56,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p00_e00.svg",
       "guideSha256": "aa1d8338c77509f57344d593842580c34dc1c3f248d3fc9dcfe0ab4d272e6f9d",
-      "sha256": "60d8f3e2f94a043578ca8ed89de32b753ca255a89b50f1660510ad4872113339",
+      "sha256": "06a8b50e276f967a03af0ba4136208d21b1593d449cafd6f551917e6d5439f17",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -75,7 +78,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p01_e00.svg",
       "guideSha256": "f1c9d425744fa4cc56848cbe12eea37569d71472d1dde999d2301a3b80bb7571",
-      "sha256": "31c63d17d010757dabb82e9b4fc2c3ecd36e4583b364ce17166f7dde649708ec",
+      "sha256": "d4171bc1672564219520525111a44a6e12197a72d7d4aac4c513a98da9fc3deb",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -98,7 +101,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p02_e00.svg",
       "guideSha256": "fcf175a146c36ced27bc7dc4ba62ded54db22714b58cf8cf90e866a9d0d2a8c5",
-      "sha256": "a7951d8fd5cb2041b3075500c94d62c74e2c64870b486699d1cbb601d0df1ea8",
+      "sha256": "f9644e738219fd331f6c3a9f865c8a7bbe81891608887c715c36bfad223b94b0",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -121,7 +124,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p03_e00.svg",
       "guideSha256": "bbf470a339510cc15a7f50db8572b69e799168483c61c3eedce0783ce5cd9632",
-      "sha256": "265d02ff62ac4d3e14faeef20049497df098405d0addc857a601f8ce568f2619",
+      "sha256": "7c2243c1b591314a143f4170221a00df8da2808d3b898c0433a53b218586d098",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -144,7 +147,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p04_e00.svg",
       "guideSha256": "31fc5fed529ea881ba4b3d45398aa02eb655d647f81ee4bc0a7dfb522e4d1ee7",
-      "sha256": "f1b726929ea86f8e288f470ab28341b84fe6323f1d11974ca50cc98a05ee8bd0",
+      "sha256": "8f6086a839b69d6af1c2b5b3fcfca5f8a1daba9a9187f30b9878e140abfbec3a",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -167,7 +170,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p05_e00.svg",
       "guideSha256": "e69069d5fb04be3e8803f86ed46d553794f69862afd008ae63458988a2cf4b7c",
-      "sha256": "17c98b26369bf325e79d96593a0b044d9d6f5107899eea1edbeda60799a8d50e",
+      "sha256": "5e83afad173263f8d58c8bdfafdd2fcc2651979308bad4e8311d08fa102d2d81",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -190,7 +193,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p06_e00.svg",
       "guideSha256": "f9ad37c9715323414642b5ab02ca24d1e71e306cf7ba84debf8f45b43e655dc6",
-      "sha256": "ca13b20a9eb873824d61174141865d1dbc5dc6443646d2e6a3064433ca40fe92",
+      "sha256": "c064860e55df50ce920094f205e0eb7221e30edc5bd7f71add1132afaa6372bf",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -213,7 +216,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p07_e00.svg",
       "guideSha256": "97538b4afa95a5ef610ebd5907d904124a97efe9db509ed487b4b5f6ee17b117",
-      "sha256": "d8a7cea04c907bb7cada3629cd47095e4f62ed21fa8c4b288f8d2295a09efa40",
+      "sha256": "d1ffb43d9d02103b676a1b143df21c6cea17aa9d080a0ea1151b721b00cbc273",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -236,7 +239,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p08_e00.svg",
       "guideSha256": "6e1f469b2a442cf3c04b349d0cda6abb0688d645413a08472586dc5c4f773135",
-      "sha256": "51ca282bcc11697de4f00e859793598531bff5fef5a2000404443bd397f4546d",
+      "sha256": "4676b62282bacc4971d97b70f40b0f64fb62e25b2df0aea64e24b90876c693aa",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -259,7 +262,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p09_e00.svg",
       "guideSha256": "4a3620a642295484a6470d5eb6953baa31825bbfd63bed7530ec36f17b2bce2b",
-      "sha256": "2425a19e57a84a5c2d779434faadee793ca9ec5bb97a0ba7c56d552bf81e206b",
+      "sha256": "013140ec9a1a231cdcd9fbd420ce2832fa8041ead8252dce34e004a984478072",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -282,7 +285,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p10_e00.svg",
       "guideSha256": "0f83ae1b03be04182378b0dcbcd52c9bd4f7e7c7c95f9a47ed730c0c1ce86d8b",
-      "sha256": "f9771f03d6a076af486d4df0dce1b92711ab58c87096a56b5664d48c734ef399",
+      "sha256": "a925155268b8f4f32fc20125c4e9150e475b3dbb4aafcb36f3867fb68a155e9a",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -305,7 +308,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p11_e00.svg",
       "guideSha256": "1e4576e0027a8b164a84e3bc436a8ab157e68f07a94545a3b95c52d82161507e",
-      "sha256": "91588b0c3f6483c7eb7068ea94d5a8c085d134b73295a6a3fff2a46314e7bd75",
+      "sha256": "b760f08da9d250e33ea63ec7be11435aa7ca6e4c5ba7fbc022abae656c9cffe2",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -328,7 +331,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p12_e00.svg",
       "guideSha256": "1bcf6dcad4100eb73ace90c88d7266bf87202c4b752a53c4fccbfd134f3cde70",
-      "sha256": "0f7ab37e73f10d249d7d744cacb8d180755d85cce651edaa8f7b19b38f115d27",
+      "sha256": "bb660e1e88ff8a6ae6868902a8e00bc2aef038cb124feff7418b308b25eabde0",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -351,7 +354,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p13_e00.svg",
       "guideSha256": "b95a4889ee045e8585a20fb9eddcfd7cc7088db279d4c2bd8a273206c706a0c7",
-      "sha256": "2fe76953d15f085c255e64d6eab63c9e59a0e4a6d2607e80a29912c59b4f05e6",
+      "sha256": "3efa75e5a818c1494f9f8891318fe9c70ad320a23b099090e8e23320bbb9f38d",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -374,7 +377,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p14_e00.svg",
       "guideSha256": "8ca8ea8a6075784e584464947b619b3c4b0b011b80ce24bf56e6a102cb0b5ee4",
-      "sha256": "8d70d68db03d37bbde791b7ea465ae704408bbd8f72a5901861f2b3a83cdb7a9",
+      "sha256": "aefc945f262c671538a3b78c7eda8a6b3b4e82e5cbae0fe4f16e9f96a0f1af5d",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -397,7 +400,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p15_e00.svg",
       "guideSha256": "6674cde8c738933264ea19f07fd1832b87df3757e860fc3d3825f63e65dc8808",
-      "sha256": "e790a37323eda8cdd6562c1f6523e8b9c6ab2cc400ce1dc16bb22db8cf4989dd",
+      "sha256": "2b1a8f376dfef409ee8cda58e2f4e4b395f4c47fcb7f3bfd535f59cf8109b012",
       "materials": [
         "floors-calm",
         "floors-marks",
@@ -420,7 +423,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p00_e00.svg",
       "guideSha256": "4f2954ce59e2ea15f2d7cbfd733fc04e992005038f6a146b33d71aef04bfed87",
-      "sha256": "12a1e5aef3293b5e941969aa061d659901373ecdb05a66572cff4d291c467f8a",
+      "sha256": "86c001ab90f879f36f9bc756cdce0c5f0df6beaf8c645e1e6330cf0cb792672f",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -446,7 +449,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p04_e00.svg",
       "guideSha256": "7cc19d3dd2e030044e957fd81a883956a2fe8877981d3c81fa27f44bee32cfa6",
-      "sha256": "1f4ec2139f3bfa491a68c42309ceba1d6e43a098916b8d027cf38151f2cea7fc",
+      "sha256": "97044a10c4d99443f9c40a7c2499fd10396b2f41d098398d22a7e7644327aae0",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -472,7 +475,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p08_e00.svg",
       "guideSha256": "eb08e16a091865e1bbe9cf3a6b5f4e811040667e69fa5f4ed8fac1b4980a28c4",
-      "sha256": "881b1a20fa93588a42aec5c2bc8be1f96cd6bc07c8202d9ea1c1f089086535b4",
+      "sha256": "bb5419b56d168c33a0f9a8acaed7225a3b27307282c6cba3d9f7c27c2445dbd4",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -498,7 +501,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p12_e00.svg",
       "guideSha256": "e19b531eb58ed389849e96ec3c9c97eaf0eeb407c4b62539a140ef81f0e64d05",
-      "sha256": "56a979b63b369276842852c83dbda8e3e92fd3c278e0838f42cba0833004d014",
+      "sha256": "208376db089349dd3b2a42b53bfba244f41bcd750db2822c260c1631524c2295",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -524,7 +527,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p00_e00.svg",
       "guideSha256": "d455f6bc2c4eb1729ae05a424b428f4c2cbd285868c5e9f7689da6e52393be8b",
-      "sha256": "094a1ae8e1b05c69c34cf21f896469e362832ebe43cd9cb5d58d6e21613a9d22",
+      "sha256": "4a63aa7b946aa6bc5d520600bbdb0b837386c456a8d59455b027a9350db9c6a6",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -550,7 +553,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p01_e00.svg",
       "guideSha256": "2f8d8079e2c9ecab74619f8ceaac2b1b578f86f4530ad40f28f4553eb1c80c91",
-      "sha256": "06b7ee522493c18d21f53a0fcdb4f61b20b9a47c9d99b1b14c9c593f70b143ef",
+      "sha256": "3188f5589662ac889c006dd92ef298dd2b3fe0e520c26eaa68e6aa877745fe75",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -576,7 +579,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p08_e00.svg",
       "guideSha256": "80a017dc0fab07cdd8bf755aa2f433e2a35db426344b21a0108786343cc933a3",
-      "sha256": "05af0b702d123afee10b7eca4f4c887619bcacea96b82bb3a9e77011f2757409",
+      "sha256": "5847bb53df8dcb9f33a6476b408eebea397dd82d98b7fce0c8323ae52dda2db0",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -602,7 +605,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p09_e00.svg",
       "guideSha256": "af0bb0859c7dd7fd12822e73fe7f752d6fcf7302943b6c36317984b9075af668",
-      "sha256": "2b19edf27e0f407e3bb2e085371388f93031da4a35b8b4f311103d4085576b0d",
+      "sha256": "9f2bd4a81ab9c3f141ddfcaea47187d23ba82e808d7246e2c22fbbe5c601a6be",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -628,7 +631,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w03_p00_e00.svg",
       "guideSha256": "e05eb82330f8c06e5b920174b3693be5ff746865281b46ec235262c23b5f9b3f",
-      "sha256": "77b23f5e7727cc0f23c0e01edac93f3ce0bf048a88d52c74b7e2385db8989ce2",
+      "sha256": "0cebfe005fbd211bcfdff3841e715a26a2dcb30fc838c399f4e96e7a75eebc44",
       "materials": [
         "walls-layers",
         "walls-fissures",
@@ -654,7 +657,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w03_p08_e00.svg",
       "guideSha256": "c648f136e22006d5f13d162ed991ad61a6ad5e3288a62ee46c87aa977f732fbb",
-      "sha256": "e0003107a88e1d2658254f79db34e71e3a14267e1659693608856c62a45d97aa",
+      "sha256": "918c41c63422a02c261678122bb2e85324968afb0b0a7d6bcb8c2de81323a5ea",
       "materials": [
         "walls-layers",
         "walls-fissures",
@@ -680,7 +683,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p00_e00.svg",
       "guideSha256": "98a38bccc08c097f504a9dd42a09f00688621bd2c2dc22a803506806787b63c6",
-      "sha256": "81ee5113106156a969c3e7fc23db5b11b53095b098841ea78495bba4d5e56523",
+      "sha256": "d14a9889b2bd03fc9e8d0670beafd316883be6e4b82cfd4a5adb878e6e6a9847",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -706,7 +709,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p01_e00.svg",
       "guideSha256": "3395f33a036afb551fcd5ab306a981c57daec49c110b6e46cd8255d7e8e045cc",
-      "sha256": "b7d6cd972c229f5ae44b733c2c5ac4debdceebcdbf00916ad581cad9a560ebef",
+      "sha256": "cc693ea1a826f8696025f652252c06526f2c00d1cf2cc76a3faa3086eebfca25",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -732,7 +735,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p02_e00.svg",
       "guideSha256": "9aa36a33e6007b279e7a7c33324e888f933581fabb20bd6db6843df85cdc985d",
-      "sha256": "39fca4f88eb1122c492b9d23b6a61c1e1ce1e38ae0c439990c2791fde215029f",
+      "sha256": "c4eb0e8cb025e171911bea499210d62fd6701b743087ac3e844b35c026822512",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -758,7 +761,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p03_e00.svg",
       "guideSha256": "ecb798be7808a31227e283baa85821ddeb3fbb48d633bf192f2b12960e3fc2a4",
-      "sha256": "23c1d3caaa92e8fabba46cff35383191e9ff6657373537e2211f1d974e40e4bf",
+      "sha256": "8f30052b3fc41270f1c74adcabe0412cf28e0572017d7940f419b22f54428ff5",
       "materials": [
         "walls-layers",
         "floors-calm",
@@ -784,7 +787,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w05_p00_e00.svg",
       "guideSha256": "faa6de481ed90ca6ccd862f1355df2fa73fc708c1038b0b6b3cb5669a79df3a6",
-      "sha256": "0fbaa653abfe257d46b05c418ce82c0c7232235e97977e792f2cf3d9fe1086f0",
+      "sha256": "ce630a86b8576bc1dc917180362ecdc804ca25141e3a45706d310d76151ce413",
       "materials": [
         "walls-layers",
         "floors-marks",
@@ -810,7 +813,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w06_p00_e00.svg",
       "guideSha256": "8056d32b3c0471197c9bc955f26a032f42226eec6ab47bbc8b5d5cd143971bf5",
-      "sha256": "799211405d690f914775b3a39cc982b6572e27cfc9423210153471b9c7d082e8",
+      "sha256": "d30e18b06dd77925c2997e7379badad54ccd7a124790f47944408db2c5ab3b6e",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -836,7 +839,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w06_p01_e00.svg",
       "guideSha256": "6acdf0d39552a28f0084252c66c94226ca68330175ba7e25386579587801a432",
-      "sha256": "a642f650fc95e4857ad257fede21c9b57d51f7c3b2c345a3e91ae287e0d5405c",
+      "sha256": "bf44600260d9800cb2d6780abe3f856ec004e6920bc2e44195df92af8ea3e1b7",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -862,7 +865,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w07_p00_e00.svg",
       "guideSha256": "64b1639552e7bd8e7741d9612124ba9e01dfe939c602ec19aea08aee4de8aab0",
-      "sha256": "6b30aaa63f9543f414a25b9286c4963f97bf6badc13311b2a37c87bac59fa325",
+      "sha256": "8832769ff6d1e353e6ea54c0ce08a3162467e1089cb179d09e8b64800e97d07c",
       "materials": [
         "walls-fissures",
         "walls-layers",
@@ -888,7 +891,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p00_e00.svg",
       "guideSha256": "ac5096d3d04bf294d1334e198d7783f41a0d9905567f7335c56ffee2256d34dd",
-      "sha256": "844372e693e8451ce8930d14f8a334c8b4fcdad77e3c6174d4aa13094ef8949c",
+      "sha256": "13f0f0ccce9255d35c0e4620747820f64cc6a9396105ccc28c0be3c4c6a92a48",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -914,7 +917,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p02_e00.svg",
       "guideSha256": "017be759df9ccfd31a592d14bf303e3b5207227259f7701895fe8338b7394a43",
-      "sha256": "04b4a6a85076282cd2a42a44bb5ed478a72a52bc12ce556020123ddb6b14bb4f",
+      "sha256": "cd2bc5a1a38e273655c11a34ba3973b37b51299bbe20196c69526c9cebedab8c",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -940,7 +943,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p04_e00.svg",
       "guideSha256": "f337fed3d1a40249bb92ba781174d8db4d49bbec7cc66dd706f411d91396c82c",
-      "sha256": "049bed50bdca7c7c7b35efb65506538f4f8d8537bea66ce66076a1bd7db637f7",
+      "sha256": "32291ec7dc4f1b128f26653e4da5a0494ab05ba484883677f4d98183e061c193",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -966,7 +969,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p06_e00.svg",
       "guideSha256": "a52042ae89768dd21bcac0609d94c6ed7e193e6da35a5bd669b3b8cf07dd0ec5",
-      "sha256": "0fa3c0822c2137c338c9c9958305c1fb25e9bda88bb61667aac7f4dd70ab89e0",
+      "sha256": "2f9f8eb399b0606f9f283282e799db996d91590c1fa6f8d470173b6c203f9df6",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -992,7 +995,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w09_p00_e00.svg",
       "guideSha256": "357fd215baa88e368e7d0c19a8e907382cb74d70de3850bf60131ee87669fa2d",
-      "sha256": "538c7bea2810a47a6364b7a9add273e36b0d36cd1aae8dac5355b33b67edb18d",
+      "sha256": "80f87134f4bd1298b13d6f82539d259f53a17b54fcadd54cb475033a952f1510",
       "materials": [
         "walls-layers",
         "walls-fissures",
@@ -1018,7 +1021,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w09_p04_e00.svg",
       "guideSha256": "34f773a54dd60a5858101f8dcc96c810f8d0662e4d0a3a23cf764a3c2a1fc3a3",
-      "sha256": "37a781f492a19771e9c6633e15baf2a7c38b0151b95726fd17d301d214c66559",
+      "sha256": "23c37b435ac39b2232a70037f8e212ba3f5b5cc0df2c77f8725082921a26aa2f",
       "materials": [
         "walls-layers",
         "walls-fissures",
@@ -1044,7 +1047,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w10_p00_e00.svg",
       "guideSha256": "6f3b3be71d25f0e2d44734072ac9e529652a9bae69bcfbe8b193c8c3731b1285",
-      "sha256": "12da08f66fb72ee7a2ff5949315f37ac873d899176948c3b1d1936c3724d79b0",
+      "sha256": "a40b4efe1e435d7fffdd917c050d3a7c4e47643843895b5f21fb00302ab69224",
       "materials": [
         "walls-fissures",
         "floors-calm",
@@ -1070,7 +1073,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w11_p00_e00.svg",
       "guideSha256": "90a481b1558b97ac34589a265435d7c30c31081f42ef60d04d41fa018692449a",
-      "sha256": "ba2a97f5431dee7d3b4441dc39a928e7a70bc24f94a07b1d5de7ff754ccf3d05",
+      "sha256": "e0438c6a56951d07ddc37a7a07394c5c7963602c6062b830cd4e23c0f988788e",
       "materials": [
         "walls-layers",
         "walls-fissures",
@@ -1096,7 +1099,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w12_p00_e00.svg",
       "guideSha256": "e0c363e8f08452a556e9337f5f4d7570d3160eeda663c66696ab0ca95cfbc1c5",
-      "sha256": "1f5d3826f543e8538cbd19f8bc220eb6dfdb061c006e2468a0a537b9c8a5c307",
+      "sha256": "8eb923c002593a30813e24082fb8f93cf8f6aafcdebd0aa70ca95140d0123726",
       "materials": [
         "walls-planes",
         "walls-layers",
@@ -1122,7 +1125,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w12_p02_e00.svg",
       "guideSha256": "c75920b2fea2d5e9aded5649b42a3515669705ab5a8cd0eb2f88a1db9432c7ea",
-      "sha256": "c762db6c99edc6cdce9af0274a4313bf90ffb62297d67ac7f8fd6df53b8253c2",
+      "sha256": "63e9ba37de0be94dc023fa9d1368536f7feadfbd29b4bff32364ebf0bca4df34",
       "materials": [
         "walls-planes",
         "walls-layers",
@@ -1148,7 +1151,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w13_p00_e00.svg",
       "guideSha256": "84ffb236430729f45292b78101ab3d99275c8cb2066a2bfe4f414046321b2210",
-      "sha256": "b286ccba7e06e8f0043114adae609e13774310dab84ac89a71b2148164808d95",
+      "sha256": "e34b1be66b38925c7cf518e05b4af013a821f8373da20793e6a4d731cb281e94",
       "materials": [
         "walls-fissures",
         "walls-layers",
@@ -1174,7 +1177,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w14_p00_e00.svg",
       "guideSha256": "8d2ad926c4a64c2d37a6b9c10271f49e2e0475940dff9a3a753333e0ffb5d362",
-      "sha256": "7576385db3fc443990a1c83b3537fe62c5366290613c08070801990602450cdb",
+      "sha256": "2a242e4844b2b07c81bb0f9128d2ca3e06fe8e23237ff323748c2bfc1433846c",
       "materials": [
         "walls-fissures",
         "walls-planes",
@@ -1200,7 +1203,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w15_p00_e00.svg",
       "guideSha256": "e4171f6547af5058c8bc0f2ecc2efe98558efc71236c46f4c70042136e683a8b",
-      "sha256": "2c84565a746395f31d69b5558572400e596f8ad30e46504e0fb29f48b4f70998",
+      "sha256": "47dadf01eee91bbb42f33c442e8fc1c6f0a10acf09bcf79af34c0a6864a63c34",
       "materials": [
         "walls-fissures",
         "walls-layers",
@@ -1226,7 +1229,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/floor.svg",
       "guideSha256": "9cbdeda11341653f27282eebfc7e300366414b4516a8380426a3bb46d9f707a8",
-      "sha256": "1dfce7a3dcc0c1f4b598531b6b8c9c88b83e6194149bab9152f391f0c0cc6c45",
+      "sha256": "69ebfd940a3aa8064f2e3f2d569ab97d0e65c91439a53f2655e261fd5832e21e",
       "materials": [
         "floors-calm",
         "floors-worn",
@@ -1248,7 +1251,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/north.svg",
       "guideSha256": "df8968b430e2b6b7c7e8319ab087461245734909113311e6c9dc25a05dfd1c3f",
-      "sha256": "7fae578c6741977bcc27ccbab92de302a442b8a07dba75ad533499f2a5827465",
+      "sha256": "84cedeb0f3aabddab1c8ced835c22d8d5d6ec334733ad4122650c734c519f787",
       "materials": [
         "walls-planes",
         "walls-layers",
@@ -1272,7 +1275,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/east.svg",
       "guideSha256": "3b512fcfc6c5e3b410bdd8b46db62f9e87f464fbd8842f61518aab44f309b690",
-      "sha256": "2c344eb5f1b46860bdcbb94ff89336729e3cd1fd3b3cf880e64a7c98c121b213",
+      "sha256": "039c188582a3c164b9a4520bebc3af093683bc6dbb98e34a2752042548f69327",
       "materials": [
         "walls-planes",
         "floors-worn",
@@ -1298,7 +1301,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/south.svg",
       "guideSha256": "149bdd05a049a96055acfa732f227b3363055f7beb2c16cc2d9cce2e42ab195b",
-      "sha256": "f36003b03744d865a21670e96a831cc1815af5a335182c5ab73190afd4638a43",
+      "sha256": "c62eb32c77248802c71f858a716b6f94f3e2525d9e2141d3e4d5b0ee2944ebde",
       "materials": [
         "floors-worn",
         "walls-layers",
@@ -1322,7 +1325,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/west.svg",
       "guideSha256": "c439f3bd75db1a7434e7b65c5375cbc1e9a64105951caa03d981685f09f5e8f4",
-      "sha256": "269658b2fda591805d96670599ea9f9c44badf9c151fb378fb751c1d8b798bb0",
+      "sha256": "28857431a2555e0c02828318dbd934059569be218424d58eefa4c0fdb810db71",
       "materials": [
         "walls-fissures",
         "floors-worn",
@@ -1346,7 +1349,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/north.svg",
       "guideSha256": "63083f3ce52bc04de08b71540864f017bc960b3aee1c40b6fd18c72296026911",
-      "sha256": "bf3fe0359e7b274873cf78d0a985b8df50a85d236b5121d1da4f1293c9a96e78",
+      "sha256": "e933bc457dc411cc5c80685b4ec7ca6f2eb0e991f3e5469ef97db39de763fdb7",
       "materials": [
         "walls-pits",
         "door-oak",
@@ -1373,7 +1376,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/east.svg",
       "guideSha256": "9b57c84f69aad667f3990e18aae14e593bf6060c5fc6a6af7a5a35046d82e78e",
-      "sha256": "ecf72c9ebf466d3bdf5ad88e73f2a08d2e867bb70fccf26238db9e884c879fbe",
+      "sha256": "2c1eb719cd1b0860a88812a724fca5dd9045d104416615e4c999221a3421f6c8",
       "materials": [
         "walls-layers",
         "walls-fissures",
@@ -1401,7 +1404,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/south.svg",
       "guideSha256": "8997e73c5d6f232e78b2334dcd013eb3de45d897ebef5ecb2fe7a60289ba4dc2",
-      "sha256": "5779986bcfc7cc6a46a5053bea46370c2e41743d5663c2639676d65d4ac57d0b",
+      "sha256": "1841c2955fdfabdb5a5f9521a3ae8b2d1b7d0adc0e897b36c01b07921215a1f7",
       "materials": [
         "walls-fissures",
         "walls-pits",
@@ -1428,7 +1431,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/west.svg",
       "guideSha256": "85ee686a045eab6fb0013526712c442d40b7b393ef5057a7010570e8ea9cd2b5",
-      "sha256": "c83319ee7ddf46c7faa28b3fc32188495de5403b35dc51c9948bd88e609e8235",
+      "sha256": "2f1e4f4ae0d999002af6e13d8cd7286f601189fbb516711a62b2d571ccc2c8fc",
       "materials": [
         "walls-planes",
         "walls-fissures",
@@ -1456,7 +1459,7 @@
       ],
       "guide": "docs/reference/wireframe-overlays/pillar.svg",
       "guideSha256": "84b89b2200b50c73b4e2f0284f510ceabc4817941c808a950a98b46c2f5ef61e",
-      "sha256": "a0dbf137753afdc491ba4b1ffc5fe4ad9b0fce886b35ed857438bb98f13592de",
+      "sha256": "5570c7d198fbbe50f01e5a3b0a76dcf881d8770fd69a5dd588e2e739a166d581",
       "materials": [
         "walls-planes"
       ],

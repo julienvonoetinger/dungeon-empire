@@ -1,0 +1,14 @@
+{
+  "id": "soft-stone-b-v1",
+  "status": "user_approved",
+  "approval": "2026-10-23: ok pour B",
+  "reference": "docs/reference/stone-edge-review/b-soft.png",
+  "radius": 3.8,
+  "inset": 0.55,
+  "unevenness": 0.12,
+  "bevel": 2.2,
+  "floorFactor": 0.63,
+  "narrowFaceReference": 14,
+  "mortar": "#0c1220",
+  "scope": "Offline stone finish within unchanged geometry and alpha; wood and metal retain their finish. Periodic floor fragments use a full stone and shared seed. Omitted connection edges receive no end bevel."
+}

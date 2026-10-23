@@ -50,6 +50,6 @@ async function main(){
   const comparison=await sharp(bg).composite([{input:before,left:12,top:54},{input:after,left:644,top:54}]).png().toBuffer();
   write('comparison.png',comparison);
   write('recipe.json',JSON.stringify({status:'appearance_proposal_awaiting_user_review',generator:'tools/prepare_door_material_review.cjs',source,sourceSha256:hash(read(source)),woodProfile,unchanged:['geometry','projection','joints','wall materials','floor materials','iron material','Godot runtime catalog'],images,reports},null,2)+'\n');
-  console.log(JSON.stringify({output:OUT,images:images.length,geometry:reports.map(r=>({id:r.id,jointsMatch:r.exportedJointLayerMatchesGuide,alphaDifference:r.alphaPixelsDifferentFromModel}))},null,2));
+  console.log(JSON.stringify({output:OUT,images:images.length,geometry:reports.map(r=>({id:r.id,constructionJointsMatch:r.constructionJointLayerMatchesGuide,alphaDifference:r.alphaPixelsDifferentFromModel}))},null,2));
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

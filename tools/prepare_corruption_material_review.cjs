@@ -46,7 +46,7 @@ async function variant(id){
     const {faces,...report}=result.report;reports.push({...report,file:label+'.png',sha256:hash(result.png)});
   }
   json(OUT+'/'+id+'/recipe.json',{status:'proposal_only',source:spec.source,sourceSha256:hash(atlas),materials,reports,limitations:['One stone and one floor swatch per direction, reused to judge mood; a production library needs additional matching variants.','Embedded roots and cracks are surface studies, not a verified connected decoration system.']});
-  console.log(JSON.stringify({variant:id,reports:reports.map(r=>({id:r.id,alphaDifference:r.alphaPixelsDifferentFromModel,jointsMatch:r.exportedJointLayerMatchesGuide}))}));
+  console.log(JSON.stringify({variant:id,reports:reports.map(r=>({id:r.id,alphaDifference:r.alphaPixelsDifferentFromModel,constructionJointsMatch:r.constructionJointLayerMatchesGuide}))}));
 }
 async function sheet(){
   const columns=[{id:'current',name:'Actuel',subtitle:'Pour comparaison'},...generation.variants.map(v=>({id:v.id,name:v.name,subtitle:({'01-humide':'Humidité · pierre rongée','02-fissures':'Fissures · énergie violette','03-racines':'Racines · matière infectée'})[v.id]}))];

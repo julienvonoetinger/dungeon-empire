@@ -18,7 +18,10 @@
     264
   ],
   "repeatInkY": 0,
-  "exportedJointLayerMatchesGuide": true,
+  "constructionJointLayerMatchesGuide": true,
+  "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+  "stoneFinish": "soft-stone-b-v1",
+  "omittedFinishEdges": 0,
   "alphaPixelsDifferentFromModel": 0,
   "unpaintedInteriorPixels": 0,
   "extraInteriorPixels": 0,

@@ -18,7 +18,8 @@
 - Les essais de masques dans `gloom-kit/proposals/nw-*` datent du travail sur les
   wireframes. Ils documentent la méthode ; ce ne sont pas des sprites actifs.
 - Les propositions de matières plus récentes restent dans `shared-materials/proposals/`.
-  La recette active est exclusivement `shared-materials/active-recipe.json`.
+  La recette de matières active est `shared-materials/active-recipe.json`.
+  La finition B des angles est définie dans `shared-materials/stone-finish.json`.
 
 Les anciens kits d'architecture ont été retirés le 23 octobre 2026. Inventaire :
 `docs/cleanup/2026-10-23-pre-wireframe.json`. Leur copie locale est sous

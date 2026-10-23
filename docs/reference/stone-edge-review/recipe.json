@@ -1,0 +1,42 @@
+{
+  "status": "b_approved",
+  "approval": "2026-10-23: ok pour B",
+  "method": "Approved deterministic offline material masks; no new texture generation.",
+  "generator": "tools/prepare_stone_edge_review.cjs",
+  "source": "docs/reference/stone-edge-review/a-current.png",
+  "sourceSha256": "538c7bea2810a47a6364b7a9add273e36b0d36cd1aae8dac5355b33b67edb18d",
+  "faces": "docs/reference/stone-edge-review/source/faces.json",
+  "facesSha256": "53c3ed36184a757007003c63252be10af3dac97c6d08f8c35b4a9bae27b2ef63",
+  "guide": "docs/reference/stone-edge-review/source/guide.svg",
+  "guideSha256": "357fd215baa88e368e7d0c19a8e907382cb74d70de3850bf60131ee87669fa2d",
+  "materials": "docs/reference/stone-edge-review/source/materials.json",
+  "materialsSha256": "4cc8240b50634edaeba10257ef3ce051228ded5a0e19368e315cc4e725d20d1d",
+  "baselineAlphaSha256": "6c33dc57f4c93c346faf3d7c19dbc18f9bfe959d45f5e22bf4ea73b3a8efd697",
+  "variants": [
+    {
+      "spec": {
+        "id": "b-soft",
+        "label": "B · Angles adoucis",
+        "radius": 3.8,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2
+      },
+      "sha256": "2ad2c6cfbe32b4460440c1871d594047a7d572c6c88af64d4421fa8803ab4ea4",
+      "alphaSha256": "6c33dc57f4c93c346faf3d7c19dbc18f9bfe959d45f5e22bf4ea73b3a8efd697"
+    },
+    {
+      "spec": {
+        "id": "c-worn",
+        "label": "C · Bords plus irréguliers",
+        "radius": 6.4,
+        "inset": 0.65,
+        "unevenness": 1.05,
+        "bevel": 2.7
+      },
+      "sha256": "9b4710c45fe51252c4c98a82163df56b3208f23ddd10467703ac7e48a2cc7b4d",
+      "alphaSha256": "6c33dc57f4c93c346faf3d7c19dbc18f9bfe959d45f5e22bf4ea73b3a8efd697"
+    }
+  ],
+  "scope": "Visible stone finish changes inside original face regions. Original silhouette alpha, framing, palette, material coordinates and projection retained. Internal straight grout is allowed to be reshaped in this proposal. Frozen comparison from before promotion. User approved B; production promotion is documented in PAINTED_GODOT.md. This comparison alone does not validate every assembled adjacency."
+}

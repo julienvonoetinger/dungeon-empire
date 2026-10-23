@@ -1,12 +1,13 @@
 // Offline connected architecture. Runtime only selects these finished PNGs.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),sharp=require('sharp');
 const R=require('./painted_material_renderer.cjs'),{makeModel}=require('./export_painted_image_catalog.cjs');
+const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const {ROOT,read,hash,render,svg}=R,OUT='assets/dungeon/painted-connected';
 const isolated=JSON.parse(read('docs/reference/wireframe-overlays/catalog.json'));
 const wire=JSON.parse(read('assets/dungeon/wireframe-cells/catalog.json'));
 const materials=JSON.parse(read('assets/dungeon/shared-materials/catalog.json'));
 const manifest={id:'painted-connected-shared-materials-v1',generator:'tools/export_painted_connected_kit.cjs',projection:wire.projection,cell:[1,1],cellPixels:256,textureScale:.25,wallAnchor:[24,88],floorAnchor:[4,4],doorAnchor:[24,128],sourcePixelScale:4,policy:'Prepared floor first, then at most one complete structural PNG per cell. Internal port faces omitted offline, no runtime painting, clipping, tint or flipping.',entries:{},aliases:{},emptyVariants:[]};
-const write=(p,b)=>{fs.mkdirSync(path.dirname(path.join(ROOT,p)),{recursive:true});fs.writeFileSync(path.join(ROOT,p),b);};
+const write=(p,b)=>writeGeneratedFile(path.join(ROOT,p),b);
 const json=(p,o)=>write(p,JSON.stringify(o,null,2)+'\n');
 function importFile(p){
   // Godot supplies the UID on import. Keep predictable lossless+mipmap settings.
@@ -75,9 +76,9 @@ async function main(){
   write('artifacts/painted-connected/floor-guide.svg',floorGuide);
   manifest.floor={file:'floor.png',sha256:hash(floorResult.png),source:floorSource,sourceSha256:hash(floorInput),guideSha256:hash(floorGuide),imageSize:floorResult.report.canvas,imageAnchor:floorResult.report.anchor,materialContinuity:'Periodic X: boundary fragments share one complete slab, material, texture coordinates and bevel seed; clip only at offline export.'};
   manifest.floorAnchor=[0,0];
-  manifest.sourceHashes=Object.fromEntries(['docs/reference/floor-periodic-cell.json','tools/painted_material_renderer.cjs','tools/export_painted_connected_kit.cjs','tools/export_painted_image_catalog.cjs','assets/dungeon/shared-materials/catalog.json','assets/dungeon/wireframe-cells/catalog.json','assets/dungeon/wireframe-entrances/catalog.json','assets/dungeon/wireframe-doors/catalog.json'].map(p=>[p,hash(read(p))]));
+  manifest.sourceHashes=Object.fromEntries(['docs/reference/floor-periodic-cell.json','tools/painted_material_renderer.cjs','tools/stone_edge_finish.cjs','tools/write_generated_file.cjs','assets/dungeon/shared-materials/stone-finish.json','tools/export_painted_connected_kit.cjs','tools/export_painted_image_catalog.cjs','assets/dungeon/shared-materials/catalog.json','assets/dungeon/wireframe-cells/catalog.json','assets/dungeon/wireframe-entrances/catalog.json','assets/dungeon/wireframe-doors/catalog.json'].map(p=>[p,hash(read(p))]));
   json(OUT+'/catalog.json',manifest);
-  const validation=floorOnly?JSON.parse(read(OUT+'/validation.json')):{uniqueStructuralImages:reports.length,logicalStructuralVariants:jobs.length,emptyVariants:manifest.emptyVariants.length,allJointLayersMatch:reports.every(r=>r.exportedJointLayerMatchesGuide),alphaPixelsDifferentFromModel:reports.reduce((n,r)=>n+r.alphaPixelsDifferentFromModel,0),unpaintedInteriorPixels:reports.reduce((n,r)=>n+r.unpaintedInteriorPixels,0),extraInteriorPixels:reports.reduce((n,r)=>n+r.extraInteriorPixels,0),reports};
+  const validation=floorOnly?JSON.parse(read(OUT+'/validation.json')):{uniqueStructuralImages:reports.length,logicalStructuralVariants:jobs.length,emptyVariants:manifest.emptyVariants.length,allConstructionJointLayersMatch:reports.every(r=>r.constructionJointLayerMatchesGuide),alphaPixelsDifferentFromModel:reports.reduce((n,r)=>n+r.alphaPixelsDifferentFromModel,0),unpaintedInteriorPixels:reports.reduce((n,r)=>n+r.unpaintedInteriorPixels,0),extraInteriorPixels:reports.reduce((n,r)=>n+r.extraInteriorPixels,0),reports};
   const {faces:floorFaces,...floorReport}=floorResult.report;
   validation.floor=floorReport;
   json(OUT+'/validation.json',validation);

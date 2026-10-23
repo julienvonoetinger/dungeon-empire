@@ -1,6 +1,7 @@
 // OFFLINE review sprites. Preserve the standalone guides; never edit Godot scenes.
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const R=require('./painted_material_renderer.cjs'),{geometry}=require('./export_wireframe_cell_kit.cjs');
+const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const {ROOT,SCALE,read,hash,polygon,render}=R;
 const GUIDE='docs/reference/wireframe-overlays',OUT='assets/dungeon/painted-cells',REVIEW='docs/reference/painted-kit-review';
 const catalog=JSON.parse(read(GUIDE+'/catalog.json')),T=1/6,H=1.88/6;
@@ -8,7 +9,7 @@ const stairs=JSON.parse(read('docs/reference/entrance-stairs-open-south-wirefram
 const door=JSON.parse(read('docs/reference/door-arch-cell-west-east-wireframe.json'));
 const transforms={north:([x,y,z])=>[1-x,1-y,z],east:([x,y,z])=>[y,1-x,z],south:p=>p,west:([x,y,z])=>[1-y,x,z]};
 const inverses={north:transforms.north,east:transforms.west,south:transforms.south,west:transforms.east};
-function write(p,b){const file=path.join(ROOT,p);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,b);}
+function write(p,b){writeGeneratedFile(path.join(ROOT,p),b);}
 function json(p,obj){write(p,JSON.stringify(obj,null,2)+'\n');}
 function boxFaces(lo,hi,part,index=0){
   const [x,y,z]=lo,[X,Y,Z]=hi,a=[x,y,z],b=[X,y,z],c=[X,Y,z],d=[x,Y,z],e=[x,y,Z],f=[X,y,Z],g=[X,Y,Z],h=[x,Y,Z];
@@ -85,9 +86,9 @@ async function main(){
     }
   }
   if(only)return;
-  const hashes={};for(const p of ['tools/painted_material_renderer.cjs','tools/export_painted_image_catalog.cjs','tools/export_wireframe_cell_kit.cjs','docs/reference/two-course-square-room.json','docs/reference/floor-periodic-cell.json','docs/reference/entrance-stairs-open-south-wireframe.json','docs/reference/door-arch-cell-west-east-wireframe.json',GUIDE+'/catalog.json','assets/dungeon/shared-materials/catalog.json'])hashes[p]=hash(read(p));
+  const hashes={};for(const p of ['tools/painted_material_renderer.cjs','tools/stone_edge_finish.cjs','tools/write_generated_file.cjs','assets/dungeon/shared-materials/stone-finish.json','tools/export_painted_image_catalog.cjs','tools/export_wireframe_cell_kit.cjs','docs/reference/two-course-square-room.json','docs/reference/floor-periodic-cell.json','docs/reference/entrance-stairs-open-south-wireframe.json','docs/reference/door-arch-cell-west-east-wireframe.json',GUIDE+'/catalog.json','assets/dungeon/shared-materials/catalog.json'])hashes[p]=hash(read(p));
   json(OUT+'/catalog.json',{id:'painted-isolated-shared-materials-v1',status:'awaiting_user_visual_review',purpose:'Isolated sprites with complete visible ends. Do not substitute into connected Godot scenes.',generator:'tools/export_painted_image_catalog.cjs',cell:[1,1],pixelsPerCell:256*SCALE,projection:catalog.projection,wallHeight:H,courseJoints:[.94/6],sourceHashes:hashes,uniqueImageCount:reports.length,guideEntryCount:Object.keys(aliases).length,entries,aliases});
-  json(REVIEW+'/validation.json',{imageCount:reports.length,guideEntryCount:Object.keys(aliases).length,allJointLayersMatch:reports.every(r=>r.exportedJointLayerMatchesGuide),alphaPixelsDifferentFromModel:reports.reduce((s,r)=>s+r.alphaPixelsDifferentFromModel,0),unpaintedInteriorPixels:reports.reduce((s,r)=>s+r.unpaintedInteriorPixels,0),extraInteriorPixels:reports.reduce((s,r)=>s+r.extraInteriorPixels,0),sourceHashes:hashes,images:reports.map(({faces,...r})=>r),scope:'Source line coordinates, stroke widths, framing, model alpha and coverage. Not a claim of user artistic approval or assembled-scene validation.'});
+  json(REVIEW+'/validation.json',{imageCount:reports.length,guideEntryCount:Object.keys(aliases).length,allConstructionJointLayersMatch:reports.every(r=>r.constructionJointLayerMatchesGuide),alphaPixelsDifferentFromModel:reports.reduce((s,r)=>s+r.alphaPixelsDifferentFromModel,0),unpaintedInteriorPixels:reports.reduce((s,r)=>s+r.unpaintedInteriorPixels,0),extraInteriorPixels:reports.reduce((s,r)=>s+r.extraInteriorPixels,0),sourceHashes:hashes,images:reports.map(({faces,...r})=>r),scope:'Source line coordinates, stroke widths, framing, model alpha and coverage. Not a claim of user artistic approval or assembled-scene validation.'});
   const cells=Object.keys(entries).filter(id=>id.startsWith('cells/'));
   for(let page=0;page<Math.ceil(cells.length/16);page++)await sheet(cells.slice(page*16,(page+1)*16),`cells-${page+1}.png`,`Cases · planche ${page+1}`);
   const special=['floor','pillar',...['entrances','doors'].flatMap(f=>['north','east','south','west'].map(d=>f+'/'+d))];

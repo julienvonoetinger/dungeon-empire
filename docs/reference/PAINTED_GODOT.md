@@ -8,6 +8,43 @@ La gamme active est désormais **stylisée**, approuvée par l'utilisateur le
 localisés. Les PNG sont réexportés avec `shared-materials/active-recipe.json` et
 `stylized-atlas-v2.png`. Les 20 scènes conservent leurs références et leur layout.
 
+La finition **B — angles adoucis** est approuvée à son tour. Sa recette durable
+est `assets/dungeon/shared-materials/stone-finish.json`, appliquée par
+`tools/stone_edge_finish.cjs` pendant les deux exports peints. Les pierres des
+murs, sols, piliers, escaliers et arches ont des angles légèrement émoussés et des
+reflets continus. Les textures sources et les couleurs restent celles de la gamme
+stylisée ; le bois et le métal gardent leur finition.
+
+Les paramètres B sont : rayon 3,8, retrait 0,55, irrégularité 0,12 et biseau 2,2
+pixels de référence, avant l'export ×4. Le sol utilise un facteur 0,63 ; les faces
+étroites sont réduites proportionnellement. La comparaison approuvée et ses
+entrées figées restent dans `stone-edge-review/`.
+
+L'arrondi reste dans l'enveloppe maçonnée opaque : il ne crée aucun trou alpha
+entre les pierres. Les fragments périodiques du sol partagent une pierre entière,
+ses coordonnées de texture et sa graine de finition. Les arêtes absentes du guide
+connecté ne reçoivent pas de nouveau biseau de terminaison. Les contours du modèle,
+la projection, la taille des cases et les dispositions des scènes sont conservés.
+
+Les rapports distinguent maintenant `constructionJointLayerMatchesGuide` des
+joints visibles : B modifie volontairement leur aspect autour des coins arrondis.
+Le calque magenta conserve les traits de construction d'origine. Une correspondance
+de ces traits ne signifie pas que chaque pixel de mortier peint est sur le trait.
+
+Revue d'intégration B : export de 57 images isolées et 96 structures connectées
+avec un sol commun, soit 154 PNG. Leurs 154 masques alpha sont identiques à ceux
+d'avant B. Import Godot et captures effectués sans erreur pour `2x2CellRoom`,
+`3x3RoomCornerCorridors`, `WireframeDoorCross`, `WireframeClosedCorridors` et
+`SixRoomPreview`. Les vues normales et agrandies montrent l'arrondi, les quatre
+portes et les quatre escaliers. Le sol conserve un motif répétitif commun ; cette
+revue ne démontre pas tous les assemblages possibles d'un futur donjon libre.
+Logs, captures et comparaison alpha : `artifacts/soft-stone-b/` et
+`artifacts/wireframe-*.png`.
+
+Les exports remplacent désormais chaque fichier terminé de façon atomique, avec
+une reprise bornée si Windows le verrouille brièvement pendant l'import Godot.
+Ils ne ferment pas l'éditeur ouvert par l'utilisateur.
+
 ## Catalogue actif
 
 | Élément | Source |

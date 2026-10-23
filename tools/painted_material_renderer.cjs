@@ -1,9 +1,11 @@
 // Shared OFFLINE material compositor. Architectural edges are copied from the
 // approved guide; no scene/runtime rendering or generative geometry here.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),sharp=require('sharp');
+const {stoneFinish}=require('./stone_edge_finish.cjs');
 const ROOT=path.resolve(__dirname,'..'),SCALE=4;
 const read=p=>fs.readFileSync(path.join(ROOT,p));
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const finish=JSON.parse(read('assets/dungeon/shared-materials/stone-finish.json'));
 const body=s=>s.replace(/^<svg[^>]*>/,'').replace(/<\/svg>\s*$/,'');
 const sub=(a,b)=>a.map((v,i)=>v-b[i]),dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0);
 const cross=(a,b)=>a[0]*b[1]-a[1]*b[0],cross3=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
@@ -147,7 +149,7 @@ async function render(model,guide,materials){
     const cap=faces.find(t=>t.kind==='top'&&inside(screen,t.points));if(cap)f.materialId=cap.materialId;
   }
   const profiles=materials.renderProfile;
-  let defs='<defs>'+(visibility?.defs||'')+(model.clipPaint?`<clipPath id="connected-shape">${model.silhouette}</clipPath>`:''),paint='',bevels='';const used=new Set();
+  let defs='<defs>'+(visibility?.defs||'')+(model.clipPaint?`<clipPath id="connected-shape">${model.silhouette}</clipPath>`:''),paint='',bevels='',softPaint='',omittedFinishEdges=0;const used=new Set();
   for(let id=0;id<faces.length;id++){
     const f=faces[id],p=f.points,s=profiles[f.kind],clip=`f${id}`,key=`${f.kind}-${f.materialId}`;
     if(!textureCache.has(key)){const src=read('assets/dungeon/shared-materials/'+materials.entries[f.materialId].file);textureCache.set(key,(await sharp(src).modulate({brightness:s.brightness,saturation:s.saturation??.98}).blur(s.blur).png().toBuffer()).toString('base64'));}
@@ -164,6 +166,10 @@ async function render(model,guide,materials){
       textureTransform=`matrix(${u[0]} ${u[1]} ${v[0]} ${v[1]} ${a[0]} ${a[1]})`;
     }
     paint+=`<g clip-path="url(#${clip})" ${mask}>${polygon(p,`fill="${s.color}"`)}<use href="#t-${key}" transform="${textureTransform}" opacity="${s.opacity}"/></g>`;
+    if(!['wood','metal'].includes(f.kind)){
+      const soft=stoneFinish({face:f,id,profile:s,textureKey:key,textureTransform,mask,guideLines:lines,connected:model.clipPaint&&!model.wrapFloorX,spec:finish});
+      defs+=soft.defs;softPaint+=soft.paint;omittedFinishEdges+=soft.omittedEdges;
+    }
     const highlight=f.kind==='floor'?'#76839b':f.kind==='top'?'#8694b2':f.kind==='wood'?'#bb8249':f.kind==='metal'?'#a1a6b4':'#52617e';
     // Arched profiles use continuous highlights across their tessellation.
     if(f.part==='arch'||f.part==='closed-door'){
@@ -191,11 +197,18 @@ async function render(model,guide,materials){
   // Independently projected model volume, not the extracted planar regions.
   const silhouette=document(model.silhouette+tiledInk);
   const expected=await sharp(Buffer.from(silhouette)).ensureAlpha().raw().toBuffer();
-  const actual=await sharp(Buffer.from(drawing)).ensureAlpha().raw().toBuffer();
+  let actual=await sharp(Buffer.from(drawing)).ensureAlpha().raw().toBuffer();
   let holes=0,excess=0;
   for(let i=3;i<expected.length;i+=4){if(expected[i]>250&&actual[i]<128)holes++;if(expected[i]===0&&actual[i]>128)excess++;}
   if(holes>8||excess>8)throw Object.assign(Error(`${model.id}: face coverage mismatch (${holes} holes, ${excess} excess)`),{diagnostic:{drawing,silhouette,model,faces,holes,excess}});
   // Fixed construction mask: permitted offline workflow. Never fit to artwork.
+  for(let i=3;i<actual.length;i+=4)actual[i]=expected[i];
+  // B is an appearance pass over the unchanged construction, including the
+  // original outer strokes. Its mortar intentionally replaces straight inner ink.
+  const baseline=await sharp(actual,{raw:{width:canvas[0],height:canvas[1],channels:4}}).png().toBuffer();
+  const softened=softPaint+accent.replace(/url\(#f(\d+)\)/g,'url(#stone-$1)');
+  const softDrawing=document(defs+`<image href="data:image/png;base64,${baseline.toString('base64')}" x="${frame[0]}" y="${frame[1]}" width="${frame[2]}" height="${frame[3]}"/>`+(model.clipPaint?`<g clip-path="url(#connected-shape)">${softened}</g>`:softened));
+  actual=await sharp(Buffer.from(softDrawing)).ensureAlpha().raw().toBuffer();
   for(let i=3;i<actual.length;i+=4)actual[i]=expected[i];
   const png=await sharp(actual,{raw:{width:canvas[0],height:canvas[1],channels:4}}).png().toBuffer();
   const decoded=await sharp(png).ensureAlpha().raw().toBuffer();let alphaDiff=0;for(let i=3;i<expected.length;i+=4)if(expected[i]!==decoded[i])alphaDiff++;
@@ -203,6 +216,6 @@ async function render(model,guide,materials){
   const composite=await sharp(png).composite([{input:overlay}]).png().toBuffer();
   const tuples=s=>parseLines(s).map(l=>[...l.a,...l.b,l.width]);
   const jointsEqual=JSON.stringify(tuples(ink))===JSON.stringify(tuples(guide));
-  return {png,overlay:composite,report:{id:model.id,canvas,anchor,cellPitch:256*SCALE,guideSha256:hash(guide),segmentCount:lines.length,outputFrame:frame,repeatInkY:model.repeatInkY||0,exportedJointLayerMatchesGuide:jointsEqual,alphaPixelsDifferentFromModel:alphaDiff,unpaintedInteriorPixels:holes,extraInteriorPixels:excess,faces:faces.map(f=>({points:f.points,kind:f.kind,part:f.part,materialId:f.materialId})),materials:[...new Set(faces.map(f=>f.materialId))]},recipe:document(faces.map(f=>polygon(f.points,`fill="#fff"`)).join('')+tiledInk)};
+  return {png,overlay:composite,report:{id:model.id,canvas,anchor,cellPitch:256*SCALE,guideSha256:hash(guide),segmentCount:lines.length,outputFrame:frame,repeatInkY:model.repeatInkY||0,constructionJointLayerMatchesGuide:jointsEqual,visibleStoneJoints:'Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.',stoneFinish:finish.id,omittedFinishEdges,alphaPixelsDifferentFromModel:alphaDiff,unpaintedInteriorPixels:holes,extraInteriorPixels:excess,faces:faces.map(f=>({points:f.points,kind:f.kind,part:f.part,materialId:f.materialId})),materials:[...new Set(faces.map(f=>f.materialId))]},recipe:document(faces.map(f=>polygon(f.points,`fill="#fff"`)).join('')+tiledInk)};
 }
 module.exports={ROOT,SCALE,read,hash,body,sub,dot,cross3,inside,polygon,svg,parseLines,regionsFromLines,probe,prepareModel,cast,render};

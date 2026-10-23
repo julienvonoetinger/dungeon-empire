@@ -52,6 +52,6 @@ async function main(){
   }
   const bg=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1130"><rect width="100%" height="100%" fill="#0a101b"/><g font-family="Arial,sans-serif">${labels}<text x="22" y="1090" font-size="18" fill="#c3cee0">Même géométrie · référence artistique : la maquette utilisateur uniquement</text><text x="22" y="1116" font-size="16" fill="#96a6be">Proposition de style à valider · coin de salle et porte · aucune modification des scènes Godot</text></g></svg>`);
   write(OUT+'/comparison.png',await sharp(bg).composite(layers).png().toBuffer());
-  console.log(JSON.stringify({output:OUT,reports:reports.map(r=>({id:r.id,jointsMatch:r.exportedJointLayerMatchesGuide,alphaDifference:r.alphaPixelsDifferentFromModel}))}));
+  console.log(JSON.stringify({output:OUT,reports:reports.map(r=>({id:r.id,constructionJointsMatch:r.constructionJointLayerMatchesGuide,alphaDifference:r.alphaPixelsDifferentFromModel}))}));
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

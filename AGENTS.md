@@ -1,5 +1,26 @@
 # Repository instructions
 
+## Approved soft stone B — 2026-10-23
+
+- User approved B: "ok pour B". Apply its modest rounding to existing isolated
+  and connected stone sprites with the accepted offline material-mask workflow.
+- Durable recipe: `assets/dungeon/shared-materials/stone-finish.json`.
+  Radius 3.8, inset .55, unevenness .12, bevel 2.2 reference pixels; floor factor
+  .63 and proportional reduction for narrow faces. Do not replace this with C.
+- `tools/stone_edge_finish.cjs` is shared by the production compositor. Retain
+  source material crops, projection, silhouette alpha, grid and scene layouts.
+  Wood/metal retain their finish. Godot places complete prepared PNGs as before.
+- Periodic floor boundary fragments share one complete stone, texture mapping
+  and finish seed. Uninked connection cuts receive no new inset, rounded corner
+  or end bevel. Internal stone joint appearance changes intentionally; the
+  construction overlay is a geometry reference, not every visible mortar pixel.
+- `docs/reference/stone-edge-review/` preserves the A/B/C decision. Its generator
+  now reads frozen A/report/guide/material metadata, never the promoted active B
+  as a new baseline. Keep the accepted B image for comparison.
+- After changing the finish, re-export BOTH kits and import in Godot. Existing
+  scene references pick up the resulting PNGs. Record visual review limits in
+  `docs/reference/PAINTED_GODOT.md`; approval of B does not prove arbitrary joins.
+
 ## Legacy asset cleanup — 2026-10-23
 
 - User requested removal of failed architecture trials predating the wireframes.
