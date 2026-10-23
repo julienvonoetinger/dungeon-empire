@@ -1,0 +1,256 @@
+{
+  "id": "shared-dungeon-stone-materials-v1",
+  "status": "review_pending",
+  "canonicalStyle": "assets/dungeon/gloom-kit/reference.png",
+  "purpose": "Reuse these exact source materials across approved wireframe faces and later elements. This is not a catalogue of tile sprites.",
+  "rules": [
+    "No independent palette regeneration per orientation.",
+    "Only geometry and masks define joints, silhouettes and perspective.",
+    "Use the same material identity on a stone top and its upper facade.",
+    "Floors use the calmer family; wear and fissures remain sparse.",
+    "Source crops omit the atlas dividing lines and do not contain architectural silhouettes."
+  ],
+  "renderProfile": {
+    "top": {
+      "color": "#424e68",
+      "brightness": 0.98,
+      "opacity": 0.94,
+      "blur": 0.3
+    },
+    "floor": {
+      "color": "#3c465d",
+      "brightness": 0.84,
+      "opacity": 0.64,
+      "blur": 0.4
+    },
+    "north": {
+      "color": "#252e47",
+      "brightness": 0.61,
+      "opacity": 0.92,
+      "blur": 0.3
+    },
+    "west": {
+      "color": "#1e263d",
+      "brightness": 0.49,
+      "opacity": 0.9,
+      "blur": 0.3
+    },
+    "east_end": {
+      "color": "#1e263d",
+      "brightness": 0.49,
+      "opacity": 0.9,
+      "blur": 0.3
+    },
+    "south_end": {
+      "color": "#252e47",
+      "brightness": 0.61,
+      "opacity": 0.92,
+      "blur": 0.3
+    },
+    "wood": {
+      "color": "#59321d",
+      "brightness": 0.72,
+      "saturation": 0.68,
+      "opacity": 0.92,
+      "blur": 0.3
+    },
+    "metal": {
+      "color": "#252b38",
+      "brightness": 0.88,
+      "opacity": 0.75,
+      "blur": 0.3
+    }
+  },
+  "entries": {
+    "walls-planes": {
+      "file": "walls-planes.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/walls-atlas-v1.png",
+      "sourceSha256": "501597385384e8e6a8cdfa0dc8353995337fd373a61d25318c7b37692905852c",
+      "sourceRegion": {
+        "left": 8,
+        "top": 8,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "9dfed88e0eb3bddce10c970bae3cee54a7d40e29e129c5688a8050fcd73274f5",
+      "meanRGB": [
+        59.58,
+        70.43,
+        99.73
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "walls-fissures": {
+      "file": "walls-fissures.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/walls-atlas-v1.png",
+      "sourceSha256": "501597385384e8e6a8cdfa0dc8353995337fd373a61d25318c7b37692905852c",
+      "sourceRegion": {
+        "left": 635,
+        "top": 8,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "f69e28c973b97afe316752c529936d671c66df8e3343bb35fe5c70c534460f30",
+      "meanRGB": [
+        63.21,
+        74.47,
+        104.45
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "walls-layers": {
+      "file": "walls-layers.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/walls-atlas-v1.png",
+      "sourceSha256": "501597385384e8e6a8cdfa0dc8353995337fd373a61d25318c7b37692905852c",
+      "sourceRegion": {
+        "left": 8,
+        "top": 635,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "5eff2d627b9d0293a5258cee6f70d103d5bd7e7689e1fed27217a49a8499dbcc",
+      "meanRGB": [
+        61.32,
+        72.53,
+        102.3
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "walls-pits": {
+      "file": "walls-pits.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/walls-atlas-v1.png",
+      "sourceSha256": "501597385384e8e6a8cdfa0dc8353995337fd373a61d25318c7b37692905852c",
+      "sourceRegion": {
+        "left": 635,
+        "top": 635,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "f248fce91b5127047d984bbc24ed7667c69a07b2e5e2e8a89c84e48c1d301470",
+      "meanRGB": [
+        62.89,
+        74.06,
+        103.75
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "floors-calm": {
+      "file": "floors-calm.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floors-atlas-v1.png",
+      "sourceSha256": "1d07de1900f3d664e12cac19ae72607e1db9ba543bd687cdeedbe78776dfee8c",
+      "sourceRegion": {
+        "left": 8,
+        "top": 8,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "987ab1bcaa9405f619768f0702389870e5506e5df94d01940ff799dc87440395",
+      "meanRGB": [
+        64.78,
+        76.63,
+        103.18
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "floors-fine-crack": {
+      "file": "floors-fine-crack.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floors-atlas-v1.png",
+      "sourceSha256": "1d07de1900f3d664e12cac19ae72607e1db9ba543bd687cdeedbe78776dfee8c",
+      "sourceRegion": {
+        "left": 635,
+        "top": 8,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "cccad789b8748a1e1f716e53c3106dbeee631b0776a5ba29b98f3fc2b9133807",
+      "meanRGB": [
+        64.69,
+        76.53,
+        103.12
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "floors-worn": {
+      "file": "floors-worn.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floors-atlas-v1.png",
+      "sourceSha256": "1d07de1900f3d664e12cac19ae72607e1db9ba543bd687cdeedbe78776dfee8c",
+      "sourceRegion": {
+        "left": 8,
+        "top": 635,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "e45b43535680e9ced2377e63eb987353e166d9400917ade9e29cb2acb0fe46b7",
+      "meanRGB": [
+        64.81,
+        76.59,
+        103.11
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "floors-marks": {
+      "file": "floors-marks.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floors-atlas-v1.png",
+      "sourceSha256": "1d07de1900f3d664e12cac19ae72607e1db9ba543bd687cdeedbe78776dfee8c",
+      "sourceRegion": {
+        "left": 635,
+        "top": 635,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "afbac7c9c1676a146220b8e962c212910082c4e810babda32cadd0b22eafae38",
+      "meanRGB": [
+        64.7,
+        76.64,
+        103.35
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "door-oak": {
+      "file": "door-oak.png",
+      "family": "doors",
+      "source": "assets/dungeon/shared-materials/door-surfaces-atlas-v1.png",
+      "sourceSha256": "d99dd713cd47d61bc50bf2fe11cff8e2b9f612bf9c74a3d0f7fcf3e7ca6d2a54",
+      "sourceRegion": {
+        "left": 8,
+        "top": 8,
+        "width": 611,
+        "height": 1238
+      },
+      "sha256": "f6a8077e60705bea59700d7642c64cb87fb2d362ea8f51c20cc00f3a1abaa2d6",
+      "meanRGB": [
+        127.8,
+        54.8,
+        13.58
+      ],
+      "status": "material_appearance_pending_user_review"
+    },
+    "door-iron": {
+      "file": "door-iron.png",
+      "family": "doors",
+      "source": "assets/dungeon/shared-materials/door-surfaces-atlas-v1.png",
+      "sourceSha256": "d99dd713cd47d61bc50bf2fe11cff8e2b9f612bf9c74a3d0f7fcf3e7ca6d2a54",
+      "sourceRegion": {
+        "left": 635,
+        "top": 8,
+        "width": 611,
+        "height": 1238
+      },
+      "sha256": "2ae18efeb692fe9e73069c2724baf803e66130c898c3f226dbed4ee3a268edc6",
+      "meanRGB": [
+        43.41,
+        52.24,
+        67.16
+      ],
+      "status": "material_appearance_pending_user_review"
+    }
+  }
+}

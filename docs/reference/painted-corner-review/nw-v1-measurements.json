@@ -1,0 +1,153 @@
+{
+  "image": "assets/dungeon/gloom-kit/proposals/nw-cell-wireframe-v1.png",
+  "requestedCanvas": [
+    1216,
+    1408
+  ],
+  "actualCanvas": [
+    1166,
+    1349
+  ],
+  "exactCanvas": false,
+  "hasAlpha": true,
+  "fullyTransparentPixels": 247681,
+  "partiallyTransparentPixels": 1324107,
+  "guideScaleFrom304x352": 3.8323863636363638,
+  "guideTranslation": [
+    0,
+    0
+  ],
+  "unusedCanvas": [
+    0.9545454545454959,
+    0
+  ],
+  "anchor": [
+    91.97727272727273,
+    337.25
+  ],
+  "cellPitch": 981.0909090909091,
+  "alphaThreshold": 128,
+  "alphaBounds": {
+    "actual": [
+      32,
+      57,
+      1079,
+      1323
+    ],
+    "expected": [
+      31,
+      55,
+      1078,
+      1323
+    ]
+  },
+  "silhouetteIoU": 0.9960800566010519,
+  "actualArea": 1306332,
+  "expectedArea": 1308978,
+  "measurementLimit": "Alpha silhouette overlap does not establish correct internal masonry, color, local contour deviations, or artistic approval. No nonuniform scaling or best-fit translation was applied.",
+  "assetUnchanged": true,
+  "floorJointProbe": {
+    "method": "Heuristic: darkest mean luminance within +/-14 px of each long interior vertical floor guide, away from endpoints. Appearance can affect this measure; inspect overlay as well.",
+    "measurements": [
+      {
+        "guideX": 517.12,
+        "sampleY": [
+          549,
+          675
+        ],
+        "darkMortarOffsetPixels": -3,
+        "offsetAt256pxCell": -0.78
+      },
+      {
+        "guideX": 827.8,
+        "sampleY": [
+          549,
+          675
+        ],
+        "darkMortarOffsetPixels": -7,
+        "offsetAt256pxCell": -1.83
+      },
+      {
+        "guideX": 386.3,
+        "sampleY": [
+          706,
+          832
+        ],
+        "darkMortarOffsetPixels": -4,
+        "offsetAt256pxCell": -1.04
+      },
+      {
+        "guideX": 664.28,
+        "sampleY": [
+          706,
+          832
+        ],
+        "darkMortarOffsetPixels": -3,
+        "offsetAt256pxCell": -0.78
+      },
+      {
+        "guideX": 925.9,
+        "sampleY": [
+          706,
+          832
+        ],
+        "darkMortarOffsetPixels": -4,
+        "offsetAt256pxCell": -1.04
+      },
+      {
+        "guideX": 566.17,
+        "sampleY": [
+          863,
+          989
+        ],
+        "darkMortarOffsetPixels": -3,
+        "offsetAt256pxCell": -0.78
+      },
+      {
+        "guideX": 778.74,
+        "sampleY": [
+          863,
+          989
+        ],
+        "darkMortarOffsetPixels": -4,
+        "offsetAt256pxCell": -1.04
+      },
+      {
+        "guideX": 419.01,
+        "sampleY": [
+          1020,
+          1146
+        ],
+        "darkMortarOffsetPixels": -3,
+        "offsetAt256pxCell": -0.78
+      },
+      {
+        "guideX": 713.33,
+        "sampleY": [
+          1020,
+          1146
+        ],
+        "darkMortarOffsetPixels": -3,
+        "offsetAt256pxCell": -0.78
+      },
+      {
+        "guideX": 500.77,
+        "sampleY": [
+          1177,
+          1303
+        ],
+        "darkMortarOffsetPixels": -1,
+        "offsetAt256pxCell": -0.26
+      },
+      {
+        "guideX": 844.15,
+        "sampleY": [
+          1177,
+          1303
+        ],
+        "darkMortarOffsetPixels": 2,
+        "offsetAt256pxCell": 0.52
+      }
+    ]
+  }
+}

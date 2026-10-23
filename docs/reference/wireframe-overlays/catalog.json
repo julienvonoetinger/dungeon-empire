@@ -1,0 +1,2682 @@
+{
+  "id": "wireframe-control-overlays-v2-isolated",
+  "generator": "tools/export_wireframe_overlays.cjs",
+  "purpose": "Complete ISOLATED transparent guides for reviewing future painted sprites individually; not production art.",
+  "color": "#ff00ff",
+  "background": "transparent",
+  "projection": {
+    "type": "parallel_oblique_screen_aligned",
+    "groundX": [
+      1,
+      0
+    ],
+    "groundY": [
+      0,
+      1
+    ],
+    "heightUp": [
+      -0.18,
+      -0.9
+    ]
+  },
+  "pixelsPerCell": 256,
+  "strokeWidths": {
+    "outline": 3,
+    "joints": 2,
+    "floor": 1.5
+  },
+  "policy": "Include all visible end faces and floor boundaries for a piece viewed ALONE. Keep hidden lines absent. Same geometry, camera, anchors and scale as the connected kit. Use the standalone door proposals, not the connected textures. Never use these closed-end guides as the connected runtime catalogue.",
+  "sourceHashes": {
+    "assets/dungeon/wireframe-cells/floor.svg": "007589fb8c4011716883bafff537e22b0044cb04d50ef3eda1c80ff50418f753",
+    "assets/dungeon/wireframe-cells/catalog.json": "2e2273ec1b9e4a3391e10393531ba76ac3dbf67129ceef11e5c8a81c8faf5a63",
+    "tools/export_wireframe_cell_kit.cjs": "47b5fac268c3d2857f519a637c297795b4ac346ade60b9b7d997eaed9a9282d3",
+    "docs/reference/two-course-square-room.json": "228ba7137e3f5f75cc5659df49adfcbc5ea8e182b4ba5fcb12dd461d2e066cd0",
+    "assets/dungeon/wireframe-cells/w00_p00_e00.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p01_e00.svg": "9310cbaf127453ce7e7c2bfb7644ea97123e8beb7ee3d77a7231438cfc565a22",
+    "assets/dungeon/wireframe-cells/w00_p02_e00.svg": "6d5cc72d51b7088dfd6fa7dc2009dae393c8904263c128a21d3ba987dd1491e6",
+    "assets/dungeon/wireframe-cells/w00_p03_e00.svg": "54a739f2410191ab6f926e4d9fbaf2da614ffd561bc2334cf30756298e05a6b1",
+    "assets/dungeon/wireframe-cells/w00_p04_e00.svg": "774070f94b30d0b04d49e1863e71c145fb2966cde3dad703ec3d3e1c9c1a004d",
+    "assets/dungeon/wireframe-cells/w00_p05_e00.svg": "0c2cf49aaaae21dacd9c672e646ff7f1f33a3244cc6aa3b35ac56a988fbdd1ca",
+    "assets/dungeon/wireframe-cells/w00_p06_e00.svg": "88a41564b460e4a68cd7d7647165236ab4f67d0bcbc9c47a592205e1c73a95e7",
+    "assets/dungeon/wireframe-cells/w00_p07_e00.svg": "9ec49563098ff66bdb1aeb9a1897b04a933bc99465586882dc0bb6cc5380c093",
+    "assets/dungeon/wireframe-cells/w00_p08_e00.svg": "51751ad906ac1df58a7299d2e95460477aee117c25c2d9a81e12353b5042cdbc",
+    "assets/dungeon/wireframe-cells/w00_p09_e00.svg": "41bf6abc3ba431236a90d3ad43a8b7e617198eac0b74a13353eacb3a40943176",
+    "assets/dungeon/wireframe-cells/w00_p10_e00.svg": "0cd255ff3f191dd5b02b4957f65ace387c87ca64b68e5bb3d8c81d0ea6f272ae",
+    "assets/dungeon/wireframe-cells/w00_p11_e00.svg": "5b00a57900875a58d1fb0ba73ff72edcbea3f7a3ba34dfe9bad371f0448d817f",
+    "assets/dungeon/wireframe-cells/w00_p12_e00.svg": "780d6ecb7e8e3e730bc0384e4bbc54254180fd3a4eeea797028da0d3fbcf7345",
+    "assets/dungeon/wireframe-cells/w00_p13_e00.svg": "274adb8a18f2823b0ad2292502108c44c72f1a4c46e5ae09633d6b4c8c8af148",
+    "assets/dungeon/wireframe-cells/w00_p14_e00.svg": "00cfeb1a20e649fa24abcf1c9b0687bef1fd563c8b69f938abe5e0cccc443ce3",
+    "assets/dungeon/wireframe-cells/w00_p15_e00.svg": "0683a6db965c1842c80b608dd893a6aa0ac07e290857e66d5d3ae6fad0737b60",
+    "assets/dungeon/wireframe-cells/w00_p00_e01.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p04_e01.svg": "774070f94b30d0b04d49e1863e71c145fb2966cde3dad703ec3d3e1c9c1a004d",
+    "assets/dungeon/wireframe-cells/w00_p08_e01.svg": "51751ad906ac1df58a7299d2e95460477aee117c25c2d9a81e12353b5042cdbc",
+    "assets/dungeon/wireframe-cells/w00_p12_e01.svg": "780d6ecb7e8e3e730bc0384e4bbc54254180fd3a4eeea797028da0d3fbcf7345",
+    "assets/dungeon/wireframe-cells/w00_p00_e02.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p01_e02.svg": "9310cbaf127453ce7e7c2bfb7644ea97123e8beb7ee3d77a7231438cfc565a22",
+    "assets/dungeon/wireframe-cells/w00_p08_e02.svg": "51751ad906ac1df58a7299d2e95460477aee117c25c2d9a81e12353b5042cdbc",
+    "assets/dungeon/wireframe-cells/w00_p09_e02.svg": "41bf6abc3ba431236a90d3ad43a8b7e617198eac0b74a13353eacb3a40943176",
+    "assets/dungeon/wireframe-cells/w00_p00_e03.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p08_e03.svg": "51751ad906ac1df58a7299d2e95460477aee117c25c2d9a81e12353b5042cdbc",
+    "assets/dungeon/wireframe-cells/w00_p00_e04.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p01_e04.svg": "9310cbaf127453ce7e7c2bfb7644ea97123e8beb7ee3d77a7231438cfc565a22",
+    "assets/dungeon/wireframe-cells/w00_p02_e04.svg": "6d5cc72d51b7088dfd6fa7dc2009dae393c8904263c128a21d3ba987dd1491e6",
+    "assets/dungeon/wireframe-cells/w00_p03_e04.svg": "54a739f2410191ab6f926e4d9fbaf2da614ffd561bc2334cf30756298e05a6b1",
+    "assets/dungeon/wireframe-cells/w00_p00_e05.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p00_e06.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p01_e06.svg": "9310cbaf127453ce7e7c2bfb7644ea97123e8beb7ee3d77a7231438cfc565a22",
+    "assets/dungeon/wireframe-cells/w00_p00_e07.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p00_e08.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p02_e08.svg": "6d5cc72d51b7088dfd6fa7dc2009dae393c8904263c128a21d3ba987dd1491e6",
+    "assets/dungeon/wireframe-cells/w00_p04_e08.svg": "774070f94b30d0b04d49e1863e71c145fb2966cde3dad703ec3d3e1c9c1a004d",
+    "assets/dungeon/wireframe-cells/w00_p06_e08.svg": "88a41564b460e4a68cd7d7647165236ab4f67d0bcbc9c47a592205e1c73a95e7",
+    "assets/dungeon/wireframe-cells/w00_p00_e09.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p04_e09.svg": "774070f94b30d0b04d49e1863e71c145fb2966cde3dad703ec3d3e1c9c1a004d",
+    "assets/dungeon/wireframe-cells/w00_p00_e10.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p00_e11.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p00_e12.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p02_e12.svg": "6d5cc72d51b7088dfd6fa7dc2009dae393c8904263c128a21d3ba987dd1491e6",
+    "assets/dungeon/wireframe-cells/w00_p00_e13.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p00_e14.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w00_p00_e15.svg": "1405f65073a1c7ac1c4536c10c520351d582decd6b4ac742cf264aceff6c267e",
+    "assets/dungeon/wireframe-cells/w01_p00_e00.svg": "2a6ae3fb80e83e4d5cebbd8980439d54c32008d12aa29011f67f43c2589ab31c",
+    "assets/dungeon/wireframe-cells/w01_p04_e00.svg": "5bfccefd11d51dfc14f06d0e617d36a3d777f4aba0bc9b856157e1f12556ddf4",
+    "assets/dungeon/wireframe-cells/w01_p08_e00.svg": "5337881e375fb5c1fef12bd85fad2cc55f066bfd1624c1bb1fedca822eaf1c67",
+    "assets/dungeon/wireframe-cells/w01_p12_e00.svg": "4d7c4e0aa87748ef7e10546d0676d13ef7e56d654457438695a56722e3c6ce7c",
+    "assets/dungeon/wireframe-cells/w01_p00_e02.svg": "16d6a32b896ca5a4b6edbc0bf660d064179595179045db0522de9030f210bca3",
+    "assets/dungeon/wireframe-cells/w01_p08_e02.svg": "f8197235e629e99427c94dc556a94d888e93bafe91e5f7dd8c597be06db943dd",
+    "assets/dungeon/wireframe-cells/w01_p00_e04.svg": "2a6ae3fb80e83e4d5cebbd8980439d54c32008d12aa29011f67f43c2589ab31c",
+    "assets/dungeon/wireframe-cells/w01_p00_e06.svg": "16d6a32b896ca5a4b6edbc0bf660d064179595179045db0522de9030f210bca3",
+    "assets/dungeon/wireframe-cells/w01_p00_e08.svg": "6266896f2ab53e5e8303060749587680b7ba1a296784e0b001a72c71d08336b3",
+    "assets/dungeon/wireframe-cells/w01_p04_e08.svg": "d383d6c19d2b9d36d4864d46b004811c949bf812aa6240fe9c3c1adfc0ddf326",
+    "assets/dungeon/wireframe-cells/w01_p00_e10.svg": "79ade4cad2f1ab9e6165fb50dec8de0d90a2e156d0c0d15f3de015e5322ac10a",
+    "assets/dungeon/wireframe-cells/w01_p00_e12.svg": "6266896f2ab53e5e8303060749587680b7ba1a296784e0b001a72c71d08336b3",
+    "assets/dungeon/wireframe-cells/w01_p00_e14.svg": "79ade4cad2f1ab9e6165fb50dec8de0d90a2e156d0c0d15f3de015e5322ac10a",
+    "assets/dungeon/wireframe-cells/w02_p00_e00.svg": "4364ce3aa4034818fc435877605be3f9261f6c9c55ac915f4602617d64350d22",
+    "assets/dungeon/wireframe-cells/w02_p01_e00.svg": "163549cc6844311f1c681eaebfa19c2f6e280a06a48011e6011bb6ecde9e42ae",
+    "assets/dungeon/wireframe-cells/w02_p08_e00.svg": "c9518ad1a02b7e7fcbd326c6d58e96c94b1e0609d9c67fad05b1fc5ae92188e0",
+    "assets/dungeon/wireframe-cells/w02_p09_e00.svg": "d2a1597cdae9c6f8b3ee26ad91dd33d5b38833e44de7b84c479f8f1c263b0fa4",
+    "assets/dungeon/wireframe-cells/w02_p00_e01.svg": "2179191d79ae592f472e712857707a31a144ca9065fadaf6a7c014aa551af687",
+    "assets/dungeon/wireframe-cells/w02_p08_e01.svg": "61b54a0b6af48b48504fa3ac50d334c9ff81d5e16510bbf2a5be4e31549b4839",
+    "assets/dungeon/wireframe-cells/w02_p00_e04.svg": "58d722360b8966671ddd8090ddc095ba7d5d1b469d0a0c0ad3a18386d2946f24",
+    "assets/dungeon/wireframe-cells/w02_p01_e04.svg": "14b19bb2bfe024eee03ff8e1b5483509b01317d01b0a0aa48d87862572dcec76",
+    "assets/dungeon/wireframe-cells/w02_p00_e05.svg": "72797ff4fb249b7d91f6829c5bc6f7967a9feff637b6348a11d52c3b3458f65d",
+    "assets/dungeon/wireframe-cells/w02_p00_e08.svg": "4364ce3aa4034818fc435877605be3f9261f6c9c55ac915f4602617d64350d22",
+    "assets/dungeon/wireframe-cells/w02_p00_e09.svg": "2179191d79ae592f472e712857707a31a144ca9065fadaf6a7c014aa551af687",
+    "assets/dungeon/wireframe-cells/w02_p00_e12.svg": "58d722360b8966671ddd8090ddc095ba7d5d1b469d0a0c0ad3a18386d2946f24",
+    "assets/dungeon/wireframe-cells/w02_p00_e13.svg": "72797ff4fb249b7d91f6829c5bc6f7967a9feff637b6348a11d52c3b3458f65d",
+    "assets/dungeon/wireframe-cells/w03_p00_e00.svg": "f65b03d34050d510891036b34f5b2d0b0fd275654e666364276bde86c8c9233c",
+    "assets/dungeon/wireframe-cells/w03_p08_e00.svg": "17db0853d2f78623e278c8e6f8fc42cb3d6fad9fd97b00c74515a330057ea400",
+    "assets/dungeon/wireframe-cells/w03_p00_e04.svg": "e8a0c8591af001007b822fd0ed12b64b8d830ce928069e1b1fd8aa87207db2fb",
+    "assets/dungeon/wireframe-cells/w03_p00_e08.svg": "fbf801e0d428f762067922c478ca28a08262b6436616e62d1d9eb32bb397b4bd",
+    "assets/dungeon/wireframe-cells/w03_p00_e12.svg": "caf5bbd2a7cd7ad4572bc21edfe28c511366eba5cb0be2f8dcc4ef753203d6c3",
+    "assets/dungeon/wireframe-cells/w04_p00_e00.svg": "5ea0cb8386adeb97eb8bcc29ac0d8098cc791346c766b0db87bccc7950676ff5",
+    "assets/dungeon/wireframe-cells/w04_p01_e00.svg": "9194e077fa6044e4f0335a785d60c6c7ee48b9c0e2c3a10b1322fa0b63d47b70",
+    "assets/dungeon/wireframe-cells/w04_p02_e00.svg": "692ac22f64e6fdca7652831c07f2bc0bb2ff2403c09aaef34f17a0c546d2ea41",
+    "assets/dungeon/wireframe-cells/w04_p03_e00.svg": "6fdbb1cd2d6c131aa6c780d56ff2d6476826af3df52fdfd48f37f61a4e82fe33",
+    "assets/dungeon/wireframe-cells/w04_p00_e01.svg": "5ea0cb8386adeb97eb8bcc29ac0d8098cc791346c766b0db87bccc7950676ff5",
+    "assets/dungeon/wireframe-cells/w04_p00_e02.svg": "2d787cdc52d99e731832562f248ff729c80383600b5f063ea28ca0d7d6e68bf9",
+    "assets/dungeon/wireframe-cells/w04_p01_e02.svg": "9cb4dac9aab081d327257a86d679d563e9ae7883e61e80d0db8a48d56f90f169",
+    "assets/dungeon/wireframe-cells/w04_p00_e03.svg": "2d787cdc52d99e731832562f248ff729c80383600b5f063ea28ca0d7d6e68bf9",
+    "assets/dungeon/wireframe-cells/w04_p00_e08.svg": "4cbe25df5d4598ff632e562c8a0120d206efeede9828c075bafa86f8fcd4c7e0",
+    "assets/dungeon/wireframe-cells/w04_p02_e08.svg": "41790fefb1f4b227f7d4640aec92f6ccee9c9bb19de2e1cc6e36db3e0b083068",
+    "assets/dungeon/wireframe-cells/w04_p00_e09.svg": "4cbe25df5d4598ff632e562c8a0120d206efeede9828c075bafa86f8fcd4c7e0",
+    "assets/dungeon/wireframe-cells/w04_p00_e10.svg": "db7c10a736a412ac4fe159bb198f9944c20764c285bd66baa8dc4434cbb667ec",
+    "assets/dungeon/wireframe-cells/w04_p00_e11.svg": "db7c10a736a412ac4fe159bb198f9944c20764c285bd66baa8dc4434cbb667ec",
+    "assets/dungeon/wireframe-cells/w05_p00_e00.svg": "73f8ab4a47c1482cf195014d17a1fd963486c1a3b5dba6d94105e7b5e1d60de2",
+    "assets/dungeon/wireframe-cells/w05_p00_e02.svg": "753f5bb52b78508e3f649152f8fbf9526d3d325d1845e336a94862f1a747a124",
+    "assets/dungeon/wireframe-cells/w05_p00_e08.svg": "233b362754bde9cff51f8dfa1f10f8570c6c8bf2a8e8ef906ec75a98a6052a69",
+    "assets/dungeon/wireframe-cells/w05_p00_e10.svg": "d721a6356d54925e2447ffb511bb706b0eafb47ccb55a23fca7680d0bbb74459",
+    "assets/dungeon/wireframe-cells/w06_p00_e00.svg": "a64c2118c3a28860a8a07a4464502a2a295c181ccb1143401d7a6e3b08c2a1b2",
+    "assets/dungeon/wireframe-cells/w06_p01_e00.svg": "5ada57839440f1c3d72d9a08b71e6587cd69febe3b548cc07a14e061f6c3bef3",
+    "assets/dungeon/wireframe-cells/w06_p00_e01.svg": "7f7f9c00758bbbb63aeed06479d914d5d5aed4362e1707abcff5b8082a1df2a5",
+    "assets/dungeon/wireframe-cells/w06_p00_e08.svg": "3bc38f035452b578e61b814a2fa65e3d66ed89e8cc8caeb62fe16a56355e2864",
+    "assets/dungeon/wireframe-cells/w06_p00_e09.svg": "757e77b10bc8260936bb8a2c6506604e712195e8e528537eaafb4905ee93c1d3",
+    "assets/dungeon/wireframe-cells/w07_p00_e00.svg": "170e328bd12841c6767d5c312d56c8546f95b974fcfefa72494d0a098ceac5ff",
+    "assets/dungeon/wireframe-cells/w07_p00_e08.svg": "2192376a82849aa631971b2d276712cc7c83887e2a2d282123fa87aa8b261d7c",
+    "assets/dungeon/wireframe-cells/w08_p00_e00.svg": "5af7f0ae882b8612213029adb637b044ee8a369f7bc8e13678b8d1762d09584b",
+    "assets/dungeon/wireframe-cells/w08_p02_e00.svg": "bb45a62b3d1481f01bb6d73ec7cf59e03ed34556d96f40ded97521178d080e0a",
+    "assets/dungeon/wireframe-cells/w08_p04_e00.svg": "9ee6e36f433b34e13cd43fbe9568c72bd5107904bd01c60cccba47c33749cd9c",
+    "assets/dungeon/wireframe-cells/w08_p06_e00.svg": "95bd2b7c0bf491b64c60a2904f02a2ae06ca7caca8e7f7ced4f5fe446b9cbffe",
+    "assets/dungeon/wireframe-cells/w08_p00_e01.svg": "9cf9c33d8ded20d89236c5d69127c70e8ab9b6132637213acc86a8e3c5a43a1d",
+    "assets/dungeon/wireframe-cells/w08_p04_e01.svg": "6f2210e4f2611d528f71716d62c837ac6bd6aa50d8e07176f81f71fd42317c07",
+    "assets/dungeon/wireframe-cells/w08_p00_e02.svg": "5af7f0ae882b8612213029adb637b044ee8a369f7bc8e13678b8d1762d09584b",
+    "assets/dungeon/wireframe-cells/w08_p00_e03.svg": "9cf9c33d8ded20d89236c5d69127c70e8ab9b6132637213acc86a8e3c5a43a1d",
+    "assets/dungeon/wireframe-cells/w08_p00_e04.svg": "0e755efa054a0fdedd142c4257e00292bdac1a915594596180f65d5748bf9ddd",
+    "assets/dungeon/wireframe-cells/w08_p02_e04.svg": "f8b51a24650cbc8abc038c1931383e6a50ea0fb31a19105254a63f8ae51ecc60",
+    "assets/dungeon/wireframe-cells/w08_p00_e05.svg": "f935bee742c098c7a6901097c8eddcd3557dea9fd714d2ba863b0fdd3029a466",
+    "assets/dungeon/wireframe-cells/w08_p00_e06.svg": "0e755efa054a0fdedd142c4257e00292bdac1a915594596180f65d5748bf9ddd",
+    "assets/dungeon/wireframe-cells/w08_p00_e07.svg": "f935bee742c098c7a6901097c8eddcd3557dea9fd714d2ba863b0fdd3029a466",
+    "assets/dungeon/wireframe-cells/w09_p00_e00.svg": "24c29317a0261e6e16d7ad21eaf5af59c0e5dea99ece7007caddcaa348254385",
+    "assets/dungeon/wireframe-cells/w09_p04_e00.svg": "d0f3278cf569b456f24e936c763d9a4d4f6c804b183eab1f89838b53061317b8",
+    "assets/dungeon/wireframe-cells/w09_p00_e02.svg": "3051435c783c40eb7d68917c77338755cce2fd1cb3c3f9360116cf9e65b3a30b",
+    "assets/dungeon/wireframe-cells/w09_p00_e04.svg": "92ae29e7bf472137a5169f70968eb23653e34a7872652435037e9e6ce26da14e",
+    "assets/dungeon/wireframe-cells/w09_p00_e06.svg": "14d46b723196f989fc09c987809fbef38d21bad223cf7f0facf23beef2f3a2a8",
+    "assets/dungeon/wireframe-cells/w10_p00_e00.svg": "2d4d6ec70232122357d24399078b8b79be08d6472e8d6a92be6e1143cffa540b",
+    "assets/dungeon/wireframe-cells/w10_p00_e01.svg": "286f27e012c9255d4fee00c792427b156176044944df068a8d1c53ab5cb8d7af",
+    "assets/dungeon/wireframe-cells/w10_p00_e04.svg": "a57540f4e1e5da3b4d2d2a87e7e27b5bf4131ac9b2de1fc42f6be763afceb294",
+    "assets/dungeon/wireframe-cells/w10_p00_e05.svg": "5d8fba109d8ecf2b4ee825de87f1fa7b89fd4ee357c78dd441d7fe696f7d79bd",
+    "assets/dungeon/wireframe-cells/w11_p00_e00.svg": "bd2d0ea3d12c4e08a5a13ae7d3b675206d44bafa4af3b61608fc477a6796af2f",
+    "assets/dungeon/wireframe-cells/w11_p00_e04.svg": "4f2f2830711870bc14c7078beb56acedf0f1841585e9936a9e7958941a5ad190",
+    "assets/dungeon/wireframe-cells/w12_p00_e00.svg": "fc6c4d3da6f47e928f604ddcc31a1f4ff0551a4c2e84d180ba671eb435b66fce",
+    "assets/dungeon/wireframe-cells/w12_p02_e00.svg": "1ec5d57e5a75e0022e83ee8c7e75f2da7765b20f6054741b51dd4239c813a0a2",
+    "assets/dungeon/wireframe-cells/w12_p00_e01.svg": "3e30b6267a41a4d0add72f4165afbffa756029b95032b91cfeb092daa1c2db63",
+    "assets/dungeon/wireframe-cells/w12_p00_e02.svg": "26012d200d5d1517dc922be369ed267f032e4d0683d5aca693e1d1bc27325a46",
+    "assets/dungeon/wireframe-cells/w12_p00_e03.svg": "76e45db0c921c940ad1c638c4a235d06b549bb7896a936b6fcb69b4145b584cd",
+    "assets/dungeon/wireframe-cells/w13_p00_e00.svg": "fdc442c8d2667c545499cd1af39983903c9a0426c4a192bdad94e5784b5b69e5",
+    "assets/dungeon/wireframe-cells/w13_p00_e02.svg": "fc1e749dc2a3a4f1dae6c361e9b984e08c01e48ca33d4303332e8c9d26fb11e0",
+    "assets/dungeon/wireframe-cells/w14_p00_e00.svg": "967e368fee6d9f64bb3997b022adc0b6db18e3cdc1df80dfd3fdb614f371bb89",
+    "assets/dungeon/wireframe-cells/w14_p00_e01.svg": "c1994cdac836ca6c76642a53f2022c679cf15270b0adaaacbb8b7b4badbe7784",
+    "assets/dungeon/wireframe-cells/w15_p00_e00.svg": "033b46a3a0340504a0742ea79f92f2fce72cbbd423ca189cac1f60f0cf73c16a",
+    "docs/reference/entrance-stairs-open-south-wireframe.json": "44b66dd7c1ad88f6d968ce51de59a8a248e66d1ea37c520e48ec9c527bc54a66",
+    "assets/dungeon/wireframe-entrances/catalog.json": "425b05cef5729b4c9162baf93895ec7f784d70ebaf79c1d9598943a611d79862",
+    "assets/dungeon/wireframe-doors/catalog.json": "475ef4914706cc40a8b4b7f11217a081d76a2b722dc6521e27242c333dc88c6e",
+    "docs/reference/door-arch-facing-north-wireframe.json": "0f301cd9d522f33119a2832a34745f213cb3d0ffd9330b385b4b8587489904f2",
+    "docs/reference/door-arch-facing-east-wireframe.json": "5b65310d9d8430c727e656f79e739ce4c20527bce9af76b39943f923672e83fb",
+    "docs/reference/door-arch-facing-south-wireframe.json": "7b62ff31032fff9f260b22d3c1a663b6aa1833d1b100fd6ebcdae19a0d1163bd",
+    "docs/reference/door-arch-facing-west-wireframe.json": "2528cd027fc0ef819577ce61a9d8f5ca6e6ac4046ab25fb796bfac706105851e"
+  },
+  "entries": {
+    "cells/w00_p00_e00": {
+      "svg": "cells/w00_p00_e00.svg",
+      "png": "cells/w00_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e00.svg"
+      ],
+      "variant": "w00_p00_e00"
+    },
+    "cells/w00_p01_e00": {
+      "svg": "cells/w00_p01_e00.svg",
+      "png": "cells/w00_p01_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p01_e00.svg"
+      ],
+      "variant": "w00_p01_e00"
+    },
+    "cells/w00_p02_e00": {
+      "svg": "cells/w00_p02_e00.svg",
+      "png": "cells/w00_p02_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p02_e00.svg"
+      ],
+      "variant": "w00_p02_e00"
+    },
+    "cells/w00_p03_e00": {
+      "svg": "cells/w00_p03_e00.svg",
+      "png": "cells/w00_p03_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p03_e00.svg"
+      ],
+      "variant": "w00_p03_e00"
+    },
+    "cells/w00_p04_e00": {
+      "svg": "cells/w00_p04_e00.svg",
+      "png": "cells/w00_p04_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p04_e00.svg"
+      ],
+      "variant": "w00_p04_e00"
+    },
+    "cells/w00_p05_e00": {
+      "svg": "cells/w00_p05_e00.svg",
+      "png": "cells/w00_p05_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p05_e00.svg"
+      ],
+      "variant": "w00_p05_e00"
+    },
+    "cells/w00_p06_e00": {
+      "svg": "cells/w00_p06_e00.svg",
+      "png": "cells/w00_p06_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p06_e00.svg"
+      ],
+      "variant": "w00_p06_e00"
+    },
+    "cells/w00_p07_e00": {
+      "svg": "cells/w00_p07_e00.svg",
+      "png": "cells/w00_p07_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p07_e00.svg"
+      ],
+      "variant": "w00_p07_e00"
+    },
+    "cells/w00_p08_e00": {
+      "svg": "cells/w00_p08_e00.svg",
+      "png": "cells/w00_p08_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p08_e00.svg"
+      ],
+      "variant": "w00_p08_e00"
+    },
+    "cells/w00_p09_e00": {
+      "svg": "cells/w00_p09_e00.svg",
+      "png": "cells/w00_p09_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p09_e00.svg"
+      ],
+      "variant": "w00_p09_e00"
+    },
+    "cells/w00_p10_e00": {
+      "svg": "cells/w00_p10_e00.svg",
+      "png": "cells/w00_p10_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p10_e00.svg"
+      ],
+      "variant": "w00_p10_e00"
+    },
+    "cells/w00_p11_e00": {
+      "svg": "cells/w00_p11_e00.svg",
+      "png": "cells/w00_p11_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p11_e00.svg"
+      ],
+      "variant": "w00_p11_e00"
+    },
+    "cells/w00_p12_e00": {
+      "svg": "cells/w00_p12_e00.svg",
+      "png": "cells/w00_p12_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p12_e00.svg"
+      ],
+      "variant": "w00_p12_e00"
+    },
+    "cells/w00_p13_e00": {
+      "svg": "cells/w00_p13_e00.svg",
+      "png": "cells/w00_p13_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p13_e00.svg"
+      ],
+      "variant": "w00_p13_e00"
+    },
+    "cells/w00_p14_e00": {
+      "svg": "cells/w00_p14_e00.svg",
+      "png": "cells/w00_p14_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p14_e00.svg"
+      ],
+      "variant": "w00_p14_e00"
+    },
+    "cells/w00_p15_e00": {
+      "svg": "cells/w00_p15_e00.svg",
+      "png": "cells/w00_p15_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p15_e00.svg"
+      ],
+      "variant": "w00_p15_e00"
+    },
+    "cells/w00_p00_e01": {
+      "svg": "cells/w00_p00_e01.svg",
+      "png": "cells/w00_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e01.svg"
+      ],
+      "variant": "w00_p00_e01"
+    },
+    "cells/w00_p04_e01": {
+      "svg": "cells/w00_p04_e01.svg",
+      "png": "cells/w00_p04_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p04_e01.svg"
+      ],
+      "variant": "w00_p04_e01"
+    },
+    "cells/w00_p08_e01": {
+      "svg": "cells/w00_p08_e01.svg",
+      "png": "cells/w00_p08_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p08_e01.svg"
+      ],
+      "variant": "w00_p08_e01"
+    },
+    "cells/w00_p12_e01": {
+      "svg": "cells/w00_p12_e01.svg",
+      "png": "cells/w00_p12_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p12_e01.svg"
+      ],
+      "variant": "w00_p12_e01"
+    },
+    "cells/w00_p00_e02": {
+      "svg": "cells/w00_p00_e02.svg",
+      "png": "cells/w00_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e02.svg"
+      ],
+      "variant": "w00_p00_e02"
+    },
+    "cells/w00_p01_e02": {
+      "svg": "cells/w00_p01_e02.svg",
+      "png": "cells/w00_p01_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p01_e02.svg"
+      ],
+      "variant": "w00_p01_e02"
+    },
+    "cells/w00_p08_e02": {
+      "svg": "cells/w00_p08_e02.svg",
+      "png": "cells/w00_p08_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p08_e02.svg"
+      ],
+      "variant": "w00_p08_e02"
+    },
+    "cells/w00_p09_e02": {
+      "svg": "cells/w00_p09_e02.svg",
+      "png": "cells/w00_p09_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p09_e02.svg"
+      ],
+      "variant": "w00_p09_e02"
+    },
+    "cells/w00_p00_e03": {
+      "svg": "cells/w00_p00_e03.svg",
+      "png": "cells/w00_p00_e03.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e03.svg"
+      ],
+      "variant": "w00_p00_e03"
+    },
+    "cells/w00_p08_e03": {
+      "svg": "cells/w00_p08_e03.svg",
+      "png": "cells/w00_p08_e03.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p08_e03.svg"
+      ],
+      "variant": "w00_p08_e03"
+    },
+    "cells/w00_p00_e04": {
+      "svg": "cells/w00_p00_e04.svg",
+      "png": "cells/w00_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e04.svg"
+      ],
+      "variant": "w00_p00_e04"
+    },
+    "cells/w00_p01_e04": {
+      "svg": "cells/w00_p01_e04.svg",
+      "png": "cells/w00_p01_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p01_e04.svg"
+      ],
+      "variant": "w00_p01_e04"
+    },
+    "cells/w00_p02_e04": {
+      "svg": "cells/w00_p02_e04.svg",
+      "png": "cells/w00_p02_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p02_e04.svg"
+      ],
+      "variant": "w00_p02_e04"
+    },
+    "cells/w00_p03_e04": {
+      "svg": "cells/w00_p03_e04.svg",
+      "png": "cells/w00_p03_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p03_e04.svg"
+      ],
+      "variant": "w00_p03_e04"
+    },
+    "cells/w00_p00_e05": {
+      "svg": "cells/w00_p00_e05.svg",
+      "png": "cells/w00_p00_e05.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e05.svg"
+      ],
+      "variant": "w00_p00_e05"
+    },
+    "cells/w00_p00_e06": {
+      "svg": "cells/w00_p00_e06.svg",
+      "png": "cells/w00_p00_e06.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e06.svg"
+      ],
+      "variant": "w00_p00_e06"
+    },
+    "cells/w00_p01_e06": {
+      "svg": "cells/w00_p01_e06.svg",
+      "png": "cells/w00_p01_e06.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p01_e06.svg"
+      ],
+      "variant": "w00_p01_e06"
+    },
+    "cells/w00_p00_e07": {
+      "svg": "cells/w00_p00_e07.svg",
+      "png": "cells/w00_p00_e07.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e07.svg"
+      ],
+      "variant": "w00_p00_e07"
+    },
+    "cells/w00_p00_e08": {
+      "svg": "cells/w00_p00_e08.svg",
+      "png": "cells/w00_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e08.svg"
+      ],
+      "variant": "w00_p00_e08"
+    },
+    "cells/w00_p02_e08": {
+      "svg": "cells/w00_p02_e08.svg",
+      "png": "cells/w00_p02_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p02_e08.svg"
+      ],
+      "variant": "w00_p02_e08"
+    },
+    "cells/w00_p04_e08": {
+      "svg": "cells/w00_p04_e08.svg",
+      "png": "cells/w00_p04_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p04_e08.svg"
+      ],
+      "variant": "w00_p04_e08"
+    },
+    "cells/w00_p06_e08": {
+      "svg": "cells/w00_p06_e08.svg",
+      "png": "cells/w00_p06_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p06_e08.svg"
+      ],
+      "variant": "w00_p06_e08"
+    },
+    "cells/w00_p00_e09": {
+      "svg": "cells/w00_p00_e09.svg",
+      "png": "cells/w00_p00_e09.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e09.svg"
+      ],
+      "variant": "w00_p00_e09"
+    },
+    "cells/w00_p04_e09": {
+      "svg": "cells/w00_p04_e09.svg",
+      "png": "cells/w00_p04_e09.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p04_e09.svg"
+      ],
+      "variant": "w00_p04_e09"
+    },
+    "cells/w00_p00_e10": {
+      "svg": "cells/w00_p00_e10.svg",
+      "png": "cells/w00_p00_e10.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e10.svg"
+      ],
+      "variant": "w00_p00_e10"
+    },
+    "cells/w00_p00_e11": {
+      "svg": "cells/w00_p00_e11.svg",
+      "png": "cells/w00_p00_e11.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e11.svg"
+      ],
+      "variant": "w00_p00_e11"
+    },
+    "cells/w00_p00_e12": {
+      "svg": "cells/w00_p00_e12.svg",
+      "png": "cells/w00_p00_e12.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e12.svg"
+      ],
+      "variant": "w00_p00_e12"
+    },
+    "cells/w00_p02_e12": {
+      "svg": "cells/w00_p02_e12.svg",
+      "png": "cells/w00_p02_e12.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p02_e12.svg"
+      ],
+      "variant": "w00_p02_e12"
+    },
+    "cells/w00_p00_e13": {
+      "svg": "cells/w00_p00_e13.svg",
+      "png": "cells/w00_p00_e13.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e13.svg"
+      ],
+      "variant": "w00_p00_e13"
+    },
+    "cells/w00_p00_e14": {
+      "svg": "cells/w00_p00_e14.svg",
+      "png": "cells/w00_p00_e14.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e14.svg"
+      ],
+      "variant": "w00_p00_e14"
+    },
+    "cells/w00_p00_e15": {
+      "svg": "cells/w00_p00_e15.svg",
+      "png": "cells/w00_p00_e15.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w00_p00_e15.svg"
+      ],
+      "variant": "w00_p00_e15"
+    },
+    "cells/w01_p00_e00": {
+      "svg": "cells/w01_p00_e00.svg",
+      "png": "cells/w01_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e00.svg"
+      ],
+      "variant": "w01_p00_e00"
+    },
+    "cells/w01_p04_e00": {
+      "svg": "cells/w01_p04_e00.svg",
+      "png": "cells/w01_p04_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p04_e00.svg"
+      ],
+      "variant": "w01_p04_e00"
+    },
+    "cells/w01_p08_e00": {
+      "svg": "cells/w01_p08_e00.svg",
+      "png": "cells/w01_p08_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p08_e00.svg"
+      ],
+      "variant": "w01_p08_e00"
+    },
+    "cells/w01_p12_e00": {
+      "svg": "cells/w01_p12_e00.svg",
+      "png": "cells/w01_p12_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p12_e00.svg"
+      ],
+      "variant": "w01_p12_e00"
+    },
+    "cells/w01_p00_e02": {
+      "svg": "cells/w01_p00_e02.svg",
+      "png": "cells/w01_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e02.svg"
+      ],
+      "variant": "w01_p00_e02"
+    },
+    "cells/w01_p08_e02": {
+      "svg": "cells/w01_p08_e02.svg",
+      "png": "cells/w01_p08_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p08_e02.svg"
+      ],
+      "variant": "w01_p08_e02"
+    },
+    "cells/w01_p00_e04": {
+      "svg": "cells/w01_p00_e04.svg",
+      "png": "cells/w01_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e04.svg"
+      ],
+      "variant": "w01_p00_e04"
+    },
+    "cells/w01_p00_e06": {
+      "svg": "cells/w01_p00_e06.svg",
+      "png": "cells/w01_p00_e06.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e06.svg"
+      ],
+      "variant": "w01_p00_e06"
+    },
+    "cells/w01_p00_e08": {
+      "svg": "cells/w01_p00_e08.svg",
+      "png": "cells/w01_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e08.svg"
+      ],
+      "variant": "w01_p00_e08"
+    },
+    "cells/w01_p04_e08": {
+      "svg": "cells/w01_p04_e08.svg",
+      "png": "cells/w01_p04_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p04_e08.svg"
+      ],
+      "variant": "w01_p04_e08"
+    },
+    "cells/w01_p00_e10": {
+      "svg": "cells/w01_p00_e10.svg",
+      "png": "cells/w01_p00_e10.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e10.svg"
+      ],
+      "variant": "w01_p00_e10"
+    },
+    "cells/w01_p00_e12": {
+      "svg": "cells/w01_p00_e12.svg",
+      "png": "cells/w01_p00_e12.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e12.svg"
+      ],
+      "variant": "w01_p00_e12"
+    },
+    "cells/w01_p00_e14": {
+      "svg": "cells/w01_p00_e14.svg",
+      "png": "cells/w01_p00_e14.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w01_p00_e14.svg"
+      ],
+      "variant": "w01_p00_e14"
+    },
+    "cells/w02_p00_e00": {
+      "svg": "cells/w02_p00_e00.svg",
+      "png": "cells/w02_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e00.svg"
+      ],
+      "variant": "w02_p00_e00"
+    },
+    "cells/w02_p01_e00": {
+      "svg": "cells/w02_p01_e00.svg",
+      "png": "cells/w02_p01_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p01_e00.svg"
+      ],
+      "variant": "w02_p01_e00"
+    },
+    "cells/w02_p08_e00": {
+      "svg": "cells/w02_p08_e00.svg",
+      "png": "cells/w02_p08_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p08_e00.svg"
+      ],
+      "variant": "w02_p08_e00"
+    },
+    "cells/w02_p09_e00": {
+      "svg": "cells/w02_p09_e00.svg",
+      "png": "cells/w02_p09_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p09_e00.svg"
+      ],
+      "variant": "w02_p09_e00"
+    },
+    "cells/w02_p00_e01": {
+      "svg": "cells/w02_p00_e01.svg",
+      "png": "cells/w02_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e01.svg"
+      ],
+      "variant": "w02_p00_e01"
+    },
+    "cells/w02_p08_e01": {
+      "svg": "cells/w02_p08_e01.svg",
+      "png": "cells/w02_p08_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p08_e01.svg"
+      ],
+      "variant": "w02_p08_e01"
+    },
+    "cells/w02_p00_e04": {
+      "svg": "cells/w02_p00_e04.svg",
+      "png": "cells/w02_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e04.svg"
+      ],
+      "variant": "w02_p00_e04"
+    },
+    "cells/w02_p01_e04": {
+      "svg": "cells/w02_p01_e04.svg",
+      "png": "cells/w02_p01_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p01_e04.svg"
+      ],
+      "variant": "w02_p01_e04"
+    },
+    "cells/w02_p00_e05": {
+      "svg": "cells/w02_p00_e05.svg",
+      "png": "cells/w02_p00_e05.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e05.svg"
+      ],
+      "variant": "w02_p00_e05"
+    },
+    "cells/w02_p00_e08": {
+      "svg": "cells/w02_p00_e08.svg",
+      "png": "cells/w02_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e08.svg"
+      ],
+      "variant": "w02_p00_e08"
+    },
+    "cells/w02_p00_e09": {
+      "svg": "cells/w02_p00_e09.svg",
+      "png": "cells/w02_p00_e09.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e09.svg"
+      ],
+      "variant": "w02_p00_e09"
+    },
+    "cells/w02_p00_e12": {
+      "svg": "cells/w02_p00_e12.svg",
+      "png": "cells/w02_p00_e12.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e12.svg"
+      ],
+      "variant": "w02_p00_e12"
+    },
+    "cells/w02_p00_e13": {
+      "svg": "cells/w02_p00_e13.svg",
+      "png": "cells/w02_p00_e13.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w02_p00_e13.svg"
+      ],
+      "variant": "w02_p00_e13"
+    },
+    "cells/w03_p00_e00": {
+      "svg": "cells/w03_p00_e00.svg",
+      "png": "cells/w03_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w03_p00_e00.svg"
+      ],
+      "variant": "w03_p00_e00"
+    },
+    "cells/w03_p08_e00": {
+      "svg": "cells/w03_p08_e00.svg",
+      "png": "cells/w03_p08_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w03_p08_e00.svg"
+      ],
+      "variant": "w03_p08_e00"
+    },
+    "cells/w03_p00_e04": {
+      "svg": "cells/w03_p00_e04.svg",
+      "png": "cells/w03_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w03_p00_e04.svg"
+      ],
+      "variant": "w03_p00_e04"
+    },
+    "cells/w03_p00_e08": {
+      "svg": "cells/w03_p00_e08.svg",
+      "png": "cells/w03_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w03_p00_e08.svg"
+      ],
+      "variant": "w03_p00_e08"
+    },
+    "cells/w03_p00_e12": {
+      "svg": "cells/w03_p00_e12.svg",
+      "png": "cells/w03_p00_e12.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w03_p00_e12.svg"
+      ],
+      "variant": "w03_p00_e12"
+    },
+    "cells/w04_p00_e00": {
+      "svg": "cells/w04_p00_e00.svg",
+      "png": "cells/w04_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e00.svg"
+      ],
+      "variant": "w04_p00_e00"
+    },
+    "cells/w04_p01_e00": {
+      "svg": "cells/w04_p01_e00.svg",
+      "png": "cells/w04_p01_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p01_e00.svg"
+      ],
+      "variant": "w04_p01_e00"
+    },
+    "cells/w04_p02_e00": {
+      "svg": "cells/w04_p02_e00.svg",
+      "png": "cells/w04_p02_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p02_e00.svg"
+      ],
+      "variant": "w04_p02_e00"
+    },
+    "cells/w04_p03_e00": {
+      "svg": "cells/w04_p03_e00.svg",
+      "png": "cells/w04_p03_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p03_e00.svg"
+      ],
+      "variant": "w04_p03_e00"
+    },
+    "cells/w04_p00_e01": {
+      "svg": "cells/w04_p00_e01.svg",
+      "png": "cells/w04_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e01.svg"
+      ],
+      "variant": "w04_p00_e01"
+    },
+    "cells/w04_p00_e02": {
+      "svg": "cells/w04_p00_e02.svg",
+      "png": "cells/w04_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e02.svg"
+      ],
+      "variant": "w04_p00_e02"
+    },
+    "cells/w04_p01_e02": {
+      "svg": "cells/w04_p01_e02.svg",
+      "png": "cells/w04_p01_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p01_e02.svg"
+      ],
+      "variant": "w04_p01_e02"
+    },
+    "cells/w04_p00_e03": {
+      "svg": "cells/w04_p00_e03.svg",
+      "png": "cells/w04_p00_e03.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e03.svg"
+      ],
+      "variant": "w04_p00_e03"
+    },
+    "cells/w04_p00_e08": {
+      "svg": "cells/w04_p00_e08.svg",
+      "png": "cells/w04_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e08.svg"
+      ],
+      "variant": "w04_p00_e08"
+    },
+    "cells/w04_p02_e08": {
+      "svg": "cells/w04_p02_e08.svg",
+      "png": "cells/w04_p02_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p02_e08.svg"
+      ],
+      "variant": "w04_p02_e08"
+    },
+    "cells/w04_p00_e09": {
+      "svg": "cells/w04_p00_e09.svg",
+      "png": "cells/w04_p00_e09.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e09.svg"
+      ],
+      "variant": "w04_p00_e09"
+    },
+    "cells/w04_p00_e10": {
+      "svg": "cells/w04_p00_e10.svg",
+      "png": "cells/w04_p00_e10.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e10.svg"
+      ],
+      "variant": "w04_p00_e10"
+    },
+    "cells/w04_p00_e11": {
+      "svg": "cells/w04_p00_e11.svg",
+      "png": "cells/w04_p00_e11.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w04_p00_e11.svg"
+      ],
+      "variant": "w04_p00_e11"
+    },
+    "cells/w05_p00_e00": {
+      "svg": "cells/w05_p00_e00.svg",
+      "png": "cells/w05_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w05_p00_e00.svg"
+      ],
+      "variant": "w05_p00_e00"
+    },
+    "cells/w05_p00_e02": {
+      "svg": "cells/w05_p00_e02.svg",
+      "png": "cells/w05_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w05_p00_e02.svg"
+      ],
+      "variant": "w05_p00_e02"
+    },
+    "cells/w05_p00_e08": {
+      "svg": "cells/w05_p00_e08.svg",
+      "png": "cells/w05_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w05_p00_e08.svg"
+      ],
+      "variant": "w05_p00_e08"
+    },
+    "cells/w05_p00_e10": {
+      "svg": "cells/w05_p00_e10.svg",
+      "png": "cells/w05_p00_e10.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w05_p00_e10.svg"
+      ],
+      "variant": "w05_p00_e10"
+    },
+    "cells/w06_p00_e00": {
+      "svg": "cells/w06_p00_e00.svg",
+      "png": "cells/w06_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w06_p00_e00.svg"
+      ],
+      "variant": "w06_p00_e00"
+    },
+    "cells/w06_p01_e00": {
+      "svg": "cells/w06_p01_e00.svg",
+      "png": "cells/w06_p01_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w06_p01_e00.svg"
+      ],
+      "variant": "w06_p01_e00"
+    },
+    "cells/w06_p00_e01": {
+      "svg": "cells/w06_p00_e01.svg",
+      "png": "cells/w06_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w06_p00_e01.svg"
+      ],
+      "variant": "w06_p00_e01"
+    },
+    "cells/w06_p00_e08": {
+      "svg": "cells/w06_p00_e08.svg",
+      "png": "cells/w06_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w06_p00_e08.svg"
+      ],
+      "variant": "w06_p00_e08"
+    },
+    "cells/w06_p00_e09": {
+      "svg": "cells/w06_p00_e09.svg",
+      "png": "cells/w06_p00_e09.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w06_p00_e09.svg"
+      ],
+      "variant": "w06_p00_e09"
+    },
+    "cells/w07_p00_e00": {
+      "svg": "cells/w07_p00_e00.svg",
+      "png": "cells/w07_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w07_p00_e00.svg"
+      ],
+      "variant": "w07_p00_e00"
+    },
+    "cells/w07_p00_e08": {
+      "svg": "cells/w07_p00_e08.svg",
+      "png": "cells/w07_p00_e08.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w07_p00_e08.svg"
+      ],
+      "variant": "w07_p00_e08"
+    },
+    "cells/w08_p00_e00": {
+      "svg": "cells/w08_p00_e00.svg",
+      "png": "cells/w08_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e00.svg"
+      ],
+      "variant": "w08_p00_e00"
+    },
+    "cells/w08_p02_e00": {
+      "svg": "cells/w08_p02_e00.svg",
+      "png": "cells/w08_p02_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p02_e00.svg"
+      ],
+      "variant": "w08_p02_e00"
+    },
+    "cells/w08_p04_e00": {
+      "svg": "cells/w08_p04_e00.svg",
+      "png": "cells/w08_p04_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p04_e00.svg"
+      ],
+      "variant": "w08_p04_e00"
+    },
+    "cells/w08_p06_e00": {
+      "svg": "cells/w08_p06_e00.svg",
+      "png": "cells/w08_p06_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p06_e00.svg"
+      ],
+      "variant": "w08_p06_e00"
+    },
+    "cells/w08_p00_e01": {
+      "svg": "cells/w08_p00_e01.svg",
+      "png": "cells/w08_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e01.svg"
+      ],
+      "variant": "w08_p00_e01"
+    },
+    "cells/w08_p04_e01": {
+      "svg": "cells/w08_p04_e01.svg",
+      "png": "cells/w08_p04_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p04_e01.svg"
+      ],
+      "variant": "w08_p04_e01"
+    },
+    "cells/w08_p00_e02": {
+      "svg": "cells/w08_p00_e02.svg",
+      "png": "cells/w08_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e02.svg"
+      ],
+      "variant": "w08_p00_e02"
+    },
+    "cells/w08_p00_e03": {
+      "svg": "cells/w08_p00_e03.svg",
+      "png": "cells/w08_p00_e03.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e03.svg"
+      ],
+      "variant": "w08_p00_e03"
+    },
+    "cells/w08_p00_e04": {
+      "svg": "cells/w08_p00_e04.svg",
+      "png": "cells/w08_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e04.svg"
+      ],
+      "variant": "w08_p00_e04"
+    },
+    "cells/w08_p02_e04": {
+      "svg": "cells/w08_p02_e04.svg",
+      "png": "cells/w08_p02_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p02_e04.svg"
+      ],
+      "variant": "w08_p02_e04"
+    },
+    "cells/w08_p00_e05": {
+      "svg": "cells/w08_p00_e05.svg",
+      "png": "cells/w08_p00_e05.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e05.svg"
+      ],
+      "variant": "w08_p00_e05"
+    },
+    "cells/w08_p00_e06": {
+      "svg": "cells/w08_p00_e06.svg",
+      "png": "cells/w08_p00_e06.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e06.svg"
+      ],
+      "variant": "w08_p00_e06"
+    },
+    "cells/w08_p00_e07": {
+      "svg": "cells/w08_p00_e07.svg",
+      "png": "cells/w08_p00_e07.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w08_p00_e07.svg"
+      ],
+      "variant": "w08_p00_e07"
+    },
+    "cells/w09_p00_e00": {
+      "svg": "cells/w09_p00_e00.svg",
+      "png": "cells/w09_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w09_p00_e00.svg"
+      ],
+      "variant": "w09_p00_e00"
+    },
+    "cells/w09_p04_e00": {
+      "svg": "cells/w09_p04_e00.svg",
+      "png": "cells/w09_p04_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w09_p04_e00.svg"
+      ],
+      "variant": "w09_p04_e00"
+    },
+    "cells/w09_p00_e02": {
+      "svg": "cells/w09_p00_e02.svg",
+      "png": "cells/w09_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w09_p00_e02.svg"
+      ],
+      "variant": "w09_p00_e02"
+    },
+    "cells/w09_p00_e04": {
+      "svg": "cells/w09_p00_e04.svg",
+      "png": "cells/w09_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w09_p00_e04.svg"
+      ],
+      "variant": "w09_p00_e04"
+    },
+    "cells/w09_p00_e06": {
+      "svg": "cells/w09_p00_e06.svg",
+      "png": "cells/w09_p00_e06.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w09_p00_e06.svg"
+      ],
+      "variant": "w09_p00_e06"
+    },
+    "cells/w10_p00_e00": {
+      "svg": "cells/w10_p00_e00.svg",
+      "png": "cells/w10_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w10_p00_e00.svg"
+      ],
+      "variant": "w10_p00_e00"
+    },
+    "cells/w10_p00_e01": {
+      "svg": "cells/w10_p00_e01.svg",
+      "png": "cells/w10_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w10_p00_e01.svg"
+      ],
+      "variant": "w10_p00_e01"
+    },
+    "cells/w10_p00_e04": {
+      "svg": "cells/w10_p00_e04.svg",
+      "png": "cells/w10_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w10_p00_e04.svg"
+      ],
+      "variant": "w10_p00_e04"
+    },
+    "cells/w10_p00_e05": {
+      "svg": "cells/w10_p00_e05.svg",
+      "png": "cells/w10_p00_e05.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w10_p00_e05.svg"
+      ],
+      "variant": "w10_p00_e05"
+    },
+    "cells/w11_p00_e00": {
+      "svg": "cells/w11_p00_e00.svg",
+      "png": "cells/w11_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w11_p00_e00.svg"
+      ],
+      "variant": "w11_p00_e00"
+    },
+    "cells/w11_p00_e04": {
+      "svg": "cells/w11_p00_e04.svg",
+      "png": "cells/w11_p00_e04.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w11_p00_e04.svg"
+      ],
+      "variant": "w11_p00_e04"
+    },
+    "cells/w12_p00_e00": {
+      "svg": "cells/w12_p00_e00.svg",
+      "png": "cells/w12_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w12_p00_e00.svg"
+      ],
+      "variant": "w12_p00_e00"
+    },
+    "cells/w12_p02_e00": {
+      "svg": "cells/w12_p02_e00.svg",
+      "png": "cells/w12_p02_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w12_p02_e00.svg"
+      ],
+      "variant": "w12_p02_e00"
+    },
+    "cells/w12_p00_e01": {
+      "svg": "cells/w12_p00_e01.svg",
+      "png": "cells/w12_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w12_p00_e01.svg"
+      ],
+      "variant": "w12_p00_e01"
+    },
+    "cells/w12_p00_e02": {
+      "svg": "cells/w12_p00_e02.svg",
+      "png": "cells/w12_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w12_p00_e02.svg"
+      ],
+      "variant": "w12_p00_e02"
+    },
+    "cells/w12_p00_e03": {
+      "svg": "cells/w12_p00_e03.svg",
+      "png": "cells/w12_p00_e03.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w12_p00_e03.svg"
+      ],
+      "variant": "w12_p00_e03"
+    },
+    "cells/w13_p00_e00": {
+      "svg": "cells/w13_p00_e00.svg",
+      "png": "cells/w13_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w13_p00_e00.svg"
+      ],
+      "variant": "w13_p00_e00"
+    },
+    "cells/w13_p00_e02": {
+      "svg": "cells/w13_p00_e02.svg",
+      "png": "cells/w13_p00_e02.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w13_p00_e02.svg"
+      ],
+      "variant": "w13_p00_e02"
+    },
+    "cells/w14_p00_e00": {
+      "svg": "cells/w14_p00_e00.svg",
+      "png": "cells/w14_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w14_p00_e00.svg"
+      ],
+      "variant": "w14_p00_e00"
+    },
+    "cells/w14_p00_e01": {
+      "svg": "cells/w14_p00_e01.svg",
+      "png": "cells/w14_p00_e01.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w14_p00_e01.svg"
+      ],
+      "variant": "w14_p00_e01"
+    },
+    "cells/w15_p00_e00": {
+      "svg": "cells/w15_p00_e00.svg",
+      "png": "cells/w15_p00_e00.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg",
+        "assets/dungeon/wireframe-cells/w15_p00_e00.svg"
+      ],
+      "variant": "w15_p00_e00"
+    },
+    "floor": {
+      "svg": "floor.svg",
+      "png": "floor.png",
+      "imageSize": [
+        264,
+        264
+      ],
+      "imageAnchor": [
+        4,
+        4
+      ],
+      "sources": [
+        "assets/dungeon/wireframe-cells/floor.svg"
+      ]
+    },
+    "entrances/north": {
+      "svg": "entrances/north.svg",
+      "png": "entrances/north.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "docs/reference/entrance-stairs-open-south-wireframe.json"
+      ],
+      "variant": "w14_p00_e00",
+      "direction": "north",
+      "visibleSegmentCount": 50
+    },
+    "entrances/east": {
+      "svg": "entrances/east.svg",
+      "png": "entrances/east.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "docs/reference/entrance-stairs-open-south-wireframe.json"
+      ],
+      "variant": "w13_p00_e00",
+      "direction": "east",
+      "visibleSegmentCount": 67
+    },
+    "entrances/south": {
+      "svg": "entrances/south.svg",
+      "png": "entrances/south.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "docs/reference/entrance-stairs-open-south-wireframe.json"
+      ],
+      "variant": "w11_p00_e00",
+      "direction": "south",
+      "visibleSegmentCount": 64
+    },
+    "entrances/west": {
+      "svg": "entrances/west.svg",
+      "png": "entrances/west.png",
+      "imageSize": [
+        304,
+        352
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "docs/reference/entrance-stairs-open-south-wireframe.json"
+      ],
+      "variant": "w07_p00_e00",
+      "direction": "west",
+      "visibleSegmentCount": 53
+    },
+    "doors/north": {
+      "svg": "doors/north.svg",
+      "png": "doors/north.png",
+      "imageSize": [
+        304,
+        392
+      ],
+      "imageAnchor": [
+        24,
+        128
+      ],
+      "sources": [
+        "docs/reference/door-arch-facing-north-wireframe.json"
+      ],
+      "variant": "w10_p00_e00",
+      "direction": "north",
+      "visibleSegmentCount": 288
+    },
+    "doors/east": {
+      "svg": "doors/east.svg",
+      "png": "doors/east.png",
+      "imageSize": [
+        304,
+        392
+      ],
+      "imageAnchor": [
+        24,
+        128
+      ],
+      "sources": [
+        "docs/reference/door-arch-facing-east-wireframe.json"
+      ],
+      "variant": "w05_p00_e00",
+      "direction": "east",
+      "visibleSegmentCount": 291
+    },
+    "doors/south": {
+      "svg": "doors/south.svg",
+      "png": "doors/south.png",
+      "imageSize": [
+        304,
+        392
+      ],
+      "imageAnchor": [
+        24,
+        128
+      ],
+      "sources": [
+        "docs/reference/door-arch-facing-south-wireframe.json"
+      ],
+      "variant": "w10_p00_e00",
+      "direction": "south",
+      "visibleSegmentCount": 286
+    },
+    "doors/west": {
+      "svg": "doors/west.svg",
+      "png": "doors/west.png",
+      "imageSize": [
+        304,
+        392
+      ],
+      "imageAnchor": [
+        24,
+        128
+      ],
+      "sources": [
+        "docs/reference/door-arch-facing-west-wireframe.json"
+      ],
+      "variant": "w05_p00_e00",
+      "direction": "west",
+      "visibleSegmentCount": 253
+    },
+    "pillar": {
+      "svg": "pillar.svg",
+      "png": "pillar.png",
+      "imageSize": [
+        96,
+        144
+      ],
+      "imageAnchor": [
+        24,
+        88
+      ],
+      "sources": [
+        "docs/reference/two-course-square-room.json",
+        "tools/export_wireframe_cell_kit.cjs"
+      ],
+      "worldBounds": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0.16666666666666666,
+          0.16666666666666666,
+          0.3133333333333333
+        ]
+      ],
+      "courseJoints": [
+        0.15666666666666665
+      ]
+    }
+  }
+}

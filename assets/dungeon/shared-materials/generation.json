@@ -1,0 +1,34 @@
+{
+  "id": "shared-stone-material-library-v1-2026-10-23",
+  "status": "new_material_appearance_pending_review",
+  "methodAuthorization": "User approved retaining masks as a shared-material workflow after the first NW test; requested richer textures and several variants.",
+  "tool": "built-in image_gen",
+  "canonicalStyle": "assets/dungeon/gloom-kit/reference.png",
+  "referenceRole": "material and palette only; architectural geometry is separately locked",
+  "sources": [
+    {
+      "family": "walls",
+      "image": "walls-atlas-v1.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-de7c4638-4858-4256-baa5-f4fdbbb74ad7.png",
+      "prompt": "prompts/walls-v1.txt",
+      "variants": ["planes", "fissures", "layers", "pits"]
+    },
+    {
+      "family": "floors",
+      "image": "floors-atlas-v1.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-23c08a31-4e5d-4092-a5a0-54fd0480cad6.png",
+      "prompt": "prompts/floors-v1.txt",
+      "variants": ["calm", "fine-crack", "worn", "marks"]
+    },
+    {
+      "family": "doors",
+      "image": "door-surfaces-atlas-v1.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-6462137b-f34a-4652-824d-8b900e1d054e.png",
+      "prompt": "prompts/door-surfaces-v1.txt",
+      "variants": ["oak", "iron"]
+    }
+  ],
+  "preparation": "tools/prepare_shared_stone_materials.cjs crops four opaque material swatches from each 2x2 stone atlas and two halves from the door atlas, omitting 8px around each boundary; exact source regions and hashes are in catalog.json.",
+  "currentReview": "docs/reference/painted-kit-review/overview.png",
+  "runtimeIntegration": false
+}

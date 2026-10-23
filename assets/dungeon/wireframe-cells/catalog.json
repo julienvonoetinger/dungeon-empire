@@ -51,7 +51,7 @@
   "selection": "Cardinal absent neighbours create walls. Two real cardinal neighbours with an absent diagonal create a pier. Explicit open endpoints remove a wall but preserve exposed end faces. No image rotation or reflection.",
   "floor": {
     "file": "floor.svg",
-    "source": "docs/reference/floor-only-cell-wireframe.json",
+    "source": "docs/reference/floor-periodic-cell.json",
     "imageAnchor": [
       4,
       4
@@ -65,7 +65,7 @@
       0.8400000000000001,
       1
     ],
-    "pattern": "authored 19-slab floor-only motif, normalized from drawing frame 6x5 to square 1x1; no newly invented joint pattern; repeated cell motif, not the whole-room paving study"
+    "pattern": "periodic staggered motif v2: 26 fragments, 20 full periodic slabs; combined boundary widths 0.24..0.4 cells; square grid unchanged"
   },
   "entries": {
     "w00_p00_e00": {

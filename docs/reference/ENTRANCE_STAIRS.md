@@ -5,6 +5,12 @@ par l'utilisateur. À sa demande, les trois autres orientations sont maintenant
 préparées et les quatre entrées sont intégrées à la scène de test Godot pour
 revue visuelle. Le matériau peint et le fonctionnement d'une entrée restent à faire.
 
+La scène `SixRoomPreview.tscn` utilise aussi l'entrée existante ouverte au sud :
+une case ajoutée en (3,2), au nord de l'ancienne porte de la salle gauche.
+Ses 255 autres cases et ses couloirs de deux cases sont conservés. Le réglage
+`entrance_at_closed_ends=true` y sélectionne un seul escalier. Voir la section 11
+de [WIREFRAME_WORKFLOW.md](WIREFRAME_WORKFLOW.md) pour les captures de cette scène.
+
 ## Demande et orientation
 
 Première des quatre orientations demandées : murs au nord, à l'ouest et à
@@ -19,7 +25,7 @@ L'image reste une étude de lignes. Aucun matériau ni sprite peint n'est propos
 | --- | --- |
 | `tools/export_entrance_stair_wireframe.cjs` | Construction et export hors Godot |
 | `two-course-square-room.json`, modèle `after` | Projection et dimensions des murs actuels |
-| `floor-only-cell-wireframe.json` | Motif existant du palier |
+| `floor-periodic-cell.json` | Motif actuel du palier, joints décalés et pierres de largeur équilibrée |
 | `entrance-stairs-open-south-wireframe.svg` | Dessin vectoriel de la proposition |
 | `entrance-stairs-open-south-wireframe.json` | Dimensions, volumes, arêtes sources et visibles |
 | `entrance-stairs-open-south-wireframe.png` | Aperçu raster du SVG |

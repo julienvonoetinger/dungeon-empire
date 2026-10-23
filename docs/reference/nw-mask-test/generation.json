@@ -1,0 +1,18 @@
+{
+  "id": "one-time-nw-masked-material-test-2026-10-23",
+  "status": "experiment_completed_artistic_review_pending",
+  "authorization": "User: ok tu peux tester cette méthode pour cette fois uniquement afin de faire un test.",
+  "scope": "One NW corner only. No other variants, runtime integration, or general masking authorization.",
+  "tool": "built-in image_gen for material; Node/sharp and SVG masks for explicitly authorized offline composition",
+  "material": "docs/reference/nw-mask-test/stone-material.png",
+  "originalMaterial": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-d9f0362b-aa7d-4e96-8e47-ffad7c34601d.png",
+  "materialPrompt": "docs/reference/nw-mask-test/material-prompt.txt",
+  "canonicalStyle": "assets/dungeon/gloom-kit/reference.png",
+  "geometry": "docs/reference/wireframe-overlays/cells/w09_p00_e00.svg",
+  "construction": "docs/reference/painted-corner-review/nw-construction.svg",
+  "compositionScript": "tools/prototype_nw_masked_material.cjs",
+  "output": "assets/dungeon/gloom-kit/proposals/nw-masked-experiment.png",
+  "outputAlpha": "Deterministic construction mask, not native generated sprite alpha; allowed solely for this experiment.",
+  "validation": "docs/reference/nw-mask-test/validation.json",
+  "comparison": "docs/reference/nw-mask-test/comparison.png"
+}

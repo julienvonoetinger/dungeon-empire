@@ -1,16 +1,132 @@
 # Dungeon Empire — conception
 
-## 0. État implémenté : études de cases wireframe et carte historique en 2D
+## 0. État implémenté : études visuelles de donjon avec sprites peints
+
+### Intégration des sprites peints dans Godot — 23 octobre 2026
+
+Les **20 scènes d'architecture** utilisent maintenant les nouvelles matières
+sur la géométrie wireframe. Les 16 scènes déjà sur grille conservent leur layout,
+leurs dimensions, branches, portes et escaliers. SixRoomPreview garde ses
+256 cases et ses couloirs de deux cases de large, sans torches ni cœur.
+
+Le catalogue connecté `assets/dungeon/painted-connected/` contient **96 PNG
+structurels distincts** couvrant 128 variantes (120 de murs/piliers, quatre
+escaliers, quatre portes), plus **un sol raccordable**. Les 16 états sans mur
+n'ajoutent aucune structure. `scripts/painted_cell_catalog.gd` référence les PNG.
+Le renderer conserve son nom `wireframe_cell_study.gd` pour les scènes existantes.
+Il place un sol sur chaque case à z=0, puis au plus une structure à z=1.
+Les images préparées à ×4 sont affichées à l'échelle uniforme 0,25, avec mipmaps ;
+le pas reste 256 px. Les faces internes sont retirées **avant** l'export PNG.
+Le sol connecté reprend ses 26 traits du motif révisé, sans les trois contours de
+fermeture ajoutés pour la revue isolée. Aucun masque, maillage, éclairage,
+retournement ou retouche de matière n'est calculé pendant le rendu Godot.
+
+Le raccord vertical du sol est continu : les fragments de dalle à gauche et
+à droite d'une case sont peints depuis la même pierre entière, avec matière,
+coordonnées de texture et reflets communs. La frontière de grille ne reçoit
+aucun biseau. Cette correction hors ligne retire la ligne verticale résiduelle
+sans modifier la taille des cases. Le motif des joints est désormais révisé comme décrit ci-dessous.
+Le PNG de sol connecté occupe exactement la case (1024×1024 px, ancrage 0,0,
+échelle 0,25), sans marge alpha ; le filtrage ne mélange donc plus le bord du sol
+avec du transparent. Les autres cadres d'image restent inchangés.
+
+Les quatre anciennes démos d'architecture sont aussi migrées : DungeonPreview
+reprend la composition SixRoomPreview ; PerspectiveRoom montre une salle 3×3
+avec escalier au nord ; ReferenceCalibration montre un passage de trois cases,
+avec une porte sud au centre et deux escaliers terminaux ; EntranceVariants
+présente les quatre sprites complets d'entrée isolés. DungeonHeart et
+DungeonTorch restent deux scènes de props séparées, sans nouvel asset équivalent.
+
+F5 reste sur `5x5RoomVerticalCornerCorridors.tscn`. Ouvrir une scène puis **F6**
+pour la voir. Les portes restent fermées et les escaliers statiques : aucun
+coût, interaction, collision, navigation, progression ou sauvegarde ajouté.
+Le catalogue isolé reste disponible pour les superpositions de contrôle.
+Documentation de reproduction et inventaire : [PAINTED_GODOT.md](docs/reference/PAINTED_GODOT.md).
+
+### Correction des colonnes de grandes dalles
+
+Le sol suit maintenant `floor-periodic-cell.json` : six rangées, 26 fragments
+par image et 20 pierres périodiques. Les premières et dernières portions de
+chaque rangée appartiennent à une même pierre traversant la frontière. Sa
+largeur totale reste entre 0,24 et 0,40 case, comme les pierres intérieures.
+Les joints verticaux sont répartis sur toute la largeur et décalés entre rangées.
+Cela remplace le motif ancien qui formait une bande de dalles très longues
+aux mêmes coordonnées. Les guides, PNG isolés et PNG connectés sont réexportés.
+Les hauteurs de rangée, la grille et les volumes architecturaux sont conservés.
+
+### Catalogue d'images peintes pour revue — 23 octobre 2026
+
+À la demande de l'utilisateur, les matières communes sont appliquées aux autres
+guides isolés. `assets/dungeon/painted-cells/catalog.json` répertorie **57 PNG** :
+47 configurations de cases, un sol, un pilier, quatre escaliers et quatre portes.
+Les 146 identifiants de guides sont conservés via des alias lorsque leur dessin
+est identique. Les pierres réutilisent les huit matières communes ; les portes
+ajoutent un bois et un métal partagés. Les fichiers sont préparés hors jeu à ×4,
+sans modification des dimensions de cellule, de caméra ou des deux assises.
+
+Les planches et contrôles magenta sont dans `docs/reference/painted-kit-review/`.
+Les coordonnées/largeurs des traits sont identiques aux guides, avec contrôle
+indépendant de l'alpha du volume. L'aspect reste soumis à la revue utilisateur.
+Les images isolées restent les références de revue. L'intégration décrite ci-dessus
+utilise leurs variantes connectées préparées avec les mêmes matières. Aucun comportement,
+coût, état de porte, collision, navigation ou sauvegarde n'est modifié.
+
+### Premier essai peint du coin supérieur gauche — 23 octobre 2026
+
+L'utilisateur a désormais **approuvé la méthode des matières partagées avec
+masques**, pour conserver la même géométrie et les mêmes textures entre éléments.
+La bibliothèque `assets/dungeon/shared-materials/` propose quatre matières de mur
+et quatre de sol. La nouvelle proposition `nw-shared-materials-v2.png` les applique
+au même coin ; le rendu attend une validation artistique. La géométrie conserve
+les 51 segments et l'alpha exact du guide. Voir `docs/reference/MATERIAL_WORKFLOW.md`
+et `docs/reference/nw-material-review-v2/`. Ce prototype est conservé comme étape historique de la bibliothèque actuelle.
+
+Le premier essai, initialement autorisé pour une fois seulement, composait une
+matière générée dans la géométrie fixe du coin NW :
+`assets/dungeon/gloom-kit/proposals/nw-masked-experiment.png`. Les 51 segments
+du guide sont recopiés et l'alpha exporté correspond au dessin de construction.
+Son aspect a été jugé trop simple ; il reste hors des scènes. Sources et comparaison :
+`docs/reference/nw-mask-test/`.
+
+Un exemple isolé a été généré depuis le wireframe puis comparé au calque magenta.
+Les propositions `nw-cell-wireframe-v1/v2/v3/v4.png` ne sont pas intégrées aux scènes.
+La v1 a été rejetée pour son dessus lu comme une troisième rangée : le dessus
+doit être la face supérieure des pierres de l'assise haute. Les versions suivantes
+améliorent cette lecture mais gardent un décalage de joint sur le mur gauche ;
+elles ne sont pas validées pour le kit. Sources, prompts et contrôle visuel sont
+dans `docs/reference/painted-corner-review/`. Ces tentatives génératives restent historiques ; le rendu actuel suit les masques fixes.
+
+### Calques de contrôle pour la future phase peinte — 23 octobre 2026
+
+`docs/reference/wireframe-overlays/` contient 146 guides transparents SVG/PNG :
+136 identifiants de cases complètes, un sol, quatre escaliers, quatre portes et
+un pilier seul. Les traits sont
+magenta #ff00ff pour pouvoir les superposer aux futurs sprites. Projection,
+dimensions, ancrages et épaisseurs des traits sont conservés. Les remplissages
+blancs sont absents et les lignes cachées par les murs restent omises.
+La revue porte sur chaque pièce isolée : les contours visibles des extrémités
+sont donc complets, contrairement aux textures connectées. Le pilier garde
+exactement 1/6 × 1/6 de case, une hauteur de 1,88/6 et un joint horizontal à 0,94/6.
+La composition « sol + deux piliers » ne nécessite pas une image peinte distincte ;
+elle réutilisera le sol et le pilier. Le nombre de guides n'impose pas autant de
+commandes d'images : plusieurs identifiants connectés partagent une forme isolée.
+
+Ces guides se régénèrent hors ligne avec `tools/export_wireframe_overlays.cjs` ;
+`--png` demande le module Node `sharp` et produit les PNG RGBA. La géométrie des textures de construction reste conservée comme source. Il s'agit d'un outil de
+revue de chaque case, sans nouveau rendu peint ni mode de superposition global
+dans Godot, sans interaction, progression ou sauvegarde. Voir le mode d'emploi
+dans le dossier des calques et `WIREFRAME_WORKFLOW.md`, section 12.
 
 ### Catalogue de cases wireframe — 23 octobre 2026
 
 À la demande de l'utilisateur, les 13 scènes d'étude modulaires, alias compris,
 chargent `wireframe_cell_study.gd` à la place de l'ancien assemblage de pierres.
 Le renderer sélectionne des
-images préparées dans `assets/dungeon/wireframe-cells/` : un sol et au plus une
-image de murs par case ordinaire. Les cases d'entrée utilisent une image complète
-du catalogue `wireframe-entrances/`. Il ne génère aucune texture, dalle ou géométrie dans
-Godot. Les SVG sont convertis en textures par l'import standard de l'éditeur.
+PNG préparés dans `assets/dungeon/painted-connected/` : un sol puis au plus
+une image de structure par case, y compris pour les entrées et portes.
+Les anciens SVG `wireframe-cells/`, `wireframe-entrances/` et `wireframe-doors/`
+restent leurs sources géométriques. Godot ne génère aucune texture, dalle
+ou géométrie ; l'éditeur importe les PNG finis avec mipmaps.
 
 La sélection repose sur l'occupation de la grille : absence d'un voisin cardinal
 = mur ; deux voisins cardinaux présents avec leur diagonale absente = pilier
@@ -23,9 +139,9 @@ La case logique carrée mesure 1 × 1, affichée sur un pas de 256 pixels. Les m
 ont une épaisseur de 1/6, une hauteur de 1,88/6 et deux assises égales, avec un
 seul joint horizontal à 0,94/6. Le vecteur hauteur est (-0,18,-0,9) pour toutes
 les orientations. Aucun retournement ni étirement des images. Les piliers n'ont
-pas de joint vertical. Le motif du sol vient de la case sans mur existante
-(19 dalles), normalisé de son ancien cadre de dessin 6 × 5 au carré 1 × 1.
-Le motif provisoire inventé pendant l'intégration a été retiré. Ce sol répétitif
+pas de joint vertical. Le motif actuel du sol vient de `floor-periodic-cell.json`, avec des joints
+décalés et des pierres de largeur équilibrée aux frontières des cases.
+La première étude de 19 fragments reste une référence historique. Ce sol répétitif
 par case ne constitue pas une copie du dallage global de l'ancienne étude de salle.
 
 Les scènes existantes gardent leur taille, leurs branches et leurs sorties ouvertes.
@@ -43,14 +159,44 @@ vaut **false** par défaut. Lorsqu'il est activé, seules les cases fermées sur
 trois côtés, avec un voisin réel sur le quatrième, utilisent une entrée :
 masques murs 14/13/11/7 pour une ouverture nord/est/sud/ouest. Les sorties
 forcées ouvertes et les autres configurations gardent leurs textures ordinaires.
-Chaque entrée contient déjà sol, murs et cinq marches ; elle remplace les deux
-sprites ordinaires. Les marches ont une hauteur de .05 chacune, un sommet à .25
+Chaque entrée connectée contient murs et cinq marches ; elle remplace le sprite
+de murs, au-dessus du sol commun. Les marches ont une hauteur de .05 chacune, un sommet à .25
 et une largeur de 2/3 de case ; le palier mesure .16 de case dans l'axe de sortie.
 Le pas de grille 256 px et l'ancrage (24,88) sont communs aux quatre orientations.
 La géométrie tourne dans le plan avant export, puis reçoit la projection commune.
 Les images affichées ne tournent pas. Le motif local de dallage garde ses axes.
 Ce réglage est un outil de revue visuelle : aucun déclencheur d'entrée, changement
 de niveau, coût, collision ou état de sauvegarde n'est ajouté.
+
+### Scène de revue des quatre portes — 23 octobre 2026
+
+`scenes/WireframeDoorCross.tscn` utilise une case centrale et quatre branches
+de trois cases, fermées aux extrémités : **13 cases**, dans un carré de 7 × 7.
+Les couloirs gardent une largeur d'une case. Les portes occupent (0,−2), (2,0),
+(0,2) et (−2,0), orientées respectivement nord, est, sud et ouest, face avant
+vers l'extérieur. Une case ordinaire sépare chaque porte du croisement, et une
+case terminale fermée se trouve au-delà. Les quatre piliers du centre viennent du catalogue.
+
+Le renderer expose `door_cells`, dictionnaire case → direction, vide par défaut.
+Une porte nord/sud exige la variante `w10_p00_e00` ; est/ouest exige
+`w05_p00_e00` : deux murs parallèles, deux voisins réels, sans pilier ni bout
+extérieur ouvert. Une case absente, une direction inconnue ou une configuration
+incompatible produit un avertissement et conserve l'affichage ordinaire.
+ReferenceCalibration présente aussi une porte sud ; les autres scènes n'en activent pas.
+
+Chaque porte remplace le sprite de murs par **une texture structurelle** préparée
+hors ligne : murs à deux assises, arche et vantail fermé à double face.
+Le sol est la même image commune, placée en dessous.
+Les deux faces possèdent ferrures et anneau, soumis à leur occultation réelle.
+Le pas reste 256 px ; l'image 304 × 392 utilise l'ancrage (24,128), avec une marge
+supérieure adaptée à l'arche. Les raccords internes omettent les faces de bout
+et conservent les joints de pierre. Les quatre images sont importées avec mipmaps.
+
+C'est une scène de comparaison visuelle, accessible en ouvrant la scène puis F6.
+Le démarrage F5 reste inchangé. Les portes restent fermées : aucune interaction,
+animation, collision, navigation, coût, clé ou persistance n'est implémenté.
+
+### Aperçu des scènes sur grille
 
 Le bouton d'actualisation conserve son getter Callable ; les réglages provoquent
 un rechargement des sprites choisis et l'aperçu est présent dans l'éditeur.
@@ -61,12 +207,44 @@ tri d'occultation de personnage, collision, navigation, éditeur de construction
 jouable ou sauvegarde n'est ajouté. Les couches sol/murs préparent cette future
 intégration sans l'implémenter. La validation artistique appartient à l'utilisateur.
 
-### Carte historique à six salles
+### Six salles avec couloirs de deux cases — 23 octobre 2026
 
-La scène historique `scenes/SixRoomPreview.tscn` assemble des sprites complets
-à transparence native. Le plan conserve les six salles. Les images ont été
-régénérées pour fournir des éléments indépendants : la nouvelle scène ne découpe
-plus les silhouettes dans l'illustration d'origine.
+`scenes/SixRoomPreview.tscn` utilise désormais `wireframe_cell_study.gd` et les
+images existantes du catalogue. À la demande explicite de l'utilisateur, les
+six salles et les **couloirs de deux cases de large** gardent leur disposition.
+Une case reste carrée 1 × 1 ; un couloir peut occuper plusieurs cases en largeur.
+Cette possibilité doit rester compatible avec le futur éditeur de donjon.
+Les études de couloirs d'une case restent des exemples complémentaires.
+
+Le nouveau layout `assets/layouts/six_rooms_wireframe.tres` conserve toutes les
+255 cases occupées de `six_rooms.tres`, à leurs coordonnées d'origine. Il ajoute
+seulement **(3,2)**, au nord de l'ancien emplacement de porte, pour l'escalier
+existant ouvert vers le sud. Le plan fait toujours **28 × 18** et contient
+**256 cases occupées**, affichées au pas partagé de **256 px**.
+
+`entrance_at_closed_ends=true` sélectionne une seule entrée, de masque
+`w11_p00_e00`, avec ses cinq marches, son palier et ses trois murs déjà dessinés.
+Les raccords et piliers des salles et des passages larges sont sélectionnés
+par les règles communes de voisinage. Aucun nouvel asset ni assemblage spécial
+de pierres n'est créé. Les chiffres de l'ancien layout désignent désormais
+uniquement des cases occupées : le catalogue fournit le même motif de dallage.
+
+Le cœur, les torches, leurs lumières et l'ancien panneau de sondes ne sont plus
+instanciés par cette scène. `six_room_view.gd` et `six_rooms.tres` restent des
+sources historiques. Les helpers de capture propres à l'ancien rendu peint
+ne constituent plus des diagnostics de la scène migrée.
+
+Revue visuelle : ouvrir `SixRoomPreview.tscn` puis F6. La cible F5 est conservée.
+`tools/capture_wireframe_cells.gd -- SixRoomPreview` capture l'ensemble à 1×/2× ;
+`tools/capture_six_room_wireframe.gd` cadre l'entrée, le croisement et trois
+raccords de couloirs. Le fonctionnement reste statique : aucun héros, éditeur
+jouable, coût, progression, collision, navigation ou sauvegarde n'est ajouté.
+
+### Historique du rendu peint à six salles — remplacé le 23 octobre 2026
+
+Les sections historiques ci-dessous décrivent l'ancien contenu de
+`SixRoomPreview.tscn` et ses assets peints. Les chiffres de sprites, lumières,
+cœur et sondes ne s'appliquent plus à sa version sur grille décrite ci-dessus.
 
 **État visuel non validé — 21 octobre 2026 :** l'utilisateur a rejeté le rendu
 actuel. Les murs latéraux mélangent des dessus de blocs répétés, des faces de
@@ -463,7 +641,8 @@ pas devenir un rendu indépendant avec ses propres corrections de raccord.
 **Palette des études modulaires, reprise du22 octobre :** les couleurs des sols,
 façades, supports et pierres verticales viennent désormais des PNG générés,
 avec modulation blanche. Les anciens multiplicateurs sont retirés de ces études.
-La scène historique SixRoomPreview demeure distincte. La reprise préserve les
+SixRoomPreview utilisait alors un rendu distinct ; sa migration wireframe du
+23 octobre est décrite en début de section 0. La reprise préserve les
 formats, la graine et l'agencement du sol ; elle n'ajoute ni éditeur joueur,
 navigation, objets ni sauvegarde. Le commit **2584f57** conserve l'état précédent.
 

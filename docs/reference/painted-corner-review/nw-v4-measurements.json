@@ -1,0 +1,49 @@
+{
+  "image": "assets/dungeon/gloom-kit/proposals/nw-cell-wireframe-v4.png",
+  "requestedCanvas": [
+    1166,
+    1349
+  ],
+  "actualCanvas": [
+    1166,
+    1349
+  ],
+  "exactCanvas": true,
+  "hasAlpha": true,
+  "fullyTransparentPixels": 259484,
+  "partiallyTransparentPixels": 1311675,
+  "guideScaleFrom304x352": 3.8323863636363638,
+  "guideTranslation": [
+    0,
+    0
+  ],
+  "unusedCanvas": [
+    0.9545454545454959,
+    0
+  ],
+  "anchor": [
+    91.97727272727273,
+    337.25
+  ],
+  "cellPitch": 981.0909090909091,
+  "alphaThreshold": 128,
+  "alphaBounds": {
+    "actual": [
+      33,
+      58,
+      1075,
+      1319
+    ],
+    "expected": [
+      31,
+      55,
+      1078,
+      1323
+    ]
+  },
+  "silhouetteIoU": 0.9915659456721613,
+  "actualArea": 1297940,
+  "expectedArea": 1308978,
+  "measurementLimit": "Alpha silhouette overlap does not establish correct internal masonry, color, local contour deviations, or artistic approval. No nonuniform scaling or best-fit translation was applied.",
+  "assetUnchanged": true
+}

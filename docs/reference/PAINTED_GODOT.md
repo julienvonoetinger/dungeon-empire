@@ -1,0 +1,150 @@
+# Sprites peints dans Godot
+
+État : 23 octobre 2026. Intégration demandée par l'utilisateur, après la préparation
+des images isolées. La géométrie et les matières sont partagées par toutes les scènes.
+
+## Catalogue actif
+
+| Élément | Source |
+| --- | --- |
+| Textures connectées | `assets/dungeon/painted-connected/` : 96 PNG structurels + un sol |
+| Inventaire et provenance | `assets/dungeon/painted-connected/catalog.json` |
+| Mesures d'export | `assets/dungeon/painted-connected/validation.json` |
+| Préchargement Godot | `scripts/painted_cell_catalog.gd` |
+| Sélection sur grille | `scripts/wireframe_cell_layout.gd`, inchangé |
+| Placement et actualisation | `scripts/wireframe_cell_study.gd` |
+| Matières et profils communs | `assets/dungeon/shared-materials/catalog.json` |
+| Revues isolées conservées | `assets/dungeon/painted-cells/`, `docs/reference/painted-kit-review/` |
+
+Les 120 variantes ordinaires avec murs ou piliers réutilisent 88 PNG par alias.
+Quatre entrées et quatre portes portent le total à 96 images structurelles pour
+128 identifiants. Les 16 états sans structure n'ajoutent aucun sprite de murs.
+Les faces internes aux raccords sont absentes de ces PNG. Les pièces isolées de
+revue gardent leurs extrémités complètes ; ne pas substituer ces images aux variantes
+connectées dans les scènes sur grille.
+
+## Placement
+
+- Case carrée 1×1, pas de 256 pixels ; géométrie commune `écran=(x−.18z,y−.9z)`.
+- Épaisseur 1/6 ; hauteur 1,88/6 ; deux assises, joint à 0,94/6.
+- PNG à ×4, échelle Godot uniforme 0,25 ; mipmaps et filtrage linéaire.
+- Ancrages logiques : sol (0,0), murs/escaliers (24,88), portes (24,128).
+- Tous les sols à z=0, puis toutes les structures à z=1, ordonnées par ligne/colonne.
+- Un sol et au plus une structure par case. Les portes et escaliers connectés
+  ne contiennent pas de sol ; leur image couvre celui-ci là où leur volume l'occulte.
+- Le sol reprend les 26 traits de son SVG connecté. Les trois contours ajoutés
+  aux guides isolés pour fermer la revue ne deviennent pas des bordures de cases.
+- Les fragments de dalle aux bords gauche/droit appartiennent à une même pierre
+  qui continue dans la case voisine. Le compositeur peint cette pierre entière,
+  avec la même matière, les mêmes coordonnées de texture et les mêmes reflets,
+  puis limite l'export à la case. Aucun biseau n'est peint sur cette limite virtuelle.
+- Le sol connecté a un cadre opaque exact de 1024×1024 px (256×256 affichés),
+  sans marge transparente susceptible de former un filet sombre avec les mipmaps.
+  Le joint nord de la case suivante fournit sa moitié inférieure au bord sud,
+  afin de garder la largeur entière du joint entre deux rangées de cases.
+  Ce recadrage d'export change l'ancrage du sol de (4,4) à (0,0), sans déplacer
+  le dallage. Les sprites structurels et les revues isolées gardent leur cadre.
+- Modulation blanche ; pas de miroir, de rotation, d'étirement, de masque,
+  de lumière ou de dessin correctif au runtime.
+
+Le bouton « Actualiser le rendu » conserve son getter Callable. L'éditeur et F6
+partagent le même renderer. Le nom historique `wireframe_cell_study.gd` est gardé
+pour préserver les références des scènes.
+
+## Scènes
+
+Ces **16 scènes déjà sur grille** gardent leurs dimensions et paramètres :
+
+- `1x1CellRoom`, `2x2CellRoom`, `3x3CellRoom`, `SingleCellRoom`.
+- `1x2Corridor`, `1x3Corridor`, `2x1Corridor`, `3x1Corridor`.
+- `3x3RoomCornerCorridors`, `3x3RoomFourCorridors`.
+- `5x5RoomCornerCorridors`, `5x5RoomFourCorridors`, `5x5RoomVerticalCornerCorridors`.
+- `WireframeClosedCorridors`, `WireframeDoorCross`, `SixRoomPreview`.
+
+SixRoomPreview conserve ses 256 cases, son escalier d'entrée, les six salles et
+les couloirs larges de deux cases. Pas de torches ou de cœur dans cet aperçu.
+WireframeDoorCross garde ses quatre portes et WireframeClosedCorridors ses quatre
+escaliers terminaux. Les noms de ces scènes restent utilisables.
+
+Les **quatre anciennes démonstrations** sont remplacées par les formes du kit :
+
+| Scène | Contenu actuel |
+| --- | --- |
+| DungeonPreview | Même composition que SixRoomPreview |
+| PerspectiveRoom | Salle 3×3 avec une case d'escalier au nord |
+| ReferenceCalibration | Passage de trois cases, porte sud au centre, escaliers aux deux extrémités |
+| EntranceVariants | Quatre sprites d'entrée isolés, sol compris, en quatre panneaux |
+
+DungeonHeart et DungeonTorch sont des scènes de props séparées, sans remplacement
+dans ce kit d'architecture. Elles conservent leurs assets. Les anciens scripts et
+images d'architecture restent des références historiques, sans dépendance dans
+les 20 scènes migrées.
+
+## Reproduire
+
+Depuis la racine, avec Node.js et `sharp` disponibles :
+
+```powershell
+node tools/export_painted_connected_kit.cjs
+godot --headless --editor --path . --import
+```
+
+Remplacer `godot` par le chemin de l'exécutable local. L'export utilise les SVG
+connectés pour les contours, les guides isolés pour les régions de matière et la
+même bibliothèque de textures. Il génère les PNG et le catalogue GDScript.
+`--floor-only` actualise le sol et les métadonnées en conservant les structures
+existantes ; réserver cette option à une modification du sol seul. Si la géométrie
+ou le compositeur change, relancer l'export complet. `--only=doors/west` exporte un
+diagnostic ciblé sans réécrire le catalogue global.
+
+Les variantes d'entrée isolées utilisées par EntranceVariants sont produites par
+`tools/export_painted_image_catalog.cjs` et importées avec mipmaps.
+
+## Revue dans Godot
+
+Ouvrir une scène et appuyer sur **F6**. F5 reste configuré sur
+`5x5RoomVerticalCornerCorridors.tscn`. Les helpers existants capturent le rendu
+actuel, malgré leur nom historique :
+
+```powershell
+godot --path . --script res://tools/capture_wireframe_cells.gd -- SixRoomPreview WireframeDoorCross WireframeClosedCorridors
+godot --path . --script res://tools/capture_wireframe_doors.gd
+godot --path . --script res://tools/capture_wireframe_entrances.gd
+godot --path . --script res://tools/capture_six_room_wireframe.gd
+```
+
+Les captures et logs sont dans `artifacts/`, ignoré par Git. L'export contrôle les
+traits et la couverture alpha ; les captures montrent l'assemblage réel. Ces
+contrôles n'accordent pas une validation artistique à la place de l'utilisateur.
+Le dallage répète encore un motif commun par case ; aucune variation de layout
+aléatoire n'est ajoutée. Les portes restent fermées, sans interaction, collision,
+navigation, progression ou sauvegarde.
+
+## Révision du rythme du dallage — 23 octobre 2026
+
+Le précédent motif réunissait de grandes portions gauche/droite en une seule
+pierre à chaque raccord. Ces pierres mesuraient jusqu'à 0,78 case et formaient
+une colonne répétée. Le découpage est maintenant défini dans
+`docs/reference/floor-periodic-cell.json` : six rangées de hauteur inchangée,
+26 fragments dans la case, représentant 20 pierres complètes périodiques.
+Les joints sont décalés par rangée. Toutes les pierres complètes, y compris
+celles qui traversent une frontière de case, mesurent entre 0,24 et 0,40 case.
+
+Le fichier `floor-only-cell-wireframe.json` conserve l'étude historique.
+Le nouveau motif sert aux exports connectés, aux calques isolés et au sol visible
+des variantes de portes/escaliers. Les PNG correspondants sont réexportés avec
+les matières communes. La grille reste 1×1, le pas 256 px, la projection et les
+murs inchangés. Le sol connecté reste opaque à 1024×1024, ancrage (0,0), avec
+peinture continue aux frontières. Godot place les images préparées.
+
+Ordre de reproduction après changement du découpage :
+
+```powershell
+node tools/export_wireframe_cell_kit.cjs
+node tools/export_arched_door_orientations.cjs
+node tools/export_wireframe_entrances.cjs
+node tools/export_wireframe_doors.cjs
+node tools/export_wireframe_overlays.cjs --png
+node tools/export_painted_image_catalog.cjs
+node tools/export_painted_connected_kit.cjs
+```

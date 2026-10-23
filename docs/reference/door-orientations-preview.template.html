@@ -1,0 +1,73 @@
+<div id="arched-door-orientations-review">
+  <div class="viz-controls">
+    <label class="form-label">Vue
+      <select class="form-select" data-view>
+        <option value="all">Les quatre orientations</option>
+        <option value="north">Nord</option>
+        <option value="east">Est</option>
+        <option value="south">Sud — référence</option>
+        <option value="west">Ouest</option>
+      </select>
+    </label>
+  </div>
+  <div class="door-views" data-panels></div>
+  <script type="application/json" data-geometry>__DOOR_ORIENTATIONS__</script>
+</div>
+<style>
+#arched-door-orientations-review .door-views { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin-top:12px; }
+#arched-door-orientations-review .door-views.single { grid-template-columns:minmax(0,1fr); }
+#arched-door-orientations-review .door-view[hidden] { display:none; }
+#arched-door-orientations-review .door-label { color:var(--foreground); }
+#arched-door-orientations-review .door-description { color:var(--muted-foreground); }
+#arched-door-orientations-review svg { display:block; width:100%; }
+#arched-door-orientations-review path { fill:none; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+#arched-door-orientations-review .outline,#arched-door-orientations-review .frame { stroke:var(--foreground); stroke-width:1.6; }
+#arched-door-orientations-review .door { stroke:var(--foreground); stroke-width:1.4; }
+#arched-door-orientations-review .joint,#arched-door-orientations-review .detail { stroke:var(--foreground); stroke-width:1; }
+#arched-door-orientations-review .floor { stroke:var(--muted-foreground); stroke-width:1; opacity:.7; }
+@media(max-width:580px) { #arched-door-orientations-review .door-views { grid-template-columns:minmax(0,1fr); } }
+</style>
+<script>
+(() => {
+  const root=document.getElementById('arched-door-orientations-review');
+  const data=JSON.parse(root.querySelector('[data-geometry]').textContent);
+  const select=root.querySelector('[data-view]'),panels=root.querySelector('[data-panels]');
+  const NS='http://www.w3.org/2000/svg',views={};
+  for(const [direction,entry] of Object.entries(data.entries)) {
+    const panel=document.createElement('section');panel.className='door-view';
+    const label=document.createElement('div');label.className='door-label';label.textContent=entry.label;
+    const description=document.createElement('div');description.className='door-description text-small';description.textContent=entry.description;
+    const svg=document.createElementNS(NS,'svg');svg.setAttribute('role','img');svg.setAttribute('aria-label',`Porte orientée vers ${entry.label} : ${entry.description}`);
+    const geometry=document.createElementNS(NS,'g');svg.appendChild(geometry);
+    for(const [kind,d] of Object.entries(entry.paths)) {
+      const line=document.createElementNS(NS,'path');line.setAttribute('d',d);line.setAttribute('class',kind);geometry.appendChild(line);
+    }
+    panel.append(label,description,svg);panels.appendChild(panel);views[direction]={panel,svg,geometry};
+  }
+  function render() {
+    const active=select.value;panels.classList.toggle('single',active!=='all');
+    for(const [direction,view] of Object.entries(views)) {
+      view.panel.hidden=active!=='all'&&active!==direction;
+      if(view.panel.hidden)continue;
+      const width=view.panel.getBoundingClientRect().width;if(width<=0)continue;
+      const height=Math.min(820,width*1.4),[x0,y0]=data.viewport.min,[x1,y1]=data.viewport.max;
+      const scale=Math.min((width-16)/(x1-x0),(height-16)/(y1-y0));
+      view.svg.setAttribute('viewBox',`0 0 ${width} ${height}`);view.svg.style.height=`${height}px`;
+      view.geometry.setAttribute('transform',`translate(${(width-(x0+x1)*scale)/2} ${(height-(y0+y1)*scale)/2}) scale(${scale})`);
+    }
+  }
+  function restore(state) {
+    if(state?.modelContent?.proposal===data.id) {
+      const view=state.privateContent?.view;
+      if(view==='all'||data.entries[view])select.value=view;
+    }
+  }
+  restore(window.openai?.widgetState);
+  select.addEventListener('change',()=>{
+    render();window.openai?.setWidgetState?.({modelContent:{proposal:data.id,view:select.value},privateContent:{view:select.value}})?.catch(()=>{});
+  });
+  window.addEventListener('openai:set_globals',event=>{restore(event.detail?.globals?.widgetState);render();});
+  let previous=0;new ResizeObserver(()=>{const width=root.getBoundingClientRect().width;if(width!==previous){previous=width;render();}}).observe(root);
+  render();
+})();
+</script>

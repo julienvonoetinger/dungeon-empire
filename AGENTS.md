@@ -1,5 +1,269 @@
 # Repository instructions
 
+## Current floor rhythm correction — 2026-10-23
+
+- User reports columns of long slabs caused by the wireframe subdivision.
+  Current paving source is `docs/reference/floor-periodic-cell.json`, superseding
+  the historic 19-fragment motif for active exports. Six unchanged row heights,
+  26 fragments / 20 full periodic stones, full widths .24..40 cells, staggered cuts.
+  Count the left+right fragments as ONE stone when assessing width; the old
+  pattern joined them into stones up to .78 cells and repeated a long-stone band.
+- Preserve 1x1 grid, projection, wall geometry, opaque connected floor frame and
+  continuous material at X boundaries. Re-export source wireframes, overlays,
+  isolated painted images and connected PNGs together after a floor joint change.
+
+## Current request: painted Godot scenes — 2026-10-23
+
+- User now explicitly requests updating all Godot scenes with the new assets.
+  This supersedes the previous image-only/no-integration gate below.
+- Export connected structural images OFFLINE from the existing connected
+  wireframes and shared material library. Keep the isolated review images.
+  Godot places prepared floor/structure PNGs at uniform .25 scale on the same
+  256-pixel square grid; no runtime image generation or appearance repair.
+- Preserve the current room layouts, branch lengths, two-cell-wide corridors
+  in SixRoomPreview, four door orientations and entrance stairs.
+- Update older architecture demonstration scenes too. The standalone torch and
+  heart props have no replacements in this architecture catalogue.
+
+- Integration is now implemented in `scripts/painted_cell_catalog.gd` and the
+  shared `wireframe_cell_study.gd`. All 20 architecture scenes use painted PNGs.
+  `tools/export_painted_connected_kit.cjs` exports 96 unique structural PNGs,
+  128 structural IDs, 16 empty states and one connected floor (26 revised joints).
+  The three standalone floor closing contours must not become cell-grid borders.
+- Connected floor boundary fragments must share ONE full stone across X=0/1,
+  with the same material, UV coordinates and bevel seed. `wrapFloorX` in the
+  offline compositor expands those fragments before clipping to the fixed cell.
+  Removing only the outline leaves vertical bevel/texture seams (user-reported).
+  Never shade an artificial cell boundary as a physical stone edge.
+- Connected floor export is now an opaque 1024x1024 exact-cell frame, anchor
+  (0,0), still displayed at .25 scale. Transparent floor gutters caused a second
+  dark filtering seam even with continuous RGB. Repeat the next row's north
+  joint into the bottom edge offline, retaining full joint width. Structural
+  and isolated-review frames remain unchanged. See outputFrame/repeatInkY.
+- See `docs/reference/PAINTED_GODOT.md` for scene inventory, export/import and
+  capture commands. Connected doors/stairs omit the ground layer; every grid cell
+  receives the same prepared floor before its structure. Isolated review sprites
+  remain complete and are used only by EntranceVariants and the review boards.
+
+## Previous request: remaining painted images — 2026-10-23
+
+- User: "Ok tu peux faire les autres images ?" authorizes propagating the
+  shared-material approach to the existing isolated wireframe image catalogue.
+  This supersedes the NW-only propagation gate below. Prepare ordinary cells,
+  floor, isolated pillar, four entrances and four double-sided doors for review.
+- Reuse the approved slate material library and fixed projection. Add shared
+  wood/metal materials for door leaves/hardware, based on the canonical mockup.
+  Keep all source guide lines, framing, end faces and hidden-line visibility.
+- Deliver PNGs, catalog/provenance and overview/overlay images. This request is
+  for images; it does not request replacing the Godot scenes or their connected
+  textures. Standalone end-face guides are not connected-runtime assets.
+- Exporter: `tools/export_painted_image_catalog.cjs`, shared compositor:
+  `tools/painted_material_renderer.cjs`. Output: `assets/dungeon/painted-cells/`,
+  57 unique PNGs covering 146 isolated guide identifiers through catalog aliases.
+  Includes 47 cell configurations, floor, pillar, four stairs and four doors.
+  Review boards, magenta overlays and measurements: `docs/reference/painted-kit-review/`.
+- Source lines and widths are copied unchanged. Independently projected volume
+  alpha is checked against the exported PNG. Open uninked floor edges close
+  MATERIAL masks only. Doors additionally use source-volume visibility masks
+  so adjacent stone and wood never inherit each other's material across a
+  missing inked intersection. Wood grain is projected from local leaf coordinates.
+- Common wood/iron sources join the eight existing stone materials. Keep all
+  material settings in `shared-materials/catalog.json` via its preparation script.
+  Final artistic approval and connected-scene conversion remain separate work.
+
+## Approved method: shared generated materials on fixed geometry — 2026-10-23
+
+- The user approved retaining the masked-material method after the first test:
+  "c'est une bonne méthode donc on peut l'autoriser". They explicitly want it
+  preserved so all elements reuse the SAME textures. The one-time restriction
+  in the historical section below is superseded for this method.
+- Architecture may now be composed OFFLINE from shared AI-generated material
+  swatches, clipped to approved wireframe faces. Geometry defines silhouettes,
+  joints, anchors and projection. The output is a prepared PNG; Godot places it.
+  This supersedes the older native-alpha/no-masks rules for this workflow only.
+  Do not use generative painting to reposition joints or freely repair geometry.
+- The first masked image is visually too simple. Current work enriches the
+  shared material library with several coherent variants, following the canonical
+  mockup: darker slate, painterly facets, sparse wear and violet accents. Floors
+  must remain calmer than walls. Avoid unrelated color palettes per orientation.
+- Validate the richer materials on the SAME NW corner before propagating the
+  painted kit or updating scenes. Approval of the method is not approval of the
+  current appearance or permission to skip overlay checks.
+- Read `docs/reference/MATERIAL_WORKFLOW.md`. The pending library contains four
+  wall and four floor materials in `assets/dungeon/shared-materials/`, with a
+  shared renderProfile in catalog.json. `--materials-v2` on the NW prototype
+  uses it and exports `nw-shared-materials-v2.png`; comparison and per-face
+  material IDs are in `docs/reference/nw-material-review-v2/`. Never regenerate
+  or tune materials independently per orientation. The general isolated exporter
+  is now described above; no painted runtime integration exists yet.
+
+## Historical one-time masked-material experiment — 2026-10-23
+
+- The user explicitly authorized testing vector masks **for this time only**,
+  on the single painted NW corner under review. This is a narrow exception to
+  the native-alpha/no-programmatic-repair rules, not a general policy change.
+- Scope: generate joint-free stone material from the canonical mockup, compose
+  it offline inside the exact approved faces, and draw joints from the unchanged
+  wireframe. Export one transparent review sprite and its magenta comparison.
+  Do not integrate it into Godot or extend the technique to other variants.
+- Preserve all generated originals and geometry. Record the source material,
+  masks, composition script and validation. No other painted sprite is approved.
+- This experiment has now been produced: `nw-masked-experiment.png`, with
+  sources/review in `docs/reference/nw-mask-test/` and the deliberately NW-only
+  `tools/prototype_nw_masked_material.cjs`. Its 51 guide segments are copied
+  unchanged; decoded alpha matches the construction raster exactly. The result
+  is more regular than the mockup and awaits artistic review. The one-time
+  authorization does NOT permit more variants or scene integration.
+
+## One painted NW corner under review — 2026-10-23
+
+- The user explicitly requested ONE painted NW corner from the wireframe, with
+  transparent magenta overlay validation. See docs/reference/painted-corner-review/
+  for the exact prompts, generation.json, measurements and comparison images.
+  No Godot integration or generation of the rest of the painted kit is approved.
+- nw-cell-wireframe-v1.png was rejected for a false extra TOP course: its top
+  planes looked like separate coping slabs. The top and upper-front faces must
+  belong to the SAME stone; only two equal facade courses, no under-cap strip,
+  added lip or overhang. The user's criticism was NOT about the narrow floor
+  band at the wall foot; the assistant initially misidentified it.
+- v2/v3 reduce the detached-cap effect but remain UNAPPROVED. The first top-face
+  joint along the west wall is still too low (about y350 instead of y322 at
+  1166x1349). Do not claim exact fidelity from silhouette overlap: v3 is 99.32%
+  IoU yet has this visible internal mismatch. Preserve the source geometry.
+- v4 restarts from the exact construction drawing, with the canonical mockup
+  as material-only input. It also FAILS review: the floor strip at the north
+  wall foot becomes a dark projecting facade, its joints move, and facade
+  shading reads as horizontal slabs. Exterior contours still differ. Do not
+  use any of v1-v4 as approved geometry, material or runtime images.
+- The user requires exact contours AND joints to prevent connection defects.
+  Free image generation has not met that requirement. A deterministic offline
+  material composition inside fixed vector faces now has a ONE-TIME test
+  authorization in the section above. The general prohibition remains in force
+  for every other asset and for any further use outside this experiment.
+- Built-in image_gen supplied native-alpha images, copied unchanged into
+  assets/dungeon/gloom-kit/proposals/nw-cell-wireframe-v{1,2,3,4}.png. Review PNGs
+  are separate, never runtime assets. Use tools/review_nw_corner_image.cjs with
+  the image, version tag and requested WIDTHxHEIGHT; uniform whole-canvas scale,
+  fixed origin, no fitted translation, clipping or repair of painted pixels.
+
+## Transparent wireframe control guides — 2026-10-23
+
+- The user wants transparent guides with conspicuous colored lines to overlay
+  future painted sprites and compare geometry. The initial export uses magenta
+  #ff00ff (assistant choice), keeping projection, framing, anchors and widths.
+- IMPORTANT correction: review each piece ALONE with all VISIBLE end contours.
+  Do not omit port/end faces as in the connected kit; do not reveal hidden edges.
+  The user supplied the standalone south door as the explicit visual reference.
+- `tools/export_wireframe_overlays.cjs --png` prepares 146 SVG/RGBA PNG guides
+  in `docs/reference/wireframe-overlays/`: 136 complete cell variants, one floor,
+  four entrances, four doors and one isolated pillar. PNG export needs sharp.
+  Read its README and WIREFRAME_WORKFLOW.md section 12 before using/regenerating.
+- Preserve existing white construction sources. The common cell geometry has
+  an offline standalone mode retaining end faces; its runtime export is unchanged.
+  Doors use the isolated studies' visibleEdges exactly; stairs use complete
+  source edges with world rotation and fixed-camera visibility. Floor strokes
+  are trimmed against vector faces before omitting fills. No painted pixel cleanup.
+- Individual PNGs have transparent backgrounds; comparison.png alone includes
+  a checkerboard. Complete ordinary guides use wall framing (304x352, anchor
+  24,88), while the standalone floor keeps 264x264, anchor 4,4. Doors keep their
+  taller 304x392 frame, anchor 24,128. Never auto-crop or shift guides to hide errors.
+- The isolated pillar is T x T x H (1/6, 1/6, 1.88/6), one joint at .94/6,
+  no floor or vertical joints; 96x144 canvas, anchor 24,88, same 256 px/cell scale.
+  The user does not need a separate painted "floor + two pillars" asset; that
+  composition reuses floor + pillar. Remove it from the production review sheet,
+  preserve the technical catalogue variant. 146 guides are not 146 art commissions.
+- These are ISOLATED review guides, not a Godot overlay mode or replacement for
+  connected textures. Existing scenes and runtime
+  textures remain unchanged by this export; no painted generation is authorized
+  by a transparent-guide request alone.
+
+## Six-room wireframe scene — 2026-10-23
+
+- Latest user request migrates `scenes/SixRoomPreview.tscn` to the existing
+  wireframe catalogue, replaces the entry door with stairs, and removes torches
+  and the heart for visual review. The legacy probe overlay is also detached.
+- Explicit width correction: KEEP THE ORIGINAL TWO-CELL-WIDE CORRIDORS.
+  The user wants to inspect these joins and considers this a valid option for
+  the future player-built dungeon. A cell remains square 1x1; corridor width
+  may span several cells. Earlier one-cell studies remain valid examples,
+  not a universal width restriction. No player construction editor exists yet.
+- `assets/layouts/six_rooms_wireframe.tres` preserves all 255 occupied cells
+  of `six_rooms.tres`, their locations and values, and adds only (3,2), just
+  north of the old entry, for one south-opening stair. Grid 28x18, total 256.
+  The original layout remains historical. The shared wireframe renderer uses
+  pitch 256 and its normal occupancy/diagonal selection, without custom joins.
+- `entrance_at_closed_ends=true` selects exactly one existing complete stair
+  image (w11_p00_e00). No newly generated art or runtime geometry is introduced.
+  F5 is unchanged; open SixRoomPreview and F6 for the current imported textures.
+- Full/2x captures: `tools/capture_wireframe_cells.gd -- SixRoomPreview`.
+  Entry and wide-connection details: `tools/capture_six_room_wireframe.gd`.
+  Older stone-specific capture/probe helpers do not describe this migrated scene.
+
+## Door cell wireframe review — 2026-10-23
+
+- Latest user request authorizes GODOT INTEGRATION in a NEW PLUS-SHAPED SCENE.
+  `scenes/WireframeDoorCross.tscn` uses the shared renderer: single-cell centre,
+  four branches of length 3, closed ends, 13 cells. Door cells are (0,-2) north,
+  (2,0) east, (0,2) south and (-2,0) west; direction names still mean front normal.
+  `door_cells` is an exported cell-to-direction dictionary, empty by default.
+  Only connected straight variants w10_p00_e00 (N/S doors) or w05_p00_e00 (E/W)
+  are supported. Invalid placements warn and retain ordinary cell images.
+- `tools/export_wireframe_doors.cjs` prepares four COMPLETE SVGs (floor, walls,
+  arch, leaf, both hardware faces) in `assets/dungeon/wireframe-doors/` and
+  `scripts/wireframe_door_catalog.gd`. Shared pitch 256; door anchor (24,128),
+  image 304x392, with a taller transparent gutter for lateral arches. Both
+  contact end faces are internal; the north/west masonry seam is retained.
+  Godot replaces the ordinary floor/wall pair with one whole door Sprite2D.
+  No runtime geometry, rotation, clipping or tint. Mipmaps enabled for all four.
+- Capture the actual scene with `tools/capture_wireframe_cells.gd -- WireframeDoorCross`
+  and its four close-ups with `tools/capture_wireframe_doors.gd`. This is a
+  static visual scene: opening, interaction, collision and navigation are absent.
+  F5 stays unchanged; open the new scene and use F6.
+- Current correction: the door is DOUBLE-SIDED. Both faces need plank seams,
+  two bands and a handle. The west view must contain the same closed leaf as
+  the east view. The previous front-only hardware and deeply recessed back
+  were rejected. The source now authors both complete faces before rotation.
+- Prepare the FOUR WIREFRAME ORIENTATIONS. Reproduce
+  the source, then run `tools/export_arched_door_orientations.cjs`. Four files
+  `docs/reference/door-arch-facing-{north,east,south,west}-wireframe.*` and
+  `door-arch-four-orientations.*` show the same volume under one fixed camera.
+  Direction names identify the FRONT normal: N(1-x,1-y,z), E(y,1-x,z),
+  S identity, W(1-y,x,z), all transformed before the unchanged projection.
+- Keep the floor pattern in world axes. Recompute visibility AND the apparent
+  contour from each transformed camera ray; never rotate source visible edges
+  or its camera-dependent silhouette. North/west expose the wood's rear face
+  with its own hardware; both handles share the same physical x/z spindle.
+  Keep real occlusion: in the west view the arch masks the near-side handle,
+  while the leaf and its plank seams remain visible. East/west are near-profile
+  views with this camera, not artificially front-facing door drawings.
+- The four source variants were standalone visual proposals before the latest
+  integration request above. The common framing fits
+  all projected bounds; the original viewport would crop the lateral arch.
+- Latest correction: the arch must SPRING DIRECTLY FROM THE LEFT/RIGHT WALLS.
+  Remove the added jambs inside the passage. The existing walls carry the arch
+  across their full thickness. Keep the selected arched door, no torches,
+  square 1x1, WEST/EAST walls, NORTH/SOUTH open and door centered at y=.5.
+- Read `docs/reference/DOOR_CELLS.md`. Current exporter:
+  `tools/export_arched_door_cell_wireframe.cjs`; SVG/JSON/PNG proposal:
+  `docs/reference/door-arch-cell-west-east-wireframe.*`. Exact dimensions await
+  visual approval. The connected exporter above reuses this reviewed geometry.
+- Preserve square 1x1, projection (x-.18*z, y-.9*z), side-wall thickness 1/6,
+  height H=1.88/6 and joint .94/6. Arch depth/thickness 1/6, inner radius 1/3,
+  outer radius .5, seven stones, starting at H. Its bearings are x=0..1/6
+  and x=5/6..1, y=.41666667.. .58333333 on the existing wall tops. The arch
+  top is .81333333. Door width is the full clear passage width 2/3.
+  The single arched leaf has equal .025 recess on BOTH sides: local
+  y=.44166667.. .55833333, thickness .11666667. This keeps the existing front
+  face and brings the rear out of the deep frame. No raised threshold.
+- Construction and visibility use extruded convex profiles, including the arch
+  ring and the arched leaf. Do not use an opaque bounding box across the curved
+  opening. Draw radial stone joints and the camera-tangent silhouette of the
+  extrusion; omit tessellation edges. Floor remains the normalized 19-slab
+  motif at z=0. No mirroring, widened footprint, flared base or new camera.
+- The previous rectangular proposal (`export_door_cell_wireframe.cjs` and
+  `door-cell-west-east-wireframe.*`) remains historical, not the selected shape.
+  The first arched version's .075-wide inner jambs are also superseded.
+
 ## Entrance stair wireframe review — 2026-10-23
 
 - Current user request authorizes the OTHER THREE DIRECTIONS AND GODOT
@@ -68,7 +332,7 @@
 - Godot must NOT generate images, paving, wall geometry or masonry at runtime.
   `scripts/wireframe_cell_study.gd` only selects complete pre-imported textures
   and places Sprite2D nodes on an integer square grid. Ordinary cells use one
-  floor image and at most one wall image; entrances use one complete image.
+  floor image and at most one wall image; entrances and doors use one complete image.
   No stone fitting, clipping, mirroring or tinting.
 - `assets/dungeon/wireframe-cells/` is a prepared SVG image catalogue, explicitly
   preloaded by `wireframe_cell_catalog.gd`. It has 136 wall records including
@@ -90,7 +354,7 @@
   `WireframeClosedCorridors.tscn` example has a 3x3 room plus four length-two
   closed branches: 17 cells, eight junction piers. F6 opens this example.
   F5 still points to `5x5RoomVerticalCornerCorridors.tscn` in project.godot.
-  SixRoomPreview and its legacy artwork are separate and were not migrated.
+  SixRoomPreview now also uses this renderer; see the latest six-room section.
 - Keep the computed refresh_action Callable getter. SVG files are imported as
   textures with mipmaps, including in editor previews. Use linear mipmap
   filtering to avoid disappearing wireframe strokes when the map is reduced.

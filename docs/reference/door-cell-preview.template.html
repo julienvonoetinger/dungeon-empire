@@ -1,0 +1,39 @@
+<div id="door-cell-wireframe-review">
+  <svg role="img" aria-labelledby="door-cell-title door-cell-description">
+    <title id="door-cell-title">Porte au milieu d'une case de couloir vertical</title>
+    <desc id="door-cell-description">Les murs gauche et droit conservent la projection commune. Une porte fermée relie ces murs au centre de la case. Le dallage continue devant et derrière.</desc>
+  </svg>
+  <script type="application/json" data-geometry>__DOOR_DATA__</script>
+</div>
+<style>
+#door-cell-wireframe-review svg { display:block; width:100%; color:var(--foreground); }
+#door-cell-wireframe-review path { fill:none; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+#door-cell-wireframe-review .outline,#door-cell-wireframe-review .frame { stroke:var(--foreground); stroke-width:1.8; }
+#door-cell-wireframe-review .door { stroke:var(--foreground); stroke-width:1.6; }
+#door-cell-wireframe-review .joint { stroke:var(--foreground); stroke-width:1.1; }
+#door-cell-wireframe-review .detail { stroke:var(--foreground); stroke-width:1; }
+#door-cell-wireframe-review .floor { stroke:var(--muted-foreground); stroke-width:1; opacity:.7; }
+</style>
+<script>
+(() => {
+  const root=document.getElementById('door-cell-wireframe-review');
+  const data=JSON.parse(root.querySelector('[data-geometry]').textContent);
+  const svg=root.querySelector('svg'),NS='http://www.w3.org/2000/svg';
+  const geometry=document.createElementNS(NS,'g');svg.appendChild(geometry);
+  for(const [kind,d] of Object.entries(data.paths)) {
+    const line=document.createElementNS(NS,'path');
+    line.setAttribute('d',d);line.setAttribute('class',kind);geometry.appendChild(line);
+  }
+  function render() {
+    const width=root.getBoundingClientRect().width;if(width<=0)return;
+    const height=Math.min(740,width*1.19);
+    const [x0,y0]=data.viewport.min,[x1,y1]=data.viewport.max;
+    const scale=Math.min((width-24)/(x1-x0),(height-24)/(y1-y0));
+    svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.style.height=`${height}px`;
+    geometry.setAttribute('transform',`translate(${(width-(x0+x1)*scale)/2} ${(height-(y0+y1)*scale)/2}) scale(${scale})`);
+  }
+  let previous=0;
+  new ResizeObserver(()=>{const width=root.getBoundingClientRect().width;if(width!==previous){previous=width;render();}}).observe(root);
+  render();
+})();
+</script>

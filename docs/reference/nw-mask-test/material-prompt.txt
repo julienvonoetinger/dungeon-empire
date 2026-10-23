@@ -1,0 +1,9 @@
+Use case: stylized-concept. Asset type: flat stone material/albedo swatch for a single authorized modular-sprite masking experiment.
+
+Use the attached dungeon mockup ONLY as a reference for dark blue-slate stone color and restrained hand-painted style. Make a square image filled edge-to-edge with ONE continuous stone surface. This is a material swatch, not a sprite, masonry wall, scene or block.
+
+Deep muted blue-gray slate, close to the unlit wall-top stone in the mockup. Matte, smooth and quiet, broad very low-contrast hand-painted mineral planes. Slight soft variation, no noisy pixels or gritty speckle. The color must stay quite uniform across the whole image. The eventual floor must support readable characters and objects. Colors approximately muted slate #46516b to #505d76, without bright white or cyan patches. No illumination gradient, no central spotlight, no glossy reflection, no shadow gradient or vignette.
+
+CRITICAL: no bricks, no mortar, no grout lines, no paving pattern, no straight seams, no borders, no bevels, no outlined stones, no visible block silhouette, no large cracks, no decorative symbols, no purple veins. Geometry, joints, edge shading and small violet accents will be authored separately from the locked wireframe; the texture must contain none of those features.
+
+Orthographic face-on continuous mineral surface filling the entire square. Subtle painterly finish matching the reference, clean enough to remain unobtrusive when mapped onto small game tiles. Opaque material image, no transparency, no labels, no border.

@@ -2,6 +2,12 @@
 
 ## Statut et référence
 
+**Matières peintes — 23 octobre 2026 :** la méthode de composition hors ligne
+par masques est maintenant approuvée. Elle garde cette géométrie et applique
+des matières générées communes à tous les futurs éléments. Voir
+[MATERIAL_WORKFLOW.md](MATERIAL_WORKFLOW.md). L'apparence de la bibliothèque
+et du premier coin reste en revue ; les scènes utilisent toujours les wireframes.
+
 Pour reconstruire le catalogue actuel, suivre
 [WIREFRAME_WORKFLOW.md](WIREFRAME_WORKFLOW.md) : sources, formules, variantes,
 raccords, ancrages, commande d'export et revue dans Godot.

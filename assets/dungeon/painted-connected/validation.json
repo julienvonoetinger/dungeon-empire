@@ -1,0 +1,2985 @@
+{
+  "uniqueStructuralImages": 96,
+  "logicalStructuralVariants": 128,
+  "emptyVariants": 16,
+  "allJointLayersMatch": true,
+  "alphaPixelsDifferentFromModel": 0,
+  "unpaintedInteriorPixels": 0,
+  "extraInteriorPixels": 0,
+  "reports": [
+    {
+      "id": "cells/w00_p01_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "3ad10646e6d8db7ef64769a7a6b295d1c65812b51d920e1c22b3f99a48eb814c",
+      "segmentCount": 7,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p02_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "237594aa677c98cd6cd0527abbffcea2fe35981f01629f77dd9b9d154882b9f0",
+      "segmentCount": 5,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p03_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "1d033f6c3fc0d2956db5a23374aa84e4bea414bf0e2e27e41bb7ce9a8b42d603",
+      "segmentCount": 12,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p04_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "e47d56d691c1bcd0e3aaa64565f4c29ffc198cef8bafd6afe9186393135864ba",
+      "segmentCount": 2,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p05_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "512d188bc925e245c984ee69e062bc0379323a12cb7b5f11c3f02e44ba1be15d",
+      "segmentCount": 9,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p06_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "856c7273219896bc3833b1ff7296cc584f9c9ef0d09900523631a043c182e997",
+      "segmentCount": 7,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p07_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "b0c52716f24eea52ba6daa6d5310dffee46e14b8212b1791d1f5f3402c9f62bb",
+      "segmentCount": 14,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p08_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "4f01cea68ad8e4d6dc28f89f749c9b9c6bc89507890e3c38e511116a4c5d844f",
+      "segmentCount": 5,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p09_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "53af3e5ed13af3b0038dc155c2075d771489b96bb991ccd34eb53bf2dee89131",
+      "segmentCount": 12,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p10_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "ea431355a9928fa2e46cdf24aa7a506663b53fcca6cb04c6fb82f5fe88ef4de7",
+      "segmentCount": 10,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p11_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "8949af7dd9bc61cdf7ce89138de51022c4951504c4b8bb78411cd80d2c13ff1e",
+      "segmentCount": 17,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p12_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "daaa0dd740ef73ec1187ec31c619e39a50269a47bd354121dd7d5ed3fb10f2a4",
+      "segmentCount": 7,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p13_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "a5c043d7bd80b2dc3689d35b38acdea90642b276d256cd73ffa8635a23143842",
+      "segmentCount": 14,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p14_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "65aead2eeea592aba8165bad49603f2a36be589db0648c76cb85e8dee80f2079",
+      "segmentCount": 12,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w00_p15_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "98bf398223e94261c028b2b6befe7aa026529c56f900b2cc26d562e605fc3dbf",
+      "segmentCount": 19,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w01_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "c6d7ccfa6e50ff76ca1cfd46c727131345aacf466eff67fbfd955de025c6477a",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p04_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "c1cb5fd4407a517053d354c3bc77e74befb8f9895a834d7452c9e1be5d37a44a",
+      "segmentCount": 15,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p08_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "6a1f0b2c16cd7af55f0a969264b40ad7d6d1e0f5f3a9c0fe96b6483c86e0e4c7",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p12_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "6cc99d0d2308e3670b7b855d6b3f79e634dd45ccda9c0732b1aa44e925c0569c",
+      "segmentCount": 20,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p00_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "e16b576d7d24387464a890b4e914df2d6e4a208eb1a3081c6c9af89e467a3d6f",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p08_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "d962ba0f138b0aa291c54c42f22ce4f456cf0eba2a3fee743f77153b461968d1",
+      "segmentCount": 23,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p00_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "a06c346806efa0751acf96bfdb2d70d92ba915bde53f91864cc04a26b0c3a035",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p04_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "98954e2897ced563782476405ebb724c01d5884b2cfc0cd9c6a9f368820dd7cc",
+      "segmentCount": 15,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w01_p00_e10",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "0487563080bf6def4f2d03b31107cc6aa10f5f4f318c497ffe16392323f201dd",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w02_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "aa973dfe48e7982419f4364e2cee69505c3c614dfd87e9e38b2d3cd308f06d55",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p01_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "ecd524491898685dbd4e579558814c73a372b137d591f8de005ca7054a816dde",
+      "segmentCount": 20,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p08_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "46c1050edb8d31aad4ec5d3dbd09526e4690a5a9cea23fbab26624c5b39d7fef",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p09_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "ee5f7a627d79b48dbc3f9acf57796c8a8c4406188b81de668d710253b7f454be",
+      "segmentCount": 25,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p00_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "f2f145bbe4d7cf8d9a1ee69ac897de2260a374de61ccad3774eb93598af60a70",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p08_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "359db74e5dda251251bd0b8f386dd82fbbcbb3b863d5ddc64bc4be5f46b23db2",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p00_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "9c01fd5589af549ec62a2a048e67aab6fa673959ce71c1a22af65ce2e4420d47",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p01_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "9ec213f9e4945dc93ca88119166ad5e4894f83fe8b5e5d084cffc0f038458928",
+      "segmentCount": 25,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w02_p00_e05",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "9ef5811a2361cc9a5e9d04d23a35b749bca7834ea02b31e53601ab37aac1f61c",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w03_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "32af6c0ec50bbcb1101e2f7d93a8341951a95858fa9f62ec99dae3dfcabfd553",
+      "segmentCount": 25,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w03_p08_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "b36d9cfd3e443052281ba35d62bd20f82b678472bc7a0f5d374e4e4e3ed13375",
+      "segmentCount": 30,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w03_p00_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "66d888650db29e5bde4a722f49ae225d76b4d9bf878d81b3a98bfd9e6b292b11",
+      "segmentCount": 30,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w03_p00_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "ea9852a47856ddeacde1862454c2fe22e6bb4f2fa8a0cf4c08b5037f321ece62",
+      "segmentCount": 25,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w03_p00_e12",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "444701a0cd28c9c25cd522141549d7638ba839dcafa8c22b8f66b249d59d4fce",
+      "segmentCount": 30,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w04_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "6ad6ffb99a5895e4eca880bc188c2b4d8498eb92036ccaac40c9e33941c4cadf",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p01_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "8f598150c202c21a0168fd73544062391d851902e459643d4939dcd7b146ccd0",
+      "segmentCount": 20,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p02_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "8b497b0f981026931a791b28be7a2cc50dbb1ededce7c63b9e22dae62daad691",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p03_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "049fda74970e5c1c21382b5bfb0efd488f2af3e37ed04e2324838cc4314764cc",
+      "segmentCount": 25,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p00_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "d507e98ec2440a1fd046d25c0ae652c1bf5b9107d78a0705939bd21b1e0cbfa5",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p01_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "46c1be66c0cc4dcb484169f0a11e50174fd7f8d6ebadeff919ac95951055b89a",
+      "segmentCount": 25,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p00_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "570a0ed246ae5f5f09a7860f5d03e467ce8ec6eca91da0a898e2c37341216268",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p02_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "2744b7a5f2da3848e38bf439b55c8878a6360bae3171b2e939a60c28be121a86",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w04_p00_e10",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "a58008ee33a35a2524243210a73be1a0380d830e3f30d485abc1c21cfb285f5f",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w05_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "65aedd48ea5bd58ccb16803e84a0923a8901e4f9a196156529bd6e2a7b696d94",
+      "segmentCount": 26,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w05_p00_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "b1fa65c8e2c40b02454b59f746272daaea2656d70e2ee42a71b32ea200b59a3d",
+      "segmentCount": 36,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w05_p00_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "56cce349dfa40ef95be81e148b35af3355850aa5068675d4edc38e6782aa3314",
+      "segmentCount": 26,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w05_p00_e10",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "47d17d40a4bc4ad0342876ff6e0d280fbd125159170b46c205edbea7a0d102ab",
+      "segmentCount": 36,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w06_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "219efcd4d60120d11be803e3badf7c412ec8677b0d704a66aeace5ab23844b9b",
+      "segmentCount": 27,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w06_p01_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "ab949b98a0b8f0b46bd3ecf86ddcb235fc31a09939c5c8d63100c51145e9b68b",
+      "segmentCount": 34,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w06_p00_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "c7b8bea2378503273b6063853bb8fa89e2111aa117b0eaac472d8d7804469151",
+      "segmentCount": 27,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w06_p00_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "ca74901e490778465f6fbffb8d4e31234387b4e8c3acbcbe01b49ec4abeff7b6",
+      "segmentCount": 27,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w06_p00_e09",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "95791857a0d6e2832b62035ee61c64e935ca10b9ede7c53f88528a2a9a188f20",
+      "segmentCount": 27,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w07_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "668ab929748e863fd597f6103742b66e097c4e87a51987cf17d75bc22b346cae",
+      "segmentCount": 39,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-layers",
+        "walls-pits",
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w07_p00_e08",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "32595d4f62760acceb4d395bb454b5f6d26a9add7504c1839cf8fe9c6c81357a",
+      "segmentCount": 39,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-layers",
+        "walls-pits",
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "cells/w08_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "4dc96248dab80cf42d5c5619c6755bb4b24c690470ed7fa9dbff02acf6c7d4dd",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p02_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "5390230ad6c8a40b26e99f59bea311d31b0d5587ad72ade886acc3e2599e5670",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p04_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "20b2f354019af952a165d843bac718e7d135ff864c4ec4db71505e6fa3b37c94",
+      "segmentCount": 15,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p06_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "2ed185650f0951e2623619b011b6064514654e091512f476682455908c25af22",
+      "segmentCount": 20,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p00_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "66089a40e0855489decd15e86879985272af3604408357eff40361c28d19682a",
+      "segmentCount": 13,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p04_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "73f0ecf28cd2ab7b6f96f1fa1a897023d01d0a62b528d6402ce14a9a2ad7bd19",
+      "segmentCount": 15,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p00_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "9346fa9d4dbe28e9c4c8b94fe7522aa3b1e585784922cab11ba30c0aa16fc1b9",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p02_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "5ff4fc735e8d25e7c20f62bc73456d6a1f412dd6881fb10c0f0ce8c303013578",
+      "segmentCount": 23,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w08_p00_e05",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "d33fac795004045c5cb8f5d38f8dd053d8f1ef22c8bab05abd099b626281bb84",
+      "segmentCount": 18,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w09_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "2841dfc9aa061e844081312a547b0d49d379443a7c13b90c1e50b1329d35d36a",
+      "segmentCount": 21,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w09_p04_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "a6213bdb1ae9f263297d3f0121fb9dac0ec67c35ea86fa8e24f696869621676e",
+      "segmentCount": 23,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w09_p00_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "245915d81fe2c918aae7ee03c74a7f48caf4d52924e391852aa6b0ab17b76ea0",
+      "segmentCount": 26,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w09_p00_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "cca0bd2255988c2166412032df977b6f44e1f8b42311194d22ce3e331eef5640",
+      "segmentCount": 26,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w09_p00_e06",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "b562f020783cd3802fbc025f79eaee492a3e47c416bb806e5849611c19095f64",
+      "segmentCount": 31,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w10_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "3190cfedac44a786686028dc9418d731159efeed9f9e8afe14acaed581ececcc",
+      "segmentCount": 26,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w10_p00_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "c19af42a6320a0e053511596e0b0d967cff4580bcf9ccb57cd3a8254f72a8927",
+      "segmentCount": 26,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w10_p00_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "26cc982447a01c9dbf1d44d8a222ce06695147939ed3012d66f6e06080723c34",
+      "segmentCount": 36,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w10_p00_e05",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "994db162eb8e20a19645def6a0291016acafa267b7d68c051d1ae7acb22ccda0",
+      "segmentCount": 36,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "walls-planes",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w11_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "c592a7a456c8fd3d631a32c1c8eeb9c3137d7e2362cd867f9f20753b7e06800a",
+      "segmentCount": 33,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w11_p00_e04",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "0fd325a47489c3dd73fd21ee6f836719fbb69fbe54a634a0a74b6a68904737d7",
+      "segmentCount": 43,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w12_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "8b50d46dbb443c91ff13cbc0fa62ac895c655a4c5730e55a072b5e8a22b112dc",
+      "segmentCount": 24,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-layers",
+        "walls-pits",
+        "walls-fissures"
+      ]
+    },
+    {
+      "id": "cells/w12_p02_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "30d4e397e5686b473001475c1c5cd8f0ef71e37e798ae5bbbf5f165d5c48efbf",
+      "segmentCount": 29,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-layers",
+        "walls-pits",
+        "walls-fissures"
+      ]
+    },
+    {
+      "id": "cells/w12_p00_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "1e5c2a53cb3623d941a789761f20826c9916f98adb24a27e746815d5df64ea49",
+      "segmentCount": 24,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-layers",
+        "walls-pits",
+        "walls-fissures"
+      ]
+    },
+    {
+      "id": "cells/w12_p00_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "538e47e5d3d870c399b50f81ba7fbc55f5c19b057b68a4bf2cb6fdcdfd47eee0",
+      "segmentCount": 29,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-layers",
+        "walls-pits",
+        "walls-fissures"
+      ]
+    },
+    {
+      "id": "cells/w12_p00_e03",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "125fe6efd4a14db7c078205c2a13146d543526ba7e16e1681d0fd0017dfe9a59",
+      "segmentCount": 29,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-layers",
+        "walls-pits",
+        "walls-fissures"
+      ]
+    },
+    {
+      "id": "cells/w13_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "1132ba37f5c43c86abb806c3cc6c992e159084b62ade4c2ea3bdd5a1dc6c9ec3",
+      "segmentCount": 32,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-layers",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w13_p00_e02",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "9ee634d021fb2c37b91a42b0d26d433c5d0257398175e283c6b196637201e08c",
+      "segmentCount": 42,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-layers",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "cells/w14_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "1a788a94c2c89caa2edd8178da23dfca73d48480d0bb4bc77b4fe545dc12b14b",
+      "segmentCount": 38,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w14_p00_e01",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "402f028ca635ad322a48638a8389233e74213b0ef93e3b36a866a904dd66b9be",
+      "segmentCount": 38,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "cells/w15_p00_e00",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "3c3803809db34c071a1e8530111fa3ce70745e81f2d8ffa058b16478853a2802",
+      "segmentCount": 45,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-layers",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "entrances/north",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "86c4b8a2b0db99cb4dd2934665a42a65756c03e4880496dd7e8230b49f64a291",
+      "segmentCount": 47,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-layers",
+        "floors-worn",
+        "walls-fissures",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "entrances/east",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "39771d68ada8a7aa88f0b7866c198d5c6c21f55943b7870ed66f089e313d730e",
+      "segmentCount": 49,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "floors-worn",
+        "walls-layers",
+        "walls-fissures",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "entrances/south",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "d680b1ad36930ed74e569d7c6e343fcacb02680cacb0a30245a4b7fd30501df5",
+      "segmentCount": 49,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "floors-worn",
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits"
+      ]
+    },
+    {
+      "id": "entrances/west",
+      "canvas": [
+        1216,
+        1408
+      ],
+      "anchor": [
+        96,
+        352
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "4be673922241a02cceb4d60dcf9c6d2cedd831490c9ff54bc84b9a222f694da2",
+      "segmentCount": 47,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        352
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "floors-worn",
+        "walls-planes",
+        "walls-pits",
+        "walls-layers"
+      ]
+    },
+    {
+      "id": "doors/north",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "08432c4e09347fae8eac349af31368e2e2b87674314bf24dfb0688fbe388ebdf",
+      "segmentCount": 268,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-pits",
+        "door-oak",
+        "walls-fissures",
+        "walls-planes",
+        "walls-layers",
+        "door-iron"
+      ]
+    },
+    {
+      "id": "doors/east",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "d32b3fea57d1bf25643a7af47b714140e25787440de7a8fadf9925cc03f23e3e",
+      "segmentCount": 263,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-layers",
+        "walls-fissures",
+        "walls-planes",
+        "walls-pits",
+        "door-oak",
+        "door-iron"
+      ]
+    },
+    {
+      "id": "doors/south",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "f2a6d1118403006f703281c0d8e4ebddfd687fd3a6d73871f605a70515314e67",
+      "segmentCount": 266,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-fissures",
+        "walls-pits",
+        "door-oak",
+        "walls-planes",
+        "walls-layers",
+        "door-iron"
+      ]
+    },
+    {
+      "id": "doors/west",
+      "canvas": [
+        1216,
+        1568
+      ],
+      "anchor": [
+        96,
+        512
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "8d53ec72cc4344697147517c4ae16fdddd34cc89ff7e957c9285f362bfec5a1e",
+      "segmentCount": 225,
+      "outputFrame": [
+        0,
+        0,
+        304,
+        392
+      ],
+      "repeatInkY": 0,
+      "exportedJointLayerMatchesGuide": true,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "materials": [
+        "walls-planes",
+        "walls-fissures",
+        "walls-layers",
+        "walls-pits",
+        "door-oak",
+        "door-iron"
+      ]
+    }
+  ],
+  "floor": {
+    "id": "floor",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "cellPitch": 1024,
+    "guideSha256": "1eb81142c7a89bf6558a4960c0c2e80a8d38bdccfbce719eea5addf3336c1bae",
+    "segmentCount": 26,
+    "outputFrame": [
+      4,
+      4,
+      256,
+      256
+    ],
+    "repeatInkY": 256,
+    "exportedJointLayerMatchesGuide": true,
+    "alphaPixelsDifferentFromModel": 0,
+    "unpaintedInteriorPixels": 0,
+    "extraInteriorPixels": 0,
+    "materials": [
+      "floors-calm",
+      "floors-worn",
+      "floors-marks",
+      "floors-fine-crack"
+    ]
+  }
+}

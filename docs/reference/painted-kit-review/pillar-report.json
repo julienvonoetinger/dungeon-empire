@@ -1,0 +1,145 @@
+{
+  "id": "pillar",
+  "canvas": [
+    384,
+    576
+  ],
+  "anchor": [
+    96,
+    352
+  ],
+  "cellPitch": 1024,
+  "guideSha256": "84b89b2200b50c73b4e2f0284f510ceabc4817941c808a950a98b46c2f5ef61e",
+  "segmentCount": 11,
+  "outputFrame": [
+    0,
+    0,
+    96,
+    144
+  ],
+  "repeatInkY": 0,
+  "exportedJointLayerMatchesGuide": true,
+  "alphaPixelsDifferentFromModel": 0,
+  "unpaintedInteriorPixels": 0,
+  "extraInteriorPixels": 0,
+  "faces": [
+    {
+      "points": [
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          52.22827,
+          58.47467
+        ],
+        [
+          9.5616,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          130.66667
+        ],
+        [
+          24,
+          130.66667
+        ],
+        [
+          16.7808,
+          94.57067
+        ],
+        [
+          59.44747,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          16.7808,
+          94.57067
+        ],
+        [
+          9.5616,
+          58.47467
+        ],
+        [
+          52.22827,
+          58.47467
+        ]
+      ],
+      "kind": "north",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          66.66667,
+          88
+        ],
+        [
+          66.66667,
+          130.66667
+        ],
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          59.44747,
+          51.90400000000002
+        ]
+      ],
+      "kind": "west",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          59.44747,
+          51.90400000000002
+        ],
+        [
+          59.44747,
+          94.57067
+        ],
+        [
+          52.22827,
+          58.47467
+        ]
+      ],
+      "kind": "west",
+      "part": "pillar",
+      "materialId": "walls-planes"
+    }
+  ],
+  "materials": [
+    "walls-planes"
+  ]
+}

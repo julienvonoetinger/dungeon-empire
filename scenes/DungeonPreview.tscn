@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://scripts/dungeon_preview.gd" id="1_preview"]
-[ext_resource type="Script" path="res://scripts/dungeon_view.gd" id="2_dungeon"]
-[ext_resource type="Resource" path="res://assets/layouts/preview.tres" id="3_layout"]
+[ext_resource type="Script" path="res://scripts/six_room_preview.gd" id="1_preview"]
+[ext_resource type="Script" path="res://scripts/wireframe_cell_study.gd" id="2_dungeon"]
+[ext_resource type="Resource" path="res://assets/layouts/six_rooms_wireframe.tres" id="3_layout"]
 
 [node name="DungeonPreview" type="Node2D"]
 script = ExtResource("1_preview")
@@ -10,6 +10,7 @@ script = ExtResource("1_preview")
 [node name="Dungeon" type="Node2D" parent="."]
 script = ExtResource("2_dungeon")
 layout = ExtResource("3_layout")
+entrance_at_closed_ends = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(846, 576)

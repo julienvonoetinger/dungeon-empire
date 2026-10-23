@@ -1,0 +1,96 @@
+{
+  "id": "painted-nw-cell-wireframe-review-2026-10-23",
+  "scope": "One isolated upper-left corner with paving, generated with the built-in image_gen tool and reviewed using the transparent magenta guide. No runtime integration.",
+  "canonicalStyle": "assets/dungeon/gloom-kit/reference.png",
+  "geometry": "docs/reference/wireframe-overlays/cells/w09_p00_e00.svg",
+  "construction": "docs/reference/painted-corner-review/nw-construction-4x.png",
+  "camera": {
+    "groundX": [
+      1,
+      0
+    ],
+    "groundY": [
+      0,
+      1
+    ],
+    "heightUp": [
+      -0.18,
+      -0.9
+    ],
+    "wallThickness": 0.16666666666666666,
+    "wallHeight": 0.3133333333333333,
+    "courseJoint": 0.15666666666666665
+  },
+  "correction": "The top horizontal plane is the TOP FACE of the upper masonry course, not an additional coping course. Do not confuse the user's criticism of the TOP bricks with the small floor strip at the wall foot.",
+  "attempts": [
+    {
+      "version": "v1",
+      "image": "assets/dungeon/gloom-kit/proposals/nw-cell-wireframe-v1.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-979e65fe-7cbf-4417-b960-225d5a2873f3.png",
+      "prompt": "prompt-v1.txt",
+      "requestedCanvas": [
+        1216,
+        1408
+      ],
+      "actualCanvas": [
+        1166,
+        1349
+      ],
+      "status": "user_rejected_false_third_coping_course"
+    },
+    {
+      "version": "v2",
+      "image": "assets/dungeon/gloom-kit/proposals/nw-cell-wireframe-v2.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-0266e2e1-2189-4e23-9b32-6aa08dc8849e.png",
+      "prompt": "prompt-v2.txt",
+      "requestedCanvas": [
+        1166,
+        1349
+      ],
+      "actualCanvas": [
+        1166,
+        1349
+      ],
+      "status": "unapproved_coping_effect_reduced_west_joints_shifted"
+    },
+    {
+      "version": "v3",
+      "image": "assets/dungeon/gloom-kit/proposals/nw-cell-wireframe-v3.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-f8e42a5f-3f38-405d-ad6a-45181beb041d.png",
+      "prompt": "prompt-v3.txt",
+      "requestedCanvas": [
+        1166,
+        1349
+      ],
+      "actualCanvas": [
+        1166,
+        1349
+      ],
+      "status": "unapproved_first_west_joint_still_too_low"
+    },
+    {
+      "version": "v4",
+      "image": "assets/dungeon/gloom-kit/proposals/nw-cell-wireframe-v4.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-54fc4222-d43b-4405-b771-822990439217.png",
+      "prompt": "prompt-v4.txt",
+      "inputRoles": {
+        "exactDrawingToPaint": "docs/reference/painted-corner-review/nw-construction-1166x1349.png",
+        "materialOnly": "assets/dungeon/gloom-kit/reference.png"
+      },
+      "requestedCanvas": [1166, 1349],
+      "actualCanvas": [1166, 1349],
+      "status": "failed_assistant_review_not_submitted_as_approved",
+      "findings": [
+        "West top-face joints are closer to the guide than v3, but this is insufficient for acceptance.",
+        "The narrow visible floor band below the north wall is painted as a protruding dark wall foot. Its vertical joints no longer match the floor guide.",
+        "North facade shading reads as upward-facing slabs, contrary to the intended upright two-course wall.",
+        "Exterior alpha bounds still differ from the fixed guide. Interior floors remain too textured."
+      ],
+      "sourceCopiedUnchanged": true
+    }
+  ],
+  "validation": {
+    "method": "Whole-canvas uniform scale from the 304x352 guide, fixed (0,0), no best-fit shifting, distortion, alpha trimming or color repairs. Review composites are separate files; generated images remain unchanged.",
+    "result": "NOT validated for exact geometry. High silhouette IoU does not measure masonry-joint alignment or artistic approval."
+  }
+}
