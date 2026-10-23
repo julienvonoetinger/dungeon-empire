@@ -2,6 +2,10 @@
 
 ## Statut et référence
 
+Pour reconstruire le catalogue actuel, suivre
+[WIREFRAME_WORKFLOW.md](WIREFRAME_WORKFLOW.md) : sources, formules, variantes,
+raccords, ancrages, commande d'export et revue dans Godot.
+
 **Intégration wireframe dans Godot — 23 octobre 2026.** L'utilisateur a choisi
 les wireframes avant les sprites peints. Les scènes modulaires utilisent le
 catalogue préparé `assets/dungeon/wireframe-cells/`, importé comme textures.

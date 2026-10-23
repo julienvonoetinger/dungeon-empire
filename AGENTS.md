@@ -2,6 +2,9 @@
 
 ## Active Godot integration — 2026-10-23
 
+- Before changing or regenerating wireframes, read
+  `docs/reference/WIREFRAME_WORKFLOW.md`. It records source files, construction
+  logic, masks, piers, shared projection, anchors, offline export and review.
 - The user explicitly authorized replacing the modular study rendering with the
   wireframe cells, and chose WIREFRAMES FIRST before painted sprites. The older
   review-only restrictions below describe previous stages, not a current ban

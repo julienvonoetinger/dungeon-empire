@@ -26,6 +26,8 @@ briques, huit piliers de jonction. Les 13 études/alias existants ont également
 Le catalogue `assets/dungeon/wireframe-cells/` contient les images SVG importées
 par Godot. `wireframe_cell_catalog.gd` référence les textures ; le script de
 préparation `tools/export_wireframe_cell_kit.cjs` s'exécute uniquement hors du jeu.
+La méthode complète est documentée dans
+[Wireframes : construction et régénération](docs/reference/WIREFRAME_WORKFLOW.md).
 Le sol reprend les 19 dalles de la case « sol seul », normalisées au format carré,
 sans le nouveau motif provisoire. Le motif se répète par case ; il ne reproduit
 pas le dallage global dessiné spécialement pour la précédente salle entière.
