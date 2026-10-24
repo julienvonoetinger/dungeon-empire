@@ -1,0 +1,36 @@
+{
+  "source": "docs/reference/pillar-cap-review/source/carved-top.png",
+  "sha256": "f8610535c3246f4b4105a7821dab71c3f865d59276e9fe35753b87725556d422",
+  "baseSha256": "259be4762d3dacd23860c53bca5a2f78b0cfa3c065dc8f87acd655b84dff2236",
+  "frame": [
+    -50,
+    -114,
+    68,
+    68
+  ],
+  "topBounds": [
+    -46.77119999999999,
+    -110.97599999999998,
+    14.668800000000001,
+    -49.53599999999999
+  ],
+  "preservedRim": 3,
+  "blendWidth": 3,
+  "audits": [
+    {
+      "density": 128,
+      "alphaDifferences": 0,
+      "changedOutsideTop": 0,
+      "changedPixels": 713,
+      "rgbReference": "same compositor with a transparent cap"
+    },
+    {
+      "density": 256,
+      "alphaDifferences": 0,
+      "changedOutsideTop": 0,
+      "changedPixels": 2939,
+      "rgbReference": "same compositor with a transparent cap"
+    }
+  ],
+  "status": "appearance_proposal"
+}

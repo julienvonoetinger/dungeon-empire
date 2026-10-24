@@ -1,0 +1,420 @@
+{
+  "entries": [
+    {
+      "bytes": 417444,
+      "path": ".godot/imported/atlas-256.png-15628a14e8245b13a843cb4f536ca532.ctex",
+      "compressedBytes": 415672
+    },
+    {
+      "bytes": 198,
+      "path": "assets/dungeon/mobile-kit/atlas-256.png.import",
+      "compressedBytes": 161
+    },
+    {
+      "bytes": 10386,
+      "path": ".godot/exported/133200997/export-ce441fda5fa6229143d146314762aa30-catalog.res",
+      "compressedBytes": 1706
+    },
+    {
+      "bytes": 196,
+      "path": "scripts/mobile_kit_definition.gdc",
+      "compressedBytes": 201
+    },
+    {
+      "bytes": 463,
+      "path": ".godot/exported/133200997/export-7ce9c42434444276e27097cd342051bf-single_cell.res",
+      "compressedBytes": 242
+    },
+    {
+      "bytes": 1765,
+      "path": "scripts/dungeon_layout.gdc",
+      "compressedBytes": 1770
+    },
+    {
+      "bytes": 1059,
+      "path": ".godot/exported/133200997/export-b3bf1975da29d7d75f65343e5c87675a-six_rooms_wireframe.res",
+      "compressedBytes": 481
+    },
+    {
+      "bytes": 443,
+      "path": ".godot/exported/133200997/export-644093c5a337c9f915bc30374ea221cd-study_1x2.res",
+      "compressedBytes": 237
+    },
+    {
+      "bytes": 449,
+      "path": ".godot/exported/133200997/export-e6408be0a6800b053c9e97fcd0ab450e-study_1x3.res",
+      "compressedBytes": 238
+    },
+    {
+      "bytes": 438,
+      "path": ".godot/exported/133200997/export-c34a1441a51233cd5c97e5ea193355ea-study_2x1.res",
+      "compressedBytes": 237
+    },
+    {
+      "bytes": 439,
+      "path": ".godot/exported/133200997/export-5bc82ac0befc85128b107e22fbae1dff-study_3x1.res",
+      "compressedBytes": 238
+    },
+    {
+      "bytes": 455,
+      "path": ".godot/exported/133200997/export-eb0334e00b66d9f35ae9dcbd984e6ab0-study_3x3.res",
+      "compressedBytes": 238
+    },
+    {
+      "bytes": 481,
+      "path": ".godot/exported/133200997/export-fb923a36387c76c0b9ed555037068f30-study_5x5.res",
+      "compressedBytes": 239
+    },
+    {
+      "bytes": 476,
+      "path": ".godot/exported/133200997/export-85133f13bf26ad5f4aae4a69c19c216a-two_by_two_cells.res",
+      "compressedBytes": 248
+    },
+    {
+      "bytes": 1080,
+      "path": ".godot/exported/133200997/export-19f070137667331d511e8150fd13e08c-1x1CellRoom.scn",
+      "compressedBytes": 507
+    },
+    {
+      "bytes": 1554,
+      "path": "scripts/six_room_preview.gdc",
+      "compressedBytes": 1559
+    },
+    {
+      "bytes": 3043,
+      "path": "scripts/wireframe_cell_study.gdc",
+      "compressedBytes": 3048
+    },
+    {
+      "bytes": 1108,
+      "path": ".godot/exported/133200997/export-1c7c3483c2b6a6e396e2107abce17c38-1x2Corridor.scn",
+      "compressedBytes": 518
+    },
+    {
+      "bytes": 1108,
+      "path": ".godot/exported/133200997/export-51094d4719d7649d7a62e054846d0137-1x3Corridor.scn",
+      "compressedBytes": 519
+    },
+    {
+      "bytes": 1108,
+      "path": ".godot/exported/133200997/export-3a53beb9421e04d0a2d81d324d655dc4-2x1Corridor.scn",
+      "compressedBytes": 524
+    },
+    {
+      "bytes": 1120,
+      "path": ".godot/exported/133200997/export-bf37c353523645fa374269ebcdb80292-2x2CellRoom.scn",
+      "compressedBytes": 530
+    },
+    {
+      "bytes": 1108,
+      "path": ".godot/exported/133200997/export-269580f9d59ddaa6a784c8495e0635fd-3x1Corridor.scn",
+      "compressedBytes": 520
+    },
+    {
+      "bytes": 1078,
+      "path": ".godot/exported/133200997/export-a37ce0b1891a9dce64bcf10b4f292a02-3x3CellRoom.scn",
+      "compressedBytes": 507
+    },
+    {
+      "bytes": 1140,
+      "path": ".godot/exported/133200997/export-c7132c16af58824d3e71caf3a7fa78da-3x3RoomCornerCorridors.scn",
+      "compressedBytes": 532
+    },
+    {
+      "bytes": 1200,
+      "path": ".godot/exported/133200997/export-ee74d16ba1cfa52eaee7c3eaf6966768-3x3RoomFourCorridors.scn",
+      "compressedBytes": 561
+    },
+    {
+      "bytes": 1140,
+      "path": ".godot/exported/133200997/export-5a9d928a99de7df45ec2ea67abbb7954-5x5RoomCornerCorridors.scn",
+      "compressedBytes": 533
+    },
+    {
+      "bytes": 1167,
+      "path": ".godot/exported/133200997/export-974d88ed49cccefe331f11eeef559ccc-5x5RoomFourCorridors.scn",
+      "compressedBytes": 537
+    },
+    {
+      "bytes": 1148,
+      "path": ".godot/exported/133200997/export-df643fe83af33b52a70f5cd3133817e3-5x5RoomVerticalCornerCorridors.scn",
+      "compressedBytes": 539
+    },
+    {
+      "bytes": 1135,
+      "path": ".godot/exported/133200997/export-722482ee28d25432d26f5fb9a4b9df56-DungeonPreview.scn",
+      "compressedBytes": 527
+    },
+    {
+      "bytes": 897,
+      "path": ".godot/exported/133200997/export-7dec08123a17e5488b3103556eac3069-EntranceVariants.scn",
+      "compressedBytes": 406
+    },
+    {
+      "bytes": 962,
+      "path": "scripts/entrance_variants.gdc",
+      "compressedBytes": 967
+    },
+    {
+      "bytes": 1437,
+      "path": ".godot/exported/133200997/export-1132c9d3f9e5c2f28dd79b575be665cc-MobileReference.scn",
+      "compressedBytes": 641
+    },
+    {
+      "bytes": 212,
+      "path": "scripts/mobile_reference.gdc",
+      "compressedBytes": 217
+    },
+    {
+      "bytes": 1218,
+      "path": ".godot/exported/133200997/export-9dd544d6e35307f16e6b5498ea8a1545-PerspectiveRoom.scn",
+      "compressedBytes": 576
+    },
+    {
+      "bytes": 1188,
+      "path": ".godot/exported/133200997/export-68e76823eb7c0412c38bcb922deccc89-ReferenceCalibration.scn",
+      "compressedBytes": 556
+    },
+    {
+      "bytes": 1118,
+      "path": ".godot/exported/133200997/export-7b2a8bd8dd383a9895dc7a0eeac0bdd9-SingleCellRoom.scn",
+      "compressedBytes": 526
+    },
+    {
+      "bytes": 1102,
+      "path": ".godot/exported/133200997/export-2c353c2d159d7e9a4d8c81f5cb12fed1-SixRoomPreview.scn",
+      "compressedBytes": 514
+    },
+    {
+      "bytes": 1166,
+      "path": ".godot/exported/133200997/export-776a593e409868ba4b2ecce274af6510-WireframeClosedCorridors.scn",
+      "compressedBytes": 548
+    },
+    {
+      "bytes": 1295,
+      "path": ".godot/exported/133200997/export-e29b0bb4dba2b9e5c7905dd0f88507d2-WireframeDoorCross.scn",
+      "compressedBytes": 592
+    },
+    {
+      "bytes": 6874,
+      "path": "scripts/mobile_dungeon_renderer.gdc",
+      "compressedBytes": 6879
+    },
+    {
+      "bytes": 3138,
+      "path": "scripts/wireframe_cell_layout.gdc",
+      "compressedBytes": 3143
+    },
+    {
+      "bytes": 100,
+      "path": "assets/dungeon/mobile-kit/catalog.tres.remap",
+      "compressedBytes": 91
+    },
+    {
+      "bytes": 56,
+      "path": "scripts/mobile_kit_definition.gd.remap",
+      "compressedBytes": 58
+    },
+    {
+      "bytes": 104,
+      "path": "assets/layouts/single_cell.tres.remap",
+      "compressedBytes": 96
+    },
+    {
+      "bytes": 49,
+      "path": "scripts/dungeon_layout.gd.remap",
+      "compressedBytes": 51
+    },
+    {
+      "bytes": 112,
+      "path": "assets/layouts/six_rooms_wireframe.tres.remap",
+      "compressedBytes": 104
+    },
+    {
+      "bytes": 102,
+      "path": "assets/layouts/study_1x2.tres.remap",
+      "compressedBytes": 95
+    },
+    {
+      "bytes": 102,
+      "path": "assets/layouts/study_1x3.tres.remap",
+      "compressedBytes": 94
+    },
+    {
+      "bytes": 102,
+      "path": "assets/layouts/study_2x1.tres.remap",
+      "compressedBytes": 94
+    },
+    {
+      "bytes": 102,
+      "path": "assets/layouts/study_3x1.tres.remap",
+      "compressedBytes": 94
+    },
+    {
+      "bytes": 102,
+      "path": "assets/layouts/study_3x3.tres.remap",
+      "compressedBytes": 93
+    },
+    {
+      "bytes": 102,
+      "path": "assets/layouts/study_5x5.tres.remap",
+      "compressedBytes": 95
+    },
+    {
+      "bytes": 109,
+      "path": "assets/layouts/two_by_two_cells.tres.remap",
+      "compressedBytes": 100
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/1x1CellRoom.tscn.remap",
+      "compressedBytes": 98
+    },
+    {
+      "bytes": 51,
+      "path": "scripts/six_room_preview.gd.remap",
+      "compressedBytes": 53
+    },
+    {
+      "bytes": 55,
+      "path": "scripts/wireframe_cell_study.gd.remap",
+      "compressedBytes": 57
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/1x2Corridor.tscn.remap",
+      "compressedBytes": 97
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/1x3Corridor.tscn.remap",
+      "compressedBytes": 97
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/2x1Corridor.tscn.remap",
+      "compressedBytes": 97
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/2x2CellRoom.tscn.remap",
+      "compressedBytes": 99
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/3x1Corridor.tscn.remap",
+      "compressedBytes": 97
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/3x3CellRoom.tscn.remap",
+      "compressedBytes": 99
+    },
+    {
+      "bytes": 115,
+      "path": "scenes/3x3RoomCornerCorridors.tscn.remap",
+      "compressedBytes": 105
+    },
+    {
+      "bytes": 113,
+      "path": "scenes/3x3RoomFourCorridors.tscn.remap",
+      "compressedBytes": 106
+    },
+    {
+      "bytes": 115,
+      "path": "scenes/5x5RoomCornerCorridors.tscn.remap",
+      "compressedBytes": 106
+    },
+    {
+      "bytes": 113,
+      "path": "scenes/5x5RoomFourCorridors.tscn.remap",
+      "compressedBytes": 105
+    },
+    {
+      "bytes": 123,
+      "path": "scenes/5x5RoomVerticalCornerCorridors.tscn.remap",
+      "compressedBytes": 114
+    },
+    {
+      "bytes": 107,
+      "path": "scenes/DungeonPreview.tscn.remap",
+      "compressedBytes": 102
+    },
+    {
+      "bytes": 109,
+      "path": "scenes/EntranceVariants.tscn.remap",
+      "compressedBytes": 101
+    },
+    {
+      "bytes": 52,
+      "path": "scripts/entrance_variants.gd.remap",
+      "compressedBytes": 54
+    },
+    {
+      "bytes": 108,
+      "path": "scenes/MobileReference.tscn.remap",
+      "compressedBytes": 102
+    },
+    {
+      "bytes": 51,
+      "path": "scripts/mobile_reference.gd.remap",
+      "compressedBytes": 53
+    },
+    {
+      "bytes": 108,
+      "path": "scenes/PerspectiveRoom.tscn.remap",
+      "compressedBytes": 102
+    },
+    {
+      "bytes": 113,
+      "path": "scenes/ReferenceCalibration.tscn.remap",
+      "compressedBytes": 105
+    },
+    {
+      "bytes": 107,
+      "path": "scenes/SingleCellRoom.tscn.remap",
+      "compressedBytes": 100
+    },
+    {
+      "bytes": 107,
+      "path": "scenes/SixRoomPreview.tscn.remap",
+      "compressedBytes": 102
+    },
+    {
+      "bytes": 117,
+      "path": "scenes/WireframeClosedCorridors.tscn.remap",
+      "compressedBytes": 108
+    },
+    {
+      "bytes": 111,
+      "path": "scenes/WireframeDoorCross.tscn.remap",
+      "compressedBytes": 103
+    },
+    {
+      "bytes": 58,
+      "path": "scripts/mobile_dungeon_renderer.gd.remap",
+      "compressedBytes": 60
+    },
+    {
+      "bytes": 56,
+      "path": "scripts/wireframe_cell_layout.gd.remap",
+      "compressedBytes": 58
+    },
+    {
+      "bytes": 177,
+      "path": ".godot/global_script_class_cache.cfg",
+      "compressedBytes": 133
+    },
+    {
+      "bytes": 526,
+      "path": ".godot/uid_cache.bin",
+      "compressedBytes": 326
+    },
+    {
+      "bytes": 846,
+      "path": "project.binary",
+      "compressedBytes": 402
+    }
+  ],
+  "bytes": 468522
+}

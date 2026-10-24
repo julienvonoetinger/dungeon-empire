@@ -1,0 +1,3755 @@
+{
+  "status": "visual_prototype_not_promoted",
+  "projection": [
+    -0.18,
+    -0.9
+  ],
+  "logicalCell": 1,
+  "worldPixelsPerCell": 256,
+  "referenceViewport": [
+    1280,
+    720
+  ],
+  "displayPixelsPerCell": 192,
+  "cameraZoom": 0.75,
+  "wallThickness": 0.16666666666666666,
+  "wallHeight": 0.3133333333333333,
+  "pillarWidth": 0.24,
+  "layout": {
+    "room": [
+      3,
+      2
+    ],
+    "corridorWidth": 1,
+    "eastLength": 3,
+    "southLength": 4
+  },
+  "floor": {
+    "rows": 3,
+    "fullWidthRange": [
+      0.32,
+      0.35
+    ],
+    "previousRows": 2,
+    "previousWidthRange": [
+      0.475,
+      0.525
+    ]
+  },
+  "wallAppearanceCount": 1,
+  "geometryCount": 10,
+  "decorationCount": 4,
+  "defaultPillarDetail": "pillar-top-carved",
+  "historicalDecorations": [
+    "decor-a",
+    "decor-b",
+    "decor-c"
+  ],
+  "atlases": [
+    {
+      "density": 128,
+      "width": 512,
+      "height": 256,
+      "sourceBytes": 83275,
+      "uncompressedRGBABytes": 524288,
+      "regions": {
+        "wall-v-0": {
+          "region": [
+            4,
+            4,
+            32,
+            168
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            336
+          ]
+        },
+        "wall-v-2": {
+          "region": [
+            44,
+            4,
+            32,
+            153
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            306
+          ]
+        },
+        "wall-v-1": {
+          "region": [
+            84,
+            4,
+            32,
+            152
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            304
+          ]
+        },
+        "wall-v-3": {
+          "region": [
+            124,
+            4,
+            32,
+            137
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            274
+          ]
+        },
+        "floor": {
+          "region": [
+            164,
+            4,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "size": [
+            256,
+            256
+          ]
+        },
+        "pillar": {
+          "region": [
+            44,
+            165,
+            42,
+            74
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            84,
+            148
+          ]
+        },
+        "wall-h-0": {
+          "region": [
+            94,
+            164,
+            139,
+            61
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            278,
+            122
+          ]
+        },
+        "wall-h-1": {
+          "region": [
+            241,
+            140,
+            123,
+            61
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            246,
+            122
+          ]
+        },
+        "wall-h-2": {
+          "region": [
+            372,
+            4,
+            124,
+            61
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            248,
+            122
+          ]
+        },
+        "wall-h-3": {
+          "region": [
+            372,
+            73,
+            108,
+            61
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            216,
+            122
+          ]
+        },
+        "decor-a": {
+          "region": [
+            241,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-b": {
+          "region": [
+            283,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-c": {
+          "region": [
+            325,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "pillar-top-carved": {
+          "region": [
+            367,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            68,
+            68
+          ]
+        }
+      }
+    },
+    {
+      "density": 256,
+      "width": 1024,
+      "height": 512,
+      "sourceBytes": 253634,
+      "uncompressedRGBABytes": 2097152,
+      "regions": {
+        "wall-v-0": {
+          "region": [
+            4,
+            4,
+            64,
+            336
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            336
+          ]
+        },
+        "wall-v-2": {
+          "region": [
+            76,
+            4,
+            64,
+            306
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            306
+          ]
+        },
+        "wall-v-1": {
+          "region": [
+            148,
+            4,
+            64,
+            304
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            304
+          ]
+        },
+        "wall-v-3": {
+          "region": [
+            220,
+            4,
+            64,
+            274
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            274
+          ]
+        },
+        "floor": {
+          "region": [
+            292,
+            4,
+            256,
+            256
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "size": [
+            256,
+            256
+          ]
+        },
+        "pillar": {
+          "region": [
+            4,
+            348,
+            84,
+            148
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            84,
+            148
+          ]
+        },
+        "wall-h-0": {
+          "region": [
+            96,
+            318,
+            278,
+            122
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            278,
+            122
+          ]
+        },
+        "wall-h-1": {
+          "region": [
+            382,
+            268,
+            246,
+            122
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            246,
+            122
+          ]
+        },
+        "wall-h-2": {
+          "region": [
+            556,
+            4,
+            248,
+            122
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            248,
+            122
+          ]
+        },
+        "wall-h-3": {
+          "region": [
+            556,
+            134,
+            216,
+            122
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            216,
+            122
+          ]
+        },
+        "decor-a": {
+          "region": [
+            382,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-b": {
+          "region": [
+            458,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-c": {
+          "region": [
+            534,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "pillar-top-carved": {
+          "region": [
+            610,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            68,
+            68
+          ]
+        }
+      }
+    }
+  ],
+  "generator": "tools/prepare_mobile_reference.cjs",
+  "materialOverrides": {
+    "top": {
+      "color": "#424e68",
+      "brightness": 0.98,
+      "opacity": 0.58,
+      "blur": 1.2
+    },
+    "floor": {
+      "color": "#3c465d",
+      "brightness": 0.84,
+      "opacity": 0.28,
+      "blur": 2
+    },
+    "north": {
+      "color": "#252e47",
+      "brightness": 0.61,
+      "opacity": 0.52,
+      "blur": 1.2
+    },
+    "west": {
+      "color": "#1e263d",
+      "brightness": 0.49,
+      "opacity": 0.52,
+      "blur": 1.2
+    },
+    "east_end": {
+      "color": "#1e263d",
+      "brightness": 0.49,
+      "opacity": 0.9,
+      "blur": 0.3
+    },
+    "south_end": {
+      "color": "#252e47",
+      "brightness": 0.61,
+      "opacity": 0.92,
+      "blur": 0.3
+    },
+    "wood": {
+      "color": "#453429",
+      "brightness": 0.85,
+      "saturation": 0.68,
+      "opacity": 0.94,
+      "blur": 0.3
+    },
+    "metal": {
+      "color": "#252b38",
+      "brightness": 0.88,
+      "opacity": 0.75,
+      "blur": 0.3
+    }
+  },
+  "sourceHashes": {
+    "assets/dungeon/shared-materials/catalog.json": "b268b5c2285d28f6bda6546569f9908235109f1c9df97530772b78ea59a01493",
+    "assets/dungeon/shared-materials/walls-planes.png": "05b41b9fa2501d245a7a07ac212f1642f63701c3fe7f5292ef5bc0bc70668078",
+    "assets/dungeon/shared-materials/floors-calm.png": "59b43b21373f2c8eb5bbf6582a0e22e49af676cd2b49f6f4b8bc5454ec6e3198",
+    "assets/dungeon/shared-materials/stone-finish.json": "8df9d7601c5222a2734d28d69776370d5d8800f3a047c74630646111780cd1de",
+    "tools/painted_material_renderer.cjs": "705a0378586f1bc8ff29f63123214be34e6f0ca2302e4be60d784272076d7615",
+    "tools/stone_edge_finish.cjs": "aa0a2afd6274748a3b6752f89aa9307abb1367b2b6436e6f50ca6720dff19ae1",
+    "tools/prepare_mobile_reference.cjs": "af6e46098e56e892d1e60500fd519b2c7f775f0671e049f28069090f1fd15c9e",
+    "tools/mobile_painted_decorations.cjs": "390e707702d0775b67a06cd0c00d12a8f6931eeabb285b095db9af5d23df7e4e",
+    "docs/reference/mobile-decoration-review/generation.json": "605137fbd7bb7d00c28ffb2ee8dbeee9cc40187b0cf20d2bf36fd462232b4468",
+    "tools/mobile_pillar_cap.cjs": "1aae0ae1efe24c40f1fe12ba759e28dcb873f8724dee08d995bbd7bdbc5d6f22",
+    "docs/reference/pillar-cap-review/generation.json": "9bb17693a1ef4ee545ec13aad06a03ecba7fd70657c6c402b7eea12336de24fc",
+    "docs/reference/pillar-cap-review/source/carved-top.png": "f8610535c3246f4b4105a7821dab71c3f865d59276e9fe35753b87725556d422"
+  },
+  "exports": [
+    {
+      "id": "mobile-reference/floor",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "a24d286552c33125a75b052ab8405f1b496288b63b1db130f823e7a7a9f62f52",
+      "segmentCount": 39,
+      "outputFrame": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              -35.84,
+              0
+            ],
+            [
+              46.08,
+              0
+            ],
+            [
+              46.08,
+              85.33333333333333
+            ],
+            [
+              -35.84,
+              85.33333333333333
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              220.16,
+              0
+            ],
+            [
+              302.08,
+              0
+            ],
+            [
+              302.08,
+              85.33333333333333
+            ],
+            [
+              220.16,
+              85.33333333333333
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              46.08,
+              0
+            ],
+            [
+              135.68,
+              0
+            ],
+            [
+              135.68,
+              85.33333333333333
+            ],
+            [
+              46.08,
+              85.33333333333333
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              135.68,
+              0
+            ],
+            [
+              220.16,
+              0
+            ],
+            [
+              220.16,
+              85.33333333333333
+            ],
+            [
+              135.68,
+              85.33333333333333
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              -10.24,
+              85.33333333333333
+            ],
+            [
+              76.8,
+              85.33333333333333
+            ],
+            [
+              76.8,
+              170.66666666666666
+            ],
+            [
+              -10.24,
+              170.66666666666666
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              245.76,
+              85.33333333333333
+            ],
+            [
+              332.8,
+              85.33333333333333
+            ],
+            [
+              332.8,
+              170.66666666666666
+            ],
+            [
+              245.76,
+              170.66666666666666
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              76.8,
+              85.33333333333333
+            ],
+            [
+              163.84,
+              85.33333333333333
+            ],
+            [
+              163.84,
+              170.66666666666666
+            ],
+            [
+              76.8,
+              170.66666666666666
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              163.84,
+              85.33333333333333
+            ],
+            [
+              245.76,
+              85.33333333333333
+            ],
+            [
+              245.76,
+              170.66666666666666
+            ],
+            [
+              163.84,
+              170.66666666666666
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              -64,
+              170.66666666666666
+            ],
+            [
+              17.92,
+              170.66666666666666
+            ],
+            [
+              17.92,
+              256
+            ],
+            [
+              -64,
+              256
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              192,
+              170.66666666666666
+            ],
+            [
+              273.92,
+              170.66666666666666
+            ],
+            [
+              273.92,
+              256
+            ],
+            [
+              192,
+              256
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              17.92,
+              170.66666666666666
+            ],
+            [
+              102.4,
+              170.66666666666666
+            ],
+            [
+              102.4,
+              256
+            ],
+            [
+              17.92,
+              256
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        },
+        {
+          "points": [
+            [
+              102.4,
+              170.66666666666666
+            ],
+            [
+              192,
+              170.66666666666666
+            ],
+            [
+              192,
+              256
+            ],
+            [
+              102.4,
+              256
+            ]
+          ],
+          "kind": "floor",
+          "part": "floor",
+          "materialId": "floors-calm"
+        }
+      ],
+      "materials": [
+        "floors-calm"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-h-0",
+      "canvas": [
+        1112,
+        488
+      ],
+      "anchor": [
+        72,
+        388
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "850aad1b158122ea1b839ce1666c0494971ed5628616104d7917f4bb7d44119d",
+      "segmentCount": 34,
+      "outputFrame": [
+        -18,
+        -97,
+        278,
+        122
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              -7.219199999999999,
+              -14.762666666666664
+            ],
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ],
+            [
+              0,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              128,
+              21.333333333333332
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ],
+            [
+              128,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              256,
+              21.333333333333332
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -14.438399999999998,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ],
+            [
+              -7.219199999999999,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              241.5616,
+              -50.858666666666664
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              256,
+              -21.333333333333332
+            ],
+            [
+              256,
+              21.333333333333332
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              248.7808,
+              -57.42933333333333
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              248.7808,
+              -57.42933333333333
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              241.5616,
+              -50.858666666666664
+            ],
+            [
+              241.5616,
+              -93.52533333333332
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -14.438399999999998,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              -14.438399999999998,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              241.5616,
+              -93.52533333333332
+            ],
+            [
+              241.5616,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-h-1",
+      "canvas": [
+        984,
+        488
+      ],
+      "anchor": [
+        -52,
+        388
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "2497c7267b819c491de60dadd92fdd0c1e6821e2b2132b2a16cb6f5316066606",
+      "segmentCount": 34,
+      "outputFrame": [
+        13,
+        -97,
+        246,
+        122
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              23.500799999999998,
+              -14.762666666666664
+            ],
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ],
+            [
+              30.72,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              128,
+              21.333333333333332
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ],
+            [
+              128,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              256,
+              21.333333333333332
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              16.2816,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ],
+            [
+              23.500799999999998,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              241.5616,
+              -50.858666666666664
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              256,
+              -21.333333333333332
+            ],
+            [
+              256,
+              21.333333333333332
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              248.7808,
+              -57.42933333333333
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              248.7808,
+              -57.42933333333333
+            ],
+            [
+              248.7808,
+              -14.762666666666664
+            ],
+            [
+              241.5616,
+              -50.858666666666664
+            ],
+            [
+              241.5616,
+              -93.52533333333332
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              16.2816,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              16.2816,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              241.5616,
+              -93.52533333333332
+            ],
+            [
+              241.5616,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-h-2",
+      "canvas": [
+        992,
+        488
+      ],
+      "anchor": [
+        72,
+        388
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "673ff679f474d0307edc23cdc4f0381bdee897f9c145dbd55db0a2382631590d",
+      "segmentCount": 34,
+      "outputFrame": [
+        -18,
+        -97,
+        248,
+        122
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              -7.219199999999999,
+              -14.762666666666664
+            ],
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ],
+            [
+              0,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              128,
+              21.333333333333332
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ],
+            [
+              128,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              225.28,
+              21.333333333333332
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -14.438399999999998,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ],
+            [
+              -7.219199999999999,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              210.8416,
+              -50.858666666666664
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              225.28,
+              -21.333333333333332
+            ],
+            [
+              225.28,
+              21.333333333333332
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              218.0608,
+              -57.42933333333333
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              218.0608,
+              -57.42933333333333
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              210.8416,
+              -50.858666666666664
+            ],
+            [
+              210.8416,
+              -93.52533333333332
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -14.438399999999998,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              -14.438399999999998,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              210.8416,
+              -93.52533333333332
+            ],
+            [
+              210.8416,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-h-3",
+      "canvas": [
+        864,
+        488
+      ],
+      "anchor": [
+        -52,
+        388
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "ac474056d7f48b679413a05b642172ecaa2edf7c242a5d1c6b4b7f0dc109736c",
+      "segmentCount": 34,
+      "outputFrame": [
+        13,
+        -97,
+        216,
+        122
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              23.500799999999998,
+              -14.762666666666664
+            ],
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ],
+            [
+              30.72,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              35.447466666666664,
+              -14.762666666666664
+            ],
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              128,
+              21.333333333333332
+            ],
+            [
+              42.666666666666664,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              120.7808,
+              -14.762666666666664
+            ],
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ],
+            [
+              128,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              206.11413333333334,
+              -14.762666666666664
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              225.28,
+              21.333333333333332
+            ],
+            [
+              213.33333333333334,
+              21.333333333333332
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              16.2816,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ],
+            [
+              23.500799999999998,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ],
+            [
+              78.11413333333333,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              210.8416,
+              -50.858666666666664
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              163.44746666666666,
+              -14.762666666666664
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              225.28,
+              -21.333333333333332
+            ],
+            [
+              225.28,
+              21.333333333333332
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              218.0608,
+              -57.42933333333333
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              218.0608,
+              -57.42933333333333
+            ],
+            [
+              218.0608,
+              -14.762666666666664
+            ],
+            [
+              210.8416,
+              -50.858666666666664
+            ],
+            [
+              210.8416,
+              -93.52533333333332
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              16.2816,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ],
+            [
+              16.2816,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              70.89493333333333,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ],
+            [
+              70.89493333333333,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              156.22826666666666,
+              -93.52533333333332
+            ],
+            [
+              210.8416,
+              -93.52533333333332
+            ],
+            [
+              210.8416,
+              -50.858666666666664
+            ],
+            [
+              156.22826666666666,
+              -50.858666666666664
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-v-0",
+      "canvas": [
+        256,
+        1344
+      ],
+      "anchor": [
+        156,
+        304
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "c3484c4855172de4b36ddb59f894a6d2f36db75fb2f77c21e3aac43054160fd9",
+      "segmentCount": 34,
+      "outputFrame": [
+        -39,
+        -76,
+        64,
+        336
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              21.333333333333332,
+              0
+            ],
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ],
+            [
+              14.114133333333333,
+              -36.096
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              21.333333333333332,
+              256
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              -36.096
+            ],
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              -72.192
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              6.894933333333334,
+              183.808
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -28.55253333333333,
+              219.904
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              21.333333333333332,
+              256
+            ],
+            [
+              -21.333333333333332,
+              256
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -35.77173333333333,
+              183.808
+            ],
+            [
+              6.894933333333334,
+              183.808
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              -28.55253333333333,
+              219.904
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              -72.192
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              -72.192
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              183.808
+            ],
+            [
+              -35.77173333333333,
+              183.808
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-v-1",
+      "canvas": [
+        256,
+        1216
+      ],
+      "anchor": [
+        156,
+        180
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "2ac7ff07b11d5811ff93ed91eef059c77eb4bfb144f6104727bcf79d0b0de873",
+      "segmentCount": 34,
+      "outputFrame": [
+        -39,
+        -45,
+        64,
+        304
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              21.333333333333332,
+              30.72
+            ],
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ],
+            [
+              14.114133333333333,
+              -5.375999999999998
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              21.333333333333332,
+              256
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              -5.375999999999998
+            ],
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              -41.471999999999994
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              6.894933333333334,
+              183.808
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -28.55253333333333,
+              219.904
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              21.333333333333332,
+              256
+            ],
+            [
+              -21.333333333333332,
+              256
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -35.77173333333333,
+              183.808
+            ],
+            [
+              6.894933333333334,
+              183.808
+            ],
+            [
+              14.114133333333333,
+              219.904
+            ],
+            [
+              -28.55253333333333,
+              219.904
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              -41.471999999999994
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              -41.471999999999994
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              183.808
+            ],
+            [
+              -35.77173333333333,
+              183.808
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-v-2",
+      "canvas": [
+        256,
+        1224
+      ],
+      "anchor": [
+        156,
+        304
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "28ebcc27dc310558344a513ba95b0c2bf0b213c382d1b6f17d5bcd6672dad53c",
+      "segmentCount": 34,
+      "outputFrame": [
+        -39,
+        -76,
+        64,
+        306
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              21.333333333333332,
+              0
+            ],
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ],
+            [
+              14.114133333333333,
+              -36.096
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              21.333333333333332,
+              225.28
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              -36.096
+            ],
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              -72.192
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              6.894933333333334,
+              153.08800000000002
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -28.55253333333333,
+              189.184
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              21.333333333333332,
+              225.28
+            ],
+            [
+              -21.333333333333332,
+              225.28
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -35.77173333333333,
+              153.08800000000002
+            ],
+            [
+              6.894933333333334,
+              153.08800000000002
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              -28.55253333333333,
+              189.184
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              -72.192
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              -72.192
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              153.08800000000002
+            ],
+            [
+              -35.77173333333333,
+              153.08800000000002
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/wall-v-3",
+      "canvas": [
+        256,
+        1096
+      ],
+      "anchor": [
+        156,
+        180
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "bbb3ee710b4090981457c6ebed270b52e350183fe182f95a09bf673eb49a51f1",
+      "segmentCount": 34,
+      "outputFrame": [
+        -39,
+        -45,
+        64,
+        274
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              21.333333333333332,
+              30.72
+            ],
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ],
+            [
+              14.114133333333333,
+              -5.375999999999998
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              42.666666666666664
+            ],
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ],
+            [
+              14.114133333333333,
+              6.570666666666668
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              128
+            ],
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ],
+            [
+              14.114133333333333,
+              91.904
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              21.333333333333332,
+              213.33333333333334
+            ],
+            [
+              21.333333333333332,
+              225.28
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              14.114133333333333,
+              177.23733333333334
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              -5.375999999999998
+            ],
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              -41.471999999999994
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              49.23733333333333
+            ],
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              14.114133333333333,
+              134.57066666666665
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              6.894933333333334,
+              153.08800000000002
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -28.55253333333333,
+              189.184
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              21.333333333333332,
+              225.28
+            ],
+            [
+              -21.333333333333332,
+              225.28
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -35.77173333333333,
+              153.08800000000002
+            ],
+            [
+              6.894933333333334,
+              153.08800000000002
+            ],
+            [
+              14.114133333333333,
+              189.184
+            ],
+            [
+              -28.55253333333333,
+              189.184
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              -41.471999999999994
+            ],
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ],
+            [
+              -35.77173333333333,
+              -41.471999999999994
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              13.141333333333336
+            ],
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ],
+            [
+              -35.77173333333333,
+              13.141333333333336
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              6.894933333333334,
+              98.47466666666666
+            ],
+            [
+              6.894933333333334,
+              153.08800000000002
+            ],
+            [
+              -35.77173333333333,
+              153.08800000000002
+            ],
+            [
+              -35.77173333333333,
+              98.47466666666666
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    },
+    {
+      "id": "mobile-reference/pillar",
+      "canvas": [
+        336,
+        592
+      ],
+      "anchor": [
+        200,
+        456
+      ],
+      "cellPitch": 1024,
+      "guideSha256": "c2ae9921abf02315574077ae6eea9bfdbf9c69802c322e34893577005a0405c2",
+      "segmentCount": 14,
+      "outputFrame": [
+        -50,
+        -114,
+        84,
+        148
+      ],
+      "repeatInkY": 0,
+      "constructionJointLayerMatchesGuide": true,
+      "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+      "stoneFinish": "soft-stone-b-v1",
+      "floorFinish": {
+        "id": "smooth-floor-rounded-v1",
+        "status": "user_approved",
+        "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+        "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+        "radius": 10.5,
+        "inset": 0.55,
+        "unevenness": 0.12,
+        "bevel": 2.2,
+        "floorFactor": 0.63,
+        "narrowFaceReference": 14,
+        "mortar": "#0c1220",
+        "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+      },
+      "omittedFinishEdges": 0,
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0,
+      "faces": [
+        {
+          "points": [
+            [
+              -38.745599999999996,
+              -9.407999999999994
+            ],
+            [
+              22.6944,
+              -9.407999999999994
+            ],
+            [
+              30.72,
+              30.72
+            ],
+            [
+              -30.72,
+              30.72
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              30.72,
+              -30.72
+            ],
+            [
+              30.72,
+              30.72
+            ],
+            [
+              22.6944,
+              -9.407999999999994
+            ],
+            [
+              22.6944,
+              -70.84799999999998
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -46.77119999999999,
+              -49.53599999999999
+            ],
+            [
+              14.668800000000001,
+              -49.53599999999999
+            ],
+            [
+              22.6944,
+              -9.407999999999994
+            ],
+            [
+              -38.745599999999996,
+              -9.407999999999994
+            ]
+          ],
+          "kind": "north",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              22.6944,
+              -70.84799999999998
+            ],
+            [
+              22.6944,
+              -9.407999999999994
+            ],
+            [
+              14.668800000000001,
+              -49.53599999999999
+            ],
+            [
+              14.668800000000001,
+              -110.97599999999998
+            ]
+          ],
+          "kind": "west",
+          "part": "wall",
+          "materialId": "walls-planes"
+        },
+        {
+          "points": [
+            [
+              -46.77119999999999,
+              -110.97599999999998
+            ],
+            [
+              14.668800000000001,
+              -110.97599999999998
+            ],
+            [
+              14.668800000000001,
+              -49.53599999999999
+            ],
+            [
+              -46.77119999999999,
+              -49.53599999999999
+            ]
+          ],
+          "kind": "top",
+          "part": "wall",
+          "materialId": "walls-planes"
+        }
+      ],
+      "materials": [
+        "walls-planes"
+      ]
+    }
+  ],
+  "decorationSources": [
+    {
+      "variant": "a",
+      "source": "docs/reference/mobile-decoration-review/source/a.png",
+      "sha256": "1b3e3459fa1a8941dfbc422b6152626cdb772e19abd1a861ed8d12618b624445",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "visibleBounds": [
+        186,
+        117,
+        882,
+        1020
+      ],
+      "nativeAlphaPreserved": true,
+      "framePixels": 68,
+      "subjectPixels": 44,
+      "status": "appearance_proposal"
+    },
+    {
+      "variant": "b",
+      "source": "docs/reference/mobile-decoration-review/source/b.png",
+      "sha256": "a6a3cd811f5c0cfe258cdfd418d82f62f94331c587e6ba278bc872d42bcd16f5",
+      "sourceSize": [
+        1278,
+        1230
+      ],
+      "visibleBounds": [
+        187,
+        156,
+        907,
+        916
+      ],
+      "nativeAlphaPreserved": true,
+      "framePixels": 68,
+      "subjectPixels": 44,
+      "status": "appearance_proposal"
+    },
+    {
+      "variant": "c",
+      "source": "docs/reference/mobile-decoration-review/source/c.png",
+      "sha256": "19f85c1e20d40fd8b4f87dcfef3b397e84ea234659ff609028291e02dd0cde64",
+      "sourceSize": [
+        1320,
+        1192
+      ],
+      "visibleBounds": [
+        276,
+        122,
+        761,
+        950
+      ],
+      "nativeAlphaPreserved": true,
+      "framePixels": 68,
+      "subjectPixels": 44,
+      "status": "appearance_proposal"
+    }
+  ],
+  "capSources": [
+    {
+      "source": "docs/reference/pillar-cap-review/source/carved-top.png",
+      "sha256": "f8610535c3246f4b4105a7821dab71c3f865d59276e9fe35753b87725556d422",
+      "baseSha256": "259be4762d3dacd23860c53bca5a2f78b0cfa3c065dc8f87acd655b84dff2236",
+      "frame": [
+        -50,
+        -114,
+        68,
+        68
+      ],
+      "topBounds": [
+        -46.77119999999999,
+        -110.97599999999998,
+        14.668800000000001,
+        -49.53599999999999
+      ],
+      "preservedRim": 3,
+      "blendWidth": 3,
+      "audits": [
+        {
+          "density": 128,
+          "alphaDifferences": 0,
+          "changedOutsideTop": 0,
+          "changedPixels": 713,
+          "rgbReference": "same compositor with a transparent cap"
+        },
+        {
+          "density": 256,
+          "alphaDifferences": 0,
+          "changedOutsideTop": 0,
+          "changedPixels": 2939,
+          "rgbReference": "same compositor with a transparent cap"
+        }
+      ],
+      "status": "appearance_proposal"
+    }
+  ],
+  "limits": [
+    "New pillar/wall geometry is a proposal, not approved production geometry.",
+    "No gameplay, device-performance, arbitrary-layout or door/stair compatibility claim.",
+    "Resolution comparison changes raster density only; both use simplified materials."
+  ]
+}

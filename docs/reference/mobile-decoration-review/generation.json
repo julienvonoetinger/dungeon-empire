@@ -1,0 +1,52 @@
+{
+  "status": "appearance_proposals_not_selected",
+  "method": "built-in image_gen; native transparent PNGs",
+  "sourceRules": "Bare structural bases retained. Generated originals immutable. Runtime assets preserve source alpha; crop/padding/resample only, no runtime recolor.",
+  "entries": [
+    {
+      "id": "a",
+      "label": "Pierre sculptée",
+      "source": "source/a.png",
+      "originalPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-f2ceea63-afc2-43b4-9151-9242ac6ea952.png",
+      "request": {
+        "prompt": "Use case: stylized-concept. Asset type: ONE transparent painted decoration sprite for a mobile dark-fantasy dungeon, not a complete pillar. Input 1 is the canonical game mockup, STYLE ONLY. Input 2 is the original mockup pillar detail, SCULPTED DIAMOND STYLE AND MATERIAL ONLY. Input 3 is the neutral target pillar, COLOUR / LIGHTING reference only; DO NOT include or edit any pillar geometry in the output.\nCreate a single beautiful, compact, sculpted slate diamond / lozenge in shallow bas relief, with an inset smaller diamond and broad hand-painted bevels, shaped closely to the carved diamond motif of input 2. It must feel like carved dark blue-grey stone, not jewellery or an outlined UI icon. Slight irregular edge wear, two or three deliberate chips, handsome thick asymmetrical bevel facets, deep inset ambient shadow and a restrained cool highlight on upper-left ridges. The centre should be a quiet dark slate face. Hand-painted stylized mobile game asset with the same broad confident faceting as input 1, high craft and readable silhouette. No photographic grain, noise, engraving microdetail, metallic shine or realistic stone photo texture.\nShow only the relief ornament, centered, diamond's main diagonal vertical, screen X horizontal and screen Y vertical, no perspective convergence or isometric rotation, extremely shallow depth. Lighting from upper left, restrained shadow toward lower right tightly bound to the relief. This will be placed as a DECAL on the top plane of an already existing slate pillar; do not add a plinth, pillar, rectangular background tile, frame card, surrounding stone plane, ground or floor. Keep all surrounding pixels genuinely transparent. Internal shadow pockets may be opaque slate/navy.\nCompose a square image with this one ornament taking about 65 percent of the width, generous empty transparent margin, no letters, no labels, no border, no watermark. Designed to retain its silhouette and main bevels when reduced to only 44 pixels wide. Beautiful substantial carved volume, not a thin double-line diamond.",
+        "referenced_image_paths": [
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/source/mockup.png",
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/source/pillar.png",
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/sprites/pillar.png"
+        ],
+        "transparent_background": true
+      }
+    },
+    {
+      "id": "b",
+      "label": "Sceau ancien",
+      "source": "source/b.png",
+      "originalPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-4ee6451f-37e9-458a-bbfd-cfbce66f652d.png",
+      "request": {
+        "prompt": "Use case: stylized-concept. Asset type: one transparent decorative stone decal for a hand-painted mobile dark dungeon.\nImage 1 is canonical game mockup STYLE ONLY. Image 2 is original sculpted pillar for material and lighting. Image 3 is the bare target pillar, COLOUR ONLY, not an edit target.\nCreate ONE ancient carved stone seal, compact octagonal silhouette, dark blue-grey slate with a broad recessed diamond-and-chevron sigil at its centre. The seal should feel like a shallow sculpted piece integrated into architecture, not an inventory badge, coin, jewel, sticker outline, UI icon or polished metal. Use four to six large clear chisel facets, an inset dark groove, beautifully painted bevel shadows, subtle uneven worn edges with a couple of deliberate chips. Centre symbol must be simple and legible when the entire seal is reduced to 44 pixels; no text or tiny runic writing. Cool muted slate, softly lit upper left, darker lower right and deep tight crevice shadow. Painterly stylized fantasy, matching the chunky illustrative stone in the mockup, not photorealism.\nOne centred object, facing the screen in orthographic projection, no angled turn, no perspective convergence, no isometric camera; very low relief on a plane aligned with screen X and Y. All around it must be genuinely transparent. Do not include any pillar, wall, brick, square backing tile, ground, backdrop, captions or watermark. Opaque pixels belong only to the carved octagonal seal and its tight contact shadow. Use about 65 percent image width with transparent margins.\nQuiet subdued brightness, no white specular glints, no glow for this variant, no gold. Material details must be broad painted shapes, never noise or photo grain.",
+        "referenced_image_paths": [
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/source/mockup.png",
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/source/pillar.png",
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/sprites/pillar.png"
+        ],
+        "transparent_background": true
+      }
+    },
+    {
+      "id": "c",
+      "label": "Sceau corrompu",
+      "source": "source/c.png",
+      "originalPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-84659952-6874-432d-91f7-9741c9562ece.png",
+      "request": {
+        "prompt": "Use case: stylized-concept. Asset type: ONE compact transparent overlay decoration for a mobile dark fantasy dungeon pillar.\nImage 1: canonical game mockup, painterly style and sparse violet corruption reference only. Image 2: original carved pillar, material and bevel style only. Image 3: neutral target pillar, blue slate colour context only. No pillar or wall may appear in the output.\nCreate a beautiful ancient sculpted DIAMOND shaped slate socket with a SMALL glowing violet inner rune / crystal facet recessed into it. Overall object is dark worn blue-grey slate, the violet occupies at most a quarter of its area. Asymmetric chisel facets, one broken corner, very slight dark corruption creeping inside one groove. Deep readable inner shadow and a few broad luminous purple facets. Tight restrained glow only around the inset, no large bloom, no particles, no branching line doodle, no broad web of cracks. Strong readable silhouette at 44 pixels, painterly stylized illustrated game art like the mockup; avoid photo grain and noise.\nShallow bas relief facing straight toward the screen; main diamond diagonal exactly vertical, screen X horizontal and Y vertical, no rotated or isometric viewing angle, no vanishing point. Lit from upper left with cool muted painted stone highlights, lower/right edges dark. Do not use metal, gold, chrome or glossy cut jewellery.\nOne centred ornament on genuine transparent background with generous transparent margin, occupying about 65 percent width. No surrounding masonry tile, backing rectangle, pillar, stone wall, ground, labels, letters, watermark or UI border. Only the carved socket and its tightly bound contact shadow may be opaque. Make the stone craftsmanship as rich as an illustrated fantasy game's hero prop while keeping its few big shapes clear when small.",
+        "referenced_image_paths": [
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/source/mockup.png",
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/source/pillar.png",
+          "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/sprites/pillar.png"
+        ],
+        "transparent_background": true
+      }
+    }
+  ]
+}

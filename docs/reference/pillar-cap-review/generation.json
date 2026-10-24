@@ -1,0 +1,14 @@
+{
+  "status": "appearance_proposal_pending_review",
+  "method": "built-in image_gen precise-object-edit; opaque top material composed offline on the approved prototype mask",
+  "originalPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-e675370a-1f4c-4d9d-ac29-4e6a847dd166.png",
+  "request": {
+    "prompt": "Use case: precise-object-edit. Asset: one square painted TOP SURFACE of a stone pillar for a mobile dungeon game, designed to read when the ENTIRE square is only 46 by 46 screen pixels.\nImage 1 is the edit target: the exact plain dark blue slate top surface. Image 2 is the original game mockup pillar, style and carved-stone reference only. EDIT IMAGE 1: carve ONE LARGE SIMPLE recessed diamond depression directly into the existing stone surface. Keep the square framing and quiet surrounding blue-grey slate, with the same upper-left light and restrained outer bevel. The stone background must fill the entire image edge to edge, exactly like image 1; no outside backdrop, no margin. Output only this square top plane, no pillar sides or perspective change.\nThe diamond is a cavity cut INTO this block, not a raised medallion, jewellery, attached badge, insert, applique, separate object or thin line engraving. Its vertical and horizontal diagonals occupy about 72 percent of the square. A single broad chiseled recess with FOUR broad inner facets and one quiet darker diamond-shaped bottom. Upper-left inner wall is dark, lower-right inner bevel catches muted slate light. Connect the carved bevel naturally to the surrounding stone: shared stone colour and a subtle broad chisel transition. Strong, simple depth read. No outer floating-object shadow, no raised outline, no additional concentric diamond rings, no secondary symbol inside.\nSimplify aggressively for mobile: only 3 or 4 broad value masses, substantial bevel planes approximately 5 percent of the whole square wide, calm flat interior, confident hand-painted shapes. NO tiny chips, cracks, runes, speckles, grain, scratches, bright little highlights, violet glow, white specular outlines, photo texture or microdetail. Surrounding stone remains as calm and dark as image 1, with only its existing large painted tonal planes. Match the mockup's chunky stylized readable carving rather than elaborate close-up art. The output must look like the stone block itself has been carved. No text, labels, border card or watermark.",
+    "referenced_image_paths": [
+      "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/pillar-cap-review/source/bare-top-reference.png",
+      "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mobile-optimization/source/pillar.png"
+    ],
+    "transparent_background": false
+  },
+  "rules": "Original kept unchanged. Existing top perimeter, bevel, side faces, anchors and geometry are preserved by the offline cap compositor."
+}

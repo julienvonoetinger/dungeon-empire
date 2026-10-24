@@ -1,5 +1,19 @@
 # Dungeon Empire — conception
 
+## État actif — optimisation mobile du 24 octobre 2026
+
+Les 21 scènes utilisent maintenant le kit mobile : 23 sprites dans un atlas,
+256 px source par case, caméra fixe à 0,75 et déplacement libre. Une base calme
+commune remplace les familles A/B/C/D2 ; le sol a trois rangées et les piliers
+terminent les murs. Portes/escaliers sont disponibles dans les quatre sens.
+Les layouts et couloirs larges de SixRoomPreview sont conservés.
+
+[Recette, placement, export et limites de validation](docs/reference/mobile-kit/README.md).
+Les sections suivantes décrivent les étapes historiques, pas les assets chargés
+par les scènes actuelles. Utiliser export_mobile_kit.cjs pour le kit actif.
+Les catalogues haute résolution décrits plus bas ont été retirés du disque après
+la migration. Les matières et géométries nécessaires au kit mobile sont conservées.
+
 ## 0. État implémenté : études visuelles de donjon avec sprites peints
 
 ### Sol lisse aux coins arrondis — 23 octobre 2026

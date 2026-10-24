@@ -1,0 +1,146 @@
+[gd_resource type="Resource" load_steps=26 format=3]
+
+[ext_resource type="Script" path="res://scripts/mobile_kit_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/dungeon/mobile-kit/atlas-256.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="Sprite_0"]
+atlas = ExtResource("2")
+region = Rect2(616, 291, 256, 256)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_1"]
+atlas = ExtResource("2")
+region = Rect2(320, 967, 278, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_2"]
+atlas = ExtResource("2")
+region = Rect2(4, 1016, 246, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_3"]
+atlas = ExtResource("2")
+region = Rect2(606, 967, 248, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_4"]
+atlas = ExtResource("2")
+region = Rect2(4, 370, 216, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_5"]
+atlas = ExtResource("2")
+region = Rect2(172, 4, 64, 336)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_6"]
+atlas = ExtResource("2")
+region = Rect2(472, 4, 64, 304)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_7"]
+atlas = ExtResource("2")
+region = Rect2(400, 4, 64, 306)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_8"]
+atlas = ExtResource("2")
+region = Rect2(544, 291, 64, 274)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_9"]
+atlas = ExtResource("2")
+region = Rect2(492, 573, 84, 148)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_10"]
+atlas = ExtResource("2")
+region = Rect2(4, 500, 68, 68)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_11"]
+atlas = ExtResource("2")
+region = Rect2(4, 610, 236, 206)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_12"]
+atlas = ExtResource("2")
+region = Rect2(492, 775, 308, 184)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_13"]
+atlas = ExtResource("2")
+region = Rect2(244, 342, 233, 260)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_14"]
+atlas = ExtResource("2")
+region = Rect2(248, 610, 236, 206)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_15"]
+atlas = ExtResource("2")
+region = Rect2(4, 824, 308, 184)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_16"]
+atlas = ExtResource("2")
+region = Rect2(616, 555, 233, 212)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_17"]
+atlas = ExtResource("2")
+region = Rect2(244, 4, 70, 330)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_18"]
+atlas = ExtResource("2")
+region = Rect2(4, 4, 76, 358)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_19"]
+atlas = ExtResource("2")
+region = Rect2(544, 4, 213, 279)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_20"]
+atlas = ExtResource("2")
+region = Rect2(322, 4, 70, 330)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_21"]
+atlas = ExtResource("2")
+region = Rect2(88, 4, 76, 358)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_22"]
+atlas = ExtResource("2")
+region = Rect2(765, 4, 203, 279)
+filter_clip = true
+
+[resource]
+script = ExtResource("1")
+entries = {"door-east-arch":{"region":[4,4,76,358],"offset":[62,-149],"size":[76,358],"bounds":{"min":[0.4166666666666667,-0.08333333333333348,0.3133333333333333],"max":[0.5833333333333334,1.0833333333333335,0.8966666666666665]}},"door-west-arch":{"region":[88,4,76,358],"offset":[62,-149],"size":[76,358],"bounds":{"min":[0.41666666666666663,-0.08333333333333337,0.3133333333333333],"max":[0.5833333333333333,1.0833333333333335,0.8966666666666665]}},"wall-v-0":{"region":[172,4,64,336],"offset":[-39,-76],"size":[64,336],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"door-east-leaf":{"region":[244,4,70,330],"offset":[76,-91],"size":[70,330],"bounds":{"min":[0.4416666666666667,0.08333333333333326,0],"max":[0.5583333333333333,0.9166666666666667,0.7300000000000001]}},"door-west-leaf":{"region":[322,4,70,330],"offset":[76,-91],"size":[70,330],"bounds":{"min":[0.44166666666666665,0.08333333333333326,0],"max":[0.5583333333333333,0.9166666666666667,0.7300000000000001]}},"wall-v-2":{"region":[400,4,64,306],"offset":[-39,-76],"size":[64,306],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-v-1":{"region":[472,4,64,304],"offset":[-39,-45],"size":[64,304],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"stair-east":{"region":[544,4,213,279],"offset":[6,-40],"size":[213,279],"bounds":{"min":[0.08333333333333333,0.08333333333333337,0],"max":[0.84,0.9166666666666666,0.25]}},"stair-west":{"region":[765,4,203,279],"offset":[35,-40],"size":[203,279],"bounds":{"min":[0.16000000000000003,0.08333333333333333,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"wall-v-3":{"region":[544,291,64,274],"offset":[-39,-45],"size":[64,274],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"stair-south":{"region":[244,342,233,260],"offset":[6,-40],"size":[233,260],"bounds":{"min":[0.08333333333333333,0.08333333333333333,0],"max":[0.9166666666666666,0.84,0.25]}},"floor":{"region":[616,291,256,256],"offset":[0,0],"size":[256,256],"bounds":{"min":[0,0,0],"max":[1,1,0]}},"stair-north":{"region":[616,555,233,212],"offset":[6,26],"size":[233,212],"bounds":{"min":[0.08333333333333337,0.16000000000000003,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"door-south-leaf":{"region":[4,610,236,206],"offset":[2,-59],"size":[236,206],"bounds":{"min":[0.08333333333333326,0.4416666666666667,0],"max":[0.9166666666666667,0.5583333333333333,0.7300000000000001]}},"door-north-leaf":{"region":[248,610,236,206],"offset":[2,-59],"size":[236,206],"bounds":{"min":[0.08333333333333326,0.44166666666666665,0],"max":[0.9166666666666667,0.5583333333333333,0.7300000000000001]}},"door-south-arch":{"region":[492,775,308,184],"offset":[-42,-103],"size":[308,184],"bounds":{"min":[-0.08333333333333337,0.4166666666666667,0.3133333333333333],"max":[1.0833333333333335,0.5833333333333334,0.8966666666666665]}},"door-north-arch":{"region":[4,824,308,184],"offset":[-42,-103],"size":[308,184],"bounds":{"min":[-0.08333333333333348,0.41666666666666663,0.3133333333333333],"max":[1.0833333333333335,0.5833333333333333,0.8966666666666665]}},"pillar":{"region":[492,573,84,148],"offset":[-50,-114],"size":[84,148],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"wall-h-0":{"region":[320,967,278,122],"offset":[-18,-97],"size":[278,122],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-h-1":{"region":[4,1016,246,122],"offset":[13,-97],"size":[246,122],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-h-2":{"region":[606,967,248,122],"offset":[-18,-97],"size":[248,122],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-h-3":{"region":[4,370,216,122],"offset":[13,-97],"size":[216,122],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"pillar-top-carved":{"region":[4,500,68,68],"offset":[-50,-114],"size":[68,68],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}}}
+textures = {"floor": SubResource("Sprite_0"),
+"wall-h-0": SubResource("Sprite_1"),
+"wall-h-1": SubResource("Sprite_2"),
+"wall-h-2": SubResource("Sprite_3"),
+"wall-h-3": SubResource("Sprite_4"),
+"wall-v-0": SubResource("Sprite_5"),
+"wall-v-1": SubResource("Sprite_6"),
+"wall-v-2": SubResource("Sprite_7"),
+"wall-v-3": SubResource("Sprite_8"),
+"pillar": SubResource("Sprite_9"),
+"pillar-top-carved": SubResource("Sprite_10"),
+"door-south-leaf": SubResource("Sprite_11"),
+"door-south-arch": SubResource("Sprite_12"),
+"stair-south": SubResource("Sprite_13"),
+"door-north-leaf": SubResource("Sprite_14"),
+"door-north-arch": SubResource("Sprite_15"),
+"stair-north": SubResource("Sprite_16"),
+"door-east-leaf": SubResource("Sprite_17"),
+"door-east-arch": SubResource("Sprite_18"),
+"stair-east": SubResource("Sprite_19"),
+"door-west-leaf": SubResource("Sprite_20"),
+"door-west-arch": SubResource("Sprite_21"),
+"stair-west": SubResource("Sprite_22")}

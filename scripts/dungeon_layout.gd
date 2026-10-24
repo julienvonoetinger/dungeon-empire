@@ -5,7 +5,8 @@ extends Resource
 enum WallSide { NORTH, EAST, SOUTH, WEST }
 const OUTWARD: Array[Vector2i] = [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
-## Fixed floor map. Dots are empty; digits select one of the eight floor sprites.
+## Fixed logical map. Dots are empty; legacy digits 0–7 all mark occupied cells.
+## The mobile renderer uses one common prepared floor, independent of the digit.
 @export var cell_size: int = 54
 @export var margin: int = 90
 @export var rows: PackedStringArray = []

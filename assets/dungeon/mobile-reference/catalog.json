@@ -1,0 +1,516 @@
+{
+  "status": "visual_prototype_not_promoted",
+  "projection": [
+    -0.18,
+    -0.9
+  ],
+  "logicalCell": 1,
+  "worldPixelsPerCell": 256,
+  "referenceViewport": [
+    1280,
+    720
+  ],
+  "displayPixelsPerCell": 192,
+  "cameraZoom": 0.75,
+  "wallThickness": 0.16666666666666666,
+  "wallHeight": 0.3133333333333333,
+  "pillarWidth": 0.24,
+  "layout": {
+    "room": [
+      3,
+      2
+    ],
+    "corridorWidth": 1,
+    "eastLength": 3,
+    "southLength": 4
+  },
+  "floor": {
+    "rows": 3,
+    "fullWidthRange": [
+      0.32,
+      0.35
+    ],
+    "previousRows": 2,
+    "previousWidthRange": [
+      0.475,
+      0.525
+    ]
+  },
+  "wallAppearanceCount": 1,
+  "geometryCount": 10,
+  "decorationCount": 4,
+  "defaultPillarDetail": "pillar-top-carved",
+  "historicalDecorations": [
+    "decor-a",
+    "decor-b",
+    "decor-c"
+  ],
+  "atlases": [
+    {
+      "density": 128,
+      "width": 512,
+      "height": 256,
+      "sourceBytes": 83275,
+      "uncompressedRGBABytes": 524288,
+      "regions": {
+        "wall-v-0": {
+          "region": [
+            4,
+            4,
+            32,
+            168
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            336
+          ]
+        },
+        "wall-v-2": {
+          "region": [
+            44,
+            4,
+            32,
+            153
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            306
+          ]
+        },
+        "wall-v-1": {
+          "region": [
+            84,
+            4,
+            32,
+            152
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            304
+          ]
+        },
+        "wall-v-3": {
+          "region": [
+            124,
+            4,
+            32,
+            137
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            274
+          ]
+        },
+        "floor": {
+          "region": [
+            164,
+            4,
+            128,
+            128
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "size": [
+            256,
+            256
+          ]
+        },
+        "pillar": {
+          "region": [
+            44,
+            165,
+            42,
+            74
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            84,
+            148
+          ]
+        },
+        "wall-h-0": {
+          "region": [
+            94,
+            164,
+            139,
+            61
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            278,
+            122
+          ]
+        },
+        "wall-h-1": {
+          "region": [
+            241,
+            140,
+            123,
+            61
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            246,
+            122
+          ]
+        },
+        "wall-h-2": {
+          "region": [
+            372,
+            4,
+            124,
+            61
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            248,
+            122
+          ]
+        },
+        "wall-h-3": {
+          "region": [
+            372,
+            73,
+            108,
+            61
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            216,
+            122
+          ]
+        },
+        "decor-a": {
+          "region": [
+            241,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-b": {
+          "region": [
+            283,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-c": {
+          "region": [
+            325,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "pillar-top-carved": {
+          "region": [
+            367,
+            209,
+            34,
+            34
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            68,
+            68
+          ]
+        }
+      }
+    },
+    {
+      "density": 256,
+      "width": 1024,
+      "height": 512,
+      "sourceBytes": 253634,
+      "uncompressedRGBABytes": 2097152,
+      "regions": {
+        "wall-v-0": {
+          "region": [
+            4,
+            4,
+            64,
+            336
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            336
+          ]
+        },
+        "wall-v-2": {
+          "region": [
+            76,
+            4,
+            64,
+            306
+          ],
+          "offset": [
+            -39,
+            -76
+          ],
+          "size": [
+            64,
+            306
+          ]
+        },
+        "wall-v-1": {
+          "region": [
+            148,
+            4,
+            64,
+            304
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            304
+          ]
+        },
+        "wall-v-3": {
+          "region": [
+            220,
+            4,
+            64,
+            274
+          ],
+          "offset": [
+            -39,
+            -45
+          ],
+          "size": [
+            64,
+            274
+          ]
+        },
+        "floor": {
+          "region": [
+            292,
+            4,
+            256,
+            256
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "size": [
+            256,
+            256
+          ]
+        },
+        "pillar": {
+          "region": [
+            4,
+            348,
+            84,
+            148
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            84,
+            148
+          ]
+        },
+        "wall-h-0": {
+          "region": [
+            96,
+            318,
+            278,
+            122
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            278,
+            122
+          ]
+        },
+        "wall-h-1": {
+          "region": [
+            382,
+            268,
+            246,
+            122
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            246,
+            122
+          ]
+        },
+        "wall-h-2": {
+          "region": [
+            556,
+            4,
+            248,
+            122
+          ],
+          "offset": [
+            -18,
+            -97
+          ],
+          "size": [
+            248,
+            122
+          ]
+        },
+        "wall-h-3": {
+          "region": [
+            556,
+            134,
+            216,
+            122
+          ],
+          "offset": [
+            13,
+            -97
+          ],
+          "size": [
+            216,
+            122
+          ]
+        },
+        "decor-a": {
+          "region": [
+            382,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-b": {
+          "region": [
+            458,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "decor-c": {
+          "region": [
+            534,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -34,
+            -34
+          ],
+          "size": [
+            68,
+            68
+          ]
+        },
+        "pillar-top-carved": {
+          "region": [
+            610,
+            398,
+            68,
+            68
+          ],
+          "offset": [
+            -50,
+            -114
+          ],
+          "size": [
+            68,
+            68
+          ]
+        }
+      }
+    }
+  ]
+}

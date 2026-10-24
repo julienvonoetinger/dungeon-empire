@@ -1,5 +1,20 @@
 # Sprites peints dans Godot
 
+## État actif — optimisation mobile du 24 octobre 2026
+
+Les 21 scènes utilisent maintenant le kit mobile : 23 sprites dans un atlas,
+256 px source par case, caméra fixe à 0,75 et déplacement libre. Une base calme
+commune remplace les familles A/B/C/D2 ; le sol a trois rangées et les piliers
+terminent les murs. Portes/escaliers sont disponibles dans les quatre sens.
+Les layouts et couloirs larges de SixRoomPreview sont conservés.
+
+[Recette, placement, export et limites de validation](mobile-kit/README.md).
+Les sections suivantes décrivent les étapes historiques, pas les assets chargés
+par les scènes actuelles. Utiliser export_mobile_kit.cjs pour le kit actif.
+Les anciens catalogues PNG et leurs deux scripts de sélection ont été supprimés
+le 24 octobre ; les chemins historiques ci-dessous ne sont plus des dépendances.
+Les sources utiles restent conservées. Voir [le nettoyage](../cleanup/README.md).
+
 ## Variantes de murs A/B/C et D2
 
 La sélection D2 puis « Go » autorisent leur intégration. Le catalogue actif

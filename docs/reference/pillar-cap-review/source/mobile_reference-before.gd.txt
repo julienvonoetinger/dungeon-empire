@@ -1,0 +1,239 @@
+@tool
+extends Node2D
+## Visual spike for proportions, prepared overlays and fixed-scale panning.
+## This scene deliberately has its own small asset catalogue.
+
+const CELL := 256.0
+const FIXED_ZOOM := 0.75
+const START := Vector2(440, 260)
+const ASSET_ROOT := "res://assets/dungeon/mobile-reference/"
+const HEIGHT_UP := Vector2(-0.18, -0.9)
+const WALL_HEIGHT := 1.88 / 6.0
+const DETAIL_IDS := ["decor-a", "decor-b", "decor-c"]
+
+@export_enum("128 px / case", "256 px / case") var resolution := 1:
+	set(value):
+		resolution = value
+		if is_node_ready():
+			_rebuild()
+@export var decorations := true:
+	set(value):
+		decorations = value
+		if is_node_ready():
+			_rebuild()
+@export var pillar_details := true:
+	set(value):
+		pillar_details = value
+		if is_node_ready():
+			_rebuild()
+@export_enum("A · Pierre sculptée", "B · Sceau ancien", "C · Sceau corrompu") var detail_style := 0:
+	set(value):
+		detail_style = clampi(value, 0, 2)
+		if is_node_ready():
+			_rebuild()
+@export var proposed_floor := true:
+	set(value):
+		proposed_floor = value
+		if is_node_ready():
+			_rebuild()
+
+var _catalog: Dictionary
+var _world: Node2D
+var _status: Label
+var _wall_decor_button: Button
+var _pillar_decor_button: Button
+var _detail_choice: OptionButton
+var _active_touch := -1
+var _camera: Camera2D
+
+
+func _ready() -> void:
+	_catalog = JSON.parse_string(FileAccess.get_file_as_string(ASSET_ROOT + "catalog.json"))
+	_camera = $Camera2D
+	_camera.zoom = Vector2.ONE * FIXED_ZOOM
+	_camera.position = START
+	_world = Node2D.new()
+	_world.name = "PreparedSprites"
+	add_child(_world)
+	_rebuild()
+	if not Engine.is_editor_hint():
+		_make_controls()
+
+
+func _cells() -> Dictionary:
+	var result := {}
+	for y in range(2):
+		for x in range(3):
+			result[Vector2i(x, y)] = true
+	# Extensions exceed the initial view: pan to inspect them at the same scale.
+	for x in range(3, 6):
+		result[Vector2i(x, 1)] = true
+	for y in range(2, 6):
+		result[Vector2i(1, y)] = true
+	return result
+
+
+func _sprite(id: String, location: Vector2, layer: int, detail_scale := 1.0) -> void:
+	var atlas: Dictionary = _catalog.atlases[resolution]
+	var entry: Dictionary = atlas.regions[id]
+	var node := Sprite2D.new()
+	node.name = id.replace("-", "_")
+	node.texture = load(ASSET_ROOT + str(int(atlas.density)) + "/" + id + ".tres")
+	node.centered = false
+	node.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	node.scale = Vector2.ONE * CELL / float(atlas.density) * detail_scale
+	node.position = location * CELL + Vector2(entry.offset[0], entry.offset[1]) * detail_scale
+	node.z_index = layer
+	_world.add_child(node)
+
+
+func _rebuild() -> void:
+	if not is_instance_valid(_world):
+		return
+	for child in _world.get_children():
+		_world.remove_child(child)
+		child.queue_free()
+	var cells := _cells()
+	var edges: Array[Dictionary] = []
+	var axes := {}
+	for cell: Vector2i in cells:
+		if proposed_floor:
+			_sprite("floor", Vector2(cell), 0)
+		else:
+			var floor_sprite := Sprite2D.new()
+			floor_sprite.texture = load("res://assets/dungeon/painted-connected/floor.png")
+			floor_sprite.centered = false
+			floor_sprite.scale = Vector2.ONE * .25
+			floor_sprite.position = Vector2(cell) * CELL
+			floor_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+			_world.add_child(floor_sprite)
+		for side in range(4):
+			var direction: Vector2i = [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT][side]
+			if cells.has(cell + direction):
+				continue
+			var horizontal := side % 2 == 0
+			var start := cell + (Vector2i.RIGHT if side == 1 else Vector2i.DOWN if side == 2 else Vector2i.ZERO)
+			var end := start + (Vector2i.RIGHT if horizontal else Vector2i.DOWN)
+			edges.append({"a": start, "b": end, "h": horizontal})
+			for point: Vector2i in [start, end]:
+				axes[point] = int(axes.get(point, 0)) | (1 if horizontal else 2)
+	var pillars := {}
+	for point: Vector2i in axes:
+		if axes[point] == 3:
+			pillars[point] = true
+	# Walls and pillars share ONE draw layer. A pillar behind an outgoing wall
+	# must not cover that wall's top. Sort their ground supports toward the camera
+	# using the same (.18, .9) direction as the offline projection.
+	var structures: Array[Dictionary] = []
+	for edge in edges:
+		var bits := (1 if pillars.has(edge.a) else 0) | (2 if pillars.has(edge.b) else 0)
+		var center := Vector2(edge.a) + (Vector2(.5, 0) if edge.h else Vector2(0, .5))
+		var ornament := ""
+		# Four deliberate placements in this appearance study, not procedural corruption.
+		if decorations and ((edge.h and edge.a in [Vector2i(1, 0), Vector2i(4, 2)]) or (not edge.h and edge.a in [Vector2i(0, 1), Vector2i(2, 4)])):
+			ornament = "decor-c"
+		structures.append({"id": "wall-%s-%d" % ["h" if edge.h else "v", bits], "location": Vector2(edge.a), "depth": center.dot(Vector2(.18, .9)), "ornament": ornament, "detail_position": center + HEIGHT_UP * WALL_HEIGHT, "detail_scale": .72})
+	for point: Vector2i in pillars:
+		structures.append({"id": "pillar", "location": Vector2(point), "depth": Vector2(point).dot(Vector2(.18, .9)), "ornament": DETAIL_IDS[detail_style] if pillar_details else "", "detail_position": Vector2(point) + HEIGHT_UP * (WALL_HEIGHT + .035), "detail_scale": 1.0})
+	structures.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return a.depth < b.depth)
+	for structure in structures:
+		_sprite(structure.id, structure.location, 1)
+		if not structure.ornament.is_empty():
+			# Decoration belongs to its support, so later foreground geometry can hide it.
+			_sprite(structure.ornament, structure.detail_position, 1, structure.detail_scale)
+	_update_status()
+
+
+func _make_controls() -> void:
+	var canvas := CanvasLayer.new()
+	add_child(canvas)
+	var panel := PanelContainer.new()
+	panel.position = Vector2(18, 16)
+	canvas.add_child(panel)
+	var margin := MarginContainer.new()
+	for side in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 10)
+	panel.add_child(margin)
+	var column := VBoxContainer.new()
+	margin.add_child(column)
+	_status = Label.new()
+	column.add_child(_status)
+	var row := HBoxContainer.new()
+	column.add_child(row)
+	for spec in [["128 px", _choose_low], ["256 px", _choose_high], ["Sol ancien / proposé", _toggle_floor], ["Décors murs", _toggle_decor], ["Décors piliers", _toggle_pillar_details], ["Recentrer", _recenter]]:
+		var button := Button.new()
+		button.text = spec[0]
+		button.pressed.connect(spec[1])
+		if spec[0] == "Décors murs":
+			button.toggle_mode = true
+			_wall_decor_button = button
+		elif spec[0] == "Décors piliers":
+			button.toggle_mode = true
+			_pillar_decor_button = button
+		row.add_child(button)
+	_detail_choice = OptionButton.new()
+	for label in ["A · Pierre sculptée", "B · Sceau ancien", "C · Sceau corrompu"]:
+		_detail_choice.add_item(label)
+	_detail_choice.item_selected.connect(_choose_detail)
+	row.add_child(_detail_choice)
+	_update_status()
+
+
+func _update_status() -> void:
+	if is_instance_valid(_detail_choice):
+		_detail_choice.select(detail_style)
+	if is_instance_valid(_wall_decor_button):
+		_wall_decor_button.set_pressed_no_signal(decorations)
+	if is_instance_valid(_pillar_decor_button):
+		_pillar_decor_button.set_pressed_no_signal(pillar_details)
+	if is_instance_valid(_status):
+		_status.text = "PROTOTYPE · %d px/case · %s · vue fixe, glisser pour déplacer" % [128 if resolution == 0 else 256, "3 rangées" if proposed_floor else "2 rangées (ancien sol)"]
+
+
+func _choose_low() -> void:
+	resolution = 0
+
+
+func _choose_high() -> void:
+	resolution = 1
+
+
+func _toggle_floor() -> void:
+	proposed_floor = not proposed_floor
+
+
+func _toggle_decor() -> void:
+	decorations = not decorations
+
+
+func _toggle_pillar_details() -> void:
+	pillar_details = not pillar_details
+
+
+func _choose_detail(index: int) -> void:
+	detail_style = index
+
+
+func _recenter() -> void:
+	_camera.position = START
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Engine.is_editor_hint():
+		return
+	if event is InputEventScreenTouch:
+		if event.pressed and _active_touch == -1:
+			_active_touch = event.index
+		elif not event.pressed and event.index == _active_touch:
+			_active_touch = -1
+	elif event is InputEventScreenDrag and event.index == _active_touch:
+		_camera.position -= event.relative / FIXED_ZOOM
+	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT and _active_touch == -1:
+		_camera.position -= event.relative / FIXED_ZOOM
+	# No mouse-wheel or pinch zoom: changing image density never changes the camera.
+
+
+func _input(event: InputEvent) -> void:
+	# A release over the comparison buttons must still end a drag begun in the map.
+	if event is InputEventScreenTouch and not event.pressed and event.index == _active_touch:
+		_active_touch = -1

@@ -1,5 +1,199 @@
 # Repository instructions
 
+## Retired large assets removed — 2026-10-24
+
+- User explicitly requests deleting obsolete large files after the mobile migration.
+  This supersedes earlier instructions to retain retired generated PNGs and local
+  archive copies. Keep the active mobile kit, props, material sources, geometry,
+  selected reviews and original references.
+- Removed painted-connected/, painted-cells/, their unused runtime catalogue and
+  style selector, and 17 named obsolete cache/archive directories under artifacts/.
+  Exact paths, sizes, SHA256, recovery commits and preserved dependency hashes:
+  docs/cleanup/2026-10-24-retired-large-assets.json. No replacement archive copy.
+- export_mobile_kit.cjs reads frozen legacy-catalog-inventory.json for historical
+  comparisons; it must not require the retired PNG directories to exist.
+  Their summed RGBA remains a historical catalogue measure, not old live VRAM.
+- Shared materials, wireframe geometry, nw-material-review-v2/validation.json and
+  the pillar cap source remain necessary. Historical tools/docs can mention retired
+  paths; use the mobile export pipeline for current assets. Git history is retained.
+- Do not remove/reset the user's .godot/ cache or editor state. No automated tests,
+  commit or push without a user request. See docs/cleanup/README.md for the outcome.
+
+## Full mobile architecture migration — 2026-10-24
+
+- User asks to finish optimization with the rest of the kit. This authorizes
+  production migration beyond the prototype and supersedes prototype-only gates.
+  All 21 architecture scenes now share assets/dungeon/mobile-kit/catalog.tres
+  and atlas-256.png: 23 prepared sprites in one 1024x2048 atlas (8 MiB RGBA).
+- Keep 256 source px/cell, fixed .75 zoom, free finger/mouse panning, no user
+  zoom, logical 1x1 grid, three calm floor rows, two wall facade courses and
+  separate pillars. Existing layouts and wide SixRoomPreview corridors preserved.
+- Common bare stone replaces the complete A/B/C/D2 variation families. The
+  recessed pillar top is an optional separate patch, still a visual proposal.
+  Do not reintroduce the rejected historical A/B/C medallions into the active kit.
+- export_mobile_kit.cjs shares primitives/materials/packing with the prototype
+  helper. mobile_special_parts.cjs adapts the four doors and stairs to walls
+  centered on grid edges (inner side at T/2). Door arch radii increase by T/2,
+  thickness T stays fixed. Reproject geometry, never rotate a raster sprite.
+  Four complete stairs are composed offline; each door has separate arch/leaf.
+- mobile_dungeon_renderer.gd only places prepared AtlasTextures. Physical support
+  bounds order walls/pillars/stairs/leaf/arch; optional cap follows its pillar.
+  Do not generate image pixels, materials or perspective at runtime. Preserve
+  periodic complete floor stones before clipping, original wall/pillar contacts.
+- The common renderer refreshes catalog regions and the external PNG together;
+  watches imports after scanning completes; reconnects and checks timestamps on
+  scene reentry. It narrowly removes old unowned generated Floor_/Walls_/Door_/
+  Entrance_ children during renderer migration, preserving authored scene nodes.
+- Reproduce: node tools/export_mobile_kit.cjs, Godot import,
+  tools/capture_mobile_kit.gd, node tools/prepare_mobile_kit_review.cjs.
+  Old direct prepare_mobile_reference.cjs invocation is historical only.
+- Android Mobile preset explicitly selects 40 active dependencies. Use
+  prepare_mobile_export.cjs to stage only them in a fresh ignored directory before
+  export. Existing editor filesystem caches can retain retired dependencies even
+  after import. Never reset/restart the user's editor or delete its cache.
+  Material libraries and authoring sources are retained but not shipped. Retired
+  large PNGs were subsequently deleted; see the cleanup section above. Heart/torch
+  props remain separate and outside this architecture export.
+- Evidence: docs/reference/mobile-kit/README.md, recipe.json, package-report.json,
+  scene-inventory.json and captures. 60 captures / 21 scenes, import and resource
+  export exit 0 with empty stderr. MobileReference editor/runtime images match.
+  Custom editor capture has native screen/progress/shutdown warnings; don't call
+  its stderr clean. No automated tests or Android device profiling performed.
+  Independent review's migration cleanup and watcher findings are resolved.
+- This source migration does not validate every future arbitrary layout or imply
+  final artistic approval of the optional cap. Do not claim old catalogue summed
+  RGBA was old live VRAM; contexts were loaded lazily. Do not count the resource
+  ZIP as a complete APK. No commit/push until the user asks.
+
+
+## Mobile editor atlas refresh — 2026-10-24
+
+- User reported a broken MobileReference editor preview after atlas repacking.
+  The script read catalog.json only at _ready and used cached AtlasTexture .tres
+  and their external PNG dependencies. A persistent editor could mix generations
+  while fresh runtime captures were correct. Do not repair geometry for this.
+- scripts/mobile_reference.gd now refreshes catalog + used .tres + each external
+  atlas PNG together. Editor loads use CACHE_MODE_REPLACE, once per resource
+  path per refresh; runtime uses normal caches. Parameter-only rebuilds reuse
+  loaded resources, and a newly selected density gets fresh editor resources.
+- Computed Callable button "Actualiser le rendu" on the root MobileReference
+  node. It also attaches the editor watcher for old hot-reloaded instances.
+  EditorFileSystem reimport/reload events queue a refresh; filesystem changes
+  check the catalog/image timestamps. Wait until scanning/importing finishes.
+  Preserve current inspector options, scene edits and camera view. Never restart
+  the user's editor to flush these caches. No runtime pixel generation.
+- Capture utility accepts --editor and waits for editor import before producing
+  editor-preview/ PNGs. The default 256 editor/game captures match exactly.
+  The custom editor capture process emits native editor shutdown/progress-dialog
+  warnings; record those, do not describe its stderr as empty. Runtime/import
+  captures exit 0 with empty stderr. No automated tests were added or run.
+- Details, original screenshot and scope: mobile-optimization/editor-preview/.
+
+## Integrated pillar top proposal — 2026-10-24
+
+- User rejected the detailed A/B/C ornaments at gameplay distance: tiny detail
+  disappears and the relief looks pasted on. Their "ok" approves prototyping a
+  simple large recessed diamond painted WITH its stone top background. This
+  supersedes the proposal direction below, not the common bare-base architecture.
+- Latest review: docs/reference/pillar-cap-review/. ImageGen original, exact
+  prompt and previous state are frozen in source/ and generation.json. No tiny
+  chipping, multiple rings or floating medallion silhouette. Judge at the actual
+  ~46px-wide top first, not enlarged source art. Appearance awaits user review.
+- tools/mobile_pillar_cap.cjs maps the generated opaque top into the existing
+  top geometry using the approved offline material/mask workflow. Retain the
+  original 3px rim and blend over the next 3px of quiet stone. No guide movement.
+  Final density exports suppress cap pixels outside the opaque top interior;
+  the bare pillar below retains its original bevel and silhouette alpha.
+- pillar-top-carved is a prepared 68x68 top patch at density 256 (34x34 at 128),
+  same ground anchor as pillar: (-50,-114). Godot overlays the whole prepared
+  stone top at the support's depth. Do NOT add the old height translation again.
+  This visually replaces the upper surface, reusing the common full bare pillar.
+- MobileReference defaults to "Dessus creusé"; old A/B/C remain explicitly
+  historical comparison choices, and old wall ornaments are disabled by default.
+  Current prototype has 10 geometry + 4 detail images including those three old
+  comparisons. Offline rectangle packing keeps atlases at 512x256 / 1024x512.
+- Export audits at both densities: zero composed-alpha differences and zero RGB
+  changes outside the top interior against the same transparent-overlay pipeline.
+  Nine Godot captures/import exit 0, empty stderr. Review normal game scale and
+  enlarged actual game pixels. No automated tests or phone-performance claim.
+- Reproduce mobile export/import/captures, then tools/prepare_pillar_cap_review.cjs.
+  The older A/B/C review uses frozen captures in its source/captures directory.
+
+## Historical separate painted decoration proposals — 2026-10-24
+
+- User confirms bare walls, floors and pillars with separate decoration sprites.
+  The old thin procedural diamonds are rejected as appearance references. Keep
+  the bare geometry and common paint; enrich the separate artwork instead.
+- Three native-alpha ImageGen proposals in docs/reference/mobile-decoration-review/:
+  A sculpted slate diamond, B ancient octagonal seal, C localized violet socket.
+  Their application was rejected for small-scale readability and pasted-on look.
+  A was the old default preview only, not an approval record.
+  Original images and exact prompts are frozen in source/ and generation.json.
+- tools/mobile_painted_decorations.cjs preserves the complete native-alpha source,
+  uniformly resizes/pads it into a common centred 68x68 frame at density 256.
+  Alpha >8 bounds measure centre/scale only; never threshold or remove alpha.
+  The main subject is 44px tall, about 33 displayed px at the proposed game scale.
+- Prototype IDs decor-a/b/c replace ornament-h/v/pillar. Pillar choice is exposed
+  through historical detail_style choices in F6. Old wall examples use C at .72
+  uniform scale. Their common horizontal top plane needs translation by the
+  projected support height only; no runtime painting/perspective deformation.
+- Retain support-depth drawing order: each decoration immediately follows its
+  own wall/pillar so foreground geometry can hide it. Both decoration toggles
+  off show the bare bases. No production-catalogue migration is implied.
+- Reproduce atlas/captures with the mobile reference commands, then run
+  tools/prepare_mobile_decoration_review.cjs. Comparison includes enlarged source
+  art and unscaled Godot crops. Eight captures exported; stderr empty; reviewed
+  A/B/C at game scale. No automated tests or mobile profiling performed.
+
+## Mobile optimization direction — 2026-10-24
+
+- User now targets mobile with a fixed viewing scale comparable to the original
+  mockup. No user zoom; FREE camera panning by finger is explicitly selected.
+  Do not fit the entire dungeon into the screen as the future gameplay framing.
+- Simplify surfaces for that reading distance and reduce sprite resolution.
+  Exact reference scale and pixel dimensions are still to be established visually.
+- User proposes one common stone appearance plus separate prepared transparent
+  decoration sprites (cracks/corruption), instead of complete painted style sets.
+  This supersedes the prior single-complete-image restriction for decorative
+  overlays. No runtime texture generation or perspective deformation.
+- Distinct pillars like the mockup should terminate/join walls at corners.
+  Use real geometric contacts/occlusion; remove the need for continuous painted
+  stones turning around corners. Preserve the fixed projection and 1x1 grid.
+- Latest correction: floor slabs are now too large relative to wall bricks.
+  Match the mockup's proportions. The old approved C slab size is superseded as
+  a constraint for the next proposal; retain calm floor surfaces and rounded corners.
+- Decisions and exact user references: docs/reference/mobile-optimization/.
+  This is the new design direction, NOT an implemented migration. Current
+  A/B/C/D2 assets remain active from 6a6fcaa7. First establish a small reference
+  scene and viewing scale before regenerating the production catalogue.
+- No tests added/run without a user request.
+
+## Mobile reference spike — 2026-10-24
+
+- User accepted preparing the small reference scene ("ok"), not a production
+  catalogue migration. New scene: scenes/MobileReference.tscn, separate script
+  and assets/dungeon/mobile-reference/. Existing scene contents are not migrated.
+  The local main_scene setting currently points at this prototype; preserve it.
+- Proposed values: 192 displayed px/cell at 1280x720, zoom .75, free finger/mouse
+  panning. 3x2 room plus east/south branches. Three floor rows, .32..35-cell slabs,
+  quiet rounded finish; .24-cell pillars against 1/6-cell walls. Not yet approved.
+- Offline exporter tools/prepare_mobile_reference.cjs reuses approved paint with
+  local reduced contrast. Current fourteen logical sprites: floor, eight wall
+  terminations, bare pillar, carved top, three historical decorations.
+  One wall appearance; no runtime painting. pillar_details / Décors piliers
+  toggles the separate pillar detail independently of walls. Do not rebake it.
+- Two comparison atlases: 128 px/cell (512x256) and 256 px/cell (1024x512).
+  Default 256 appears clearer; source resolution is still an appearance decision.
+- Pillars must NOT have a global layer above walls. This caused the reported
+  NW overlap. Walls/pillars now share a layer, sorted by ground-support depth
+  along (.18,.9); each ornament follows its own wall. Freeze the before capture
+  in mobile-optimization/join-review/. Recheck occlusion for future geometry.
+- Physical wall ends meet pillars. New geometry is a proposal, not validated by
+  old guides. Preserve integer grid, common projection, two facade courses.
+- Reproduction, isolated magenta guides, scope and captures in
+  docs/reference/mobile-optimization/. No automated tests or mobile profiling.
+  Do not generalize this spike to all production variants without user review.
+
 ## Wall variants with D2: integration authorized — 2026-10-23
 
 - User said "Go" after selecting D2. Integrate complementary A/B/C walls and

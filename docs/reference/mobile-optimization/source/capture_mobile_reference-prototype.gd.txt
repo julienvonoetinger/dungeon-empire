@@ -1,0 +1,79 @@
+extends SceneTree
+## Render the visual proposal at its actual reference size; no automated tests.
+
+func _initialize() -> void:
+	_capture.call_deferred()
+
+
+func _capture() -> void:
+	var output_dir := "res://docs/reference/mobile-optimization/editor-preview" if Engine.is_editor_hint() else "res://docs/reference/mobile-optimization/captures"
+	print("MobileReference capture editor hint: ", Engine.is_editor_hint())
+	if not await _wait_for_editor_import():
+		quit(1)
+		return
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(1280, 720)
+	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	root.add_child(viewport)
+	var scene = load("res://scenes/MobileReference.tscn").instantiate()
+	viewport.add_child(scene)
+	# In editor mode the @tool refresh can be deferred until the filesystem is
+	# ready. Do not publish blank PNGs while that initial refresh is pending.
+	scene.refresh_preview()
+	await process_frame
+	await process_frame
+	for child in scene.get_children():
+		if child is CanvasLayer:
+			child.visible = false
+	DirAccess.make_dir_recursive_absolute(output_dir)
+	for variant in [["proposed-256", 1, true, true, 3, false], ["proposed-128", 0, true, true, 3, false], ["previous-floor", 1, false, true, 3, false], ["without-pillar-details", 1, true, false, 3, false], ["bare-bases", 1, true, false, 3, false], ["detail-a", 1, true, true, 0, false], ["detail-b", 1, true, true, 1, false], ["detail-c", 1, true, true, 2, false]]:
+		scene.resolution = variant[1]
+		scene.proposed_floor = variant[2]
+		scene.pillar_details = variant[3]
+		scene.detail_style = variant[4]
+		scene.decorations = variant[5]
+		await process_frame
+		await process_frame
+		await RenderingServer.frame_post_draw
+		var output: String = output_dir + "/" + variant[0] + ".png"
+		var result := viewport.get_texture().get_image().save_png(output)
+		if result != OK:
+			push_error("Capture failed: " + output)
+			quit(1)
+			return
+		print("Saved: " + output)
+	scene.resolution = 1
+	scene.proposed_floor = true
+	scene.pillar_details = true
+	scene.detail_style = 3
+	scene.decorations = false
+	for child in scene.get_children():
+		if child is CanvasLayer:
+			child.visible = true
+	await process_frame
+	await process_frame
+	await RenderingServer.frame_post_draw
+	var controls_result := viewport.get_texture().get_image().save_png(output_dir + "/controls.png")
+	if controls_result != OK:
+		push_error("Could not save controls capture")
+		quit(1)
+		return
+	print("Saved: controls.png")
+	viewport.queue_free()
+	await process_frame
+	await _wait_for_editor_import()
+	quit(0)
+
+
+func _wait_for_editor_import() -> bool:
+	if not Engine.is_editor_hint() or not Engine.has_singleton("EditorInterface"):
+		return true
+	await process_frame
+	var filesystem: Object = Engine.get_singleton("EditorInterface").get_resource_filesystem()
+	var deadline := Time.get_ticks_msec() + 30000
+	while filesystem.is_scanning() or filesystem.is_importing():
+		if Time.get_ticks_msec() >= deadline:
+			push_error("Editor import did not finish before the capture deadline.")
+			return false
+		await create_timer(0.1).timeout
+	return true

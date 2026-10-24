@@ -1,0 +1,149 @@
+[
+	{
+		"cells": 1,
+		"scene": "1x1CellRoom",
+		"specials": 0,
+		"sprites": 13,
+		"zoom": 0.75
+	},
+	{
+		"cells": 2,
+		"scene": "1x2Corridor",
+		"specials": 0,
+		"sprites": 6,
+		"zoom": 0.75
+	},
+	{
+		"cells": 3,
+		"scene": "1x3Corridor",
+		"specials": 0,
+		"sprites": 9,
+		"zoom": 0.75
+	},
+	{
+		"cells": 2,
+		"scene": "2x1Corridor",
+		"specials": 0,
+		"sprites": 6,
+		"zoom": 0.75
+	},
+	{
+		"cells": 4,
+		"scene": "2x2CellRoom",
+		"specials": 0,
+		"sprites": 20,
+		"zoom": 0.75
+	},
+	{
+		"cells": 3,
+		"scene": "3x1Corridor",
+		"specials": 0,
+		"sprites": 9,
+		"zoom": 0.75
+	},
+	{
+		"cells": 9,
+		"scene": "3x3CellRoom",
+		"specials": 0,
+		"sprites": 29,
+		"zoom": 0.75
+	},
+	{
+		"cells": 21,
+		"scene": "3x3RoomCornerCorridors",
+		"specials": 0,
+		"sprites": 61,
+		"zoom": 0.75
+	},
+	{
+		"cells": 23,
+		"scene": "3x3RoomFourCorridors",
+		"specials": 0,
+		"sprites": 83,
+		"zoom": 0.75
+	},
+	{
+		"cells": 37,
+		"scene": "5x5RoomCornerCorridors",
+		"specials": 0,
+		"sprites": 85,
+		"zoom": 0.75
+	},
+	{
+		"cells": 39,
+		"scene": "5x5RoomFourCorridors",
+		"specials": 0,
+		"sprites": 107,
+		"zoom": 0.75
+	},
+	{
+		"cells": 37,
+		"scene": "5x5RoomVerticalCornerCorridors",
+		"specials": 0,
+		"sprites": 85,
+		"zoom": 0.75
+	},
+	{
+		"cells": 256,
+		"scene": "DungeonPreview",
+		"specials": 1,
+		"sprites": 527,
+		"zoom": 0.75
+	},
+	{
+		"cells": 4,
+		"scene": "EntranceVariants",
+		"specials": 4,
+		"sprites": 36,
+		"zoom": 0.75
+	},
+	{
+		"cells": 13,
+		"scene": "MobileReference",
+		"specials": 0,
+		"sprites": 57,
+		"zoom": 0.75
+	},
+	{
+		"cells": 10,
+		"scene": "PerspectiveRoom",
+		"specials": 1,
+		"sprites": 41,
+		"zoom": 0.75
+	},
+	{
+		"cells": 3,
+		"scene": "ReferenceCalibration",
+		"specials": 3,
+		"sprites": 23,
+		"zoom": 0.75
+	},
+	{
+		"cells": 1,
+		"scene": "SingleCellRoom",
+		"specials": 0,
+		"sprites": 13,
+		"zoom": 0.75
+	},
+	{
+		"cells": 256,
+		"scene": "SixRoomPreview",
+		"specials": 1,
+		"sprites": 527,
+		"zoom": 0.75
+	},
+	{
+		"cells": 17,
+		"scene": "WireframeClosedCorridors",
+		"specials": 4,
+		"sprites": 89,
+		"zoom": 0.75
+	},
+	{
+		"cells": 13,
+		"scene": "WireframeDoorCross",
+		"specials": 4,
+		"sprites": 73,
+		"zoom": 0.75
+	}
+]
