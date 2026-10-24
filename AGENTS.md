@@ -1,5 +1,334 @@
 # Repository instructions
 
+## Approved heart integrated — 2026-10-24
+
+- User explicitly said "Oui" to integrating the selected sculpted vortex heart
+  into Godot. This supersedes proposal-only gates for ritual-v3. Appearance and
+  selection are frozen; do not regenerate it during exports.
+- mobile_approved_heart.cjs verifies selected hashes, native alpha and reviewed
+  placement, then supplies the unchanged 289x289 prepared sprite to the common
+  atlas. 48 sprites, 1024x2048, 974698 PNG bytes, still 8 MiB RGBA. All 47 prior
+  atlas regions retain exact pixels and offsets/bounds/companions after repacking.
+- Ground anchor [144.5,155.792663476874], .8125-square support, .98 high, 256 px/cell,
+  .75 zoom and ~156 displayed px base. Heart is a painted prop on the flat floor;
+  support bounds serve draw ordering, never perspective warping or gameplay collision.
+- wireframe_cell_study.heart_positions exposes ground centres in cell units.
+  MobileReference uses (1.5,1); SixRoomPreview and DungeonPreview use (12,14).
+  Other layout studies stay empty by default. Whole support must lie on floor,
+  outside stair/door cells. Heart shares physical ordering with walls/pillars.
+  DungeonHeart/alpha_heart use the same atlas at ground origin; old large heart
+  PNG remains historical and is no longer a runtime dependency. No extra dynamic
+  light is added over the approved artwork.
+- Evidence: docs/reference/mobile-heart-review/ritual-v3/integration/. 60 focused
+  checks / 11 captures pass. Full runtime: 63 captures / 21 scenes, clean stderr.
+  Three editor scenes / 11 captures; matching-camera heart views equal runtime.
+  Editor capture process exits 0 but emits native resource/window shutdown
+  diagnostics; do not call its stderr clean. Initial capture hit Windows locks
+  on existing review files: use capture_mobile_kit -- --output-root=res://<fresh>
+  and prepare_approved_heart_review.cjs --publish-captures --capture-root=<fresh>
+  for atomic replacement. Capture helper now reports save failures and exits.
+- Export graph: 42 active source dependencies / 22 scenes including DungeonHeart,
+  one atlas. Resource ZIP 705339 bytes; staged import, export and package opening
+  exit 0 with empty stderr. No old heart PNG, authoring sources or retired kits
+  shipped. ZIP is not an APK/device profile. Independent focused review found no
+  actionable issues. No commit/push requested; preserve user's editor/cache.
+
+## Sculpted vortex heart appearance approved — 2026-10-24
+
+- User replied "Ok" to ritual-v3's actual-game-size before/after. Retain the
+  sculpted ritual pedestal, vortex and flat support orientation as the approved
+  heart appearance. This supersedes pending appearance gates in the history below.
+- Selection and exact source/prepared/comparison SHA256 hashes are frozen in
+  docs/reference/mobile-heart-review/ritual-v3/selection.json. Preserve the art;
+  generation.json and prepared.json remain snapshots from before approval.
+- Approval records the visual choice. Production integration has not been
+  performed in this selection step. No new tests, commit or push requested.
+
+## Richer heart pedestal proposal — 2026-10-24
+
+- User explicitly likes the vortex and accepts perspective-v2's corrected image,
+  but finds its pedestal too simple for the dungeon heart. Preserve the flat
+  support orientation and vortex; enrich the pedestal with readable sculpture.
+  This supersedes the undecided A/style/perspective status in the history below.
+- Latest appearance proposal: docs/reference/mobile-heart-review/ritual-v3/.
+  ImageGen edits the corrected A source: four carved corner stones, concentric
+  focus, recessed geometric stone field, violet channels and stepped border.
+  Original native-alpha image and exact prompt are frozen in source/generation.
+  New pedestal appearance still awaits user review; do not infer integration.
+- prepare_heart_perspective_review.cjs --ritual-v3 prepares both densities;
+  --ritual-v3 --boards compares with frozen perspective-v2 at actual game scale.
+  capture_mobile_heart_review.gd -- --ritual-v3: six captures, 44 passing checks,
+  exit 0, empty stderr. Actual-size comparison and front-wall occlusion inspected.
+  Checks cover image loading/placement/draw order, not artistic approval.
+- Keep complete native alpha, uniform reduction, ~156 displayed px base, .75
+  zoom and square support bounds. Density 256 sprite is 289x289 / 137216 bytes;
+  density 128 is 144x144 / 36536 bytes. No runtime painting or perspective warp.
+  Active atlas/catalogue/heart/scene hashes match the frozen review baseline.
+  Previous proposals retained. No production changes, commit or push requested.
+
+## Heart perspective correction proposal — 2026-10-24
+
+- User finds the three heart proposals' perspective incorrect. Their compressed
+  top surface and elliptical socket copied the old front/three-quarter pedestal
+  view. A 2D prop still needs its ground support to agree with the flat floor.
+  Do not interpret freedom from architectural wireframes as arbitrary camera angle.
+- Current review: docs/reference/mobile-heart-review/perspective-v2/. Only A is
+  revised for a controlled comparison; the user has not selected A as the style.
+  A simple square-top/circular-socket composition guide is painted by ImageGen.
+  This is a screen-space guide, not a forced 3D projection of the entire prop.
+  The first retouch remains insufficient; the second generated source is current.
+- New source and full prompts preserved, complete native-alpha uniform resize,
+  no recolour/threshold/warp. ~156 displayed px base, .75 zoom. Proposed support
+  bounds now .8125 square; used only for occlusion. Keep generation's geometric
+  approximation distinct from exact architectural geometry; await visual approval.
+- prepare_heart_flat_layout.cjs creates the guide; prepare_heart_perspective_review.cjs
+  prepares sprites and --boards compares with frozen A. Capture using
+  capture_mobile_heart_review.gd -- --perspective-v2. Six captures, 44 passing
+  checks, exit 0, empty stderr. These checks validate loading/placement/order,
+  NOT artistic perspective. Before/after and front-wall overlap inspected.
+- Preserve original A/B/C history, active atlas, existing heart and production
+  scenes. No propagation, integration, commit or push requested in this correction.
+
+## Heart sprite proposals and flat-floor distinction — 2026-10-24
+
+- User clarified: floor slabs lie on a flat 2D grid; heroes and standalone props
+  convey volume through their artwork. Do not impose the architectural wireframe
+  projection on every object. For the heart, user accepted a complete transparent
+  sprite approach and explicitly requested several proposals AND tests.
+- Review: docs/reference/mobile-heart-review/. ImageGen A vortex, B fractured
+  core, C eclipse all retain the square blue-slate pedestal, four short corner
+  stones and dark floating orb. Original alpha sources and exact prompts are
+  saved in source/ and generation.json. No appearance is selected yet.
+- prepare_mobile_heart_review.cjs uniformly reduces complete sources to a common
+  ~156 displayed px base width at .75 zoom (192 displayed px/cell). Alpha threshold
+  only measures lower masonry bounds; no cutout, colour correction or perspective
+  warp. Both 256/128 source densities keep the same proposed ground anchor/scale.
+- mobile_heart_review.gd is an isolated renderer subclass, using approximate
+  ground-support bounds for draw order only. It reads prepared PNGs directly
+  because docs/.gdignore intentionally excludes authoring images from import.
+  HeartProposals.tscn is a local review scene, not the main scene or export kit.
+- capture_mobile_heart_review.gd: 18 captures, 128 checks, zero failures. Checks
+  cover textures, uniform scale, fixed camera and near/far-wall order. Final
+  import/capture exit 0 with empty stderr. Inspect gameplay-comparison.png,
+  comparison.png (two densities), occlusion-comparison.png. No device profiling,
+  hero passage, collisions or animation validation. User authorizes these local
+  tests; do not infer blanket permission for unrelated test suites.
+- Keep production heart/atlas/scenes unchanged until a proposal is selected and
+  integration requested. No commit/push requested during this appearance study.
+
+## Approved door integrated into the mobile kit — 2026-10-24
+
+- User said "Vas-y" after approving art v2. This authorizes and completes the
+  production integration, superseding pending/proposal-only gates below for
+  this door. Use wireframe-v8 geometry and painted-art-v2 artwork unchanged.
+- Active kit: 47 prepared sprites, one 1024x2048 atlas (820,667 PNG bytes,
+  unchanged 8 MiB RGBA). Each of four doors uses eight parts: original main arch,
+  leaf, inner arch, two jambs and three recessed smooth-wall portions. Keep the
+  two arches and smooth masonry above/alongside the wood, at .8T depth; no third
+  brick ring. Both leaf faces use the approved arched painting/inset hardware.
+- mobile_approved_doors.cjs checks frozen appearance/geometry approvals and
+  compares exports to approved PNGs/placements. Main arches are compared to
+  frozen atlas pixels after equivalent alpha compositing, avoiding one-level
+  partial-alpha RGB rounding differences. Never overwrite frozen approvals or
+  reference captures to pass a guard. Production explicitly uses art revision 2.
+- Each catalogue leaf declares six `companions`; mobile_dungeon_renderer places
+  these prepared textures using the existing physical support-depth ordering.
+  Historical review catalogues omit companions and keep their manual extra parts.
+  No runtime pixels/materials/perspective generation. Preserve layouts, stairs,
+  bare bases, integer grid, 256 px/cell, .75 fixed zoom and free panning.
+- Reproduce with export_mobile_kit.cjs, Godot import, capture_mobile_kit.gd and
+  prepare_mobile_kit_review.cjs. Then prepare_mobile_export.cjs, stage import and
+  Android Mobile resource export. Still 40 runtime source dependencies; generated
+  source painting, materials and review files are excluded. Resource ZIP 609,890
+  bytes is not an APK. Do not reset the user's editor/cache or scene state.
+- Evidence: docs/reference/mobile-door-frame-review/integration/. 28 approved
+  components + 19 retained sprites match final atlas pixels/offsets/bounds.
+  60 runtime captures / 21 scenes, imports/export/package opening: exit 0, empty
+  stderr. 13 editor captures / three scenes; same-camera special views match
+  runtime. Two native editor views have authored zoom 1 versus runtime .75.
+  Editor helper exits 0 but emits native window/progress/resource diagnostics.
+- Fresh independent code review: no actionable findings. No automated tests or
+  Android device profiling. No commit/push requested in this integration step.
+
+## Door art v2: inset straps and an arched source painting — 2026-10-24
+
+- User subsequently replied "Ok" to the v2 correction: appearance APPROVED.
+  selection.json beside the review freezes the exact source, fitted painting,
+  gameplay boards and recipe hashes. Use this art for future door integration;
+  v1 and the intermediate broad-strap edit are not the accepted appearance.
+  This approval record does not itself migrate the active atlas or scenes.
+- User rejects v1 straps too close to the edges and the rectangular source art.
+  Paint the actual ROUND wooden crown, including its worn rim/highlights, with
+  comfortably shorter inset iron straps. Do not merely crop a rectangular top.
+- Current review: docs/reference/mobile-door-frame-review/painted-art-v2/.
+  Two built-in ImageGen edits are recorded in generation.json. The first still
+  had broad straps; source/door-artwork.png is the refined native-alpha result.
+  Keep the original source unchanged. source/arch-template.png comes from the
+  approved v8 profile, generated by prepare_mobile_door_art_template.cjs.
+- prepare_mobile_door_arch_artwork.cjs fits the painted rim to that profile by
+  resampling horizontal source rows. Source alpha >8 locates bounds only; saved
+  pixels use premultiplied bilinear alpha, not thresholding/background removal.
+  source/fit.json records hashes/bounds/method. No geometry or guide changes.
+- Export with prepare_mobile_nested_door_review.cjs --art-v2, capture using
+  capture_mobile_nested_door_review.gd -- --art-v2, then export --boards --art-v2.
+  v1 remains reproducible with --art. v2 material brightness/saturation .82/.82
+  keep the generated painting subdued in the dungeon. Both leaf faces have art.
+- 28 parts, 12 captures, exit 0 and empty stderr. Guide files, leaf alpha and
+  stone sprites match v8; export coverage reports zero differences/holes/excess.
+  Active atlas unchanged. Appearance now approved; integration is still pending.
+  No automated tests, commit or push in the approval-record step.
+
+## Door artwork proposal on the approved smooth leaf — 2026-10-24
+
+- User requests a more crafted door matching the dungeon atmosphere. Current
+  appearance proposal: docs/reference/mobile-door-frame-review/painted-art-v1/.
+  Built-in ImageGen painted broad dark wood, two forged straps, a substantial
+  ring handle and one localized violet seal. Original art and exact prompt are
+  preserved in source/door-artwork.png and generation.json. Not yet approved.
+- The painting maps offline onto BOTH broad faces of the exact v8 leaf. All
+  artwork, including hardware, belongs to this optional face texture; no new
+  structural joints or hardware guide strokes. Thin edge surfaces retain quiet
+  wood. Nested arches and recessed stone keep their previous geometry/paint.
+- Reproduce: prepare_mobile_nested_door_review.cjs --art; Godot capture with
+  capture_mobile_nested_door_review.gd -- --art; export script --boards --art.
+  mobile_door_art_material.cjs supplies the face artwork and local UV mapping.
+  Common compositor respects an explicit wood textureTransform; default wood
+  mapping is unchanged. No production material recipe or atlas promotion.
+- Review at fixed .75 zoom first. Small details in the source are not evidence
+  of mobile readability. Gameplay captures and magenta overlays are included.
+  Approval remains for appearance only; no commit/push or tests requested.
+
+## Door v8 smooth leaf approved; painted review — 2026-10-24
+
+- User replied "Ok" after the v8 wireframe. Its selection.json records the
+  exact approved drawing/geometry hashes. Keep the leaf as one continuous
+  surface; no plank or hardware outlines in the structural guide.
+- Current appearance proposal: docs/reference/mobile-door-frame-review/painted-v8/.
+  Same approved wood texture across the whole leaf, with no forced plank joints
+  and no hardware in this bare-material review. Hardware can be separate artwork
+  later, on both faces. Arches and recessed infill keep the v7 geometry/paint.
+- The nested-door helper defaults to v8; export/capture accept --legacy-v7 for
+  historical reproduction. In Godot pass that flag after --. Frozen painted-v7
+  stays intact. Common material classification now accepts door.handle=null.
+- 28 prepared parts and 12 Godot captures. Export reports: zero construction
+  alpha differences, holes or excess pixels; capture exit 0, empty stderr.
+  Captures inspected at .75 zoom with magenta guides. Active atlas hash unchanged.
+  This is an appearance proposal; no scene/atlas promotion or commit/push.
+  No automated tests added or run, no mobile profiling.
+
+## Door leaf: structural outline only, proposal history — 2026-10-24
+
+- User proposes a smooth wooden leaf so its artwork can vary freely. Current
+  wireframe review: docs/reference/mobile-door-frame-review/wireframe-v8/.
+  It keeps the exact v7 volumes, silhouette, projection, nested arches and
+  recessed smooth infill. Only internal plank and handle guide strokes are
+  removed; they are optional artwork, not structural constraints.
+- Default reproduction: node tools/prepare_mobile_nested_arch_wireframe.cjs.
+  --legacy-detailed-leaf reproduces the previous v7 drawing. Keep frozen v7
+  geometry/selection and painted-v7 as the prior review, not the latest guide.
+- A smooth guide does not require a featureless final texture. Future paint or
+  prepared overlays may supply wood grain, planks, hardware or ornaments within
+  the same mask/perspective. Preserve handles on both faces when adding them.
+- This update prepares the wireframe only. The painted helper still reads v7;
+  no new painted export, active atlas, Godot scene, commit or push in this step.
+
+## Door v7 structure approved; painted appearance review — 2026-10-24
+
+- User replied "Ok" to wireframe v7. Its two arches, smooth infill and 80%-depth
+  centered wall are approved as the structure. selection.json beside the v7
+  wireframe records the exact approved PNG/geometry hashes. This releases the
+  wireframe-first gate for preparing the painted appearance.
+- Current painted review: docs/reference/mobile-door-frame-review/painted-v7/.
+  tools/mobile_nested_door_parts.cjs reads the approved geometry and exports
+  leaf, inner arch, two jambs, and three smooth-wall portions per direction.
+  Reuse the four ORIGINAL outer arches from the frozen baseline atlas, with
+  identical anchors and regions. Never shrink or repaint the main arch.
+- Shared mobile stone/wood/iron are reused. Smooth infill has no brick joints,
+  texture opacity .20 and common canonical UVs across its three prepared parts.
+  The cut at spring H closes paint regions only, with no ink or new end bevel.
+  A redundant part mask caused an antialiased gap at that uninked cut; these
+  single-material parts use the original fixed geometry silhouette without
+  the redundant raster part mask. Common compositor behavior is unchanged.
+- Original defaults in mobile_special_parts.cjs remain available; its generic
+  paint helper now accepts review-only models/materials. The production special
+  export does not invoke the nested-door proposal. Active atlas/scenes unchanged.
+- Reproduce: node tools/prepare_mobile_nested_door_review.cjs, then Godot with
+  tools/capture_mobile_nested_door_review.gd, then the first tool with --boards.
+  The capture tool adds prepared parts using the common renderer and .75 zoom.
+  Four directions, wood hardware on both faces; no runtime pixel painting.
+- Evidence: 28 prepared new parts, export reports total zero construction-alpha
+  differences/unpainted interior/excess pixels; 12 Godot captures exit 0 with
+  empty stderr. Active atlas hash equals frozen baseline. Boards inspected at
+  game distance with guide overlays. No automated tests or device profiling.
+  Appearance awaits user review; no active-atlas promotion or commit/push here.
+
+## Door correction: nested inner arch, wireframe first — 2026-10-24
+
+- Latest user rejected revision 2 (side jambs only). KEEP THE MAIN ARCH and
+  create a second, smaller arch inside it. There must be stone ABOVE the wood
+  as well as on both sides. Keeping the old wooden crown and clipping only its
+  width is not the requested design. This supersedes the jamb-only direction.
+- User then corrected revision 3: its intermediate row of bricks reads as a
+  THIRD arch. There must be two arches, with no extra brick row between them.
+  Revision 4 incorrectly joined the arches. User explicitly corrected this:
+  THERE MUST BE SPACE BETWEEN THE TWO ARCHES. Do not merge the two stone rings.
+  Revision 5 wrongly left this space empty. Latest explicit correction:
+  THE SPACE MUST BE A SOLID SMOOTH WALL, without brick joints. Revision 6 fills
+  it with continuous wall geometry, preserving the two separate arch rings.
+- User now requests a slightly thinner smooth wall than the arches. Revision 7
+  proposes 80% of their depth, centered, with a .016667-cell recess on each face.
+  This changes depth only; arch radii, wall band width and wood stay unchanged.
+  The exact 80% was proposed, then accepted with wireframe v7 (see selection).
+- User explicitly requested a WIREFRAME FOR DESIGN APPROVAL before further work.
+  Do not paint this design, propagate it to four directions or promote it into
+  the mobile atlas until the user approves the structure.
+- Current proposal: docs/reference/mobile-door-frame-review/wireframe-v7/.
+  Reproduce with node tools/prepare_mobile_nested_arch_wireframe.cjs. It creates
+  a front elevation and the existing oblique projection, with hidden edges
+  omitted. White = original main arch, cyan = added masonry and small arch,
+  amber = reduced wooden leaf, flat gray = solid smooth wall (schematic fill,
+  not a painted material). All output is offline review material only.
+- Main arch uses the exact original source prisms and current radial expansion
+  T/2: radii 5/12 and 7/12, spring H=1.88/6, depth T=1/6. The proposal's small
+  arch radii are .27/.35; wood radius .26; all share spring H. A .066667-cell
+  separation between the small arch and the main opening radius 5/12 is filled
+  with a smooth wall above and on both sides, with no brick joints or horizontal
+  seam at spring H. It occludes hidden lines. Main arch and wooden leaf geometry
+  stay unchanged. geometry.json records volumes and edges.
+  The smooth wall depth is .133333 cell against arch depth 1/6. Its plane is
+  y=.433333..566667; both contact curves and flat-fill masks use that real depth.
+  --legacy-three-rings, --legacy-joined and --legacy-open-gap reproduce rejected
+  revisions 3/4/5; --legacy-flush-wall reproduces v6 before the depth refinement.
+  No painting or active-kit promotion before validation.
+- Revision 1 (whole arch reduced) and revision 2 (jambs only, old wooden crown)
+  are rejected history. Their painted previews must not be used as approvals.
+  Active scenes/catalogue/assets stay unchanged. No commit/push requested.
+
+## Historical rejected door revision 2: original arch plus jambs — 2026-10-24
+
+- User finds the mobile door oversized and requests stone framing between the
+  wooden leaf and corridor walls. This supersedes the old direct-on-wall arch
+  direction for the new proposal. Review: docs/reference/mobile-door-frame-review/.
+- User rejected the smaller/lower arch proposal. They explicitly confirmed:
+  KEEP THE CURRENT ARCH, reduce only the wood, add two real stone jambs between
+  the wood and corridor walls. Do not shrink, lower or repaint the existing arch.
+- Revision 2 keeps the original arch PNG/anchor/size byte-for-byte. The wood is
+  clipped to +/- .29 cell horizontally, retaining the original curved crown and
+  its height. Each new jamb occupies the side strip between +/- .30 and +/- 5/12,
+  rising to the original inner arch curve; horizontal joints at H/2, H, 3H/2.
+  Wood width drops 30.4%; outer width and total height are unchanged.
+- All four directions are reprojected through the existing offline material/mask
+  renderer, preserving double-sided leaf hardware and shared stone. insetDoorParts
+  in mobile_special_parts.cjs adds this proposal without changing default exports.
+- tools/prepare_mobile_door_frame_review.cjs generates twelve prepared parts
+  (wood plus two jambs per direction), reusing the four original arches;
+  tools/capture_mobile_door_frame_review.gd places them with the common renderer
+  at zoom .75; --boards on the first tool assembles the comparisons. The rejected
+  reduced-arch image and its recipe are clearly kept under rejected-v1/ only.
+- This is an appearance proposal, not an active-atlas promotion. Frozen baseline
+  atlas/catalogue keep before/after reproducible. No scene, entrance, floor or
+  mobile-kit asset changes; no commit/push unless requested.
+
 ## Retired large assets removed — 2026-10-24
 
 - User explicitly requests deleting obsolete large files after the mobile migration.

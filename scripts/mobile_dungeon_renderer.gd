@@ -157,6 +157,21 @@ func _ordered_parts(parts: Array[Dictionary]) -> Array[Dictionary]:
 	return result
 
 
+func _heart_fits_floor(part: Dictionary, cells: Dictionary, specials: Dictionary) -> bool:
+	# The standalone prop has no floor plan. In a dungeon, the entire support
+	# must sit on floor without sharing a door or stair cell.
+	if cells.is_empty():
+		return true
+	var first := Vector2i(floori(part.min.x + .00001), floori(part.min.y + .00001))
+	var last := Vector2i(floori(part.max.x - .00001), floori(part.max.y - .00001))
+	for y in range(first.y, last.y + 1):
+		for x in range(first.x, last.x + 1):
+			var cell := Vector2i(x, y)
+			if not cells.has(cell) or specials.has(cell):
+				return false
+	return true
+
+
 func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, reload_textures := true) -> void:
 	if not _load_definition(reload_textures):
 		return
@@ -178,6 +193,7 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		_world.remove_child(child)
 		child.queue_free()
 	var cells: Dictionary = plan.cells
+	_frame = Rect2()
 	var openings: Dictionary = plan.openings
 	var edges: Array[Dictionary] = []
 	var axes := {}
@@ -208,10 +224,20 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		var special: String = specials[cell]
 		var direction := special.get_slice("/", 1)
 		if special.begins_with("doors/"):
-			parts.append(_part("door-%s-leaf" % direction, Vector2(cell)))
+			var leaf_id := "door-%s-leaf" % direction
+			parts.append(_part(leaf_id, Vector2(cell)))
 			parts.append(_part("door-%s-arch" % direction, Vector2(cell)))
+			# Additional prepared masonry uses the same physical support ordering.
+			# Historical review catalogues omit companions and retain two parts.
+			var entries: Dictionary = _definition.get("entries")
+			for companion: String in entries[leaf_id].get("companions", []):
+				parts.append(_part(companion, Vector2(cell)))
 		else:
 			parts.append(_part("stair-%s" % direction, Vector2(cell)))
+	for at: Vector2 in plan.get("hearts", PackedVector2Array()):
+		var heart := _part("heart", at)
+		if _heart_fits_floor(heart, cells, specials):
+			parts.append(heart)
 	for part in _ordered_parts(parts):
 		_draw_part(part, 1)
 		if pillar_details and part.id == "pillar":

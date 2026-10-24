@@ -1,0 +1,134 @@
+{
+  "revision": 2,
+  "legacyDefaultExports": [
+    {
+      "id": "door-north-leaf",
+      "samePng": true
+    },
+    {
+      "id": "door-north-arch",
+      "samePng": true
+    },
+    {
+      "id": "door-east-leaf",
+      "samePng": true
+    },
+    {
+      "id": "door-east-arch",
+      "samePng": true
+    },
+    {
+      "id": "door-south-leaf",
+      "samePng": true
+    },
+    {
+      "id": "door-south-arch",
+      "samePng": true
+    },
+    {
+      "id": "door-west-leaf",
+      "samePng": true
+    },
+    {
+      "id": "door-west-arch",
+      "samePng": true
+    }
+  ],
+  "activeAtlasUnchanged": true,
+  "atlasSha256": "c4501f9feb67ef2c0a34835334ed4082f2ddb9de4aa71b2c4e7dc8cfd9165269",
+  "originalArches": [
+    {
+      "id": "north",
+      "samePng": true
+    },
+    {
+      "id": "east",
+      "samePng": true
+    },
+    {
+      "id": "south",
+      "samePng": true
+    },
+    {
+      "id": "west",
+      "samePng": true
+    }
+  ],
+  "proposalMasks": [
+    {
+      "id": "door-north-leaf",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-north-jamb-left",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-north-jamb-right",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-east-leaf",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-east-jamb-left",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-east-jamb-right",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-south-leaf",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-south-jamb-left",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-south-jamb-right",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-west-leaf",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-west-jamb-left",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    },
+    {
+      "id": "door-west-jamb-right",
+      "alphaPixelsDifferentFromModel": 0,
+      "unpaintedInteriorPixels": 0,
+      "extraInteriorPixels": 0
+    }
+  ],
+  "captureExitCode": 0,
+  "captureStderrBytes": 0,
+  "automatedTestsRun": false
+}

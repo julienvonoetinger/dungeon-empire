@@ -1,0 +1,190 @@
+{
+  "status": "unapproved-appearance-study",
+  "method": "Complete native-alpha source uniformly resized. No crop, alpha threshold, colour adjustment or perspective deformation.",
+  "worldPixelsPerCell": 256,
+  "cameraZoom": 0.75,
+  "displayPixelsPerCell": 192,
+  "baseWidthPixels": 156,
+  "entries": [
+    {
+      "id": "a",
+      "name": "A · Vortex",
+      "source": "docs/reference/mobile-heart-review/source/a.png",
+      "sourceSha256": "06f0fba024c1874bc62e1e4bb7fd995cb2ca30d2dcf7c8e4e66f6a6a9450d2dc",
+      "sourceSize": [
+        1269,
+        1240
+      ],
+      "measuredBase": [
+        218,
+        1053,
+        1102
+      ],
+      "sourceAnchor": [
+        636,
+        814.9015384615384
+      ],
+      "footprint": [
+        0.8125,
+        0.56
+      ],
+      "supportHeight": 0.98,
+      "variants": [
+        {
+          "density": 256,
+          "file": "docs/reference/mobile-heart-review/prepared/a-256.png",
+          "size": [
+            316,
+            309
+          ],
+          "anchor": [
+            158.37352245862886,
+            202.92268412438625
+          ],
+          "bytes": 110762,
+          "rgbaBytes": 390576,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 256
+        },
+        {
+          "density": 128,
+          "file": "docs/reference/mobile-heart-review/prepared/a-128.png",
+          "size": [
+            158,
+            154
+          ],
+          "anchor": [
+            79.18676122931443,
+            101.46134206219313
+          ],
+          "bytes": 31103,
+          "rgbaBytes": 97328,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 128
+        }
+      ]
+    },
+    {
+      "id": "b",
+      "name": "B · Noyau fissuré",
+      "source": "docs/reference/mobile-heart-review/source/b.png",
+      "sourceSha256": "fc62130c88372cf51fe78446f7cd92a728d22adba48f718f72e90059c86598b6",
+      "sourceSize": [
+        1269,
+        1240
+      ],
+      "measuredBase": [
+        253,
+        1017,
+        1099
+      ],
+      "sourceAnchor": [
+        635.5,
+        836.3692307692307
+      ],
+      "footprint": [
+        0.8125,
+        0.56
+      ],
+      "supportHeight": 0.98,
+      "variants": [
+        {
+          "density": 256,
+          "file": "docs/reference/mobile-heart-review/prepared/b-256.png",
+          "size": [
+            345,
+            337
+          ],
+          "anchor": [
+            172.77186761229314,
+            227.38170576468448
+          ],
+          "bytes": 119458,
+          "rgbaBytes": 465060,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 256
+        },
+        {
+          "density": 128,
+          "file": "docs/reference/mobile-heart-review/prepared/b-128.png",
+          "size": [
+            173,
+            169
+          ],
+          "anchor": [
+            86.63632781717888,
+            114.02039158634904
+          ],
+          "bytes": 33253,
+          "rgbaBytes": 116948,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 128
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "name": "C · Éclipse",
+      "source": "docs/reference/mobile-heart-review/source/c.png",
+      "sourceSha256": "e6a6311f27142cb58f147cfdcfdbca7378888b3307db5c27c053f526920ba522",
+      "sourceSize": [
+        1269,
+        1240
+      ],
+      "measuredBase": [
+        262,
+        1006,
+        1110
+      ],
+      "sourceAnchor": [
+        634.5,
+        854.2615384615384
+      ],
+      "footprint": [
+        0.8125,
+        0.56
+      ],
+      "supportHeight": 0.98,
+      "variants": [
+        {
+          "density": 256,
+          "file": "docs/reference/mobile-heart-review/prepared/c-256.png",
+          "size": [
+            354,
+            346
+          ],
+          "anchor": [
+            177,
+            238.30463720676482
+          ],
+          "bytes": 109642,
+          "rgbaBytes": 489936,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 256
+        },
+        {
+          "density": 128,
+          "file": "docs/reference/mobile-heart-review/prepared/c-128.png",
+          "size": [
+            177,
+            173
+          ],
+          "anchor": [
+            88.5,
+            119.15231860338241
+          ],
+          "bytes": 30978,
+          "rgbaBytes": 122484,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 128
+        }
+      ]
+    }
+  ],
+  "baselineHashes": {
+    "assets/dungeon/mobile-kit/atlas-256.png": "8fb05682b2328348a39d37eb358cd16877ea56bcc6754a25fd644d2ff3490ba2",
+    "assets/dungeon/mobile-kit/catalog.tres": "95e8ae76fa7d07c2dffedeaa6bc2704904a16636fa47f09c46a8c9054ead8e01",
+    "assets/dungeon/heart/heart.png": "8322d1472022c2949c3a73626a8fbb9e7909e08e2e798f6fd22327795567e43c",
+    "scenes/DungeonHeart.tscn": "40ab4ab72535970a5325b48803e8bfa8d0e1f6774e30f3935c5bb25a001e1ed4"
+  }
+}

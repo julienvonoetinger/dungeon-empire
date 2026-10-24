@@ -1,0 +1,258 @@
+{
+	"captures": [
+		"center",
+		"north",
+		"south",
+		"west",
+		"east",
+		"MobileReference-native",
+		"MobileReference-heart",
+		"SixRoomPreview-native",
+		"SixRoomPreview-heart",
+		"DungeonPreview-native",
+		"DungeonPreview-heart"
+	],
+	"checks": [
+		{
+			"check": "Production atlas supplies approved heart",
+			"passed": true
+		},
+		{
+			"check": "center: one prepared heart",
+			"passed": true
+		},
+		{
+			"check": "center: approved dimensions",
+			"passed": true
+		},
+		{
+			"check": "center: ground anchor",
+			"passed": true
+		},
+		{
+			"check": "center: no scale or rotation",
+			"passed": true
+		},
+		{
+			"check": "center: image saved",
+			"passed": true
+		},
+		{
+			"check": "center: rebuild does not duplicate heart",
+			"passed": true
+		},
+		{
+			"check": "north: one prepared heart",
+			"passed": true
+		},
+		{
+			"check": "north: approved dimensions",
+			"passed": true
+		},
+		{
+			"check": "north: ground anchor",
+			"passed": true
+		},
+		{
+			"check": "north: no scale or rotation",
+			"passed": true
+		},
+		{
+			"check": "north: shared-layer ordering",
+			"passed": true
+		},
+		{
+			"check": "north: shared-layer ordering",
+			"passed": true
+		},
+		{
+			"check": "north: actual wall overlap",
+			"passed": true
+		},
+		{
+			"check": "north: image saved",
+			"passed": true
+		},
+		{
+			"check": "north: rebuild does not duplicate heart",
+			"passed": true
+		},
+		{
+			"check": "south: one prepared heart",
+			"passed": true
+		},
+		{
+			"check": "south: approved dimensions",
+			"passed": true
+		},
+		{
+			"check": "south: ground anchor",
+			"passed": true
+		},
+		{
+			"check": "south: no scale or rotation",
+			"passed": true
+		},
+		{
+			"check": "south: shared-layer ordering",
+			"passed": true
+		},
+		{
+			"check": "south: shared-layer ordering",
+			"passed": true
+		},
+		{
+			"check": "south: actual wall overlap",
+			"passed": true
+		},
+		{
+			"check": "south: image saved",
+			"passed": true
+		},
+		{
+			"check": "south: rebuild does not duplicate heart",
+			"passed": true
+		},
+		{
+			"check": "west: one prepared heart",
+			"passed": true
+		},
+		{
+			"check": "west: approved dimensions",
+			"passed": true
+		},
+		{
+			"check": "west: ground anchor",
+			"passed": true
+		},
+		{
+			"check": "west: no scale or rotation",
+			"passed": true
+		},
+		{
+			"check": "west: image saved",
+			"passed": true
+		},
+		{
+			"check": "west: rebuild does not duplicate heart",
+			"passed": true
+		},
+		{
+			"check": "east: one prepared heart",
+			"passed": true
+		},
+		{
+			"check": "east: approved dimensions",
+			"passed": true
+		},
+		{
+			"check": "east: ground anchor",
+			"passed": true
+		},
+		{
+			"check": "east: no scale or rotation",
+			"passed": true
+		},
+		{
+			"check": "east: image saved",
+			"passed": true
+		},
+		{
+			"check": "east: rebuild does not duplicate heart",
+			"passed": true
+		},
+		{
+			"check": "Standalone uses same prepared heart",
+			"passed": true
+		},
+		{
+			"check": "Standalone uses ground origin",
+			"passed": true
+		},
+		{
+			"check": "Layout study defaults to no heart",
+			"passed": true
+		},
+		{
+			"check": "Off-floor heart omitted",
+			"passed": true
+		},
+		{
+			"check": "Partly off-floor support omitted",
+			"passed": true
+		},
+		{
+			"check": "Heart cannot share stair cell",
+			"passed": true
+		},
+		{
+			"check": "Heart cannot share door cell",
+			"passed": true
+		},
+		{
+			"check": "MobileReference: heart present",
+			"passed": true
+		},
+		{
+			"check": "MobileReference: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "MobileReference-native: image saved",
+			"passed": true
+		},
+		{
+			"check": "MobileReference-heart: image saved",
+			"passed": true
+		},
+		{
+			"check": "MobileReference: refresh preserves single heart",
+			"passed": true
+		},
+		{
+			"check": "SixRoomPreview: heart present",
+			"passed": true
+		},
+		{
+			"check": "SixRoomPreview: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "SixRoomPreview-native: image saved",
+			"passed": true
+		},
+		{
+			"check": "SixRoomPreview-heart: image saved",
+			"passed": true
+		},
+		{
+			"check": "SixRoomPreview: refresh preserves single heart",
+			"passed": true
+		},
+		{
+			"check": "DungeonPreview: heart present",
+			"passed": true
+		},
+		{
+			"check": "DungeonPreview: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "DungeonPreview-native: image saved",
+			"passed": true
+		},
+		{
+			"check": "DungeonPreview-heart: image saved",
+			"passed": true
+		},
+		{
+			"check": "DungeonPreview: refresh preserves single heart",
+			"passed": true
+		},
+		{
+			"check": "All requested captures completed",
+			"passed": true
+		}
+	],
+	"failures": 0
+}

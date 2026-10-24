@@ -1,6 +1,7 @@
 [
 	{
 		"cells": 1,
+		"hearts": 0,
 		"scene": "1x1CellRoom",
 		"specials": 0,
 		"sprites": 13,
@@ -8,6 +9,7 @@
 	},
 	{
 		"cells": 2,
+		"hearts": 0,
 		"scene": "1x2Corridor",
 		"specials": 0,
 		"sprites": 6,
@@ -15,6 +17,7 @@
 	},
 	{
 		"cells": 3,
+		"hearts": 0,
 		"scene": "1x3Corridor",
 		"specials": 0,
 		"sprites": 9,
@@ -22,6 +25,7 @@
 	},
 	{
 		"cells": 2,
+		"hearts": 0,
 		"scene": "2x1Corridor",
 		"specials": 0,
 		"sprites": 6,
@@ -29,6 +33,7 @@
 	},
 	{
 		"cells": 4,
+		"hearts": 0,
 		"scene": "2x2CellRoom",
 		"specials": 0,
 		"sprites": 20,
@@ -36,6 +41,7 @@
 	},
 	{
 		"cells": 3,
+		"hearts": 0,
 		"scene": "3x1Corridor",
 		"specials": 0,
 		"sprites": 9,
@@ -43,6 +49,7 @@
 	},
 	{
 		"cells": 9,
+		"hearts": 0,
 		"scene": "3x3CellRoom",
 		"specials": 0,
 		"sprites": 29,
@@ -50,6 +57,7 @@
 	},
 	{
 		"cells": 21,
+		"hearts": 0,
 		"scene": "3x3RoomCornerCorridors",
 		"specials": 0,
 		"sprites": 61,
@@ -57,6 +65,7 @@
 	},
 	{
 		"cells": 23,
+		"hearts": 0,
 		"scene": "3x3RoomFourCorridors",
 		"specials": 0,
 		"sprites": 83,
@@ -64,6 +73,7 @@
 	},
 	{
 		"cells": 37,
+		"hearts": 0,
 		"scene": "5x5RoomCornerCorridors",
 		"specials": 0,
 		"sprites": 85,
@@ -71,6 +81,7 @@
 	},
 	{
 		"cells": 39,
+		"hearts": 0,
 		"scene": "5x5RoomFourCorridors",
 		"specials": 0,
 		"sprites": 107,
@@ -78,6 +89,7 @@
 	},
 	{
 		"cells": 37,
+		"hearts": 0,
 		"scene": "5x5RoomVerticalCornerCorridors",
 		"specials": 0,
 		"sprites": 85,
@@ -85,13 +97,15 @@
 	},
 	{
 		"cells": 256,
+		"hearts": 1,
 		"scene": "DungeonPreview",
 		"specials": 1,
-		"sprites": 527,
+		"sprites": 528,
 		"zoom": 0.75
 	},
 	{
 		"cells": 4,
+		"hearts": 0,
 		"scene": "EntranceVariants",
 		"specials": 4,
 		"sprites": 36,
@@ -99,13 +113,15 @@
 	},
 	{
 		"cells": 13,
+		"hearts": 1,
 		"scene": "MobileReference",
 		"specials": 0,
-		"sprites": 57,
+		"sprites": 58,
 		"zoom": 0.75
 	},
 	{
 		"cells": 10,
+		"hearts": 0,
 		"scene": "PerspectiveRoom",
 		"specials": 1,
 		"sprites": 41,
@@ -113,13 +129,15 @@
 	},
 	{
 		"cells": 3,
+		"hearts": 0,
 		"scene": "ReferenceCalibration",
 		"specials": 3,
-		"sprites": 23,
+		"sprites": 29,
 		"zoom": 0.75
 	},
 	{
 		"cells": 1,
+		"hearts": 0,
 		"scene": "SingleCellRoom",
 		"specials": 0,
 		"sprites": 13,
@@ -127,13 +145,15 @@
 	},
 	{
 		"cells": 256,
+		"hearts": 1,
 		"scene": "SixRoomPreview",
 		"specials": 1,
-		"sprites": 527,
+		"sprites": 528,
 		"zoom": 0.75
 	},
 	{
 		"cells": 17,
+		"hearts": 0,
 		"scene": "WireframeClosedCorridors",
 		"specials": 4,
 		"sprites": 89,
@@ -141,9 +161,10 @@
 	},
 	{
 		"cells": 13,
+		"hearts": 0,
 		"scene": "WireframeDoorCross",
 		"specials": 4,
-		"sprites": 73,
+		"sprites": 97,
 		"zoom": 0.75
 	}
 ]

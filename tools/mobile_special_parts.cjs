@@ -60,22 +60,32 @@ function visibleEdges(edges,volumes,ray) {
   }
   return result;
 }
-async function doorPart(direction,part) {
+async function doorPart(direction,part,options={}) {
   const tr=forward[direction],inv=inverse[direction];
-  const volumes=source.occludingVolumes.filter(v=>v.part===part).map(v=>({...v,profileXZ:v.profileXZ.map(([x,z])=>{const p=expand([x,0,z],part);return [p[0],p[2]];})}));
+  const transform=p=>expand(p,part);
+  const destination=options.output||OUT;
+  const volumes=source.occludingVolumes.filter(v=>v.part===part).map(v=>({...v,profileXZ:v.profileXZ.map(([x,z])=>{const p=transform([x,0,z]);return [p[0],p[2]];})}));
   const origin=inv([0,0,0]),ray=inv([.18,.9,1]).map((v,i)=>v-origin[i]);
   let edges=source.sourceEdges.filter(e=>part==='closed-door'?['door','detail'].includes(e.kind):
     (e.kind==='frame'||e.kind==='joint'&&Math.min(e.a[2],e.b[2])>=H-1e-8&&[e.a,e.b].every(p=>p[1]>=source.frame.centerY-T/2-1e-8&&p[1]<=source.frame.centerY+T/2+1e-8))&&e.role!=='apparent-contour')
-    .map(e=>({...e,a:expand(e.a,part),b:expand(e.b,part)}));
-  if(part==='closed-door')for(const x of [.5-(inner+T/2),.5+(inner+T/2)])edges.push({a:[x,source.door.yMin,H],b:[x,source.door.yMax,H],kind:'door'});
-  if(part==='arch')for(const radius of [inner+T/2,source.frame.outerRadius+T/2])for(const sign of [-1,1])edges.push({a:[.5+sign*radius,.5-T/2,H],b:[.5+sign*radius,.5+T/2,H],kind:'frame'});
-  for(let i=1;i<56;i++){
-    const facing=a=>ray[0]*Math.cos(a)+ray[2]*Math.sin(a);
-    if(facing((i-.5)*Math.PI/56)*facing((i+.5)*Math.PI/56)<0)for(const radius of part==='arch'?[inner+T/2,source.frame.outerRadius+T/2]:[inner+T/2]){
-      const at=y=>[.5+radius*Math.cos(i*Math.PI/56),y,H+radius*Math.sin(i*Math.PI/56)];
+    .map(e=>({...e,a:transform(e.a),b:transform(e.b)}));
+  const curves=part==='arch'?[[inner+T/2,inner+T/2],[source.frame.outerRadius+T/2,source.frame.outerRadius+T/2]]:[[inner+T/2,inner+T/2]];
+  if(part==='closed-door')for(const sign of [-1,1]){const x=.5+sign*curves[0][0];edges.push({a:[x,source.door.yMin,H],b:[x,source.door.yMax,H],kind:'door'});}
+  if(part==='arch')for(const [rx] of curves)for(const sign of [-1,1])edges.push({a:[.5+sign*rx,.5-T/2,H],b:[.5+sign*rx,.5+T/2,H],kind:'frame'});
+  for(let i=1;i<56;i++)for(const [rx,rz] of curves){
+    const facing=a=>ray[0]*Math.cos(a)/rx+ray[2]*Math.sin(a)/rz;
+    if(facing((i-.5)*Math.PI/56)*facing((i+.5)*Math.PI/56)<0){
+      const at=y=>[.5+rx*Math.cos(i*Math.PI/56),y,H+rz*Math.sin(i*Math.PI/56)];
       edges.push({a:at(part==='arch'?.5-T/2:source.door.yMin),b:at(part==='arch'?.5+T/2:source.door.yMax),kind:part==='arch'?'frame':'door'});
     }
   }
+  return paintDoorModel(direction,part,volumes,edges,{output:destination,
+    rx:ratio,rz:ratio,forward:p=>tr(expand(p,'closed-door'))});
+}
+async function paintDoorModel(direction,part,volumes,edges,options={}) {
+  const tr=forward[direction],inv=inverse[direction];
+  const origin=inv([0,0,0]),ray=inv([.18,.9,1]).map((v,i)=>v-origin[i]);
+  const savePart=(p,b)=>write(path.join(R.ROOT,options.output||OUT,p),b);
   const visible=visibleEdges(edges,volumes,ray);
   const surfaces=[];
   volumes.forEach((v,index)=>{
@@ -86,16 +96,93 @@ async function doorPart(direction,part) {
   const min=[0,1].map(i=>Math.floor(Math.min(...screen.map(p=>p[i])))-3),max=[0,1].map(i=>Math.ceil(Math.max(...screen.map(p=>p[i])))+3);
   const size=max.map((v,i)=>Math.ceil((v-min[i])/2)*2),anchor=min.map(v=>-v);
   const project=p=>B.project(p).map((v,i)=>v+anchor[i]);
-  const id=`door-${direction}-${part==='arch'?'arch':'leaf'}`;
-  const lines=visible.map(e=>({a:project(tr(e.a)),b:project(tr(e.b)),width:e.kind==='detail'?1.2:1.6}));
-  const guide=R.svg(size,lines.map(l=>`<line x1="${l.a[0]}" y1="${l.a[1]}" x2="${l.b[0]}" y2="${l.b[1]}" stroke="#ff00ff" stroke-width="${l.width}"/>`).join(''));
-  const model={id,size,anchor,surfaces,floor:false,clipPaint:true,drawAccent:false,door:source.door,forward:p=>tr(expand(p,'closed-door')),
-    inverse:p=>{const q=inv(p);return [.5+(q[0]-.5)/ratio,q[1],q[2]>H?H+(q[2]-H)/ratio:q[2]];},
-    silhouette:silhouette(surfaces,project),resolveMaterials:faces=>faces.forEach(f=>{if(f.kind!=='wood'&&f.kind!=='metal')f.materialId='walls-planes';})};
-  const result=await R.render(model,guide,B.materials);
+  const id=`door-${direction}-${options.suffix||(part==='arch'?'arch':'leaf')}`;
+  const makeGuide=edges=>R.svg(size,edges.map(e=>{
+    const a=project(tr(e.a)),b=project(tr(e.b));
+    return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#ff00ff" stroke-width="${e.kind==='detail'?1.2:1.6}"/>`;
+  }).join(''));
+  const guide=makeGuide(visible.filter(e=>!e.paintOnly));
+  const rx=options.rx||ratio,rz=options.rz||ratio;
+  const model={id,size,anchor,surfaces,floor:false,clipPaint:true,drawAccent:false,door:options.door||source.door,forward:options.forward||tr,
+    inverse:options.inverse||(p=>{const q=inv(p);return [.5+(q[0]-.5)/rx,q[1],q[2]>H?H+(q[2]-H)/rz:q[2]];}),
+    silhouette:silhouette(surfaces,project),resolveMaterials:faces=>{
+      faces.forEach(f=>{if(f.kind!=='wood'&&f.kind!=='metal')f.materialId='walls-planes';});
+      if(options.resolveMaterials)options.resolveMaterials(faces,{project,anchor});
+    }};
+  if(visible.some(e=>e.paintOnly))model.paintGuide=makeGuide(visible);
+  // Single-material smooth parts need the fixed silhouette only. Avoid a
+  // redundant raster part mask attenuating their uninked cut edges twice.
+  if(options.singleMaterialPart)delete model.door;
+  const result=await R.render(model,guide,options.materials||B.materials);
   const png=await sharp(result.png).resize(size[0],size[1]).png().toBuffer();
-  save(`sprites/${id}.png`,png);save(`overlays/${id}.png`,await sharp(result.overlay).resize(size[0],size[1]).png().toBuffer());save(`guides/${id}.svg`,guide);
+  savePart(`sprites/${id}.png`,png);savePart(`overlays/${id}.png`,await sharp(result.overlay).resize(size[0],size[1]).png().toBuffer());savePart(`guides/${id}.svg`,guide);
   return {id,png:result.png,frame:[...min,...size],bounds:bounds(points),report:result.report};
+}
+
+// Add upright jambs inside the ORIGINAL arch opening. Its existing sprite is
+// deliberately not regenerated or resized. Profiles share its exact polygonal arc.
+async function insetDoorParts(direction,{output=OUT,leafHalfWidth=.29,jambInner=.30}={}) {
+  const profile=source.door.profileXZ.map(([x,z])=>{const p=expand([x,0,z],'closed-door');return [p[0],p[2]];});
+  function clip(points,x,keepRight){
+    const result=[];
+    for(let i=0;i<points.length;i++){
+      const a=points[i],b=points[(i+1)%points.length],A=keepRight?a[0]>=x:a[0]<=x,Bb=keepRight?b[0]>=x:b[0]<=x;
+      if(A)result.push(a);
+      if(A!==Bb)result.push(lerp(a,b,(x-a[0])/(b[0]-a[0])));
+    }
+    return result;
+  }
+  const slice=(lo,hi)=>clip(clip(profile,lo,true),hi,false);
+  const topAt=x=>{
+    let top=0;
+    for(let i=0;i<profile.length;i++){
+      const a=profile[i],b=profile[(i+1)%profile.length];
+      if(Math.abs(b[0]-a[0])<1e-10)continue;
+      if(x>=Math.min(a[0],b[0])-1e-8&&x<=Math.max(a[0],b[0])+1e-8)top=Math.max(top,a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]));
+    }
+    return top;
+  };
+  const borders=(volumes,kind)=>volumes.flatMap(v=>{
+    const edges=[];
+    for(const y of [v.yMin,v.yMax])v.profileXZ.forEach((p,i)=>edges.push({a:[p[0],y,p[1]],b:[v.profileXZ[(i+1)%v.profileXZ.length][0],y,v.profileXZ[(i+1)%v.profileXZ.length][1]],kind}));
+    const inv=inverse[direction],o=inv([0,0,0]),ray=inv([.18,.9,1]).map((n,i)=>n-o[i]);
+    v.profileXZ.forEach((p,i)=>{
+      const a=v.profileXZ[(i-1+v.profileXZ.length)%v.profileXZ.length],b=v.profileXZ[(i+1)%v.profileXZ.length];
+      const facing=(a,b)=>ray[0]*(b[1]-a[1])-ray[2]*(b[0]-a[0]);
+      if(p[1]<=H+1e-7||Math.abs(p[0]-a[0])<1e-8||Math.abs(p[0]-b[0])<1e-8||facing(a,p)*facing(p,b)<0)
+        edges.push({a:[p[0],v.yMin,p[1]],b:[p[0],v.yMax,p[1]],kind});
+    });return edges;
+  });
+  const leafVolumes=[{part:'closed-door',profileXZ:slice(.5-leafHalfWidth,.5+leafHalfWidth),yMin:source.door.yMin,yMax:source.door.yMax}];
+  const rx=leafHalfWidth/inner,leafEdges=borders(leafVolumes,'door');
+  for(const e of source.sourceEdges.filter(e=>e.kind==='detail')){
+    const transform=p=>{
+      const x=.5+(p[0]-.5)*rx;
+      return [x,p[1],e.role?.includes('plank-seam')&&p[2]>H+.01?topAt(x):p[2]];
+    };
+    leafEdges.push({...e,a:transform(e.a),b:transform(e.b)});
+  }
+  const leaf=await paintDoorModel(direction,'closed-door',leafVolumes,leafEdges,{output,rx,rz:1});
+  const jambVolumes=[slice(.5-(inner+T/2),.5-jambInner),slice(.5+jambInner,.5+(inner+T/2))]
+    .map(profileXZ=>({part:'pillar',profileXZ,yMin:.5-T/2,yMax:.5+T/2}));
+  const jambs=[];
+  for(const [index,v] of jambVolumes.entries()){
+    const jambEdges=borders([v],'frame');
+    const lo=Math.min(...v.profileXZ.map(p=>p[0])),hi=Math.max(...v.profileXZ.map(p=>p[0]));
+    for(const z of [H/2,H,H*1.5]){
+      const reaches=v.profileXZ.flatMap((a,i)=>{
+        const b=v.profileXZ[(i+1)%v.profileXZ.length];
+        if(Math.abs(a[1]-b[1])<1e-9||z<Math.min(a[1],b[1])||z>Math.max(a[1],b[1]))return [];
+        return [a[0]+(b[0]-a[0])*(z-a[1])/(b[1]-a[1])];
+      });
+      if(reaches.length<2)continue;
+      const x0=Math.min(...reaches),x1=Math.max(...reaches);
+      for(const y of [v.yMin,v.yMax])jambEdges.push({a:[x0,y,z],b:[x1,y,z],kind:'joint'});
+      for(const x of [lo,hi])if(z<=topAt(x)+1e-8)jambEdges.push({a:[x,v.yMin,z],b:[x,v.yMax,z],kind:'joint'});
+    }
+    jambs.push(await paintDoorModel(direction,'pillar',[v],jambEdges,{output,suffix:'jamb-'+(index===0?'left':'right')}));
+  }
+  return [leaf,...jambs];
 }
 async function stairs(direction) {
   const tr=forward[direction],items=[];
@@ -136,8 +223,9 @@ async function stairs(direction) {
   return [{id,png,frame:[x,y,w,h],bounds:{min:[0,1,2].map(j=>Math.min(...items.map(i=>i.bounds.min[j]))),max:[0,1,2].map(j=>Math.max(...items.map(i=>i.bounds.max[j])))},
     report:{id,composition:'Five prepared steps, baked in support order',parts:items.map(i=>i.report)}}];
 }
-async function specials(){const items=[];for(const direction of Object.keys(forward)){
-  for(const part of ['closed-door','arch'])items.push(await doorPart(direction,part));
+async function specials({doors=null}={}){const items=[];for(const direction of Object.keys(forward)){
+  if(doors)items.push(...await doors(direction));
+  else for(const part of ['closed-door','arch'])items.push(await doorPart(direction,part));
   items.push(...await stairs(direction));console.log('Prepared specials '+direction);
 }return items;}
-module.exports={specials};
+module.exports={specials,doorPart,insetDoorParts,paintDoorModel};

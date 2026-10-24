@@ -1,12 +1,14 @@
 # Kit d’architecture mobile — 24 octobre 2026
 
 La demande « terminer l’optimisation avec le reste du kit » autorise la migration
-du prototype vers les 21 scènes d’architecture. Le cœur et la torche restent des
-props séparés, conservés dans le projet mais absents du paquet d’architecture.
+du prototype vers les 21 scènes d’architecture. Le cœur sculpté validé est
+désormais intégré au même atlas et aux aperçus concernés. La torche reste séparée.
 
 ## Assets actifs
 
-`assets/dungeon/mobile-kit/atlas-256.png` contient **23 sprites** :
+`assets/dungeon/mobile-kit/atlas-256.png` contient **48 sprites**, avec la
+[porte approuvée](../mobile-door-frame-review/integration/) et le
+[cœur sculpté](../mobile-heart-review/ritual-v3/integration/) :
 
 | Élément | Nombre |
 | --- | ---: |
@@ -14,19 +16,20 @@ props séparés, conservés dans le projet mais absents du paquet d’architectu
 | Mur horizontal / vertical, quatre combinaisons d’extrémités | 8 |
 | Pilier nu | 1 |
 | Dessus creusé optionnel, séparé | 1 |
-| Porte : arche et vantail, quatre orientations | 8 |
+| Porte : huit composants préparés, quatre orientations | 32 |
 | Escalier complet, quatre orientations | 4 |
+| Cœur sculpté avec vortex, sprite complet | 1 |
 
 `catalog.tres` contient les AtlasTexture, régions, ancrages et volumes de support.
 Les subresources référencent toutes le même atlas, avec extrusion de 4 pixels
 et `filter_clip`. Le JSON et `recipe.json` documentent l’export ; le jeu charge
 le Resource préparé, sans lire les matières ni les anciens catalogues.
 
-- Atlas : **1024 × 2048**, PNG **635 387 octets** (620,5 Kio).
+- Atlas : **1024 × 2048**, PNG **974 698 octets** (951,9 Kio).
 - RGBA sans compression GPU, sans mipmaps : **8 Mio** pour l’atlas complet.
 - Résolution : **256 px par case 1×1**, affichage à **192 px/case** dans la vue
   logique 1280×720. Zoom constant 0,75 ; déplacement au doigt ou souris gauche.
-- Paquet de ressources Godot mesuré : environ **458 Kio**, scènes et scripts
+- Paquet de ressources Godot mesuré : **705 339 octets** (688,8 Kio), scènes et scripts
   compris, hors exécutable/moteur Android, APK, signature et bibliothèques natives.
   Le relevé exact et les fichiers exportés figurent dans `package-report.json`.
 
@@ -52,14 +55,17 @@ gain de mémoire mesuré en jeu.
 - Les marches réutilisent les cinq hauteurs de la source. Leur largeur et le
   départ rejoignent les nouvelles faces intérieures des murs à T/2 de la grille.
   Leurs pièces de construction sont fusionnées hors ligne en un sprite par sens.
-- La porte reste une arche portant directement sur les deux murs. Son rayon
-  intérieur et extérieur augmentent chacun de T/2 ; l’épaisseur reste T.
-  Le vantail garde ses deux faces, bandes et poignées. Les quatre vues sont
-  reprojetées depuis le modèle, jamais des rotations du bitmap.
-- Vantail et arche sont deux sprites : l’arche est au-dessus de ses appuis,
-  tandis que le vantail est masqué par le mur de premier plan. Le placement
-  ordonne les volumes de support et leur recouvrement à l’écran. Le dessus
-  décoratif suit immédiatement son pilier pour rester occultable.
+- La porte garde exactement sa grande arche, portant sur les murs. Elle contient
+  désormais une petite arche et un mur lisse entre les deux, en retrait sur les
+  deux faces (épaisseur 0,8T). Le bois réduit a un véritable sommet arqué, des
+  ferrures en retrait et une poignée sur chaque face. Géométrie v8 et apparence
+  `painted-art-v2` sont approuvées. Les quatre vues sont reprojetées depuis le
+  modèle, jamais des rotations du bitmap.
+- Chaque porte utilise huit composants préparés : grande arche, vantail, petite
+  arche, deux montants et trois parties de mur lisse. L’entrée du vantail dans le
+  catalogue déclare les six éléments ajoutés via `companions`. Le renderer place
+  leurs textures et ordonne leurs volumes de support avec les murs, sans produire
+  de pixels. Le dessus décoratif suit son pilier pour rester occultable.
 - Les trois rangées de sol sont peintes comme des pierres périodiques entières
   avant recadrage. La grille logique ne devient pas un joint ou un biseau.
 
@@ -74,6 +80,13 @@ migration ne transforme pas la proposition en validation artistique définitive.
 transmet le plan à `mobile_dungeon_renderer.gd`. Les layouts n’ont pas été changés.
 SixRoomPreview garde ses 256 cases et ses couloirs larges. EntranceVariants est
 une planche de quatre cases utilisant les mêmes éléments que les salles.
+
+Le cœur est présent dans MobileReference, SixRoomPreview et DungeonPreview.
+Les centres au sol sont réglables via `Dungeon → Heart Positions`, en unités de
+case. L’emprise complète doit rester sur le sol et hors des portes/escaliers.
+`DungeonHeart.tscn` reste disponible comme prop autonome avec le même atlas.
+Son sprite complet mesure 289 × 289 pixels source, pour un socle d’environ
+156 pixels affichés à la distance de jeu. Il partage l’ordre des murs et piliers.
 
 F5 ouvre MobileReference. F6 lance la scène active. La caméra ne réduit plus
 automatiquement le donjon pour le montrer en entier : déplacer la vue pour
@@ -100,7 +113,13 @@ node tools/prepare_mobile_kit_review.cjs
 ```
 
 Le pipeline commun est `prepare_mobile_reference.cjs` (primitives et packing),
-`mobile_special_parts.cjs` (portes/escaliers) et `mobile_pillar_cap.cjs` (dessus).
+`mobile_special_parts.cjs` (arches originales/escaliers), `mobile_approved_doors.cjs`
+(promotion des portes v8/art-v2), `mobile_pillar_cap.cjs` (dessus) et
+`mobile_approved_heart.cjs` (sprite complet approuvé).
+La promotion vérifie les empreintes approuvées et refuse une différence de
+pixels ou de placement des pièces ajoutées. La grande arche est comparée à
+l’atlas initial au même stade de composition alpha. L’apparence v2 est choisie
+explicitement, indépendamment des options CLI des anciens outils de revue.
 `recipe.json` enregistre les empreintes des sources, profils et audits de masques.
 `guides/`, `overlays/`, `sprites/` contiennent les sorties de contrôle, exclues du
 jeu. Les guides d’escalier fusionnés masquent les traits derrière les marches.
@@ -111,8 +130,8 @@ le prototype historique à deux densités. Il ne met pas à jour le kit actif.
 
 ### Paquet mobile sans sources historiques
 
-Le preset **Android Mobile** exporte explicitement les 40 dépendances actives des
-21 scènes. Les scripts hérités, le Resource du catalogue et le PNG y figurent.
+Le preset **Android Mobile** exporte explicitement les 42 dépendances actives des
+22 scènes, dont DungeonHeart. Les scripts hérités, le catalogue et le PNG y figurent.
 Pour éviter les anciennes dépendances conservées dans le cache d’un éditeur déjà
 ouvert, préparer une copie limitée avec un cache neuf :
 
@@ -136,13 +155,19 @@ nécessitera les outils Android et la configuration de signature habituels.
   seul `.ctex` et aucune ancienne famille de textures.
 - Deux planches de scènes inspectées, plus vues natives MobileReference,
   portes des quatre sens, escaliers, ReferenceCalibration et SixRoomPreview.
-- Capture MobileReference en contexte éditeur identique à celle du jeu : SHA256
-  `EDCEF32B5BE77E5474D4CC5B4DBC9159ECE4E73FF7ED8A794CFFBB1B117EBAE1`.
-  Le processus de capture éditeur signale des avertissements natifs d’écran,
-  fenêtre de progression et nettoyage des ressources à sa fermeture ; son
-  stderr n’est pas vide. Ce ne sont pas les logs du lancement du jeu.
-- Revue indépendante : corrections du nettoyage de migration et du réabonnement
-  aux imports ; aucun autre problème Important/Critical restant identifié.
+- Nouvelle capture éditeur de WireframeDoorCross, ReferenceCalibration et
+  MobileReference : 13 images, dont les sept vues centrées sur les portes et
+  escaliers identiques au jeu. MobileReference natif est aussi identique. Les
+  vues natives des deux autres scènes conservent la caméra d’édition à zoom 1,
+  alors que leur script non `@tool` initialise la caméra du jeu à 0,75 ; ces deux
+  images ne sont donc pas identiques. Les vues centrées imposent le même cadrage.
+  Le processus de capture éditeur sort avec code 0 mais signale des erreurs
+  natives d’écran/fenêtre et de nettoyage des ressources ; son stderr n’est pas
+  vide. Ces diagnostics sont conservés dans la revue d’intégration.
+- Revue indépendante de cette intégration : aucun problème de code actionnable
+  identifié. Les catalogues de revue historiques, sans `companions`, restent
+  compatibles. Les 28 composants approuvés et les 19 sprites conservés ont été
+  comparés à leurs références dans l’atlas final ; pixels et placement identiques.
 - Aucun test automatisé ajouté ou lancé. Pas de mesure FPS, mémoire GPU réelle,
   consommation, installation Android ou qualité sur appareil. Les raccords de
   toutes les configurations futures arbitraires restent à examiner.

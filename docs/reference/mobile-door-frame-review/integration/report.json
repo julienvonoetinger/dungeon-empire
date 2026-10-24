@@ -1,0 +1,368 @@
+{
+  "date": "2026-10-24",
+  "status": "integrated-after-user-go-ahead",
+  "catalogId": "mobile-kit-v2-approved-doors",
+  "atlas": {
+    "width": 1024,
+    "height": 2048,
+    "sourceBytes": 820667,
+    "uncompressedRGBABytes": 8388608,
+    "sha256": "8fb05682b2328348a39d37eb358cd16877ea56bcc6754a25fd644d2ff3490ba2"
+  },
+  "spriteCount": 47,
+  "approvedComponents": 28,
+  "unchangedBaselineSprites": 19,
+  "checks": [
+    {
+      "id": "door-east-arch",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-arch",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-v-0",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-v-2",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-v-1",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "stair-east",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "stair-west",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-v-3",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "stair-south",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-east-smooth-upper",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-smooth-upper",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "floor",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-east-leaf",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-leaf",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-east-inner-arch",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-inner-arch",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "stair-north",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-arch",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-arch",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-leaf",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-leaf",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "pillar",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-smooth-upper",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-smooth-upper",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-inner-arch",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-inner-arch",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-h-0",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-h-1",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-h-2",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "wall-h-3",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-jamb-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-jamb-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-jamb-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-jamb-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-smooth-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-south-smooth-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-smooth-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-north-smooth-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-east-jamb-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-east-jamb-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-jamb-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-jamb-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-east-smooth-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-east-smooth-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-smooth-left",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "door-west-smooth-right",
+      "reference": "approved-art-v2",
+      "pixelsMatch": true,
+      "placementMatch": true
+    },
+    {
+      "id": "pillar-top-carved",
+      "reference": "frozen-mobile-baseline",
+      "pixelsMatch": true,
+      "placementMatch": true
+    }
+  ],
+  "scenes": 21,
+  "runtimeCaptures": 60,
+  "editorComparisons": [
+    {
+      "file": "MobileReference-native.png",
+      "identical": true
+    },
+    {
+      "file": "MobileReference-overview.png",
+      "identical": true
+    },
+    {
+      "file": "ReferenceCalibration-doors-south-0-1.png",
+      "identical": true
+    },
+    {
+      "file": "ReferenceCalibration-entrances-north-0-2.png",
+      "identical": true
+    },
+    {
+      "file": "ReferenceCalibration-entrances-south-0-0.png",
+      "identical": true
+    },
+    {
+      "file": "ReferenceCalibration-native.png",
+      "identical": false
+    },
+    {
+      "file": "ReferenceCalibration-overview.png",
+      "identical": true
+    },
+    {
+      "file": "WireframeDoorCross-doors-east-2-0.png",
+      "identical": true
+    },
+    {
+      "file": "WireframeDoorCross-doors-north-0--2.png",
+      "identical": true
+    },
+    {
+      "file": "WireframeDoorCross-doors-south-0-2.png",
+      "identical": true
+    },
+    {
+      "file": "WireframeDoorCross-doors-west--2-0.png",
+      "identical": true
+    },
+    {
+      "file": "WireframeDoorCross-native.png",
+      "identical": false
+    },
+    {
+      "file": "WireframeDoorCross-overview.png",
+      "identical": true
+    }
+  ],
+  "export": {
+    "activeDependencies": 40,
+    "sourceBytes": 875086,
+    "resourceZipBytes": 609890,
+    "zipEntries": 83,
+    "importedTextures": 1
+  },
+  "limits": [
+    "No automated tests added or run.",
+    "Resource ZIP is not an APK; no Android device profiling.",
+    "Editor capture helper exits 0 but emits native window/progress and resource-shutdown diagnostics.",
+    "Current scene captures do not prove every arbitrary future layout."
+  ]
+}

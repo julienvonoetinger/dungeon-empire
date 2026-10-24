@@ -1,0 +1,190 @@
+{
+	"captures": [
+		"a-256-center.png",
+		"a-128-center.png",
+		"a-256-north.png",
+		"a-256-south.png",
+		"a-256-west.png",
+		"a-256-east.png"
+	],
+	"checks": [
+		{
+			"check": "a-256-center: texture loaded",
+			"passed": true
+		},
+		{
+			"check": "a-256-center.png: capture saved",
+			"passed": true
+		},
+		{
+			"check": "a-256-center.png: complete prepared texture",
+			"passed": true
+		},
+		{
+			"check": "a-256-center.png: uniform scale",
+			"passed": true
+		},
+		{
+			"check": "a-256-center.png: no sprite rotation",
+			"passed": true
+		},
+		{
+			"check": "a-256-center.png: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "a-128-center: texture loaded",
+			"passed": true
+		},
+		{
+			"check": "a-128-center.png: capture saved",
+			"passed": true
+		},
+		{
+			"check": "a-128-center.png: complete prepared texture",
+			"passed": true
+		},
+		{
+			"check": "a-128-center.png: uniform scale",
+			"passed": true
+		},
+		{
+			"check": "a-128-center.png: no sprite rotation",
+			"passed": true
+		},
+		{
+			"check": "a-128-center.png: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "a-256-north: texture loaded",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: capture saved",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: complete prepared texture",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: uniform scale",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: no sprite rotation",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: heart/wall draw order 1",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: heart/wall draw order 2",
+			"passed": true
+		},
+		{
+			"check": "a-256-north.png: meaningful wall overlap",
+			"passed": true
+		},
+		{
+			"check": "a-256-south: texture loaded",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: capture saved",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: complete prepared texture",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: uniform scale",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: no sprite rotation",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: heart/wall draw order 10",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: heart/wall draw order 11",
+			"passed": true
+		},
+		{
+			"check": "a-256-south.png: meaningful wall overlap",
+			"passed": true
+		},
+		{
+			"check": "a-256-west: texture loaded",
+			"passed": true
+		},
+		{
+			"check": "a-256-west.png: capture saved",
+			"passed": true
+		},
+		{
+			"check": "a-256-west.png: complete prepared texture",
+			"passed": true
+		},
+		{
+			"check": "a-256-west.png: uniform scale",
+			"passed": true
+		},
+		{
+			"check": "a-256-west.png: no sprite rotation",
+			"passed": true
+		},
+		{
+			"check": "a-256-west.png: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "a-256-east: texture loaded",
+			"passed": true
+		},
+		{
+			"check": "a-256-east.png: capture saved",
+			"passed": true
+		},
+		{
+			"check": "a-256-east.png: complete prepared texture",
+			"passed": true
+		},
+		{
+			"check": "a-256-east.png: uniform scale",
+			"passed": true
+		},
+		{
+			"check": "a-256-east.png: no sprite rotation",
+			"passed": true
+		},
+		{
+			"check": "a-256-east.png: fixed camera",
+			"passed": true
+		},
+		{
+			"check": "All requested trials completed",
+			"passed": true
+		},
+		{
+			"check": "All trial checks executed",
+			"passed": true
+		}
+	],
+	"failures": 0,
+	"scope": "Visual proposals and isolated support-depth checks, not production promotion or device profiling."
+}

@@ -1,0 +1,23 @@
+{
+  "status": "user-approved-appearance",
+  "userReply": "Ok",
+  "date": "2026-10-24",
+  "appearance": "painted-art-v2",
+  "geometry": "wireframe-v8",
+  "scope": "Approve the revised arched wooden leaf with shorter inset iron straps, ring handle and localized violet seal, as shown in the gameplay comparison and guide overlay.",
+  "sourceHashes": {
+    "before-after.png": "5ebc0adc851647015aab312a978846024b4465be39324be667d6caae0ea2a192",
+    "paint-and-guide.png": "3f60694fa92e000416ad4337df29dd7a61c41f2455b452b039612deff278702d",
+    "four-directions.png": "3241c6963de903b55be5ad9c97b4c03122c87c6327a314401e1d659be1bd2fa5",
+    "source/door-artwork.png": "a70b3d4ffb9ec9883f07c6db175ef50dda1a0bf514f896b74c50b8ef5a3e4e61",
+    "source/door-face-fitted.png": "e69233ab8fb2421ed75ad9fd74ef97617ed29bf7d7bd4c008553cd797b859b55",
+    "source/fit.json": "c2a3e9a81f004f5d714230a46a4d159f389a2145e092cca3604ee7002c2235d9",
+    "generation.json": "4811250e3227aa243a7012661a24572c208942ce78547cd933e9d4f89ab3df7b",
+    "proposal.json": "1511a337fabffcd69bbf73628b032e94b54b889a102c1df312c8417b816cb670"
+  },
+  "material": {
+    "brightness": 0.82,
+    "saturation": 0.82
+  },
+  "integrationStatus": "Approval recorded; active mobile atlas and scenes not yet migrated to this door."
+}

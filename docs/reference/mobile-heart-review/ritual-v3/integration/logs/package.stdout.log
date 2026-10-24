@@ -1,0 +1,102 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+Could not find version of build tools that matches Target SDK, using 35.0.1
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Initialisation du projet (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Analyse de la structure des fichiers…[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Chargement des noms des classes globales…[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Vérification des GDExtensions…[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Création des scripts de chargement automatique…[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initialisation des extensions…[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Démarrage du scan de fichiers…[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1msavezip[22m | Started Empaquetage (102 steps)[39m[0m
+[   1% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/imported/atlas-256.png-15628a14e8245b13a843cb4f536ca532.ctex[39m[0m
+[   1% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/dungeon/mobile-kit/atlas-256.png.import[39m[0m
+[   3% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-ce441fda5fa6229143d146314762aa30-catalog.res[39m[0m
+[   5% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/mobile_kit_definition.gdc[39m[0m
+[   8% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-7ce9c42434444276e27097cd342051bf-single_cell.res[39m[0m
+[  10% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/dungeon_layout.gdc[39m[0m
+[  12% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-b3bf1975da29d7d75f65343e5c87675a-six_rooms_wireframe.res[39m[0m
+[  15% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-644093c5a337c9f915bc30374ea221cd-study_1x2.res[39m[0m
+[  17% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-e6408be0a6800b053c9e97fcd0ab450e-study_1x3.res[39m[0m
+[  20% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-c34a1441a51233cd5c97e5ea193355ea-study_2x1.res[39m[0m
+[  22% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-5bc82ac0befc85128b107e22fbae1dff-study_3x1.res[39m[0m
+[  24% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-eb0334e00b66d9f35ae9dcbd984e6ab0-study_3x3.res[39m[0m
+[  27% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-fb923a36387c76c0b9ed555037068f30-study_5x5.res[39m[0m
+[  29% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-85133f13bf26ad5f4aae4a69c19c216a-two_by_two_cells.res[39m[0m
+[  31% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-19f070137667331d511e8150fd13e08c-1x1CellRoom.scn[39m[0m
+[  33% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/six_room_preview.gdc[39m[0m
+[  35% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/wireframe_cell_study.gdc[39m[0m
+[  38% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-1c7c3483c2b6a6e396e2107abce17c38-1x2Corridor.scn[39m[0m
+[  40% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-51094d4719d7649d7a62e054846d0137-1x3Corridor.scn[39m[0m
+[  42% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-3a53beb9421e04d0a2d81d324d655dc4-2x1Corridor.scn[39m[0m
+[  45% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-bf37c353523645fa374269ebcdb80292-2x2CellRoom.scn[39m[0m
+[  47% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-269580f9d59ddaa6a784c8495e0635fd-3x1Corridor.scn[39m[0m
+[  50% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-a37ce0b1891a9dce64bcf10b4f292a02-3x3CellRoom.scn[39m[0m
+[  52% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-c7132c16af58824d3e71caf3a7fa78da-3x3RoomCornerCorridors.scn[39m[0m
+[  54% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-ee74d16ba1cfa52eaee7c3eaf6966768-3x3RoomFourCorridors.scn[39m[0m
+[  57% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-5a9d928a99de7df45ec2ea67abbb7954-5x5RoomCornerCorridors.scn[39m[0m
+[  59% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-974d88ed49cccefe331f11eeef559ccc-5x5RoomFourCorridors.scn[39m[0m
+[  61% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-df643fe83af33b52a70f5cd3133817e3-5x5RoomVerticalCornerCorridors.scn[39m[0m
+[  64% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-16e559046e9aadb44931044274d8e70e-DungeonHeart.scn[39m[0m
+[  66% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/alpha_heart.gdc[39m[0m
+[  68% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-722482ee28d25432d26f5fb9a4b9df56-DungeonPreview.scn[39m[0m
+[  70% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-7dec08123a17e5488b3103556eac3069-EntranceVariants.scn[39m[0m
+[  72% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/entrance_variants.gdc[39m[0m
+[  75% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-1132c9d3f9e5c2f28dd79b575be665cc-MobileReference.scn[39m[0m
+[  77% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/mobile_reference.gdc[39m[0m
+[  79% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-9dd544d6e35307f16e6b5498ea8a1545-PerspectiveRoom.scn[39m[0m
+[  82% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-68e76823eb7c0412c38bcb922deccc89-ReferenceCalibration.scn[39m[0m
+[  84% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-7b2a8bd8dd383a9895dc7a0eeac0bdd9-SingleCellRoom.scn[39m[0m
+[  87% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-2c353c2d159d7e9a4d8c81f5cb12fed1-SixRoomPreview.scn[39m[0m
+[  89% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-776a593e409868ba4b2ecce274af6510-WireframeClosedCorridors.scn[39m[0m
+[  91% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/exported/133200997/export-e29b0bb4dba2b9e5c7905dd0f88507d2-WireframeDoorCross.scn[39m[0m
+[  94% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/mobile_dungeon_renderer.gdc[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/wireframe_cell_layout.gdc[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/dungeon/mobile-kit/catalog.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/mobile_kit_definition.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/single_cell.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/dungeon_layout.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/six_rooms_wireframe.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/study_1x2.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/study_1x3.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/study_2x1.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/study_3x1.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/study_3x3.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/study_5x5.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://assets/layouts/two_by_two_cells.tres.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/1x1CellRoom.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/six_room_preview.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/wireframe_cell_study.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/1x2Corridor.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/1x3Corridor.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/2x1Corridor.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/2x2CellRoom.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/3x1Corridor.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/3x3CellRoom.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/3x3RoomCornerCorridors.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/3x3RoomFourCorridors.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/5x5RoomCornerCorridors.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/5x5RoomFourCorridors.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/5x5RoomVerticalCornerCorridors.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/DungeonHeart.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/alpha_heart.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/DungeonPreview.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/EntranceVariants.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/entrance_variants.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/MobileReference.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/mobile_reference.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/PerspectiveRoom.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/ReferenceCalibration.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/SingleCellRoom.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/SixRoomPreview.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/WireframeClosedCorridors.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scenes/WireframeDoorCross.tscn.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/mobile_dungeon_renderer.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://scripts/wireframe_cell_layout.gd.remap[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/global_script_class_cache.cfg[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://.godot/uid_cache.bin[39m[0m
+[  96% ] [90m[1msavezip[22m | Stockage du fichier : res://project.binary[39m[0m
+[92m[ DONE ][39m [1msavezip[22m
+[0m

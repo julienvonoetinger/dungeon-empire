@@ -1,0 +1,30 @@
+{
+  "status": "user-approved-structure",
+  "userReply": "Ok",
+  "date": "2026-10-24",
+  "revision": 7,
+  "scope": "Approve wireframe v7 and its thinner smooth wall. Painted appearance is a subsequent review, not an active-atlas promotion.",
+  "source": {
+    "geometry": "docs/reference/mobile-door-frame-review/wireframe-v7/geometry.json",
+    "geometrySha256": "abdd256dc5abdf76018caabff9875e063420663e02b3c132d0604a73fa3925c7",
+    "wireframe": "docs/reference/mobile-door-frame-review/wireframe-v7/wireframe.png",
+    "wireframeSha256": "ec68a0cecdaac9e474e40ab63528aa38aaae62493cb99c6936225f1760158eca"
+  },
+  "parameters": {
+    "smallInnerRadius": 0.27,
+    "smallOuterRadius": 0.35,
+    "woodRadius": 0.26,
+    "springHeight": 0.3133333333333333,
+    "depth": 0.16666666666666666,
+    "woodInset": 0.025000000000000022,
+    "intermediateBrickBand": false,
+    "openGap": false,
+    "smoothSolidWall": true,
+    "separationWidth": 0.06666666666666671,
+    "wallDepth": 0.13333333333333333,
+    "wallBack": 0.43333333333333335,
+    "wallFront": 0.5666666666666667,
+    "recessPerSide": 0.01666666666666672,
+    "schematicFill": "#535c6c"
+  }
+}

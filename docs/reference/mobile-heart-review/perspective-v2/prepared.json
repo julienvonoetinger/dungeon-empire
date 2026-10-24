@@ -1,0 +1,72 @@
+{
+  "status": "unapproved-perspective-correction",
+  "method": "Uniform reduction of entire native-alpha sprite; measured base and square support bounds, no runtime perspective warp.",
+  "cameraZoom": 0.75,
+  "displayPixelsPerCell": 192,
+  "entries": [
+    {
+      "id": "a",
+      "name": "A · Socle à plat",
+      "source": "docs/reference/mobile-heart-review/perspective-v2/source/a.png",
+      "sourceSha256": "26610f8640d3cce8560a962ca7f87ba5eb49f1c8cacdcb3e0f23372483893862",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "measuredBase": [
+        215,
+        1046,
+        1110
+      ],
+      "sourceAnchor": [
+        631,
+        695
+      ],
+      "footprint": [
+        0.8125,
+        0.8125
+      ],
+      "supportHeight": 0.98,
+      "variants": [
+        {
+          "density": 256,
+          "file": "docs/reference/mobile-heart-review/perspective-v2/prepared/a-256.png",
+          "size": [
+            314,
+            314
+          ],
+          "anchor": [
+            158.00159489633174,
+            174.02711323763955
+          ],
+          "bytes": 130727,
+          "rgbaBytes": 394384,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 256
+        },
+        {
+          "density": 128,
+          "file": "docs/reference/mobile-heart-review/perspective-v2/prepared/a-128.png",
+          "size": [
+            157,
+            157
+          ],
+          "anchor": [
+            79.00079744816587,
+            87.01355661881978
+          ],
+          "bytes": 36368,
+          "rgbaBytes": 98596,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 128
+        }
+      ]
+    }
+  ],
+  "baselineHashes": {
+    "assets/dungeon/mobile-kit/atlas-256.png": "8fb05682b2328348a39d37eb358cd16877ea56bcc6754a25fd644d2ff3490ba2",
+    "assets/dungeon/mobile-kit/catalog.tres": "95e8ae76fa7d07c2dffedeaa6bc2704904a16636fa47f09c46a8c9054ead8e01",
+    "assets/dungeon/heart/heart.png": "8322d1472022c2949c3a73626a8fbb9e7909e08e2e798f6fd22327795567e43c",
+    "scenes/DungeonHeart.tscn": "40ab4ab72535970a5325b48803e8bfa8d0e1f6774e30f3935c5bb25a001e1ed4"
+  }
+}

@@ -54,6 +54,11 @@ const GRID = preload("res://scripts/wireframe_cell_layout.gd")
 	set(value):
 		door_cells = value
 		_request_rebuild()
+## Ground centres in cell units. Whole supports must remain on floor, outside doors/stairs.
+@export var heart_positions := PackedVector2Array():
+	set(value):
+		heart_positions = value
+		_request_rebuild()
 @export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable:
 	get:
 		return Callable(self, "refresh_preview")
@@ -99,6 +104,7 @@ func refresh_preview(reload_textures: bool = true) -> void:
 		if not specials.has(cell) and entrance_at_closed_ends and TERMINAL_DIRECTIONS.has(variant):
 			specials[cell] = "entrances/" + TERMINAL_DIRECTIONS[variant]
 	_plan["specials"] = specials
+	_plan["hearts"] = heart_positions
 	render_plan(_plan, specials, pillar_details, reload_textures)
 	rebuilt.emit()
 

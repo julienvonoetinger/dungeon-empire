@@ -3,6 +3,8 @@ extends SceneTree
 const OUTPUT := "res://docs/reference/mobile-kit/captures/"
 var viewport: SubViewport
 var output := OUTPUT
+var inventory_path := ""
+var failed := false
 
 func _initialize() -> void:
 	_capture.call_deferred()
@@ -11,10 +13,16 @@ func _save(name: String) -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
-	viewport.get_texture().get_image().save_png(output + name + ".png")
+	var error := viewport.get_texture().get_image().save_png(output + name + ".png")
+	if error != OK:
+		failed = true
+		push_error("Capture write failed (%d): %s" % [error,output+name+".png"])
 
 func _scene_names() -> PackedStringArray:
-	var names := OS.get_cmdline_user_args()
+	var names := PackedStringArray()
+	for argument in OS.get_cmdline_user_args():
+		if not argument.begins_with("--output-root="):
+			names.append(argument)
 	if names.is_empty():
 		for file in DirAccess.get_files_at("res://scenes"):
 			if file.ends_with(".tscn") and file not in ["DungeonHeart.tscn", "DungeonTorch.tscn"]:
@@ -27,6 +35,12 @@ func _capture() -> void:
 		var filesystem: Object = Engine.get_singleton("EditorInterface").get_resource_filesystem()
 		while filesystem.is_scanning() or filesystem.is_importing():
 			await process_frame
+	inventory_path = "res://docs/reference/mobile-kit/" + ("editor-" if Engine.is_editor_hint() else "") + "scene-inventory.json"
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--output-root="):
+			var review_root := argument.trim_prefix("--output-root=").trim_suffix("/") + "/"
+			output = review_root + ("editor-captures/" if Engine.is_editor_hint() else "captures/")
+			inventory_path = review_root + ("editor-" if Engine.is_editor_hint() else "") + "scene-inventory.json"
 	DirAccess.make_dir_recursive_absolute(output)
 	viewport = SubViewport.new()
 	viewport.size = Vector2i(1280, 720)
@@ -42,7 +56,12 @@ func _capture() -> void:
 		var dungeon: Node2D = scene.get_node("Dungeon")
 		var camera: Camera2D = scene.get_node("Camera2D")
 		var plan: Dictionary = dungeon.get_connection_plan()
-		inventory.append({"scene": name, "cells": plan.cells.size(), "specials": plan.specials.size(), "sprites": dungeon.get_node("PreparedSprites").get_child_count(), "zoom": camera.zoom.x})
+		inventory.append({"scene": name, "cells": plan.cells.size(), "specials": plan.specials.size(), "hearts": plan.get("hearts",PackedVector2Array()).size(), "sprites": dungeon.get_node("PreparedSprites").get_child_count(), "zoom": camera.zoom.x})
+		for i in plan.get("hearts",PackedVector2Array()).size():
+			camera.position = plan.hearts[i] * 256
+			camera.zoom = Vector2.ONE * .75
+			camera.force_update_scroll()
+			await _save(name + "-heart-%d" % i)
 		for cell: Vector2i in plan.specials:
 			camera.position = (Vector2(cell) + Vector2(.5, .3)) * 256
 			camera.zoom = Vector2.ONE * .75
@@ -56,6 +75,10 @@ func _capture() -> void:
 		viewport.remove_child(scene)
 		scene.free()
 		print("Captured ", name)
-	var out := FileAccess.open("res://docs/reference/mobile-kit/" + ("editor-" if Engine.is_editor_hint() else "") + "scene-inventory.json", FileAccess.WRITE)
+	var out := FileAccess.open(inventory_path, FileAccess.WRITE)
+	if out == null:
+		push_error("Cannot write capture inventory: " + inventory_path)
+		quit(1)
+		return
 	out.store_string(JSON.stringify(inventory, "\t") + "\n")
-	quit()
+	quit(1 if failed else 0)

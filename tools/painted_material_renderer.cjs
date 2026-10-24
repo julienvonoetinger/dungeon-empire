@@ -60,7 +60,7 @@ function classify(model,p){const h=cast(model,p);if(!h)return null;const n=h.nor
     const local=materialModel.inverse(h.p.map((v,i)=>v-(owner.offset[i]||0))),d=materialModel.door;
     const metal=Math.abs(local[1]-d.yMin)<1e-5||Math.abs(local[1]-d.yMax)<1e-5;
     const onBand=metal&&d.bands.some(b=>local[0]>b.x0-1e-6&&local[0]<b.x1+1e-6&&Math.abs(local[2]-b.z)<b.half+1e-6);
-    const onHandle=metal&&Math.hypot(local[0]-d.handle.x,local[2]-d.handle.z)<d.handle.radius+1e-6;
+    const onHandle=metal&&d.handle&&Math.hypot(local[0]-d.handle.x,local[2]-d.handle.z)<d.handle.radius+1e-6;
     kind=onBand||onHandle?'metal':'wood';materialId=kind==='wood'?'door-oak':'door-iron';
   }else if(h.part==='arch'){materialId=wallIds[Math.floor((h.index-2)/8)%4];}
   else if(h.part==='pillar'){materialId='walls-planes';}
@@ -178,7 +178,7 @@ async function render(model,guide,materials){
     // Optional offline UV mapping for a single painting unfolded across faces.
     // Existing exports retain their original mapping unless explicitly supplied.
     let textureTransform=f.textureTransform??`translate(${tx} ${ty}) scale(${span/350})`;
-    if(f.kind==='wood'){
+    if(f.kind==='wood'&&!f.textureTransform){
       const owner=f.surface.materialOwner||{model,offset:[0,0]},materialModel=owner.model;
       const d=materialModel.door,local=materialModel.inverse(f.p.map((v,i)=>v-(owner.offset[i]||0))),y=Math.abs(local[1]-d.yMin)<Math.abs(local[1]-d.yMax)?d.yMin:d.yMax,z=Math.max(...d.profileXZ.map(p=>p[1]));
       const project=p=>{const [x,y,z]=materialModel.forward(p).map((v,i)=>v+(owner.offset[i]||0));return [(x-.18*z)*256+model.anchor[0],(y-.9*z)*256+model.anchor[1]];};

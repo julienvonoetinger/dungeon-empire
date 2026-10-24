@@ -1,9 +1,9 @@
 {
   "entries": [
     {
-      "bytes": 417444,
+      "bytes": 650956,
       "path": ".godot/imported/atlas-256.png-15628a14e8245b13a843cb4f536ca532.ctex",
-      "compressedBytes": 415672
+      "compressedBytes": 647973
     },
     {
       "bytes": 198,
@@ -11,9 +11,9 @@
       "compressedBytes": 161
     },
     {
-      "bytes": 10386,
+      "bytes": 22539,
       "path": ".godot/exported/133200997/export-ce441fda5fa6229143d146314762aa30-catalog.res",
-      "compressedBytes": 1706
+      "compressedBytes": 3128
     },
     {
       "bytes": 196,
@@ -71,9 +71,9 @@
       "compressedBytes": 248
     },
     {
-      "bytes": 1080,
+      "bytes": 1116,
       "path": ".godot/exported/133200997/export-19f070137667331d511e8150fd13e08c-1x1CellRoom.scn",
-      "compressedBytes": 507
+      "compressedBytes": 521
     },
     {
       "bytes": 1554,
@@ -81,74 +81,84 @@
       "compressedBytes": 1559
     },
     {
-      "bytes": 3043,
+      "bytes": 3181,
       "path": "scripts/wireframe_cell_study.gdc",
-      "compressedBytes": 3048
+      "compressedBytes": 3186
     },
     {
-      "bytes": 1108,
+      "bytes": 1144,
       "path": ".godot/exported/133200997/export-1c7c3483c2b6a6e396e2107abce17c38-1x2Corridor.scn",
-      "compressedBytes": 518
+      "compressedBytes": 535
     },
     {
-      "bytes": 1108,
+      "bytes": 1144,
       "path": ".godot/exported/133200997/export-51094d4719d7649d7a62e054846d0137-1x3Corridor.scn",
-      "compressedBytes": 519
-    },
-    {
-      "bytes": 1108,
-      "path": ".godot/exported/133200997/export-3a53beb9421e04d0a2d81d324d655dc4-2x1Corridor.scn",
-      "compressedBytes": 524
-    },
-    {
-      "bytes": 1120,
-      "path": ".godot/exported/133200997/export-bf37c353523645fa374269ebcdb80292-2x2CellRoom.scn",
-      "compressedBytes": 530
-    },
-    {
-      "bytes": 1108,
-      "path": ".godot/exported/133200997/export-269580f9d59ddaa6a784c8495e0635fd-3x1Corridor.scn",
-      "compressedBytes": 520
-    },
-    {
-      "bytes": 1078,
-      "path": ".godot/exported/133200997/export-a37ce0b1891a9dce64bcf10b4f292a02-3x3CellRoom.scn",
-      "compressedBytes": 507
-    },
-    {
-      "bytes": 1140,
-      "path": ".godot/exported/133200997/export-c7132c16af58824d3e71caf3a7fa78da-3x3RoomCornerCorridors.scn",
-      "compressedBytes": 532
-    },
-    {
-      "bytes": 1200,
-      "path": ".godot/exported/133200997/export-ee74d16ba1cfa52eaee7c3eaf6966768-3x3RoomFourCorridors.scn",
-      "compressedBytes": 561
-    },
-    {
-      "bytes": 1140,
-      "path": ".godot/exported/133200997/export-5a9d928a99de7df45ec2ea67abbb7954-5x5RoomCornerCorridors.scn",
-      "compressedBytes": 533
-    },
-    {
-      "bytes": 1167,
-      "path": ".godot/exported/133200997/export-974d88ed49cccefe331f11eeef559ccc-5x5RoomFourCorridors.scn",
       "compressedBytes": 537
     },
     {
-      "bytes": 1148,
-      "path": ".godot/exported/133200997/export-df643fe83af33b52a70f5cd3133817e3-5x5RoomVerticalCornerCorridors.scn",
-      "compressedBytes": 539
+      "bytes": 1144,
+      "path": ".godot/exported/133200997/export-3a53beb9421e04d0a2d81d324d655dc4-2x1Corridor.scn",
+      "compressedBytes": 533
     },
     {
-      "bytes": 1135,
+      "bytes": 1156,
+      "path": ".godot/exported/133200997/export-bf37c353523645fa374269ebcdb80292-2x2CellRoom.scn",
+      "compressedBytes": 541
+    },
+    {
+      "bytes": 1144,
+      "path": ".godot/exported/133200997/export-269580f9d59ddaa6a784c8495e0635fd-3x1Corridor.scn",
+      "compressedBytes": 534
+    },
+    {
+      "bytes": 1114,
+      "path": ".godot/exported/133200997/export-a37ce0b1891a9dce64bcf10b4f292a02-3x3CellRoom.scn",
+      "compressedBytes": 521
+    },
+    {
+      "bytes": 1176,
+      "path": ".godot/exported/133200997/export-c7132c16af58824d3e71caf3a7fa78da-3x3RoomCornerCorridors.scn",
+      "compressedBytes": 551
+    },
+    {
+      "bytes": 1236,
+      "path": ".godot/exported/133200997/export-ee74d16ba1cfa52eaee7c3eaf6966768-3x3RoomFourCorridors.scn",
+      "compressedBytes": 571
+    },
+    {
+      "bytes": 1176,
+      "path": ".godot/exported/133200997/export-5a9d928a99de7df45ec2ea67abbb7954-5x5RoomCornerCorridors.scn",
+      "compressedBytes": 548
+    },
+    {
+      "bytes": 1203,
+      "path": ".godot/exported/133200997/export-974d88ed49cccefe331f11eeef559ccc-5x5RoomFourCorridors.scn",
+      "compressedBytes": 557
+    },
+    {
+      "bytes": 1184,
+      "path": ".godot/exported/133200997/export-df643fe83af33b52a70f5cd3133817e3-5x5RoomVerticalCornerCorridors.scn",
+      "compressedBytes": 555
+    },
+    {
+      "bytes": 727,
+      "path": ".godot/exported/133200997/export-16e559046e9aadb44931044274d8e70e-DungeonHeart.scn",
+      "compressedBytes": 331
+    },
+    {
+      "bytes": 816,
+      "path": "scripts/alpha_heart.gdc",
+      "compressedBytes": 821
+    },
+    {
+      "bytes": 1179,
       "path": ".godot/exported/133200997/export-722482ee28d25432d26f5fb9a4b9df56-DungeonPreview.scn",
-      "compressedBytes": 527
+      "compressedBytes": 546
     },
     {
       "bytes": 897,
       "path": ".godot/exported/133200997/export-7dec08123a17e5488b3103556eac3069-EntranceVariants.scn",
-      "compressedBytes": 406
+      "compressedBytes": 411
     },
     {
       "bytes": 962,
@@ -156,9 +166,9 @@
       "compressedBytes": 967
     },
     {
-      "bytes": 1437,
+      "bytes": 1481,
       "path": ".godot/exported/133200997/export-1132c9d3f9e5c2f28dd79b575be665cc-MobileReference.scn",
-      "compressedBytes": 641
+      "compressedBytes": 658
     },
     {
       "bytes": 212,
@@ -166,39 +176,39 @@
       "compressedBytes": 217
     },
     {
-      "bytes": 1218,
+      "bytes": 1254,
       "path": ".godot/exported/133200997/export-9dd544d6e35307f16e6b5498ea8a1545-PerspectiveRoom.scn",
+      "compressedBytes": 588
+    },
+    {
+      "bytes": 1224,
+      "path": ".godot/exported/133200997/export-68e76823eb7c0412c38bcb922deccc89-ReferenceCalibration.scn",
       "compressedBytes": 576
     },
     {
-      "bytes": 1188,
-      "path": ".godot/exported/133200997/export-68e76823eb7c0412c38bcb922deccc89-ReferenceCalibration.scn",
-      "compressedBytes": 556
-    },
-    {
-      "bytes": 1118,
+      "bytes": 1154,
       "path": ".godot/exported/133200997/export-7b2a8bd8dd383a9895dc7a0eeac0bdd9-SingleCellRoom.scn",
-      "compressedBytes": 526
+      "compressedBytes": 539
     },
     {
-      "bytes": 1102,
+      "bytes": 1146,
       "path": ".godot/exported/133200997/export-2c353c2d159d7e9a4d8c81f5cb12fed1-SixRoomPreview.scn",
-      "compressedBytes": 514
+      "compressedBytes": 539
     },
     {
-      "bytes": 1166,
+      "bytes": 1202,
       "path": ".godot/exported/133200997/export-776a593e409868ba4b2ecce274af6510-WireframeClosedCorridors.scn",
-      "compressedBytes": 548
+      "compressedBytes": 564
     },
     {
-      "bytes": 1295,
+      "bytes": 1331,
       "path": ".godot/exported/133200997/export-e29b0bb4dba2b9e5c7905dd0f88507d2-WireframeDoorCross.scn",
-      "compressedBytes": 592
+      "compressedBytes": 608
     },
     {
-      "bytes": 6874,
+      "bytes": 7557,
       "path": "scripts/mobile_dungeon_renderer.gdc",
-      "compressedBytes": 6879
+      "compressedBytes": 7562
     },
     {
       "bytes": 3138,
@@ -336,6 +346,16 @@
       "compressedBytes": 114
     },
     {
+      "bytes": 105,
+      "path": "scenes/DungeonHeart.tscn.remap",
+      "compressedBytes": 99
+    },
+    {
+      "bytes": 46,
+      "path": "scripts/alpha_heart.gd.remap",
+      "compressedBytes": 48
+    },
+    {
       "bytes": 107,
       "path": "scenes/DungeonPreview.tscn.remap",
       "compressedBytes": 102
@@ -406,9 +426,9 @@
       "compressedBytes": 133
     },
     {
-      "bytes": 526,
+      "bytes": 566,
       "path": ".godot/uid_cache.bin",
-      "compressedBytes": 326
+      "compressedBytes": 350
     },
     {
       "bytes": 846,
@@ -416,5 +436,5 @@
       "compressedBytes": 402
     }
   ],
-  "bytes": 468522
+  "bytes": 705339
 }

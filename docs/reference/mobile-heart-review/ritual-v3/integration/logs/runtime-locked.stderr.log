@@ -1,0 +1,101 @@
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/2x1Corridor-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/2x2CellRoom-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/3x1Corridor-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/3x3CellRoom-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/3x3RoomCornerCorridors-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/3x3RoomFourCorridors-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/5x5RoomCornerCorridors-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/DungeonPreview-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/EntranceVariants-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/MobileReference-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/ReferenceCalibration-native.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/ReferenceCalibration-doors-south-0-1.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/ReferenceCalibration-entrances-south-0-0.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/ReferenceCalibration-entrances-north-0-2.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/ReferenceCalibration-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/SingleCellRoom-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/SixRoomPreview-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/WireframeClosedCorridors-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/WireframeDoorCross-native.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/WireframeDoorCross-doors-north-0--2.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/WireframeDoorCross-doors-east-2-0.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/WireframeDoorCross-doors-south-0-2.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/WireframeDoorCross-doors-west--2-0.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+ERROR: Can't save PNG at path: 'res://docs/reference/mobile-kit/captures/WireframeDoorCross-overview.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _save (res://tools/capture_mobile_kit.gd:14)
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: _capture (res://tools/capture_mobile_kit.gd:65)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tools/capture_mobile_kit.gd:65)
+       [1] _save (res://tools/capture_mobile_kit.gd:14)

@@ -1,0 +1,35 @@
+{
+  "status": "user-approved-structure",
+  "userReply": "Ok",
+  "date": "2026-10-24",
+  "revision": 8,
+  "scope": "Approve smooth leaf guide: silhouette and volume only. Painted appearance is the next review; no active-atlas promotion.",
+  "source": {
+    "geometry": "docs/reference/mobile-door-frame-review/wireframe-v8/geometry.json",
+    "geometrySha256": "32afaa0de39cd8de3cb3ae7b1576491d2e5b72d334c870420d8c8549ebac2d2c",
+    "wireframe": "docs/reference/mobile-door-frame-review/wireframe-v8/wireframe.png",
+    "wireframeSha256": "a6cebfb6a19b34e8edc832cc1259ea19e81a44c192f83d057d4be3ae48578ac4"
+  },
+  "parameters": {
+    "smallInnerRadius": 0.27,
+    "smallOuterRadius": 0.35,
+    "woodRadius": 0.26,
+    "springHeight": 0.3133333333333333,
+    "depth": 0.16666666666666666,
+    "woodInset": 0.025000000000000022,
+    "intermediateBrickBand": false,
+    "openGap": false,
+    "smoothSolidWall": true,
+    "separationWidth": 0.06666666666666671,
+    "wallDepth": 0.13333333333333333,
+    "wallBack": 0.43333333333333335,
+    "wallFront": 0.5666666666666667,
+    "recessPerSide": 0.01666666666666672,
+    "schematicFill": "#535c6c"
+  },
+  "leafSurface": {
+    "structuralOutlineOnly": true,
+    "internalDetailGuides": false,
+    "planksAndHardware": "optional artwork; not geometry constraints"
+  }
+}

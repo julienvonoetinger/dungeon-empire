@@ -11,5 +11,6 @@ script = ExtResource("1")
 script = ExtResource("2")
 layout = ExtResource("3")
 entrance_at_closed_ends = true
+heart_positions = PackedVector2Array(12, 14)
 
 [node name="Camera2D" type="Camera2D" parent="."]

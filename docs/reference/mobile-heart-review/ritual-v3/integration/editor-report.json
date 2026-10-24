@@ -1,0 +1,20 @@
+{
+  "runtimeScenes": 21,
+  "runtimeCaptures": 63,
+  "editorScenes": 3,
+  "editorCaptures": 11,
+  "checks": [
+    {
+      "scene": "MobileReference",
+      "sameCameraEditorRuntimeEqual": true
+    },
+    {
+      "scene": "SixRoomPreview",
+      "sameCameraEditorRuntimeEqual": true
+    },
+    {
+      "scene": "DungeonPreview",
+      "sameCameraEditorRuntimeEqual": true
+    }
+  ]
+}

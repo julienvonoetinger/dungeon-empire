@@ -1,0 +1,72 @@
+{
+  "status": "unapproved-sculpted-pedestal",
+  "method": "Uniform reduction of entire native-alpha sprite; measured base and square support bounds, no runtime perspective warp.",
+  "cameraZoom": 0.75,
+  "displayPixelsPerCell": 192,
+  "entries": [
+    {
+      "id": "a",
+      "name": "A · Socle rituel sculpté",
+      "source": "docs/reference/mobile-heart-review/ritual-v3/source/a.png",
+      "sourceSha256": "c05bfe3218c1ae045218bff300d5c5d5589b4611043ab7ce168acc60399e2bc7",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "measuredBase": [
+        175,
+        1078,
+        1127
+      ],
+      "sourceAnchor": [
+        627,
+        676
+      ],
+      "footprint": [
+        0.8125,
+        0.8125
+      ],
+      "supportHeight": 0.98,
+      "variants": [
+        {
+          "density": 256,
+          "file": "docs/reference/mobile-heart-review/ritual-v3/prepared/a-256.png",
+          "size": [
+            289,
+            289
+          ],
+          "anchor": [
+            144.5,
+            155.792663476874
+          ],
+          "bytes": 137216,
+          "rgbaBytes": 334084,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 256
+        },
+        {
+          "density": 128,
+          "file": "docs/reference/mobile-heart-review/ritual-v3/prepared/a-128.png",
+          "size": [
+            144,
+            144
+          ],
+          "anchor": [
+            72,
+            77.62679425837321
+          ],
+          "bytes": 36536,
+          "rgbaBytes": 82944,
+          "displayBaseWidth": 156,
+          "sourcePixelsPerCell": 128
+        }
+      ]
+    }
+  ],
+  "baselineHashes": {
+    "assets/dungeon/mobile-kit/atlas-256.png": "8fb05682b2328348a39d37eb358cd16877ea56bcc6754a25fd644d2ff3490ba2",
+    "assets/dungeon/mobile-kit/catalog.tres": "95e8ae76fa7d07c2dffedeaa6bc2704904a16636fa47f09c46a8c9054ead8e01",
+    "assets/dungeon/heart/heart.png": "8322d1472022c2949c3a73626a8fbb9e7909e08e2e798f6fd22327795567e43c",
+    "scenes/DungeonHeart.tscn": "40ab4ab72535970a5325b48803e8bfa8d0e1f6774e30f3935c5bb25a001e1ed4"
+  }
+}

@@ -1,0 +1,4 @@
+# Approval records and frozen geometry are verified by their exact SHA256 bytes.
+# Preserve their original line endings even with Windows core.autocrlf enabled.
+/docs/reference/mobile-door-frame-review/**/*.json -text
+/docs/reference/mobile-heart-review/**/*.json -text

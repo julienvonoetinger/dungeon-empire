@@ -1,0 +1,21 @@
+{
+  "sourceSha256": "a70b3d4ffb9ec9883f07c6db175ef50dda1a0bf514f896b74c50b8ef5a3e4e61",
+  "fittedSha256": "e69233ab8fb2421ed75ad9fd74ef97617ed29bf7d7bd4c008553cd797b859b55",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "nativeAlpha": true,
+  "sourceBounds": {
+    "left": 116,
+    "top": 104,
+    "width": 1022,
+    "height": 1095
+  },
+  "outputSize": [
+    832,
+    917
+  ],
+  "method": "Horizontal resampling per source-alpha row onto the approved v8 front profile; premultiplied alpha interpolation, no threshold applied to saved pixels.",
+  "guide": "wireframe-v8/geometry.json"
+}
