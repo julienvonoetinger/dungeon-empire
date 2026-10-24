@@ -40,6 +40,55 @@ actif, les commandes et les limites. Godot sélectionne des PNG déjà préparé
 
 ## Bibliothèque active et historique des revues
 
+### Variantes A/B/C et D2 — intégration autorisée
+
+Après son choix D2, l'utilisateur a dit « Go ». Les textures et le dépliage D2
+sont promus dans la recette active. Les exports connectés produisent quatre
+styles complets, puis Godot choisit un PNG stable selon la case, avec des D2
+espacées. Les pierres partagées aux raccords gardent une peinture commune.
+Voir [WALL_VARIATIONS.md](WALL_VARIATIONS.md) pour les règles et la reproduction.
+Cette section supplante les anciennes restrictions de proposition seule ci-dessous.
+
+### Correction de la corruption D — D2 retenue
+
+L'utilisateur a sélectionné **D2**. Employer `corruption-v2-1` et le dépliage
+continu de la pierre. `wall-corruption-review-v2/selection.json` conserve la
+décision et les empreintes des images retenues. D1 et le coin D1 restent des
+comparaisons historiques ; la propagation D2 dans Godot reste à réaliser.
+
+L'utilisateur rejette D car le motif est dupliqué. La cause est le placement
+de texture recalculé indépendamment pour le dessus et la façade, malgré leur
+matière commune. `wall-corruption-review-v2/comparison.png` montre la correction
+D1 et une autre veine D2, ainsi qu'un assemblage avec des accents espacés.
+
+`tools/prepare_wall_corruption_review.cjs` déroule une seule zone de matière
+autour de la pierre. Les coordonnées coïncident au pli ; la façade montre la
+suite du motif. L'éclairage par face et les raccords entre cases restent fixes.
+L'option `face.textureTransform` du compositeur sert uniquement à cette revue.
+Les PNG actifs dans Godot ne sont pas remplacés. Voir le README de la revue,
+le coin avec overlay et les matrices enregistrées dans ses rapports.
+
+### Variantes des murs — proposition du 23 octobre 2026
+
+Après le sol, l'utilisateur demande de réduire la répétition des murs.
+`wall-variation-review/comparison.png` montre quatre variantes complémentaires
+(calme, usée, ébréchée, corruption violette), des sprites distincts assemblés
+horizontalement et leur comparaison avec les murs actifs. Le dossier contient
+aussi le mur vertical, le coin NW avec son overlay et un raccord B/A agrandi.
+
+Reproduction : `node tools/prepare_wall_variants_review.cjs` avec sharp disponible.
+Le script reprend l'atlas généré existant de `material-variation-review/`, avec
+trois découpes supplémentaires consignées dans la recette. Les pierres qui
+touchent une frontière de case utilisent une matière calme commune ; les
+autres changent selon la variante. Le compositeur peint les pierres entières
+avant découpage, dans la géométrie et la finition B existantes.
+
+Cette proposition désactive le petit trait violet procédural et conserve le
+sol approuvé. Huit variantes droites et un coin sont présentés ; la famille
+complète de contextes, portes et escaliers n'est pas encore déclinée.
+La palette des murs actifs et les scènes Godot restent à leur état précédent
+jusqu'à validation de cette proposition. Voir son README et ses rapports.
+
 ### Sol lisse aux coins arrondis approuvé et intégré — 23 octobre 2026
 
 L'utilisateur a validé le sol lisse puis l'arrondi pour intégration dans Godot.

@@ -1,5 +1,5 @@
 {
-  "id": "shared-dungeon-stylized-smooth-floor-v3",
+  "id": "shared-dungeon-wall-variants-d2-v4",
   "status": "user_approved_material_family",
   "approval": "oui utilise cette nouvelle gamme de texture",
   "approvedReview": "docs/reference/stylized-material-review/comparison.png",
@@ -59,50 +59,50 @@
     "walls-planes": {
       "file": "walls-planes.png",
       "family": "walls",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
       "sourceRegion": {
-        "left": 8,
-        "top": 8,
-        "width": 507,
-        "height": 507
+        "left": 400,
+        "top": 420,
+        "width": 190,
+        "height": 190
       },
-      "expectedSha256": "dd31843cfae05d281634831178c1d04aa60fcea8916232850553ef27c59e29f1"
+      "expectedSha256": "05b41b9fa2501d245a7a07ac212f1642f63701c3fe7f5292ef5bc0bc70668078"
     },
     "walls-fissures": {
       "file": "walls-fissures.png",
       "family": "walls",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
       "sourceRegion": {
-        "left": 635,
-        "top": 8,
-        "width": 611,
-        "height": 611
+        "left": 319,
+        "top": 6,
+        "width": 301,
+        "height": 301
       },
-      "expectedSha256": "ffc343a8ab47838555cdd4e75cdb0fce4c9c11dc6c7c36e1fc8e2de8487354bf"
+      "expectedSha256": "ff4266c2381f6b731eba2048403974c89c76af908a0dce4a0ba75b56d1b40473"
     },
     "walls-layers": {
       "file": "walls-layers.png",
       "family": "walls",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
       "sourceRegion": {
-        "left": 112,
-        "top": 81,
-        "width": 507,
-        "height": 507
+        "left": 319,
+        "top": 319,
+        "width": 301,
+        "height": 301
       },
-      "expectedSha256": "49390ea64f6fb9be64244f0ff02740094e5f62bf7be39271f3669e0fb3f10a3e"
+      "expectedSha256": "623aa8394f56d011fae72cda7098fc823be05bd6e5e4a155f6ddd19a9332a9ef"
     },
     "walls-pits": {
       "file": "walls-pits.png",
       "family": "walls",
-      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
       "sourceRegion": {
-        "left": 57,
-        "top": 118,
-        "width": 488,
-        "height": 488
+        "left": 632,
+        "top": 6,
+        "width": 301,
+        "height": 301
       },
-      "expectedSha256": "3ec93ab8d2d60c0cbf5f6ae1202e23c1f28c4b8b4e1ebd7de92260a30606c95f"
+      "expectedSha256": "48825b39bfdff5186d42b93987130deb3eb51aeed7f721801ccf5deb7cf28162"
     },
     "floors-calm": {
       "file": "floors-calm.png",
@@ -175,6 +175,90 @@
         "height": 1238
       },
       "expectedSha256": "2ae18efeb692fe9e73069c2724baf803e66130c898c3f226dbed4ee3a268edc6"
+    },
+    "wall-var-quiet": {
+      "file": "wall-var-quiet.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
+      "sourceRegion": {
+        "left": 400,
+        "top": 420,
+        "width": 190,
+        "height": 190
+      },
+      "expectedSha256": "05b41b9fa2501d245a7a07ac212f1642f63701c3fe7f5292ef5bc0bc70668078"
+    },
+    "wall-var-calm": {
+      "file": "wall-var-calm.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
+      "sourceRegion": {
+        "left": 319,
+        "top": 319,
+        "width": 301,
+        "height": 301
+      },
+      "expectedSha256": "623aa8394f56d011fae72cda7098fc823be05bd6e5e4a155f6ddd19a9332a9ef"
+    },
+    "wall-var-weathered": {
+      "file": "wall-var-weathered.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
+      "sourceRegion": {
+        "left": 319,
+        "top": 6,
+        "width": 301,
+        "height": 301
+      },
+      "expectedSha256": "ff4266c2381f6b731eba2048403974c89c76af908a0dce4a0ba75b56d1b40473"
+    },
+    "wall-var-chip": {
+      "file": "wall-var-chip.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
+      "sourceRegion": {
+        "left": 820,
+        "top": 10,
+        "width": 110,
+        "height": 110
+      },
+      "expectedSha256": "d65d032a1f328e18602762c3a67c2d51800f7dd80aa8111b9aebfc1065381380"
+    },
+    "wall-var-softchip": {
+      "file": "wall-var-softchip.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
+      "sourceRegion": {
+        "left": 632,
+        "top": 6,
+        "width": 301,
+        "height": 301
+      },
+      "expectedSha256": "48825b39bfdff5186d42b93987130deb3eb51aeed7f721801ccf5deb7cf28162"
+    },
+    "wall-var-scar": {
+      "file": "wall-var-scar.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
+      "sourceRegion": {
+        "left": 6,
+        "top": 6,
+        "width": 301,
+        "height": 301
+      },
+      "expectedSha256": "2570e3a0ef77a7ba386019327a602d6df6b1b73d499181bb9cb3cefb77756d5c"
+    },
+    "wall-var-d2": {
+      "file": "wall-var-d2.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/wall-variation-atlas-v1.png",
+      "sourceRegion": {
+        "left": 1070,
+        "top": 390,
+        "width": 170,
+        "height": 220
+      },
+      "expectedSha256": "f62f8d641c52ffccdeb003b13e67e44f13f8583b0b4322a8e94f6a1b8976dc62"
     }
   },
   "floorFinish": {
@@ -217,5 +301,39 @@
       "floors-worn": 4,
       "floors-marks": 3
     }
+  },
+  "wallVariation": {
+    "id": "wall-variants-abcd2-v1",
+    "styles": [
+      "A",
+      "B",
+      "C",
+      "D2"
+    ],
+    "materials": {
+      "quiet": "wall-var-quiet",
+      "calm": "wall-var-calm",
+      "weathered": "wall-var-weathered",
+      "chip": "wall-var-chip",
+      "softchip": "wall-var-softchip",
+      "scar": "wall-var-scar",
+      "d2": "wall-var-d2"
+    },
+    "drawAccent": false,
+    "policy": "Complete local stone faces; common quiet boundary stones. Interior A/B/C/D2 changes only. D2 has one unfolded top/facade paint patch.",
+    "selection": "Grid-coordinate hash, base weights 8 calm / 4 weathered / 3 chipped / 1 D2. Adjacent D2 candidates keep only the lower hash.",
+    "review": "docs/reference/wall-variation-review/comparison.png",
+    "corruptionReview": "docs/reference/wall-corruption-review-v2/comparison.png",
+    "approval": "2026-10-23: D2, then Go for integration."
+  },
+  "wallApproval": {
+    "date": "2026-10-23",
+    "request": [
+      "D2",
+      "Go"
+    ],
+    "selection": "docs/reference/wall-corruption-review-v2/selection.json",
+    "selectionSha256": "b16c962656a106beae8ff4c515e0b006d1f512c5c0d18d8e07dc554a53b793b8",
+    "sourceSha256": "b636ce5358e5f73bb8c361667751cc4e65920aa9d0736bfd45f50fc6b2be3a3f"
   }
 }

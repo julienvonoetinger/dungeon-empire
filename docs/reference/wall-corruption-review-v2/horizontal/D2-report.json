@@ -1,0 +1,441 @@
+{
+  "id": "cells/w01_p00_e00",
+  "canvas": [
+    1216,
+    1408
+  ],
+  "anchor": [
+    96,
+    352
+  ],
+  "cellPitch": 1024,
+  "guideSha256": "9dc6c27523cfabf3e4612ed13fd8e0aee2826707cc2b263f5cfa504b9c419d64",
+  "segmentCount": 39,
+  "outputFrame": [
+    0,
+    0,
+    304,
+    352
+  ],
+  "repeatInkY": 0,
+  "constructionJointLayerMatchesGuide": true,
+  "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+  "stoneFinish": "soft-stone-b-v1",
+  "omittedFinishEdges": 0,
+  "alphaPixelsDifferentFromModel": 0,
+  "unpaintedInteriorPixels": 0,
+  "extraInteriorPixels": 0,
+  "faces": [
+    {
+      "points": [
+        [
+          -97.10507,
+          15.808
+        ],
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          9.5616,
+          58.47467
+        ],
+        [
+          -97.10507,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          158.89493,
+          15.808
+        ],
+        [
+          265.5616,
+          15.808
+        ],
+        [
+          265.5616,
+          58.47467
+        ],
+        [
+          158.89493,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          158.89493,
+          58.47467
+        ],
+        [
+          265.5616,
+          58.47467
+        ],
+        [
+          272.7808,
+          94.57067
+        ],
+        [
+          166.11413,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          -97.10507,
+          58.47467
+        ],
+        [
+          9.5616,
+          58.47467
+        ],
+        [
+          16.7808,
+          94.57067
+        ],
+        [
+          -89.88587,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          77.82827,
+          15.808
+        ],
+        [
+          158.89493,
+          15.808
+        ],
+        [
+          158.89493,
+          58.47467
+        ],
+        [
+          77.82827,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "corruption-v2-1"
+    },
+    {
+      "points": [
+        [
+          -47.2192,
+          94.57067
+        ],
+        [
+          46.64747,
+          94.57067
+        ],
+        [
+          53.86667,
+          130.66667
+        ],
+        [
+          -40,
+          130.66667
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          208.7808,
+          94.57067
+        ],
+        [
+          302.64747,
+          94.57067
+        ],
+        [
+          309.86667,
+          130.66667
+        ],
+        [
+          216,
+          130.66667
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          127.71413,
+          94.57067
+        ],
+        [
+          208.7808,
+          94.57067
+        ],
+        [
+          216,
+          130.66667
+        ],
+        [
+          134.93333,
+          130.66667
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          46.64747,
+          94.57067
+        ],
+        [
+          127.71413,
+          94.57067
+        ],
+        [
+          134.93333,
+          130.66667
+        ],
+        [
+          53.86667,
+          130.66667
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "variation-wall-6"
+    },
+    {
+      "points": [
+        [
+          77.82827,
+          58.47467
+        ],
+        [
+          158.89493,
+          58.47467
+        ],
+        [
+          166.11413,
+          94.57067
+        ],
+        [
+          85.04747,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "corruption-v2-1"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          77.82827,
+          15.808
+        ],
+        [
+          77.82827,
+          58.47467
+        ],
+        [
+          9.5616,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          265.5616,
+          15.808
+        ],
+        [
+          333.82827,
+          15.808
+        ],
+        [
+          333.82827,
+          58.47467
+        ],
+        [
+          265.5616,
+          58.47467
+        ]
+      ],
+      "kind": "top",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          58.47467
+        ],
+        [
+          77.82827,
+          58.47467
+        ],
+        [
+          85.04747,
+          94.57067
+        ],
+        [
+          16.7808,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          265.5616,
+          58.47467
+        ],
+        [
+          333.82827,
+          58.47467
+        ],
+        [
+          341.04747,
+          94.57067
+        ],
+        [
+          272.7808,
+          94.57067
+        ]
+      ],
+      "kind": "north",
+      "part": "north-wall",
+      "materialId": "wall-review-quiet"
+    }
+  ],
+  "materials": [
+    "wall-review-quiet",
+    "corruption-v2-1",
+    "variation-wall-6"
+  ],
+  "mappedFaces": [
+    {
+      "part": "north-wall",
+      "kind": "top",
+      "material": "corruption-v2-1",
+      "points": [
+        [
+          77.82827,
+          15.808
+        ],
+        [
+          158.89493,
+          15.808
+        ],
+        [
+          158.89493,
+          58.47467
+        ],
+        [
+          77.82827,
+          58.47467
+        ]
+      ],
+      "type": "single_unfolded_stone",
+      "origin": [
+        0.242533325,
+        -0.024166675
+      ],
+      "span": 0.371795,
+      "h": 0.3133,
+      "low": 0.1567,
+      "fold": 0.1667,
+      "plane": "top",
+      "matrix": [
+        0.271941486,
+        0,
+        0,
+        0.271941486,
+        71.6516672,
+        9.6290112
+      ]
+    },
+    {
+      "part": "north-wall",
+      "kind": "north",
+      "material": "corruption-v2-1",
+      "points": [
+        [
+          77.82827,
+          58.47467
+        ],
+        [
+          158.89493,
+          58.47467
+        ],
+        [
+          166.11413,
+          94.57067
+        ],
+        [
+          85.04747,
+          94.57067
+        ]
+      ],
+      "type": "single_unfolded_stone",
+      "origin": [
+        0.242533325,
+        -0.024166675
+      ],
+      "span": 0.371795,
+      "h": 0.3133,
+      "low": 0.1567,
+      "fold": 0.1667,
+      "plane": "positive_y",
+      "matrix": [
+        0.271941486,
+        0,
+        0.048949467,
+        0.244747337,
+        62.856530816,
+        14.51519808
+      ]
+    }
+  ]
+}

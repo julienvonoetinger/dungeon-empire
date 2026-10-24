@@ -207,7 +207,7 @@
       ],
       "kind": "top",
       "part": "pillar",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -230,7 +230,7 @@
       ],
       "kind": "north",
       "part": "pillar",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -253,7 +253,7 @@
       ],
       "kind": "north",
       "part": "pillar",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -276,7 +276,7 @@
       ],
       "kind": "west",
       "part": "pillar",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -299,7 +299,7 @@
       ],
       "kind": "west",
       "part": "pillar",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     }
   ],
   "materials": [
@@ -307,6 +307,6 @@
     "floors-calm",
     "floors-worn",
     "floors-fine-crack",
-    "walls-planes"
+    "wall-var-quiet"
   ]
 }

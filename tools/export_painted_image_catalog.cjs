@@ -72,6 +72,9 @@ async function main(){
       const model=makeModel(id,entry);
       model.floorFinish=materials.floorFinish;
       model.floorMaterialPattern=materials.floorPattern?.cells;
+      // Isolated references show the selected D2 on eligible interior wall stones.
+      // Connected scenes choose among all four complete prepared styles.
+      if(materials.wallVariation)model.wallStyle=3;
       const result=await render(model,guide,materials);
       write(`${OUT}/${id}.png`,result.png);write(`${REVIEW}/${id}-overlay.png`,result.overlay);
       write(`${REVIEW}/${id}-regions.svg`,result.recipe);
@@ -90,6 +93,7 @@ async function main(){
   }
   if(only)return;
   const hashes={};for(const p of ['tools/painted_material_renderer.cjs','tools/stone_edge_finish.cjs','tools/write_generated_file.cjs','assets/dungeon/shared-materials/stone-finish.json','tools/export_painted_image_catalog.cjs','tools/export_wireframe_cell_kit.cjs','docs/reference/two-course-square-room.json','docs/reference/floor-periodic-cell.json','docs/reference/entrance-stairs-open-south-wireframe.json','docs/reference/door-arch-cell-west-east-wireframe.json',GUIDE+'/catalog.json','assets/dungeon/shared-materials/catalog.json'])hashes[p]=hash(read(p));
+  if(materials.wallVariation)hashes['tools/wall_material_variation.cjs']=hash(read('tools/wall_material_variation.cjs'));
   json(OUT+'/catalog.json',{id:'painted-isolated-shared-materials-v1',status:'awaiting_user_visual_review',purpose:'Isolated sprites with complete visible ends. Do not substitute into connected Godot scenes.',generator:'tools/export_painted_image_catalog.cjs',cell:[1,1],pixelsPerCell:256*SCALE,projection:catalog.projection,wallHeight:H,courseJoints:[.94/6],sourceHashes:hashes,uniqueImageCount:reports.length,guideEntryCount:Object.keys(aliases).length,entries,aliases});
   json(REVIEW+'/validation.json',{imageCount:reports.length,guideEntryCount:Object.keys(aliases).length,allConstructionJointLayersMatch:reports.every(r=>r.constructionJointLayerMatchesGuide),alphaPixelsDifferentFromModel:reports.reduce((s,r)=>s+r.alphaPixelsDifferentFromModel,0),unpaintedInteriorPixels:reports.reduce((s,r)=>s+r.unpaintedInteriorPixels,0),extraInteriorPixels:reports.reduce((s,r)=>s+r.extraInteriorPixels,0),sourceHashes:hashes,images:reports.map(({faces,...r})=>r),scope:'Source line coordinates, stroke widths, framing, model alpha and coverage. Not a claim of user artistic approval or assembled-scene validation.'});
   const cells=Object.keys(entries).filter(id=>id.startsWith('cells/'));

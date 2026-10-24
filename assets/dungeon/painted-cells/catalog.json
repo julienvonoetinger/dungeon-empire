@@ -28,18 +28,19 @@
     0.15666666666666665
   ],
   "sourceHashes": {
-    "tools/painted_material_renderer.cjs": "cb5af1a39034e163833e82f04ed78e56586899f339260540b5c14903354005a9",
+    "tools/painted_material_renderer.cjs": "705a0378586f1bc8ff29f63123214be34e6f0ca2302e4be60d784272076d7615",
     "tools/stone_edge_finish.cjs": "aa0a2afd6274748a3b6752f89aa9307abb1367b2b6436e6f50ca6720dff19ae1",
     "tools/write_generated_file.cjs": "a1a1e25099d66deb88a1f071d4c2e689dd9ac330d18d4891b9004e33eb946d62",
     "assets/dungeon/shared-materials/stone-finish.json": "8df9d7601c5222a2734d28d69776370d5d8800f3a047c74630646111780cd1de",
-    "tools/export_painted_image_catalog.cjs": "8291bef80c9e7d40d5f0bf73fb49c7c3ca315d855ab4eda4b2c6ed3ae6ab48cf",
+    "tools/export_painted_image_catalog.cjs": "4410a979a00684cd4352255d5a76c1e47e911c1ea77bd560511f07a67a766da8",
     "tools/export_wireframe_cell_kit.cjs": "f76e28451bab0a63a6c3c40f93cdc119b26044578929186064a8e14f46366ac8",
     "docs/reference/two-course-square-room.json": "228ba7137e3f5f75cc5659df49adfcbc5ea8e182b4ba5fcb12dd461d2e066cd0",
     "docs/reference/floor-periodic-cell.json": "24219fa2c5ca06bffd5ed78297c4b4373028827c5bab118e7a91767cebcc91fd",
     "docs/reference/entrance-stairs-open-south-wireframe.json": "b9bbcfee6c32b7e4957cd37d1300263ea2d5cb034614cb2098b76358f3413e07",
     "docs/reference/door-arch-cell-west-east-wireframe.json": "c75264ad795f1fa1d25b48cf64f532f1308148854b101abb79146a5b4b3b1bcb",
     "docs/reference/wireframe-overlays/catalog.json": "c08e142ec019adccaab08c68b2ab45eeef540faa81a3185a7779dcc49b2d7e6c",
-    "assets/dungeon/shared-materials/catalog.json": "8a26f27200b9c9f6693477c43be9ae7995de6946b06191887d694af97f5e3763"
+    "assets/dungeon/shared-materials/catalog.json": "b268b5c2285d28f6bda6546569f9908235109f1c9df97530772b78ea59a01493",
+    "tools/wall_material_variation.cjs": "a003c3ad754ecbf03646d3dd493716ef1703c3be400c8fe0bf507ed6a4a7fcd7"
   },
   "uniqueImageCount": 57,
   "guideEntryCount": 146,
@@ -78,13 +79,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p01_e00.svg",
       "guideSha256": "845f4339e8b17f92e7caff1a0e5ea5cd8bb570e0c49f15c942332c7850ddeb33",
-      "sha256": "941dfb562a237e4010f0fb475a18d5c77ca5e16249d03867a306fa9efda4d28a",
+      "sha256": "466b8653f0c91d14db642cdc96c79f4c9fe338813b178f2d162d1d02369234b0",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p01_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p01_e00-report.json"
@@ -101,13 +102,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p02_e00.svg",
       "guideSha256": "bc002fc395aea26329e0b2b05ec78932aeaa5da842f5e20701e8c8405dce8160",
-      "sha256": "14c87830cb684ed70127790699b54cb6669bc15695ff680c46366ba6a2a0985b",
+      "sha256": "eb1f1ef426afdd0e0b548a0763701c239f29a1fded661659b561216b3fd040df",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p02_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p02_e00-report.json"
@@ -124,13 +125,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p03_e00.svg",
       "guideSha256": "05392a1bfe8b3145393600557553e3a433d8e4a6610fbcb0e796c06cd162361d",
-      "sha256": "f1cb0a992300ac387824888795931901c1f9f4087eb794ac107688864cd6c0c1",
+      "sha256": "695933ff5572de000300c005f0d47dd107694a03e58063a15141b31ade6b1ec6",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p03_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p03_e00-report.json"
@@ -147,13 +148,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p04_e00.svg",
       "guideSha256": "41bec8be3060ff97175099344dad36931ff52ac0ef03ed56b3da68ea3f7165a4",
-      "sha256": "5f66d0dbd23ff87ed508377ae9ee7cf14211c6fca3e696cd945c7263f8213561",
+      "sha256": "52296cf87718d801f11edf38655affbee6022b2e2a27e7f7ee3199644fcf1976",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p04_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p04_e00-report.json"
@@ -170,13 +171,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p05_e00.svg",
       "guideSha256": "aada44df6e8c0f7e378e389210ab3db5f0cdaeaba4f5f86a146e959e323792ad",
-      "sha256": "242bb8f640e8e1ca684a7316670487311cfeb7ddb1e36e13355b4e9d1169ef55",
+      "sha256": "b9a4310f035e196954ada8cc586753279277f2c94b57ffbf28a9cb3bea7ff8e0",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p05_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p05_e00-report.json"
@@ -193,13 +194,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p06_e00.svg",
       "guideSha256": "6e8a52d4e57eaf13df6b0fccc91bf7646b5fcce78d158d7eba7064647e14e0bc",
-      "sha256": "85ecce7cd4880d0f455feff8ad4ee0b8c8caa9cfd9b68e70c75fbd40d21529ab",
+      "sha256": "a1e2e2bda17de430bc13ef57b14b99448f06980af45537ddd7997eb6d3e8fe3c",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p06_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p06_e00-report.json"
@@ -216,13 +217,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p07_e00.svg",
       "guideSha256": "4edf8be62fe649c94e9d406547a313d2b6dea1ca278a0432f106bc59b8a8e08c",
-      "sha256": "a09d4daf08d52c54a89bf9d902771e87eda20d9c58651e17efff535d1a74d890",
+      "sha256": "e62e89a9fd1569d545277e17388b805d82a5a011523dcfe0a68aaafa48cfcefa",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p07_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p07_e00-report.json"
@@ -239,13 +240,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p08_e00.svg",
       "guideSha256": "7126ace1ba11b8cb131e079497b8126ccf4c1378ac8af40292d34159f11f8d2c",
-      "sha256": "6cd779c96feb3555cbcf9e9978a5955d3a150b1a7cce4dcb6df565567158b7b0",
+      "sha256": "7a2ba11ab61366e276361697757e12df7d11106ea5d083fc7ec0d2eebef25a82",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p08_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p08_e00-report.json"
@@ -262,13 +263,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p09_e00.svg",
       "guideSha256": "a66c41d6be94b7e992a414b7f69eabf81be3d5a081bb850b2ec05d2fbb325017",
-      "sha256": "4e13eaf1bf742a8d1af5a6a19e1bb0400584c0114c9a101227618517bd159e33",
+      "sha256": "0c0eec3557a663f13109c7380abff824a8f357c345a21f7579786ee61edb6de0",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p09_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p09_e00-report.json"
@@ -285,13 +286,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p10_e00.svg",
       "guideSha256": "6df69bdb9b3b67b393fcceeef6b9b37e5d790d17f000443e0462ed7934268ead",
-      "sha256": "348f603f8cce7a3d63901e3da895fb25973d131293e6026d3a0c68ac15911b3e",
+      "sha256": "521ec949fba8dab4cb9de1fdc1c5fa4795d545aee14df5b264c231d8ba18876a",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p10_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p10_e00-report.json"
@@ -308,13 +309,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p11_e00.svg",
       "guideSha256": "ec7bba33f5b8ebd66ee33278bfbe12f8040162be1acb8033fc73417f477c8c3e",
-      "sha256": "f7463a1e055c88fd50b1afdc0753915a45481e08a188a169b469f78a5bf57f81",
+      "sha256": "c459ea9af7ebcca2f351ae72e00124028e96c2f8b7c413b674deb3c9b5b838b0",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p11_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p11_e00-report.json"
@@ -331,13 +332,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p12_e00.svg",
       "guideSha256": "444b4546daeb94c33cabf00c9b877fa315f9cfdb3ba476b6fe4149105326df64",
-      "sha256": "f626d0cee22b1de8273aaa316eaa0cb4e8c30f542f998116bffcac3035bb74f4",
+      "sha256": "d4905c10c9306c273c6390f4070549eec00f715e708c4d5146c48f24859d405f",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p12_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p12_e00-report.json"
@@ -354,13 +355,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p13_e00.svg",
       "guideSha256": "53905935ba41285b3c52915361d2943f11ae44c66abeca47e7a5a8151057b666",
-      "sha256": "6aa00926fb874c37b86c26cccb715d4f9fa29abd41f9c0deef840497e8a5472a",
+      "sha256": "e2e5c01b97c6b61c39c09f59fa276d3eeedf1a9aea5b6865675dbe423cb091d5",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p13_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p13_e00-report.json"
@@ -377,13 +378,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p14_e00.svg",
       "guideSha256": "d0deed067ab649303be1cdae9819eaaa9b8abd2c550bd0bf27fa796e28409e9b",
-      "sha256": "b80f0e101f05345baaef0456b500fbc45108ca38d816e2584849b2c5991c9710",
+      "sha256": "67dc97ccae1a473937ec69b40e68a195356d130e46e43d98161b6d21e42d4c7b",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p14_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p14_e00-report.json"
@@ -400,13 +401,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w00_p15_e00.svg",
       "guideSha256": "c730f219d7c842cb3545fa5c5a50ee7158bc9d20edb23fd3d283aaf6f309d2b4",
-      "sha256": "ae604e8f96f1d3c811c53876d448c5d915a6faeeaaff842a1a248c7aef37ea98",
+      "sha256": "8c4df1dbf36fcd4a177bffff01b7d4319a66b1ab18726c88fb72f5a473fac0ca",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w00_p15_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w00_p15_e00-report.json"
@@ -423,16 +424,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p00_e00.svg",
       "guideSha256": "272e8d521f14e20d59a22bda95a7c2bef6eb07acee1a9f969358baa3f3a49bc6",
-      "sha256": "4fe3d6597c0c812840db57e7ce30d2850d76c583e6e6802cefcfe793fd0a8de7",
+      "sha256": "d07d9f5caa7986eedd5e60be019499d51ad72455d18860b49d2dd1a9a59023b7",
       "materials": [
         "floors-marks",
         "floors-worn",
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w01_p00_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w01_p00_e00-report.json"
@@ -449,16 +449,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p04_e00.svg",
       "guideSha256": "aa701c12f2261ea8947fa432ac5beb9dd4338c456770c5cc7f46edda7848dc25",
-      "sha256": "36329351b027af5ba8304f9682ad5a84f8ad02adfb4d8f472ed4b835d80e97ba",
+      "sha256": "a2c5eb5127efe027743e12d4ec77104cff4328416723cc52db56e2e7a29dd090",
       "materials": [
         "floors-marks",
         "floors-worn",
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w01_p04_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w01_p04_e00-report.json"
@@ -475,16 +474,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p08_e00.svg",
       "guideSha256": "1d0289d9dde2398d091c707cbf7cf0c7e5ef658a3434727dfed7955152a9cb19",
-      "sha256": "cad6628dab4b527b6f8aaeba2108d92e0f89c6190570f7a6f98d33a11446876f",
+      "sha256": "7ef592cca153c2032bc9c4a80562ce46f05cb963635101f2f290d6b0be86cd2d",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w01_p08_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w01_p08_e00-report.json"
@@ -501,16 +499,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w01_p12_e00.svg",
       "guideSha256": "d799d7acc1233a55939b226b4d2ee0165cd53317538ebf70306f2bf821dea6a0",
-      "sha256": "10559be2967819303b0149b31edc5031ca68f98ebf285b195a90295737eb8530",
+      "sha256": "8bae9840806bcc7077601dbfa9367d784dcae52fd88ecf55e4f93c3fedd895e1",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w01_p12_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w01_p12_e00-report.json"
@@ -527,16 +524,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p00_e00.svg",
       "guideSha256": "c19d899102f4eef79aa323a91520e1dd634fac5a76a3985ce9726068b200af64",
-      "sha256": "631f9e7cc802f4913a26216c33a5835ff99353496f9d2a7f03c306ac14870ad7",
+      "sha256": "650ea5324c1ae7a39c9dd07d7f60a97a2c6202b419d1df2dda2531c69ed83de1",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w02_p00_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w02_p00_e00-report.json"
@@ -553,16 +549,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p01_e00.svg",
       "guideSha256": "b84f819c2ee892b1b7c9b14ada0ba71a1a31b58a0548dbce4b33223ae89e6c40",
-      "sha256": "773f876d6c6d81fe630c6147e16846b1653bb59cfda1d4a754b72143dda80155",
+      "sha256": "dbf21bda87e37d5650302801833b2acb8a44ae905a8ea81107e3695e14fd72d9",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w02_p01_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w02_p01_e00-report.json"
@@ -579,16 +574,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p08_e00.svg",
       "guideSha256": "ae46e3db37125ada58acde66ef4765ceebee996dcd88f45b7c50c542f04cc2e3",
-      "sha256": "d81f9cea60be315bbbfb4a9bbce04872f49dc6267999ad01ad2b1a972771d804",
+      "sha256": "43931652cc1b7f878882bbafa087331936701a675b2bb218109e1f0b223fc3e1",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w02_p08_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w02_p08_e00-report.json"
@@ -605,16 +599,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w02_p09_e00.svg",
       "guideSha256": "ff80e090258566bd997ccd575c5d002050e7585f1e481d70c6c4d0d5261d6693",
-      "sha256": "d90069df5f7046bcb87413f3f0439b81744e1aa9d6e0a3ad0851e21f56be38f9",
+      "sha256": "c0f645cc911e3c56342811df2819fb1e2e2cff469fcaad3f36105fdbdcaa7462",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w02_p09_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w02_p09_e00-report.json"
@@ -631,16 +624,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w03_p00_e00.svg",
       "guideSha256": "95ab039898cd017f5205f3f29b58afbd87466800aa7a79a8600a2082c9610117",
-      "sha256": "db19a4625c6d84404b5b9f3f7b7ed75255198521de0218657c0202368afa7ace",
+      "sha256": "b6b490b87c662a9ae43c509f07da6bc30c16e61be47a040f4eb6c3487cd2c8ba",
       "materials": [
         "floors-marks",
         "floors-worn",
         "floors-calm",
-        "walls-layers",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes"
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w03_p00_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w03_p00_e00-report.json"
@@ -657,16 +649,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w03_p08_e00.svg",
       "guideSha256": "8ffca62bb675c24611b3b56f010772c5f0efd636712aad4aacc3855d4591f284",
-      "sha256": "425d3733b8c5edb6edbc72434fefc46bc3c7d38b9c639f47e83f71559fc1bde1",
+      "sha256": "e2bb51babb8dd6f0cfa385db4ffba8a6ef508d3596bb1b0408ea35c398d2d64e",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes"
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w03_p08_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w03_p08_e00-report.json"
@@ -683,14 +674,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p00_e00.svg",
       "guideSha256": "86a9a675724baa443a0d44aa2bcadcb97c33f4f14420fd04fcead12d81b037cc",
-      "sha256": "bdb3f13f6a3a59eb915d949349a326006c7edef22fb046ef71ec4390ab8f5f34",
+      "sha256": "a13fda21cd1046a2381730e8577ae68af19ea4d82fd69ce18ce625eb17fb7900",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -709,14 +699,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p01_e00.svg",
       "guideSha256": "f1d74e818fe58ed10fc5f8d67f3f74d362dd4f7ee00df8ce161656e5e6792e13",
-      "sha256": "96b62bce57eb24f3dc0d90b60e0dc9b83cd82410cc1c45860be05ec3e5ebf5dd",
+      "sha256": "96e495d3c4bc58ddcb69f77e345d5d3c91f592259f0902fc5e50a33d34a30d53",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -735,14 +724,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p02_e00.svg",
       "guideSha256": "cd51175d6156df94e34ec1d7bf073aa7528248b7782e04bfe2ca0bb6a921f8cb",
-      "sha256": "b950b356a4c40f0677ee4b82be7df805ef9af718dce3936ace43b60f11545b0c",
+      "sha256": "6ebbb7153fde9707ed0f9655f0f0d13971ee49bee3c29832ad80598677e429d8",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -761,14 +749,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w04_p03_e00.svg",
       "guideSha256": "dcf6b384702344cae9a6ef2aeaa18e823d1043aec03eea02766f8d89ff14e879",
-      "sha256": "73ea1143151d5052e303c5f73bc5393a8335214c6f36757853aea7ab1ef7e187",
+      "sha256": "8f5d4b47817cfffbb7bb36d05955c341170c235c8a1317db769eec7eb1097e6a",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -787,14 +774,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w05_p00_e00.svg",
       "guideSha256": "9838b37b01873047e99938c8876ee3128700af88d1f86dd127a33896cee75730",
-      "sha256": "eccb3f69845af5c2acf67dfe82fbf92cc13cae43be17063406bc1e4060176571",
+      "sha256": "7c10e54c159edb5df025eb55b3a6e057b99f05336afdefe901525bdac5273f1f",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -813,14 +799,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w06_p00_e00.svg",
       "guideSha256": "8d8aa1b70937693b0029a5c0e80424b163745f72b81e62f6ab4d1a6db714c62e",
-      "sha256": "39cf2205701f36b0efef0c1018f92fe40d7e951284cb9d599ecf01aa08381ca6",
+      "sha256": "678b42b6df6f2556e13f1bc408f67284828a3e95c869064da57392250cfc4c76",
       "materials": [
         "floors-calm",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -839,14 +824,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w06_p01_e00.svg",
       "guideSha256": "65d878960a907a0c44fcd5d31186b730d9608ab309a088f80a81a94c7b6c7252",
-      "sha256": "299c8a5540245cdd137efb2680640d390b6fb5c1cdccba74391f85dee8f21c34",
+      "sha256": "ff20bfcf2a373d73773c2b9de66303a49da9e3651528ef517beedefff5b8b85a",
       "materials": [
         "floors-calm",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -865,14 +849,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w07_p00_e00.svg",
       "guideSha256": "dab5e6ca9b7f6db5d023b5bb3b9adc8668a567c94a7ca1a0c42b116b5d4a20bc",
-      "sha256": "18c77715da875e74a14bd0b1a6806e979bacc41c275e61f0bd6b4331f1e5082f",
+      "sha256": "800234ca66328d25e8c9c04551b0b9e37e3630290eee10b9e7536590b9983256",
       "materials": [
         "floors-calm",
-        "walls-fissures",
-        "walls-layers",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -891,16 +874,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p00_e00.svg",
       "guideSha256": "35fde6e065c63d0ac11eaa4eee8cba3f8597942907d2e8023b965ff58faa2274",
-      "sha256": "a3b1df03e20276a09713d14852345679375246db70a0e12b791c7024e159d6be",
+      "sha256": "214c4d35746b0c162a4ade6beed7602bb6ce18db9230f5c41c0c2ddd487fbd66",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w08_p00_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w08_p00_e00-report.json"
@@ -917,16 +899,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p02_e00.svg",
       "guideSha256": "03d534a243d9c86354cae098ce0781c3375070fa15fce8e29dec39d9f92512de",
-      "sha256": "18e57566f26893d97d4c6dd485ca47e1b319e65ce43405961734b418caae8ad2",
+      "sha256": "0d7f40e3048afdccc25f9d4411ae6c1b2d8ac312b98364c1e0043228fba3a7de",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w08_p02_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w08_p02_e00-report.json"
@@ -943,16 +924,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p04_e00.svg",
       "guideSha256": "f223c8c26b6524a4bb3e5c547845934022cdd1a6fff3ef3278268a95e2752e61",
-      "sha256": "20f1427735b1075478833d3985046a442c28612780640e681261173996004ccd",
+      "sha256": "b29ffab25a13ad20ff68f7624905ad90e45ccaf6c36e67e38076ce85f7d5be16",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w08_p04_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w08_p04_e00-report.json"
@@ -969,16 +949,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w08_p06_e00.svg",
       "guideSha256": "95386525be7ab975ee03a41f37da0e705763643f19ec9ee7eea19c9203446c52",
-      "sha256": "65f7c3b9ffddbbb5661ce811f6871a6fde9a013c5937a4358c36827dd42aeb31",
+      "sha256": "228cd0c5a7d3f45c47b25e1418b69d46109c379690e6f639f755ecf5063c1973",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w08_p06_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w08_p06_e00-report.json"
@@ -995,16 +974,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w09_p00_e00.svg",
       "guideSha256": "b5429568385568bde960ee175ceff52ef679a8f833f266008d0d69adc059c664",
-      "sha256": "44e89474b2aa221fb5a02147c2ed03e8390fd9ed5b617225127b8554f1ff7b2c",
+      "sha256": "037998ee0ccdec80c9d2ff095415ca75eee675c3615c5871883bcb065b3e0c8f",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w09_p00_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w09_p00_e00-report.json"
@@ -1021,16 +999,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w09_p04_e00.svg",
       "guideSha256": "7caee285d7af4691cd22ff63f9b7a1cbd8ffdfde4e7be42076e9974902004b63",
-      "sha256": "7c4ae5d7579dc5bc2f333b2abf230b724bbfc30eb72fc789fef87970d6211267",
+      "sha256": "4197d669e8228eb31d1566cd19fc7b30db7a089f4676a2273bed8abba8b09541",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w09_p04_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w09_p04_e00-report.json"
@@ -1047,16 +1024,15 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w10_p00_e00.svg",
       "guideSha256": "8abae38d624a12a3eb35017c30ccf95b7574295e6e5229f9f152b11786fc0187",
-      "sha256": "d8a63e746d5c5061a81da3193c1386495139de2aabdce9c505a1688e94fc2f9c",
+      "sha256": "ee6c2c7faf1b7ededbccd734d2cce2e66e5cd8df74497491297790542a05b042",
       "materials": [
         "floors-calm",
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
+        "wall-var-quiet",
+        "wall-var-d2",
         "floors-fine-crack",
-        "walls-layers"
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w10_p00_e00-overlay.png",
       "report": "docs/reference/painted-kit-review/cells/w10_p00_e00-report.json"
@@ -1073,15 +1049,14 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w11_p00_e00.svg",
       "guideSha256": "6371148e574ca016409fcaa2deff46ae47a1b8aa571a0304d30822ce7a27bf8a",
-      "sha256": "d9d989f739cbc83502218894f32c29c1278e935c1338ddee2df7d4856f97cfd7",
+      "sha256": "c2e3cbdf5b89e533b2f685dd74f7e0e570d8585d55d2176e3be8c83946afe6b7",
       "materials": [
         "floors-marks",
         "floors-calm",
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack"
       ],
       "overlay": "docs/reference/painted-kit-review/cells/w11_p00_e00-overlay.png",
@@ -1099,14 +1074,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w12_p00_e00.svg",
       "guideSha256": "69bad48c2318c45f52697bd08706a18363c6d6b25d59f13672b5744d8dc475ea",
-      "sha256": "8ab52e913ccb77ee09b48b50e8e2c25f800e9a4541d68ae88950d63c4c485bf3",
+      "sha256": "53f165608e8f56792bc9eefc3a453dea63e06126797a04a6639bb3ac8e972d7b",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-planes",
-        "walls-layers",
-        "walls-pits",
-        "walls-fissures",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -1125,14 +1099,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w12_p02_e00.svg",
       "guideSha256": "a9cf00bb50157175f354a45b3b149a58efb9a634f2e25e55e7632b9b15c6efd4",
-      "sha256": "fa1cf7840f9c49f963c5b19594fcb8ca4429a71087f1eaeb8c80252feb595489",
+      "sha256": "1cbe7e4fae7b5b35183eca05999c1084a172d1716027fa6dedd1a68183b1de90",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-planes",
-        "walls-layers",
-        "walls-pits",
-        "walls-fissures",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -1151,14 +1124,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w13_p00_e00.svg",
       "guideSha256": "05eeb6d7ee055691d47e57675dce1f105969498e9d5e15c95c0c49da7add5277",
-      "sha256": "fcc12406063ca5fe7202c13b40936ba2427abd0620594a7235cd280227a66548",
+      "sha256": "f20ff76d0798ef4ada2ee416d4f08f49fe835dc734fb3505ce9ab064317576c3",
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-fissures",
-        "walls-layers",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ],
@@ -1177,14 +1149,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w14_p00_e00.svg",
       "guideSha256": "ab6e348b55269ea63f68e3c3e2aff472f101821d015449a8dced07cde4a481c3",
-      "sha256": "ca92c88840f4f8d2a3c1cbc1a313f0d40f49a4dfca6f3f3e912b3a26190fce44",
+      "sha256": "04903a365dfdcbf836d6807ffcded623c8dd3bdae9275d39cc5f7db4156c709d",
       "materials": [
         "floors-calm",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack",
-        "walls-layers",
         "floors-marks",
         "floors-worn"
       ],
@@ -1203,13 +1174,12 @@
       ],
       "guide": "docs/reference/wireframe-overlays/cells/w15_p00_e00.svg",
       "guideSha256": "84596324d14aad9ad4e8547d269b62c262bfdd0bf81e403cfca2597be043e139",
-      "sha256": "89e1028259f1549c8726f1bd81bf3c8b3a907ad18e20933837e03512e877980e",
+      "sha256": "1e95450f92de90a871546b016d6c930a2dc46f587f13bc2184e3d22ee1e6a28f",
       "materials": [
         "floors-calm",
-        "walls-fissures",
-        "walls-layers",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack",
         "floors-marks",
         "floors-worn"
@@ -1251,14 +1221,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/north.svg",
       "guideSha256": "e0c3485072602d2693331685b85222b4a57ee288c661eb2513b3d523b10deb05",
-      "sha256": "0d3c0436e23b8af50e471a67584279089f82da2faebe27908554cd3aa2d38f1b",
+      "sha256": "2fcc1b006cc438e2302bc282fe163182b0204786fec351b9f709d7659192e4a3",
       "materials": [
-        "walls-planes",
-        "walls-layers",
+        "wall-var-quiet",
         "floors-calm",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack"
       ],
       "overlay": "docs/reference/painted-kit-review/entrances/north-overlay.png",
@@ -1276,14 +1245,14 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/east.svg",
       "guideSha256": "ae5d21484ee186acc33c6af09696ab3f14852e5c30c55f4065dae6524e1d93f0",
-      "sha256": "95659c748e977a425500d78fb507c7565f33c625f6dead4edf1fe2d5ece09e0a",
+      "sha256": "caa7d229a097602b41b47bc4e11abbb1f98f4aeb207de1970dda80cc1ed1a0eb",
       "materials": [
-        "walls-planes",
+        "wall-var-quiet",
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
         "floors-fine-crack",
-        "walls-pits",
+        "wall-var-d2",
+        "wall-var-scar",
+        "walls-planes",
         "floors-marks"
       ],
       "overlay": "docs/reference/painted-kit-review/entrances/east-overlay.png",
@@ -1301,14 +1270,14 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/south.svg",
       "guideSha256": "6197676f7cc01331fb7d8ba985a7875aac5073109522c0646f35e30cbf51635d",
-      "sha256": "73ce946294c2a240b848c9a93beb1f763c71a635dd5b00348128073ccaa67308",
+      "sha256": "e868f2694d8f05bdc088606e56ddb40b363482d38865b5f1d34d2a5a63ade4c6",
       "materials": [
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-marks",
+        "wall-var-d2",
         "walls-planes",
-        "walls-pits"
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/entrances/south-overlay.png",
       "report": "docs/reference/painted-kit-review/entrances/south-report.json"
@@ -1325,14 +1294,13 @@
       ],
       "guide": "docs/reference/wireframe-overlays/entrances/west.svg",
       "guideSha256": "31c2e7103c90cd9ab860a87d3f81788814e53cb3bc84bb7a6b412e8bafcee896",
-      "sha256": "6073b9d405f913b3377d97b6af22df8393cceb1216fc87706f362221d2e94c54",
+      "sha256": "6c4381d4395688f3f8dbeb516c020c11c4cf701dac6b4b17114e3b9fc01f7763",
       "materials": [
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-worn",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-d2",
         "floors-fine-crack",
-        "walls-layers"
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/entrances/west-overlay.png",
       "report": "docs/reference/painted-kit-review/entrances/west-report.json"
@@ -1349,16 +1317,20 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/north.svg",
       "guideSha256": "67fe0734e6b6d94f1b2b58301b6b7ec6a2cb15e7312f037f9fe935a75dce1b7e",
-      "sha256": "69a0a7e32640b00838c5dd2923702d4bd665093029b087aaf16d39aa599e719a",
+      "sha256": "31a6c85ec6b24304ff475130625d1cf99924fc27433551e890a779ddc9948d34",
       "materials": [
         "floors-marks",
         "floors-worn",
         "walls-pits",
         "door-oak",
-        "walls-fissures",
+        "wall-var-quiet",
         "walls-planes",
         "walls-layers",
-        "door-iron"
+        "walls-fissures",
+        "wall-var-calm",
+        "wall-var-d2",
+        "door-iron",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/doors/north-overlay.png",
       "report": "docs/reference/painted-kit-review/doors/north-report.json"
@@ -1375,14 +1347,18 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/east.svg",
       "guideSha256": "a6814bf70559bf6ec7e97d9131708c8004cc30eea52634d6cd49eeba42e3eb4a",
-      "sha256": "2a108222196f0092c7b285e00f1d5230562c99c6fd04960f4a93a16a36e30c9a",
+      "sha256": "d931243bba363369bd8b9c1602632be855c40777ac39e8eb858e273655c5a410",
       "materials": [
         "floors-fine-crack",
         "walls-layers",
+        "wall-var-d2",
+        "wall-var-quiet",
         "walls-fissures",
         "walls-planes",
         "floors-calm",
+        "wall-var-scar",
         "walls-pits",
+        "wall-var-calm",
         "floors-marks",
         "floors-worn",
         "door-oak",
@@ -1403,16 +1379,19 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/south.svg",
       "guideSha256": "76ef93c5429750e81cb6737b460b768fcecf4c15cb2620acc85830a9ab404d7d",
-      "sha256": "f3a546592e49fd295b28b5a55274b5a11859177a5aa7fa0b9a0a79bdc330fdcd",
+      "sha256": "27a3982eeb786c01cff2d7b4ef95f5d35a8c4130c0c32ddf482227511e051793",
       "materials": [
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
+        "wall-var-quiet",
         "walls-pits",
         "door-oak",
-        "walls-planes",
         "walls-layers",
-        "door-iron"
+        "walls-planes",
+        "walls-fissures",
+        "wall-var-d2",
+        "door-iron",
+        "wall-var-scar"
       ],
       "overlay": "docs/reference/painted-kit-review/doors/south-overlay.png",
       "report": "docs/reference/painted-kit-review/doors/south-report.json"
@@ -1429,15 +1408,19 @@
       ],
       "guide": "docs/reference/wireframe-overlays/doors/west.svg",
       "guideSha256": "cb7efb34299728d64363e0edc9187084f8b434e0ab7f705c34c93c01340955c5",
-      "sha256": "32f80f562fc5d34e1f1049be7b25bfe4cde16a238dca92625f96cefb0a40feb1",
+      "sha256": "fde1d1fc5a83d3f7abe9018cee92c23ee2db37c021d703c4f2c0565131854007",
       "materials": [
         "floors-fine-crack",
         "walls-planes",
+        "wall-var-d2",
+        "wall-var-quiet",
         "walls-fissures",
         "walls-layers",
         "floors-calm",
-        "walls-pits",
+        "wall-var-scar",
         "door-oak",
+        "walls-pits",
+        "wall-var-calm",
         "floors-marks",
         "floors-worn",
         "door-iron"
@@ -1457,9 +1440,9 @@
       ],
       "guide": "docs/reference/wireframe-overlays/pillar.svg",
       "guideSha256": "84b89b2200b50c73b4e2f0284f510ceabc4817941c808a950a98b46c2f5ef61e",
-      "sha256": "5570c7d198fbbe50f01e5a3b0a76dcf881d8770fd69a5dd588e2e739a166d581",
+      "sha256": "ce7f614327b25fd1132caa7e15930beb39769e53167b7e48356316e04148af5c",
       "materials": [
-        "walls-planes"
+        "wall-var-quiet"
       ],
       "overlay": "docs/reference/painted-kit-review/pillar-overlay.png",
       "report": "docs/reference/painted-kit-review/pillar-report.json"

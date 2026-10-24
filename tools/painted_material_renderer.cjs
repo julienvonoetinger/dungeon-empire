@@ -163,6 +163,8 @@ async function render(model,guide,materials){
   const frame=model.outputFrame||[0,0,...model.size],canvas=frame.slice(2).map(v=>v*SCALE),anchor=model.anchor.map((v,i)=>(v-frame[i])*SCALE);
   const document=b=>`<svg xmlns="http://www.w3.org/2000/svg" width="${canvas[0]}" height="${canvas[1]}" viewBox="${frame.join(' ')}">${b}</svg>`;
   const {lines,visibility,faces}=model.renderData||await prepareFaces(model,guide);
+  if(model.wallStyle!==undefined&&materials.wallVariation&&!model.wallVariationApplied)
+    require('./wall_material_variation.cjs').applyWallVariation(model,faces,model.wallStyle,materials.wallVariation);
   const profiles=materials.renderProfile;
   let defs='<defs>'+(visibility?.defs||'')+(model.clipPaint?`<clipPath id="connected-shape">${model.silhouette}</clipPath>`:''),paint='',bevels='',softPaint='',omittedFinishEdges=0;const used=new Set();
   for(let id=0;id<faces.length;id++){
@@ -173,7 +175,9 @@ async function render(model,guide,materials){
     const minx=Math.min(...p.map(q=>q[0])),miny=Math.min(...p.map(q=>q[1])),maxx=Math.max(...p.map(q=>q[0])),maxy=Math.max(...p.map(q=>q[1]));
     const span=Math.max(maxx-minx,maxy-miny)*1.15,tx=minx-span*.065,ty=miny-span*.065;
     const mask=f.partMask?`mask="url(#part-${f.partMask})"`:'',bevelStart=bevels.length;
-    let textureTransform=`translate(${tx} ${ty}) scale(${span/350})`;
+    // Optional offline UV mapping for a single painting unfolded across faces.
+    // Existing exports retain their original mapping unless explicitly supplied.
+    let textureTransform=f.textureTransform??`translate(${tx} ${ty}) scale(${span/350})`;
     if(f.kind==='wood'){
       const owner=f.surface.materialOwner||{model,offset:[0,0]},materialModel=owner.model;
       const d=materialModel.door,local=materialModel.inverse(f.p.map((v,i)=>v-(owner.offset[i]||0))),y=Math.abs(local[1]-d.yMin)<Math.abs(local[1]-d.yMax)?d.yMin:d.yMax,z=Math.max(...d.profileXZ.map(p=>p[1]));

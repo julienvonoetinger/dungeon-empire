@@ -1,0 +1,302 @@
+{
+  "id": "shared-dungeon-stylized-smooth-floor-v3",
+  "status": "user_approved_material_family",
+  "approval": "oui utilise cette nouvelle gamme de texture",
+  "approvedReview": "docs/reference/stylized-material-review/comparison.png",
+  "canonicalStyle": "assets/dungeon/shared-materials/stylized-reference.png",
+  "recipe": "assets/dungeon/shared-materials/active-recipe.json",
+  "recipeSha256": "06ac95d5d81ac750ba203ebe0e56907b8873d137ce0289a425a129d653fa84d7",
+  "purpose": "Approved stylized materials reused on fixed wireframe faces; prepared offline.",
+  "rules": [
+    "Use this exact approved source atlas and crop recipe by default.",
+    "No independent palette generation per orientation.",
+    "Preserve geometry, silhouettes, joints, anchors and projection.",
+    "Use the same material identity on a stone top and its upper facade.",
+    "Broad painted facets, sparse graphic wear and localized violet accents; no realistic grain or bark.",
+    "Godot selects finished PNGs with white modulation; no runtime appearance repair."
+  ],
+  "renderProfile": {
+    "top": {
+      "color": "#424e68",
+      "brightness": 0.98,
+      "opacity": 0.94,
+      "blur": 0.3
+    },
+    "floor": {
+      "color": "#3c465d",
+      "brightness": 0.84,
+      "opacity": 0.55,
+      "blur": 0.4
+    },
+    "north": {
+      "color": "#252e47",
+      "brightness": 0.61,
+      "opacity": 0.92,
+      "blur": 0.3
+    },
+    "west": {
+      "color": "#1e263d",
+      "brightness": 0.49,
+      "opacity": 0.9,
+      "blur": 0.3
+    },
+    "east_end": {
+      "color": "#1e263d",
+      "brightness": 0.49,
+      "opacity": 0.9,
+      "blur": 0.3
+    },
+    "south_end": {
+      "color": "#252e47",
+      "brightness": 0.61,
+      "opacity": 0.92,
+      "blur": 0.3
+    },
+    "wood": {
+      "color": "#453429",
+      "brightness": 0.85,
+      "saturation": 0.68,
+      "opacity": 0.94,
+      "blur": 0.3
+    },
+    "metal": {
+      "color": "#252b38",
+      "brightness": 0.88,
+      "opacity": 0.75,
+      "blur": 0.3
+    }
+  },
+  "entries": {
+    "walls-planes": {
+      "file": "walls-planes.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "sourceRegion": {
+        "left": 8,
+        "top": 8,
+        "width": 507,
+        "height": 507
+      },
+      "sha256": "dd31843cfae05d281634831178c1d04aa60fcea8916232850553ef27c59e29f1",
+      "meanRGB": [
+        47.27,
+        59.94,
+        91.09
+      ],
+      "status": "user_approved_material_family"
+    },
+    "walls-fissures": {
+      "file": "walls-fissures.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "sourceRegion": {
+        "left": 635,
+        "top": 8,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "ffc343a8ab47838555cdd4e75cdb0fce4c9c11dc6c7c36e1fc8e2de8487354bf",
+      "meanRGB": [
+        44.4,
+        52.73,
+        88.88
+      ],
+      "status": "user_approved_material_family"
+    },
+    "walls-layers": {
+      "file": "walls-layers.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "sourceRegion": {
+        "left": 112,
+        "top": 81,
+        "width": 507,
+        "height": 507
+      },
+      "sha256": "49390ea64f6fb9be64244f0ff02740094e5f62bf7be39271f3669e0fb3f10a3e",
+      "meanRGB": [
+        42.94,
+        54.46,
+        83.31
+      ],
+      "status": "user_approved_material_family"
+    },
+    "walls-pits": {
+      "file": "walls-pits.png",
+      "family": "walls",
+      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "sourceRegion": {
+        "left": 57,
+        "top": 118,
+        "width": 488,
+        "height": 488
+      },
+      "sha256": "3ec93ab8d2d60c0cbf5f6ae1202e23c1f28c4b8b4e1ebd7de92260a30606c95f",
+      "meanRGB": [
+        44.27,
+        56.16,
+        85.74
+      ],
+      "status": "user_approved_material_family"
+    },
+    "floors-calm": {
+      "file": "floors-calm.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
+      "sourceRegion": {
+        "left": 449,
+        "top": 449,
+        "width": 431,
+        "height": 431
+      },
+      "sha256": "59b43b21373f2c8eb5bbf6582a0e22e49af676cd2b49f6f4b8bc5454ec6e3198",
+      "meanRGB": [
+        39.74,
+        51.75,
+        83.05
+      ],
+      "status": "user_approved_material_family"
+    },
+    "floors-fine-crack": {
+      "file": "floors-fine-crack.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
+      "sourceRegion": {
+        "left": 449,
+        "top": 6,
+        "width": 431,
+        "height": 431
+      },
+      "sha256": "e1704937c09f93feab475904efa2a1642943915e0a95bd4c98466c8340918694",
+      "meanRGB": [
+        40.5,
+        52.78,
+        84.58
+      ],
+      "status": "user_approved_material_family"
+    },
+    "floors-worn": {
+      "file": "floors-worn.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
+      "sourceRegion": {
+        "left": 1335,
+        "top": 6,
+        "width": 431,
+        "height": 431
+      },
+      "sha256": "fc104071e13da76253cee0bef70020ad63e3a1bd88199669c8874bc47b0a5065",
+      "meanRGB": [
+        38.83,
+        50.98,
+        82.21
+      ],
+      "status": "user_approved_material_family"
+    },
+    "floors-marks": {
+      "file": "floors-marks.png",
+      "family": "floors",
+      "source": "assets/dungeon/shared-materials/floor-smooth-atlas-v1.png",
+      "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
+      "sourceRegion": {
+        "left": 892,
+        "top": 6,
+        "width": 431,
+        "height": 431
+      },
+      "sha256": "d87d50d0b6091ec413129422666fc04103e3cb4f57dec24614771f1b9cd43a21",
+      "meanRGB": [
+        41.48,
+        53.83,
+        85.72
+      ],
+      "status": "user_approved_material_family"
+    },
+    "door-oak": {
+      "file": "door-oak.png",
+      "family": "doors",
+      "source": "assets/dungeon/shared-materials/stylized-atlas-v2.png",
+      "sourceSha256": "71cd4f1054323dd514074dfe3cdd9b9179793a068f1a615885d2576fa510cafe",
+      "sourceRegion": {
+        "left": 635,
+        "top": 635,
+        "width": 611,
+        "height": 611
+      },
+      "sha256": "0771cb1d962c1b32f6d69ed1607797ba73cb27ef4d30100ef901d7075130bd0a",
+      "meanRGB": [
+        71.78,
+        39.94,
+        25.32
+      ],
+      "status": "user_approved_material_family"
+    },
+    "door-iron": {
+      "file": "door-iron.png",
+      "family": "doors",
+      "source": "assets/dungeon/shared-materials/door-surfaces-atlas-v1.png",
+      "sourceSha256": "d99dd713cd47d61bc50bf2fe11cff8e2b9f612bf9c74a3d0f7fcf3e7ca6d2a54",
+      "sourceRegion": {
+        "left": 635,
+        "top": 8,
+        "width": 611,
+        "height": 1238
+      },
+      "sha256": "2ae18efeb692fe9e73069c2724baf803e66130c898c3f226dbed4ee3a268edc6",
+      "meanRGB": [
+        43.41,
+        52.24,
+        67.16
+      ],
+      "status": "user_approved_material_family"
+    }
+  },
+  "floorFinish": {
+    "id": "smooth-floor-rounded-v1",
+    "status": "user_approved",
+    "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+    "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+    "radius": 10.5,
+    "inset": 0.55,
+    "unevenness": 0.12,
+    "bevel": 2.2,
+    "floorFactor": 0.63,
+    "narrowFaceReference": 14,
+    "mortar": "#0c1220",
+    "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+  },
+  "floorPattern": {
+    "geometryId": "periodic-large-floor-c-v3",
+    "cells": {
+      "0:0": "floors-fine-crack",
+      "0:1": "floors-calm",
+      "0:2": "floors-fine-crack",
+      "1:0": "floors-worn",
+      "1:1": "floors-marks",
+      "1:2": "floors-worn"
+    },
+    "scope": "One periodic prepared C floor with four whole stones. Eight-source material atlas retained; no new runtime variations."
+  },
+  "floorApproval": {
+    "date": "2026-10-23",
+    "request": "Oui",
+    "review": "docs/reference/material-variation-review/rounded-smooth-c-comparison.png",
+    "detail": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+    "recipe": "docs/reference/material-variation-review/rounded-smooth-floor-recipe.json",
+    "recipeSha256": "6291ea1806929dc15f271e4b5e68c37172a98b606331be156751cb53919b8cbb",
+    "sourceSha256": "002496abbd9b0225420083b4c922b1eceb60de184eec6da27b3af8789f23dcea",
+    "selection": {
+      "floors-calm": 6,
+      "floors-fine-crack": 2,
+      "floors-worn": 4,
+      "floors-marks": 3
+    }
+  }
+}

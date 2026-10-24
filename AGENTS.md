@@ -1,5 +1,97 @@
 # Repository instructions
 
+## Wall variants with D2: integration authorized — 2026-10-23
+
+- User said "Go" after selecting D2. Integrate complementary A/B/C walls and
+  selected D2 in Godot. This supersedes proposal-only gates for these materials.
+- Active recipe: `shared-materials/active-recipe.json`, wallVariation section.
+  Source `wall-variation-atlas-v1.png` is copied unchanged from the reviewed
+  atlas. Exact crop hashes are checked by prepare_shared_stone_materials.cjs.
+  The smooth rounded floor, wood, iron, B finish and geometry are preserved.
+- `tools/wall_material_variation.cjs` paints whole local faces. Any stone
+  touching a longitudinal cell boundary, leaving the centre cell, or belonging
+  to a pillar keeps common quiet paint. Interior stones vary. D2 has one UV
+  rectangle unfolded across top/upper facade, with per-face lighting preserved.
+- `tools/export_connected_stone_contexts.cjs` exports complete A/B/C/D2 PNGs
+  and deduplicates identical results. catalog.contextStyles maps a geometric
+  context to four paths. Keep context/material/UV signatures and lazy loading.
+  A material promotion needs a FULL export, not --specials-only.
+- `painted_wall_selection.gd` deterministically chooses a prepared style per
+  integer cell: base buckets A8/B4/C3/D2-1 out of 16. Only the lowest-hash
+  neighbouring D2 candidate survives (eight neighbours, coordinate tie-break).
+  It selects files only; never generate or recolor images in Godot.
+- Re-export both kits and import Godot after material changes. The isolated
+  references use D2 on eligible stones; assembled scenes use all four styles.
+  Preserve layouts, wide SixRoomPreview corridors and all special orientations.
+- Completed: 2,900 unique structural PNGs / 1,444 four-style contexts (161 empty),
+  plus 57 isolated images / 146 aliases. Export audits report zero alpha or
+  unpainted-interior differences; joints match. Shared floor hash unchanged.
+  Godot import and 53 captures of all 20 scenes exit 0 with empty stderr.
+  Boards and selected enlarged joins reviewed; future arbitrary joins unproven.
+  641 unreferenced previous PNGs and their .import files are archived locally
+  under artifacts/wall-variants-retired/; inventory is in the integration review.
+- Current execution/evidence: docs/superpowers/plans/2026-10-23-wall-variants-d2.md,
+  docs/reference/WALL_VARIATIONS.md and wall-variants-integration/. Reproduce
+  boards with tools/prepare_wall_variants_integration_review.cjs after captures.
+  No automated tests without user request.
+
+## Corrupted wall D2 selected — 2026-10-23
+
+- User selected "D2" from `wall-corruption-review-v2/comparison.png`.
+  Retain D2 as the corrupted wall appearance; old D is rejected and D1 is an
+  unselected comparison. This supersedes the pending D2 appearance status below.
+- Exact material: `corruption-v2-1`, crop left 1070, top 390, width 170,
+  height 220 from the existing `atlas-calm.png`. Preserve the continuous
+  unfolded mapping across top and upper facade, not a repeated face-local motif.
+- `docs/reference/wall-corruption-review-v2/selection.json` records the user's
+  choice and selected PNG hashes. The corner in the original comparison shows
+  D1 and is historical; do not use it as the selected D2 appearance reference.
+- D2 appearance is approved. Full context-family propagation and Godot asset
+  integration have not been performed by this selection record.
+
+## Corrupted wall D rejected; continuous mapping proposal — 2026-10-23
+
+- User rejected D because its motif repeats identically. Root cause: same
+  material ID but face-local UV origin/scale, duplicating the violet centre
+  on the top and upper facade. Sharing a material ID alone is insufficient.
+- `tools/prepare_wall_corruption_review.cjs` produces a separate review under
+  `docs/reference/wall-corruption-review-v2/`. D1 unwraps the existing patch
+  continuously around one stone; D2 uses a different vein from the same atlas.
+  A twelve-cell assembly shows D1/D2 sparsely among A/B/C. No new generation.
+- One unfolded material rectangle maps top and upper facade, with identical
+  UV along their common physical edge. Keep per-face lighting and fixed joints.
+  The renderer's optional `face.textureTransform` is used only by this review;
+  normal production export mapping remains unchanged unless opted in later.
+- Four straight sprites, NW corner and magenta overlays are pending approval.
+  No Godot catalog or asset replacement. Connection stones retain quiet common
+  paint. Source before-images/recipe are frozen; previous D is rejected history.
+  Do not interpret this correction as approval of the complete wall family.
+
+## Wall variation appearance review — 2026-10-23
+
+- User now asks to reduce wall repetition and create variants. Proposal:
+  `docs/reference/wall-variation-review/`, reproduced by
+  `tools/prepare_wall_variants_review.cjs`. Four complementary variants:
+  A calm, B weathered, C chipped, D localized violet corruption.
+- Eight prepared straight-wall PNGs (four horizontal, four vertical), mixed
+  assemblies and a NW corner with magenta overlay. This is an appearance
+  review awaiting approval, not an active Godot material/catalog replacement.
+- Existing generated `proposals/variation-review/atlas-calm.png` supplies the
+  shared paint. Three exact crops under the review's `materials/` keep quiet
+  boundary stones and make chip/violet details visible on narrow wall faces.
+  Crop recipes, hashes and tool inputs are recorded in `recipe.json`.
+- Paint complete stones through the existing local context exporter. Stones
+  touching a longitudinal cell boundary, including endpoints/filter guards,
+  retain common quiet paint across all variants. Only interior stones vary.
+  Top and upper facade share a material; no rotation, joint or alpha changes.
+- The procedural violet Y stroke is disabled in this proposal. Preserve the
+  active smooth rounded floor, wall finish B, projection and existing layouts.
+  Frozen baselines and material catalogs under `source/` must not be replaced
+  after promotion. No arbitrary corner/door/stair variant compatibility claim.
+- Export audits report matching construction alpha and guide layers for the
+  eight straight sprites and NW proposal. Horizontal, vertical, NW overlay and
+  enlarged B/A join reviewed visually; no automated tests or Godot changes.
+
 ## Approved smooth rounded floor integration — 2026-10-23
 
 - User answered "Oui" to integrating the smooth floor with rounded slab corners

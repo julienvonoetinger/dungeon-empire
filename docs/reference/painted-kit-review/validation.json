@@ -6,18 +6,19 @@
   "unpaintedInteriorPixels": 0,
   "extraInteriorPixels": 0,
   "sourceHashes": {
-    "tools/painted_material_renderer.cjs": "cb5af1a39034e163833e82f04ed78e56586899f339260540b5c14903354005a9",
+    "tools/painted_material_renderer.cjs": "705a0378586f1bc8ff29f63123214be34e6f0ca2302e4be60d784272076d7615",
     "tools/stone_edge_finish.cjs": "aa0a2afd6274748a3b6752f89aa9307abb1367b2b6436e6f50ca6720dff19ae1",
     "tools/write_generated_file.cjs": "a1a1e25099d66deb88a1f071d4c2e689dd9ac330d18d4891b9004e33eb946d62",
     "assets/dungeon/shared-materials/stone-finish.json": "8df9d7601c5222a2734d28d69776370d5d8800f3a047c74630646111780cd1de",
-    "tools/export_painted_image_catalog.cjs": "8291bef80c9e7d40d5f0bf73fb49c7c3ca315d855ab4eda4b2c6ed3ae6ab48cf",
+    "tools/export_painted_image_catalog.cjs": "4410a979a00684cd4352255d5a76c1e47e911c1ea77bd560511f07a67a766da8",
     "tools/export_wireframe_cell_kit.cjs": "f76e28451bab0a63a6c3c40f93cdc119b26044578929186064a8e14f46366ac8",
     "docs/reference/two-course-square-room.json": "228ba7137e3f5f75cc5659df49adfcbc5ea8e182b4ba5fcb12dd461d2e066cd0",
     "docs/reference/floor-periodic-cell.json": "24219fa2c5ca06bffd5ed78297c4b4373028827c5bab118e7a91767cebcc91fd",
     "docs/reference/entrance-stairs-open-south-wireframe.json": "b9bbcfee6c32b7e4957cd37d1300263ea2d5cb034614cb2098b76358f3413e07",
     "docs/reference/door-arch-cell-west-east-wireframe.json": "c75264ad795f1fa1d25b48cf64f532f1308148854b101abb79146a5b4b3b1bcb",
     "docs/reference/wireframe-overlays/catalog.json": "c08e142ec019adccaab08c68b2ab45eeef540faa81a3185a7779dcc49b2d7e6c",
-    "assets/dungeon/shared-materials/catalog.json": "8a26f27200b9c9f6693477c43be9ae7995de6946b06191887d694af97f5e3763"
+    "assets/dungeon/shared-materials/catalog.json": "b268b5c2285d28f6bda6546569f9908235109f1c9df97530772b78ea59a01493",
+    "tools/wall_material_variation.cjs": "a003c3ad754ecbf03646d3dd493716ef1703c3be400c8fe0bf507ed6a4a7fcd7"
   },
   "images": [
     {
@@ -114,7 +115,7 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -163,7 +164,7 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -212,7 +213,7 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -261,7 +262,7 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -310,7 +311,7 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -359,7 +360,7 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -408,7 +409,7 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -457,7 +458,7 @@
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -506,7 +507,7 @@
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -555,7 +556,7 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -604,7 +605,7 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -653,7 +654,7 @@
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -702,7 +703,7 @@
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -751,7 +752,7 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -800,7 +801,7 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-planes"
+        "wall-var-quiet"
       ]
     },
     {
@@ -849,10 +850,9 @@
         "floors-worn",
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -901,10 +901,9 @@
         "floors-worn",
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -953,10 +952,9 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1005,10 +1003,9 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1057,10 +1054,9 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1108,11 +1104,10 @@
         "floors-calm",
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1161,10 +1156,9 @@
         "floors-marks",
         "floors-worn",
         "floors-fine-crack",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1212,11 +1206,10 @@
         "floors-calm",
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1264,11 +1257,10 @@
         "floors-marks",
         "floors-worn",
         "floors-calm",
-        "walls-layers",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes"
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1316,11 +1308,10 @@
         "floors-marks",
         "floors-calm",
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes"
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1367,10 +1358,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1419,10 +1409,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1471,10 +1460,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1523,10 +1511,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1575,10 +1562,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1626,11 +1612,10 @@
       "extraInteriorPixels": 0,
       "materials": [
         "floors-calm",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1678,11 +1663,10 @@
       "extraInteriorPixels": 0,
       "materials": [
         "floors-calm",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1730,11 +1714,10 @@
       "extraInteriorPixels": 0,
       "materials": [
         "floors-calm",
-        "walls-fissures",
-        "walls-layers",
+        "wall-var-quiet",
         "floors-fine-crack",
-        "walls-pits",
-        "walls-planes",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -1785,10 +1768,9 @@
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1837,10 +1819,9 @@
         "floors-calm",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1889,10 +1870,9 @@
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1941,10 +1921,9 @@
         "floors-marks",
         "floors-fine-crack",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
-        "walls-layers"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -1993,10 +1972,9 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -2045,10 +2023,9 @@
         "floors-calm",
         "floors-worn",
         "floors-fine-crack",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits"
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar"
       ]
     },
     {
@@ -2096,11 +2073,10 @@
         "floors-calm",
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
-        "walls-planes",
+        "wall-var-quiet",
+        "wall-var-d2",
         "floors-fine-crack",
-        "walls-layers"
+        "wall-var-scar"
       ]
     },
     {
@@ -2148,10 +2124,9 @@
         "floors-marks",
         "floors-calm",
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack"
       ]
     },
@@ -2199,10 +2174,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-planes",
-        "walls-layers",
-        "walls-pits",
-        "walls-fissures",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -2251,10 +2225,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-planes",
-        "walls-layers",
-        "walls-pits",
-        "walls-fissures",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -2303,10 +2276,9 @@
       "materials": [
         "floors-calm",
         "floors-fine-crack",
-        "walls-fissures",
-        "walls-layers",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-marks",
         "floors-worn"
       ]
@@ -2354,11 +2326,10 @@
       "extraInteriorPixels": 0,
       "materials": [
         "floors-calm",
-        "walls-fissures",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack",
-        "walls-layers",
         "floors-marks",
         "floors-worn"
       ]
@@ -2406,10 +2377,9 @@
       "extraInteriorPixels": 0,
       "materials": [
         "floors-calm",
-        "walls-fissures",
-        "walls-layers",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-quiet",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack",
         "floors-marks",
         "floors-worn"
@@ -2505,12 +2475,11 @@
       "unpaintedInteriorPixels": 0,
       "extraInteriorPixels": 0,
       "materials": [
-        "walls-planes",
-        "walls-layers",
+        "wall-var-quiet",
         "floors-calm",
         "floors-worn",
-        "walls-fissures",
-        "walls-pits",
+        "wall-var-d2",
+        "wall-var-scar",
         "floors-fine-crack"
       ]
     },
@@ -2556,12 +2525,12 @@
       "unpaintedInteriorPixels": 0,
       "extraInteriorPixels": 0,
       "materials": [
-        "walls-planes",
+        "wall-var-quiet",
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
         "floors-fine-crack",
-        "walls-pits",
+        "wall-var-d2",
+        "wall-var-scar",
+        "walls-planes",
         "floors-marks"
       ]
     },
@@ -2608,11 +2577,11 @@
       "extraInteriorPixels": 0,
       "materials": [
         "floors-worn",
-        "walls-layers",
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-marks",
+        "wall-var-d2",
         "walls-planes",
-        "walls-pits"
+        "wall-var-scar"
       ]
     },
     {
@@ -2657,12 +2626,11 @@
       "unpaintedInteriorPixels": 0,
       "extraInteriorPixels": 0,
       "materials": [
-        "walls-fissures",
+        "wall-var-quiet",
         "floors-worn",
-        "walls-planes",
-        "walls-pits",
+        "wall-var-d2",
         "floors-fine-crack",
-        "walls-layers"
+        "wall-var-scar"
       ]
     },
     {
@@ -2711,10 +2679,14 @@
         "floors-worn",
         "walls-pits",
         "door-oak",
-        "walls-fissures",
+        "wall-var-quiet",
         "walls-planes",
         "walls-layers",
-        "door-iron"
+        "walls-fissures",
+        "wall-var-calm",
+        "wall-var-d2",
+        "door-iron",
+        "wall-var-scar"
       ]
     },
     {
@@ -2761,10 +2733,14 @@
       "materials": [
         "floors-fine-crack",
         "walls-layers",
+        "wall-var-d2",
+        "wall-var-quiet",
         "walls-fissures",
         "walls-planes",
         "floors-calm",
+        "wall-var-scar",
         "walls-pits",
+        "wall-var-calm",
         "floors-marks",
         "floors-worn",
         "door-oak",
@@ -2815,12 +2791,15 @@
       "materials": [
         "floors-marks",
         "floors-worn",
-        "walls-fissures",
+        "wall-var-quiet",
         "walls-pits",
         "door-oak",
-        "walls-planes",
         "walls-layers",
-        "door-iron"
+        "walls-planes",
+        "walls-fissures",
+        "wall-var-d2",
+        "door-iron",
+        "wall-var-scar"
       ]
     },
     {
@@ -2867,11 +2846,15 @@
       "materials": [
         "floors-fine-crack",
         "walls-planes",
+        "wall-var-d2",
+        "wall-var-quiet",
         "walls-fissures",
         "walls-layers",
         "floors-calm",
-        "walls-pits",
+        "wall-var-scar",
         "door-oak",
+        "walls-pits",
+        "wall-var-calm",
         "floors-marks",
         "floors-worn",
         "door-iron"
@@ -2919,7 +2902,7 @@
       "unpaintedInteriorPixels": 0,
       "extraInteriorPixels": 0,
       "materials": [
-        "walls-planes"
+        "wall-var-quiet"
       ]
     }
   ],

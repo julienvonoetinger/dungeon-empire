@@ -1,0 +1,737 @@
+{
+  "id": "cells/w08_p00_e00",
+  "canvas": [
+    1216,
+    1408
+  ],
+  "anchor": [
+    96,
+    352
+  ],
+  "cellPitch": 1024,
+  "guideSha256": "097e0edfe4ee862a30cb4b05d5e760e258c7d6f27844b6902d33fa7be4882ac8",
+  "segmentCount": 39,
+  "outputFrame": [
+    0,
+    0,
+    304,
+    352
+  ],
+  "repeatInkY": 0,
+  "constructionJointLayerMatchesGuide": true,
+  "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+  "stoneFinish": "soft-stone-b-v1",
+  "omittedFinishEdges": 0,
+  "alphaPixelsDifferentFromModel": 0,
+  "unpaintedInteriorPixels": 0,
+  "extraInteriorPixels": 0,
+  "faces": [
+    {
+      "points": [
+        [
+          9.5616,
+          -90.85867
+        ],
+        [
+          52.22827,
+          -90.85867
+        ],
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          9.5616,
+          15.808
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          165.14133
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          9.5616,
+          271.808
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          84.07467
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          9.5616,
+          165.14133
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "variation-wall-2"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          9.5616,
+          84.07467
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          271.808
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          52.22827,
+          340.07467
+        ],
+        [
+          9.5616,
+          340.07467
+        ]
+      ],
+      "kind": "top",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          -90.85867
+        ],
+        [
+          59.44747,
+          -54.76267
+        ],
+        [
+          59.44747,
+          51.904
+        ],
+        [
+          52.22827,
+          15.808
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          52.22827,
+          271.808
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          -12.096
+        ],
+        [
+          66.66667,
+          24
+        ],
+        [
+          66.66667,
+          117.86667
+        ],
+        [
+          59.44747,
+          81.77067
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          243.904
+        ],
+        [
+          66.66667,
+          280
+        ],
+        [
+          66.66667,
+          373.86667
+        ],
+        [
+          59.44747,
+          337.77067
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          162.83733
+        ],
+        [
+          66.66667,
+          198.93333
+        ],
+        [
+          66.66667,
+          280
+        ],
+        [
+          59.44747,
+          243.904
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-6"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          52.22827,
+          165.14133
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-2"
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          81.77067
+        ],
+        [
+          66.66667,
+          117.86667
+        ],
+        [
+          66.66667,
+          198.93333
+        ],
+        [
+          59.44747,
+          162.83733
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "variation-wall-2"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          59.44747,
+          376.17067
+        ],
+        [
+          52.22827,
+          340.07467
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          59.44747,
+          51.904
+        ],
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          52.22827,
+          84.07467
+        ]
+      ],
+      "kind": "west",
+      "part": "west-wall",
+      "materialId": "wall-review-quiet"
+    }
+  ],
+  "materials": [
+    "wall-review-quiet",
+    "variation-wall-2",
+    "variation-wall-6"
+  ],
+  "wallFaces": [
+    {
+      "points": [
+        [
+          9.5616,
+          -90.85867
+        ],
+        [
+          52.22827,
+          -90.85867
+        ],
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          9.5616,
+          15.808
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        -0.4167,
+        0
+      ]
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          165.14133
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          9.5616,
+          271.808
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        0.5833,
+        1
+      ]
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          84.07467
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          9.5616,
+          165.14133
+        ]
+      ],
+      "material": "variation-wall-2",
+      "phase": 1,
+      "common": false,
+      "longitudinalBounds": [
+        0.2667,
+        0.5833
+      ]
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          15.808
+        ],
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          9.5616,
+          84.07467
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        0,
+        0.2667
+      ]
+    },
+    {
+      "points": [
+        [
+          9.5616,
+          271.808
+        ],
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          52.22827,
+          340.07467
+        ],
+        [
+          9.5616,
+          340.07467
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        1,
+        1.2667
+      ]
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          -90.85867
+        ],
+        [
+          59.44747,
+          -54.76267
+        ],
+        [
+          59.44747,
+          51.904
+        ],
+        [
+          52.22827,
+          15.808
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        -0.4167,
+        0
+      ]
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          165.14133
+        ],
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          52.22827,
+          271.808
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        0.5833,
+        1
+      ]
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          -12.096
+        ],
+        [
+          66.66667,
+          24
+        ],
+        [
+          66.66667,
+          117.86667
+        ],
+        [
+          59.44747,
+          81.77067
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        -0.25,
+        0.1167
+      ]
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          243.904
+        ],
+        [
+          66.66667,
+          280
+        ],
+        [
+          66.66667,
+          373.86667
+        ],
+        [
+          59.44747,
+          337.77067
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        0.75,
+        1.1167
+      ]
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          162.83733
+        ],
+        [
+          66.66667,
+          198.93333
+        ],
+        [
+          66.66667,
+          280
+        ],
+        [
+          59.44747,
+          243.904
+        ]
+      ],
+      "material": "variation-wall-6",
+      "phase": 1,
+      "common": false,
+      "longitudinalBounds": [
+        0.4333,
+        0.75
+      ]
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          84.07467
+        ],
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          59.44747,
+          201.23733
+        ],
+        [
+          52.22827,
+          165.14133
+        ]
+      ],
+      "material": "variation-wall-2",
+      "phase": 1,
+      "common": false,
+      "longitudinalBounds": [
+        0.2667,
+        0.5833
+      ]
+    },
+    {
+      "points": [
+        [
+          59.44747,
+          81.77067
+        ],
+        [
+          66.66667,
+          117.86667
+        ],
+        [
+          66.66667,
+          198.93333
+        ],
+        [
+          59.44747,
+          162.83733
+        ]
+      ],
+      "material": "variation-wall-2",
+      "phase": 1,
+      "common": false,
+      "longitudinalBounds": [
+        0.1167,
+        0.4333
+      ]
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          271.808
+        ],
+        [
+          59.44747,
+          307.904
+        ],
+        [
+          59.44747,
+          376.17067
+        ],
+        [
+          52.22827,
+          340.07467
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        1,
+        1.2667
+      ]
+    },
+    {
+      "points": [
+        [
+          52.22827,
+          15.808
+        ],
+        [
+          59.44747,
+          51.904
+        ],
+        [
+          59.44747,
+          120.17067
+        ],
+        [
+          52.22827,
+          84.07467
+        ]
+      ],
+      "material": "wall-review-quiet",
+      "phase": 1,
+      "common": true,
+      "longitudinalBounds": [
+        0,
+        0.2667
+      ]
+    }
+  ]
+}

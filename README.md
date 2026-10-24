@@ -5,6 +5,10 @@ wireframes**, sur une grille carrée 1 × 1. Les matières stylisées approuvée
 communes aux sols, murs, piliers, portes et escaliers. Godot sélectionne et place
 les PNG selon les voisins ; aucune image n'est générée pendant le jeu.
 
+Les murs disposent de quatre finitions préparées : calme, usée, ébréchée et
+corrompue D2. Leur choix reste stable pour chaque case, avec des accents D2
+espacés. Les pierres partagées aux raccords gardent une matière commune.
+
 Ce projet est une étude visuelle. Aucun gameplay n'est implémenté.
 
 ## Ouvrir les scènes

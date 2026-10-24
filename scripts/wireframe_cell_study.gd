@@ -6,6 +6,7 @@ signal rebuilt
 
 const KIT = preload("res://scripts/painted_cell_catalog.gd")
 const GRID = preload("res://scripts/wireframe_cell_layout.gd")
+const WALL_SELECTION = preload("res://scripts/painted_wall_selection.gd")
 
 @export var layout: DungeonLayout:
 	set(value):
@@ -120,11 +121,18 @@ func refresh_preview(reload_textures: bool = true) -> void:
 			continue
 		var context: String = GRID.context_key(cell, cells, _plan.openings, specials)
 		var image_path: String = KIT.CONTEXT_PATHS.get(context, "")
+		var style: int = WALL_SELECTION.style_for(cell)
+		var style_paths: Array = KIT.CONTEXT_STYLE_PATHS.get(context, [])
+		if style_paths.size() > style:
+			image_path = style_paths[style]
 		if not KIT.CONTEXT_PATHS.has(context):
 			# Authoring a new special adjacency needs an offline export. Keep a
 			# prepared generic image visible, and explicitly flag the missing join.
 			var fallback: String = specials.get(cell, "cells/" + variant)
 			image_path = KIT.FALLBACK_PATHS.get(fallback, "")
+			var fallback_styles: Array = KIT.FALLBACK_STYLE_PATHS.get(fallback, [])
+			if fallback_styles.size() > style:
+				image_path = fallback_styles[style]
 			if not _missing_contexts.has(context):
 				push_warning("Prepared stone context missing at %s: %s. Export scene contexts and PNGs before reviewing this join." % [cell, context])
 				_missing_contexts[context] = true

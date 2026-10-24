@@ -1,5 +1,22 @@
 # Sprites peints dans Godot
 
+## Variantes de murs A/B/C et D2
+
+La sélection D2 puis « Go » autorisent leur intégration. Le catalogue actif
+contient quatre chemins de style par voisinage, avec partage des images
+identiques. `painted_wall_selection.gd` choisit une variante stable par case
+et espace les D2. Le sol conserve son fichier précédent ; les layouts restent
+identiques. Voir [WALL_VARIATIONS.md](WALL_VARIATIONS.md) pour les règles,
+commandes et résultats de cette propagation.
+
+Intégration terminée : 2 900 structures uniques / 1 444 contextes à quatre styles,
+57 PNG isolés / 146 alias. Export : zéro différence alpha, zéro pixel intérieur
+non peint, calques de joints identiques. Sol inchangé. Import et 53 captures Godot
+sur les 20 scènes : sorties 0, stderr vide. Revue des planches et de plusieurs
+raccords rapprochés ; aucun test automatisé. [Aperçus et portée de la revue](wall-variants-integration/README.md).
+641 PNG devenus non référencés sont archivés hors du projet actif.
+Les comptes et états ci-dessous décrivent les intégrations historiques précédentes.
+
 État : 23 octobre 2026. Intégration demandée par l'utilisateur, après la préparation
 des images isolées. La géométrie et les matières sont partagées par toutes les scènes.
 

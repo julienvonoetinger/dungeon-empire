@@ -153,7 +153,7 @@
       ],
       "kind": "top",
       "part": "west-wall",
-      "materialId": "walls-fissures"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -176,7 +176,7 @@
       ],
       "kind": "top",
       "part": "west-wall",
-      "materialId": "walls-pits"
+      "materialId": "wall-var-d2"
     },
     {
       "points": [
@@ -222,7 +222,7 @@
       ],
       "kind": "top",
       "part": "west-wall",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -245,7 +245,7 @@
       ],
       "kind": "north",
       "part": "west-wall",
-      "materialId": "walls-fissures"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -268,7 +268,7 @@
       ],
       "kind": "north",
       "part": "west-wall",
-      "materialId": "walls-pits"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -314,7 +314,7 @@
       ],
       "kind": "west",
       "part": "west-wall",
-      "materialId": "walls-fissures"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -337,7 +337,7 @@
       ],
       "kind": "west",
       "part": "west-wall",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-scar"
     },
     {
       "points": [
@@ -360,7 +360,7 @@
       ],
       "kind": "west",
       "part": "west-wall",
-      "materialId": "walls-pits"
+      "materialId": "wall-var-d2"
     },
     {
       "points": [
@@ -383,7 +383,7 @@
       ],
       "kind": "west",
       "part": "west-wall",
-      "materialId": "walls-layers"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -406,7 +406,7 @@
       ],
       "kind": "west",
       "part": "west-wall",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -429,7 +429,7 @@
       ],
       "kind": "west",
       "part": "west-wall",
-      "materialId": "walls-pits"
+      "materialId": "wall-var-quiet"
     },
     {
       "points": [
@@ -452,7 +452,7 @@
       ],
       "kind": "west",
       "part": "west-wall",
-      "materialId": "walls-planes"
+      "materialId": "wall-var-quiet"
     }
   ],
   "materials": [
@@ -460,9 +460,8 @@
     "floors-calm",
     "floors-fine-crack",
     "floors-worn",
-    "walls-fissures",
-    "walls-pits",
-    "walls-planes",
-    "walls-layers"
+    "wall-var-quiet",
+    "wall-var-d2",
+    "wall-var-scar"
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-23",
+  "userStatement": "D2",
+  "status": "selected_appearance_not_integrated",
+  "variant": "D2",
+  "materialId": "corruption-v2-1",
+  "material": {
+    "file": "../../../docs/reference/wall-corruption-review-v2/materials/D2.png",
+    "family": "wall",
+    "source": "assets/dungeon/shared-materials/proposals/variation-review/atlas-calm.png",
+    "sourceRegion": {
+      "left": 1070,
+      "top": 390,
+      "width": 170,
+      "height": 220
+    },
+    "sourceSha256": "b636ce5358e5f73bb8c361667751cc4e65920aa9d0736bfd45f50fc6b2be3a3f",
+    "sha256": "f62f8d641c52ffccdeb003b13e67e44f13f8583b0b4322a8e94f6a1b8976dc62"
+  },
+  "mapping": "One unfolded UV rectangle shared by the top and upper facade of each selected interior stone. Same UV at their physical common edge. Separate lighting profiles remain. No texture reset per face; no geometry or boundary stone changes.",
+  "files": {
+    "materials/D2.png": "f62f8d641c52ffccdeb003b13e67e44f13f8583b0b4322a8e94f6a1b8976dc62",
+    "horizontal/D2.png": "ac13aff8f3fd68f34934588a070e82c7a9183d6c4451801bbcdcaff432e7910b",
+    "vertical/D2.png": "8b5f1d5bad38d499a0ac11081a9ba3629a3fcc69425dcf4db4a6f626850d4ce0",
+    "horizontal/D2-overlay.png": "9f55b7c1acaad2580c46b02870716decb208f6cccb77acd22e32837e139030d0",
+    "vertical/D2-overlay.png": "9c7ed9567bb8644bcc45ce85d333d0e3e057cd83ffb537c7937b69289ef1f953"
+  },
+  "scope": "D2 corrupted wall appearance selected. Old D rejected, D1 unselected. The original corner comparison depicts D1. Production propagation is not performed by this record."
+}
