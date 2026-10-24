@@ -1,0 +1,130 @@
+{
+  "status": "painted appearance proposal",
+  "geometry": "docs/reference/mobile-light-review/wireframe-v1/geometry.json",
+  "geometrySha256": "8ac21006096d9b3f083ccb7e009357135dea739237a43692111e47225263e2a4",
+  "flameSource": "docs/reference/mobile-light-review/painted-v2/source/flame-v3.png",
+  "sourceHashes": {
+    "metal": "c9e04151256191cb15a3499e69672dda962bfae863612d73b026da74bf696f9a",
+    "flame": "3b5c8257d207ebc385c2efb975a31318c9399f8ae8c028427f2c05290b1b6bd2"
+  },
+  "flameBounds": [
+    72,
+    96,
+    979,
+    1440
+  ],
+  "sourcePixelsPerCell": 256,
+  "zoom": 0.75,
+  "entries": [
+    {
+      "id": "torch-horizontal",
+      "orientation": "horizontal",
+      "file": "docs/reference/mobile-light-review/painted-v2/prepared/torch-horizontal.png",
+      "size": [
+        58,
+        84
+      ],
+      "offset": [
+        85,
+        -52
+      ],
+      "bounds": {
+        "min": [
+          0.421,
+          0.08333333333333333,
+          0.037
+        ],
+        "max": [
+          0.579,
+          0.2753333333333333,
+          0.264
+        ]
+      },
+      "emission": [
+        111.41120000000001,
+        -32.68266666666667
+      ],
+      "bytes": 6975,
+      "sha256": "5cf8ebfdfc92b228673f4ae5c525a35db7141154b254281aaa866211312f084f",
+      "metalSha256": "7ba68f5135be21f31bc7ad3f0f2c753ca8c4675038d5434a0eb9e662280d4d54",
+      "flame": {
+        "nativeAlpha": true,
+        "verticalPlaneY": 0.19633333333333333,
+        "baseZ": 0.2,
+        "sourceBase": 1423.86,
+        "sourceCentre": 529.5,
+        "worldPerPixel": 0.0001438661710037175,
+        "worldPerPixelX": 0.0001438661710037175,
+        "solidWorldHeight": 0.215,
+        "aspectPreservedBeforeKitShear": true,
+        "aperture": {
+          "innerRadius": 0.05999999999999994,
+          "rimZ": 0.264
+        },
+        "solidWorldWidth": 0.13063048327137547
+      },
+      "radius": 190,
+      "energy": 2.4,
+      "color": [
+        1,
+        0.44,
+        0.12
+      ]
+    },
+    {
+      "id": "torch-vertical",
+      "orientation": "vertical",
+      "file": "docs/reference/mobile-light-review/painted-v2/prepared/torch-vertical.png",
+      "size": [
+        56,
+        108
+      ],
+      "offset": [
+        8,
+        26
+      ],
+      "bounds": {
+        "min": [
+          0.08333333333333333,
+          0.421,
+          0.037
+        ],
+        "max": [
+          0.2753333333333333,
+          0.579,
+          0.264
+        ]
+      },
+      "emission": [
+        33.672533333333334,
+        45.056
+      ],
+      "bytes": 8943,
+      "sha256": "4a8720689f2e743ad3b78afb3dd6f9b9066bdbbcd8429fbb7c0ff7fc6b79d58d",
+      "metalSha256": "edcd6cbb749d4f0d1b86e7ca518ef52b9ff92facc51c3af1cfd6e24d67f6aef4",
+      "flame": {
+        "nativeAlpha": true,
+        "verticalPlaneY": 0.5,
+        "baseZ": 0.2,
+        "sourceBase": 1423.86,
+        "sourceCentre": 529.5,
+        "worldPerPixel": 0.0001438661710037175,
+        "worldPerPixelX": 0.0001438661710037175,
+        "solidWorldHeight": 0.215,
+        "aspectPreservedBeforeKitShear": true,
+        "aperture": {
+          "innerRadius": 0.059999999999999956,
+          "rimZ": 0.264
+        },
+        "solidWorldWidth": 0.13063048327137547
+      },
+      "radius": 190,
+      "energy": 2.4,
+      "color": [
+        1,
+        0.44,
+        0.12
+      ]
+    }
+  ]
+}

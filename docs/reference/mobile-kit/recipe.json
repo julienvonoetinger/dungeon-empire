@@ -1,5 +1,5 @@
 {
-  "id": "mobile-kit-v3-approved-heart",
+  "id": "mobile-kit-v4-approved-torches",
   "density": 256,
   "worldPixelsPerCell": 256,
   "displayPixelsPerCell": 192,
@@ -17,15 +17,25 @@
   "pillarWidth": 0.24,
   "floorRows": 3,
   "baseAppearanceCount": 1,
-  "spriteCount": 48,
+  "spriteCount": 50,
   "optionalDetails": [
     "pillar-top-carved"
   ],
+  "lighting": {
+    "falloff": "assets/dungeon/mobile-kit/light-falloff.png",
+    "size": [
+      128,
+      128
+    ],
+    "rgbaBytes": 65536,
+    "static": true,
+    "shadows": false
+  },
   "atlas": {
     "density": 256,
     "width": 1024,
     "height": 2048,
-    "sourceBytes": 974698,
+    "sourceBytes": 991208,
     "uncompressedRGBABytes": 8388608,
     "regions": {
       "door-east-arch": {
@@ -1152,6 +1162,47 @@
           ]
         }
       },
+      "torch-vertical": {
+        "region": [
+          964,
+          738,
+          56,
+          108
+        ],
+        "offset": [
+          8,
+          26
+        ],
+        "size": [
+          56,
+          108
+        ],
+        "bounds": {
+          "min": [
+            0.08333333333333333,
+            0.421,
+            0.037
+          ],
+          "max": [
+            0.2753333333333333,
+            0.579,
+            0.264
+          ]
+        },
+        "light": {
+          "emission": [
+            33.672533333333334,
+            45.056
+          ],
+          "radius": 190,
+          "energy": 2.4,
+          "color": [
+            1,
+            0.44,
+            0.12
+          ]
+        }
+      },
       "door-east-jamb-left": {
         "region": [
           550,
@@ -1267,7 +1318,7 @@
       "door-east-smooth-left": {
         "region": [
           964,
-          738,
+          854,
           56,
           96
         ],
@@ -1294,8 +1345,8 @@
       },
       "door-east-smooth-right": {
         "region": [
-          964,
-          842,
+          200,
+          1018,
           56,
           96
         ],
@@ -1322,8 +1373,8 @@
       },
       "door-west-smooth-left": {
         "region": [
-          200,
-          1018,
+          782,
+          1250,
           56,
           96
         ],
@@ -1350,7 +1401,7 @@
       },
       "door-west-smooth-right": {
         "region": [
-          782,
+          846,
           1250,
           56,
           96
@@ -1376,9 +1427,50 @@
           ]
         }
       },
-      "pillar-top-carved": {
+      "torch-horizontal": {
         "region": [
           4,
+          726,
+          58,
+          84
+        ],
+        "offset": [
+          85,
+          -52
+        ],
+        "size": [
+          58,
+          84
+        ],
+        "bounds": {
+          "min": [
+            0.421,
+            0.08333333333333333,
+            0.037
+          ],
+          "max": [
+            0.579,
+            0.2753333333333333,
+            0.264
+          ]
+        },
+        "light": {
+          "emission": [
+            111.41120000000001,
+            -32.68266666666667
+          ],
+          "radius": 190,
+          "energy": 2.4,
+          "color": [
+            1,
+            0.44,
+            0.12
+          ]
+        }
+      },
+      "pillar-top-carved": {
+        "region": [
+          70,
           748,
           68,
           68
@@ -1410,7 +1502,7 @@
   "sourceHashes": {
     "tools/prepare_mobile_reference.cjs": "e64a893f335418659dab3d41c9c7352cbfcf2ba6649a5827974820dea95d7f4f",
     "tools/mobile_special_parts.cjs": "bd598570b21f659701d01663e5506b14c230a581ed15b1098d87f73c43c16ec9",
-    "tools/export_mobile_kit.cjs": "ff491faeab6e4b9de32d42f428580cf811e660cfc2f02d128ea0ee727039d9f7",
+    "tools/export_mobile_kit.cjs": "f543c5c26788a22f1ad78901d3efaa9848a874f4d56e35beec82ddcddb3ac071",
     "tools/mobile_pillar_cap.cjs": "1aae0ae1efe24c40f1fe12ba759e28dcb873f8724dee08d995bbd7bdbc5d6f22",
     "tools/painted_material_renderer.cjs": "7b9801da62859ac6b5a6c9f1f2f505d9893fd8d80ad3cc747b94bc36f65c898f",
     "assets/dungeon/shared-materials/catalog.json": "b268b5c2285d28f6bda6546569f9908235109f1c9df97530772b78ea59a01493",
@@ -1429,7 +1521,13 @@
     "tools/mobile_approved_heart.cjs": "2f7ed414825489530fb7441dbe05890550a9f7d8ab1c0250305c06d79d5c32b6",
     "docs/reference/mobile-heart-review/ritual-v3/selection.json": "89f213de2ecdbe0a037b55e876cefd1035817e4fb1974c7a525fc61eed8b472d",
     "docs/reference/mobile-heart-review/ritual-v3/prepared.json": "40ca472892862c871e89d79cd43324ec526cf5c8aaf9cc27684f21836e33413c",
-    "docs/reference/mobile-heart-review/ritual-v3/prepared/a-256.png": "143e198c30217990b7775995bbbdfb4a8ae9e82fa7b919b56448a1904b36c087"
+    "docs/reference/mobile-heart-review/ritual-v3/prepared/a-256.png": "143e198c30217990b7775995bbbdfb4a8ae9e82fa7b919b56448a1904b36c087",
+    "tools/mobile_approved_torches.cjs": "664ae534ff18bf24f83de87154431c98c3d42451123f58b20bffc8fa5b9ef3f3",
+    "docs/reference/mobile-light-review/painted-v2/selection.json": "68a996ab14ee9c240070a455ce8897ec6424981b88bfdf0e42ce34770c1c26c0",
+    "docs/reference/mobile-light-review/painted-v2/prepared.json": "9ea530e56c7e50cb0f932199de8c654880d3ded1a2ab9c4faf6c3e3093ff34eb",
+    "docs/reference/mobile-light-review/painted-v2/prepared/torch-horizontal.png": "5cf8ebfdfc92b228673f4ae5c525a35db7141154b254281aaa866211312f084f",
+    "docs/reference/mobile-light-review/painted-v2/prepared/torch-vertical.png": "4a8720689f2e743ad3b78afb3dd6f9b9066bdbbcd8429fbb7c0ff7fc6b79d58d",
+    "docs/reference/mobile-light-review/prepared/light-falloff.png": "eacd5805c933cd2843bbf454fa47b385b2de00169ad5fb901c71d2c785e1811b"
   },
   "materialProfile": {
     "top": {
@@ -24499,5 +24597,5 @@
     "sourceBytes": 40159996,
     "rgbaBytes": 385126400
   },
-  "scope": "Common architecture, optional cap and approved sculpted vortex heart. No old A/B/C/D2 appearances or rejected medallions shipped. Atlas bytes are not mobile device performance measurements."
+  "scope": "Common architecture, optional cap, approved vortex heart and two approved torches. Shared static light falloff is separate. No old A/B/C/D2 appearances or rejected medallions shipped. Atlas bytes are not mobile device performance measurements."
 }

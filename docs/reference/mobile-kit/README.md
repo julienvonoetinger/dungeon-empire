@@ -2,13 +2,15 @@
 
 La demande « terminer l’optimisation avec le reste du kit » autorise la migration
 du prototype vers les 21 scènes d’architecture. Le cœur sculpté validé est
-désormais intégré au même atlas et aux aperçus concernés. La torche reste séparée.
+désormais intégré au même atlas et aux aperçus concernés. Les deux torches
+validées utilisent aussi cet atlas et sont placées dans MobileReference.
 
 ## Assets actifs
 
-`assets/dungeon/mobile-kit/atlas-256.png` contient **48 sprites**, avec la
+`assets/dungeon/mobile-kit/atlas-256.png` contient **50 sprites**, avec la
 [porte approuvée](../mobile-door-frame-review/integration/) et le
-[cœur sculpté](../mobile-heart-review/ritual-v3/integration/) :
+[cœur sculpté](../mobile-heart-review/ritual-v3/integration/) et les
+[torches approuvées](../mobile-light-review/painted-v2/integration/) :
 
 | Élément | Nombre |
 | --- | ---: |
@@ -19,17 +21,20 @@ désormais intégré au même atlas et aux aperçus concernés. La torche reste 
 | Porte : huit composants préparés, quatre orientations | 32 |
 | Escalier complet, quatre orientations | 4 |
 | Cœur sculpté avec vortex, sprite complet | 1 |
+| Torche complète : mur horizontal / vertical | 2 |
 
 `catalog.tres` contient les AtlasTexture, régions, ancrages et volumes de support.
 Les subresources référencent toutes le même atlas, avec extrusion de 4 pixels
 et `filter_clip`. Le JSON et `recipe.json` documentent l’export ; le jeu charge
 le Resource préparé, sans lire les matières ni les anciens catalogues.
 
-- Atlas : **1024 × 2048**, PNG **974 698 octets** (951,9 Kio).
+- Atlas : **1024 × 2048**, PNG **991 208 octets** (968,0 Kio).
 - RGBA sans compression GPU, sans mipmaps : **8 Mio** pour l’atlas complet.
+- Texture de lumière partagée, séparée : **128 × 128**, **5 151 octets** PNG,
+  **64 Kio** RGBA. Lumières statiques optionnelles, sans ombres portées.
 - Résolution : **256 px par case 1×1**, affichage à **192 px/case** dans la vue
   logique 1280×720. Zoom constant 0,75 ; déplacement au doigt ou souris gauche.
-- Paquet de ressources Godot mesuré : **705 339 octets** (688,8 Kio), scènes et scripts
+- Paquet de ressources Godot mesuré : **726 759 octets** (709,7 Kio), scènes et scripts
   compris, hors exécutable/moteur Android, APK, signature et bibliothèques natives.
   Le relevé exact et les fichiers exportés figurent dans `package-report.json`.
 
@@ -130,8 +135,9 @@ le prototype historique à deux densités. Il ne met pas à jour le kit actif.
 
 ### Paquet mobile sans sources historiques
 
-Le preset **Android Mobile** exporte explicitement les 42 dépendances actives des
-22 scènes, dont DungeonHeart. Les scripts hérités, le catalogue et le PNG y figurent.
+Le preset **Android Mobile** exporte explicitement les 45 dépendances actives des
+23 scènes, dont DungeonHeart et DungeonTorch. Les scripts hérités, le catalogue,
+l’atlas et la petite texture de lumière y figurent.
 Pour éviter les anciennes dépendances conservées dans le cache d’un éditeur déjà
 ouvert, préparer une copie limitée avec un cache neuf :
 

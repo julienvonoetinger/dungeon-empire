@@ -1,9 +1,9 @@
 {
   "entries": [
     {
-      "bytes": 650956,
+      "bytes": 663884,
       "path": ".godot/imported/atlas-256.png-15628a14e8245b13a843cb4f536ca532.ctex",
-      "compressedBytes": 647973
+      "compressedBytes": 661922
     },
     {
       "bytes": 198,
@@ -11,14 +11,24 @@
       "compressedBytes": 161
     },
     {
-      "bytes": 22539,
+      "bytes": 23779,
       "path": ".godot/exported/133200997/export-ce441fda5fa6229143d146314762aa30-catalog.res",
-      "compressedBytes": 3128
+      "compressedBytes": 3407
     },
     {
       "bytes": 196,
       "path": "scripts/mobile_kit_definition.gdc",
       "compressedBytes": 201
+    },
+    {
+      "bytes": 2628,
+      "path": ".godot/imported/light-falloff.png-327ab743ba914b3fae8c522a1b2a9e52.ctex",
+      "compressedBytes": 2633
+    },
+    {
+      "bytes": 202,
+      "path": "assets/dungeon/mobile-kit/light-falloff.png.import",
+      "compressedBytes": 164
     },
     {
       "bytes": 463,
@@ -81,29 +91,29 @@
       "compressedBytes": 1559
     },
     {
-      "bytes": 3181,
+      "bytes": 3517,
       "path": "scripts/wireframe_cell_study.gdc",
-      "compressedBytes": 3186
+      "compressedBytes": 3522
     },
     {
       "bytes": 1144,
       "path": ".godot/exported/133200997/export-1c7c3483c2b6a6e396e2107abce17c38-1x2Corridor.scn",
-      "compressedBytes": 535
+      "compressedBytes": 532
     },
     {
       "bytes": 1144,
       "path": ".godot/exported/133200997/export-51094d4719d7649d7a62e054846d0137-1x3Corridor.scn",
-      "compressedBytes": 537
+      "compressedBytes": 534
     },
     {
       "bytes": 1144,
       "path": ".godot/exported/133200997/export-3a53beb9421e04d0a2d81d324d655dc4-2x1Corridor.scn",
-      "compressedBytes": 533
+      "compressedBytes": 535
     },
     {
       "bytes": 1156,
       "path": ".godot/exported/133200997/export-bf37c353523645fa374269ebcdb80292-2x2CellRoom.scn",
-      "compressedBytes": 541
+      "compressedBytes": 542
     },
     {
       "bytes": 1144,
@@ -113,17 +123,17 @@
     {
       "bytes": 1114,
       "path": ".godot/exported/133200997/export-a37ce0b1891a9dce64bcf10b4f292a02-3x3CellRoom.scn",
-      "compressedBytes": 521
+      "compressedBytes": 523
     },
     {
       "bytes": 1176,
       "path": ".godot/exported/133200997/export-c7132c16af58824d3e71caf3a7fa78da-3x3RoomCornerCorridors.scn",
-      "compressedBytes": 551
+      "compressedBytes": 550
     },
     {
       "bytes": 1236,
       "path": ".godot/exported/133200997/export-ee74d16ba1cfa52eaee7c3eaf6966768-3x3RoomFourCorridors.scn",
-      "compressedBytes": 571
+      "compressedBytes": 570
     },
     {
       "bytes": 1176,
@@ -133,17 +143,17 @@
     {
       "bytes": 1203,
       "path": ".godot/exported/133200997/export-974d88ed49cccefe331f11eeef559ccc-5x5RoomFourCorridors.scn",
-      "compressedBytes": 557
+      "compressedBytes": 558
     },
     {
       "bytes": 1184,
       "path": ".godot/exported/133200997/export-df643fe83af33b52a70f5cd3133817e3-5x5RoomVerticalCornerCorridors.scn",
-      "compressedBytes": 555
+      "compressedBytes": 550
     },
     {
       "bytes": 727,
       "path": ".godot/exported/133200997/export-16e559046e9aadb44931044274d8e70e-DungeonHeart.scn",
-      "compressedBytes": 331
+      "compressedBytes": 332
     },
     {
       "bytes": 816,
@@ -153,12 +163,22 @@
     {
       "bytes": 1179,
       "path": ".godot/exported/133200997/export-722482ee28d25432d26f5fb9a4b9df56-DungeonPreview.scn",
-      "compressedBytes": 546
+      "compressedBytes": 549
+    },
+    {
+      "bytes": 727,
+      "path": ".godot/exported/133200997/export-8ad30b13b54d7b8ca40175830ece684a-DungeonTorch.scn",
+      "compressedBytes": 337
+    },
+    {
+      "bytes": 975,
+      "path": "scripts/alpha_torch.gdc",
+      "compressedBytes": 980
     },
     {
       "bytes": 897,
       "path": ".godot/exported/133200997/export-7dec08123a17e5488b3103556eac3069-EntranceVariants.scn",
-      "compressedBytes": 411
+      "compressedBytes": 404
     },
     {
       "bytes": 962,
@@ -166,9 +186,9 @@
       "compressedBytes": 967
     },
     {
-      "bytes": 1481,
+      "bytes": 1580,
       "path": ".godot/exported/133200997/export-1132c9d3f9e5c2f28dd79b575be665cc-MobileReference.scn",
-      "compressedBytes": 658
+      "compressedBytes": 697
     },
     {
       "bytes": 212,
@@ -178,12 +198,12 @@
     {
       "bytes": 1254,
       "path": ".godot/exported/133200997/export-9dd544d6e35307f16e6b5498ea8a1545-PerspectiveRoom.scn",
-      "compressedBytes": 588
+      "compressedBytes": 587
     },
     {
       "bytes": 1224,
       "path": ".godot/exported/133200997/export-68e76823eb7c0412c38bcb922deccc89-ReferenceCalibration.scn",
-      "compressedBytes": 576
+      "compressedBytes": 578
     },
     {
       "bytes": 1154,
@@ -193,22 +213,22 @@
     {
       "bytes": 1146,
       "path": ".godot/exported/133200997/export-2c353c2d159d7e9a4d8c81f5cb12fed1-SixRoomPreview.scn",
-      "compressedBytes": 539
+      "compressedBytes": 537
     },
     {
       "bytes": 1202,
       "path": ".godot/exported/133200997/export-776a593e409868ba4b2ecce274af6510-WireframeClosedCorridors.scn",
-      "compressedBytes": 564
+      "compressedBytes": 566
     },
     {
       "bytes": 1331,
       "path": ".godot/exported/133200997/export-e29b0bb4dba2b9e5c7905dd0f88507d2-WireframeDoorCross.scn",
-      "compressedBytes": 608
+      "compressedBytes": 604
     },
     {
-      "bytes": 7557,
+      "bytes": 9090,
       "path": "scripts/mobile_dungeon_renderer.gdc",
-      "compressedBytes": 7562
+      "compressedBytes": 9063
     },
     {
       "bytes": 3138,
@@ -361,6 +381,16 @@
       "compressedBytes": 102
     },
     {
+      "bytes": 105,
+      "path": "scenes/DungeonTorch.tscn.remap",
+      "compressedBytes": 99
+    },
+    {
+      "bytes": 46,
+      "path": "scripts/alpha_torch.gd.remap",
+      "compressedBytes": 48
+    },
+    {
       "bytes": 109,
       "path": "scenes/EntranceVariants.tscn.remap",
       "compressedBytes": 101
@@ -426,9 +456,9 @@
       "compressedBytes": 133
     },
     {
-      "bytes": 566,
+      "bytes": 667,
       "path": ".godot/uid_cache.bin",
-      "compressedBytes": 350
+      "compressedBytes": 394
     },
     {
       "bytes": 846,
@@ -436,5 +466,5 @@
       "compressedBytes": 402
     }
   ],
-  "bytes": 705339
+  "bytes": 726759
 }

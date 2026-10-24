@@ -56,7 +56,10 @@ func _capture() -> void:
 		var dungeon: Node2D = scene.get_node("Dungeon")
 		var camera: Camera2D = scene.get_node("Camera2D")
 		var plan: Dictionary = dungeon.get_connection_plan()
-		inventory.append({"scene": name, "cells": plan.cells.size(), "specials": plan.specials.size(), "hearts": plan.get("hearts",PackedVector2Array()).size(), "sprites": dungeon.get_node("PreparedSprites").get_child_count(), "zoom": camera.zoom.x})
+		var children := dungeon.get_node("PreparedSprites").get_children()
+		inventory.append({"scene": name, "cells": plan.cells.size(), "specials": plan.specials.size(), "hearts": plan.get("hearts",PackedVector2Array()).size(),
+			"sprites": children.filter(func(child: Node) -> bool: return child is Sprite2D).size(),
+			"lights": children.filter(func(child: Node) -> bool: return child is PointLight2D).size(), "zoom": camera.zoom.x})
 		for i in plan.get("hearts",PackedVector2Array()).size():
 			camera.position = plan.hearts[i] * 256
 			camera.zoom = Vector2.ONE * .75

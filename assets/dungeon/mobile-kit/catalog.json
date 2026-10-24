@@ -1,5 +1,5 @@
 {
-  "id": "mobile-kit-v3-approved-heart",
+  "id": "mobile-kit-v4-approved-torches",
   "density": 256,
   "worldPixelsPerCell": 256,
   "displayPixelsPerCell": 192,
@@ -17,15 +17,25 @@
   "pillarWidth": 0.24,
   "floorRows": 3,
   "baseAppearanceCount": 1,
-  "spriteCount": 48,
+  "spriteCount": 50,
   "optionalDetails": [
     "pillar-top-carved"
   ],
+  "lighting": {
+    "falloff": "assets/dungeon/mobile-kit/light-falloff.png",
+    "size": [
+      128,
+      128
+    ],
+    "rgbaBytes": 65536,
+    "static": true,
+    "shadows": false
+  },
   "atlas": {
     "density": 256,
     "width": 1024,
     "height": 2048,
-    "sourceBytes": 974698,
+    "sourceBytes": 991208,
     "uncompressedRGBABytes": 8388608,
     "regions": {
       "door-east-arch": {
@@ -1152,6 +1162,47 @@
           ]
         }
       },
+      "torch-vertical": {
+        "region": [
+          964,
+          738,
+          56,
+          108
+        ],
+        "offset": [
+          8,
+          26
+        ],
+        "size": [
+          56,
+          108
+        ],
+        "bounds": {
+          "min": [
+            0.08333333333333333,
+            0.421,
+            0.037
+          ],
+          "max": [
+            0.2753333333333333,
+            0.579,
+            0.264
+          ]
+        },
+        "light": {
+          "emission": [
+            33.672533333333334,
+            45.056
+          ],
+          "radius": 190,
+          "energy": 2.4,
+          "color": [
+            1,
+            0.44,
+            0.12
+          ]
+        }
+      },
       "door-east-jamb-left": {
         "region": [
           550,
@@ -1267,7 +1318,7 @@
       "door-east-smooth-left": {
         "region": [
           964,
-          738,
+          854,
           56,
           96
         ],
@@ -1294,8 +1345,8 @@
       },
       "door-east-smooth-right": {
         "region": [
-          964,
-          842,
+          200,
+          1018,
           56,
           96
         ],
@@ -1322,8 +1373,8 @@
       },
       "door-west-smooth-left": {
         "region": [
-          200,
-          1018,
+          782,
+          1250,
           56,
           96
         ],
@@ -1350,7 +1401,7 @@
       },
       "door-west-smooth-right": {
         "region": [
-          782,
+          846,
           1250,
           56,
           96
@@ -1376,9 +1427,50 @@
           ]
         }
       },
-      "pillar-top-carved": {
+      "torch-horizontal": {
         "region": [
           4,
+          726,
+          58,
+          84
+        ],
+        "offset": [
+          85,
+          -52
+        ],
+        "size": [
+          58,
+          84
+        ],
+        "bounds": {
+          "min": [
+            0.421,
+            0.08333333333333333,
+            0.037
+          ],
+          "max": [
+            0.579,
+            0.2753333333333333,
+            0.264
+          ]
+        },
+        "light": {
+          "emission": [
+            111.41120000000001,
+            -32.68266666666667
+          ],
+          "radius": 190,
+          "energy": 2.4,
+          "color": [
+            1,
+            0.44,
+            0.12
+          ]
+        }
+      },
+      "pillar-top-carved": {
+        "region": [
+          70,
           748,
           68,
           68

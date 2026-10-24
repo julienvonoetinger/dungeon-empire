@@ -1,5 +1,160 @@
 # Repository instructions
 
+## Approved torches integrated — 2026-10-24
+
+- User said "continuons" after appearance approval. Both approved complete PNGs
+  are now adopted unchanged by mobile_approved_torches.cjs, guarded by selection
+  hashes; no ImageGen regeneration or new perspective fitting during export.
+- Kit: 50 sprites, 1024x2048 atlas, 991208 PNG bytes / 8 MiB RGBA. Prior 48
+  regions retain exact pixels, offsets, bounds and companions after repacking.
+  Shared light-falloff.png is separate: 128x128, 5151 PNG bytes / 64 KiB RGBA.
+- Common renderer places north/west wall mounts using the approved offsets and
+  support order. wireframe_cell_study exposes torch_north_cells, torch_west_cells
+  (integer cell arrays), and torch_lights_enabled. Missing walls, openings,
+  special door/stair cells and duplicates cannot create floating torches.
+- MobileReference contains north (1,0) and west (0,1), with the existing heart.
+  Other layouts stay undecorated by default. DungeonTorch is migrated to the same
+  atlas and alpha_torch.gd with a selectable orientation. Other wall-facing art
+  is not approved; do not mirror/rotate prepared torches to invent it.
+- Per-torch metadata stores emitter, radius190, energy2.4 and orange colour.
+  Painted torch sprites have light_mask=0; optional PointLight2D adds local light.
+  Rebuilds retire old generated lights; editor refresh includes the falloff.
+  Static lights have no animation/shadows; light leakage through other walls
+  and mobile performance remain outside this integration's validated scope.
+- Reproduce export_mobile_kit, Godot import, capture_approved_torches and
+  prepare_approved_torch_review; capture_mobile_kit supplies scene/editor views.
+  Evidence: docs/reference/mobile-light-review/painted-v2/integration/.
+- Resource export now includes DungeonTorch: 45 source dependencies / 23 scenes.
+  ZIP 726759 bytes, no authoring/rejected torch files. Staged import, resource
+  export and package startup exit 0, empty stderr. It is not an APK/device profile.
+- Runtime captures/import are clean. Custom editor capture exits 0 but emits
+  native window/progress/resource shutdown diagnostics; do not call it clean.
+  Independent read-only review found no actionable code findings; its pending
+  staging reminder was completed. No automated tests, commit or push requested.
+
+## Rounded torch flame base approved — 2026-10-24
+
+- User replied "Ok" to the rounded-base gameplay comparison. Appearance is
+  APPROVED. painted-v2/selection.json freezes source/metal, geometry, prepared
+  sprites, recipe and reviewed capture hashes. Preserve this artwork and scale;
+  do not regenerate it for future integration. This supersedes pending status.
+
+- User rejects the pointed bottom of flame-v2. Its narrow neck/droplet made the
+  fire look detached from the cup. Latest source is painted-v2/source/flame-v3.png:
+  ImageGen redraws a full rounded base with no stem. Keep both previous sources.
+  Exact prompt/provenance: painted-v2/flame-base-review/generation.json.
+- prepare_mobile_torch_paint.cjs preserves ONE scale for both source axes, with
+  the existing kit height shear. New height .215, base z=.20, root centre measured
+  on the bottom 8%. The entire flame is uniformly smaller; never squeeze X alone.
+  This supersedes v2's .27 height and .186 base. Depth masks place the rounded
+  lower edge behind the cup rim; approved metal geometry/material stay unchanged.
+- Current horizontal/vertical canvases: 58x84 / 56x108. Both rendered in Godot at
+  .75 zoom and inspected; capture process exit 0, empty stderr. Comparison uses
+  actual game pixels x2. The pointed previous version is frozen under
+  flame-base-review/before/. Prior comparison boards remain historical snapshots.
+- This selection records appearance only. Production integration is pending.
+  No automated tests, production changes, commit or push in this approval step.
+
+## Historical pointed flame v2; preserve source proportions — 2026-10-24
+
+- User correctly flagged the previous flame as elongated: its width had been
+  compressed independently of height. That fit is rejected and superseded here.
+- Current source is painted-v2/source/flame-v2.png, redrawn with built-in ImageGen:
+  narrower root, fuller upper body. Exact prompt/provenance is retained in
+  painted-v2/flame-shape-review/generation.json. Keep the original source too.
+- prepare_mobile_torch_paint.cjs uses ONE image scale: worldPerPixelX equals
+  worldPerPixel, with the existing kit height shear. Centre the bottom 8% of the
+  flame, set base z=.186 at the cavity floor, retain .27 world height. Never fit
+  its horizontal axis independently again. Native alpha and depth occlusion stay.
+- Approved metal vertices/materials and production assets are unchanged. Current
+  horizontal/vertical canvases are 76x97 / 76x121. The squeezed proposal is frozen
+  under flame-shape-review/before/; comparison.png shows actual Godot pixels x2.
+- Both orientations captured and inspected; process exit 0, empty stderr.
+  Appearance remains a proposal. No automated tests, production promotion,
+  commit or push requested.
+
+## Historical squeezed torch flame correction — 2026-10-24
+
+- User reported flames spilling outside the painted cup. The height-derived
+  scale made solid fire .181 cell wide at the rim versus its .120-cell opening.
+  Depth occlusion alone cannot hide fire outside the metal volume.
+- prepare_mobile_torch_paint.cjs now derives the approved inner rim radius from
+  bowl vertices and fits horizontal flame sampling to 90% of the aperture.
+  Maximum solid width .108 cell; source image, height .27, base z=.204, metal
+  geometry/material and projection stay fixed. This is offline plane fitting,
+  not runtime distortion or alpha thresholding. prepared.json records the fit.
+- Current PNGs: horizontal 64x109 / 7672 bytes, vertical 64x133 / 9672 bytes.
+  Previous sprites/captures/recipe are frozen under painted-v2/flame-fit-review/
+  before/. --boards regenerates its before/after comparison when baseline exists.
+- Both corrected Godot orientations inspected, capture exit 0, empty stderr.
+  No automated tests, production promotion, commit or push requested. Painted
+  appearance still awaits user feedback; the structural approval remains valid.
+
+## Torch structure approved; painted review — 2026-10-24
+
+- User replied "Oui" to the horizontal/vertical torch wireframe. This approves
+  plate/arm/hollow-cup geometry and supersedes its pending status below.
+  wireframe-v1/selection.json freezes geometry/comparison SHA256. Preserve them.
+- Latest painted review: docs/reference/mobile-light-review/painted-v2/.
+  ImageGen iron material + native-alpha flame originals/prompts are retained.
+  Appearance, flame and production integration still await user review.
+- prepare_mobile_torch_paint.cjs loads the approved faces without changing any
+  vertex. Offline depth masks, shared local material coordinates and warm face
+  shading paint both orientations. Dark strokes remain within the shape. The
+  flame's vertical XZ plane follows the kit's height projection; source alpha
+  is retained except for physical cup/wall occlusion. No runtime deformation.
+- Prepared torch-horizontal is 90x109 / 8560 bytes; vertical 91x133 / 10553.
+  One precomposed PNG per view, 256 px/cell, .75 zoom. Review renderer uses the
+  common support order and optional local lights. No production atlas/scenes
+  changed. Crystal and other orientations are not revised here.
+- Reproduce: prepare_mobile_torch_paint.cjs, capture_mobile_torch_paint_review.gd,
+  preparation --boards. game-view.png is an unscaled Godot crop; structure
+  comparison includes a magenta guide over metal alone so the flame cannot hide
+  structural edges. Two captures exit 0 with empty stderr; inspected visually.
+  No automated tests, device profiling, commit or push requested. JSON under
+  mobile-light-review retains exact bytes in Git for approval hash stability.
+
+## Wall torch perspective wireframe proposal — 2026-10-24
+
+- User rejected the front-facing light props' wall perspective and accepted
+  a structural torch wireframe on horizontal and vertical walls before painting.
+  Latest review: docs/reference/mobile-light-review/wireframe-v1/. Appearance
+  and geometry remain pending; previous lit sprites are style references only.
+- prepare_mobile_torch_wireframe.cjs uses the kit's exact project/T/H/PX exports.
+  One volume rotates in world XY before projection. Plate rear v=0 contacts the
+  wall facade; arm supports a hollow cup. Cyan=plate/arm, amber=cup, grey=wall.
+  The wall retains two facade courses. No invented floor foreshortening; circles
+  in a horizontal plane stay circular in this project's fixed projection.
+- Hidden edges are clipped against triangulated surfaces along (.18,.9,1).
+  Geometry and visible segments saved in geometry.json; transparent magenta
+  context guides at 256 px/cell, native views at .75 and enlarged comparison.
+- Flame omitted during rigid-structure approval. Crystal not yet revised.
+  No painted image edit, runtime deformation or production asset/scene change.
+  Two orientations/details inspected; exporter exit 0. No automated tests,
+  commit or push requested. Obtain structural feedback before new painting.
+
+## First light decoration appearance proposal — 2026-10-24
+
+- User said "Ok go" after the proposal to start with an orange wall torch and
+  an embedded purple crystal. Review: docs/reference/mobile-light-review/.
+  Appearance is pending; production atlas/scenes remain unchanged.
+- Native-alpha ImageGen originals and exact prompts are saved in source/ and
+  generation.json. Whole-source uniform reduction preserves all alpha; alpha
+  threshold 128 only measures solid subject height, never extracts a background.
+- Prepared torch is 73x109 (7897 bytes), crystal 75x68 (5363 bytes). Subjects read
+  at about 66/41 displayed px at fixed .75 zoom, 256 source px/cell. Mounting plate
+  and chipped stone socket are painted with the props; evaluate in game-scale
+  comparison.png, not enlarged source art. First frontal wall orientation only.
+- tools/mobile_light_review.gd uses the shared architecture renderer and support
+  ordering, prepared sprites and two local PointLight2D sources. Light falloff is
+  prepared offline. No runtime paint or perspective warp. No shadows/animation
+  in this review; neighbouring-room light leakage and device cost remain unproven.
+- Reproduce with prepare_mobile_light_review.cjs, capture_mobile_light_review.gd,
+  then the preparation tool's --boards option. Standalone LightReview.tscn is
+  under ignored docs/, loaded by explicit path; Space toggles local lights.
+  Two visual captures exit 0 with empty stderr; inspected at gameplay size.
+  No automated tests, production promotion, commit or push requested.
+
 ## Approved heart integrated — 2026-10-24
 
 - User explicitly said "Oui" to integrating the selected sculpted vortex heart

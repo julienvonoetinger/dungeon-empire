@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-24",
+  "tool": "built-in image_gen",
+  "intent": "redraw flame silhouette to a narrow root without independent X scaling",
+  "reference": "docs/reference/mobile-light-review/painted-v2/source/flame.png",
+  "output": "docs/reference/mobile-light-review/painted-v2/source/flame-v2.png",
+  "original": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-b39df3a3-7774-40bb-9245-c1dd1872635c.png",
+  "prompt": "Use case: precise-object-edit. Edit the supplied flame sprite for a stylized mobile dungeon game. Redraw its silhouette, do NOT horizontally compress or stretch it. Keep the orange outer fire, yellow body and pale yellow hot core, simple bold painted shape language. Make a compact lively flame: a broad rounded upper body with two small asymmetric side tongues and a short curved main tip. Total solid silhouette width approximately 70 percent of height. Crucially the bottom quarter is a NARROW CENTRED ROOT, narrowing smoothly down into a small rounded foot. At 25 percent height above the bottom the flame is at most 40 percent of its total height wide; at the very bottom only 15 percent. All side tongues start ABOVE this bottom quarter: no low side lobes, no flames curling out at the foot. Upper half can be broad and animated. It will emerge from a small hollow metal bowl composited separately; the slender lower quarter is hidden INSIDE that bowl and the broad upper flame grows above the rim. Avoid a tall needle, elongated candle flame, compressed appearance, or broad flat bottom. Single standalone flame only, no bowl, no metal, no torch, no scene, no floor, no text. Genuine native transparent background. Restrained soft alpha at outline, NO large orange halo or glow cloud. Entire subject centered with transparent padding. Intended to remain clear at only 40 pixels tall."
+}

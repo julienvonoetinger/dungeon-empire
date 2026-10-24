@@ -1,0 +1,87 @@
+{
+  "status": "appearance proposal only",
+  "density": 256,
+  "zoom": 0.75,
+  "nativeAlphaPreserved": true,
+  "productionAtlasSha256": "dbe0c3d0222b94e12cf79a3765a27eaee99de67f62adb59a5954174f1c00ccc7",
+  "entries": [
+    {
+      "id": "torch",
+      "subjectHeight": 88,
+      "anchor": [
+        36.5,
+        93.52199999999999
+      ],
+      "emission": [
+        36.5,
+        43.6
+      ],
+      "radius": 190,
+      "energy": 2.4,
+      "color": [
+        1,
+        0.44,
+        0.12
+      ],
+      "source": "docs/reference/mobile-light-review/source/torch.png",
+      "sourceSha256": "9612acd9b845c19125b893a96743ae321176c714bc79b5232e50fae1b5d74175",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "measuredOpaqueBounds": [
+        259,
+        88,
+        507,
+        1243
+      ],
+      "file": "docs/reference/mobile-light-review/prepared/torch.png",
+      "size": [
+        73,
+        109
+      ],
+      "sha256": "b890c31a729fed21dfd3767dbd9f9e16366e63363b0df11f139cb257dd11f5f4",
+      "bytes": 7897,
+      "displayedSubjectHeight": 66
+    },
+    {
+      "id": "crystal",
+      "subjectHeight": 54,
+      "anchor": [
+        37.5,
+        34
+      ],
+      "emission": [
+        37.5,
+        34
+      ],
+      "radius": 140,
+      "energy": 1.6,
+      "color": [
+        0.65,
+        0.24,
+        1
+      ],
+      "source": "docs/reference/mobile-light-review/source/crystal.png",
+      "sourceSha256": "74182d94896ec85d10e562cb51b71adaa43cc1b424943eb71fb82d49d67553dd",
+      "sourceSize": [
+        1313,
+        1198
+      ],
+      "measuredOpaqueBounds": [
+        333,
+        134,
+        647,
+        946
+      ],
+      "file": "docs/reference/mobile-light-review/prepared/crystal.png",
+      "size": [
+        75,
+        68
+      ],
+      "sha256": "b1a10cab457080e1b2e679882d7c551bd7340c220258ce47a246777a1442b695",
+      "bytes": 5363,
+      "displayedSubjectHeight": 40.5
+    }
+  ]
+}

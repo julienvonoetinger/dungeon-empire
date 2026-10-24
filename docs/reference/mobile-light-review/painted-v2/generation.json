@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-24",
+  "tool": "built-in image_gen",
+  "status": "painted appearance proposal; approved structure",
+  "reference": "docs/reference/mobile-light-review/source/torch.png",
+  "prompts": {
+    "metal": "Derive a SINGLE square seamless material swatch from the dark blue-grey painted forged iron of the supplied torch reference. This is only the material paint to map onto already-approved exact 3D sprite geometry, NOT a torch illustration. Full-frame opaque flat surface, even neutral lighting. Stylized hand-painted mobile cartoon fantasy iron: broad quiet blue-slate grey tonal facets and subtle hammered variations, dark muted iron, restrained warm grey flecks. 3-4 readable tonal groups. Rich painted quality but calm large shapes visible when reduced. No object silhouettes, no beveled border, no rim, no flame, no bowl, no rivets, no scratches that form a repeated symbol, no engraved designs, no bright hotspots, no drop shadow, no photorealism, no grainy microtexture. Keep an evenly lit dark midtone, not black. Fill the entire image to all edges. Reference image provides palette and rendering style ONLY.",
+    "flame": "Extract and redraw ONLY the orange flame from the supplied torch into a separate genuine transparent-background sprite. Reference is the orange/yellow cartoon fire style only. A single compact broad flame mass with 3 clear tongues, warm orange outer shape, saturated yellow interior and pale yellow central core. Bold smooth painted shapes with subtle hand-painted shading, readable around 40-50 pixels tall. The lower flame has a round compact base tapering just slightly, suitable to emerge from the centre of a round brazier bowl whose metal will be composed separately. Entire flame visible with generous transparent padding, centered. No torch, no metal, no bowl, no wall, no floor, no cast shadow, no sparks or smoke, no large glow cloud. Do not include the original long upper spire; use a shorter broad silhouette, total solid-flame aspect ratio about 0.6 width / height. True native alpha including soft flame edges."
+  },
+  "originals": {
+    "metal": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-b4048309-a9dd-4fbd-af13-e9b009b8a5d3.png",
+    "flame": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-e7863fe6-de3f-4d9d-b520-cc35da05296b.png"
+  }
+}

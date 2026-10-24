@@ -1,0 +1,280 @@
+{
+  "retained": [
+    {
+      "id": "door-east-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-v-0",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-v-2",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-v-1",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "heart",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "stair-east",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "stair-west",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-v-3",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "stair-south",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-east-smooth-upper",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-smooth-upper",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "floor",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-east-leaf",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-leaf",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-east-inner-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-inner-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "stair-north",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-leaf",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-leaf",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "pillar",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-smooth-upper",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-smooth-upper",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-inner-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-inner-arch",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-h-0",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-h-1",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-h-2",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "wall-h-3",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-jamb-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-jamb-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-jamb-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-jamb-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-smooth-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-south-smooth-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-smooth-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-north-smooth-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-east-jamb-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-east-jamb-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-jamb-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-jamb-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-east-smooth-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-east-smooth-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-smooth-left",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "door-west-smooth-right",
+      "pixelsEqual": true,
+      "placementEqual": true
+    },
+    {
+      "id": "pillar-top-carved",
+      "pixelsEqual": true,
+      "placementEqual": true
+    }
+  ],
+  "adopted": [
+    {
+      "id": "torch-horizontal",
+      "pixelsEqual": true,
+      "placementEqual": true,
+      "size": [
+        58,
+        84
+      ]
+    },
+    {
+      "id": "torch-vertical",
+      "pixelsEqual": true,
+      "placementEqual": true,
+      "size": [
+        56,
+        108
+      ]
+    }
+  ],
+  "sameAfterLightToggle": true,
+  "approvedRoomRenderDifference": {
+    "changedChannels": 1221,
+    "maxChannelDifference": 40,
+    "meanChannelDifference": 0.0012163628472222222
+  },
+  "spriteCount": 50,
+  "atlas": [
+    1024,
+    2048
+  ],
+  "atlasPngBytes": 991208,
+  "atlasExtraPngBytes": 16510,
+  "atlasRgbaBytes": 8388608,
+  "lightPngBytes": 5151,
+  "lightRgbaBytes": 65536
+}

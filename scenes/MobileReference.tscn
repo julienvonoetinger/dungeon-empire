@@ -19,6 +19,8 @@ corridor_length = 3
 vertical_corridor_length = 4
 close_corridor_ends = true
 heart_positions = PackedVector2Array(1.5, 1)
+torch_north_cells = Array[Vector2i]([Vector2i(1, 0)])
+torch_west_cells = Array[Vector2i]([Vector2i(0, 1)])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(440, 260)

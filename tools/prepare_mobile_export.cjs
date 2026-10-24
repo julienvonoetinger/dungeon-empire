@@ -3,7 +3,7 @@
 const fs=require('node:fs'),path=require('node:path');
 const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const root=path.resolve(__dirname,'..'),files=new Set();
-const scenes=fs.readdirSync(path.join(root,'scenes')).filter(n=>n.endsWith('.tscn')&&n!=='DungeonTorch.tscn').map(n=>'scenes/'+n);
+const scenes=fs.readdirSync(path.join(root,'scenes')).filter(n=>n.endsWith('.tscn')).map(n=>'scenes/'+n);
 function collect(file){
   if(files.has(file))return;
   if(!fs.existsSync(path.join(root,file)))throw Error('Missing active dependency '+file);

@@ -59,6 +59,19 @@ const GRID = preload("res://scripts/wireframe_cell_layout.gd")
 	set(value):
 		heart_positions = value
 		_request_rebuild()
+## Cells whose north/west boundary is a solid wall. Other faces need separate art.
+@export var torch_north_cells: Array[Vector2i] = []:
+	set(value):
+		torch_north_cells = value
+		_request_rebuild()
+@export var torch_west_cells: Array[Vector2i] = []:
+	set(value):
+		torch_west_cells = value
+		_request_rebuild()
+@export var torch_lights_enabled := true:
+	set(value):
+		torch_lights_enabled = value
+		_request_rebuild()
 @export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable:
 	get:
 		return Callable(self, "refresh_preview")
@@ -105,6 +118,9 @@ func refresh_preview(reload_textures: bool = true) -> void:
 			specials[cell] = "entrances/" + TERMINAL_DIRECTIONS[variant]
 	_plan["specials"] = specials
 	_plan["hearts"] = heart_positions
+	_plan["torch_north_cells"] = torch_north_cells
+	_plan["torch_west_cells"] = torch_west_cells
+	_plan["torch_lights_enabled"] = torch_lights_enabled
 	render_plan(_plan, specials, pillar_details, reload_textures)
 	rebuilt.emit()
 

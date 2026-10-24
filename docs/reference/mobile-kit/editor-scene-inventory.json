@@ -1,26 +1,27 @@
 [
-	{
-		"cells": 13,
-		"hearts": 1,
-		"scene": "MobileReference",
-		"specials": 0,
-		"sprites": 58,
-		"zoom": 0.75
-	},
-	{
-		"cells": 256,
-		"hearts": 1,
-		"scene": "SixRoomPreview",
-		"specials": 1,
-		"sprites": 528,
-		"zoom": 1.0
-	},
-	{
-		"cells": 256,
-		"hearts": 1,
-		"scene": "DungeonPreview",
-		"specials": 1,
-		"sprites": 528,
-		"zoom": 1.0
-	}
+  {
+    "cells": 256,
+    "hearts": 1,
+    "scene": "SixRoomPreview",
+    "specials": 1,
+    "sprites": 528,
+    "zoom": 1
+  },
+  {
+    "cells": 256,
+    "hearts": 1,
+    "scene": "DungeonPreview",
+    "specials": 1,
+    "sprites": 528,
+    "zoom": 1
+  },
+  {
+    "cells": 13,
+    "hearts": 1,
+    "lights": 2,
+    "scene": "MobileReference",
+    "specials": 0,
+    "sprites": 60,
+    "zoom": 0.75
+  }
 ]

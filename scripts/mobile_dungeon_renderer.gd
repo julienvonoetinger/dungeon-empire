@@ -4,10 +4,13 @@ extends Node2D
 const DEFINITION = preload("res://assets/dungeon/mobile-kit/catalog.tres")
 const CATALOG_PATH := "res://assets/dungeon/mobile-kit/catalog.tres"
 const ATLAS_PATH := "res://assets/dungeon/mobile-kit/atlas-256.png"
+const LIGHT_FALLOFF_PATH := "res://assets/dungeon/mobile-kit/light-falloff.png"
 const CELL := 256.0
 const DIRECTIONS := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
 var _definition: Resource
+var _light_falloff: Texture2D
+var _local_lights_enabled := true
 var _world: Node2D
 var _frame := Rect2(0, 0, 256, 256)
 var _editor_filesystem: Object
@@ -38,7 +41,7 @@ func _exit_tree() -> void:
 
 
 func _asset_stamp() -> String:
-	return "%d/%d" % [FileAccess.get_modified_time(CATALOG_PATH), FileAccess.get_modified_time(ATLAS_PATH)]
+	return "%d/%d/%d" % [FileAccess.get_modified_time(CATALOG_PATH), FileAccess.get_modified_time(ATLAS_PATH), FileAccess.get_modified_time(LIGHT_FALLOFF_PATH)]
 
 
 func _assets_changed(paths: PackedStringArray) -> void:
@@ -80,6 +83,7 @@ func _load_definition(reload_textures: bool) -> bool:
 		var textures: Dictionary = _definition.get("textures")
 		for texture: AtlasTexture in textures.values():
 			texture.atlas = atlas
+		_light_falloff = ResourceLoader.load(LIGHT_FALLOFF_PATH, "Texture2D", mode) as Texture2D
 		_stamp = _asset_stamp()
 	return true
 
@@ -106,6 +110,23 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 	sprite.z_index = layer
 	_world.add_child(sprite)
 	_frame = _frame.merge(part.rect)
+	var entries: Dictionary = _definition.get("entries")
+	var entry: Dictionary = entries[part.id]
+	if entry.has("light"):
+		# The complete painted flame/metal already includes its own warm shading.
+		sprite.light_mask = 0
+		if _local_lights_enabled and _light_falloff != null:
+			var settings: Dictionary = entry.light
+			var light := PointLight2D.new()
+			light.name = str(sprite.name) + "_light"
+			light.texture = _light_falloff
+			light.texture_scale = float(settings.radius) * 2 / _light_falloff.get_width()
+			light.position = part.at * CELL + Vector2(settings.emission[0], settings.emission[1])
+			light.color = Color(settings.color[0], settings.color[1], settings.color[2])
+			light.energy = settings.energy
+			light.blend_mode = Light2D.BLEND_MODE_ADD
+			light.shadow_enabled = false
+			_world.add_child(light)
 
 
 func _behind(a: Dictionary, b: Dictionary) -> bool:
@@ -172,6 +193,23 @@ func _heart_fits_floor(part: Dictionary, cells: Dictionary, specials: Dictionary
 	return true
 
 
+func _append_torches(parts: Array[Dictionary], plan: Dictionary, specials: Dictionary) -> void:
+	var cells: Dictionary = plan.cells
+	var openings: Dictionary = plan.openings
+	var seen := {}
+	for mounting in [["torch_north_cells", "torch-horizontal", Vector2i.UP, 1], ["torch_west_cells", "torch-vertical", Vector2i.LEFT, 8]]:
+		for cell: Vector2i in plan.get(mounting[0], []):
+			var key := "%s:%d:%d" % [mounting[1], cell.x, cell.y]
+			if seen.has(key):
+				continue
+			seen[key] = true
+			if not plan.get("standalone_props", false):
+				if not cells.has(cell) or cells.has(cell + mounting[2]) or int(openings.get(cell, 0)) & int(mounting[3]) or specials.has(cell):
+					push_warning("Torch requires a visible solid wall outside door/stair cells: " + key)
+					continue
+			parts.append(_part(mounting[1], Vector2(cell)))
+
+
 func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, reload_textures := true) -> void:
 	if not _load_definition(reload_textures):
 		return
@@ -193,6 +231,7 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		_world.remove_child(child)
 		child.queue_free()
 	var cells: Dictionary = plan.cells
+	_local_lights_enabled = bool(plan.get("torch_lights_enabled", true))
 	_frame = Rect2()
 	var openings: Dictionary = plan.openings
 	var edges: Array[Dictionary] = []
@@ -238,6 +277,7 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		var heart := _part("heart", at)
 		if _heart_fits_floor(heart, cells, specials):
 			parts.append(heart)
+	_append_torches(parts, plan, specials)
 	for part in _ordered_parts(parts):
 		_draw_part(part, 1)
 		if pillar_details and part.id == "pillar":

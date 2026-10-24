@@ -2,3 +2,4 @@
 # Preserve their original line endings even with Windows core.autocrlf enabled.
 /docs/reference/mobile-door-frame-review/**/*.json -text
 /docs/reference/mobile-heart-review/**/*.json -text
+/docs/reference/mobile-light-review/**/*.json -text

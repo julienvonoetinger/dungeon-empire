@@ -1,0 +1,115 @@
+{
+  "status": "painted appearance proposal",
+  "geometry": "docs/reference/mobile-light-review/wireframe-v1/geometry.json",
+  "geometrySha256": "8ac21006096d9b3f083ccb7e009357135dea739237a43692111e47225263e2a4",
+  "sourceHashes": {
+    "metal": "c9e04151256191cb15a3499e69672dda962bfae863612d73b026da74bf696f9a",
+    "flame": "555ce22b32444665593f4fe638bde42a7e41a144ade5057626c2d59143f19c53"
+  },
+  "flameBounds": [
+    160,
+    242,
+    918,
+    1235
+  ],
+  "sourcePixelsPerCell": 256,
+  "zoom": 0.75,
+  "entries": [
+    {
+      "id": "torch-horizontal",
+      "orientation": "horizontal",
+      "file": "docs/reference/mobile-light-review/painted-v2/prepared/torch-horizontal.png",
+      "size": [
+        90,
+        109
+      ],
+      "offset": [
+        66,
+        -77
+      ],
+      "bounds": {
+        "min": [
+          0.421,
+          0.08333333333333333,
+          0.037
+        ],
+        "max": [
+          0.579,
+          0.2753333333333333,
+          0.264
+        ]
+      },
+      "emission": [
+        111.41120000000001,
+        -32.68266666666667
+      ],
+      "bytes": 8560,
+      "sha256": "4206b4295edafb0727b0ea8dcda8ac56ab46b4b63074001a3b7a9c61dfbb3189",
+      "metalSha256": "28e3ae54b76bfed0ba9edd95b9116548138c398c980dd3af272bdb03b0a30d97",
+      "flame": {
+        "nativeAlpha": true,
+        "verticalPlaneY": 0.19633333333333333,
+        "baseZ": 0.204,
+        "sourceBase": 1223.072,
+        "sourceCentre": 539.5,
+        "worldPerPixel": 0.000244466800804829,
+        "solidWorldHeight": 0.27
+      },
+      "radius": 190,
+      "energy": 2.4,
+      "color": [
+        1,
+        0.44,
+        0.12
+      ]
+    },
+    {
+      "id": "torch-vertical",
+      "orientation": "vertical",
+      "file": "docs/reference/mobile-light-review/painted-v2/prepared/torch-vertical.png",
+      "size": [
+        91,
+        133
+      ],
+      "offset": [
+        -12,
+        1
+      ],
+      "bounds": {
+        "min": [
+          0.08333333333333333,
+          0.421,
+          0.037
+        ],
+        "max": [
+          0.2753333333333333,
+          0.579,
+          0.264
+        ]
+      },
+      "emission": [
+        33.672533333333334,
+        45.056
+      ],
+      "bytes": 10553,
+      "sha256": "50f52debd2de7abd1adea598f6a95f680e7157ad5c1e04d40a343cc7c4a4d083",
+      "metalSha256": "f1cafafd9a114d5fb145ea63c2e59623b524a46c8e02509fc8a180a1bbf1078d",
+      "flame": {
+        "nativeAlpha": true,
+        "verticalPlaneY": 0.5,
+        "baseZ": 0.204,
+        "sourceBase": 1223.072,
+        "sourceCentre": 539.5,
+        "worldPerPixel": 0.000244466800804829,
+        "solidWorldHeight": 0.27
+      },
+      "radius": 190,
+      "energy": 2.4,
+      "color": [
+        1,
+        0.44,
+        0.12
+      ]
+    }
+  ]
+}
