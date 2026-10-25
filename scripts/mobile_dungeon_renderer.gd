@@ -16,6 +16,8 @@ const DIRECTIONS := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 var _definition: Resource
 var _light_falloff: Texture2D
 var _local_lights_enabled := true
+var _decoration_lights_enabled := true
+var _decoration_issues: PackedStringArray = []
 var _world: Node2D
 var _frame := Rect2(0, 0, 256, 256)
 var _editor_filesystem: Object
@@ -152,7 +154,8 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 	if entry.has("light"):
 		# The complete painted flame/metal already includes its own warm shading.
 		sprite.light_mask = 0
-		if _local_lights_enabled and _light_falloff != null:
+		var enabled := _decoration_lights_enabled if entry.has("decoration") else _local_lights_enabled
+		if enabled and _light_falloff != null:
 			var settings: Dictionary = entry.light
 			var light := PointLight2D.new()
 			light.name = str(sprite.name) + "_light"
@@ -164,6 +167,43 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 			light.blend_mode = Light2D.BLEND_MODE_ADD
 			light.shadow_enabled = false
 			_world.add_child(light)
+
+
+func _append_decorations(parts: Array[Dictionary], plan: Dictionary, specials: Dictionary) -> void:
+	_decoration_issues.clear()
+	if not bool(plan.get("decorations_enabled", true)):
+		return
+	var entries: Dictionary = _definition.get("entries")
+	var authored: Dictionary = plan.get("decoration_positions", {})
+	# Stable acceptance priority when invalid authored supports overlap.
+	var positions := authored.keys()
+	positions.sort_custom(func(a: Vector2, b: Vector2) -> bool:
+		return a.x < b.x if a.x != b.x else a.y < b.y)
+	for at: Vector2 in positions:
+		var id := str(authored[at])
+		var issue := ""
+		if not at.is_finite() or not entries.has(id) or not entries[id].has("decoration"):
+			issue = "Unknown decoration or invalid ground position"
+		else:
+			var part := _part(id, at)
+			if plan.cells.is_empty() or not _heart_fits_floor(part, plan.cells, specials):
+				issue = "Decoration requires floor outside doors/stairs"
+			else:
+				for solid in parts:
+					if part.min.x < solid.max.x - .00001 and part.max.x > solid.min.x + .00001 and part.min.y < solid.max.y - .00001 and part.max.y > solid.min.y + .00001:
+						issue = "Decoration overlaps " + str(solid.id)
+						break
+			if issue.is_empty():
+				part["decoration"] = true
+				parts.append(part)
+		if not issue.is_empty():
+			_decoration_issues.append("%s: %s at %s" % [issue, id, at])
+	for issue in _decoration_issues:
+		push_warning(issue)
+
+
+func get_decoration_issues() -> PackedStringArray:
+	return _decoration_issues.duplicate()
 
 
 func _behind(a: Dictionary, b: Dictionary) -> bool:
@@ -348,6 +388,7 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		child.queue_free()
 	var cells: Dictionary = plan.cells
 	_local_lights_enabled = bool(plan.get("torch_lights_enabled", true))
+	_decoration_lights_enabled = bool(plan.get("decoration_lights_enabled", true))
 	_frame = Rect2()
 	var openings: Dictionary = plan.openings
 	var edges: Array[Dictionary] = []
@@ -414,6 +455,7 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 			else:
 				parts[i] = _part(choice.id, host.at)
 				parts[i]["wall_variant"] = choice.id
+	_append_decorations(parts, plan, specials)
 	var damaged_floors := {}
 	if bool(plan.get("floor_damage", false)):
 		damaged_floors = FLOOR_DAMAGE.select(floors, parts, specials, int(plan.get("floor_damage_seed", 17)), bool(plan.get("floor_corruption", true)))

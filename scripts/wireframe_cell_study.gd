@@ -119,6 +119,21 @@ const GRID = preload("res://scripts/wireframe_cell_layout.gd")
 		floor_corruption = value
 		_request_rebuild()
 
+## Ground-centre coordinates -> prepared prop ID; see DungeonDecorations.tscn.
+## No screen rotation: each appearance has one selected isometric view.
+@export var decoration_positions: Dictionary[Vector2, String] = {}:
+	set(value):
+		decoration_positions = value
+		_request_rebuild()
+@export var decorations_enabled := true:
+	set(value):
+		decorations_enabled = value
+		_request_rebuild()
+@export var decoration_lights_enabled := true:
+	set(value):
+		decoration_lights_enabled = value
+		_request_rebuild()
+
 var _plan: Dictionary = {}
 var _pending := false
 
@@ -167,6 +182,9 @@ func refresh_preview(reload_textures: bool = true) -> void:
 	_plan["floor_damage"] = floor_damage
 	_plan["floor_damage_seed"] = floor_damage_seed
 	_plan["floor_corruption"] = floor_corruption
+	_plan["decoration_positions"] = decoration_positions
+	_plan["decorations_enabled"] = decorations_enabled
+	_plan["decoration_lights_enabled"] = decoration_lights_enabled
 	render_plan(_plan, specials, pillar_details, reload_textures)
 	rebuilt.emit()
 

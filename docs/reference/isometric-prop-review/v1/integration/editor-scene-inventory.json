@@ -1,0 +1,67 @@
+[
+	{
+		"camera_position": [
+			64.0,
+			256.0
+		],
+		"cells": 20,
+		"hearts": 0,
+		"lights": 1,
+		"scene": "DungeonDecorations",
+		"specials": 0,
+		"sprites": 59,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			90.0,
+			175.0
+		],
+		"cells": 13,
+		"hearts": 1,
+		"lights": 3,
+		"scene": "MobileReference",
+		"specials": 0,
+		"sprites": 74,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 1,
+		"scene": "DungeonPreview",
+		"specials": 1,
+		"sprites": 593,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 13,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "WireframeDoorCross",
+		"specials": 4,
+		"sprites": 77,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			-15.5
+		],
+		"cells": 0,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "DungeonHeart",
+		"specials": 0,
+		"sprites": 3,
+		"zoom": 0.75
+	}
+]

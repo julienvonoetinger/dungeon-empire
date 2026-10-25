@@ -1,0 +1,213 @@
+{
+  "date": "2026-10-25",
+  "status": "All six selected appearances integrated; authored placements and small contact shadows shown for user judgment.",
+  "integrity": {
+    "date": "2026-10-25",
+    "selectedAppearances": 6,
+    "selectedReferenceHashes": 12,
+    "retainedRegions": 108,
+    "retainedPixelsAndMetadataIdentical": true,
+    "decorations": [
+      "prop-crystals",
+      "prop-idol",
+      "prop-stele",
+      "prop-basin",
+      "prop-grimoire",
+      "prop-candles"
+    ],
+    "atlas": {
+      "regions": 120,
+      "size": [
+        1024,
+        2048
+      ],
+      "pngBytes": 1566183,
+      "deltaPNG": 62070,
+      "rgbaBytes": 8388608,
+      "deltaRGBA": 0
+    },
+    "captures": 13,
+    "observations": [
+      {
+        "capture": "gallery-mobile",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "gallery-unlit",
+        "props": 6,
+        "shadows": 6,
+        "lights": 0,
+        "issues": []
+      },
+      {
+        "capture": "gallery-restored",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "gallery-torches-disabled",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "gallery-bare",
+        "props": 0,
+        "shadows": 0,
+        "lights": 0,
+        "issues": []
+      },
+      {
+        "capture": "gallery-close",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "MobileReference-native",
+        "props": 3,
+        "shadows": 3,
+        "lights": 3,
+        "issues": []
+      },
+      {
+        "capture": "DungeonPreview-native",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "DungeonPreview-heart-room",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "SixRoomPreview-native",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "SixRoomPreview-heart-room",
+        "props": 6,
+        "shadows": 6,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "wall-order-negative-coordinates",
+        "props": 3,
+        "shadows": 3,
+        "lights": 1,
+        "issues": []
+      },
+      {
+        "capture": "invalid-authoring",
+        "props": 1,
+        "shadows": 1,
+        "lights": 1,
+        "issues": [
+          "Decoration overlaps wall-v-1: prop-crystals at (-0.78, -0.2)",
+          "Decoration requires floor outside doors/stairs: prop-basin at (0.5, 0.5)",
+          "Decoration overlaps heart: prop-idol at (0.5, 1.5)",
+          "Decoration overlaps prop-candles: prop-candles at (1.41, 1.51)",
+          "Unknown decoration or invalid ground position: missing-prop at (1.5, 0.5)",
+          "Decoration requires floor outside doors/stairs: prop-crystals at (5.0, 5.0)"
+        ]
+      }
+    ],
+    "restoredLightingIdentical": true,
+    "torchToggleIndependent": true,
+    "sourcePolicy": "Original selected pixels are immutable. Only native-alpha crop, uniform resize and separate prepared floor shadows; no reconstructed mesh or new camera claimed."
+  },
+  "processes": {
+    "import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "focused": {
+      "exit": 0,
+      "stderrBytes": 2864
+    },
+    "runtime": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "editor": {
+      "exit": 0,
+      "stderrBytes": 1519
+    },
+    "legacy-parse": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-export": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "package-gallery": {
+      "exit": 0,
+      "stderrBytes": 0
+    }
+  },
+  "processNotes": [
+    "Focused stderr consists of six intentionally invalid placements; ordinary runtime scenes have no stderr.",
+    "First editor pass had a transient legacy script class-resolution diagnostic; isolated parser and repeated editor capture had none. Final editor native window/resource shutdown diagnostics remain."
+  ],
+  "runtimeScenes": 24,
+  "runtimeCaptures": 70,
+  "editorScenes": 5,
+  "editorCaptures": 17,
+  "export": {
+    "stage": "artifacts/mobile-export-stage-2026-10-25T11-43-26-083Z",
+    "dependencies": 53,
+    "zipBytes": 1324453,
+    "packagedGalleryStartup": 0
+  },
+  "review": {
+    "agent": "review_ritual_props",
+    "outcome": "No concrete actionable findings; selected hashes, lights, ordering and captures reviewed."
+  },
+  "sha256": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "82ace8c467c584a5436efb25f681aac645b4e427af07e9af05160b7c134cca6b",
+    "assets/dungeon/isometric-kit/catalog.json": "319fd1d447d41a8cc7bda776a5058118ee47a3eaac6c4ea028fdecded55c86fe",
+    "assets/dungeon/isometric-kit/catalog.tres": "c167981b08b63fd048a60fa0bd4b102ca89203ca7452b82c1d51699de7e9dd21",
+    "tools/isometric_ritual_props.cjs": "753fe0a9e45c0e63a908606d0ebe6e56e378c6b736bce486919e368cdd9feebd",
+    "tools/export_isometric_painted_kit.cjs": "e5e48745b310314b5b573d0817725e182023be0ac8a3c77181db278be0997108",
+    "scripts/mobile_dungeon_renderer.gd": "f7e660b2eaf84b9f3170e874c7435c3b15530f136df523069446cb897fe54a2f",
+    "scripts/wireframe_cell_study.gd": "575894b3db81c9635a1ba6f6b443e7666cc8665c5e63825cdfdcd97603f657ae",
+    "scenes/DungeonDecorations.tscn": "fe5043b2d820325e51626aa71aef123a89ff1c3f26b9eaebb184da0567a8e8e0",
+    "scenes/MobileReference.tscn": "cf9c413b0499554ea3abad8c70a859c75eafe346d1ca2b8802623c93d6c4bd3d",
+    "scenes/DungeonPreview.tscn": "8aaabd61c6903eaba04b1f2eebf7168ddad533a7b03d508be39cdccf923ac2ed",
+    "scenes/SixRoomPreview.tscn": "bcae5a0da918627bb4396af8b0cf9bb6ab3b68aa771086d96ea5d703fe39e037"
+  },
+  "limitations": [
+    "Native painted camera retained; contact supports are calibrated proxies, not reconstructed meshes.",
+    "Static ambient contact/cast shadows, no dynamic per-torch simulation.",
+    "Authored placements only; no gameplay collision change.",
+    "Concurrent project.godot main-scene edit left intact."
+  ],
+  "automatedTests": false,
+  "phoneProfile": false,
+  "commit": false,
+  "push": false
+}

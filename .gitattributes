@@ -13,6 +13,7 @@
 /docs/reference/isometric-wall-variation-review/** -text
 /docs/reference/isometric-floor-variation-review/** -text
 /docs/reference/isometric-floor-damage-review/** -text
+/docs/reference/isometric-prop-review/** -text
 
 # Selected review implementations are also covered by approval hashes.
 /tools/prepare_isometric_decoration_review.cjs -text
@@ -24,6 +25,7 @@
 /tools/capture_isometric_edge_cracks_review.gd -text
 /tools/prepare_isometric_edge_cracks_boards.cjs -text
 /tools/prepare_isometric_floor_damage_review.cjs -text
+/tools/prepare_isometric_prop_review.cjs -text
 /tools/prepare_isometric_floor_variants_review.cjs -text
 /tools/prepare_heart_self_light_review.cjs -text
 /tools/capture_heart_self_light_review.gd -text

@@ -6,6 +6,7 @@ const HeartLight=require('./isometric_approved_heart_light.cjs');
 const WallVariants=require('./isometric_wall_variants.cjs');
 const FloorVariants=require('./isometric_floor_variants.cjs');
 const FloorDamage=require('./isometric_floor_damage.cjs');
+const RitualProps=require('./isometric_ritual_props.cjs');
 const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const OUT='docs/reference/isometric-review/painted-v1',ASSETS='assets/dungeon/isometric-kit',GEOMETRY='docs/reference/isometric-review/migration-v1/geometry.json';
 const write=(p,b)=>writeGeneratedFile(path.join(P.ROOT,p),b),json=(p,v)=>write(p,JSON.stringify(v,null,2)+'\n');
@@ -48,6 +49,8 @@ async function main() {
   for(const item of floorVariants){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
   const floorDamage=await FloorDamage.preparedFloorDamage(floorVariants);
   for(const item of floorDamage){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
+  const ritualProps=await RitualProps.preparedRitualProps();
+  for(const item of ritualProps){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
   const atlas=await B.pack(items,256,ASSETS,false);
   for(const item of items) {
     atlas.regions[item.id].bounds=item.bounds;
@@ -60,12 +63,14 @@ async function main() {
     if(item.wallVariant)atlas.regions[item.id].wall_variant=item.wallVariant;
     if(item.floorVariant)atlas.regions[item.id].floor_variant=item.floorVariant;
     if(item.floorDamage)atlas.regions[item.id].floor_damage=item.floorDamage;
+    if(item.decoration)atlas.regions[item.id].decoration=item.decoration;
   }
   const manifest={id:'isometric-painted-v1',appearance:'approved material sources adapted to frozen isometric volumes',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
   manifest.wallVariants=wallVariants.filter(v=>!v.wallVariant.ornament).map(v=>v.id);
   manifest.optionalWallOrnaments=wallVariants.filter(v=>v.wallVariant.ornament).map(v=>v.id);
   manifest.floorVariants=floorVariants.map(v=>v.id);
   manifest.floorDamage=floorDamage.map(v=>v.id);
+  manifest.decorations=ritualProps.filter(v=>v.decoration).map(v=>v.id);
   json(`${ASSETS}/catalog.json`,manifest);
   const resources=items.map((m,i)=>`[sub_resource type="AtlasTexture" id="Sprite_${i}"]\natlas = ExtResource("2")\nregion = Rect2(${atlas.regions[m.id].region.join(', ')})\nfilter_clip = true\n`).join('\n');
   write(`${ASSETS}/catalog.tres`,`[gd_resource type="Resource" load_steps=${items.length+3} format=3]\n\n[ext_resource type="Script" path="res://scripts/mobile_kit_definition.gd" id="1"]\n[ext_resource type="Texture2D" path="res://${ASSETS}/atlas-256.png" id="2"]\n\n${resources}\n[resource]\nscript = ExtResource("1")\nprojection_x = Vector3(${P.camera.x.join(', ')})\nprojection_y = Vector3(${P.camera.y.join(', ')})\nview_direction = Vector3(${P.camera.eye.join(', ')})\nentries = ${JSON.stringify(atlas.regions)}\ntextures = {${items.map((p,i)=>JSON.stringify(p.id)+`: SubResource("Sprite_${i}")`).join(',\n')}}\n`);
@@ -76,6 +81,7 @@ async function main() {
   sourceFiles.push('tools/isometric_wall_variants.cjs','tools/isometric_wall_palette.cjs',...WallVariants.referenceFiles);
   sourceFiles.push('tools/isometric_floor_variants.cjs',...FloorVariants.referenceFiles);
   sourceFiles.push('tools/isometric_floor_damage.cjs',...FloorDamage.referenceFiles);
+  sourceFiles.push('tools/isometric_ritual_props.cjs',...RitualProps.referenceFiles);
   for(const entry of Object.values(materialCatalog.entries))if(entry.file)sourceFiles.push(path.posix.normalize('assets/dungeon/shared-materials/'+entry.file));
   json(`${OUT}/recipe.json`,{...manifest,generator:'tools/export_isometric_painted_kit.cjs',geometry:GEOMETRY,sourceHashes:Object.fromEntries([...new Set(sourceFiles)].map(p=>[p,P.hash(p)])),
     items:items.map(({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,png})=>({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,bytes:png.length})),

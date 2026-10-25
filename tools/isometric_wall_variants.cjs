@@ -3,10 +3,11 @@
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const P=require('./isometric_paint_geometry.cjs');
 const Palette=require('./isometric_wall_palette.cjs');
+const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const ROOT='docs/reference/isometric-wall-variation-review/v2-subvariants';
 const OUT=ROOT+'/integration',S=4;
 const read=p=>JSON.parse(fs.readFileSync(path.join(P.ROOT,p),'utf8').replace(/^\uFEFF/,''));
-const save=(p,data)=>{const file=path.join(P.ROOT,OUT,p);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,data);};
+const save=(p,data)=>writeGeneratedFile(path.join(P.ROOT,OUT,p),data);
 const json=(p,data)=>save(p,JSON.stringify(data,null,2)+'\n');
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const smooth=v=>{v=clamp(v);return v*v*(3-2*v);};

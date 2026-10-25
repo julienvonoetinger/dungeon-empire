@@ -1,6 +1,6 @@
 {
-  "staging": "artifacts/mobile-export-stage-2026-10-25T10-12-11-980Z",
-  "scenes": 23,
+  "staging": "artifacts/mobile-export-stage-2026-10-25T11-43-26-083Z",
+  "scenes": 24,
   "files": [
     "assets/dungeon/isometric-kit/atlas-256.png",
     "assets/dungeon/isometric-kit/catalog.tres",
@@ -26,6 +26,7 @@
     "scenes/5x5RoomCornerCorridors.tscn",
     "scenes/5x5RoomFourCorridors.tscn",
     "scenes/5x5RoomVerticalCornerCorridors.tscn",
+    "scenes/DungeonDecorations.tscn",
     "scenes/DungeonHeart.tscn",
     "scenes/DungeonPreview.tscn",
     "scenes/DungeonTorch.tscn",
@@ -55,6 +56,6 @@
     "shaders/ground_effect_add.gdshader",
     "shaders/ground_effect_mix.gdshader"
   ],
-  "sourceBytes": 1617982,
+  "sourceBytes": 1692297,
   "purpose": "Fresh export dependency cache; historical assets and unrelated editor state excluded."
 }

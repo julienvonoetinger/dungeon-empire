@@ -15,6 +15,14 @@ floor_damage = true
 layout = ExtResource("3")
 entrance_at_closed_ends = true
 heart_positions = PackedVector2Array(12, 14)
+decoration_positions = Dictionary[Vector2, String]({
+Vector2(10.5, 12): "prop-crystals",
+Vector2(13.5, 12): "prop-idol",
+Vector2(10.5, 15.5): "prop-stele",
+Vector2(13.6, 15.6): "prop-basin",
+Vector2(12.6, 16.5): "prop-grimoire",
+Vector2(10.5, 13.5): "prop-candles"
+})
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 1472)

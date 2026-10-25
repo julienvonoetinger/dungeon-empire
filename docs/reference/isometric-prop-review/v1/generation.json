@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-25",
+  "status": "appearance proposals; not selected or integrated",
+  "mode": "built-in ImageGen",
+  "direction": "User selected: Des décors maléfiques : cristaux, idoles et objets rituels",
+  "commonPrompt": "Use case: stylized-concept. Asset type: ONE standalone decoration sprite concept for a dark fantasy MOBILE 2D isometric dungeon game.\nREFERENCE ROLES: Image 1 is an OLD MOCKUP, reference for simplified hand-painted cartoon craftsmanship, rounded chamfers, silhouettes and atmosphere ONLY; DO NOT copy its older camera. Image 2 is the CURRENT GAME and is authoritative for the camera, dark slate-blue palette, object-to-floor scale and subdued visual hierarchy. Image 3 is the existing dungeon heart, camera/material coherence reference only; new decorative objects must be smaller, simpler and far less bright than this central focal object.\nCAMERA: orthographic 2:1 isometric/dimetric game view. Looking down at 30 degrees, equally along the two ground axes. Vertical edges upright, parallel ground axes run at slopes +1/2 and -1/2, matching current game image 2. No perspective convergence, no front-on view, no camera tilt. A circular horizontal mouth appears as a shallow ellipse, approximately 2:1 width-to-height.\nSTYLE: high-quality stylized painted sprite, broad readable shapes, softened chunky edges, 2-3 broad shading steps, controlled dark outline. Calm surfaces with a few deliberately large accents, NO microscopic scratches or intricate filigree. It should work at roughly 60-85 pixels tall in game. This is a decoration, NOT an icon with an enclosing tile. Material palette: deep desaturated slate blue stone, charcoal iron, muted plum with restrained violet magical accents. Soft cool ambient light from upper-left. No photorealism, no slick realistic 3D product render.\nOUTPUT: one complete object, isolated and centered with generous clear margins on a genuinely TRANSPARENT background. Native alpha around silhouette. Object stands firmly on an invisible flat ground plane with a clearly readable base, no levitation. No ground tile, diorama, scenery, character, wall, UI, border, labels or readable text. No external cast shadow or ground glow baked into this source, as those will be prepared for the game separately. Preserve all of the silhouette. Do not make a floor platform unless explicitly part of the object below. No unrelated objects.",
+  "references": [
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v1/references/mockup.png",
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-floor-damage-review/v1/integration/reference-seed17.png",
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-review/painted-v1/sprites/heart.png"
+  ],
+  "jobs": [
+    {
+      "id": "a-cristaux",
+      "label": "A · Cristaux corrompus",
+      "description": "Un accent bas et asymétrique",
+      "gameHeight": 62,
+      "prompt": "SUBJECT A: a compact asymmetrical growth of THREE violet crystals emerging naturally from a very low piece of dark fractured slate. One main leaning crystal and two short companions of clearly different heights. Chunky tapered faceted silhouettes, deep purple sides, a few lavender facets, subtle core brightness but no white-hot shine and no broad glow. A few dark root-like ridges wrap the rock near the base. Overall footprint about .30 cell, height .28 cell; wider at the base than the tiny companions. Low and natural, not a symmetrical crown, no crystal pedestal or gem jewellery.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-022ac4af-7e86-4ffa-bb62-e1a0b6827a93.png",
+      "file": "docs/reference/isometric-prop-review/v1/source/a-cristaux.png"
+    },
+    {
+      "id": "b-idole",
+      "label": "B · Idole de pierre",
+      "description": "Une silhouette sculptée massive",
+      "gameHeight": 76,
+      "prompt": "SUBJECT B: a squat ancient malevolent stone idol, a single heavy carved object with a broad head, short fused body and very low square foot. Abstract horned guardian face: TWO short swept-back broken-looking horn shapes, a strong brow and two narrow recessed violet eyes, angular closed mouth. Stylized inanimate stone sculpture, not a living monster, no limbs sticking out. Large simple carved planes with softened edges. Dark slate-blue stone matching dungeon walls, slightly worn, one restrained cheek fissure. Small dim violet eyes, no full-object glow. Footprint around .30 cell, height .40 cell. Keep silhouette bold, concise and recognisable at small size. Avoid intricate head ornament, tall pedestal, cartoon skull and gold.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-95905874-529d-4aca-b048-f0a010e32936.png",
+      "file": "docs/reference/isometric-prop-review/v1/source/b-idole.png"
+    },
+    {
+      "id": "c-stele",
+      "label": "C · Stèle rituelle",
+      "description": "Une pierre dressée, une seule rune",
+      "gameHeight": 84,
+      "prompt": "SUBJECT C: a small upright ritual stele of dark slate-blue stone with a wide stable wedge-shaped foot and a subtly pointed clipped top. Thick, physically sculpted slab, shown in the current isometric view so its front carving and side thickness are visible. One large recessed angular occult seal with three simple interlocking strokes (abstract invented geometry, NOT writing), faint violet light deep inside the carving. One chipped upper corner and a few broad bevels. Compact upright silhouette about .25 cell wide and .48 cell tall; not a towering obelisk. Upper-left bevels quiet, face mostly dark and calm. No repeated diamond emblem, tiny runes, chains, floating fragments or attached torches.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-ef3c7a08-f180-4a45-90e1-578259a74167.png",
+      "file": "docs/reference/isometric-prop-review/v1/source/c-stele.png"
+    },
+    {
+      "id": "d-vasque",
+      "label": "D · Vasque d’offrandes",
+      "description": "Une forme ronde et basse",
+      "gameHeight": 49,
+      "prompt": "SUBJECT D: a low wide ritual offering bowl, heavy charcoal iron with a thick softly scalloped rim, seated on three short chunky feet. A very shallow pool of muted violet magical liquid inside the visible elliptical mouth, with one broad soft swirl and a darker centre; NOT a portal or vortex. Two small horn-like rim grips, simple robust forging. The mouth is a horizontal ellipse in 2:1 isometric perspective. Bowl cavity distinctly visible, sides dark. Overall diameter about .35 cell, height .18 cell. Tiny reflected purple light on INNER rim only, no steam, flame, pouring liquid, particles, decorative plinth or light splashing onto the ground. Minimal readable detail.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-11464807-6b33-4e06-ba98-8b0f4117174c.png",
+      "file": "docs/reference/isometric-prop-review/v1/source/d-vasque.png"
+    },
+    {
+      "id": "e-grimoire",
+      "label": "E · Grimoire scellé",
+      "description": "Un accent de cuir et de métal",
+      "gameHeight": 56,
+      "prompt": "SUBJECT E: one closed thick sinister grimoire resting flat on a low dark stone book rest, with its top cover clearly visible in the 2:1 ground-plane projection. Muted burgundy/plum leather, chunky charcoal iron corner guards, thick cream-grey page block and one heavy iron clasp with a small dull violet inset stone. A single diagonal leather strap across the cover. The stone book rest is very low and simple, not a lectern or altar. Strong rectangular book silhouette, roughly .34 by .25 cell footprint and .14 cell height. No letters, tiny inscriptions, skull ornament, glowing pages, chains scattered on the floor, gold trim or spell particles. More crafted than a plain block but readable at tiny size.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-6389a28c-23b6-490b-aa80-a4e57f8648d5.png",
+      "file": "docs/reference/isometric-prop-review/v1/source/e-grimoire.png"
+    },
+    {
+      "id": "f-cierges",
+      "label": "F · Cierges rituels",
+      "description": "Une petite touche de lumière chaude",
+      "gameHeight": 67,
+      "prompt": "SUBJECT F: one compact group of THREE thick ritual candles of different heights, joined by pooled dark plum wax on a small black iron saucer. One tall candle, one medium, one short arranged asymmetrically and all clearly visible. Each flame is a simple compact amber-orange teardrop with a round seated base attached to the wick, no oversized plume; warm highlights only on the top rims and nearby wax. Two broad wax drips per candle at most. Chunky readable grouped silhouette, the tallest about .35 cell high, footprint .28 cell. Bottom saucer horizontal and shown as a 2:1 ellipse. No tall metal candelabrum, no skulls, floating sparks, giant halos or ground shadow. Must feel like a ritual object in an evil dungeon, not a colourful party candle.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-e95026fa-5675-4639-a90b-814f6b7a7324.png",
+      "file": "docs/reference/isometric-prop-review/v1/source/f-cierges.png"
+    }
+  ]
+}

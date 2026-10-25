@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-25",
+  "selectedAppearances": 6,
+  "selectedReferenceHashes": 12,
+  "retainedRegions": 108,
+  "retainedPixelsAndMetadataIdentical": true,
+  "decorations": [
+    "prop-crystals",
+    "prop-idol",
+    "prop-stele",
+    "prop-basin",
+    "prop-grimoire",
+    "prop-candles"
+  ],
+  "atlas": {
+    "regions": 120,
+    "size": [
+      1024,
+      2048
+    ],
+    "pngBytes": 1566183,
+    "deltaPNG": 62070,
+    "rgbaBytes": 8388608,
+    "deltaRGBA": 0
+  },
+  "captures": 13,
+  "observations": [
+    {
+      "capture": "gallery-mobile",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "gallery-unlit",
+      "props": 6,
+      "shadows": 6,
+      "lights": 0,
+      "issues": []
+    },
+    {
+      "capture": "gallery-restored",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "gallery-torches-disabled",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "gallery-bare",
+      "props": 0,
+      "shadows": 0,
+      "lights": 0,
+      "issues": []
+    },
+    {
+      "capture": "gallery-close",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "MobileReference-native",
+      "props": 3,
+      "shadows": 3,
+      "lights": 3,
+      "issues": []
+    },
+    {
+      "capture": "DungeonPreview-native",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "DungeonPreview-heart-room",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "SixRoomPreview-native",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "SixRoomPreview-heart-room",
+      "props": 6,
+      "shadows": 6,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "wall-order-negative-coordinates",
+      "props": 3,
+      "shadows": 3,
+      "lights": 1,
+      "issues": []
+    },
+    {
+      "capture": "invalid-authoring",
+      "props": 1,
+      "shadows": 1,
+      "lights": 1,
+      "issues": [
+        "Decoration overlaps wall-v-1: prop-crystals at (-0.78, -0.2)",
+        "Decoration requires floor outside doors/stairs: prop-basin at (0.5, 0.5)",
+        "Decoration overlaps heart: prop-idol at (0.5, 1.5)",
+        "Decoration overlaps prop-candles: prop-candles at (1.41, 1.51)",
+        "Unknown decoration or invalid ground position: missing-prop at (1.5, 0.5)",
+        "Decoration requires floor outside doors/stairs: prop-crystals at (5.0, 5.0)"
+      ]
+    }
+  ],
+  "restoredLightingIdentical": true,
+  "torchToggleIndependent": true,
+  "sourcePolicy": "Original selected pixels are immutable. Only native-alpha crop, uniform resize and separate prepared floor shadows; no reconstructed mesh or new camera claimed."
+}

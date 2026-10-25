@@ -1,5 +1,75 @@
 # Repository instructions
 
+## All six selected ritual props integrated — 2026-10-25
+
+- User authorizes preparation/integration with "ok vas-y". All six appearances
+  remain unchanged as native sources; tools/isometric_ritual_props.cjs verifies
+  all12 selection hashes. Uniform preparation only, .75 atlas density for props,
+  .5 for separate soft shadows; no new art, mirroring or screen rotation.
+- Source-space lower-edge contacts map through the shared 2:1 inverse ground
+  projection. These are calibrated support/ordering proxies, not recovered 3D
+  meshes. Six prepared shadows use floor receivers and precede all solids.
+  Short fixed ambient cast/contact, no dynamic torch shadow simulation.
+- wireframe_cell_study exposes decoration_positions (Vector2 -> prepared ID),
+  decorations_enabled and decoration_lights_enabled. Stable authored placement
+  rejects void/special cells and overlapping wall/heart/prop supports. Existing
+  support order and rebuild lifecycle apply. Only candles add a small optional
+  local light, independent of torch toggle. No automatic scatter or gameplay
+  collision changes. Default positions remain empty.
+- DungeonDecorations.tscn shows all six. DungeonPreview/SixRoomPreview include
+  six near the heart; MobileReference has three. Existing layouts/camera stay.
+  The project.godot main-scene setting changed separately during the operation;
+  integration did not edit it and leaves that concurrent setting intact.
+- Active atlas120 regions/1024x2048/1566183 PNG bytes/8 MiB RGBA: +62070 bytes,
+  +0 RGBA. All108 retained regions preserve rawRGBA/non-region metadata.
+- Evidence: isometric-prop-review/v1/integration/.13 focused captures including
+  six intentional invalid-placement warnings; restored lights and torch-off
+  gallery byte-identical. Runtime70/24 scenes exit0,empty stderr. Editor17/five
+  exit0,1519 bytes native shutdown/window diagnostics on final pass. First-pass
+  legacy script resolution diagnostic did not recur in parser-only/final editor
+  runs; initial logs retained. No cache reset or legacy script modification.
+- Resource ZIP1324453 bytes/53 dependencies/24 scenes; stage import/export and
+  isolated startup exit0,empty stderr. Independent focused review found no
+  concrete issue. Three older variant exporters now use existing atomic writes
+  to avoid Windows in-use PNG failures; resulting old pixels remain identical.
+- No automated tests, phone profile, commit or push. Integration README records
+  authoring controls and limitations. Preserve original approval history.
+
+## All six evil prop appearances selected — 2026-10-25
+
+- User replies "Tous" to which of the six props to retain. Select A crystals,
+  B idol, C stele, D offering bowl, E grimoire and F candles as shown, including
+  the bowl swirl. This supersedes the pending appearance status below.
+- isometric-prop-review/v1/selection.json freezes the six original PNGs,
+  reviewed boards, provenance, preparation script and documentation. Preserve
+  these appearances and original alpha; no regeneration in this selection step.
+- This is appearance selection, not approval of exact support geometry or
+  completed production integration. Retain the shared 2:1 camera and proposed
+  small-scale readability when preparing supports, anchors, occlusion and shadows.
+- generation.json and validation.json stay as pre-selection snapshots. No new
+  rendering, production changes, automated tests, Godot import/export, commit
+  or push. Selection hashes and eight active baseline hashes verified.
+
+## Evil dungeon prop concepts; shared isometric camera required — 2026-10-25
+
+- User selects evil decorations: crystals, idols and ritual objects, and
+  explicitly stresses 2D isometry. Keep the common 2:1 projection, fixed .75
+  zoom, upright verticals and prepared 2D sprites. No new camera or layout.
+- Six built-in ImageGen proposals: A crystals, B stone idol, C ritual stele,
+  D offering bowl, E sealed grimoire and F candles. Sources and exact prompts
+  retained in isometric-prop-review/v1/. No appearance selection or integration.
+- prepare_isometric_prop_review.cjs creates boards on actual B paving with
+  an exact 192x96 logical-cell guide. Uniform resize only; preserve native
+  alpha, crop alpha-zero margins, use alpha128 only for subject measurement.
+  Proposed game heights 62/76/84/49/56/67px; inspected at small and large sizes.
+- The guide verifies the ground grid, not generated prop geometry. Supports,
+  anchors, occlusion and ground shadows still require explicit fitting/review.
+  Do not treat these montages as Godot captures or mathematically fitted art.
+  Bowl has a more pronounced swirl than prompted; appearance remains open.
+- Six original hashes and eight production baseline hashes verified. Active
+  108-region atlas remains unchanged. No production code/scenes, automated
+  tests, Godot import/export, commit or push. Preserve all prior selections.
+
 ## Four approved floor damage appearances integrated — 2026-10-25
 
 - User says "ok ajoutes les": accept all four floor proposals A/B/C/D. New

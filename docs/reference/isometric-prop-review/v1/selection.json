@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-25",
+  "userReply": "Tous",
+  "selected": [
+    {
+      "id": "a-cristaux",
+      "label": "A · Cristaux corrompus",
+      "file": "docs/reference/isometric-prop-review/v1/source/a-cristaux.png",
+      "proposedGameHeight": 62
+    },
+    {
+      "id": "b-idole",
+      "label": "B · Idole de pierre",
+      "file": "docs/reference/isometric-prop-review/v1/source/b-idole.png",
+      "proposedGameHeight": 76
+    },
+    {
+      "id": "c-stele",
+      "label": "C · Stèle rituelle",
+      "file": "docs/reference/isometric-prop-review/v1/source/c-stele.png",
+      "proposedGameHeight": 84
+    },
+    {
+      "id": "d-vasque",
+      "label": "D · Vasque d’offrandes",
+      "file": "docs/reference/isometric-prop-review/v1/source/d-vasque.png",
+      "proposedGameHeight": 49
+    },
+    {
+      "id": "e-grimoire",
+      "label": "E · Grimoire scellé",
+      "file": "docs/reference/isometric-prop-review/v1/source/e-grimoire.png",
+      "proposedGameHeight": 56
+    },
+    {
+      "id": "f-cierges",
+      "label": "F · Cierges rituels",
+      "file": "docs/reference/isometric-prop-review/v1/source/f-cierges.png",
+      "proposedGameHeight": 67
+    }
+  ],
+  "scope": "All six shown appearances accepted, including the offering-bowl swirl. Preserve original artwork and native alpha. Shared 2:1 geometry, supports, anchors, occlusion and ground shadows still require preparation; this selection does not claim exact fitted geometry or production integration.",
+  "integrationStatus": "Pending preparation and integration; no production changes in this selection step.",
+  "supersedes": "Pre-selection appearance status in generation.json, validation.json and the earlier AGENTS entry. Those snapshots remain unchanged.",
+  "reviewedFiles": {
+    "docs/reference/isometric-prop-review/v1/source/a-cristaux.png": "4c87d8d08fbfe708a103070365eccad867958a1d1f4c64ecf9b4167c254b9253",
+    "docs/reference/isometric-prop-review/v1/source/b-idole.png": "1cc0a6bc940332c59920ffdb37a7c2ba94f9d46a5184360d07c1fcbe221ba69e",
+    "docs/reference/isometric-prop-review/v1/source/c-stele.png": "d8e13801abc16527c6015f982c7cdb2bd999d891d62a8275a6e6d6c67addd9d4",
+    "docs/reference/isometric-prop-review/v1/source/d-vasque.png": "b38bd09454a8b66dc4dc79ca3db2c35b43ba0781739cb617a2c06569567af484",
+    "docs/reference/isometric-prop-review/v1/source/e-grimoire.png": "0cc713880533221906394e37ab8e98f628e73dc82c375c84147b4c6a57b6f6d7",
+    "docs/reference/isometric-prop-review/v1/source/f-cierges.png": "c510e6045eea8c9adecb376d24fb034a3d153ad52056a8e59732f7a9c2713d39",
+    "docs/reference/isometric-prop-review/v1/comparison.png": "6bc1c31a5c896de1755fdc11fe83f72eedea5f4df7b82ceb1ccaf1ad44879eae",
+    "docs/reference/isometric-prop-review/v1/mobile-scale.png": "8a0e207c601cb59acf5a9bd1787ef8185c193b4d8698094ae40f686774c8a72f",
+    "docs/reference/isometric-prop-review/v1/generation.json": "553af2ed7abc212574cb39e1da16c32ddfb8c8a5890b63bd235e04b05e667b5b",
+    "docs/reference/isometric-prop-review/v1/validation.json": "6dea19330b695205a2664364a7d7c9983717b300f3b965865f06a49ed846017e",
+    "docs/reference/isometric-prop-review/v1/README.md": "2d89991d594a96d0cf268a14f417cd9a2aa86d80534f21a353d574625664f755",
+    "tools/prepare_isometric_prop_review.cjs": "200f2f1d9d551601eb7f995c2d46fecfe606b0bf0f2e54ce0e463dd53ba3d8b6"
+  }
+}
