@@ -10,7 +10,7 @@ function collect(file){
   files.add(file);
   if(/\.(gd|tscn|tres)$/.test(file)){
     const s=fs.readFileSync(path.join(root,file),'utf8');
-    for(const m of s.matchAll(/res:\/\/([A-Za-z0-9_./-]+\.(?:gd|tscn|tres|png))/g))collect(m[1]);
+    for(const m of s.matchAll(/res:\/\/([A-Za-z0-9_./-]+\.(?:gdshader|gd|tscn|tres|png))/g))collect(m[1]);
   }
 }
 scenes.forEach(collect);
@@ -26,5 +26,6 @@ for(const file of [...selected,'project.godot','export_presets.cfg']){
   for(const suffix of ['.uid','.import'])if(fs.existsSync(path.join(root,file+suffix)))copy(file+suffix);
 }
 const info={staging,scenes:scenes.length,files:selected,sourceBytes:selected.reduce((sum,p)=>sum+fs.statSync(path.join(root,p)).size,0),purpose:'Fresh export dependency cache; historical assets and unrelated editor state excluded.'};
-writeGeneratedFile(path.join(root,'docs/reference/mobile-kit/export-inventory.json'),JSON.stringify(info,null,2)+'\n');
+const review=process.argv.includes('--wireframe')?'migration-v1':'painted-v1';
+writeGeneratedFile(path.join(root,'docs/reference/isometric-review',review,'export-inventory.json'),JSON.stringify(info,null,2)+'\n');
 console.log(JSON.stringify(info));

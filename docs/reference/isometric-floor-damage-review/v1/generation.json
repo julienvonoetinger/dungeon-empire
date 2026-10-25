@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-25",
+  "status": "appearance proposals; not selected or integrated",
+  "mode": "built-in ImageGen",
+  "commonPrompt": "Use case: precise-object-edit / stylized-concept.\nCreate ONE appearance variant of the provided B dungeon floor patch, for a stylized mobile isometric game.\nINPUT 1 is the edit target: approved B floor with mixed rectangular slab sizes, a flat 2:1 diamond, rounded corners, calm slate-blue broad surfaces. Preserve its slab arrangement, plane and outer diamond outline. INPUT 2 is the actual small production floor, authoritative colour/value reference: dark desaturated blue-slate, subtle bevels and narrow dark mortar. INPUT 3 is an existing wall corruption style reference ONLY, for dark roots and restrained violet energy; do not copy the wall, wall perspective or wall blocks.\nKeep the floor flat, exactly viewed from the same isometric camera as input 1. Top surface only, no thickness, no vertical sides, no foundation, no outside shadow. Keep at least 80 percent of the stone area untouched, smooth and quiet. Concentrate the requested accent on 2 or 3 neighbouring stones inside the patch. All damage fades or terminates BEFORE the outside diamond perimeter, with a completely clean peripheral zone for future modular boundaries. Dark, narrow fine fissures with a single restrained cool bevel where appropriate; designed to be legible as a simple intentional shape at a 192-pixel patch width, not microtexture. Match original cool dark colour, do not lighten the overall paving. No noisy surface facets, no scratches everywhere. No rubble, missing slabs, holes, pits, torches, furniture, text, labels, checkerboard or background. Render isolated on actual transparent background, with comfortable clear margins. This is a concept to adapt later to exact wireframe masks, not a claim of seamless tiling.",
+  "references": [
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-floor-variation-review/v1/source/b-formats-varies.png",
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-floor-variation-review/v1/integration/sprites/floor-b1.png",
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v2-subvariants/integration/sprites/wall-h-0-f2.png"
+  ],
+  "jobs": [
+    {
+      "id": "a-fissures-courtes",
+      "label": "A · Fissures courtes",
+      "description": "Fêlures fines, directions différentes",
+      "prompt": "Variation A: two distinct short natural stone fissures, well separated on two interior slabs. One begins at an inner mortar edge and bends twice inward to a tapered fine tip. The second starts at another internal corner and curves in a different orientation, with just one very small branch. Neither is a repeated diagonal slash or a symmetric Y. Deep muted charcoal recess, minuscule blue-grey edge light, NO violet and no glow. Hairline irregularity, no large ravine. Most slabs intact.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-1ff60668-f9c7-42bf-9bcc-b47902957c14.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/a-fissures-courtes.png"
+    },
+    {
+      "id": "b-fracture-ramifiee",
+      "label": "B · Fracture ramifiée",
+      "description": "Un tracé irrégulier, localisé",
+      "prompt": "Variation B: a single fine irregular stepped fracture, with two unequal small branching tips, on the two adjacent interior stones toward the front-right of the patch. Change direction with angular organic bends; follow a short part of an existing mortar seam then continue onto the next stone. Do not draw a long straight diagonal across the whole patch. Asymmetrical and delicate, tapered tips, subtle cool bevel. No radial impact star, circular hole, gouge, violet or glow. The crack is damage in solid stone, all stone pieces stay level.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-fff6e7b9-624d-468d-b978-bf98c5756e38.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/b-fracture-ramifiee.png"
+    },
+    {
+      "id": "c-veine-corrompue",
+      "label": "C · Veine corrompue",
+      "description": "Violet contenu dans une fissure",
+      "prompt": "Variation C: one restrained violet corruption vein recessed into a narrow irregular fissure on one central-left slab, linking briefly to its internal mortar joint. A dark thin crack contains several separated purple glow segments, not a continuous neon line. Two very short unequal forks follow the stone plane. Small tight violet halo limited to the fissure lips, no wide light spill. Enough violet to remain visible at small size but subordinate to a hero or dungeon heart. No crystals, roots, holes or raised objects. It should feel embedded inside the stone.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-a4159246-9d72-4a0d-b399-d74085bc6465.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/c-veine-corrompue.png"
+    },
+    {
+      "id": "d-racines-corrompues",
+      "label": "D · Racines corrompues",
+      "description": "Racines sombres dans les joints",
+      "prompt": "Variation D: a small asymmetric cluster of thin dark-purple corrupted roots creeping tightly along two INNER mortar joints near the central-right stones. One or two thin tendrils cross only a short portion of a slab before tapering. Subtle violet veins and one tiny embedded violet shard at a joint junction, all very low and hugging the floor; no tall crystal, no crystal pile, no nest, no tentacle mass. Closely related to the corrupt wall material in reference 3, but less busy, smaller and flatter. Restrained compact violet focal point, with 80-90 percent of paving smooth and untouched.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c5d44e70-5aac-4f2d-a990-59d7a4acbb7a.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/d-racines-corrompues.png"
+    }
+  ]
+}

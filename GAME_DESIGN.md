@@ -1,6 +1,36 @@
 # Dungeon Empire — conception
 
-## État actif — optimisation mobile du 24 octobre 2026
+## État actif — textures isométriques du 25 octobre 2026
+
+Les 23 scènes utilisent 108 régions peintes dans un atlas 1024×2048. La projection
+2:1, la grille logique 1×1, le zoom fixe .75 et le déplacement libre sont conservés.
+Les matières et illustrations approuvées sont projetées hors ligne sur les volumes
+de migration-v1 ; Godot place uniquement des images préparées. Les deux arches
+des portes, le mur lisse en retrait, les deux rangées des murs et les couloirs de
+deux cases sont conservés. Le cœur sculpté est adapté à la nouvelle perspective.
+
+Vingt layouts activent neuf variantes de murs A/C/F et quatre assemblages de
+dalles B. Le sol conserve sa matière calme et sa taille de case ; les pierres
+longues, carrées et courtes changent d'assemblage. Les raccords partagent des
+pierres complètes peintes hors ligne, puis découpées avec leur marge de filtrage.
+`floor_variants` est désactivé dans le script par défaut et activé explicitement
+dans ces scènes ; `floor_variant_seed=17` contrôle la répartition stable à la
+reconstruction. Deux voisins horizontaux n'utilisent pas le même assemblage.
+Le cœur conserve son ombre et sa lueur propres, indépendantes des torches ; les
+anciens décors de fissures et d'éclats ont été retirés.
+Quatre nouveaux décors de sol acceptés sont adaptés aux dalles B : fissures courtes,
+fracture ramifiée, veine violette et racines dans un joint avec petit cristal.
+`floor_damage` active leur distribution clairsemée ; `floor_damage_seed=17` la
+stabilise et `floor_corruption` permet de garder uniquement les fissures.
+Pas de voisin décoré immédiat, pas de décor sous le socle du cœur ou dans une case
+spéciale. Les dalles propres et leurs raccords restent identiques.
+Il s'agit d'apparence : aucune collision, navigation ou règle de jeu nouvelle.
+
+[Recette, provenance et limites](docs/reference/isometric-review/painted-v1/README.md).
+Reproduction : `node tools/export_isometric_painted_kit.cjs`. Les sections suivantes
+décrivent l'historique, pas le catalogue actif.
+
+## Historique — optimisation mobile avant l'isométrie
 
 Les 21 scènes utilisent maintenant le kit mobile : 23 sprites dans un atlas,
 256 px source par case, caméra fixe à 0,75 et déplacement libre. Une base calme

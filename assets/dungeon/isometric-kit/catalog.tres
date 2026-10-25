@@ -1,0 +1,659 @@
+[gd_resource type="Resource" load_steps=111 format=3]
+
+[ext_resource type="Script" path="res://scripts/mobile_kit_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/atlas-256.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="Sprite_0"]
+atlas = ExtResource("2")
+region = Rect2(626, 443, 270, 138)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_1"]
+atlas = ExtResource("2")
+region = Rect2(4, 745, 154, 129)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_2"]
+atlas = ExtResource("2")
+region = Rect2(870, 986, 139, 121)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_3"]
+atlas = ExtResource("2")
+region = Rect2(870, 1115, 139, 121)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_4"]
+atlas = ExtResource("2")
+region = Rect2(220, 1817, 124, 113)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_5"]
+atlas = ExtResource("2")
+region = Rect2(4, 882, 154, 129)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_6"]
+atlas = ExtResource("2")
+region = Rect2(414, 1116, 139, 121)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_7"]
+atlas = ExtResource("2")
+region = Rect2(252, 1163, 139, 121)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_8"]
+atlas = ExtResource("2")
+region = Rect2(333, 1688, 124, 113)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_9"]
+atlas = ExtResource("2")
+region = Rect2(787, 1116, 66, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_10"]
+atlas = ExtResource("2")
+region = Rect2(940, 4, 66, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_11"]
+atlas = ExtResource("2")
+region = Rect2(4, 1922, 208, 115)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_12"]
+atlas = ExtResource("2")
+region = Rect2(194, 438, 208, 146)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_13"]
+atlas = ExtResource("2")
+region = Rect2(410, 443, 208, 146)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_14"]
+atlas = ExtResource("2")
+region = Rect2(117, 1694, 208, 115)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_15"]
+atlas = ExtResource("2")
+region = Rect2(528, 4, 212, 215)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_16"]
+atlas = ExtResource("2")
+region = Rect2(528, 227, 404, 208)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_17"]
+atlas = ExtResource("2")
+region = Rect2(4, 4, 516, 260)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_18"]
+atlas = ExtResource("2")
+region = Rect2(554, 1824, 42, 64)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_19"]
+atlas = ExtResource("2")
+region = Rect2(604, 1814, 42, 64)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_20"]
+atlas = ExtResource("2")
+region = Rect2(4, 604, 158, 133)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_21"]
+atlas = ExtResource("2")
+region = Rect2(748, 4, 182, 158)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_22"]
+atlas = ExtResource("2")
+region = Rect2(170, 743, 158, 133)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_23"]
+atlas = ExtResource("2")
+region = Rect2(4, 272, 182, 158)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_24"]
+atlas = ExtResource("2")
+region = Rect2(538, 986, 158, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_25"]
+atlas = ExtResource("2")
+region = Rect2(194, 272, 182, 158)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_26"]
+atlas = ExtResource("2")
+region = Rect2(704, 986, 158, 122)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_27"]
+atlas = ExtResource("2")
+region = Rect2(4, 438, 182, 158)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_28"]
+atlas = ExtResource("2")
+region = Rect2(904, 443, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_29"]
+atlas = ExtResource("2")
+region = Rect2(128, 1199, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_30"]
+atlas = ExtResource("2")
+region = Rect2(4, 1229, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_31"]
+atlas = ExtResource("2")
+region = Rect2(117, 1817, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_32"]
+atlas = ExtResource("2")
+region = Rect2(904, 548, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_33"]
+atlas = ExtResource("2")
+region = Rect2(561, 1116, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_34"]
+atlas = ExtResource("2")
+region = Rect2(674, 1116, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_35"]
+atlas = ExtResource("2")
+region = Rect2(919, 1442, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_36"]
+atlas = ExtResource("2")
+region = Rect2(336, 743, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_37"]
+atlas = ExtResource("2")
+region = Rect2(561, 1215, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_38"]
+atlas = ExtResource("2")
+region = Rect2(399, 1245, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_39"]
+atlas = ExtResource("2")
+region = Rect2(919, 1535, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_40"]
+atlas = ExtResource("2")
+region = Rect2(336, 848, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_41"]
+atlas = ExtResource("2")
+region = Rect2(241, 1292, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_42"]
+atlas = ExtResource("2")
+region = Rect2(117, 1298, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_43"]
+atlas = ExtResource("2")
+region = Rect2(220, 1938, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_44"]
+atlas = ExtResource("2")
+region = Rect2(384, 272, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_45"]
+atlas = ExtResource("2")
+region = Rect2(4, 1328, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_46"]
+atlas = ExtResource("2")
+region = Rect2(674, 1215, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_47"]
+atlas = ExtResource("2")
+region = Rect2(321, 1938, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_48"]
+atlas = ExtResource("2")
+region = Rect2(472, 597, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_49"]
+atlas = ExtResource("2")
+region = Rect2(787, 1244, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_50"]
+atlas = ExtResource("2")
+region = Rect2(900, 1244, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_51"]
+atlas = ExtResource("2")
+region = Rect2(352, 1809, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_52"]
+atlas = ExtResource("2")
+region = Rect2(166, 884, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_53"]
+atlas = ExtResource("2")
+region = Rect2(512, 1314, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_54"]
+atlas = ExtResource("2")
+region = Rect2(354, 1344, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_55"]
+atlas = ExtResource("2")
+region = Rect2(422, 1902, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_56"]
+atlas = ExtResource("2")
+region = Rect2(460, 881, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_57"]
+atlas = ExtResource("2")
+region = Rect2(230, 1391, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_58"]
+atlas = ExtResource("2")
+region = Rect2(117, 1397, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_59"]
+atlas = ExtResource("2")
+region = Rect2(453, 1809, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_60"]
+atlas = ExtResource("2")
+region = Rect2(290, 953, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_61"]
+atlas = ExtResource("2")
+region = Rect2(4, 1427, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_62"]
+atlas = ExtResource("2")
+region = Rect2(625, 1314, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_63"]
+atlas = ExtResource("2")
+region = Rect2(523, 1902, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_64"]
+atlas = ExtResource("2")
+region = Rect2(166, 989, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_65"]
+atlas = ExtResource("2")
+region = Rect2(738, 1343, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_66"]
+atlas = ExtResource("2")
+region = Rect2(851, 1343, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_67"]
+atlas = ExtResource("2")
+region = Rect2(465, 1628, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_68"]
+atlas = ExtResource("2")
+region = Rect2(4, 1019, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_69"]
+atlas = ExtResource("2")
+region = Rect2(467, 1413, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_70"]
+atlas = ExtResource("2")
+region = Rect2(343, 1443, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_71"]
+atlas = ExtResource("2")
+region = Rect2(554, 1721, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_72"]
+atlas = ExtResource("2")
+region = Rect2(584, 881, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_73"]
+atlas = ExtResource("2")
+region = Rect2(230, 1490, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_74"]
+atlas = ExtResource("2")
+region = Rect2(117, 1496, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_75"]
+atlas = ExtResource("2")
+region = Rect2(566, 1628, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_76"]
+atlas = ExtResource("2")
+region = Rect2(708, 881, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_77"]
+atlas = ExtResource("2")
+region = Rect2(4, 1526, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_78"]
+atlas = ExtResource("2")
+region = Rect2(580, 1413, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_79"]
+atlas = ExtResource("2")
+region = Rect2(682, 1541, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_80"]
+atlas = ExtResource("2")
+region = Rect2(832, 881, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_81"]
+atlas = ExtResource("2")
+region = Rect2(693, 1442, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_82"]
+atlas = ExtResource("2")
+region = Rect2(806, 1442, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_83"]
+atlas = ExtResource("2")
+region = Rect2(783, 1541, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_84"]
+atlas = ExtResource("2")
+region = Rect2(414, 986, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_85"]
+atlas = ExtResource("2")
+region = Rect2(456, 1512, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_86"]
+atlas = ExtResource("2")
+region = Rect2(343, 1542, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_87"]
+atlas = ExtResource("2")
+region = Rect2(884, 1628, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_88"]
+atlas = ExtResource("2")
+region = Rect2(290, 1058, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_89"]
+atlas = ExtResource("2")
+region = Rect2(230, 1589, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_90"]
+atlas = ExtResource("2")
+region = Rect2(117, 1595, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_91"]
+atlas = ExtResource("2")
+region = Rect2(667, 1634, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_92"]
+atlas = ExtResource("2")
+region = Rect2(128, 1094, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_93"]
+atlas = ExtResource("2")
+region = Rect2(4, 1625, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_94"]
+atlas = ExtResource("2")
+region = Rect2(569, 1512, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_95"]
+atlas = ExtResource("2")
+region = Rect2(768, 1634, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_96"]
+atlas = ExtResource("2")
+region = Rect2(4, 1124, 116, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_97"]
+atlas = ExtResource("2")
+region = Rect2(4, 1724, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_98"]
+atlas = ExtResource("2")
+region = Rect2(4, 1823, 105, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_99"]
+atlas = ExtResource("2")
+region = Rect2(869, 1721, 93, 85)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_100"]
+atlas = ExtResource("2")
+region = Rect2(626, 589, 270, 138)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_101"]
+atlas = ExtResource("2")
+region = Rect2(194, 597, 270, 138)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_102"]
+atlas = ExtResource("2")
+region = Rect2(472, 735, 270, 138)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_103"]
+atlas = ExtResource("2")
+region = Rect2(750, 735, 270, 138)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_104"]
+atlas = ExtResource("2")
+region = Rect2(748, 170, 153, 48)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_105"]
+atlas = ExtResource("2")
+region = Rect2(655, 1727, 105, 89)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_106"]
+atlas = ExtResource("2")
+region = Rect2(904, 653, 113, 61)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_107"]
+atlas = ExtResource("2")
+region = Rect2(384, 377, 131, 53)
+filter_clip = true
+
+[resource]
+script = ExtResource("1")
+projection_x = Vector3(0.5, -0.5, 0)
+projection_y = Vector3(0.25, 0.25, -0.6123724356957945)
+view_direction = Vector3(0.6123724356957945, 0.6123724356957945, 0.5)
+entries = {"heart-self-glow":{"region":[4,4,516,260],"offset":[-258,-130],"size":[516,260],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"add"},"heart":{"region":[528,4,212,215],"offset":[-106,-161],"size":[212,215],"bounds":{"min":[-0.40625,-0.40625,0],"max":[0.40625,0.40625,0.76]},"ground_effects":["heart-self-shadow","heart-self-glow"]},"heart-self-shadow":{"region":[528,227,404,208],"offset":[-202,-104],"size":[404,208],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"mix"},"door-north-arch":{"region":[748,4,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[-0.08333333333333348,0.41666666666666663,0.3133333333333333],"max":[1.0833333333333335,0.5833333333333333,0.8966666666666665]}},"door-east-arch":{"region":[4,272,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[0.4166666666666667,-0.08333333333333348,0.3133333333333333],"max":[0.5833333333333334,1.0833333333333335,0.8966666666666665]}},"door-south-arch":{"region":[194,272,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[-0.08333333333333337,0.4166666666666667,0.3133333333333333],"max":[1.0833333333333335,0.5833333333333334,0.8966666666666665]}},"door-west-arch":{"region":[4,438,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[0.41666666666666663,-0.08333333333333337,0.3133333333333333],"max":[0.5833333333333333,1.0833333333333335,0.8966666666666665]}},"stair-east":{"region":[194,438,208,146],"offset":[-109,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333337,0],"max":[0.84,0.9166666666666666,0.25]}},"stair-south":{"region":[410,443,208,146],"offset":[-99,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333333,0],"max":[0.9166666666666666,0.84,0.25]}},"floor":{"region":[626,443,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]}},"floor-b1":{"region":[626,589,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":1,"edgeProfile":"shared-complete-stones-v1"}},"floor-b2":{"region":[194,597,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":2,"edgeProfile":"shared-complete-stones-v1"}},"floor-b3":{"region":[472,735,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":3,"edgeProfile":"shared-complete-stones-v1"}},"floor-b4":{"region":[750,735,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":4,"edgeProfile":"shared-complete-stones-v1"}},"door-north-leaf":{"region":[4,604,158,133],"offset":[-91,-33],"size":[158,133],"bounds":{"min":[-0.08333333333333348,0.41666666666666663,0],"max":[0.9166666666666667,0.5833333333333333,0.3133333333333333]}},"door-east-leaf":{"region":[170,743,158,133],"offset":[-67,-33],"size":[158,133],"bounds":{"min":[0.4166666666666667,-0.08333333333333348,0],"max":[0.5833333333333334,0.9166666666666667,0.3133333333333333]}},"wall-h-0":{"region":[4,745,154,129],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-v-0":{"region":[4,882,154,129],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-h-0-a1":{"region":[904,443,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a1":{"region":[904,548,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a2":{"region":[336,743,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a2":{"region":[336,848,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a3":{"region":[384,272,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a3":{"region":[472,597,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c1":{"region":[166,884,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c1":{"region":[460,881,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c2":{"region":[290,953,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c2":{"region":[166,989,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c3":{"region":[4,1019,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c3":{"region":[584,881,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-f1":{"region":[708,881,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f1":{"region":[832,881,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f2":{"region":[414,986,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f2":{"region":[290,1058,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f3":{"region":[128,1094,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f3":{"region":[4,1124,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"door-south-leaf":{"region":[538,986,158,122],"offset":[-67,-22],"size":[158,122],"bounds":{"min":[0.08333333333333331,0.4166666666666667,0],"max":[1.0833333333333335,0.5833333333333334,0.3133333333333333]}},"door-west-leaf":{"region":[704,986,158,122],"offset":[-91,-22],"size":[158,122],"bounds":{"min":[0.41666666666666663,0.08333333333333331,0],"max":[0.5833333333333333,1.0833333333333335,0.3133333333333333]}},"wall-h-1":{"region":[870,986,139,121],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-h-2":{"region":[870,1115,139,121],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-1":{"region":[414,1116,139,121],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-v-2":{"region":[252,1163,139,121],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-1-a1":{"region":[128,1199,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a1":{"region":[4,1229,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a1":{"region":[561,1116,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a1":{"region":[674,1116,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a2":{"region":[561,1215,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a2":{"region":[399,1245,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a2":{"region":[241,1292,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a2":{"region":[117,1298,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a3":{"region":[4,1328,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a3":{"region":[674,1215,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a3":{"region":[787,1244,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a3":{"region":[900,1244,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c1":{"region":[512,1314,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c1":{"region":[354,1344,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c1":{"region":[230,1391,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c1":{"region":[117,1397,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c2":{"region":[4,1427,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c2":{"region":[625,1314,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c2":{"region":[738,1343,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c2":{"region":[851,1343,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c3":{"region":[467,1413,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c3":{"region":[343,1443,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c3":{"region":[230,1490,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c3":{"region":[117,1496,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-f1":{"region":[4,1526,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f1":{"region":[580,1413,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f1":{"region":[693,1442,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f1":{"region":[806,1442,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f2":{"region":[456,1512,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f2":{"region":[343,1542,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f2":{"region":[230,1589,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f2":{"region":[117,1595,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f3":{"region":[4,1625,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f3":{"region":[569,1512,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f3":{"region":[4,1724,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f3":{"region":[4,1823,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"stair-north":{"region":[4,1922,208,115],"offset":[-109,5],"size":[208,115],"bounds":{"min":[0.08333333333333337,0.16000000000000003,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"stair-west":{"region":[117,1694,208,115],"offset":[-99,5],"size":[208,115],"bounds":{"min":[0.16000000000000003,0.08333333333333333,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"wall-h-3":{"region":[220,1817,124,113],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-3":{"region":[333,1688,124,113],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-3-a1":{"region":[117,1817,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a1":{"region":[919,1442,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a2":{"region":[919,1535,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a2":{"region":[220,1938,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a3":{"region":[321,1938,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a3":{"region":[352,1809,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c1":{"region":[422,1902,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c1":{"region":[453,1809,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c2":{"region":[523,1902,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c2":{"region":[465,1628,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c3":{"region":[554,1721,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c3":{"region":[566,1628,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-f1":{"region":[682,1541,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f1":{"region":[783,1541,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f2":{"region":[884,1628,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f2":{"region":[667,1634,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f3":{"region":[768,1634,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f3":{"region":[869,1721,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"pillar":{"region":[787,1116,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"pillar-top-carved":{"region":[940,4,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"floor-b2-damage-b":{"region":[655,1727,105,89],"offset":[-45,23],"size":[105,89],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"b","base":"floor-b2","corruption":false}},"torch-horizontal":{"region":[554,1824,42,64],"offset":[21,-26],"size":[42,64],"bounds":{"min":[0.421,0.08333333333333333,0.037],"max":[0.579,0.2753333333333333,0.264]},"light":{"emission":[38.86933333333333,-11.870910340391085],"emitter_world":[0.5,0.19633333333333333,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}},"torch-vertical":{"region":[604,1814,42,64],"offset":[-63,-26],"size":[42,64],"bounds":{"min":[0.08333333333333333,0.421,0.037],"max":[0.2753333333333333,0.579,0.264]},"light":{"emission":[-38.86933333333333,-11.870910340391085],"emitter_world":[0.19633333333333333,0.5,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}},"floor-b3-damage-c":{"region":[904,653,113,61],"offset":[-49,39],"size":[113,61],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"c","base":"floor-b3","corruption":true}},"floor-b4-damage-d":{"region":[384,377,131,53],"offset":[-62,46],"size":[131,53],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"d","base":"floor-b4","corruption":true}},"floor-b1-damage-a":{"region":[748,170,153,48],"offset":[-69,44],"size":[153,48],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"a","base":"floor-b1","corruption":false}}}
+textures = {"floor": SubResource("Sprite_0"),
+"wall-h-0": SubResource("Sprite_1"),
+"wall-h-1": SubResource("Sprite_2"),
+"wall-h-2": SubResource("Sprite_3"),
+"wall-h-3": SubResource("Sprite_4"),
+"wall-v-0": SubResource("Sprite_5"),
+"wall-v-1": SubResource("Sprite_6"),
+"wall-v-2": SubResource("Sprite_7"),
+"wall-v-3": SubResource("Sprite_8"),
+"pillar": SubResource("Sprite_9"),
+"pillar-top-carved": SubResource("Sprite_10"),
+"stair-north": SubResource("Sprite_11"),
+"stair-east": SubResource("Sprite_12"),
+"stair-south": SubResource("Sprite_13"),
+"stair-west": SubResource("Sprite_14"),
+"heart": SubResource("Sprite_15"),
+"heart-self-shadow": SubResource("Sprite_16"),
+"heart-self-glow": SubResource("Sprite_17"),
+"torch-horizontal": SubResource("Sprite_18"),
+"torch-vertical": SubResource("Sprite_19"),
+"door-north-leaf": SubResource("Sprite_20"),
+"door-north-arch": SubResource("Sprite_21"),
+"door-east-leaf": SubResource("Sprite_22"),
+"door-east-arch": SubResource("Sprite_23"),
+"door-south-leaf": SubResource("Sprite_24"),
+"door-south-arch": SubResource("Sprite_25"),
+"door-west-leaf": SubResource("Sprite_26"),
+"door-west-arch": SubResource("Sprite_27"),
+"wall-h-0-a1": SubResource("Sprite_28"),
+"wall-h-1-a1": SubResource("Sprite_29"),
+"wall-h-2-a1": SubResource("Sprite_30"),
+"wall-h-3-a1": SubResource("Sprite_31"),
+"wall-v-0-a1": SubResource("Sprite_32"),
+"wall-v-1-a1": SubResource("Sprite_33"),
+"wall-v-2-a1": SubResource("Sprite_34"),
+"wall-v-3-a1": SubResource("Sprite_35"),
+"wall-h-0-a2": SubResource("Sprite_36"),
+"wall-h-1-a2": SubResource("Sprite_37"),
+"wall-h-2-a2": SubResource("Sprite_38"),
+"wall-h-3-a2": SubResource("Sprite_39"),
+"wall-v-0-a2": SubResource("Sprite_40"),
+"wall-v-1-a2": SubResource("Sprite_41"),
+"wall-v-2-a2": SubResource("Sprite_42"),
+"wall-v-3-a2": SubResource("Sprite_43"),
+"wall-h-0-a3": SubResource("Sprite_44"),
+"wall-h-1-a3": SubResource("Sprite_45"),
+"wall-h-2-a3": SubResource("Sprite_46"),
+"wall-h-3-a3": SubResource("Sprite_47"),
+"wall-v-0-a3": SubResource("Sprite_48"),
+"wall-v-1-a3": SubResource("Sprite_49"),
+"wall-v-2-a3": SubResource("Sprite_50"),
+"wall-v-3-a3": SubResource("Sprite_51"),
+"wall-h-0-c1": SubResource("Sprite_52"),
+"wall-h-1-c1": SubResource("Sprite_53"),
+"wall-h-2-c1": SubResource("Sprite_54"),
+"wall-h-3-c1": SubResource("Sprite_55"),
+"wall-v-0-c1": SubResource("Sprite_56"),
+"wall-v-1-c1": SubResource("Sprite_57"),
+"wall-v-2-c1": SubResource("Sprite_58"),
+"wall-v-3-c1": SubResource("Sprite_59"),
+"wall-h-0-c2": SubResource("Sprite_60"),
+"wall-h-1-c2": SubResource("Sprite_61"),
+"wall-h-2-c2": SubResource("Sprite_62"),
+"wall-h-3-c2": SubResource("Sprite_63"),
+"wall-v-0-c2": SubResource("Sprite_64"),
+"wall-v-1-c2": SubResource("Sprite_65"),
+"wall-v-2-c2": SubResource("Sprite_66"),
+"wall-v-3-c2": SubResource("Sprite_67"),
+"wall-h-0-c3": SubResource("Sprite_68"),
+"wall-h-1-c3": SubResource("Sprite_69"),
+"wall-h-2-c3": SubResource("Sprite_70"),
+"wall-h-3-c3": SubResource("Sprite_71"),
+"wall-v-0-c3": SubResource("Sprite_72"),
+"wall-v-1-c3": SubResource("Sprite_73"),
+"wall-v-2-c3": SubResource("Sprite_74"),
+"wall-v-3-c3": SubResource("Sprite_75"),
+"wall-h-0-f1": SubResource("Sprite_76"),
+"wall-h-1-f1": SubResource("Sprite_77"),
+"wall-h-2-f1": SubResource("Sprite_78"),
+"wall-h-3-f1": SubResource("Sprite_79"),
+"wall-v-0-f1": SubResource("Sprite_80"),
+"wall-v-1-f1": SubResource("Sprite_81"),
+"wall-v-2-f1": SubResource("Sprite_82"),
+"wall-v-3-f1": SubResource("Sprite_83"),
+"wall-h-0-f2": SubResource("Sprite_84"),
+"wall-h-1-f2": SubResource("Sprite_85"),
+"wall-h-2-f2": SubResource("Sprite_86"),
+"wall-h-3-f2": SubResource("Sprite_87"),
+"wall-v-0-f2": SubResource("Sprite_88"),
+"wall-v-1-f2": SubResource("Sprite_89"),
+"wall-v-2-f2": SubResource("Sprite_90"),
+"wall-v-3-f2": SubResource("Sprite_91"),
+"wall-h-0-f3": SubResource("Sprite_92"),
+"wall-h-1-f3": SubResource("Sprite_93"),
+"wall-h-2-f3": SubResource("Sprite_94"),
+"wall-h-3-f3": SubResource("Sprite_95"),
+"wall-v-0-f3": SubResource("Sprite_96"),
+"wall-v-1-f3": SubResource("Sprite_97"),
+"wall-v-2-f3": SubResource("Sprite_98"),
+"wall-v-3-f3": SubResource("Sprite_99"),
+"floor-b1": SubResource("Sprite_100"),
+"floor-b2": SubResource("Sprite_101"),
+"floor-b3": SubResource("Sprite_102"),
+"floor-b4": SubResource("Sprite_103"),
+"floor-b1-damage-a": SubResource("Sprite_104"),
+"floor-b2-damage-b": SubResource("Sprite_105"),
+"floor-b3-damage-c": SubResource("Sprite_106"),
+"floor-b4-damage-d": SubResource("Sprite_107")}

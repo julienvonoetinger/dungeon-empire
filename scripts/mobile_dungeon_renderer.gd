@@ -1,10 +1,15 @@
 @tool
 extends Node2D
 ## Places prepared atlas regions. Geometry/material rasterization stays offline.
-const DEFINITION = preload("res://assets/dungeon/mobile-kit/catalog.tres")
-const CATALOG_PATH := "res://assets/dungeon/mobile-kit/catalog.tres"
-const ATLAS_PATH := "res://assets/dungeon/mobile-kit/atlas-256.png"
+const DEFINITION = preload("res://assets/dungeon/isometric-kit/catalog.tres")
+const CATALOG_PATH := "res://assets/dungeon/isometric-kit/catalog.tres"
+const ATLAS_PATH := "res://assets/dungeon/isometric-kit/atlas-256.png"
 const LIGHT_FALLOFF_PATH := "res://assets/dungeon/mobile-kit/light-falloff.png"
+const SURFACE_DETAILS = preload("res://scripts/dungeon_surface_details.gd")
+const GROUND_EFFECT_MASK = preload("res://scripts/ground_effect_mask.gd")
+const WALL_VARIANTS = preload("res://scripts/dungeon_wall_variants.gd")
+const FLOOR_VARIANTS = preload("res://scripts/dungeon_floor_variants.gd")
+const FLOOR_DAMAGE = preload("res://scripts/dungeon_floor_damage.gd")
 const CELL := 256.0
 const DIRECTIONS := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
@@ -46,7 +51,7 @@ func _asset_stamp() -> String:
 
 func _assets_changed(paths: PackedStringArray) -> void:
 	for path in paths:
-		if path.begins_with("res://assets/dungeon/mobile-kit/"):
+		if path.begins_with("res://assets/dungeon/isometric-kit/") or path == LIGHT_FALLOFF_PATH:
 			_watch_pending = true
 
 
@@ -76,7 +81,7 @@ func _load_definition(reload_textures: bool) -> bool:
 		var mode := ResourceLoader.CACHE_MODE_REPLACE if Engine.is_editor_hint() else ResourceLoader.CACHE_MODE_REUSE
 		_definition = ResourceLoader.load(CATALOG_PATH, "Resource", mode)
 		if _definition == null:
-			push_error("Cannot load the prepared mobile atlas.")
+			push_error("Cannot load the prepared dungeon atlas.")
 			return false
 		# The atlas dependency and its subresource regions must belong to one export.
 		var atlas := ResourceLoader.load(ATLAS_PATH, "Texture2D", mode) as Texture2D
@@ -88,15 +93,34 @@ func _load_definition(reload_textures: bool) -> bool:
 	return true
 
 
+func grid_to_local(point: Vector2, height := 0.0) -> Vector2:
+	var definition: Resource = _definition if _definition != null else DEFINITION
+	var world := Vector3(point.x, point.y, height)
+	var px: Vector3 = definition.get("projection_x")
+	var py: Vector3 = definition.get("projection_y")
+	return Vector2(world.dot(px), world.dot(py)) * CELL
+
+
+func local_to_grid(point: Vector2, height := 0.0) -> Vector2:
+	# Inverse ground-plane projection, for cell selection in the isometric view.
+	var definition: Resource = _definition if _definition != null else DEFINITION
+	var px: Vector3 = definition.get("projection_x")
+	var py: Vector3 = definition.get("projection_y")
+	var p := point / CELL - Vector2(px.z, py.z) * height
+	var determinant := px.x * py.y - px.y * py.x
+	return Vector2(p.x * py.y - p.y * px.y, p.y * px.x - p.x * py.x) / determinant
+
+
 func _part(id: String, at: Vector2) -> Dictionary:
 	var entries: Dictionary = _definition.get("entries")
 	var entry: Dictionary = entries[id]
 	var bounds: Dictionary = entry.bounds
 	var lo := Vector3(bounds.min[0] + at.x, bounds.min[1] + at.y, bounds.min[2])
 	var hi := Vector3(bounds.max[0] + at.x, bounds.max[1] + at.y, bounds.max[2])
+	var view: Vector3 = _definition.get("view_direction")
 	return {"id": id, "at": at, "min": lo, "max": hi,
-		"depth": Vector2((lo.x + hi.x) * .5, (lo.y + hi.y) * .5).dot(Vector2(.18, .9)),
-		"rect": Rect2(at * CELL + Vector2(entry.offset[0], entry.offset[1]), Vector2(entry.size[0], entry.size[1]))}
+		"depth": Vector2((lo.x + hi.x) * .5, (lo.y + hi.y) * .5).dot(Vector2(view.x, view.y)),
+		"rect": Rect2(grid_to_local(at) + Vector2(entry.offset[0], entry.offset[1]), Vector2(entry.size[0], entry.size[1]))}
 
 
 func _draw_part(part: Dictionary, layer: int) -> void:
@@ -107,11 +131,24 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 	sprite.centered = false
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	sprite.position = part.rect.position
+	# Entries retain their logical frame when a soft effect uses fewer pixels.
+	sprite.scale = part.rect.size / sprite.texture.get_size()
 	sprite.z_index = layer
+	sprite.set_meta("prepared_id", part.id)
 	_world.add_child(sprite)
 	_frame = _frame.merge(part.rect)
 	var entries: Dictionary = _definition.get("entries")
 	var entry: Dictionary = entries[part.id]
+	if entry.get("ground_effect", false):
+		# The prepared alpha darkens the receiving floor, including lit floor.
+		sprite.light_mask = 0
+		if part.has("shadow_source"):
+			sprite.set_meta("shadow_source", part.shadow_source)
+		if part.has("receiving"):
+			sprite.material = GROUND_EFFECT_MASK.material(entry, part.at, sprite.scale, part.receiving,
+				_definition.get("projection_x"), _definition.get("projection_y"))
+			sprite.set_meta("self_light", true)
+			sprite.set_meta("receiving", part.receiving)
 	if entry.has("light"):
 		# The complete painted flame/metal already includes its own warm shading.
 		sprite.light_mask = 0
@@ -121,7 +158,7 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 			light.name = str(sprite.name) + "_light"
 			light.texture = _light_falloff
 			light.texture_scale = float(settings.radius) * 2 / _light_falloff.get_width()
-			light.position = part.at * CELL + Vector2(settings.emission[0], settings.emission[1])
+			light.position = grid_to_local(part.at) + Vector2(settings.emission[0], settings.emission[1])
 			light.color = Color(settings.color[0], settings.color[1], settings.color[2])
 			light.energy = settings.energy
 			light.blend_mode = Light2D.BLEND_MODE_ADD
@@ -210,6 +247,85 @@ func _append_torches(parts: Array[Dictionary], plan: Dictionary, specials: Dicti
 			parts.append(_part(mounting[1], Vector2(cell)))
 
 
+func _shadow_light_path_clear(from: Vector2, to: Vector2, cells: Dictionary, specials: Dictionary) -> bool:
+	if cells.is_empty():
+		return true
+	# Split the ground segment at every grid crossing. Short crossings through
+	# void must not be missed by a fixed-step ray sample.
+	var delta := to - from
+	var cuts: Array[float] = [0.0, 1.0]
+	for axis in range(2):
+		if absf(delta[axis]) < .00001:
+			continue
+		for boundary in range(floori(minf(from[axis], to[axis])) + 1, ceili(maxf(from[axis], to[axis]))):
+			var t := (float(boundary) - from[axis]) / delta[axis]
+			if t > 0.0 and t < 1.0:
+				cuts.append(t)
+	cuts.sort()
+	for i in range(cuts.size() - 1):
+		var point := from + delta * ((cuts[i] + cuts[i + 1]) * .5)
+		var cell := Vector2i(floori(point.x), floori(point.y))
+		if not cells.has(cell) or specials.has(cell):
+			return false
+	return true
+
+
+func _ground_shadow(part: Dictionary, parts: Array[Dictionary], cells: Dictionary, specials: Dictionary) -> Dictionary:
+	var entries: Dictionary = _definition.get("entries")
+	var entry: Dictionary = entries[part.id]
+	var fallback_id: String = entry.get("ground_shadow", "")
+	if fallback_id.is_empty() or not entries.has(fallback_id):
+		return {}
+	var fallback := _part(fallback_id, part.at)
+	var result: Dictionary = fallback if _heart_fits_floor(fallback, cells, specials) else {}
+	# Historical catalogues keep their single prepared effect. Modern fallback
+	# contains contact only, so disabling lights cannot leave a fictitious cast.
+	if not entry.has("ground_shadow_directions") or not _local_lights_enabled or _light_falloff == null:
+		return result
+	var best_distance := INF
+	var source_key := ""
+	var away := Vector2.ZERO
+	for source in parts:
+		var settings: Dictionary = entries[source.id].get("light", {})
+		if not settings.has("emitter_world") or float(settings.get("energy", 0.0)) <= 0.0:
+			continue
+		var emitter: Array = settings.emitter_world
+		var origin: Vector2 = source.at + Vector2(emitter[0], emitter[1])
+		var emission := grid_to_local(origin, float(emitter[2]))
+		if emission.distance_to(grid_to_local(part.at)) >= float(settings.get("radius", 0.0)):
+			continue
+		var delta: Vector2 = part.at - origin
+		# Quantized distance gives a stable equivalence class for near ties,
+		# independent of the order of the authored torch arrays.
+		var distance := snappedf(delta.length_squared() + float(emitter[2]) * float(emitter[2]), .00001)
+		if delta.length_squared() < .00001 or not _shadow_light_path_clear(origin, part.at, cells, specials):
+			continue
+		var key := "%s@%s" % [source.id, source.at]
+		if distance < best_distance or (distance == best_distance and key < source_key):
+			best_distance = distance
+			source_key = key
+			away = delta.normalized()
+	if source_key.is_empty():
+		return result
+	# Compare projected directions, but never rotate an isometric sprite in 2D.
+	# Ground contact stays anchored to the same frozen support in every variant.
+	var target := grid_to_local(away).normalized()
+	var best_alignment := -INF
+	var selected := ""
+	for candidate: Dictionary in entry.ground_shadow_directions:
+		var direction := grid_to_local(Vector2(candidate.away[0], candidate.away[1])).normalized()
+		var alignment := direction.dot(target)
+		if alignment > best_alignment:
+			best_alignment = alignment
+			selected = candidate.id
+	if not selected.is_empty() and entries.has(selected):
+		var cast := _part(selected, part.at)
+		if _heart_fits_floor(cast, cells, specials):
+			cast["shadow_source"] = source_key
+			result = cast
+	return result
+
+
 func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, reload_textures := true) -> void:
 	if not _load_definition(reload_textures):
 		return
@@ -235,14 +351,20 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 	_frame = Rect2()
 	var openings: Dictionary = plan.openings
 	var edges: Array[Dictionary] = []
+	var floors: Array[Dictionary] = []
 	var axes := {}
 	var first := true
 	for cell: Vector2i in cells:
-		var floor_part := _part("floor", Vector2(cell))
+		var floor_id := "floor"
+		if bool(plan.get("floor_variants", false)):
+			var candidate := FLOOR_VARIANTS.select(cell, int(plan.get("floor_variant_seed", 17)))
+			if _definition.get("entries").has(candidate):
+				floor_id = candidate
+		var floor_part := _part(floor_id, Vector2(cell))
 		if first:
 			_frame = floor_part.rect
 			first = false
-		_draw_part(floor_part, 0)
+		floors.append(floor_part)
 		for side in range(4):
 			if cells.has(cell + DIRECTIONS[side]) or int(openings.get(cell, 0)) & (1 << side):
 				continue
@@ -278,9 +400,48 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		if _heart_fits_floor(heart, cells, specials):
 			parts.append(heart)
 	_append_torches(parts, plan, specials)
+	if bool(plan.get("wall_variants", false)):
+		var selected := WALL_VARIANTS.select(parts, specials, int(plan.get("wall_variant_seed", 17)), bool(plan.get("wall_corruption", true)))
+		var entries: Dictionary = _definition.get("entries")
+		for i in parts.size():
+			var host: Dictionary = parts[i]
+			var key := SURFACE_DETAILS.key(SURFACE_DETAILS.surface(str(host.id)), Vector2i(host.at))
+			var choice: Dictionary = selected.get(key, {})
+			if choice.is_empty() or not entries.has(choice.id):
+				continue
+			if choice.ornament:
+				parts[i]["wall_ornament"] = choice.id
+			else:
+				parts[i] = _part(choice.id, host.at)
+				parts[i]["wall_variant"] = choice.id
+	var damaged_floors := {}
+	if bool(plan.get("floor_damage", false)):
+		damaged_floors = FLOOR_DAMAGE.select(floors, parts, specials, int(plan.get("floor_damage_seed", 17)), bool(plan.get("floor_corruption", true)))
+	for floor_part in floors:
+		_draw_part(floor_part, 0)
+		var replacement: String = damaged_floors.get(Vector2i(floor_part.at), "")
+		if not replacement.is_empty() and _definition.get("entries").has(replacement):
+			_draw_part(_part(replacement, floor_part.at), 0)
+	# Ground shadows follow all floor tiles and precede every solid object.
+	# Historical catalogues have no shadow entry. Require actual floor beneath
+	# the whole receiving area so a ground-only shadow cannot spill into void.
+	for part in parts:
+		var effect_ids: Array = _definition.get("entries")[part.id].get("ground_effects", [])
+		if not effect_ids.is_empty():
+			var receiving := GROUND_EFFECT_MASK.receivers(part.at, cells, specials)
+			for effect_id: String in effect_ids:
+				var effect := _part(effect_id, part.at)
+				effect["receiving"] = receiving
+				_draw_part(effect, 0)
+			continue
+		var shadow := _ground_shadow(part, parts, cells, specials)
+		if not shadow.is_empty():
+			_draw_part(shadow, 0)
 	for part in _ordered_parts(parts):
 		_draw_part(part, 1)
-		if pillar_details and part.id == "pillar":
+		if part.has("wall_ornament"):
+			_draw_part(_part(part.wall_ornament, part.at), 1)
+		if pillar_details and part.id == "pillar" and _definition.get("entries").has("pillar-top-carved"):
 			_draw_part(_part("pillar-top-carved", part.at), 1)
 	_frame = _frame.grow(24.0)
 

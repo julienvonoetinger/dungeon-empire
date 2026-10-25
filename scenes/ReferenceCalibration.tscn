@@ -9,9 +9,13 @@ script = ExtResource("1")
 
 [node name="Dungeon" type="Node2D" parent="."]
 script = ExtResource("2")
+wall_variants = true
+floor_variants = true
+floor_damage = true
 layout = ExtResource("3")
 entrance_at_closed_ends = true
 door_cells = Dictionary[Vector2i, String]({Vector2i(0, 1): "south"})
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(460, 320)
+position = Vector2(-128, 128)
+zoom = Vector2(0.75, 0.75)

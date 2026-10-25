@@ -26,7 +26,7 @@ func _initial_center() -> Vector2:
 	var distance := INF
 	var result := center
 	for cell: Vector2i in plan.cells:
-		var point := (Vector2(cell) + Vector2(.5, .5)) * 256
+		var point: Vector2 = dungeon.grid_to_local(Vector2(cell) + Vector2(.5, .5))
 		if point.distance_squared_to(center) < distance:
 			distance = point.distance_squared_to(center)
 			result = point

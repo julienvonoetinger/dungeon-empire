@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4090
+
+Captured reference: [{ "sprite": "heart_shadow_2", "source": "torch-horizontal@(1.0, 0.0)" }]
+Captured heart-moved-left: [{ "sprite": "heart_shadow_7", "source": "torch-vertical@(0.0, 1.0)" }]
+Captured torch-moved: [{ "sprite": "heart_shadow_1", "source": "torch-horizontal@(0.0, 0.0)" }]
+Captured near-edge-contact: [{ "sprite": "heart_shadow", "source": "contact-only" }]
+Captured lights-off: [{ "sprite": "heart_shadow", "source": "contact-only" }]
+Captured outside-light-range: [{ "sprite": "heart_shadow", "source": "contact-only" }]
+Captured no-torches: [{ "sprite": "heart_shadow", "source": "contact-only" }]

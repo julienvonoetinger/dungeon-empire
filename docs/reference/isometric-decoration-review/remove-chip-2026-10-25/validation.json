@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-25",
+  "status": "All old damage overlays retired, including chipped stone",
+  "integrity": {
+    "date": "2026-10-25",
+    "removedRegions": [
+      "detail-chip-worn-wall-h",
+      "detail-chip-worn-wall-v",
+      "detail-chip-worn-floor"
+    ],
+    "preservedRegions": 100,
+    "deletedPreparedFiles": 3,
+    "deletedPreparedBytes": 4526,
+    "atlas": {
+      "regions": 100,
+      "size": [
+        1024,
+        2048
+      ],
+      "pngBytes": 1420533,
+      "rgbaBytes": 8388608
+    },
+    "keptDecorations": [
+      "pillar-top-carved"
+    ],
+    "sourcePolicy": "Original approval/review archives remain historical; all legacy surface-damage regions and generated production copies are removed."
+  },
+  "processes": {
+    "import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "runtime": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-export": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exit": 0,
+      "stderrBytes": 0
+    }
+  },
+  "runtimeCaptures": 68,
+  "runtimeScenes": 23,
+  "export": {
+    "stage": "artifacts/mobile-export-stage-2026-10-25T08-42-02-361Z",
+    "dependencies": 50,
+    "zipBytes": 1176007
+  },
+  "sha256": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "a7e2b07dec1d491bb1bc81143be163363145c273a013b747f8bedb26e76cc1a0",
+    "assets/dungeon/isometric-kit/catalog.json": "d25caadebb75e34b27221595a9d03c9ff5d5e30556c81ef950e213f3eb5b70b2",
+    "assets/dungeon/isometric-kit/catalog.tres": "b40a4b72b25d6ca9f2c688eab430759e69c61731e200af24101de391ce4d073d",
+    "tools/export_isometric_painted_kit.cjs": "229c87fa15ac7932f9f8bc81b76734640d42fc1448b620cc02a80953d45b6716",
+    "scripts/dungeon_surface_details.gd": "fcaa81c11540599c0bbd869dd60648a41237922394e1e5e4aee4b653626282f9",
+    "scripts/mobile_dungeon_renderer.gd": "be51dabdf18887c4337c2eea133e0ba04444e4897a7b4932467efb3ebc4653ab",
+    "scripts/wireframe_cell_study.gd": "a99161ede5e27e3f672701e34b2f7ccd3f0d414f397467cd2493df93629e0040"
+  },
+  "historicalSourcesPreserved": true,
+  "commit": false,
+  "push": false
+}

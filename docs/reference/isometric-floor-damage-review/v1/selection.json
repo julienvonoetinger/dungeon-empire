@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-25",
+  "userReply": "ok ajoutes les",
+  "selected": [
+    {
+      "id": "a-fissures-courtes",
+      "label": "A · Fissures courtes",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/a-fissures-courtes.png"
+    },
+    {
+      "id": "b-fracture-ramifiee",
+      "label": "B · Fracture ramifiée",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/b-fracture-ramifiee.png"
+    },
+    {
+      "id": "c-veine-corrompue",
+      "label": "C · Veine corrompue",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/c-veine-corrompue.png"
+    },
+    {
+      "id": "d-racines-corrompues",
+      "label": "D · Racines corrompues",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/d-racines-corrompues.png"
+    }
+  ],
+  "scope": "Four appearances accepted for sparse integration into existing compatible B geometry. Preserve source art; offline mask adaptation permitted by established workflow.",
+  "reviewedFiles": {
+    "docs/reference/isometric-floor-damage-review/v1/source/a-fissures-courtes.png": "d5e4529438df5a25eb2d0fe8a154ac3442034fedb312f0288948c15137b5baf3",
+    "docs/reference/isometric-floor-damage-review/v1/source/b-fracture-ramifiee.png": "fdaf3702d65d715d37920c17c5355aead7f30f1c4a83dd1c223e2b47d4704d9f",
+    "docs/reference/isometric-floor-damage-review/v1/source/c-veine-corrompue.png": "ee497bae9c05084a92c59c4e513d153c5b408dc8a6f333dd7fe8116ab62f7b80",
+    "docs/reference/isometric-floor-damage-review/v1/source/d-racines-corrompues.png": "4d0faf9d54a51c67680bd45adf1dd07fa80ed67327ec0a8f512c2c3b3e0854fb",
+    "docs/reference/isometric-floor-damage-review/v1/comparison.png": "aa1f86cc918fa7b3e86ca018ba6a1555eb8c31f39cdfb9e722a2b1b90544e816",
+    "docs/reference/isometric-floor-damage-review/v1/mobile-scale.png": "45b5299de5561bf43167c9c4837f3558bbc4d06168d55d9e76513e63ebb36e11",
+    "docs/reference/isometric-floor-damage-review/v1/generation.json": "6c4780e755916020577f78a308a24e770e04171ebf6905d6fca9ac1a5f1f92ed",
+    "docs/reference/isometric-floor-damage-review/v1/validation.json": "f22243d181d5167fac86d50a355a68756bf1f67437f34f5f79b6589c7a90e446",
+    "tools/prepare_isometric_floor_damage_review.cjs": "c3ffd042d81455f0f967e1fae4d6421cfc236255d38f95184390f20e0c81875e"
+  }
+}

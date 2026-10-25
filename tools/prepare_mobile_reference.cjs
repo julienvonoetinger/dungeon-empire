@@ -125,7 +125,8 @@ async function pack(items,density,assets = ASSETS, writeResources = true) {
   function arrange(height, sorted) {
     let free=[{x:0,y:0,w:width,h:height}];const placed=[];
     for(const item of sorted) {
-      const w=Math.ceil(item.frame[2]*factor),h=Math.ceil(item.frame[3]*factor),W=w+2*gutter,H=h+2*gutter;
+      const rasterScale=item.rasterScale??1;
+      const w=Math.ceil(item.frame[2]*factor*rasterScale),h=Math.ceil(item.frame[3]*factor*rasterScale),W=w+2*gutter,H=h+2*gutter;
       const choices=free.filter(r=>r.w>=W&&r.h>=H).sort((a,b)=>
         Math.min(a.w-W,a.h-H)-Math.min(b.w-W,b.h-H)||a.y-b.y||a.x-b.x);
       if(!choices.length)return null;

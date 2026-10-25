@@ -1,0 +1,578 @@
+{
+  "sourceSelection": "docs/reference/isometric-floor-damage-review/v1/selection.json",
+  "items": [
+    {
+      "id": "floor-b1-damage-a",
+      "frame": [
+        -69,
+        44,
+        153,
+        48
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorDamage": {
+        "appearance": "a",
+        "base": "floor-b1",
+        "corruption": false
+      },
+      "approvedSource": "docs/reference/isometric-floor-damage-review/v1/source/a-fissures-courtes.png",
+      "adaptation": {
+        "mapping": "Selected stone faces sampled on exact existing B stone rectangles; D joint continues the parent face UVs over an interior mortar joint. No artwork regeneration.",
+        "sourcePatches": [
+          {
+            "rect": [
+              0.53,
+              0.84,
+              0.16,
+              0.5
+            ],
+            "quad": [
+              [
+                1101,
+                150
+              ],
+              [
+                1269,
+                242
+              ],
+              [
+                1109,
+                331
+              ],
+              [
+                947,
+                241
+              ]
+            ],
+            "profile": {
+              "count": 1024,
+              "luma": [
+                31.42114525853372,
+                61.62976237750005,
+                62.16459703199219,
+                63.00447538671876,
+                66.30418935546882,
+                120.8274433244549
+              ],
+              "rgb": [
+                49.01173095703124,
+                63.00000000000001,
+                91.90409111328125
+              ]
+            }
+          },
+          {
+            "rect": [
+              0.28,
+              0.62,
+              0.5,
+              0.84
+            ],
+            "quad": [
+              [
+                869,
+                477
+              ],
+              [
+                1074,
+                590
+              ],
+              [
+                932,
+                673
+              ],
+              [
+                718,
+                559
+              ]
+            ],
+            "profile": {
+              "count": 1024,
+              "luma": [
+                40.81327235799666,
+                62.045199999999994,
+                62.46131115722656,
+                63.0264218408203,
+                67.18848310449145,
+                126.46567586099934
+              ],
+              "rgb": [
+                49.490781250000055,
+                63.272875024414226,
+                92.27070314941399
+              ]
+            }
+          }
+        ],
+        "unchangedBoundary": 0.1,
+        "stoneMask": [
+          0.012,
+          0.034
+        ],
+        "jointMask": null,
+        "changedPixels": 1192,
+        "palette": "Host colour plus source luminance variation; joint uses host stone median to avoid doubling dark mortar. Violet accent retained.",
+        "alpha": "Full decorated image retains host alpha. Overlay fades geometrically inside .06-.085 cell margin, over opaque identical backing only; no doubled host silhouette. Crop has 2px unchanged colour border; draw only above matching B host.",
+        "overlayMargin": [
+          0.06,
+          0.085
+        ],
+        "crop": {
+          "left": 66,
+          "top": 49,
+          "width": 153,
+          "height": 48
+        },
+        "hostFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ]
+      },
+      "bytes": 8597
+    },
+    {
+      "id": "floor-b2-damage-b",
+      "frame": [
+        -45,
+        23,
+        105,
+        89
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorDamage": {
+        "appearance": "b",
+        "base": "floor-b2",
+        "corruption": false
+      },
+      "approvedSource": "docs/reference/isometric-floor-damage-review/v1/source/b-fracture-ramifiee.png",
+      "adaptation": {
+        "mapping": "Selected stone faces sampled on exact existing B stone rectangles; D joint continues the parent face UVs over an interior mortar joint. No artwork regeneration.",
+        "sourcePatches": [
+          {
+            "rect": [
+              0.16,
+              0.66,
+              0.16,
+              0.5
+            ],
+            "quad": [
+              [
+                1091,
+                381
+              ],
+              [
+                1249,
+                469
+              ],
+              [
+                1067,
+                562
+              ],
+              [
+                916,
+                482
+              ]
+            ],
+            "profile": {
+              "count": 1024,
+              "luma": [
+                63.98582902469894,
+                65.57743613281257,
+                66.24507407464851,
+                67.16175911718749,
+                68.79515170312513,
+                107.44219792527298
+              ],
+              "rgb": [
+                53.36624999999998,
+                67.10374999999998,
+                95.96124999999999
+              ]
+            }
+          },
+          {
+            "rect": [
+              0.47,
+              0.92,
+              0.5,
+              0.84
+            ],
+            "quad": [
+              [
+                1287,
+                496
+              ],
+              [
+                1405,
+                558
+              ],
+              [
+                1226,
+                664
+              ],
+              [
+                1098,
+                597
+              ]
+            ],
+            "profile": {
+              "count": 1024,
+              "luma": [
+                55.2068973029799,
+                65.44608147827144,
+                66.5785215876465,
+                67.35519672631837,
+                68.90682203125004,
+                98.10136529028452
+              ],
+              "rgb": [
+                53.7013488769531,
+                67.4151184082031,
+                95.95008911132811
+              ]
+            }
+          }
+        ],
+        "unchangedBoundary": 0.1,
+        "stoneMask": [
+          0.012,
+          0.034
+        ],
+        "jointMask": null,
+        "changedPixels": 2516,
+        "palette": "Host colour plus source luminance variation; joint uses host stone median to avoid doubling dark mortar. Violet accent retained.",
+        "alpha": "Full decorated image retains host alpha. Overlay fades geometrically inside .06-.085 cell margin, over opaque identical backing only; no doubled host silhouette. Crop has 2px unchanged colour border; draw only above matching B host.",
+        "overlayMargin": [
+          0.06,
+          0.085
+        ],
+        "crop": {
+          "left": 90,
+          "top": 28,
+          "width": 105,
+          "height": 89
+        },
+        "hostFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ]
+      },
+      "bytes": 11550
+    },
+    {
+      "id": "floor-b3-damage-c",
+      "frame": [
+        -49,
+        39,
+        113,
+        61
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorDamage": {
+        "appearance": "c",
+        "base": "floor-b3",
+        "corruption": true
+      },
+      "approvedSource": "docs/reference/isometric-floor-damage-review/v1/source/c-veine-corrompue.png",
+      "adaptation": {
+        "mapping": "Selected stone faces sampled on exact existing B stone rectangles; D joint continues the parent face UVs over an interior mortar joint. No artwork regeneration.",
+        "sourcePatches": [
+          {
+            "rect": [
+              0.44,
+              0.72,
+              0.16,
+              0.84
+            ],
+            "quad": [
+              [
+                885,
+                247
+              ],
+              [
+                1052,
+                342
+              ],
+              [
+                815,
+                480
+              ],
+              [
+                612,
+                368
+              ]
+            ],
+            "profile": {
+              "count": 992,
+              "luma": [
+                58.78829338873041,
+                60.691397156582,
+                61.49442041015626,
+                62.258751097812485,
+                62.93147403515625,
+                71.10897488095691
+              ],
+              "rgb": [
+                50.35505302734364,
+                62.040624999999984,
+                87.99840947265626
+              ]
+            }
+          }
+        ],
+        "unchangedBoundary": 0.1,
+        "stoneMask": [
+          0.012,
+          0.034
+        ],
+        "jointMask": null,
+        "changedPixels": 1357,
+        "palette": "Host colour plus source luminance variation; joint uses host stone median to avoid doubling dark mortar. Violet accent retained.",
+        "alpha": "Full decorated image retains host alpha. Overlay fades geometrically inside .06-.085 cell margin, over opaque identical backing only; no doubled host silhouette. Crop has 2px unchanged colour border; draw only above matching B host.",
+        "overlayMargin": [
+          0.06,
+          0.085
+        ],
+        "crop": {
+          "left": 86,
+          "top": 44,
+          "width": 113,
+          "height": 61
+        },
+        "hostFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ]
+      },
+      "bytes": 8984
+    },
+    {
+      "id": "floor-b4-damage-d",
+      "frame": [
+        -62,
+        46,
+        131,
+        53
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorDamage": {
+        "appearance": "d",
+        "base": "floor-b4",
+        "corruption": true
+      },
+      "approvedSource": "docs/reference/isometric-floor-damage-review/v1/source/d-racines-corrompues.png",
+      "adaptation": {
+        "mapping": "Selected stone faces sampled on exact existing B stone rectangles; D joint continues the parent face UVs over an interior mortar joint. No artwork regeneration.",
+        "sourcePatches": [
+          {
+            "joint": true,
+            "rect": [
+              0.72,
+              0.9,
+              0.36,
+              0.64
+            ],
+            "parent": 1,
+            "quad": [
+              [
+                1275.8988095238096,
+                436.48809523809524
+              ],
+              [
+                1344.5505952380952,
+                472.00595238095235
+              ],
+              [
+                1065.342261904762,
+                608.922619047619
+              ],
+              [
+                1008.3154761904761,
+                575.6547619047619
+              ]
+            ],
+            "profile": {
+              "count": 953,
+              "luma": [
+                44.47642427793957,
+                62.17479934333008,
+                62.790402536621045,
+                63.80741672973633,
+                65.58609877929686,
+                75.92903742828146
+              ],
+              "rgb": [
+                50.95139107371466,
+                63.32593750000001,
+                92.43199204101545
+              ]
+            }
+          },
+          {
+            "rect": [
+              0.28,
+              0.84,
+              0.38,
+              0.62
+            ],
+            "quad": [
+              [
+                1091,
+                360
+              ],
+              [
+                1302,
+                470
+              ],
+              [
+                1066,
+                588
+              ],
+              [
+                886,
+                484
+              ]
+            ],
+            "profile": {
+              "count": 953,
+              "luma": [
+                44.47642427793957,
+                62.17479934333008,
+                62.790402536621045,
+                63.80741672973633,
+                65.58609877929686,
+                75.92903742828146
+              ],
+              "rgb": [
+                50.95139107371466,
+                63.32593750000001,
+                92.43199204101545
+              ]
+            }
+          },
+          {
+            "rect": [
+              0.28,
+              0.5,
+              0.62,
+              0.84
+            ],
+            "quad": [
+              [
+                1286,
+                498
+              ],
+              [
+                1403,
+                560
+              ],
+              [
+                1225,
+                664
+              ],
+              [
+                1099,
+                598
+              ]
+            ],
+            "profile": {
+              "count": 954,
+              "luma": [
+                37.99080055664068,
+                61.66462534667964,
+                62.398667009511726,
+                63.428714493398445,
+                64.89459469564456,
+                76.50409896463398
+              ],
+              "rgb": [
+                50.35312499999998,
+                63.00000000000001,
+                91.9673852539063
+              ]
+            }
+          }
+        ],
+        "unchangedBoundary": 0.1,
+        "stoneMask": [
+          0.025,
+          0.06
+        ],
+        "jointMask": [
+          0.004,
+          0.022
+        ],
+        "changedPixels": 1500,
+        "palette": "Host colour plus source luminance variation; joint uses host stone median to avoid doubling dark mortar. Violet accent retained.",
+        "alpha": "Full decorated image retains host alpha. Overlay fades geometrically inside .06-.085 cell margin, over opaque identical backing only; no doubled host silhouette. Crop has 2px unchanged colour border; draw only above matching B host.",
+        "overlayMargin": [
+          0.06,
+          0.085
+        ],
+        "crop": {
+          "left": 73,
+          "top": 51,
+          "width": 131,
+          "height": 53
+        },
+        "hostFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ]
+      },
+      "bytes": 10022
+    }
+  ]
+}

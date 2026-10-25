@@ -1,8 +1,19 @@
 # Wireframes : construction, export et utilisation dans Godot
 
-État de référence : 23 octobre 2026. Ce guide décrit le **catalogue de cases
-carrées qui définit la géométrie actuelle**. Les scènes affichent désormais les PNG
-peints dérivés de ces sources ; voir la section 14 et PAINTED_GODOT.md.
+**État actif : les 23 scènes utilisent les textures isométriques 2:1.**
+Voir [la recette peinte](isometric-review/painted-v1/README.md) pour les 26 sprites,
+les sources, les guides magenta et les superpositions. Les volumes de la
+[migration wireframe](isometric-review/migration-v1/README.md) sont conservés.
+La grille logique reste 1×1. Seuls les sprites préparés sont affichés par Godot.
+
+La [sélection de projection](isometric-review/wireframe-v1/selection.json) reste
+la référence approuvée. Les tentatives antérieures, dont le dallage seul et la
+caméra à 35° rejetée, sont conservées comme historique.
+
+**Les sections ci-dessous décrivent les étapes historiques de l'ancien kit.**
+Leurs anciens chemins, commandes, projections et compteurs ne décrivent pas le
+catalogue actif. Utiliser `tools/export_isometric_painted_kit.cjs` pour le reconstruire.
+`tools/export_isometric_kit.cjs` restaure volontairement le kit wireframe historique.
 
 ## 1. Principe à conserver
 

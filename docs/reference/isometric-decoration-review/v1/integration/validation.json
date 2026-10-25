@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-24",
+  "status": "accepted artwork integrated; automatic distribution available for user review",
+  "spriteCount": 47,
+  "atlas": {
+    "size": [
+      1024,
+      1024
+    ],
+    "pngBytes": 583101,
+    "rgbaBytes": 4194304,
+    "pngDeltaBytes": 12379
+  },
+  "preservation": {
+    "priorRegions": 35,
+    "changedPriorRegions": [],
+    "approvedDecorationRegions": 12,
+    "changedApprovedPixels": [],
+    "selectedFiles": 35,
+    "changedAcceptedFiles": [],
+    "comparison": "Raw RGBA of approved review atlas regions against active atlas regions; all twelve identical. The copied prepared PNGs are also byte-identical.",
+    "existingPackingRounding": {
+      "note": "Both approved review and active atlases use the same alpha compositing roundoff versus standalone PNGs; unchanged by integration.",
+      "entries": [
+        {
+          "id": "crack-short-floor",
+          "changedChannels": 7,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-short-wall-h",
+          "changedChannels": 14,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-short-wall-v",
+          "changedChannels": 7,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-branch-floor",
+          "changedChannels": 10,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-branch-wall-h",
+          "changedChannels": 27,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-branch-wall-v",
+          "changedChannels": 13,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "chip-worn-floor",
+          "changedChannels": 9,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "chip-worn-wall-h",
+          "changedChannels": 11,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "chip-worn-wall-v",
+          "changedChannels": 9,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-corrupt-floor",
+          "changedChannels": 7,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-corrupt-wall-h",
+          "changedChannels": 9,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        },
+        {
+          "id": "crack-corrupt-wall-v",
+          "changedChannels": 8,
+          "maxDifference": 1,
+          "changedAlpha": 0
+        }
+      ]
+    }
+  },
+  "captures": {
+    "runtimeScenes": 23,
+    "runtimeImages": 68,
+    "editorScenes": 5,
+    "editorImages": 21,
+    "focused": [
+      {
+        "capture": "reference-bare",
+        "seed": 17,
+        "count": 0
+      },
+      {
+        "capture": "reference-decorated",
+        "seed": 17,
+        "count": 8
+      },
+      {
+        "capture": "reference-seed-43",
+        "seed": 43,
+        "count": 4
+      },
+      {
+        "capture": "reference-restored",
+        "seed": 17,
+        "count": 8
+      }
+    ],
+    "restoredSamePixels": true
+  },
+  "processExitCodes": {
+    "import": 0,
+    "focused": 0,
+    "runtime": 0,
+    "editor": 0,
+    "stage-import": 0,
+    "export": 0,
+    "package-start": 0
+  },
+  "stderrBytes": {
+    "import": 0,
+    "focused": 0,
+    "runtime": 0,
+    "editor": 1399,
+    "stage-import": 0,
+    "export": 0,
+    "package-start": 0
+  },
+  "resourceExport": {
+    "scenes": 23,
+    "dependencies": 46,
+    "bytes": 489337,
+    "staging": "artifacts/mobile-export-stage-2026-10-24T19-32-30-454Z",
+    "notAPK": true
+  },
+  "independentReview": "No concrete Critical/Important/Minor findings in focused read-only code, source/atlas, draw-order, exclusion, capture and export review.",
+  "limits": [
+    "Automatic distribution appearance remains subject to user feedback",
+    "No automated tests or phone profiling",
+    "Pre-existing light leakage and native editor shutdown diagnostics remain"
+  ],
+  "sha256": {
+    "tools/isometric_approved_decorations.cjs": "3e38554d62660b0d04c44c87af701f782f793aad15bf30b8bfb392455c4aa3a5",
+    "tools/export_isometric_painted_kit.cjs": "f831e4e4ac15b8f07ea678c3514d19edd43497b951c0004545edc68c334ab6a4",
+    "scripts/dungeon_surface_details.gd": "7347c6edc0e9a8b3ec527245be4c6ebf720b857989227914f711ea1383c666e3",
+    "scripts/mobile_dungeon_renderer.gd": "39b91559bcc02b1946927d980ea78fc2a70b698d37f8a52a48cb3685b4802c20",
+    "scripts/wireframe_cell_study.gd": "d340cd168552f31aa660935f456940b7d7acb0b19ef0ddcbc62093ae4c0e1aa4",
+    "tools/capture_isometric_decoration_integration.gd": "2cc3b492bc9207e46e6911ae04bd57623f5259e15fd9609763caefad5bfc4422",
+    "assets/dungeon/isometric-kit/catalog.json": "a30b6b92085c24df71ff272707cecbe0c392d59a628a656cd2444d4f71346b75",
+    "assets/dungeon/isometric-kit/catalog.tres": "11c37f930c9fb640407a34002c0ac584d87a41d947d4b061f3e0acbd056b0398",
+    "assets/dungeon/isometric-kit/atlas-256.png": "c9c1c5d0fa52d286fd97600cee3c4cb16045f3b478c2e18d4aec60e359ef31ea"
+  },
+  "commit": false,
+  "push": false
+}

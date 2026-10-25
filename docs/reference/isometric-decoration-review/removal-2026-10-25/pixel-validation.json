@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-25",
+  "removedRegions": [
+    "detail-crack-corrupt-wall-h",
+    "detail-crack-corrupt-wall-v",
+    "detail-crack-corrupt-floor",
+    "detail-vertical-hairline-wall-h",
+    "detail-vertical-hairline-wall-v",
+    "detail-corner-split-floor",
+    "detail-corner-split-wall-h",
+    "detail-vertical-hairline-floor",
+    "detail-corner-split-wall-v",
+    "detail-edge-fork-floor",
+    "detail-edge-fork-wall-v",
+    "detail-edge-fork-wall-h"
+  ],
+  "preservedRegions": 103,
+  "deletedPreparedFiles": 18,
+  "deletedPreparedBytes": 13375,
+  "atlas": {
+    "regions": 103,
+    "size": [
+      1024,
+      2048
+    ],
+    "pngBytes": 1424918,
+    "rgbaBytes": 8388608
+  },
+  "keptDecorations": [
+    "pillar-top-carved",
+    "detail-chip-worn-floor",
+    "detail-chip-worn-wall-h",
+    "detail-chip-worn-wall-v"
+  ],
+  "sourcePolicy": "Original approval/review archives remain historical; active crack regions and generated production copies are removed."
+}

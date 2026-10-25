@@ -1,0 +1,579 @@
+{
+  "status": "appearance review, not active production kit",
+  "projection": {
+    "x": [
+      0.5,
+      -0.5,
+      0
+    ],
+    "y": [
+      0.25,
+      0.25,
+      -0.6123724356957945
+    ],
+    "eye": [
+      0.6123724356957945,
+      0.6123724356957945,
+      0.5
+    ]
+  },
+  "sourcePixelsPerCell": 256,
+  "zoom": 0.75,
+  "atlas": {
+    "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/atlas.png",
+    "size": [
+      256,
+      256
+    ],
+    "bytes": 3388,
+    "rgbaBytes": 262144
+  },
+  "geometrySHA256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "sources": [
+    {
+      "id": "corner-split",
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/corner-split.png",
+      "sha256": "b5478e786db7f684ce967bd4acb03f6d4aec169709bf0d3f9d8241269242a3ad"
+    },
+    {
+      "id": "vertical-hairline",
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/vertical-hairline-readable.png",
+      "sha256": "00164d6311bec7f871942f5dbf9331d7939cd822ed4d2de5585d352c353fa1a6"
+    },
+    {
+      "id": "edge-fork",
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/edge-fork.png",
+      "sha256": "301db4cfe97856ab7b58f38bf47b2dfb5ae7d3b95a0dd5a61f874f8e0ebfcb1f"
+    }
+  ],
+  "entries": [
+    {
+      "id": "corner-split-floor",
+      "motif": "corner-split",
+      "surface": "floor",
+      "label": "Coin fendu",
+      "frame": [
+        -38,
+        49,
+        19,
+        24
+      ],
+      "size": [
+        19,
+        24
+      ],
+      "offset": [
+        -38,
+        49
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/corner-split-floor.png",
+      "bytes": 521,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/corner-split.png",
+      "sourceSHA256": "b5478e786db7f684ce967bd4acb03f6d4aec169709bf0d3f9d8241269242a3ad",
+      "sourceSolidBounds": [
+        481,
+        531,
+        773,
+        873
+      ],
+      "worldPerSourcePixel": 0.00043731778425655976,
+      "centre": [
+        0.3,
+        0.6666666666666666,
+        0
+      ],
+      "targetStone": {
+        "left": 0.3,
+        "right": 0.64,
+        "top": 0.3333333333333333,
+        "bottom": 0.6666666666666666
+      },
+      "sourceAnchor": [
+        504.44,
+        845.56
+      ],
+      "surfaceAnchor": [
+        0.3,
+        0.6666666666666666
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        3,
+        3,
+        19,
+        24
+      ]
+    },
+    {
+      "id": "corner-split-wall-h",
+      "motif": "corner-split",
+      "surface": "wall-h",
+      "label": "Coin fendu",
+      "frame": [
+        28,
+        -14,
+        18,
+        24
+      ],
+      "size": [
+        18,
+        24
+      ],
+      "offset": [
+        28,
+        -14
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/corner-split-wall-h.png",
+      "bytes": 385,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/corner-split.png",
+      "sourceSHA256": "b5478e786db7f684ce967bd4acb03f6d4aec169709bf0d3f9d8241269242a3ad",
+      "sourceSolidBounds": [
+        481,
+        531,
+        773,
+        873
+      ],
+      "worldPerSourcePixel": 0.0002769679300291545,
+      "centre": [
+        0.3333333333333333,
+        0.08333333333333333,
+        0.15666666666666665
+      ],
+      "targetStone": {
+        "left": 0.3333333333333333,
+        "right": 0.6666666666666666,
+        "top": 0,
+        "bottom": 0.15666666666666665
+      },
+      "sourceAnchor": [
+        504.44,
+        845.56
+      ],
+      "surfaceAnchor": [
+        0.3333333333333333,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        87,
+        3,
+        18,
+        24
+      ]
+    },
+    {
+      "id": "corner-split-wall-v",
+      "motif": "corner-split",
+      "surface": "wall-v",
+      "label": "Coin fendu",
+      "frame": [
+        -77,
+        5,
+        17,
+        18
+      ],
+      "size": [
+        17,
+        18
+      ],
+      "offset": [
+        -77,
+        5
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/corner-split-wall-v.png",
+      "bytes": 346,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/corner-split.png",
+      "sourceSHA256": "b5478e786db7f684ce967bd4acb03f6d4aec169709bf0d3f9d8241269242a3ad",
+      "sourceSolidBounds": [
+        481,
+        531,
+        773,
+        873
+      ],
+      "worldPerSourcePixel": 0.0002769679300291545,
+      "centre": [
+        0.08333333333333333,
+        0.6666666666666667,
+        0.15666666666666665
+      ],
+      "targetStone": {
+        "left": 0.3333333333333333,
+        "right": 0.6666666666666666,
+        "top": 0,
+        "bottom": 0.15666666666666665
+      },
+      "sourceAnchor": [
+        504.44,
+        845.56
+      ],
+      "surfaceAnchor": [
+        0.3333333333333333,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        171,
+        3,
+        17,
+        18
+      ]
+    },
+    {
+      "id": "vertical-hairline-floor",
+      "motif": "vertical-hairline",
+      "surface": "floor",
+      "label": "Cassure verticale",
+      "frame": [
+        -6,
+        47,
+        29,
+        22
+      ],
+      "size": [
+        29,
+        22
+      ],
+      "offset": [
+        -6,
+        47
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/vertical-hairline-floor.png",
+      "bytes": 553,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/vertical-hairline-readable.png",
+      "sourceSHA256": "00164d6311bec7f871942f5dbf9331d7939cd822ed4d2de5585d352c353fa1a6",
+      "sourceSolidBounds": [
+        413,
+        359,
+        622,
+        1013
+      ],
+      "worldPerSourcePixel": 0.00033587786259541984,
+      "centre": [
+        0.47,
+        0.3333333333333333,
+        0
+      ],
+      "targetStone": {
+        "left": 0.3,
+        "right": 0.64,
+        "top": 0.3333333333333333,
+        "bottom": 0.6666666666666666
+      },
+      "sourceAnchor": [
+        517.5,
+        463.8
+      ],
+      "surfaceAnchor": [
+        0.47,
+        0.3333333333333333
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        3,
+        83,
+        29,
+        22
+      ]
+    },
+    {
+      "id": "vertical-hairline-wall-h",
+      "motif": "vertical-hairline",
+      "surface": "wall-h",
+      "label": "Cassure verticale",
+      "frame": [
+        48,
+        -16,
+        13,
+        27
+      ],
+      "size": [
+        13,
+        27
+      ],
+      "offset": [
+        48,
+        -16
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/vertical-hairline-wall-h.png",
+      "bytes": 400,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/vertical-hairline-readable.png",
+      "sourceSHA256": "00164d6311bec7f871942f5dbf9331d7939cd822ed4d2de5585d352c353fa1a6",
+      "sourceSolidBounds": [
+        413,
+        359,
+        622,
+        1013
+      ],
+      "worldPerSourcePixel": 0.0002137404580152672,
+      "centre": [
+        0.5,
+        0.08333333333333333,
+        0.3133333333333333
+      ],
+      "targetStone": {
+        "left": 0.3333333333333333,
+        "right": 0.6666666666666666,
+        "top": 0,
+        "bottom": 0.15666666666666665
+      },
+      "sourceAnchor": [
+        517.5,
+        463.8
+      ],
+      "surfaceAnchor": [
+        0.5,
+        0
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        87,
+        83,
+        13,
+        27
+      ]
+    },
+    {
+      "id": "vertical-hairline-wall-v",
+      "motif": "vertical-hairline",
+      "surface": "wall-v",
+      "label": "Cassure verticale",
+      "frame": [
+        -57,
+        -17,
+        11,
+        25
+      ],
+      "size": [
+        11,
+        25
+      ],
+      "offset": [
+        -57,
+        -17
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/vertical-hairline-wall-v.png",
+      "bytes": 376,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/vertical-hairline-readable.png",
+      "sourceSHA256": "00164d6311bec7f871942f5dbf9331d7939cd822ed4d2de5585d352c353fa1a6",
+      "sourceSolidBounds": [
+        413,
+        359,
+        622,
+        1013
+      ],
+      "worldPerSourcePixel": 0.0002137404580152672,
+      "centre": [
+        0.08333333333333333,
+        0.5,
+        0.3133333333333333
+      ],
+      "targetStone": {
+        "left": 0.3333333333333333,
+        "right": 0.6666666666666666,
+        "top": 0,
+        "bottom": 0.15666666666666665
+      },
+      "sourceAnchor": [
+        517.5,
+        463.8
+      ],
+      "surfaceAnchor": [
+        0.5,
+        0
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        171,
+        83,
+        11,
+        25
+      ]
+    },
+    {
+      "id": "edge-fork-floor",
+      "motif": "edge-fork",
+      "surface": "floor",
+      "label": "Fissure latérale",
+      "frame": [
+        -7,
+        60,
+        27,
+        18
+      ],
+      "size": [
+        27,
+        18
+      ],
+      "offset": [
+        -7,
+        60
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/edge-fork-floor.png",
+      "bytes": 429,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/edge-fork.png",
+      "sourceSHA256": "301db4cfe97856ab7b58f38bf47b2dfb5ae7d3b95a0dd5a61f874f8e0ebfcb1f",
+      "sourceSolidBounds": [
+        214,
+        361,
+        1554,
+        522
+      ],
+      "worldPerSourcePixel": 0.00013422818791946307,
+      "centre": [
+        0.64,
+        0.5166666666666666,
+        0
+      ],
+      "targetStone": {
+        "left": 0.3,
+        "right": 0.64,
+        "top": 0.3333333333333333,
+        "bottom": 0.6666666666666666
+      },
+      "sourceAnchor": [
+        1393.08,
+        441.5
+      ],
+      "surfaceAnchor": [
+        0.64,
+        0.5166666666666666
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        3,
+        163,
+        27,
+        18
+      ]
+    },
+    {
+      "id": "edge-fork-wall-h",
+      "motif": "edge-fork",
+      "surface": "wall-h",
+      "label": "Fissure latérale",
+      "frame": [
+        55,
+        0,
+        22,
+        17
+      ],
+      "size": [
+        22,
+        17
+      ],
+      "offset": [
+        55,
+        0
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/edge-fork-wall-h.png",
+      "bytes": 381,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/edge-fork.png",
+      "sourceSHA256": "301db4cfe97856ab7b58f38bf47b2dfb5ae7d3b95a0dd5a61f874f8e0ebfcb1f",
+      "sourceSolidBounds": [
+        214,
+        361,
+        1554,
+        522
+      ],
+      "worldPerSourcePixel": 0.00011185682326621923,
+      "centre": [
+        0.6666666666666666,
+        0.08333333333333333,
+        0.22716666666666663
+      ],
+      "targetStone": {
+        "left": 0.3333333333333333,
+        "right": 0.6666666666666666,
+        "top": 0,
+        "bottom": 0.15666666666666665
+      },
+      "sourceAnchor": [
+        1393.08,
+        441.5
+      ],
+      "surfaceAnchor": [
+        0.6666666666666666,
+        0.08616666666666667
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        87,
+        163,
+        22,
+        17
+      ]
+    },
+    {
+      "id": "edge-fork-wall-v",
+      "motif": "edge-fork",
+      "surface": "wall-v",
+      "label": "Fissure latérale",
+      "frame": [
+        -53,
+        -13,
+        25,
+        18
+      ],
+      "size": [
+        25,
+        18
+      ],
+      "offset": [
+        -53,
+        -13
+      ],
+      "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/edge-fork-wall-v.png",
+      "bytes": 375,
+      "source": "docs/reference/isometric-decoration-review/v2-edge-cracks/source/edge-fork.png",
+      "sourceSHA256": "301db4cfe97856ab7b58f38bf47b2dfb5ae7d3b95a0dd5a61f874f8e0ebfcb1f",
+      "sourceSolidBounds": [
+        214,
+        361,
+        1554,
+        522
+      ],
+      "worldPerSourcePixel": 0.00011185682326621923,
+      "centre": [
+        0.08333333333333333,
+        0.33333333333333337,
+        0.22716666666666663
+      ],
+      "targetStone": {
+        "left": 0.3333333333333333,
+        "right": 0.6666666666666666,
+        "top": 0,
+        "bottom": 0.15666666666666665
+      },
+      "sourceAnchor": [
+        1393.08,
+        441.5
+      ],
+      "surfaceAnchor": [
+        0.6666666666666666,
+        0.08616666666666667
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        171,
+        163,
+        25,
+        18
+      ]
+    }
+  ],
+  "notes": [
+    "Three different native-alpha ImageGen cracks anchored at physical stone edges/corners in three exact planes.",
+    "Runtime places prepared regions, no perspective warp.",
+    "Mortar occlusion is baked, source pixels are neither recoloured nor threshold-extracted.",
+    "Edge/corner placements are a new proposal. Production art, placement policy and frozen v1 references unchanged."
+  ]
+}

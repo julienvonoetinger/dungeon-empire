@@ -1,0 +1,100 @@
+{
+  "status": "isolated appearance proposal",
+  "emitter": [
+    0,
+    0,
+    0.56
+  ],
+  "emitterSource": "frozen heart.orb.centre",
+  "radiusWorld": 1.45,
+  "areaSamples": [
+    [
+      0,
+      0,
+      0.56
+    ],
+    [
+      0.055,
+      0,
+      0.56
+    ],
+    [
+      0.038890872965260115,
+      0.03889087296526011,
+      0.56
+    ],
+    [
+      3.367778697655221e-18,
+      0.055,
+      0.56
+    ],
+    [
+      -0.03889087296526011,
+      0.038890872965260115,
+      0.56
+    ],
+    [
+      -0.055,
+      6.735557395310442e-18,
+      0.56
+    ],
+    [
+      -0.03889087296526012,
+      -0.03889087296526011,
+      0.56
+    ],
+    [
+      -1.0103336092965663e-17,
+      -0.055,
+      0.56
+    ],
+    [
+      0.03889087296526011,
+      -0.03889087296526012,
+      0.56
+    ]
+  ],
+  "castOpacity": 0.32,
+  "contactOpacity": 0.44,
+  "entries": [
+    {
+      "id": "shadow",
+      "file": "docs/reference/isometric-review/painted-v1/heart-self-light-v1/shadow.png",
+      "frame": [
+        -275,
+        -144,
+        550,
+        288
+      ],
+      "blend": "mix",
+      "bytes": 8935
+    },
+    {
+      "id": "glow",
+      "file": "docs/reference/isometric-review/painted-v1/heart-self-light-v1/glow.png",
+      "frame": [
+        -275,
+        -144,
+        550,
+        288
+      ],
+      "blend": "add",
+      "bytes": 40448
+    }
+  ],
+  "geometrySHA256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "unchangedSourceHashes": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "a946c085d9b22eb82d8df351de4aee7959749f1786ef5278f7d1574d83b46509",
+    "assets/dungeon/isometric-kit/catalog.json": "0954c4b74f30937223a1f9ae82854128908df201c020148c61f9546fb275b077",
+    "assets/dungeon/isometric-kit/catalog.tres": "527430bc411e2acf33e871830f88ab0d36a520a6df3b27c97b4a6c2685e19ff0",
+    "scripts/mobile_dungeon_renderer.gd": "39b91559bcc02b1946927d980ea78fc2a70b698d37f8a52a48cb3685b4802c20",
+    "tools/isometric_ground_shadow.cjs": "44f923a81eaf34dec5c8790225407c1abe12bdc23212b3fe914424421ea14f80"
+  },
+  "notes": [
+    "Point projection: L+(P-L)*L.z/(L.z-P.z), projected onto ground z=0.",
+    "Nine samples approximate a compact area source at the vortex centre; luminous vortex is excluded from blockers.",
+    "Violet additive floor light uses the same occlusion. Shadow darkness is an artistic ambient-occlusion approximation, not full physical illumination.",
+    "Only the ground receives these baked effects; no new point light or torch dependency.",
+    "Production remains unchanged pending appearance feedback."
+  ]
+}

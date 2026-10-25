@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-25",
+  "retainedRegions": 100,
+  "unchangedFloorSelectionFiles": 6,
+  "completeBoundaryPairs": 32,
+  "diagonalCornerPairs": 32,
+  "comparedOpaqueOverlapPixels": 8320,
+  "maxRGBDifference": 1,
+  "unchangedGeometricAlpha": true,
+  "seedRestorationIdentical": true,
+  "seed43Differs": true,
+  "nonFloorPlacementsUnchanged": true,
+  "captures": 9,
+  "negativePatchCounts": {
+    "floor-b1": 7,
+    "floor-b2": 11,
+    "floor-b3": 12,
+    "floor-b4": 6
+  },
+  "sixRoomCounts": {
+    "floor-b1": 60,
+    "floor-b2": 67,
+    "floor-b3": 63,
+    "floor-b4": 66
+  },
+  "atlas": {
+    "regions": 104,
+    "size": [
+      1024,
+      2048
+    ],
+    "pngBytes": 1463015,
+    "rgbaBytes": 8388608
+  }
+}

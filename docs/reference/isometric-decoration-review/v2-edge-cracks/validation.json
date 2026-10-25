@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-25",
+  "status": "appearance proposal; user approval pending",
+  "atlas": {
+    "file": "docs/reference/isometric-decoration-review/v2-edge-cracks/atlas.png",
+    "size": [
+      256,
+      256
+    ],
+    "bytes": 3388,
+    "rgbaBytes": 262144
+  },
+  "spriteCount": 9,
+  "captureCount": 2,
+  "captureExitCode": 0,
+  "captureStderrBytes": 0,
+  "productionHashCount": 9,
+  "changedProduction": [],
+  "changedV1SelectedFiles": [],
+  "geometrySHA256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "sha256": {
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/comparison.png": "e203d2388fd3490b1900b94b75abfbb52b8e182cfcd48b2d5b6153f5700b2bcb",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/gameplay-comparison.png": "b224cb03020921381ce2b00f526c0464aeafc1e2be18ac77bd8707e227fc9d84",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/prepared.json": "cf6253f01fbe43b5d5d82b137c1e0afa35162c6692b5fe4264186fe4f1c505d8",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/generation.json": "d8ccbbd083f656c4d5e2eea8723fbb87f885db96daa6e51c5c7b6d9369b5d2d7",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/atlas.png": "36281658295065c3c862615bb8cd98791ecc0643e7b2f48419e6b19a2eb7e6d8",
+    "tools/prepare_isometric_edge_cracks_review.cjs": "3cb1c5253703983d02d6f9f2e4a6fc23d07f9fd9a04b7d0f1c6d0e077313d88e",
+    "tools/isometric_edge_cracks_review.gd": "8293d6661ed0945d04fb031491a677bbb528b6e6c946f413ed9e07a2f82e186b",
+    "tools/capture_isometric_edge_cracks_review.gd": "2817e15dbe8bc3ade6280e5f129b9543d5e347b0f8a94ffc4c9a0abed354bab2",
+    "tools/prepare_isometric_edge_cracks_boards.cjs": "445da231b22b626e861216dbe9ec2e41c51e75641446207e855350062d43e5fa"
+  },
+  "limits": [
+    "No production integration",
+    "Very thin candidate and earlier same-diagonal designs not selected",
+    "No automated tests or mobile profile"
+  ],
+  "commit": false,
+  "push": false
+}

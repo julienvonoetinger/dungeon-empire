@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-25",
+  "status": "Old cracks retired from active kit and generated copies deleted",
+  "integrity": {
+    "date": "2026-10-25",
+    "removedRegions": [
+      "detail-crack-corrupt-wall-h",
+      "detail-crack-corrupt-wall-v",
+      "detail-crack-corrupt-floor",
+      "detail-vertical-hairline-wall-h",
+      "detail-vertical-hairline-wall-v",
+      "detail-corner-split-floor",
+      "detail-corner-split-wall-h",
+      "detail-vertical-hairline-floor",
+      "detail-corner-split-wall-v",
+      "detail-edge-fork-floor",
+      "detail-edge-fork-wall-v",
+      "detail-edge-fork-wall-h"
+    ],
+    "preservedRegions": 103,
+    "deletedPreparedFiles": 18,
+    "deletedPreparedBytes": 13375,
+    "atlas": {
+      "regions": 103,
+      "size": [
+        1024,
+        2048
+      ],
+      "pngBytes": 1424918,
+      "rgbaBytes": 8388608
+    },
+    "keptDecorations": [
+      "pillar-top-carved",
+      "detail-chip-worn-floor",
+      "detail-chip-worn-wall-h",
+      "detail-chip-worn-wall-v"
+    ],
+    "sourcePolicy": "Original approval/review archives remain historical; active crack regions and generated production copies are removed."
+  },
+  "processes": {
+    "import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "runtime": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-export": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exit": 0,
+      "stderrBytes": 0
+    }
+  },
+  "runtimeCaptures": 68,
+  "runtimeScenes": 23,
+  "export": {
+    "stage": "artifacts/mobile-export-stage-2026-10-25T08-24-28-113Z",
+    "dependencies": 50,
+    "zipBytes": 1182540
+  },
+  "sha256": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "891b849b9bd8a9ab3a45c948cfec4e883eca43fa4efb45994f6e9e34fe2f3fa6",
+    "assets/dungeon/isometric-kit/catalog.json": "a27f80bc5889cc1de453d3e6a7ace3e27e4f459886f63b109207f3ac432db9f7",
+    "assets/dungeon/isometric-kit/catalog.tres": "8c5fd8af91cc6684bc1bd68f962dcc1c4e43ef81b39b9d027299d65ae4c94387",
+    "tools/isometric_approved_decorations.cjs": "cf819042378960266815be48dbf41c96f7a55ebf654ee54668c4c378696c2c72",
+    "scripts/dungeon_surface_details.gd": "c7a7003dc0f89fb2a88b1fc97c15efc08ddef01eb97fc8953303e457cdfcd244"
+  },
+  "historicalSourcesPreserved": true,
+  "commit": false,
+  "push": false
+}

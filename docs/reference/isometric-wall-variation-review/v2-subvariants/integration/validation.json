@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-25",
+  "status": "Nine selected wall variants integrated; user-requested common stone palette applied",
+  "atlas": {
+    "regions": 115,
+    "size": [
+      1024,
+      2048
+    ],
+    "pngBytes": 1430732,
+    "rgbaBytes": 8388608
+  },
+  "integrity": {
+    "date": "2026-10-25",
+    "unchangedPreviousRegions": 43,
+    "unchangedSelectionFiles": 13,
+    "terminalProfilesChecked": 72,
+    "preparedItems": 72,
+    "atlas": {
+      "regions": 115,
+      "size": [
+        1024,
+        2048
+      ],
+      "pngBytes": 1430732,
+      "rgbaBytes": 8388608
+    },
+    "seedRestorationIdentical": true,
+    "referenceCounts": {
+      "a1": 5,
+      "a2": 3,
+      "a3": 2,
+      "base": 10,
+      "c1": 1,
+      "c2": 3,
+      "f2": 2,
+      "f3": 2
+    },
+    "sixRoomCounts": {
+      "a1": 26,
+      "a2": 29,
+      "a3": 27,
+      "base": 45,
+      "c1": 17,
+      "c2": 16,
+      "c3": 14,
+      "f1": 5,
+      "f2": 4,
+      "f3": 4
+    },
+    "captures": 24,
+    "scope": "Prepared pixel and geometry integrity plus visual capture evidence. No gameplay test suite or device profile."
+  },
+  "checks": {
+    "import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "focused": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "runtime": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "editor": {
+      "exit": 0,
+      "stderrBytes": 1520
+    },
+    "stage-import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-export": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exit": 0,
+      "stderrBytes": 0
+    }
+  },
+  "runtimeCaptures": 68,
+  "runtimeScenes": 23,
+  "editorCaptures": 19,
+  "editorScenes": 5,
+  "enabledLayoutScenes": 20,
+  "export": {
+    "stage": "artifacts/mobile-export-stage-2026-10-25T08-10-10-872Z",
+    "dependencies": 50,
+    "scenes": 23,
+    "zipBytes": 1192581
+  },
+  "review": "Independent focused read-only code/pixel/visual review: no actionable findings.",
+  "sha256": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "419862072afeb6f379d7b5f8f8bdcc3b23f84d03ff5931afa2c116bd1aa5911b",
+    "assets/dungeon/isometric-kit/catalog.json": "9602d62ad6be40c1fae0179cf76acd0a617c393ccb71343b0fc0c36b35ef6648",
+    "assets/dungeon/isometric-kit/catalog.tres": "453e79456df04ffaf28fa113877e410282be526d6fa69f033955675f04284e82",
+    "tools/isometric_wall_variants.cjs": "c1b45b702db9c914efbcc69afcbcc5b83c7957cfb0c80ed86a36f41cdbe21180",
+    "tools/isometric_wall_palette.cjs": "9ef76a4acacfee73ce459e7dbe9b58245f5204e609d2b9dae415bd7c809a4896",
+    "tools/export_isometric_painted_kit.cjs": "31a9ce16d346d2cf79218e6a31c2270df09885c94d49c2147d0384cc5dfe6849",
+    "scripts/dungeon_wall_variants.gd": "de22c0b89cc58b9695e69a80bbdc2704a1cf6989e750f4dbb64d1ee2bd55fc33",
+    "scripts/mobile_dungeon_renderer.gd": "d142ef01a5bf5075ec2dc6b643c8c78ed6160875a80dfbef0adf46303885e744",
+    "scripts/wireframe_cell_study.gd": "5b7d5c0801db203394285097f42841717478ec058d4535c8637f90ef61d8034d",
+    "scripts/dungeon_surface_details.gd": "8417a316d5d3f73e546dacbacec1224682261bf30d01888d8677af34d2dce886"
+  },
+  "limits": [
+    "No APK/device profile",
+    "F skin includes masonry backing; does not combine with C relief",
+    "Adapted artwork/colour remains for user visual judgment",
+    "Editor emits native shutdown diagnostics"
+  ],
+  "commit": false,
+  "push": false
+}

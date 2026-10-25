@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-25",
+  "status": "appearance proposal; edge/corner variety requested after diagonal drafts",
+  "tool": "built-in image_gen",
+  "transparentBackground": true,
+  "diagonalDrafts": {
+    "common": "Use case: precise-object-edit. Edit target is image 2, the existing transparent damage decal. Image 1 is a STYLE reference ONLY: notice the fine, restrained fissures in its blue-slate masonry. Redesign the target as a much FINER painted stone fissure, matching those delicate recesses. Keep genuine native transparent alpha, no backing surface. A flat orthographic texture motif viewed straight-on; it will be projected onto stone planes later. The old target is too chunky, like a rock shard with a thick pale bevel. Replace that with a SLENDER dark blue-black crack, only about 1-2% of its total length in width at the main trunk, with gently irregular angular direction changes and a few minute tapered splinters. A very subtle thin desaturated blue-grey edge highlight on ONE lip only, intermittent rather than a continuous bright outline. Natural variable width, fine pointed ends, no deep wide central cavity, no broad chipped stone rim, no raised ridge or protruding rock. Calm hand-painted mobile dungeon style. It must blend into the masonry, not look like a standalone lightning-shaped badge. No texture rectangle, no brick silhouette, no checkerboard baked in, no broad halo, no cast shadow around the motif, no lettering. Keep the whole design comfortably within the canvas. Make the design slender by REDRAWING, not stretching or compressing one axis.",
+    "jobs": [
+      {
+        "id": "crack-short",
+        "file": "crack-short-v2.png",
+        "detail": "One short asymmetrical diagonal fissure with two or three subtly crooked bends and one very short tapered hairline branch. Dark slate only, no violet. Reduce the wide bevel and large facets dramatically. Slightly smoother fractured path than the old sawtooth."
+      },
+      {
+        "id": "crack-branch",
+        "file": "crack-branch.png",
+        "detail": "One fine natural branched fissure: an elongated slightly crooked main line plus two MUCH shorter offshoots at different positions. No starburst and no wide central hole or missing stone. Both ends taper finely. Dark slate only, no violet."
+      },
+      {
+        "id": "crack-corrupt",
+        "file": "crack-corrupt.png",
+        "detail": "One slender naturally crooked crack with a tiny asymmetric side split, and very restrained violet light deep INSIDE only two short portions of the thin fissure, like the subtle purple fracture in image 1. The dark crack dominates. No neon outline or surrounding aura, no big bright lightning bolt, no broad stone bevel."
+      }
+    ],
+    "reference": "C:/Users/A/AppData/Local/Temp/codex-clipboard-7c180942-3226-4405-8554-bd799d5318a5.png"
+  },
+  "diagonalHaloEdit": "Edit this transparent crack decal. Keep EXACTLY the thin central crack path, its small unequal branches, width, tapered ends and tiny blue-grey lip highlight. REMOVE the entire broad blurry blue-grey shadow/paint halo surrounding the crack. All space away from the very narrow fissure and its immediate tiny lip must be genuinely transparent alpha. Keep only the crack itself and its narrow edge; no soft surrounding haze, no backing surface, no stone tile, no glow. Do not thicken the crack, do not add material around it, do not change its route. Native transparent background.",
+  "currentPrompts": {
+    "common": "Use case: stylized-concept. Create ONE transparent painted STONE CRACK DECAL. These two images are visual references for the fine edge/corner fissures in blue-grey dungeon bricks; DO NOT copy the brick or its background. Output only a small delicate recessed crack on genuine transparent alpha, perfectly front-on, with no stone slab or surrounding surface. Subtle dark blue-grey opening and a hair-thin intermittent lighter lip, like the fine incisions in the references. Short local damage, naturally uneven and slightly curved with a few tiny angular changes, width tapering to fine ends. No wide holes, no chipped rock slabs, no raised stone, no broad bevel, no haze or halo or drop shadow, no glowing line, no purple, no repeated sawtooth. No long diagonal slashes. The drawing must be a completely distinct compact silhouette as specified below, centered with transparent margin. Design for a small stylized mobile game stone, not a realistic gaping geological fissure.",
+    "jobs": [
+      {
+        "id": "corner-split",
+        "detail": "A CORNER FRACTURE. Draw a compact bent curved line, roughly a quarter-arc opening toward the LOWER LEFT. It starts near the left side at mid-height, bends right gently then turns down to end near the bottom. This curve cuts off a small rounded corner from a brick when placed where its LEFT edge meets its BOTTOM edge. Equal modest horizontal and vertical span, an asymmetric curving hook with two little kinks and NO branches. Its look should be like the small lower-left corner fracture in the first reference, rather than a long corner-to-corner diagonal."
+      },
+      {
+        "id": "vertical-hairline",
+        "detail": "A SHORT VERTICAL fissure growing DOWN from a brick's TOP edge. Predominantly vertical, narrow footprint: wander slightly left, bend gently right, then end pointing downward. Three unequal short segments joined with natural slight curves, one tiny side split near the middle. Total height about FOUR TIMES the horizontal span. Hairline tip, subtle lip. NOT a diagonal, NOT a straight regular zigzag or lightning bolt."
+      },
+      {
+        "id": "edge-fork",
+        "detail": "A SHORT LATERAL fracture coming from a brick's RIGHT edge and travelling LEFT. Overall WIDE AND SHALLOW silhouette, about FOUR TIMES wider than high. Start at the far right, wander gently leftwards with two small irregular curved kinks, then separate near the LEFT end into two short UNEQUAL tapering tips, one curving a little upward and the other staying nearly level. A small subtle localized side split, no large junction cavity. Not diagonal, not symmetric Y, no lightning shape."
+      }
+    ],
+    "refs": [
+      "C:/Users/A/AppData/Local/Temp/codex-clipboard-1abb8cba-d43b-4c56-80ee-df6bfe605402.png",
+      "C:/Users/A/AppData/Local/Temp/codex-clipboard-7c180942-3226-4405-8554-bd799d5318a5.png"
+    ]
+  },
+  "verticalReplacement": "Create a single game texture DECAL on genuine transparent alpha. It consists ONLY of one short, very slender VERTICAL dark stone fissure, a hand-painted navy ink-like recessed line with one hair-thin blue-grey highlight at a few spots. The top end is OPEN, straight vertical, as if the crack continues beyond a brick edge: NO horizontal cap or T bar. Descend almost vertically with a small crooked bend to the left halfway down, then return slightly right and taper into a needle tip. One tiny curved side offshoot, under one fifth of the total height, near the bottom. Main crack width less than one percent of its height. Depth is suggested by the tiny edge contrast ONLY. The shape is local superficial masonry damage, not a large ravine. Absolutely nothing outside this thin line: no glow, no blurry halo, no fog, no surrounding stone paint, no backing tile, no rectangle, no shadow, no border or text. Every surrounding pixel truly transparent. Dark desaturated blue/slate palette, restrained painted mobile fantasy stone style. Render the full shape centrally with generous margins. This is a new compact vertical motif, not diagonal."
+}

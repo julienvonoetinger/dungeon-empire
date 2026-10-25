@@ -1,6 +1,6 @@
 @tool
 extends "res://scripts/mobile_dungeon_renderer.gd"
-## Standalone scene for the same approved atlas sprite used by dungeon layouts.
+## Standalone scene for the same prepared heart support used by dungeon layouts.
 
 @export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable:
 	get:

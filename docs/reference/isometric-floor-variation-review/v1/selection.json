@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25",
+  "status": "selected concept direction",
+  "userReply": "oui je pense que B c'est mieux",
+  "selected": [
+    {
+      "id": "B",
+      "name": "Formats variés",
+      "source": "docs/reference/isometric-floor-variation-review/v1/source/b-formats-varies.png"
+    }
+  ],
+  "excludedFromNextStep": [
+    "A",
+    "C"
+  ],
+  "scope": [
+    "Retain B mixed slab sizes and staggered assembly, with calm smooth surfaces and the existing dark slate-blue palette.",
+    "Do not interpret this as approval of the proposed A+B mix.",
+    "Common isometric wireframe, compatible edge joints, filtering coverage and multiple arrangements remain preparation work.",
+    "Do not tile the concept PNG directly or regenerate selected artwork for integration.",
+    "This records the concept selection; no production atlas, scene or distribution change."
+  ],
+  "reviewedFiles": {
+    "docs/reference/isometric-floor-variation-review/v1/source/b-formats-varies.png": "7ad167317bdcba35dffd02f182aadc3fa3856a0f147ebf24dfd6b13262ed8799",
+    "docs/reference/isometric-floor-variation-review/v1/comparison.png": "0d937070aecf8d534e43a3a228b4eed12f7b3f160e934cdd10d3dbf0b352f33c",
+    "docs/reference/isometric-floor-variation-review/v1/mobile-scale.png": "edca7cf180d8d38315ca559ffe56af14f75e828d5abb5f2d267b2e80d4299f9f",
+    "docs/reference/isometric-floor-variation-review/v1/generation.json": "42084e88fec6d77745ed5805700fcc70cb6e88605017247a9bc8771e1c1efcb6",
+    "docs/reference/isometric-floor-variation-review/v1/validation.json": "7a0c603c330244f36bb8aa034f69a52ff952b58231b513230c0b3dc395c36eb8",
+    "tools/prepare_isometric_floor_variants_review.cjs": "b5930422470870b47e2a8b998ffa4b5d721ee16cc9664c1c0b962c8fd1698637"
+  },
+  "verification": {
+    "unchangedActiveFiles": 7,
+    "unchangedReviewedSourceImages": 4
+  },
+  "commit": false,
+  "push": false
+}

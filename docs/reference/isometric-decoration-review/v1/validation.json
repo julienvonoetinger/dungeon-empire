@@ -1,0 +1,40 @@
+{
+  "status": "appearance proposal; no user selection",
+  "generation": "built-in ImageGen, native alpha",
+  "atlas": {
+    "file": "docs/reference/isometric-decoration-review/v1/atlas.png",
+    "size": [
+      256,
+      256
+    ],
+    "bytes": 12874,
+    "rgbaBytes": 262144
+  },
+  "spriteCount": 12,
+  "capture": {
+    "count": 6,
+    "exitCode": 0,
+    "stderrBytes": 0
+  },
+  "productionSelectedFilesChecked": 25,
+  "changedSelectedFiles": [],
+  "geometrySHA256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "independentReview": "No concrete Critical/Important/Minor findings in focused projection, alpha, ordering and visual review. Final tighter atlas packing was recaptured.",
+  "limits": [
+    "User appearance and readability approval pending",
+    "Demonstration placements only",
+    "No production integration, package export, phone profiling or automated tests"
+  ],
+  "sha256": {
+    "tools/prepare_isometric_decoration_review.cjs": "10b56c61ed89586bc7bbc8b22123b50b83ffd67e14769498e0f52e5ed9149e3c",
+    "tools/isometric_decoration_review.gd": "0e0193a62f3d796975bb5ed010211bc17aa255e8118aead65b5514531253edeb",
+    "tools/capture_isometric_decoration_review.gd": "646bc28f5229ebfcef2b6e8f6cb4b5852936825f9a793f396e9ae3c17385f200",
+    "tools/prepare_isometric_decoration_boards.cjs": "fed3645762418ae2bdb20d8524a7acae7cf3690d1f14646f2702e5598b8f94c5",
+    "docs/reference/isometric-decoration-review/v1/atlas.png": "025777f02727997f436d1c711dd22ae665c5c5364873f726e68a926ccacd21f7",
+    "docs/reference/isometric-decoration-review/v1/prepared.json": "061f36523d00a4bb3e6ca2c82f2190e0e6156e2ca0dce0fadbc21e74d7ffe0ce",
+    "docs/reference/isometric-decoration-review/v1/variants.png": "3c80bab54d5af3f7716c1f6982440eecc575068ccb569c37a7966cda70fa2d1f",
+    "docs/reference/isometric-decoration-review/v1/scene-comparison.png": "c5b243abb2cf48008229ecc77da303f84f11363dbd94339d06b39c7bfec0a744"
+  },
+  "commit": false,
+  "push": false
+}

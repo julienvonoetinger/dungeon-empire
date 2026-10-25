@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-25",
+  "status": "concept proposals; no selection or production integration",
+  "mode": "built-in ImageGen",
+  "commonPrompt": "Use case: stylized-concept. Asset type: one isolated concept sprite of a short modular wall for a mobile isometric evil dungeon, not a full environment and not a presentation board.\nREFERENCE ROLES: Image 1 is the CURRENT WALL and is the strict reference for camera direction, relative wall length/thickness/height and blue-slate palette. Image 2 is an ART DIRECTION REFERENCE only: rounded chunky stylized hand-painted stone, rich broad forms, readable at small mobile scale. Do NOT copy its non-isometric camera, UI, torches, floor or props.\nCompose ONE straight wall segment only, on actual transparent background, centered with ample transparent padding. Same true 2:1 dimetric/isometric camera and orientation as Image1: long top edge slopes diagonally down to the right, small right end face visible, top stone surfaces visible. Keep the same overall footprint and terminal connection profiles so concepts can later be rebuilt within our wireframe. Vertical face must retain EXACTLY TWO masonry courses, not three; the top visible surface is the upper course, not an extra cap row. No extra foundation course or floor tile. Flat neutral cool lighting from upper-left, consistent dark outlines, smooth broad faceted slate blue surfaces, generous softened stone bevels, restrained value variation. Do not overtexture: large shapes and differences in masonry must be readable at 160px wide. Avoid realism, grunge speckle, microdetail, glitter, round toy rocks, grain, photoreal 3D look, baked external drop shadow, text, letters, labels, watermark, frames. Concept art only; do not claim production tiling exactness.\n",
+  "references": [
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-review/painted-v1/sprites/wall-h-0.png",
+    "C:/Users/A/AppData/Local/Temp/codex-clipboard-6aa07da3-9508-42b3-b349-9c4153c33891.png"
+  ],
+  "jobs": [
+    {
+      "id": "a-maconnerie-decalee",
+      "label": "A · Maçonnerie décalée",
+      "prompt": "Design A: irregular masonry rhythm. Change the pattern into unequal stone lengths and staggered joints: upper course has four blocks of clearly different widths, lower course has three broader stones with different joint positions. Clean solid chunky stone; gently irregular faces, softened corners. The main visual difference is uneven block proportions and asymmetric joint spacing. No carvings, fissure overlay, purple corruption, damage patches or niche.",
+      "generatedPath": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-19114d80-7ae7-4fe5-aae3-0601186e98f3.png",
+      "file": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v1/source/a-maconnerie-decalee.png",
+      "inspection": {
+        "nativeSize": [
+          1370,
+          1148
+        ],
+        "transparentPixels": 1134156,
+        "previewCrop": [
+          43,
+          17,
+          1289,
+          1064
+        ],
+        "nativeAlphaPreserved": true
+      }
+    },
+    {
+      "id": "b-pierres-usees",
+      "label": "B · Pierres usées",
+      "prompt": "Design B: heavily time-worn rounded stones. Two courses of substantial slate masonry, with distinct softened corners, shallow scalloped/chipped edges and slightly bowed stone fronts. Preserve the straight structural connection at both ends and height. The wall has an old, hand-worked organic stone character, but remains convincing cut masonry, not a pile of pebbles. Strong rounded block silhouettes and broad worn bevels matter more than texture. No loose rubble, missing stones, decorative symbols, purple, niches or cracks painted on top.",
+      "generatedPath": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-53fde011-1b66-4f0c-b7d7-1e9b540d70c4.png",
+      "file": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v1/source/b-pierres-usees.png",
+      "inspection": {
+        "nativeSize": [
+          1370,
+          1148
+        ],
+        "transparentPixels": 941121,
+        "previewCrop": [
+          0,
+          0,
+          1338,
+          1126
+        ],
+        "nativeAlphaPreserved": true
+      }
+    },
+    {
+      "id": "c-blocs-en-relief",
+      "label": "C · Blocs en relief",
+      "prompt": "Design C: sturdy relief masonry. In the upper of the two courses, alternate ordinary blocks with one large smoothly chamfered raised stone face (bossage), set forward a small amount, forming a bold trapezoidal surface easy to read. Lower course remains continuous chunky staggered stones. This creates meaningful depth and broad light/shadow variations across the wall while retaining footprint/end connectors. No emblem or diamond glyph, no new pillar, no extra vertical course, no niche, roots, glow or damage. Slightly worn bevels.",
+      "generatedPath": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-7f854aad-0f89-4875-ac05-1fe0f58e9943.png",
+      "file": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v1/source/c-blocs-en-relief.png",
+      "inspection": {
+        "nativeSize": [
+          1370,
+          1148
+        ],
+        "transparentPixels": 944294,
+        "previewCrop": [
+          0,
+          7,
+          1356,
+          1141
+        ],
+        "nativeAlphaPreserved": true
+      }
+    },
+    {
+      "id": "d-mur-repare",
+      "label": "D · Mur réparé",
+      "prompt": "Design D: an old repaired wall. Two complete horizontal courses stay at the same heights. Most blocks are ordinary blue slate; one area has a visibly replaced block and two narrow vertically subdivided filler stones beside it, fitting within those same two courses. One broad replacement stone is subtly warmer grey-blue and set a little recessed, with worn uneven joints. Variation must read from block shape, arrangement and moderate tonal change. No orange/brown materials, no extra horizontal row, no scattered rubble, no text, symbols or purple.",
+      "generatedPath": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-6522ab38-dab6-437c-b765-1d2ae241a877.png",
+      "file": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v1/source/d-mur-repare.png",
+      "inspection": {
+        "nativeSize": [
+          1370,
+          1148
+        ],
+        "transparentPixels": 1021197,
+        "previewCrop": [
+          0,
+          19,
+          1352,
+          1129
+        ],
+        "nativeAlphaPreserved": true
+      }
+    },
+    {
+      "id": "e-niche-aveugle",
+      "label": "E · Niche aveugle",
+      "prompt": "Design E: rare architectural accent, a small blind pointed-arch recess in the front wall. Keep overall low wall height and continuous top surface, two masonry courses at both sides. The little recessed gothic pocket occupies the central front face, has a solid darker slate back only slightly behind the wall plane, with broad beveled rim carved from existing stones. Clearly a shallow sealed niche, not a doorway, not an open window, not a passage. No additional roof/arch above the wall silhouette. Keep it modest and readable, no statue, flame, iron bars or glowing emblem.",
+      "generatedPath": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-80a7b5b0-da2b-4bce-afbd-458ce54424a6.png",
+      "file": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v1/source/e-niche-aveugle.png",
+      "inspection": {
+        "nativeSize": [
+          1370,
+          1148
+        ],
+        "transparentPixels": 1043143,
+        "previewCrop": [
+          0,
+          9,
+          1352,
+          1139
+        ],
+        "nativeAlphaPreserved": true
+      }
+    },
+    {
+      "id": "f-pierre-corrompue",
+      "label": "F · Pierre corrompue",
+      "prompt": "Design F: rare corruption accent. Same two-course slate masonry, a short asymmetrical black-purple root emerges through one joint and curls across a small area of the stones, with one small amethyst shard nestled at the joint. Restrained violet illumination; most of the wall remains bare. Let one stone corner be subtly displaced internally while terminal connectors stay intact. Readable organic hooked shape, not a uniform diagonal lightning crack, not a repeated Y symbol, not a mass of fine roots, not a giant crystal. No torches or ground rubble.",
+      "generatedPath": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-069f8450-08b8-4d16-a039-bf219d6d9db2.png",
+      "file": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-wall-variation-review/v1/source/f-pierre-corrompue.png",
+      "inspection": {
+        "nativeSize": [
+          1370,
+          1148
+        ],
+        "transparentPixels": 1013865,
+        "previewCrop": [
+          0,
+          23,
+          1358,
+          1125
+        ],
+        "nativeAlphaPreserved": true
+      }
+    }
+  ]
+}

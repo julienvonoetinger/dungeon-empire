@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-25",
+  "status": "Four floor B arrangements integrated",
+  "integrity": {
+    "date": "2026-10-25",
+    "retainedRegions": 100,
+    "unchangedFloorSelectionFiles": 6,
+    "completeBoundaryPairs": 32,
+    "diagonalCornerPairs": 32,
+    "comparedOpaqueOverlapPixels": 8320,
+    "maxRGBDifference": 1,
+    "unchangedGeometricAlpha": true,
+    "seedRestorationIdentical": true,
+    "seed43Differs": true,
+    "nonFloorPlacementsUnchanged": true,
+    "captures": 9,
+    "negativePatchCounts": {
+      "floor-b1": 7,
+      "floor-b2": 11,
+      "floor-b3": 12,
+      "floor-b4": 6
+    },
+    "sixRoomCounts": {
+      "floor-b1": 60,
+      "floor-b2": 67,
+      "floor-b3": 63,
+      "floor-b4": 66
+    },
+    "atlas": {
+      "regions": 104,
+      "size": [
+        1024,
+        2048
+      ],
+      "pngBytes": 1463015,
+      "rgbaBytes": 8388608
+    }
+  },
+  "processes": {
+    "generation": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "focused": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "runtime": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "editor": {
+      "exit": 0,
+      "stderrBytes": 1520
+    },
+    "stage-import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-export": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exit": 0,
+      "stderrBytes": 0
+    }
+  },
+  "runtimeScenes": 23,
+  "runtimeCaptures": 68,
+  "editorScenes": 5,
+  "editorCaptures": 18,
+  "export": {
+    "stage": "artifacts/mobile-export-stage-2026-10-25T09-26-20-222Z",
+    "dependencies": 51,
+    "zipBytes": 1236542
+  },
+  "sha256": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "d5fa837d8cdd72ba0af2998564b583526dfa339179b5a82a27248dd48e2b7551",
+    "assets/dungeon/isometric-kit/catalog.json": "8695a7b624c3f51570217e3104d8d15fc3e5fc6661d13eadc76b69a7551e7cc1",
+    "assets/dungeon/isometric-kit/catalog.tres": "60e1728511ce9fdc7e6e1c767d89bc27df00d84da89d1c395baf2a52aa1e1738",
+    "tools/isometric_floor_variants.cjs": "28e873dac9a4468a7f2cb0bd25e620ec3b9d846ff9fabdb6a4fe78a4343192f0",
+    "tools/isometric_stone_paint.cjs": "d977340e2ee5c3c73a4b7f81b10b8e5e9703d32ddd725b99f3f14d4841dfd2cf",
+    "tools/export_isometric_painted_kit.cjs": "03c1d36939a7e96c8c22de4b2271ff7ee6e89a9f71e8f0e434056a9c471edca1",
+    "scripts/dungeon_floor_variants.gd": "3ca72de0bc8981df373d439209278aacd9b69d09eaa6710060548c8fad31ca7f",
+    "scripts/mobile_dungeon_renderer.gd": "6efd9be159dcfb8a4b8b31ea921c113d53fd8076f783ed0cbba81d29bd9acdf2",
+    "scripts/wireframe_cell_study.gd": "7892ee8652b1d2b92db26d0414f52cca999bfd872c69c1b6b63609364b42138a"
+  },
+  "review": {
+    "agent": "review_floor_b_integration",
+    "outcome": "No actionable findings",
+    "independentOpaqueOverlapComparisons": 8320,
+    "maxRGBDifference": 1,
+    "baselineRecoveredByArchivedHash": true
+  },
+  "artisticApproval": "B direction selected; adapted integrated appearance remains for user judgment",
+  "automatedTests": false,
+  "phoneProfile": false,
+  "commit": false,
+  "push": false
+}

@@ -1,0 +1,61 @@
+{
+  "retained": 41,
+  "removed": [
+    "heart-shadow-1",
+    "heart-shadow-5",
+    "heart-shadow-0",
+    "heart-shadow-2",
+    "heart-shadow-4",
+    "heart-shadow-6",
+    "heart-shadow-3",
+    "heart-shadow-7",
+    "heart-shadow"
+  ],
+  "changedPixels": [],
+  "changedMetadata": [],
+  "acceptedFiles": 73,
+  "changedAccepted": [],
+  "effects": [
+    {
+      "id": "heart-self-shadow",
+      "sourceCropUnchanged": true,
+      "atlasMatchesPacking": true,
+      "crop": [
+        73,
+        40,
+        404,
+        208
+      ],
+      "frame": [
+        -202,
+        -104,
+        404,
+        208
+      ]
+    },
+    {
+      "id": "heart-self-glow",
+      "sourceCropUnchanged": true,
+      "atlasMatchesPacking": true,
+      "crop": [
+        17,
+        14,
+        516,
+        260
+      ],
+      "frame": [
+        -258,
+        -130,
+        516,
+        260
+      ]
+    }
+  ],
+  "appearance": {
+    "changedChannels": 5266,
+    "maxDifference": 2,
+    "averageChannelDifference": 0.004905133928571429
+  },
+  "atlas": 602507,
+  "spriteCount": 43
+}

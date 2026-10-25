@@ -1,5 +1,694 @@
 # Repository instructions
 
+## Four approved floor damage appearances integrated — 2026-10-25
+
+- User says "ok ajoutes les": accept all four floor proposals A/B/C/D. New
+  isometric-floor-damage-review/v1/selection.json freezes9 files. Original art,
+  earlier floor/wall selections and concept snapshots stay unchanged.
+- isometric_floor_damage.cjs samples selected painted stone faces onto existing
+  B rectangles offline, matching host colour. D extends the same source UV onto
+  an interior joint to preserve its root/crystal. This is an appearance adaptation,
+  not a pixel copy of the concepts or new ImageGen artwork.
+- Four cropped patches have matching B backing. Changed pixels stay >=.10 cell
+  from outer edges. Overlay alpha fades inside .06-.085, never over translucent
+  host pixels;2px unchanged crop border supports filtering. This fixes an initial
+  doubled-alpha defect. D stone mask .025-.060, joint .004-.022 are recorded.
+- dungeon_floor_damage chooses once per rebuild by coordinates/seed, independent
+  of Dictionary order.8-neighbour candidate exclusion, rare corruption, skip
+  specials and actual heart XY support. Draw immediately after matching B host,
+  before shadows/solids.20 layouts opt in; defaults/review plans remain disabled.
+  Inspector floor_damage_seed=17 and floor_corruption are available.
+- Evidence: floor-damage-review/v1/integration/.104 retained regions preserve
+  rawRGBA/non-region metadata;9 accepted hashes match. Actual base+patch alpha
+  identical, maxRGBdifference1/255;107424 boundary pixels unchanged.11 focused
+  captures: seed restoration identical, negative coords and host/exclusion checks.
+  SixRoom has38/256 decorated cells (A13/B16/C4/D5); MobileReference has2.
+- Atlas108/1024x2048/1504113 PNG bytes/8 MiB RGBA, +41098 PNG bytes,+0 RGBA.
+  Resource ZIP1271254 bytes,52 dependencies/23 scenes. Import/runtime68 captures,
+  stage import/export/startup exit0,empty stderr. Editor19/five exit0,1520 native
+  window/resource stderr bytes. Final independent focused review closes alpha
+  and missing D joint-root findings. Metadata-only refresh retains atlas/catalogue
+  hashes. No automated tests,phone profile,commit or push. Preserve editor state.
+
+## Floor B cracks and corruption proposed — 2026-10-25
+
+- User requests several floor variants with corruption or cracks. New appearance
+  proposals in isometric-floor-damage-review/v1/: A short separate fissures,
+  B local branched fracture, C restrained violet vein, D roots in mortar joints.
+  This authorizes new concepts; do not restore the retired old damage overlays.
+- Four built-in ImageGen native-alpha sources reference selected B, current floor
+  palette and F2 wall corruption. Preserve originals; exact prompts/paths in
+  generation.json. No appearance selection or production adoption yet.
+- prepare_isometric_floor_damage_review.cjs only crops alpha-zero margins and
+  scales uniformly for boards. Both large and192px previews inspected; cracks
+  subtle, violet more perceptible. Small previews are indicative, not Godot captures.
+- Exact B masks/geometry, shared edge joints, palette calibration and sparse
+  distribution remain integration work. Do not tile the concept PNGs directly.
+  Four original hashes,9 active baseline hashes and19 selection hashes verified.
+  Active atlas104/1463015 bytes/8 MiB unchanged. No automated tests, Godot
+  import/export, device profile, commit or push.
+
+## Four compatible floor B arrangements integrated — 2026-10-25
+
+- User said "ok go" after selecting B. tools/isometric_floor_variants.cjs
+  rebuilds four B size/assembly layouts in the common planar2:1 geometry, with
+  the unchanged calm material/rounded finish. It is a layout adaptation, not a
+  pixel copy of the concept. Selection/source art and base migration stay frozen.
+- floor-b1..b4 share complete crossing stones, UVs and finish seeds at all four
+  borders. Geometry coverage/no overlap and all32 directed edge pairs checked.
+  Full original ink and temporary6px colour guard avoid Lanczos alpha/fringe
+  contamination; crop to unchanged270x138 frame and apply original2px geometric
+  alpha after resizing. Historical Stone.paint default2px remains unchanged.
+- dungeon_floor_variants.gd selects once on rebuild by logical coordinate/seed.
+  Disjoint pairs avoid identical horizontal neighbours; upper hash bits avoid
+  FNV low-bit parity. Negative coordinates work. Twenty layouts explicitly enable
+  floor_variants; floor_variant_seed=17. Default/review plans stay disabled.
+  No camera/layout/wall/prop changes; missing regions fall back to original floor.
+- Evidence: isometric-floor-variation-review/v1/integration/. All100 retained
+  atlas regions preserve rawRGBA/non-region metadata; six B selection hashes
+  match.32 edge and32 diagonal pairs,8320 opaque shared pixels,maxRGBdelta1.
+  Nine focused captures: seed17 restoration identical,seed43 differs,non-floor
+  placements identical; SixRoomPreview counts60/67/63/66. Images inspected.
+- Atlas104,1024x2048,1463015 PNG bytes/8 MiB RGBA: +42482 PNG bytes,+0 RGBA.
+  Import/runtime68 captures/23 scenes,stage import/export/package startup exit0,
+  empty stderr. Editor18/five exit0,1520 bytes native window/resource diagnostics.
+  Resource ZIP1236542 bytes,51 dependencies. Independent focused review found no
+  actionable issue. The initially missing stone helper baseline was recovered
+  by exact SHA256 against an archived recipe; provenance saved beside it.
+- No automated tests,APK/device profile,commit or push. Preserve user editor
+  state and approval history; adapted appearance remains for user judgment.
+
+## Floor concept B selected — 2026-10-25
+
+- User says "oui je pense que B c'est mieux". Retain B formats varies: mixed
+  slab sizes with staggered joints, calm smooth surfaces and the common dark
+  slate-blue palette. This selects B alone, not the suggested A+B mixture.
+- isometric-floor-variation-review/v1/selection.json freezes six source/review
+  files. Preserve B's original native-alpha PNG and all proposal history.
+  Generation/validation records remain pre-selection snapshots, superseded by
+  selection.json for approval scope. A/C are excluded from the next step.
+- Compatible wireframes, edge joints, filtering coverage, multiple arrangements
+  and production integration remain future work. Do not tile the concept PNG
+  directly or regenerate the selected source. Seven active files and all four
+  compared source images unchanged. No rendering, tests, import/export,
+  production changes, commit or push in this selection step.
+
+## Floor shape variations proposed — 2026-10-25
+
+- User requests floor variants like the walls. Current concept review:
+  isometric-floor-variation-review/v1/. Three built-in ImageGen native-alpha
+  sources: A subtle asymmetric outlines, B mixed slab sizes/assembly, C rounder
+  corners with small mortar pockets. Calm surfaces, existing slate-blue palette
+  target, no old damage overlays. These appearances are not selected/integrated.
+- Exact prompts and original paths: generation.json. Preserve original source
+  pixels/alpha. prepare_isometric_floor_variants_review.cjs builds comparisons
+  using transparent-margin crops and uniform scaling; 192px-wide previews are
+  approximate one-cell scale, not Godot captures or validated modular tiles.
+- Final projection, common edge joints, complete stone painting/filter guards,
+  palette matching and varied distribution still require prepared wireframes
+  and integration. Do not tile these concept PNGs directly into production.
+- Comparison inspected. Seven active file hashes and thirteen accepted wall
+  references unchanged. No runtime/atlas/layout changes, automated tests,
+  Godot import/export, commit or push.
+
+## All old surface damage retired, including chipped stone — 2026-10-25
+
+- User's screenshot identifies the retained chip-worn floor mark as unwanted.
+  This supersedes keeping chips below: remove all three chip-worn projections
+  from the active atlas, generated PNGs and automatic placement. No old damage
+  overlays remain. Historical artwork/approvals are retained as archives only.
+- Exporter no longer adopts isometric_approved_decorations. Renderer no longer
+  places damage overlays; surface_details/seed properties and scene flags are
+  removed. dungeon_surface_details retains only stable keys/ranks needed by the
+  unchanged A/C/F selector. Preserve its quiet base slots and F wall ornaments.
+- Evidence: isometric-decoration-review/remove-chip-2026-10-25/. Exactly three
+  regions/copies removed (4526 prepared PNG bytes); all100 retained regions have
+  identical rawRGBA/non-region metadata. Atlas1024x2048,1420533 PNG bytes/8 MiB.
+- Import,68 runtime captures/23 scenes,stage import/export and isolated startup
+  exit0,empty stderr. Package1176007 bytes,50 dependencies. MobileReference
+  visually inspected. No new editor capture, automated tests, phone profile,
+  commit or push. Original review snapshots remain historical.
+
+## Old crack decorations removed — 2026-10-25
+
+- User no longer wants the old cracks now that A/C/F walls are integrated.
+  Remove corner-split, vertical-hairline, edge-fork and crack-corrupt from active
+  adoption/placement: 12 atlas regions. Keep chip-worn on all three surfaces,
+  at the exact prior positions; removed crack slots remain empty.
+- isometric_approved_decorations.cjs now adopts only the three approved chip
+  PNGs; no active dependency on the edge-crack selection. Keep historical review
+  sources/approvals intact. Removed 18 generated copies from painted-v1/sprites,
+  including six already-retired short/branched cracks; deleted-files.json records
+  13375 bytes. Do not reintroduce old cracks when regenerating the active kit.
+- Evidence: isometric-decoration-review/removal-2026-10-25/. All103 retained
+  atlas regions preserve rawRGBA and metadata except packed coordinates. New
+  A/C/F art, shapes, palette and distribution are unchanged. No retired motif
+  references remain in runtime scripts or active catalogues.
+- Current atlas103 regions,1024x2048,1424918 PNG bytes /8 MiB RGBA. Removing small
+  cracks does not cross the atlas-size threshold. Package1182540 bytes,
+  50 dependencies/23 scenes. Import/runtime68 captures, staged import/export and
+  isolated startup: all exit0, empty stderr. MobileReference visually inspected.
+  No new editor capture, automated tests, phone profile, commit or push.
+
+## A/C/F wall variants integrated; common palette corrected — 2026-10-25
+
+- User approved implementation of all nine concepts, then rejected their uneven
+  stone colours. Current review: isometric-wall-variation-review/v2-subvariants/
+  integration/. selection.json freezes 13 shown/source files; preserve originals.
+- isometric_wall_variants.cjs maps accepted source planes onto common supports;
+  C adds shallow rigid relief. Nine motifs x two axes x four pillar-end profiles
+  = 72 regions. Longitudinal endpoints, height and old base geometry stay fixed.
+  F is an optional surface skin INCLUDING masonry backing, not an isolated root
+  cutout. Draw after its bare host; disabling it retains that same host.
+- Rejected first palette retained in integration/palette-v2/before/. Current
+  isometric_wall_palette.cjs grades stone luminance/hue per plane to the existing
+  base wall, preserving violet accents. Source C3 median59.7 vs base39.6 explained
+  the bright patchwork. No source PNG regeneration or alpha-based colour removal.
+- dungeon_wall_variants.gd uses coordinate/seed selection, neighbour exclusion
+  for accents, quiet torch/special supports and no identical neighbouring A motif.
+  Old crack masks stay on compatible quiet walls, not new joints/reliefs.
+  Twenty layout scenes opt in; inspector wall_variant_seed=17, wall_corruption=true.
+  Review/default plans remain disabled. Camera, layouts, props and floor unchanged.
+- Atlas115 regions, 1024x2048, 1430732 PNG bytes / 8 MiB RGBA (was4 MiB). New wall
+  regions use .75 raster density with unchanged logical frames. All43 original
+  regions retain rawRGBA/non-region metadata; all13 selection hashes match.
+- Import/focused24/runtime68 captures across23 scenes: exit0, empty stderr.
+  Editor19/five: exit0, 1520 stderr bytes of native window/resource diagnostics.
+  Seed17 restoration byte-identical; nine motifs observed in SixRoomPreview.
+  Resource ZIP1192581 bytes,50 dependencies/23 scenes; clean stage import/export/
+  isolated startup exit0, empty stderr. Focused independent read-only review
+  found no actionable issue. No automated tests, phone profile, commit or push.
+  The adapted appearance and corrected palette remain subject to user judgment.
+
+## A/C/F wall subvariants proposed — 2026-10-25
+
+- User requests several variations within the selected A/C/F families. New
+  review: docs/reference/isometric-wall-variation-review/v2-subvariants/.
+  Nine concepts: original A1/C1/F1 plus six new built-in ImageGen sources.
+- A2/A3 vary long-stone positions and staggered joints; C2 has two staggered
+  relief blocks, C3 a dominant lower relief plus a smaller upper relief; F2 has
+  spreading roots, F3 a compact crystal cluster. C3 did not fully flatten its
+  upper course as prompted; retain the actual appearance description.
+- Native-alpha originals and exact prompts retained. comparison.png and
+  mobile-scale.png were inspected; 114px thumbnails are concept previews, not
+  Godot captures. New appearances are not selected or production-integrated.
+- Wireframe end-profile validation and both orientations remain future work.
+  Roots/crystals are shown on hosts for review; separate overlays are not yet
+  prepared. Keep two primary courses, shared isometry and pillar junctions.
+- All eleven parent-selection reference hashes and ten active-file hashes
+  unchanged. No production changes, gameplay tests, commit or push.
+
+## Wall concepts A, C and F selected — 2026-10-25
+
+- User says "je ne veux garder que A, C et F". Retain only A uneven masonry,
+  C raised chamfered blocks and F roots/crystal corruption for subsequent work.
+  B, D and E are excluded from the next step; preserve their originals as history.
+- isometric-wall-variation-review/v1/selection.json records this selection and
+  hashes the source art, prompts, references and shown comparison. This supersedes
+  the six-concept mix suggested below; no placement frequencies are approved.
+- These are selected concept directions. Shared end profiles and both visible
+  orientations still require wireframe construction/validation before adoption.
+  Preserve two wall courses, isometric projection and pillar junctions; keep
+  corruption details separable from the bare structure.
+- Selection record only: no new art, production changes, tests, commit or push.
+
+## Wall-form variety: six visual proposals — 2026-10-25
+
+- User requests more interesting wall shapes/arrangements to reduce repetition,
+  referring to the original mockup and affordable mobile sprites. New review:
+  docs/reference/isometric-wall-variation-review/v1/, not integrated or selected.
+- Six built-in ImageGen concepts: A uneven masonry/joints; B worn rounded stone;
+  C raised chamfered block; D repaired masonry; E shallow blind niche; F roots
+  and amethyst corruption. Exact prompts, native-alpha originals and references
+  retained. comparison.png includes enlarged and114px-wide thumbnails (not Godot).
+- Suggested mix: A/B frequent, C/D occasional, E/F rare. Root/crystal details
+  should remain separate optional overlays. These suggestions are not approval.
+- Geometry/end profiles and both orientations need wireframe construction and
+  validation after selection. Concept paintings are not proven seamless sprites.
+  Preserve two primary courses, current isometric frame and pillar junctions.
+- Outputs and board inspected; ten active source/asset hashes unchanged. No kit,
+  scene, camera or renderer changes; no tests, commit or push.
+
+## Accepted self-lit heart integrated — 2026-10-25
+
+- User approved heart-self-light-v1 with "oui c'est bien". selection.json freezes
+  eleven reviewed files. Active heart now uses its own accepted contact/cast and
+  violet additive floor-light images, independent of torch placement/toggle.
+  This supersedes v6 torch-selected heart shadows; keep prior approvals/history.
+- isometric_approved_heart_light.cjs adopts the two PNGs, trimming only alpha-zero
+  padding with compensating offsets, no repainting or scaling. Nine old shadow
+  regions are replaced by two: 43 regions, 1024x1024, 602507 PNG bytes / 4 MiB RGBA.
+  All 41 retained RGBA regions and non-effect metadata remain unchanged. Accepted
+  crops match exactly; all 73 current selection file hashes remain unchanged.
+- ground_effect_mask.gd computes a 4x4 receiving-cell bitmask on rebuild. Two
+  unshaded mix/add canvas shaders clip prepared pixels using local VERTEX and
+  inverse ground projection, excluding void/special cells. Export guard proves
+  filtered nontransparent footprint fits +/-1.5 world units. No runtime geometry
+  or image generation, extra PointLight2D, CPU per-frame selection or atlas growth.
+- Common renderer draws effects after floors, before solids. Standalone heart is
+  unmasked. Torch-independent parameters/rebuild stability, negative fractional
+  edges, neighbouring special cells and multiple hearts pass focused rendered
+  checks; zero pixels outside receiving floor beyond raster-edge tolerance .015.
+- Evidence: heart-self-light-v1/integration/. Import/runtime68/23, focused checks,
+  staged import/export and OpenGL startup from isolated ZIP: exit0, empty stderr.
+  Shader-aware package has 49 dependencies, ZIP521921 bytes. Editor19/five: exit0,
+  stderr1518 bytes of native window/RID/resource/shader shutdown diagnostics.
+  Initial capture helper's typed-array assignment error was corrected; final
+  focused run has zero failures. Do not call editor stderr clean.
+- Integrated approved view differs by at most2/255 per channel from atlas/filter
+  roundoff, mean .0049/255; appearance/geometry retained. Focused independent
+  read-only code and visual review found no concrete issue. No APK/device profile,
+  commit or push. Effects light the floor only; movable-prop lighting/occlusion
+  and general torch light leakage remain outside this change.
+
+## Heart as its own light source — isolated appearance study, 2026-10-25
+
+- User finds contact-only DungeonPreview visually odd without torches and asks
+  to treat the heart itself as the light source, independent of torches. This
+  opens a new self-light direction; earlier v6 remains active pending review.
+- Latest proposal: painted-v1/heart-self-light-v1/. Offline point projection from
+  frozen orb centre [0,0,.56], nine area samples, actual rigid support blockers.
+  Separate contact/cast PNG and occluded violet additive floor-light PNG. The
+  luminous vortex is excluded from blockers. Heart/geometry/production unchanged.
+- Actual Godot comparison on DungeonPreview, .75 zoom: current contact vs self-lit.
+  Capture exit0, empty stderr, inspected. First stronger/harder attempt retained
+  in first-pass; current version has softer relief shadows and subdued violet.
+- This is a throwaway appearance study, not new selected art or integration.
+  Floor clipping at void/specials, atlas packing and general placement remain
+  integration work. No runtime geometry, PointLight2D, tests, commit or push.
+
+## All accepted edge-crack variants integrated — 2026-10-25
+
+- User replied "ok" to v2 edge/corner shapes, then explicitly requested all
+  variants. v2-edge-cracks/selection.json freezes 27 review files. Retain all
+  three new motifs (corner-split, vertical-hairline, edge-fork), each on floor
+  and both wall faces, plus the prior chip-worn and violet crack-corrupt.
+  The six old ordinary-crack sprites are replaced; rejected drafts stay history.
+- approved-decorations loader verifies both selections and adopts prepared PNGs
+  unchanged. Five motifs / 15 decorations; total 50 regions, 1024x1024,
+  580419 PNG bytes / 4 MiB RGBA. The 41 retained regions have identical raw RGBA
+  and non-region metadata; nine additions match selected review atlas pixels.
+  Prepared copies are byte-identical; all 62 v1/v2 selected hashes unchanged.
+- Existing placement hosts/density/exclusions remain. Motif weights are
+  corner25, vertical25, lateral20, chip25, corrupt5. Same seed/rebuild behavior,
+  no camera/layout/renderer change or per-frame work; all five motifs observed.
+- Evidence: v2-edge-cracks/integration/. Import, 68 runtime/23 scenes, five focused
+  captures, stage import/export and isolated startup: exit0, empty stderr.
+  Seed17 restored image is identical. Resource ZIP486487 bytes, 46 dependencies.
+- Editor21/five: exit0. First pass had an external-layout resolution diagnostic
+  in historical capture_approved_heart.gd; second full pass without source changes
+  did not reproduce it. Native window/RID/resource shutdown diagnostics remain
+  (1399 stderr bytes); do not call editor stderr clean. Captures inspected.
+- No automated tests, APK/device profile, commit or push. Prior review status
+  files stay as historical snapshots; selection supersedes pending appearance.
+- Focused independent read-only review verified preservation, catalogue/provenance,
+  motif availability and captures; no concrete finding remained.
+
+## Crack appearance correction: varied edge/corner shapes — 2026-10-25
+
+- User finds v1 cracks coarse, then rejects the new thinner drafts because all
+  repeat a left-to-right diagonal. References show short fine fissures starting
+  at brick edges/corners. This reopens crack appearance; do not infer approval
+  from the earlier v1 selection or technical integration review.
+- Latest proposal: isometric-decoration-review/v2-edge-cracks/. Three distinct
+  ImageGen motifs: corner-split, vertical-hairline, edge-fork. Nine projections
+  on floor and both wall faces, anchored at real central stone boundaries.
+  Native alpha sampled with uniform source-plane scale, physical stone/mortar
+  masks; only exactly transparent padding trimmed. Existing geometry unchanged.
+- Current vertical source is vertical-hairline-readable.png; the very thin
+  replacement disappeared at game scale. Diagonal drafts and both original
+  vertical candidates, prompts, hashes and user references are preserved.
+  Chip-worn stays unchanged; no revised violet corruption style in this study.
+- Reproduce with prepare_isometric_edge_cracks_review.cjs,
+  capture_isometric_edge_cracks_review.gd and prepare_isometric_edge_cracks_boards.cjs.
+  comparison.png shows actual .75 size and labelled x3 crops. Two Godot captures
+  use identical hosts/camera/lighting, exit0, empty stderr; visually inspected.
+- This is an isolated proposal, not a production correction or new approval.
+  Active atlas/scenes/scripts and all v1 selection files remain unchanged.
+  No automated tests, production export/import, commit or push. Await feedback
+  on the varied shapes and how they join the stone edges before integration.
+
+## Approved isometric damage decorations integrated — 2026-10-24
+
+- User accepted the next step: integrate the four selected decorations with a
+  sparse, varied distribution. isometric_approved_decorations.cjs verifies the
+  selection hashes and adopts the twelve prepared PNGs without repainting.
+- Active catalogue: 47 regions, 1024x1024, 583101 PNG bytes / 4 MiB RGBA. Prior
+  35 regions preserve raw RGBA and all non-region metadata. New twelve regions
+  exactly match the approved review atlas pixels; prepared PNGs are copied
+  byte-for-byte. All 35 accepted selection file hashes remain unchanged.
+- dungeon_surface_details.gd chooses existing floor/wall hosts from logical
+  coordinates and seed, with candidate neighbour exclusion and rare corruption.
+  Skip special cells, walls beside specials, torch mounts and floor cells under
+  the heart support. Draw immediately after each host, before later solids and
+  (for floors) ground shadows. No screen rotation, painting or per-frame work.
+- Twenty production layout scenes explicitly enable surface_details. Inspector
+  surface_detail_seed defaults to 17. Script/default plans stay disabled so old
+  approved reviews do not gain extra decoration. Isolated props and the special
+  entrance board remain bare. No layout, camera or existing sprite changes.
+- Evidence: isometric-decoration-review/v1/integration/. Four focused captures:
+  off=0, seed17=8, seed43=4 details; restoring17 yields identical image hash.
+  Runtime 68 captures/23 scenes and import: exit0, empty stderr. Editor21/five:
+  exit0, existing native progress/window/resource diagnostics (1399 stderr bytes).
+- Resource ZIP489337 bytes, 46 dependencies/23 scenes; staged import, export and
+  isolated startup exit0, empty stderr. Independent focused read-only code and
+  visual review found no concrete issue. No automated tests, phone profile,
+  commit or push. User judgment of the automatic distribution remains open;
+  accepted art and earlier approval snapshots are preserved.
+
+## Isometric damage decal appearance accepted — 2026-10-24
+
+- User replied "Ok" to the four decoration proposals and linked Godot comparison.
+  Retain short crack v2, branched crack, chipped patch v2 and restrained violet
+  corruption, each projected onto floor and both visible wall planes.
+- isometric-decoration-review/v1/selection.json freezes the selected artwork,
+  12 prepared sprites, 256x256 atlas, boards, captures and preparation sources.
+  Preserve these images and their scale; do not regenerate them for integration.
+- This supersedes the pending appearance status below. Existing preparation and
+  validation JSON remain pre-approval snapshots. Production integration is still
+  pending; this step records selection only, with no new rendering, automated
+  tests, production changes, commit or push.
+
+## Isometric damage decal proposals — 2026-10-24
+
+- User asks for cracks and other variants after accepting torch-oriented shadow.
+  Continue bare base surfaces with separate optional details; no repeated neon
+  Y mark or full copies of the architecture for every decoration.
+- Current appearance review: docs/reference/isometric-decoration-review/v1/.
+  Built-in ImageGen native-alpha sources: short crack, branched crack, chipped
+  patch and restrained violet corruption. Originals/prompts retained; short and
+  chip v2 refinements are current. No user selection of these appearances yet.
+- prepare_isometric_decoration_review.cjs projects each source onto floor and
+  both visible vertical wall planes, using the frozen isometric geometry. One
+  uniform scale in each source plane; alpha128 only measures subject size.
+  Preserve native alpha except geometric visibility and wall mortar masks.
+- 12 sprites, 256x256 review atlas, 12874 PNG bytes / 256 KiB RGBA. Godot loads
+  prepared pixels and draws immediately after the host, respecting foreground
+  ordering and shared lights. No runtime image warp or new light/shadow source.
+- Decorations.tscn is an isolated review under ignored docs, executable by
+  explicit path. Space toggles overlays, fixed .75 zoom and pan. Sparse authored
+  placements demonstrate the style; no production placement API/randomization.
+- Six Godot captures exit 0, empty stderr; variants/scene-comparison/full scene
+  visually inspected. Independent focused review found no concrete issue.
+  Production kit/scenes unchanged, all 25 accepted v6 selection hashes match.
+  No automated tests, production export, device profile, commit or push.
+
+## Torch-oriented heart shadow v6 accepted — 2026-10-24
+
+- User replied "Ok" after the placement comparison and explanation of eight
+  directions, fixed length, contact-only fallback and unchanged 4 MiB atlas.
+  Retain this approach and the presented appearance. This supersedes v6's
+  pending feedback status below; production was already integrated.
+- painted-v1/heart-shadow-v6/selection.json freezes the reviewed boards, shown
+  captures, prepared effects, implementation and catalogue. Reviewed examples
+  show directions 2, 7 and 1, not individual approval of every possible layout.
+- This records the selection only: no new rendering, artwork, automated tests,
+  commit or push. Preserve the original heart and prior approval history.
+
+## Heart shadow follows authored torch placement — 2026-10-24
+
+- User accepted v5 visually, questioned its orientation, then approved choosing
+  the cast from nearby light. They explicitly note that torch positions cannot
+  be known in advance. Do not bake a particular scene's torch placement.
+- Current v6 prepares eight world-XY cast directions plus contact-only fallback
+  from unchanged rigid geometry. Renderer chooses the nearest positive-energy
+  active torch within its actual screen light radius and a floor path without
+  void/specials, using new emitter_world metadata. Placement-property setters
+  refresh both editor and runtime. Stable distance buckets break ties by key.
+- Direction selection is discrete; cast length stays artistic/fixed. No screen
+  rotation, runtime rasterization, multi-light simulation, or automatic tracking
+  of directly moved generated PointLight2D nodes. Other props do not occlude the
+  light path; general PointLight2D wall leakage remains outside this change.
+- One prepared effect per heart. If disabled, out of range, absent, or the cast
+  does not fit receiving floor, use contact only if that fits. Standalone heart
+  uses contact only. Original actual footprint and emissive-vortex exclusion stay.
+- All non-shadow prepared PNGs unchanged by hash. Eight new shadow regions and
+  changed heart-shadow fallback; 35 regions, 1024x1024 atlas, 570722 PNG bytes,
+  still 4 MiB RGBA. Diffuse effects use half-density atlas rasters; logical frame
+  and support bounds stay unchanged. prepare_mobile_reference.pack defaults to
+  full density for other entries; renderer uses declared logical size.
+- Evidence: painted-v1/heart-shadow-v6/ with v5 snapshots, comparison, placement
+  comparison, seven visual captures and source-selection observations. Reproduce
+  with capture_isometric_shadow_orientation.gd and
+  prepare_isometric_shadow_orientation_review.cjs. Current scene files unchanged.
+- Import, 68 runtime captures / 23 scenes and seven placement captures: exit 0,
+  empty stderr. Editor 21 / five: exit 0, native progress/resource diagnostics.
+  Isolated resource export/startup results and current ZIP size: validation.json.
+  Focused independent review found one minor near-tie inconsistency; corrected
+  with one quantized-distance comparison, then repeated import/captures/export.
+  No automated tests, APK/device profile, commit or push. Appearance remains for
+  user feedback; prior v5 positive feedback is not approval of all v6 variants.
+
+## Radial shadow rejected; directional v5 integrated — 2026-10-24
+
+- User says an all-directions shadow is not credible. Reject v4 radial scaling;
+  preserve heart artwork/material, geometry and position.
+- isometric_ground_shadow now projects height onto z=0 with light [-2.1,-1.2,1],
+  assuming ambient light from screen upper-left. Cast extends lower-right. All
+  area-light samples share that direction; ground points stay fixed. Contact
+  uses the real footprint and .7px softness. No enlargement around every side.
+- Only heart-shadow.png differs: 251x170, 7496 PNG bytes. Atlas stays 27 regions,
+  1024x1024, 550518 PNG bytes / 4 MiB. Existing receiving-floor/standalone rules,
+  static-light limitation and exclusion of emissive vortex remain.
+- Evidence: painted-v1/heart-shadow-v5/ with v4 snapshots. Reproduce comparison
+  with prepare_isometric_large_shadow_review.cjs --directional after captures.
+  New direction shown for feedback, not automatically artistically approved.
+- Import/runtime: 68 captures / 23 scenes, exit 0, empty stderr. Editor: 21 / five,
+  exit 0 with existing native progress/resource diagnostics. Isolated resource
+  ZIP 453767 bytes; stage import/export/startup exit 0, empty stderr.
+  No automated tests, device profiling, commit or push.
+
+## Heart shadow size clarified; enlarged v4 integrated — 2026-10-24
+
+- User says the problem is simply that the shadow is too small. This supersedes
+  the v3 material hypothesis: preserve the heart artwork/material and geometry.
+- isometric_ground_shadow.cjs now scales the full ground footprint by 1.5 about
+  [0,0,0]. Keep light direction and opacities; scale edge softness proportionally.
+  This is artistic ground-shadow enlargement, not a new physical support volume.
+- Only heart-shadow.png changes among prepared PNGs. Frame 349x202, 8604 PNG
+  bytes. Receiving bounds scale too; existing floor-fit and standalone rules stay.
+  27 regions, 1024x1024, 533290 PNG bytes / 4 MiB RGBA. Heart unchanged by hash.
+- Evidence: painted-v1/heart-shadow-v4/, with old generator/catalogue/hashes and
+  before captures. prepare_isometric_large_shadow_review.cjs builds the comparison.
+- Import/runtime: 68 captures / 23 scenes, exit 0, empty stderr. Editor: 21 / five,
+  exit 0 with native progress/window/resource diagnostics. Resource ZIP 454207
+  bytes; stage import/export/isolated startup exit 0, empty stderr. No automated
+  tests, device profile, commit or push. New size shown for visual feedback.
+
+## Shadow v2 rejected; heart material/contact diagnostic — 2026-10-24
+
+- User rejects both v2 proposals and cannot easily describe the desired result.
+  No shadow appearance is selected. Stop cycling shadow strength/blur alone.
+- Offline diagnostic: painted-v1/heart-contact-diagnostic-v3/, reproduced by
+  tools/prepare_isometric_heart_diagnostic.cjs. Same floor, anchor, rigid geometry
+  and production shadow in three panels: existing heart; neutral material with
+  identical approved vortex sampling/depth; neutral volume without vortex.
+- Working visual hypothesis: dark, high-contrast lower pedestal material may
+  contribute to floating. This is an interpretation, not proven root cause or
+  artistic approval. Neutral volume is diagnostic, not replacement heart design.
+  Any future material revision remains a proposal; preserve sculpted source art.
+- Production atlas/catalogue/renderers/generators and frozen geometry unchanged.
+  No new ImageGen source, automated tests, Godot import/export, commit or push.
+
+## Heart shadow v1 rejected; v2 contact proposals — 2026-10-24
+
+- User says the shadow is still wrong. Do not treat the previous technical review
+  as visual approval. Clarification (floating, shape or direction) is pending.
+- Current production contact blur is .7 source px, only .525 at zoom .75; most
+  contact lies under the opaque support. An offline comparison shows stronger
+  diffuse contact, then the same contact with a longer cast shadow.
+- Evidence: painted-v1/heart-shadow-v2/, reproduce with
+  tools/prepare_isometric_shadow_contact_review.cjs. The configurable helper
+  is isolated in isometric_ground_shadow_study.cjs; production helper unchanged.
+  Comparison uses identical floor/heart PNGs at .75 and no scene lighting.
+- These are unselected appearance proposals, not integrated corrections. Atlas,
+  catalogue, renderer, original art and geometry unchanged. No automated tests,
+  production export/import, commit or push. Await visual preference before adoption.
+
+## Ground shadow added for the heart — 2026-10-24
+
+- User accepts perspective and requests a projected shadow to ground the support.
+  tools/isometric_ground_shadow.cjs prepares a separate floor-only PNG from the
+  frozen rigid heart faces, with a short soft cast and denser contact. Exclude
+  the emissive vortex; no source artwork or geometry changes.
+- heart-shadow is 233x134 / 4625 PNG bytes. New atlas: 27 regions, 1024x1024,
+  497846 PNG bytes / 4 MiB RGBA. Prior prepared PNGs remain byte-identical.
+- ground_shadow/ground_effect metadata selects the prepared effect. Renderer
+  draws it after all floors, before all solids, with light_mask=0. Entire receiving
+  bounds must fit floor outside specials in dungeon layouts; otherwise omit.
+  Standalone DungeonHeart has no layout and also displays the shadow on its
+  preview background. Static upper-left light,
+  no dynamic torch response or projection onto walls.
+- Evidence: painted-v1/heart-shadow-v1/, including before snapshots and comparison.
+  Reproduce comparison with prepare_isometric_shadow_review.cjs after captures.
+  Import/runtime: 68 captures / 23 scenes, exit 0, empty stderr. Editor: 21 / five,
+  exit 0 with existing native diagnostics. Resource ZIP 439528 bytes; stage import,
+  export and isolated startup exit 0, empty stderr. No automated tests, APK/device
+  profile, commit or push. Focused independent review found no remaining issue
+  after documenting the standalone exception. Retain prior correction snapshots.
+
+## Isometric floor seams and heart contact corrected — 2026-10-24
+
+- User reported flat bands/seams across paving and a black band under the heart.
+  Evidence: isometric-review/painted-v1/floor-seams-v2/, frozen before snapshots
+  and comparison.png. Reproduce comparison with prepare_isometric_floor_contact_review.cjs.
+- Floor finish must use complete periodic stone edges, not the clipped visible
+  guide (which suppressed 18 crossing edges). Visible guide coordinates stay.
+  Two source pixels of periodic colour coverage outside the diamond prevent
+  filtered alpha seams. Include neighbouring rows with unchanged seeds/UVs.
+  Floor PNG frame is 270x138; logical bounds remain [0,0,0]–[1,1,0].
+- Heart side fascia now samples source rows 242–252 above the old painted shadow,
+  instead of rows 250–260. The previous shadow was stretched and made opaque on
+  the side face. Ground remains z=0; geometry, vortex and source art unchanged.
+- Only floor.png and heart.png differ among prepared sprites. Frozen geometry
+  hash unchanged. Active atlas: 26 sprites, 1024x1024, 508995 PNG bytes / 4 MiB.
+- 68 runtime captures / 23 scenes and import: exit 0, empty stderr. 21 editor
+  captures / five scenes: exit 0; native progress/window/resource diagnostics
+  remain. Resource ZIP 436713 bytes, 45 dependencies / 23 scenes; staged import,
+  export and isolated startup exit 0, empty stderr. No APK/device profile.
+- Independent focused code/visual review found no remaining issue. No automated
+  tests, commit or push. Preserve original artwork approvals and editor state.
+
+## Isometric painted migration implemented — 2026-10-24
+
+- User requested applying/migrating textures after the wireframe phase. Active
+  assets/dungeon/isometric-kit now contains 26 painted sprites, one 1024x1024
+  atlas: 497604 PNG bytes / 4 MiB RGBA. All 23 scenes use this common catalogue.
+  Shared light-falloff remains 128x128 / 5151 PNG bytes / 64 KiB RGBA.
+- Reproduce with tools/export_isometric_painted_kit.cjs. It checks the immutable
+  migration-v1/geometry.json SHA256 (316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0),
+  preserves 2:1 projection, logical 1x1, dimensions, two wall courses, .75 fixed
+  zoom/free pan and layouts including SixRoomPreview's two-cell corridors.
+- New evidence only in docs/reference/isometric-review/painted-v1/: sprites,
+  per-item transparent magenta guides/overlays, recipe, captures and logs.
+  Geometry and wireframe-v1/migration-v1 review snapshots remain unchanged.
+  No ImageGen regeneration: prior approved materials/art remain immutable.
+- Stone UVs follow XYZ planes, with quiet mobile materials and rounded B finish.
+  Floor crossing stones are painted whole before cropping. Pillar base stays bare;
+  optional pillar-top-carved maps its existing source within the original rim.
+- Door v8 geometry and approved v2 face artwork are retained on both faces.
+  Bake the complete nested assembly before splitting at wall height. Use final
+  pixels with a 2px opaque interior colour overlap for linear filtering at .75;
+  disjoint alpha masks alone cause a hairline after filtering. Do not enlarge
+  outer alpha. Door canvases have 3px extra padding per side; support bounds stay.
+- Heart is an APPEARANCE ADAPTATION: ritual-v3 cap/field/border details mapped
+  onto frozen schematic rigid geometry, hidden back field mirrored from visible
+  front, approved vortex spatially masked as a camera-facing layer. It is not a
+  new approved artwork nor the identical old PNG. Preserve original approvals.
+- Torches reuse approved metal and rounded flame-v3, one uniform screen scale,
+  constant-x+y billboard with physical cup occlusion. Existing local lights return.
+  No new wall orientations, dynamic geometry or runtime image generation.
+- Import and runtime capture: 68 images / 23 scenes, exit 0, empty stderr.
+  Editor: 21 images / five scenes, exit 0; native window/progress/RID/resource
+  shutdown diagnostics remain. Do not call editor stderr clean.
+- Resource export: 45 dependencies / 23 scenes, ZIP 432264 bytes. Fresh staged
+  import/export/startup exit 0, empty stderr; not an APK or device profile.
+  Final review closed the filtered door join and provenance omissions, with no
+  remaining code finding. Artistic approval and light leakage were not inferred.
+- Default capture/board/export inventory now targets painted-v1. Historical
+  wireframe tools remain available (--wireframe for board/export, --output-root
+  for captures). No automated tests, commit or push; preserve user editor state.
+
+## Isometric wireframe migration implemented — 2026-10-24
+
+- User requested migration and explicitly selected wireframes first, then textures.
+  Active catalogue is assets/dungeon/isometric-kit/: 25 prepared sprites in one
+  1024x1024 atlas, 99844 PNG bytes / 4 MiB RGBA. Prior painted kit/sources retained.
+- tools/export_isometric_kit.cjs reproduces the current kit. Geometry uses the
+  approved selection camera, logical 1x1 cells, two wall courses and existing
+  door/stair/torch volumes. All 23 active scenes use the common renderer.
+  Fixed .75 zoom, free pan, layouts and SixRoomPreview two-cell corridors remain.
+- Doors preserve v8 geometry. Bake mutual visibility of both arches, recessed
+  smooth wall and leaf together; split at wall height into lower (`leaf`) and
+  upper (`arch`) prepared sprites without a drawn seam. Independent interlocking
+  ring sprites cannot be correctly ordered using only their bounding boxes.
+- Heart is still schematic, not new approved art. Torches are rigid mounts/cups
+  only, without flame/light; pillars are bare. Adapt approved painted appearance
+  later, after reviewing the complete wireframe. Do not regenerate approved art.
+- Projection metadata on mobile_kit_definition drives grid_to_local/local_to_grid,
+  positions and support depth. Historical catalogue defaults remain oblique.
+  Godot creates no geometry or image pixels. Per-item transparent magenta guides,
+  geometry, recipe and captures: docs/reference/isometric-review/migration-v1/.
+- Runtime capture: 68 images / 23 scenes, import and capture exit 0, empty stderr.
+  Editor: 21 images / five scenes, exit 0, but native window/progress/resource
+  shutdown diagnostics remain; do not describe editor stderr as clean.
+- Export graph: 45 dependencies / 23 scenes; resource ZIP 138791 bytes. Staged
+  import, export and package startup exit 0, empty stderr. No APK/device profile,
+  automated tests, commit or push. Preserve user editor/cache state.
+- Old export_mobile_kit and painted review tools refer to historical appearance.
+  New captures/export inventories go to migration-v1, never frozen approvals.
+- Independent read-only review found one stale authored camera in SingleCellRoom;
+  corrected to projected centre (0,64), zoom .75, then captured in editor/runtime.
+  No Critical/Important code finding or deferred minor remains in this review.
+
+## Isometric projection approved — 2026-10-24
+
+- User replied that the isometric view fits better, removes the perspective
+  conflict and keeps the wireframe logic. The proposed 2:1 projection and
+  common geometric frame are APPROVED as the direction for subsequent work.
+  This supersedes the old requirement to preserve oblique wall projection.
+- docs/reference/isometric-review/wireframe-v1/selection.json records the exact
+  reviewed geometry/boards and this approval scope. Preserve these references.
+  geometry.json retains its pre-approval snapshot status; selection supersedes it.
+- Continue with logical 1x1 cells, common projection for floor/architecture and
+  rigid prop supports, offline wireframes/masks, then prepared sprites. The
+  schematic heart is not a newly approved artwork/design. Existing approved
+  artwork sources remain references for appearance when adapting the view.
+- Approval records the direction. Full-kit reprojection, new painted exports
+  and Godot migration remain to be implemented; do not describe them as done.
+  No new rendering, automated tests, commit or push in this approval step.
+
+## Initial isometric feasibility study — 2026-10-24
+
+- User proposes 2D isometry, citing Jeeyoung Lee's ArtStation 4bevKn project,
+  and asks whether our wireframes can use its diamond-grid approach. This opens
+  a new whole-scene projection STUDY after the floor-only attempts; it does not
+  approve migration of the active kit or undo prior artwork approvals.
+- Latest: docs/reference/isometric-review/wireframe-v1/. Reproduce with
+  prepare_isometric_wireframe_review.cjs. Proposed game isometry is 2:1
+  (strictly dimetric): screen=256*((x-y)/2,(x+y)/4-sqrt(3/8)*z).
+  This ratio is our proposal, not a measured claim about the linked artwork.
+- Same 13 logical cells, 1x1 square coordinates/neighbours, two wall courses,
+  physical wall/pillar dimensions. Each source diamond is 256x128, displayed
+  192x96 at .75 zoom. Pink marks logical cells; small paving is decorative.
+- Room-grid and logical-grid boards inspected after export. Heart remains a
+  schematic support, not new approved art. This review has no production scene,
+  atlas, input, draw-order or painting changes. Door/stair/torch reprojection,
+  prop art and foreground-wall visibility remain later migration work.
+
+## Floor-only correction; wall camera change rejected — 2026-10-24
+
+- User explicitly corrected the scope: only the floor was to change. The v1
+  35-degree camera changed the walls and is REJECTED. Preserve the original
+  wall/pillar projection, dimensions, placement and room footprint.
+- Latest study: ground-perspective-review/wireframe-v2-floor-only/. Reproduce
+  with prepare_floor_only_wireframe_review.cjs. Only the short paving joints
+  are inclined (dx/dy=.2); horizontal rows and stone widths remain unchanged.
+  This is a stylized paving-pattern proposal, not a new physical ground camera.
+- Both panels use the original (x-.18z,y-.9z) projection and the same schematic
+  heart. Export guards require exactly identical solid faces and non-floor
+  source/visible edges. No approved art, production scene or atlas was changed.
+  Retain v1 as rejected history; do not treat its camera as awaiting adoption.
+
+## Rejected global ground perspective wireframe proposal — 2026-10-24
+
+- User now questions the floor/heart perspective and explicitly requests a new
+  wireframe with a perspective floor. This supersedes the historical flat-floor
+  restriction for this study; it does not approve a new production camera.
+- Review: docs/reference/ground-perspective-review/wireframe-v1/. Reproduce with
+  prepare_ground_perspective_review.cjs. Proposed orthographic elevation is 35°:
+  screen=(x, sin(35°)*y-cos(35°)*z). The floor, walls and schematic heart support
+  share this projection; logical cells remain 1x1 (192x110.13 displayed pixels).
+- Same 13-cell MobileReference occupancy, physical wall/pillar dimensions and
+  two facade courses. Heart is a schematic stepped .8125-square support with
+  four corner stones and a circular socket; it is not the approved painted art.
+  The vortex is a camera-facing outline. Ray/triangle visibility removes hidden
+  edges; room-transparent contains only visible strokes with native SVG alpha.
+- Room, side-by-side comparison and heart detail are offline review drawings,
+  not Godot captures. Camera/art approval and production migration remain pending.
+  Retain all approved painted sources and active kit/scenes. No runtime image
+  warping, new painting, automated tests, commit or push in this proposal.
+
 ## Approved torches integrated — 2026-10-24
 
 - User said "continuons" after appearance approval. Both approved complete PNGs

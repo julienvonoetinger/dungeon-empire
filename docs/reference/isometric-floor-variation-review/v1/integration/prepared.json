@@ -1,0 +1,1939 @@
+{
+  "adaptation": "B slab-size/layout direction rebuilt in exact isometric wireframe with the unchanged calm base material. Not a pixel copy of concept PNG.",
+  "geometryChecks": {
+    "arrangements": 4,
+    "fullAreaPerCell": 1,
+    "compatibleDirectedPairs": 32,
+    "boundaryStrip": 0.06
+  },
+  "items": [
+    {
+      "id": "floor-b1",
+      "frame": [
+        -135,
+        -5,
+        270,
+        138
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorVariant": {
+        "family": "b",
+        "arrangement": 1,
+        "edgeProfile": "shared-complete-stones-v1"
+      },
+      "report": {
+        "id": "floor",
+        "canvas": [
+          1080,
+          552
+        ],
+        "anchor": [
+          576,
+          36
+        ],
+        "cellPitch": 1024,
+        "guideSha256": "5b4efe51b2ae14614e24c537bbbbd4c11e35139fc0ddb2b74be064b6b34f8746",
+        "segmentCount": 52,
+        "outputFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ],
+        "repeatInkY": 0,
+        "constructionJointLayerMatchesGuide": true,
+        "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+        "stoneFinish": "soft-stone-b-v1",
+        "floorFinish": {
+          "id": "smooth-floor-rounded-v1",
+          "status": "user_approved",
+          "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+          "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+          "radius": 10.5,
+          "inset": 0.55,
+          "unevenness": 0.12,
+          "bevel": 2.2,
+          "floorFactor": 0.63,
+          "narrowFaceReference": 14,
+          "mortar": "#0c1220",
+          "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+        },
+        "omittedFinishEdges": 0,
+        "alphaPixelsDifferentFromModel": 0,
+        "unpaintedInteriorPixels": 0,
+        "extraInteriorPixels": 0,
+        "faces": [
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                -19.84
+              ],
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ],
+              [
+                -39.68,
+                0.6400000000000006
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                129.28,
+                44.16
+              ],
+              [
+                171.51999999999998,
+                65.28
+              ],
+              [
+                130.56,
+                85.75999999999999
+              ],
+              [
+                88.32,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                87.04,
+                23.04
+              ],
+              [
+                46.08,
+                43.52
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.04,
+                23.04
+              ],
+              [
+                129.28,
+                44.16
+              ],
+              [
+                88.32,
+                64.64
+              ],
+              [
+                46.08,
+                43.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -126.72,
+                44.16
+              ],
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ],
+              [
+                -167.67999999999998,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                43.519999999999996,
+                129.28
+              ],
+              [
+                2.5600000000000023,
+                149.76
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.96,
+                0
+              ],
+              [
+                0,
+                20.48
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ],
+              [
+                -84.48,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -74.24,
+                26.88
+              ],
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ],
+              [
+                -117.75999999999999,
+                48.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                127.99999999999999,
+                84.47999999999999
+              ],
+              [
+                84.47999999999999,
+                106.24
+              ],
+              [
+                43.519999999999996,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                99.84,
+                113.92
+              ],
+              [
+                56.32000000000001,
+                135.68
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                0,
+                20.48
+              ],
+              [
+                47.36,
+                44.160000000000004
+              ],
+              [
+                3.8400000000000034,
+                65.92
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                47.36,
+                44.160000000000004
+              ],
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                43.519999999999996,
+                85.75999999999999
+              ],
+              [
+                3.8400000000000034,
+                65.92
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                15.36,
+                71.68
+              ],
+              [
+                -28.159999999999997,
+                93.44
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                15.36,
+                71.68
+              ],
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ],
+              [
+                -28.159999999999997,
+                93.44
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          }
+        ],
+        "materials": [
+          "floors-calm"
+        ],
+        "finishSegmentCount": 52,
+        "finishGuide": "complete periodic stone boundaries before the logical-cell crop",
+        "filterGuardSourcePixels": 2,
+        "logicalBounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            0
+          ]
+        },
+        "alphaPolicy": "Unchanged base floor geometric alpha applied after wider colour downsampling.",
+        "temporaryColourGuard": 6
+      },
+      "bytes": 23245
+    },
+    {
+      "id": "floor-b2",
+      "frame": [
+        -135,
+        -5,
+        270,
+        138
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorVariant": {
+        "family": "b",
+        "arrangement": 2,
+        "edgeProfile": "shared-complete-stones-v1"
+      },
+      "report": {
+        "id": "floor",
+        "canvas": [
+          1080,
+          552
+        ],
+        "anchor": [
+          576,
+          36
+        ],
+        "cellPitch": 1024,
+        "guideSha256": "f39be0d8611175df4c8a62d219fd1120274b82c06778410c0c7a309956319445",
+        "segmentCount": 52,
+        "outputFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ],
+        "repeatInkY": 0,
+        "constructionJointLayerMatchesGuide": true,
+        "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+        "stoneFinish": "soft-stone-b-v1",
+        "floorFinish": {
+          "id": "smooth-floor-rounded-v1",
+          "status": "user_approved",
+          "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+          "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+          "radius": 10.5,
+          "inset": 0.55,
+          "unevenness": 0.12,
+          "bevel": 2.2,
+          "floorFactor": 0.63,
+          "narrowFaceReference": 14,
+          "mortar": "#0c1220",
+          "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+        },
+        "omittedFinishEdges": 0,
+        "alphaPixelsDifferentFromModel": 0,
+        "unpaintedInteriorPixels": 0,
+        "extraInteriorPixels": 0,
+        "faces": [
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                -19.84
+              ],
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ],
+              [
+                -39.68,
+                0.6400000000000006
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                129.28,
+                44.16
+              ],
+              [
+                171.51999999999998,
+                65.28
+              ],
+              [
+                130.56,
+                85.75999999999999
+              ],
+              [
+                88.32,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                87.04,
+                23.04
+              ],
+              [
+                46.08,
+                43.52
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.04,
+                23.04
+              ],
+              [
+                129.28,
+                44.16
+              ],
+              [
+                88.32,
+                64.64
+              ],
+              [
+                46.08,
+                43.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -126.72,
+                44.16
+              ],
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ],
+              [
+                -167.67999999999998,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                43.519999999999996,
+                129.28
+              ],
+              [
+                2.5600000000000023,
+                149.76
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.96,
+                0
+              ],
+              [
+                0,
+                20.48
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ],
+              [
+                -84.48,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -74.24,
+                26.88
+              ],
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ],
+              [
+                -117.75999999999999,
+                48.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                127.99999999999999,
+                84.47999999999999
+              ],
+              [
+                84.47999999999999,
+                106.24
+              ],
+              [
+                43.519999999999996,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                99.84,
+                113.92
+              ],
+              [
+                56.32000000000001,
+                135.68
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                0,
+                20.48
+              ],
+              [
+                64,
+                52.480000000000004
+              ],
+              [
+                20.480000000000004,
+                74.24000000000001
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                64,
+                52.480000000000004
+              ],
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                43.519999999999996,
+                85.75999999999999
+              ],
+              [
+                20.480000000000004,
+                74.24000000000001
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                -3.8400000000000034,
+                62.08
+              ],
+              [
+                -47.36,
+                83.84
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -3.8400000000000034,
+                62.08
+              ],
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ],
+              [
+                -47.36,
+                83.84
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          }
+        ],
+        "materials": [
+          "floors-calm"
+        ],
+        "finishSegmentCount": 52,
+        "finishGuide": "complete periodic stone boundaries before the logical-cell crop",
+        "filterGuardSourcePixels": 2,
+        "logicalBounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            0
+          ]
+        },
+        "alphaPolicy": "Unchanged base floor geometric alpha applied after wider colour downsampling.",
+        "temporaryColourGuard": 6
+      },
+      "bytes": 23986
+    },
+    {
+      "id": "floor-b3",
+      "frame": [
+        -135,
+        -5,
+        270,
+        138
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorVariant": {
+        "family": "b",
+        "arrangement": 3,
+        "edgeProfile": "shared-complete-stones-v1"
+      },
+      "report": {
+        "id": "floor",
+        "canvas": [
+          1080,
+          552
+        ],
+        "anchor": [
+          576,
+          36
+        ],
+        "cellPitch": 1024,
+        "guideSha256": "13ecf3e2f0ce3cf3ba85fb455c54865d433b9935e34f4805c232ea61a8b84b65",
+        "segmentCount": 58,
+        "outputFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ],
+        "repeatInkY": 0,
+        "constructionJointLayerMatchesGuide": true,
+        "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+        "stoneFinish": "soft-stone-b-v1",
+        "floorFinish": {
+          "id": "smooth-floor-rounded-v1",
+          "status": "user_approved",
+          "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+          "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+          "radius": 10.5,
+          "inset": 0.55,
+          "unevenness": 0.12,
+          "bevel": 2.2,
+          "floorFactor": 0.63,
+          "narrowFaceReference": 14,
+          "mortar": "#0c1220",
+          "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+        },
+        "omittedFinishEdges": 0,
+        "alphaPixelsDifferentFromModel": 0,
+        "unpaintedInteriorPixels": 0,
+        "extraInteriorPixels": 0,
+        "faces": [
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                -19.84
+              ],
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ],
+              [
+                -39.68,
+                0.6400000000000006
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                129.28,
+                44.16
+              ],
+              [
+                171.51999999999998,
+                65.28
+              ],
+              [
+                130.56,
+                85.75999999999999
+              ],
+              [
+                88.32,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                87.04,
+                23.04
+              ],
+              [
+                46.08,
+                43.52
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.04,
+                23.04
+              ],
+              [
+                129.28,
+                44.16
+              ],
+              [
+                88.32,
+                64.64
+              ],
+              [
+                46.08,
+                43.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -126.72,
+                44.16
+              ],
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ],
+              [
+                -167.67999999999998,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                43.519999999999996,
+                129.28
+              ],
+              [
+                2.5600000000000023,
+                149.76
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.96,
+                0
+              ],
+              [
+                0,
+                20.48
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ],
+              [
+                -84.48,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -74.24,
+                26.88
+              ],
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ],
+              [
+                -117.75999999999999,
+                48.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                127.99999999999999,
+                84.47999999999999
+              ],
+              [
+                84.47999999999999,
+                106.24
+              ],
+              [
+                43.519999999999996,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                99.84,
+                113.92
+              ],
+              [
+                56.32000000000001,
+                135.68
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                35.84,
+                38.4
+              ],
+              [
+                71.67999999999999,
+                56.32
+              ],
+              [
+                -15.36,
+                99.84
+              ],
+              [
+                -51.199999999999996,
+                81.92
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                0,
+                20.48
+              ],
+              [
+                35.84,
+                38.4
+              ],
+              [
+                -7.68,
+                60.16
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                71.67999999999999,
+                56.32
+              ],
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                43.519999999999996,
+                85.75999999999999
+              ],
+              [
+                28.159999999999997,
+                78.08
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                -7.68,
+                60.16
+              ],
+              [
+                -51.199999999999996,
+                81.92
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                28.159999999999997,
+                78.08
+              ],
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ],
+              [
+                -15.36,
+                99.84
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          }
+        ],
+        "materials": [
+          "floors-calm"
+        ],
+        "finishSegmentCount": 58,
+        "finishGuide": "complete periodic stone boundaries before the logical-cell crop",
+        "filterGuardSourcePixels": 2,
+        "logicalBounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            0
+          ]
+        },
+        "alphaPolicy": "Unchanged base floor geometric alpha applied after wider colour downsampling.",
+        "temporaryColourGuard": 6
+      },
+      "bytes": 24332
+    },
+    {
+      "id": "floor-b4",
+      "frame": [
+        -135,
+        -5,
+        270,
+        138
+      ],
+      "bounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          0
+        ]
+      },
+      "floorVariant": {
+        "family": "b",
+        "arrangement": 4,
+        "edgeProfile": "shared-complete-stones-v1"
+      },
+      "report": {
+        "id": "floor",
+        "canvas": [
+          1080,
+          552
+        ],
+        "anchor": [
+          576,
+          36
+        ],
+        "cellPitch": 1024,
+        "guideSha256": "a1dce5a31ec6af2567ca5b7f490fdacd792d63faa77855745411466c42bb9d0f",
+        "segmentCount": 66,
+        "outputFrame": [
+          -135,
+          -5,
+          270,
+          138
+        ],
+        "repeatInkY": 0,
+        "constructionJointLayerMatchesGuide": true,
+        "visibleStoneJoints": "Soft B inside unchanged construction; visible mortar need not follow straight guide strokes.",
+        "stoneFinish": "soft-stone-b-v1",
+        "floorFinish": {
+          "id": "smooth-floor-rounded-v1",
+          "status": "user_approved",
+          "approval": "2026-10-23: Oui, for rounded smooth floor integration in Godot.",
+          "reference": "docs/reference/material-variation-review/rounded-smooth-floor-detail.png",
+          "radius": 10.5,
+          "inset": 0.55,
+          "unevenness": 0.12,
+          "bevel": 2.2,
+          "floorFactor": 0.63,
+          "narrowFaceReference": 14,
+          "mortar": "#0c1220",
+          "scope": "Ground slabs only; walls and stair treads retain B. Whole crossing stones are rounded before cell framing."
+        },
+        "omittedFinishEdges": 0,
+        "alphaPixelsDifferentFromModel": 0,
+        "unpaintedInteriorPixels": 0,
+        "extraInteriorPixels": 0,
+        "faces": [
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                -19.84
+              ],
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ],
+              [
+                -39.68,
+                0.6400000000000006
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                129.28,
+                44.16
+              ],
+              [
+                171.51999999999998,
+                65.28
+              ],
+              [
+                130.56,
+                85.75999999999999
+              ],
+              [
+                88.32,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                43.519999999999996,
+                1.2799999999999994
+              ],
+              [
+                87.04,
+                23.04
+              ],
+              [
+                46.08,
+                43.52
+              ],
+              [
+                2.5599999999999987,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.04,
+                23.04
+              ],
+              [
+                129.28,
+                44.16
+              ],
+              [
+                88.32,
+                64.64
+              ],
+              [
+                46.08,
+                43.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -126.72,
+                44.16
+              ],
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ],
+              [
+                -167.67999999999998,
+                64.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                43.519999999999996,
+                129.28
+              ],
+              [
+                2.5600000000000023,
+                149.76
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -84.47999999999999,
+                65.28
+              ],
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ],
+              [
+                -125.44,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.959999999999994,
+                87.03999999999999
+              ],
+              [
+                1.2800000000000011,
+                108.16
+              ],
+              [
+                -39.67999999999999,
+                128.64
+              ],
+              [
+                -81.91999999999999,
+                107.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -40.96,
+                0
+              ],
+              [
+                0,
+                20.48
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ],
+              [
+                -84.48,
+                21.759999999999998
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -74.24,
+                26.88
+              ],
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ],
+              [
+                -117.75999999999999,
+                48.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                127.99999999999999,
+                84.47999999999999
+              ],
+              [
+                84.47999999999999,
+                106.24
+              ],
+              [
+                43.519999999999996,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                99.84,
+                113.92
+              ],
+              [
+                56.32000000000001,
+                135.68
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -12.799999999999997,
+                42.24
+              ],
+              [
+                58.879999999999995,
+                78.08
+              ],
+              [
+                28.159999999999997,
+                93.44
+              ],
+              [
+                -43.519999999999996,
+                57.6
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                0,
+                20.48
+              ],
+              [
+                15.360000000000003,
+                28.160000000000004
+              ],
+              [
+                -28.159999999999997,
+                49.92
+              ],
+              [
+                -43.519999999999996,
+                42.24
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                43.519999999999996,
+                85.75999999999999
+              ],
+              [
+                53.760000000000005,
+                90.88
+              ],
+              [
+                10.240000000000009,
+                112.64
+              ],
+              [
+                0,
+                107.52
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                15.360000000000003,
+                28.160000000000004
+              ],
+              [
+                52.47999999999999,
+                46.72
+              ],
+              [
+                24.319999999999993,
+                60.8
+              ],
+              [
+                -12.799999999999997,
+                42.24
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                52.47999999999999,
+                46.72
+              ],
+              [
+                87.03999999999999,
+                64
+              ],
+              [
+                58.879999999999995,
+                78.08
+              ],
+              [
+                24.319999999999993,
+                60.8
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -43.519999999999996,
+                57.6
+              ],
+              [
+                -15.36,
+                71.68
+              ],
+              [
+                -43.519999999999996,
+                85.75999999999999
+              ],
+              [
+                -71.67999999999999,
+                71.68
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          },
+          {
+            "points": [
+              [
+                -15.36,
+                71.68
+              ],
+              [
+                28.159999999999997,
+                93.44
+              ],
+              [
+                0,
+                107.52
+              ],
+              [
+                -43.519999999999996,
+                85.75999999999999
+              ]
+            ],
+            "kind": "floor",
+            "part": "floor",
+            "materialId": "floors-calm"
+          }
+        ],
+        "materials": [
+          "floors-calm"
+        ],
+        "finishSegmentCount": 66,
+        "finishGuide": "complete periodic stone boundaries before the logical-cell crop",
+        "filterGuardSourcePixels": 2,
+        "logicalBounds": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            1,
+            1,
+            0
+          ]
+        },
+        "alphaPolicy": "Unchanged base floor geometric alpha applied after wider colour downsampling.",
+        "temporaryColourGuard": 6
+      },
+      "bytes": 25414
+    }
+  ]
+}

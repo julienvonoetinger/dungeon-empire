@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-25",
+  "status": "Four approved floor damage appearances integrated",
+  "integrity": {
+    "date": "2026-10-25",
+    "retainedRegions": 104,
+    "selectedHashes": 9,
+    "patches": 4,
+    "changedPixels": 6565,
+    "unchangedBoundaryPixels": 107424,
+    "patchReconstructionAlphaExact": true,
+    "maxReconstructionRGBDifference": 1,
+    "matchingHosts": true,
+    "seedRestorationIdentical": true,
+    "dictionaryOrderStable": true,
+    "nonFloorUnchanged": true,
+    "heartAndSpecialExclusions": true,
+    "neighbourExclusion": true,
+    "captures": 11,
+    "patchCounts": {
+      "floor-b1": 13,
+      "floor-b1-damage-a": 3,
+      "floor-b2": 19,
+      "floor-b2-damage-b": 2,
+      "floor-b3": 19,
+      "floor-b3-damage-c": 1,
+      "floor-b4": 13,
+      "floor-b4-damage-d": 1
+    },
+    "sixRoomCounts": {
+      "floor-b1": 60,
+      "floor-b1-damage-a": 13,
+      "floor-b2": 67,
+      "floor-b2-damage-b": 16,
+      "floor-b3": 63,
+      "floor-b3-damage-c": 4,
+      "floor-b4": 66,
+      "floor-b4-damage-d": 5
+    },
+    "atlas": {
+      "regions": 108,
+      "size": [
+        1024,
+        2048
+      ],
+      "pngBytes": 1504113,
+      "rgbaBytes": 8388608
+    }
+  },
+  "unchangedPriorSelectionFiles": 19,
+  "enabledLayouts": 20,
+  "processes": {
+    "generation": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "focused": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "runtime": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "editor": {
+      "exit": 0,
+      "stderrBytes": 1520
+    },
+    "integrity": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-import": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "stage-export": {
+      "exit": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exit": 0,
+      "stderrBytes": 0
+    }
+  },
+  "runtimeScenes": 23,
+  "runtimeCaptures": 68,
+  "editorScenes": 5,
+  "editorCaptures": 19,
+  "export": {
+    "stage": "artifacts/mobile-export-stage-2026-10-25T10-12-11-980Z",
+    "dependencies": 52,
+    "zipBytes": 1271254
+  },
+  "sha256": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "58c4c0f190cf2a0bad44578fa4164292ff2f8e17bb040877159babd4050b3242",
+    "assets/dungeon/isometric-kit/catalog.json": "36cbfc5b893852619519ebbc5355f3258c46f2bffc6da85b7d90ca1eeb8a7aac",
+    "assets/dungeon/isometric-kit/catalog.tres": "e4d2c558d37816ed185a4e783c48ff84adc8ea07efe9f92b12405f9f30d510c3",
+    "tools/isometric_floor_damage.cjs": "dd4ec0854780247c3244d489955d5a31957060fdb526d33558852afc76093fbf",
+    "tools/export_isometric_painted_kit.cjs": "d813f73f07148f4e3c00308b273655f867d4bac029419a96097c15675d6a8084",
+    "scripts/dungeon_floor_damage.gd": "43ce201606c35df35a6a434fe527bcd695853cd6ef3035d07afa0e7be42ce7fb",
+    "scripts/mobile_dungeon_renderer.gd": "d014d8ea2d2b09fbaddf78c7ef17854ed86e30b22eb5c38afaf9f00c0230fd1c",
+    "scripts/wireframe_cell_study.gd": "4761a6cd5c577f13f94af8c5b5ec1a29d9b1f597d5ebd7e0c97a9b236f2fd517"
+  },
+  "review": {
+    "agent": "review_floor_damage",
+    "outcome": "Two concrete findings (silhouette alpha and D joint root) resolved; metadata mask report corrected; no remaining source/alpha defect."
+  },
+  "metadataRefresh": "Metadata refresh: atlas and catalogue byte-identical",
+  "automatedTests": false,
+  "phoneProfile": false,
+  "commit": false,
+  "push": false
+}

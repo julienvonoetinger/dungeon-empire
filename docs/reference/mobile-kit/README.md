@@ -1,5 +1,10 @@
 # Kit d’architecture mobile — 24 octobre 2026
 
+**Archive de l'apparence peinte précédente.** Les scènes actives utilisent
+désormais les [wireframes isométriques](../isometric-review/migration-v1/README.md).
+Les instructions et résultats ci-dessous décrivent l'intégration historique.
+Conserver cet atlas et ses sources pour adapter ensuite l'apparence approuvée.
+
 La demande « terminer l’optimisation avec le reste du kit » autorise la migration
 du prototype vers les 21 scènes d’architecture. Le cœur sculpté validé est
 désormais intégré au même atlas et aux aperçus concernés. Les deux torches

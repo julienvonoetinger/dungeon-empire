@@ -1,0 +1,111 @@
+{
+  "purpose": "Offline visual study at .75 scale. Current heart/floor unchanged; no scene lighting.",
+  "variants": [
+    {
+      "id": "current",
+      "label": "Actuelle",
+      "settings": null,
+      "frame": [
+        -110,
+        -57,
+        233,
+        134
+      ]
+    },
+    {
+      "id": "contact",
+      "label": "Contact diffus",
+      "settings": {
+        "castOpacity": 0.32,
+        "softness": 2.4,
+        "contactOpacity": 0.7,
+        "contactSoftness": 2.8,
+        "contactSpread": 1.5
+      },
+      "frame": [
+        -116,
+        -63,
+        245,
+        146
+      ],
+      "bounds": {
+        "min": [
+          -0.5023310459081941,
+          -0.5023310459081941,
+          0
+        ],
+        "max": [
+          0.7106810459081939,
+          0.634181045908194,
+          0
+        ]
+      },
+      "adaptation": {
+        "planeZ": 0,
+        "sourceGeometry": "heart",
+        "lightDirection": [
+          -0.7,
+          -0.4,
+          1
+        ],
+        "areaLightSamples": 9,
+        "castOpacity": 0.32,
+        "contactOpacity": 0.7,
+        "softEdgeSourcePixels": 2.4,
+        "contactSoftnessSourcePixels": 2.8,
+        "contactSpreadSourcePixels": 1.5,
+        "scope": "Static support shadow on the ground; emissive vortex excluded; no response to local torches"
+      }
+    },
+    {
+      "id": "cast",
+      "label": "Contact + ombre étendue",
+      "settings": {
+        "lightDirection": [
+          -1.1,
+          -0.7,
+          1
+        ],
+        "castOpacity": 0.4,
+        "softness": 3.2,
+        "contactOpacity": 0.7,
+        "contactSoftness": 2.8,
+        "contactSpread": 1.5
+      },
+      "frame": [
+        -117,
+        -65,
+        251,
+        162
+      ],
+      "bounds": {
+        "min": [
+          -0.5198003269824112,
+          -0.5198003269824112,
+          0
+        ],
+        "max": [
+          0.8301503269824111,
+          0.728150326982411,
+          0
+        ]
+      },
+      "adaptation": {
+        "planeZ": 0,
+        "sourceGeometry": "heart",
+        "lightDirection": [
+          -1.1,
+          -0.7,
+          1
+        ],
+        "areaLightSamples": 9,
+        "castOpacity": 0.4,
+        "contactOpacity": 0.7,
+        "softEdgeSourcePixels": 3.2,
+        "contactSoftnessSourcePixels": 2.8,
+        "contactSpreadSourcePixels": 1.5,
+        "scope": "Static support shadow on the ground; emissive vortex excluded; no response to local torches"
+      }
+    }
+  ]
+}

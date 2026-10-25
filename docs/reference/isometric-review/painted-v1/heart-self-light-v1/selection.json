@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-25",
+  "status": "accepted appearance",
+  "userReply": "oui c'est bien",
+  "scope": "Self-lit heart: subdued violet floor light and soft radial shadows from actual support around the vortex; independent of torch placement. Keep the accepted comparison appearance and original heart art.",
+  "preserve": "Adopt prepared pixels; do not regenerate, scale or repaint accepted effects. Alpha-zero padding may be trimmed with compensating frame offset.",
+  "supersedes": "Torch-selected heart shadow as active approach; retain historical v6 approval.",
+  "sha256": {
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/comparison.png": "4957139ba2b8e05cbd094a2c135628e68897be71d76b5de999d6103194916199",
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/current.png": "c2ab29757cf8c504e96d8a46711412f23fd8ff34e2a13e5e7716b9d5049680f7",
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/self-lit.png": "e09d639a189ed33e0c41b091e387172411d775ca7fcf9fec0d65bc1a018c4618",
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/shadow.png": "83b66f3e40aeba41df007020d768a4baca6817c86a5001832415c06350010c9a",
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/glow.png": "42343716a90bdcdbd20217947c3cc4065a8908f69bf24a384c5743047e39ae91",
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/prepared.json": "041860df0513d938e972156d32939f2a8ccebf6c491b8243a6f0c26e239e5a73",
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/README.md": "d8294d7d57808648d0e42f70adc25ef428187ecb01f9a9e3298895a8a155f0af",
+    "docs/reference/isometric-review/painted-v1/heart-self-light-v1/validation.json": "4cae372f6b9e0646e2f733af16ccd4e1bbd392c0e44eb433e9a7faed82fef80e",
+    "tools/prepare_heart_self_light_review.cjs": "4b94258e1ad19b6497746dc463babf7426e74aef19ede57a25fcaed4a64659c1",
+    "tools/capture_heart_self_light_review.gd": "dc96f23af5a101d2dcbe1f2909a512334717d7caad1b5a3b289d34935773dfc6",
+    "docs/reference/isometric-review/migration-v1/geometry.json": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0"
+  }
+}

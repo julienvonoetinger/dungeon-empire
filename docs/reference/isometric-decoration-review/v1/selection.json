@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-24",
+  "status": "accepted appearance",
+  "userReply": "Ok",
+  "scope": "Retain the four separate damage decorations shown in variants.png and the linked Godot comparison: short crack v2, branched crack, chipped patch v2 and restrained violet corruption; floor and both visible wall projections.",
+  "motifs": [
+    "crack-short",
+    "crack-branch",
+    "chip-worn",
+    "crack-corrupt"
+  ],
+  "spriteCount": 12,
+  "atlas": {
+    "file": "docs/reference/isometric-decoration-review/v1/atlas.png",
+    "size": [
+      256,
+      256
+    ],
+    "bytes": 12874,
+    "rgbaBytes": 262144
+  },
+  "preserve": "Keep the selected source artwork, native alpha, scale and prepared projections unchanged during future integration. Do not regenerate the accepted images.",
+  "limits": "Appearance selection of the presented review only; arbitrary placement, procedural distribution and device performance are not validated by this reply.",
+  "production": "Integration remains pending. This selection step changes no production assets, scenes or rendering.",
+  "provenance": "prepared.json, generation.json, refinement.json and validation.json remain unchanged pre-approval snapshots; this selection supersedes their pending appearance status.",
+  "sha256": {
+    "docs/reference/isometric-decoration-review/v1/variants.png": "3c80bab54d5af3f7716c1f6982440eecc575068ccb569c37a7966cda70fa2d1f",
+    "docs/reference/isometric-decoration-review/v1/scene-comparison.png": "c5b243abb2cf48008229ecc77da303f84f11363dbd94339d06b39c7bfec0a744",
+    "docs/reference/isometric-decoration-review/v1/captures/bare.png": "8d7a710464b7771c42c34747ae0777c2f235ccdfd2f233e9b2494e02658fc409",
+    "docs/reference/isometric-decoration-review/v1/captures/mixed.png": "617a39954720344a91b1a7e6930362cbcdea44c548d47eff0f422860cddd5b23",
+    "docs/reference/isometric-decoration-review/v1/atlas.png": "025777f02727997f436d1c711dd22ae665c5c5364873f726e68a926ccacd21f7",
+    "docs/reference/isometric-decoration-review/v1/prepared.json": "061f36523d00a4bb3e6ca2c82f2190e0e6156e2ca0dce0fadbc21e74d7ffe0ce",
+    "docs/reference/isometric-decoration-review/v1/generation.json": "2107eb5f618e50f3ccf51c2b6208c00bcf5214788156531147e282b4caec327a",
+    "docs/reference/isometric-decoration-review/v1/refinement.json": "15fb2abe1b677d2d878dda74827377df12ecdcd7394155aed8ee7689a8b42e96",
+    "docs/reference/isometric-decoration-review/v1/validation.json": "c291580ea710d6b8d8395d0be77f6f2404d221efa3679102faefa2db40bda110",
+    "docs/reference/isometric-decoration-review/v1/Decorations.tscn": "35f70f016c7ff56a38b401956a7d27496a56d31ed5495fab9f783cd972fbeeb5",
+    "docs/reference/isometric-review/migration-v1/geometry.json": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+    "tools/prepare_isometric_decoration_review.cjs": "10b56c61ed89586bc7bbc8b22123b50b83ffd67e14769498e0f52e5ed9149e3c",
+    "tools/isometric_decoration_review.gd": "0e0193a62f3d796975bb5ed010211bc17aa255e8118aead65b5514531253edeb",
+    "tools/capture_isometric_decoration_review.gd": "646bc28f5229ebfcef2b6e8f6cb4b5852936825f9a793f396e9ae3c17385f200",
+    "tools/prepare_isometric_decoration_boards.cjs": "fed3645762418ae2bdb20d8524a7acae7cf3690d1f14646f2702e5598b8f94c5",
+    "docs/reference/isometric-decoration-review/v1/source/crack-short-v2.png": "b6ba52af25ac4988e60ca2121971a9d2ca39d1d2e1f6d0115c9fe5b370828cb1",
+    "docs/reference/isometric-decoration-review/v1/source/crack-branch.png": "44b9543b80f4df54789789fbbedaad2c7c148103f592cb91db7a99a9528b73d4",
+    "docs/reference/isometric-decoration-review/v1/source/chip-worn-v2.png": "4f8ec40263e17e73ea7cde30fc9a58e5d63c1a952fa97b8fc985753ac85ed2b4",
+    "docs/reference/isometric-decoration-review/v1/source/crack-corrupt.png": "6e87807ea6689ab5065a41cd524524cbad3d51f25dc4cafd016b57c7d95020ac",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-short-floor.png": "eb003dd5f194af046b988f7bd724105323892efadc3c53b33bbc54c834706e8b",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-short-wall-h.png": "b8423f7be1c5dfa7e90b71e98a50a47f4f15603193cb5f80b8cad0e1e9838a07",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-short-wall-v.png": "5c618ed2c50f855727b414e0de66e9608cd486e09909c78abc58454521b27872",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-branch-floor.png": "22496bc45cdbc9a6efc845c88bd0695988cc176e9ff9ca5b215f8efd6363afc6",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-branch-wall-h.png": "803df1d41a4bbc12eb141775cc2665a39c84490554c988e44b2fdb1b71c063a4",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-branch-wall-v.png": "00cd75e0828f7aa34d6960b308552068438ff1fa119193a4e0c4913188686721",
+    "docs/reference/isometric-decoration-review/v1/sprites/chip-worn-floor.png": "a968c91bd51eea891729b35d8e215118e0215ed82c2b360f22787d435ffb1bc7",
+    "docs/reference/isometric-decoration-review/v1/sprites/chip-worn-wall-h.png": "a7404ff792959e23c1d093e28a80329a8b837004ad3ba02b460efa588bdedacc",
+    "docs/reference/isometric-decoration-review/v1/sprites/chip-worn-wall-v.png": "1619e038af25194d4bc8db14f17ffb5c56ab80596b2eb7900e0c5283fcf89d0f",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-corrupt-floor.png": "55e985d83eb8c056fa0d3ab0d3dfde5c060aa9e0b68e0be68c7271c5cbcc7e5b",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-corrupt-wall-h.png": "827ac897f701b7767fc1b3b9405320d6bf518388edd5c7d7f9239924534b1ca6",
+    "docs/reference/isometric-decoration-review/v1/sprites/crack-corrupt-wall-v.png": "740ed5a9a188c412c5bb85c3234be06c36a55b5d1c4ba564bfdb2df86a7a1aa3",
+    "docs/reference/isometric-decoration-review/v1/captures/crack-short.png": "7c3918d370486578e4b42a273c4bf4cf177e002ab339f3c533dc191cb2732f94",
+    "docs/reference/isometric-decoration-review/v1/captures/crack-branch.png": "a4db014409e54050a23ce32dad5b97c495b9d43ffdad0d5a789cb77fc476845d",
+    "docs/reference/isometric-decoration-review/v1/captures/chip-worn.png": "d009aa080d294ff7cde996eeea1853b327843b013d82dfad5a59ed897d3da82d",
+    "docs/reference/isometric-decoration-review/v1/captures/crack-corrupt.png": "97108450e2e99d0b6206f55dca1a5cf949bdafd5981226fde01b757b67d695a7"
+  }
+}

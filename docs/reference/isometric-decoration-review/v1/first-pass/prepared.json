@@ -1,0 +1,590 @@
+{
+  "status": "appearance review, not active production kit",
+  "projection": {
+    "x": [
+      0.5,
+      -0.5,
+      0
+    ],
+    "y": [
+      0.25,
+      0.25,
+      -0.6123724356957945
+    ],
+    "eye": [
+      0.6123724356957945,
+      0.6123724356957945,
+      0.5
+    ]
+  },
+  "sourcePixelsPerCell": 256,
+  "zoom": 0.75,
+  "atlas": {
+    "file": "docs/reference/isometric-decoration-review/v1/atlas.png",
+    "size": [
+      512,
+      256
+    ],
+    "bytes": 12282,
+    "rgbaBytes": 524288
+  },
+  "geometrySHA256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "sources": [
+    {
+      "id": "crack-short",
+      "file": "docs/reference/isometric-decoration-review/v1/source/crack-short.png",
+      "sha256": "91a9e19b03945cce4c896afa545d8dc1cf03d1c275911fe1eb99892b221bc0c7"
+    },
+    {
+      "id": "crack-branch",
+      "file": "docs/reference/isometric-decoration-review/v1/source/crack-branch.png",
+      "sha256": "44b9543b80f4df54789789fbbedaad2c7c148103f592cb91db7a99a9528b73d4"
+    },
+    {
+      "id": "chip-worn",
+      "file": "docs/reference/isometric-decoration-review/v1/source/chip-worn.png",
+      "sha256": "ea2784715ca6bfaa409720263f027e6d6212fdf6fc7702fc5dc93993499f4179"
+    },
+    {
+      "id": "crack-corrupt",
+      "file": "docs/reference/isometric-decoration-review/v1/source/crack-corrupt.png",
+      "sha256": "6e87807ea6689ab5065a41cd524524cbad3d51f25dc4cafd016b57c7d95020ac"
+    }
+  ],
+  "entries": [
+    {
+      "id": "crack-short-floor",
+      "motif": "crack-short",
+      "surface": "floor",
+      "label": "Fissure courte",
+      "frame": [
+        -38,
+        43,
+        68,
+        38
+      ],
+      "size": [
+        68,
+        38
+      ],
+      "offset": [
+        -38,
+        43
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-short-floor.png",
+      "bytes": 816,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-short.png",
+      "sourceSHA256": "91a9e19b03945cce4c896afa545d8dc1cf03d1c275911fe1eb99892b221bc0c7",
+      "sourceSolidBounds": [
+        77,
+        99,
+        1292,
+        1056
+      ],
+      "worldPerSourcePixel": 0.00021381578947368422,
+      "centre": [
+        0.47,
+        0.5,
+        0
+      ],
+      "rotationInGroundPlaneDegrees": 20,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        4,
+        4,
+        68,
+        38
+      ]
+    },
+    {
+      "id": "crack-short-wall-h",
+      "motif": "crack-short",
+      "surface": "wall-h",
+      "label": "Fissure courte",
+      "frame": [
+        34,
+        -16,
+        39,
+        57
+      ],
+      "size": [
+        39,
+        57
+      ],
+      "offset": [
+        34,
+        -16
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-short-wall-h.png",
+      "bytes": 924,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-short.png",
+      "sourceSHA256": "91a9e19b03945cce4c896afa545d8dc1cf03d1c275911fe1eb99892b221bc0c7",
+      "sourceSolidBounds": [
+        77,
+        99,
+        1292,
+        1056
+      ],
+      "worldPerSourcePixel": 0.00019325657894736842,
+      "centre": [
+        0.5,
+        0.08333333333333333,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        4,
+        88,
+        39,
+        57
+      ]
+    },
+    {
+      "id": "crack-short-wall-v",
+      "motif": "crack-short",
+      "surface": "wall-v",
+      "label": "Fissure courte",
+      "frame": [
+        -73,
+        -16,
+        39,
+        57
+      ],
+      "size": [
+        39,
+        57
+      ],
+      "offset": [
+        -73,
+        -16
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-short-wall-v.png",
+      "bytes": 799,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-short.png",
+      "sourceSHA256": "91a9e19b03945cce4c896afa545d8dc1cf03d1c275911fe1eb99892b221bc0c7",
+      "sourceSolidBounds": [
+        77,
+        99,
+        1292,
+        1056
+      ],
+      "worldPerSourcePixel": 0.00019325657894736842,
+      "centre": [
+        0.08333333333333333,
+        0.5,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        4,
+        172,
+        39,
+        57
+      ]
+    },
+    {
+      "id": "crack-branch-floor",
+      "motif": "crack-branch",
+      "surface": "floor",
+      "label": "Fracture ramifiée",
+      "frame": [
+        -38,
+        46,
+        68,
+        32
+      ],
+      "size": [
+        68,
+        32
+      ],
+      "offset": [
+        -38,
+        46
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-branch-floor.png",
+      "bytes": 1126,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-branch.png",
+      "sourceSHA256": "44b9543b80f4df54789789fbbedaad2c7c148103f592cb91db7a99a9528b73d4",
+      "sourceSolidBounds": [
+        103,
+        75,
+        1448,
+        959
+      ],
+      "worldPerSourcePixel": 0.00019316493313521546,
+      "centre": [
+        0.47,
+        0.5,
+        0
+      ],
+      "rotationInGroundPlaneDegrees": -20,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        132,
+        4,
+        68,
+        32
+      ]
+    },
+    {
+      "id": "crack-branch-wall-h",
+      "motif": "crack-branch",
+      "surface": "wall-h",
+      "label": "Fracture ramifiée",
+      "frame": [
+        34,
+        -13,
+        39,
+        51
+      ],
+      "size": [
+        39,
+        51
+      ],
+      "offset": [
+        34,
+        -13
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-branch-wall-h.png",
+      "bytes": 1111,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-branch.png",
+      "sourceSHA256": "44b9543b80f4df54789789fbbedaad2c7c148103f592cb91db7a99a9528b73d4",
+      "sourceSolidBounds": [
+        103,
+        75,
+        1448,
+        959
+      ],
+      "worldPerSourcePixel": 0.00017459138187221395,
+      "centre": [
+        0.5,
+        0.08333333333333333,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        132,
+        88,
+        39,
+        51
+      ]
+    },
+    {
+      "id": "crack-branch-wall-v",
+      "motif": "crack-branch",
+      "surface": "wall-v",
+      "label": "Fracture ramifiée",
+      "frame": [
+        -73,
+        -12,
+        39,
+        50
+      ],
+      "size": [
+        39,
+        50
+      ],
+      "offset": [
+        -73,
+        -12
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-branch-wall-v.png",
+      "bytes": 1032,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-branch.png",
+      "sourceSHA256": "44b9543b80f4df54789789fbbedaad2c7c148103f592cb91db7a99a9528b73d4",
+      "sourceSolidBounds": [
+        103,
+        75,
+        1448,
+        959
+      ],
+      "worldPerSourcePixel": 0.00017459138187221395,
+      "centre": [
+        0.08333333333333333,
+        0.5,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        132,
+        172,
+        39,
+        50
+      ]
+    },
+    {
+      "id": "chip-worn-floor",
+      "motif": "chip-worn",
+      "surface": "floor",
+      "label": "Pierre ébréchée",
+      "frame": [
+        -37,
+        41,
+        67,
+        42
+      ],
+      "size": [
+        67,
+        42
+      ],
+      "offset": [
+        -37,
+        41
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/chip-worn-floor.png",
+      "bytes": 1273,
+      "source": "docs/reference/isometric-decoration-review/v1/source/chip-worn.png",
+      "sourceSHA256": "ea2784715ca6bfaa409720263f027e6d6212fdf6fc7702fc5dc93993499f4179",
+      "sourceSolidBounds": [
+        200,
+        258,
+        1337,
+        782
+      ],
+      "worldPerSourcePixel": 0.00022847100175746925,
+      "centre": [
+        0.47,
+        0.5,
+        0
+      ],
+      "rotationInGroundPlaneDegrees": 25,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        260,
+        4,
+        67,
+        42
+      ]
+    },
+    {
+      "id": "chip-worn-wall-h",
+      "motif": "chip-worn",
+      "surface": "wall-h",
+      "label": "Pierre ébréchée",
+      "frame": [
+        31,
+        -17,
+        45,
+        59
+      ],
+      "size": [
+        45,
+        59
+      ],
+      "offset": [
+        31,
+        -17
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/chip-worn-wall-h.png",
+      "bytes": 1345,
+      "source": "docs/reference/isometric-decoration-review/v1/source/chip-worn.png",
+      "sourceSHA256": "ea2784715ca6bfaa409720263f027e6d6212fdf6fc7702fc5dc93993499f4179",
+      "sourceSolidBounds": [
+        200,
+        258,
+        1337,
+        782
+      ],
+      "worldPerSourcePixel": 0.00020650263620386643,
+      "centre": [
+        0.5,
+        0.08333333333333333,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        260,
+        88,
+        45,
+        59
+      ]
+    },
+    {
+      "id": "chip-worn-wall-v",
+      "motif": "chip-worn",
+      "surface": "wall-v",
+      "label": "Pierre ébréchée",
+      "frame": [
+        -76,
+        -17,
+        45,
+        59
+      ],
+      "size": [
+        45,
+        59
+      ],
+      "offset": [
+        -76,
+        -17
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/chip-worn-wall-v.png",
+      "bytes": 1308,
+      "source": "docs/reference/isometric-decoration-review/v1/source/chip-worn.png",
+      "sourceSHA256": "ea2784715ca6bfaa409720263f027e6d6212fdf6fc7702fc5dc93993499f4179",
+      "sourceSolidBounds": [
+        200,
+        258,
+        1337,
+        782
+      ],
+      "worldPerSourcePixel": 0.00020650263620386643,
+      "centre": [
+        0.08333333333333333,
+        0.5,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        260,
+        172,
+        45,
+        59
+      ]
+    },
+    {
+      "id": "crack-corrupt-floor",
+      "motif": "crack-corrupt",
+      "surface": "floor",
+      "label": "Corruption discrète",
+      "frame": [
+        -40,
+        44,
+        72,
+        37
+      ],
+      "size": [
+        72,
+        37
+      ],
+      "offset": [
+        -40,
+        44
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-corrupt-floor.png",
+      "bytes": 1110,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-corrupt.png",
+      "sourceSHA256": "6e87807ea6689ab5065a41cd524524cbad3d51f25dc4cafd016b57c7d95020ac",
+      "sourceSolidBounds": [
+        64,
+        78,
+        1298,
+        1078
+      ],
+      "worldPerSourcePixel": 0.0002105263157894737,
+      "centre": [
+        0.47,
+        0.5,
+        0
+      ],
+      "rotationInGroundPlaneDegrees": -14.999999999999998,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        388,
+        4,
+        72,
+        37
+      ]
+    },
+    {
+      "id": "crack-corrupt-wall-h",
+      "motif": "crack-corrupt",
+      "surface": "wall-h",
+      "label": "Corruption discrète",
+      "frame": [
+        34,
+        -15,
+        39,
+        56
+      ],
+      "size": [
+        39,
+        56
+      ],
+      "offset": [
+        34,
+        -15
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-corrupt-wall-h.png",
+      "bytes": 1120,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-corrupt.png",
+      "sourceSHA256": "6e87807ea6689ab5065a41cd524524cbad3d51f25dc4cafd016b57c7d95020ac",
+      "sourceSolidBounds": [
+        64,
+        78,
+        1298,
+        1078
+      ],
+      "worldPerSourcePixel": 0.0001902834008097166,
+      "centre": [
+        0.5,
+        0.08333333333333333,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        388,
+        88,
+        39,
+        56
+      ]
+    },
+    {
+      "id": "crack-corrupt-wall-v",
+      "motif": "crack-corrupt",
+      "surface": "wall-v",
+      "label": "Corruption discrète",
+      "frame": [
+        -72,
+        -15,
+        38,
+        56
+      ],
+      "size": [
+        38,
+        56
+      ],
+      "offset": [
+        -72,
+        -15
+      ],
+      "file": "docs/reference/isometric-decoration-review/v1/sprites/crack-corrupt-wall-v.png",
+      "bytes": 1087,
+      "source": "docs/reference/isometric-decoration-review/v1/source/crack-corrupt.png",
+      "sourceSHA256": "6e87807ea6689ab5065a41cd524524cbad3d51f25dc4cafd016b57c7d95020ac",
+      "sourceSolidBounds": [
+        64,
+        78,
+        1298,
+        1078
+      ],
+      "worldPerSourcePixel": 0.0001902834008097166,
+      "centre": [
+        0.08333333333333333,
+        0.5,
+        0.15666666666666665
+      ],
+      "rotationInGroundPlaneDegrees": 0,
+      "alpha": "Native alpha preserved; geometric surface visibility and mortar occlusion only",
+      "region": [
+        388,
+        172,
+        38,
+        56
+      ]
+    }
+  ],
+  "notes": [
+    "Four native-alpha ImageGen motifs reused on three exact planes.",
+    "Runtime places prepared regions, no perspective warp.",
+    "Mortar occlusion is baked, source pixels are neither recoloured nor threshold-extracted.",
+    "Sparse authored demonstration, not random gameplay placement or an art approval."
+  ]
+}

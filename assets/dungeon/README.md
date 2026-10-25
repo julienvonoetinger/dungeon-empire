@@ -1,14 +1,48 @@
 # Assets du donjon
 
-## Kit mobile actif — 24 octobre 2026
+## Kit isométrique actif — 25 octobre 2026
 
-mobile-kit/atlas-256.png et mobile-kit/catalog.tres sont les seuls assets
-d’architecture chargés par les 21 scènes. 23 sprites, atlas 1024×2048, 256 px/case.
-Sol calme à trois rangées, murs communs, piliers nus, dessus optionnel, quatre
-portes et quatre escaliers. [Recette et commandes](../../docs/reference/mobile-kit/README.md).
+`isometric-kit/atlas-256.png` et `isometric-kit/catalog.tres` contiennent les
+108 régions préparées (dont l'ombre et la lueur propres au cœur,
+72 profils de variantes de murs, quatre assemblages de dalles B et quatre décors de sol) pour les 23 scènes.
+Atlas 1024×2048, 1 504 113 octets PNG, 8 Mio RGBA, losange source 256×128,
+caméra fixe .75. Sol, murs, pilier nu et
+dessus sculpté optionnel, quatre portes et escaliers, cœur et deux torches.
+[Recette et commandes](../../docs/reference/isometric-review/painted-v1/README.md).
 
-Les props heart/ et torches/ restent autonomes. Les dossiers ci-dessous sont
-désormais des sources ou références historiques exclues du paquet mobile.
+Le kit peint `mobile-kit/`, les sources heart/ et torches/ et les dossiers
+ci-dessous restent des références historiques et sources de peinture.
+Seule la petite texture de lumière de mobile-kit reste une dépendance partagée ;
+les torches du catalogue peint utilisent les lumières locales existantes.
+Les deux effets du cœur gardent leur résolution approuvée. Seules leurs marges
+entièrement transparentes sont retirées ; ils sont indépendants des torches.
+Un masque limite l'ombre et la lueur aux cases de sol au moment de l'affichage.
+Les anciens décors de fissures et d'éclats de pierre ont été retirés de l'atlas
+et du placement automatique, sur le sol comme sur les murs. Les sources de
+revue restent historiques. Voir
+[le retrait des derniers décors de dégâts](../../docs/reference/isometric-decoration-review/remove-chip-2026-10-25/README.md).
+
+Les neuf murs A1–A3/C1–C3/F1–F3 existent dans les deux orientations et quatre
+profils de jonction : 48 régions de structure et 24 couches de corruption avec
+leur fond de maçonnerie. Les nouveaux profils sont préparés à la densité utile
+du zoom .75. Toutes les régions conservées gardent exactement leurs pixels.
+`wall_variants`, `wall_variant_seed` et `wall_corruption` contrôlent leur
+répartition à la reconstruction. Les murs nus entre les variantes sont conservés.
+[Preuves et comparaison de palette](../../docs/reference/isometric-wall-variation-review/v2-subvariants/integration/README.md).
+
+Les dalles B partagent des pierres entières aux quatre frontières de case.
+Leurs assemblages intérieurs varient ; la matière et les coins arrondis du sol
+restent communs. `floor_variants` et `floor_variant_seed` contrôlent ce choix
+stable à la reconstruction. Les vingt layouts l'activent, avec la graine17.
+Le sol historique reste disponible quand l'option est désactivée.
+[Rendus, wireframes et vérifications](../../docs/reference/isometric-floor-variation-review/v1/integration/README.md).
+
+Les quatre nouveaux décors A/B/C/D sont des petits sprites avec leur fond de pierre,
+préparés pour un assemblage B précis. Ils sont dessinés juste après ce sol, avant
+les ombres et les objets. `floor_damage`, `floor_damage_seed` et `floor_corruption`
+contrôlent une répartition stable et espacée ; les vingt layouts l'activent.
+Les sources acceptées sont conservées. Ces nouveaux décors ne réutilisent pas les
+anciens éclats/fissures retirés. [Rendus et limites](../../docs/reference/isometric-floor-damage-review/v1/integration/README.md).
 
 ## Ancien kit peint — historique
 
@@ -43,7 +77,7 @@ Les inventaires, empreintes et commits de récupération sont documentés dans
 
 Le kit mobile réutilise la peinture commune sur des primitives préparées, avec
 des piliers distincts aux jonctions. Les anciens outils de revue A/B/C/D2 sont
-historiques ; utiliser `export_mobile_kit.cjs` pour reconstruire les assets actifs.
+historiques ; utiliser `export_isometric_kit.cjs` pour reconstruire les assets actifs.
 
 Méthode et commandes : `docs/reference/PAINTED_GODOT.md`,
 `docs/reference/MATERIAL_WORKFLOW.md`, `docs/reference/WIREFRAME_WORKFLOW.md`.

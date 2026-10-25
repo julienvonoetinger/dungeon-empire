@@ -1,0 +1,28 @@
+ERROR: Parameter "current_window" is null.
+   at: _reparent_and_show (editor/gui/progress_dialog.cpp:183)
+ERROR: Parameter "current_window" is null.
+   at: _reparent_and_show (editor/gui/progress_dialog.cpp:183)
+SCRIPT ERROR: Parse Error: Could not resolve external class member "layout".
+   at: GDScript::reload (res://tools/capture_approved_heart.gd:104)
+ERROR: Failed to load script "res://tools/capture_approved_heart.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+WARNING: 6 RIDs of type "Canvas" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 922 RIDs of type "CanvasItem" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 2 RIDs of type "CanvasLight" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+ERROR: Texture with GL ID of 19: leaked 20 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 38: leaked 1364 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 66: leaked 1364 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 1175: leaked 5592404 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 1174: leaked 87380 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+WARNING: 1137 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 45 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

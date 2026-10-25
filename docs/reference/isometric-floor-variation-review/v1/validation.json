@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-25",
+  "status": "appearance proposals only",
+  "entries": [
+    {
+      "label": "Actuel",
+      "file": "docs/reference/isometric-review/painted-v1/sprites/floor.png",
+      "description": "Le sol en place",
+      "inspection": {
+        "nativeSize": [
+          270,
+          138
+        ],
+        "transparentPixels": 18504,
+        "partialAlphaPixels": 2368,
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "width": 270,
+          "height": 138
+        },
+        "sha256": "a9e6d3719658c43184beacc5157832eaf54f9a421680ebd0bda3d852ef500f3b"
+      }
+    },
+    {
+      "id": "a-contours-irreguliers",
+      "label": "A · Contours irréguliers",
+      "prompt": "Design A: retain three orderly staggered courses of medium quadrilateral paving stones, but give each stone a subtly hand-cut asymmetric outline. Slightly nonparallel short sides and tiny variations in corner curvature, gently bowed edges. One or two soft angled corners per stone, not broken/chipped edges. The rhythm remains quiet and compact. Keep all joints thin and even. Visually distinguish the stone silhouettes without conspicuous damage or dramatic colour changes.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-875d4e6e-7f12-4d28-bbb6-7207f24c1b73.png",
+      "file": "docs/reference/isometric-floor-variation-review/v1/source/a-contours-irreguliers.png",
+      "description": "Contours légèrement asymétriques",
+      "inspection": {
+        "nativeSize": [
+          1754,
+          897
+        ],
+        "transparentPixels": 909819,
+        "partialAlphaPixels": 662259,
+        "crop": {
+          "left": 87,
+          "top": 24,
+          "width": 1639,
+          "height": 851
+        },
+        "sha256": "5ed326643df15c8b40c9c4d2df05f8d376b983b51983a480b09b11618a22bb77"
+      }
+    },
+    {
+      "id": "b-formats-varies",
+      "label": "B · Formats variés",
+      "prompt": "Design B: change the inner arrangement of this floor patch into an irregular modular ashlar pattern: two wider rectangular slabs, several nearly square medium slabs, and a few short rectangular filler stones. Alternate the joining positions to avoid continuous long seams; vary the proportions without making any slab enormous or any thin sliver. Approximately 12 stones with sizes spanning about 0.7 to 1.4 times the reference average. Rounded rectangular outlines and smooth quiet surfaces. This design is distinguished by the varied assembly, not texture or colour variation.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-409a2b3f-5106-487c-921c-59fea317dd68.png",
+      "file": "docs/reference/isometric-floor-variation-review/v1/source/b-formats-varies.png",
+      "description": "Pierres longues, carrées et courtes",
+      "inspection": {
+        "nativeSize": [
+          1774,
+          887
+        ],
+        "transparentPixels": 898316,
+        "partialAlphaPixels": 674065,
+        "crop": {
+          "left": 25,
+          "top": 14,
+          "width": 1714,
+          "height": 873
+        },
+        "sha256": "7ad167317bdcba35dffd02f182aadc3fa3856a0f147ebf24dfd6b13262ed8799"
+      }
+    },
+    {
+      "id": "c-coins-adoucis",
+      "label": "C · Coins adoucis",
+      "prompt": "Design C: three staggered courses of four nearly square paving stones, with more pronounced but still subtle softly chamfered and rounded corners. Each stone has slightly different 1-3 corner chamfers, creating small angular mortar pockets where stones meet, like carefully worn old flagstones. Broad flat smooth tops, thin dark joints and modest soft bevels. Keep stones solid and intact, no cracks or holes. Less regular than the reference but never pebble shaped, octagonal decorative tiling, or a cobblestone path.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-4af43a21-949a-4242-8f45-9bb6fbd842d9.png",
+      "file": "docs/reference/isometric-floor-variation-review/v1/source/c-coins-adoucis.png",
+      "description": "Coins arrondis et biseaux plus doux",
+      "inspection": {
+        "nativeSize": [
+          1754,
+          897
+        ],
+        "transparentPixels": 857619,
+        "partialAlphaPixels": 714481,
+        "crop": {
+          "left": 0,
+          "top": 16,
+          "width": 1736,
+          "height": 873
+        },
+        "sha256": "830789348809522fe89145109b444575326a8d2565ad922a0914fbf05d2974fb"
+      }
+    }
+  ],
+  "unchangedActiveHashes": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "a7e2b07dec1d491bb1bc81143be163363145c273a013b747f8bedb26e76cc1a0",
+    "assets/dungeon/isometric-kit/catalog.json": "d25caadebb75e34b27221595a9d03c9ff5d5e30556c81ef950e213f3eb5b70b2",
+    "assets/dungeon/isometric-kit/catalog.tres": "b40a4b72b25d6ca9f2c688eab430759e69c61731e200af24101de391ce4d073d",
+    "tools/export_isometric_painted_kit.cjs": "229c87fa15ac7932f9f8bc81b76734640d42fc1448b620cc02a80953d45b6716",
+    "scripts/dungeon_surface_details.gd": "fcaa81c11540599c0bbd869dd60648a41237922394e1e5e4aee4b653626282f9",
+    "scripts/mobile_dungeon_renderer.gd": "be51dabdf18887c4337c2eea133e0ba04444e4897a7b4932467efb3ebc4653ab",
+    "scripts/wireframe_cell_study.gd": "a99161ede5e27e3f672701e34b2f7ccd3f0d414f397467cd2493df93629e0040"
+  },
+  "unchangedWallSelectionFiles": 13,
+  "scalePolicy": "Uniform scaling only; trim alpha-zero gutters, preserve all original native alpha. 192px width approximates one cell at fixed .75 zoom, not a Godot capture.",
+  "limitations": [
+    "Seam compatibility and exact projection are not established by concept art.",
+    "No production integration, automated tests, Godot import/export, commit or push."
+  ]
+}

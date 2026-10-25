@@ -1,0 +1,67 @@
+[
+	{
+		"camera_position": [
+			90.0,
+			175.0
+		],
+		"cells": 13,
+		"hearts": 1,
+		"lights": 2,
+		"scene": "MobileReference",
+		"specials": 0,
+		"sprites": 68,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "SixRoomPreview",
+		"specials": 1,
+		"sprites": 581,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "DungeonPreview",
+		"specials": 1,
+		"sprites": 581,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 1,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "1x1CellRoom",
+		"specials": 0,
+		"sprites": 13,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 13,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "WireframeDoorCross",
+		"specials": 4,
+		"sprites": 77,
+		"zoom": 0.75
+	}
+]

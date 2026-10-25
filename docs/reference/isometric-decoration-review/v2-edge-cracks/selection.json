@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-25",
+  "status": "accepted appearance",
+  "userReply": "ok",
+  "scope": "Three edge/corner crack forms shown in comparison.png and gameplay-comparison.png, on floor and both wall planes. Integration additionally retains prior chipped patch and violet corruption as requested by user: intègre aussi toutes les variantes que tu as fait.",
+  "motifs": [
+    "corner-split",
+    "vertical-hairline",
+    "edge-fork"
+  ],
+  "spriteCount": 9,
+  "preserve": "Exact prepared PNGs, native alpha, scale, frame and projection. No regeneration.",
+  "provenance": "All review files retain their pre-approval status; this selection supersedes pending appearance. Historical rejected drafts are not selected.",
+  "sha256": {
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/comparison.png": "e203d2388fd3490b1900b94b75abfbb52b8e182cfcd48b2d5b6153f5700b2bcb",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/gameplay-comparison.png": "b224cb03020921381ce2b00f526c0464aeafc1e2be18ac77bd8707e227fc9d84",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/captures/current.png": "b137ca6c3e33dd1e1d69f610dbfcf47fe33904ffad4943c6b5ad3c8e35facf0b",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/captures/proposed.png": "738bff32aa9df8b461f057692c17b3348524ab92a7b46ca129819f5b673a588d",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/prepared.json": "cf6253f01fbe43b5d5d82b137c1e0afa35162c6692b5fe4264186fe4f1c505d8",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/atlas.png": "36281658295065c3c862615bb8cd98791ecc0643e7b2f48419e6b19a2eb7e6d8",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/generation.json": "d8ccbbd083f656c4d5e2eea8723fbb87f885db96daa6e51c5c7b6d9369b5d2d7",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/source-files.json": "6fb135fe20e82bda58dae770e255bdbc90d95e7dc8e841637e8c43237cd2f410",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/validation.json": "f5983761c2ea98217dbb65320c910f16cdb9e1eb7c14f58e4243d88da41b7976",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/README.md": "7dce4f2be9e0dd9aafe6fe28b9236eb18a2b952e0bb96049565e53083265e5be",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/Cracks.tscn": "da6eb6d6c9b611a154b9e0f616ce65d349f89170560a4c39d4fd7438716018c8",
+    "tools/prepare_isometric_edge_cracks_review.cjs": "3cb1c5253703983d02d6f9f2e4a6fc23d07f9fd9a04b7d0f1c6d0e077313d88e",
+    "tools/isometric_edge_cracks_review.gd": "8293d6661ed0945d04fb031491a677bbb528b6e6c946f413ed9e07a2f82e186b",
+    "tools/capture_isometric_edge_cracks_review.gd": "2817e15dbe8bc3ade6280e5f129b9543d5e347b0f8a94ffc4c9a0abed354bab2",
+    "tools/prepare_isometric_edge_cracks_boards.cjs": "445da231b22b626e861216dbe9ec2e41c51e75641446207e855350062d43e5fa",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/source/corner-split.png": "b5478e786db7f684ce967bd4acb03f6d4aec169709bf0d3f9d8241269242a3ad",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/source/vertical-hairline-readable.png": "00164d6311bec7f871942f5dbf9331d7939cd822ed4d2de5585d352c353fa1a6",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/source/edge-fork.png": "301db4cfe97856ab7b58f38bf47b2dfb5ae7d3b95a0dd5a61f874f8e0ebfcb1f",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/corner-split-floor.png": "0096241abb2c31f50c7787d087a37e2740d0cfed4fb6e301108fe0541330d8a8",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/corner-split-wall-h.png": "2d1b908fda413ad7ebc726ec9134ca47a8130ed704bb98e6cda1961cdd03d00b",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/corner-split-wall-v.png": "eff106ec5fcab7b38c18c65de1dfdd952f0340dfa7af4fa682d7a911ebff9841",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/vertical-hairline-floor.png": "c243412fa897dd7b3f7c5ea1b7d763b4b509f6bac28c1e2cd42cb6e645a8fcbe",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/vertical-hairline-wall-h.png": "94f5819bd7755d8b61ab489bf0fe0d54ae29ca9e67c4d15718d34b54dac313f4",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/vertical-hairline-wall-v.png": "de03960215db144d3995cddb39d9f0e3de65ccd2b54afe9baaa493b7e1e9f0c4",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/edge-fork-floor.png": "cea66a6eac741a0bcf4838b207854a2a3e93c3e032f12c76b331ccc07bcfd3bf",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/edge-fork-wall-h.png": "146e1053441febfbfe60053c08ba5e723e6eb642cb8ef7bd809581b7900789cf",
+    "docs/reference/isometric-decoration-review/v2-edge-cracks/sprites/edge-fork-wall-v.png": "4d771b46600ef2a5e62b04cc855587a5ccb706f49e216ae51df67831974970fc"
+  }
+}

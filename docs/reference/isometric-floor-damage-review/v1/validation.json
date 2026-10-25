@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-25",
+  "status": "Appearance proposals only; not selected or integrated",
+  "entries": [
+    {
+      "id": "a-fissures-courtes",
+      "label": "A · Fissures courtes",
+      "description": "Fêlures fines, directions différentes",
+      "prompt": "Variation A: two distinct short natural stone fissures, well separated on two interior slabs. One begins at an inner mortar edge and bends twice inward to a tapered fine tip. The second starts at another internal corner and curves in a different orientation, with just one very small branch. Neither is a repeated diagonal slash or a symmetric Y. Deep muted charcoal recess, minuscule blue-grey edge light, NO violet and no glow. Hairline irregularity, no large ravine. Most slabs intact.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-1ff60668-f9c7-42bf-9bcc-b47902957c14.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/a-fissures-courtes.png",
+      "inspection": {
+        "nativeSize": [
+          1774,
+          887
+        ],
+        "transparentPixels": 894002,
+        "partialAlphaPixels": 678427,
+        "crop": {
+          "left": 0,
+          "top": 13,
+          "width": 1714,
+          "height": 874
+        },
+        "sha256": "d5e4529438df5a25eb2d0fe8a154ac3442034fedb312f0288948c15137b5baf3"
+      }
+    },
+    {
+      "id": "b-fracture-ramifiee",
+      "label": "B · Fracture ramifiée",
+      "description": "Un tracé irrégulier, localisé",
+      "prompt": "Variation B: a single fine irregular stepped fracture, with two unequal small branching tips, on the two adjacent interior stones toward the front-right of the patch. Change direction with angular organic bends; follow a short part of an existing mortar seam then continue onto the next stone. Do not draw a long straight diagonal across the whole patch. Asymmetrical and delicate, tapered tips, subtle cool bevel. No radial impact star, circular hole, gouge, violet or glow. The crack is damage in solid stone, all stone pieces stay level.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-fff6e7b9-624d-468d-b978-bf98c5756e38.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/b-fracture-ramifiee.png",
+      "inspection": {
+        "nativeSize": [
+          1774,
+          887
+        ],
+        "transparentPixels": 893133,
+        "partialAlphaPixels": 679364,
+        "crop": {
+          "left": 39,
+          "top": 13,
+          "width": 1691,
+          "height": 874
+        },
+        "sha256": "fdaf3702d65d715d37920c17c5355aead7f30f1c4a83dd1c223e2b47d4704d9f"
+      }
+    },
+    {
+      "id": "c-veine-corrompue",
+      "label": "C · Veine corrompue",
+      "description": "Violet contenu dans une fissure",
+      "prompt": "Variation C: one restrained violet corruption vein recessed into a narrow irregular fissure on one central-left slab, linking briefly to its internal mortar joint. A dark thin crack contains several separated purple glow segments, not a continuous neon line. Two very short unequal forks follow the stone plane. Small tight violet halo limited to the fissure lips, no wide light spill. Enough violet to remain visible at small size but subordinate to a hero or dungeon heart. No crystals, roots, holes or raised objects. It should feel embedded inside the stone.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-a4159246-9d72-4a0d-b399-d74085bc6465.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/c-veine-corrompue.png",
+      "inspection": {
+        "nativeSize": [
+          1774,
+          887
+        ],
+        "transparentPixels": 885896,
+        "partialAlphaPixels": 686312,
+        "crop": {
+          "left": 17,
+          "top": 8,
+          "width": 1701,
+          "height": 879
+        },
+        "sha256": "ee497bae9c05084a92c59c4e513d153c5b408dc8a6f333dd7fe8116ab62f7b80"
+      }
+    },
+    {
+      "id": "d-racines-corrompues",
+      "label": "D · Racines corrompues",
+      "description": "Racines sombres dans les joints",
+      "prompt": "Variation D: a small asymmetric cluster of thin dark-purple corrupted roots creeping tightly along two INNER mortar joints near the central-right stones. One or two thin tendrils cross only a short portion of a slab before tapering. Subtle violet veins and one tiny embedded violet shard at a joint junction, all very low and hugging the floor; no tall crystal, no crystal pile, no nest, no tentacle mass. Closely related to the corrupt wall material in reference 3, but less busy, smaller and flatter. Restrained compact violet focal point, with 80-90 percent of paving smooth and untouched.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c5d44e70-5aac-4f2d-a990-59d7a4acbb7a.png",
+      "file": "docs/reference/isometric-floor-damage-review/v1/source/d-racines-corrompues.png",
+      "inspection": {
+        "nativeSize": [
+          1774,
+          887
+        ],
+        "transparentPixels": 894502,
+        "partialAlphaPixels": 678030,
+        "crop": {
+          "left": 49,
+          "top": 13,
+          "width": 1669,
+          "height": 874
+        },
+        "sha256": "4d0faf9d54a51c67680bd45adf1dd07fa80ed67327ec0a8f512c2c3b3e0854fb"
+      }
+    }
+  ],
+  "unchangedActiveHashes": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "d5fa837d8cdd72ba0af2998564b583526dfa339179b5a82a27248dd48e2b7551",
+    "assets/dungeon/isometric-kit/catalog.json": "8695a7b624c3f51570217e3104d8d15fc3e5fc6661d13eadc76b69a7551e7cc1",
+    "assets/dungeon/isometric-kit/catalog.tres": "60e1728511ce9fdc7e6e1c767d89bc27df00d84da89d1c395baf2a52aa1e1738",
+    "tools/isometric_floor_variants.cjs": "28e873dac9a4468a7f2cb0bd25e620ec3b9d846ff9fabdb6a4fe78a4343192f0",
+    "tools/isometric_stone_paint.cjs": "d977340e2ee5c3c73a4b7f81b10b8e5e9703d32ddd725b99f3f14d4841dfd2cf",
+    "tools/export_isometric_painted_kit.cjs": "03c1d36939a7e96c8c22de4b2271ff7ee6e89a9f71e8f0e434056a9c471edca1",
+    "scripts/dungeon_floor_variants.gd": "3ca72de0bc8981df373d439209278aacd9b69d09eaa6710060548c8fad31ca7f",
+    "scripts/mobile_dungeon_renderer.gd": "6efd9be159dcfb8a4b8b31ea921c113d53fd8076f783ed0cbba81d29bd9acdf2",
+    "scripts/wireframe_cell_study.gd": "7892ee8652b1d2b92db26d0414f52cca999bfd872c69c1b6b63609364b42138a"
+  },
+  "unchangedSelectionHashes": {
+    "docs/reference/isometric-floor-variation-review/v1/source/b-formats-varies.png": "7ad167317bdcba35dffd02f182aadc3fa3856a0f147ebf24dfd6b13262ed8799",
+    "docs/reference/isometric-floor-variation-review/v1/comparison.png": "0d937070aecf8d534e43a3a228b4eed12f7b3f160e934cdd10d3dbf0b352f33c",
+    "docs/reference/isometric-floor-variation-review/v1/mobile-scale.png": "edca7cf180d8d38315ca559ffe56af14f75e828d5abb5f2d267b2e80d4299f9f",
+    "docs/reference/isometric-floor-variation-review/v1/generation.json": "42084e88fec6d77745ed5805700fcc70cb6e88605017247a9bc8771e1c1efcb6",
+    "docs/reference/isometric-floor-variation-review/v1/validation.json": "7a0c603c330244f36bb8aa034f69a52ff952b58231b513230c0b3dc395c36eb8",
+    "tools/prepare_isometric_floor_variants_review.cjs": "b5930422470870b47e2a8b998ffa4b5d721ee16cc9664c1c0b962c8fd1698637",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/comparison.png": "1721e3f8025f0ba0d811f334108786f4391d3429e1761becdae458dd56c17985",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/mobile-scale.png": "ba63eb16f042f9ff03d7640315a0d43bd00d5e927a29b943ee58339b105420ee",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/generation.json": "b17c1dd483d925d0abf3adb4172f4feaae7a07a2e93cdd2b24483f3c5d3fc6a1",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/validation.json": "fa2c6478c9acefc3526dc57de93d41e8c727efcc250b62f55b01b30af5917fad",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png": "221a1c6a46a9bcd3bdedcca13a2a474c57b42dae9ccd362c12ead5238163db9b",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png": "3afc8ea49f4228036248eb378645d8d5d5f931b77956424714448a3392ea65c9",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png": "1b4e4f21508ab437cc08bb395e95cae665d41f96635f87a7500018a689da091c",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png": "f8fa6d9e7d8a9a5ac48be972920e124b33bf7e0a8277ae3c83454238071d9aaf",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png": "c410669215dd4dadc726a8fc337eb2236a1504bc46a2cce817001ab14383240e",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png": "9914555a00b622368f91738e0f80d6b0ffbfcc2d4a8336bbbf4c2d62c3e79276",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png": "1d464f5089a7b4b8cb40edebf52350e8fbfbadc24b7a143ee8e42d9237cdb11c",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png": "97b99f1e598361a80b29d0f3ece0a127b0ff74feb7210be2a682edc19294c7fa",
+    "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png": "1b2296cf87bc87da8e6e0280f7b633ccbd90855c85afa57ffa708110e5af6aab"
+  },
+  "scalePolicy": "Only alpha-zero margin cropping and uniform resizing for presentation. All originals preserved byte-for-byte. 192px approximates a logical cell at zoom .75; not a Godot capture.",
+  "limitations": [
+    "Exact B wireframe, edge compatibility, palette calibration and distribution remain integration work.",
+    "No production atlas, scripts or scenes changed; no automated tests, Godot import/export, device profile, commit or push."
+  ]
+}

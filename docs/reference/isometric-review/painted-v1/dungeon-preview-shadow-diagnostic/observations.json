@@ -1,0 +1,18 @@
+{
+	"effects": [
+		{
+			"name": "heart_shadow",
+			"position": [
+				-365.0,
+				1607.0
+			],
+			"source": "contact only",
+			"visible": true,
+			"z": 0
+		}
+	],
+	"lights": 0,
+	"north_torches": 0,
+	"scene": "DungeonPreview",
+	"west_torches": 0
+}

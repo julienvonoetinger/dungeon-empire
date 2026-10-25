@@ -1,6 +1,18 @@
 # Sprites peints dans Godot
 
-## État actif — optimisation mobile du 24 octobre 2026
+## État actif — textures isométriques du 24 octobre 2026
+
+Les 23 scènes utilisent le nouveau catalogue `assets/dungeon/isometric-kit/`.
+Il contient 26 sprites peints, un atlas 1024×1024, les sculptures du cœur adaptées
+à la nouvelle vue et les flammes/lumières des torches. Utiliser
+`tools/export_isometric_painted_kit.cjs` et suivre
+[la recette actuelle](isometric-review/painted-v1/README.md).
+Les sources approuvées et la revue wireframe restent conservées. Les deux parties
+de chaque porte reprennent les pixels de la porte complète, avec une garde de
+couleur opaque de deux pixels à leur coupe interne pour le filtrage au zoom .75.
+Cette garde conserve l'alpha extérieur de la porte.
+
+## Historique — optimisation mobile avant l'isométrie
 
 Les 21 scènes utilisent maintenant le kit mobile : 23 sprites dans un atlas,
 256 px source par case, caméra fixe à 0,75 et déplacement libre. Une base calme

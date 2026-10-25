@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25",
+  "removedRegions": [
+    "detail-chip-worn-wall-h",
+    "detail-chip-worn-wall-v",
+    "detail-chip-worn-floor"
+  ],
+  "preservedRegions": 100,
+  "deletedPreparedFiles": 3,
+  "deletedPreparedBytes": 4526,
+  "atlas": {
+    "regions": 100,
+    "size": [
+      1024,
+      2048
+    ],
+    "pngBytes": 1420533,
+    "rgbaBytes": 8388608
+  },
+  "keptDecorations": [
+    "pillar-top-carved"
+  ],
+  "sourcePolicy": "Original approval/review archives remain historical; all legacy surface-damage regions and generated production copies are removed."
+}

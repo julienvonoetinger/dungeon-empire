@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-25",
+  "scope": "Concept art comparison only; no Godot rendering, wireframe matching or production integration",
+  "sources": {
+    "a1": {
+      "file": "source/a1.png",
+      "sha256": "221a1c6a46a9bcd3bdedcca13a2a474c57b42dae9ccd362c12ead5238163db9b",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 1134156,
+      "partialAlphaPixels": 437426,
+      "previewCrop": {
+        "left": 43,
+        "top": 17,
+        "width": 1289,
+        "height": 1064
+      }
+    },
+    "a2": {
+      "file": "source/a2.png",
+      "sha256": "3afc8ea49f4228036248eb378645d8d5d5f931b77956424714448a3392ea65c9",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 1140641,
+      "partialAlphaPixels": 430833,
+      "previewCrop": {
+        "left": 0,
+        "top": 36,
+        "width": 1326,
+        "height": 1112
+      }
+    },
+    "a3": {
+      "file": "source/a3.png",
+      "sha256": "1b4e4f21508ab437cc08bb395e95cae665d41f96635f87a7500018a689da091c",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 1135173,
+      "partialAlphaPixels": 436575,
+      "previewCrop": {
+        "left": 0,
+        "top": 20,
+        "width": 1332,
+        "height": 1103
+      }
+    },
+    "c1": {
+      "file": "source/c1.png",
+      "sha256": "f8fa6d9e7d8a9a5ac48be972920e124b33bf7e0a8277ae3c83454238071d9aaf",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 944294,
+      "partialAlphaPixels": 627716,
+      "previewCrop": {
+        "left": 0,
+        "top": 7,
+        "width": 1356,
+        "height": 1141
+      }
+    },
+    "c2": {
+      "file": "source/c2.png",
+      "sha256": "c410669215dd4dadc726a8fc337eb2236a1504bc46a2cce817001ab14383240e",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 973956,
+      "partialAlphaPixels": 597461,
+      "previewCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 1302,
+        "height": 1148
+      }
+    },
+    "c3": {
+      "file": "source/c3.png",
+      "sha256": "9914555a00b622368f91738e0f80d6b0ffbfcc2d4a8336bbbf4c2d62c3e79276",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 975538,
+      "partialAlphaPixels": 595996,
+      "previewCrop": {
+        "left": 0,
+        "top": 31,
+        "width": 1342,
+        "height": 1077
+      }
+    },
+    "f1": {
+      "file": "source/f1.png",
+      "sha256": "1d464f5089a7b4b8cb40edebf52350e8fbfbadc24b7a143ee8e42d9237cdb11c",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 1013865,
+      "partialAlphaPixels": 557952,
+      "previewCrop": {
+        "left": 0,
+        "top": 23,
+        "width": 1358,
+        "height": 1125
+      }
+    },
+    "f2": {
+      "file": "source/f2.png",
+      "sha256": "97b99f1e598361a80b29d0f3ece0a127b0ff74feb7210be2a682edc19294c7fa",
+      "nativeSize": [
+        1370,
+        1148
+      ],
+      "transparentPixels": 1016177,
+      "partialAlphaPixels": 555747,
+      "previewCrop": {
+        "left": 0,
+        "top": 21,
+        "width": 1370,
+        "height": 1127
+      }
+    },
+    "f3": {
+      "file": "source/f3.png",
+      "sha256": "1b2296cf87bc87da8e6e0280f7b633ccbd90855c85afa57ffa708110e5af6aab",
+      "nativeSize": [
+        1371,
+        1148
+      ],
+      "transparentPixels": 1017599,
+      "partialAlphaPixels": 555279,
+      "previewCrop": {
+        "left": 0,
+        "top": 35,
+        "width": 1349,
+        "height": 1113
+      }
+    }
+  },
+  "preservedSelectionFiles": 11,
+  "preservedActiveFiles": 10,
+  "notes": [
+    "C3 shows a dominant lower relief plus a smaller upper relief, despite the prompt requesting a flush upper course. Retained as a distinct concept proposal; not a geometry specification.",
+    "Source drawings are native alpha and unchanged. Preview uses alpha-positive bounding rectangle and uniform downscaling only.",
+    "F decorations are illustrated on their hosts for review; they are not yet separate production overlays."
+  ],
+  "sha256": {
+    "comparison.png": "1721e3f8025f0ba0d811f334108786f4391d3429e1761becdae458dd56c17985",
+    "mobile-scale.png": "ba63eb16f042f9ff03d7640315a0d43bd00d5e927a29b943ee58339b105420ee",
+    "generation.json": "b17c1dd483d925d0abf3adb4172f4feaae7a07a2e93cdd2b24483f3c5d3fc6a1",
+    "prepare-board.cjs": "0e78356c4e94edab81caeb280782006bec5537772499ee2e4ec805c7377a7148"
+  }
+}

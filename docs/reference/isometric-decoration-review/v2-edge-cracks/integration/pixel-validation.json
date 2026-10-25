@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-25",
+  "spriteCount": 50,
+  "atlas": {
+    "size": [
+      1024,
+      1024
+    ],
+    "pngBytes": 580419,
+    "rgbaBytes": 4194304
+  },
+  "retained": 41,
+  "removed": [
+    "detail-crack-short-wall-h",
+    "detail-crack-short-wall-v",
+    "detail-crack-branch-wall-h",
+    "detail-crack-branch-wall-v",
+    "detail-crack-short-floor",
+    "detail-crack-branch-floor"
+  ],
+  "changedPixels": [],
+  "changedMetadata": [],
+  "changedSelected": [],
+  "changedNewPixels": [],
+  "changedCopies": [],
+  "motifsObserved": {
+    "corner_split": 8,
+    "edge_fork": 8,
+    "chip_worn": 9,
+    "vertical_hairline": 5,
+    "crack_corrupt": 5
+  },
+  "restoredIdentical": true,
+  "captures": 68,
+  "scenes": 23,
+  "focus": [
+    {
+      "name": "reference-bare",
+      "count": 0,
+      "seed": 17
+    },
+    {
+      "name": "reference-decorated",
+      "count": 8,
+      "seed": 17
+    },
+    {
+      "name": "reference-seed-43",
+      "count": 4,
+      "seed": 43
+    },
+    {
+      "name": "reference-restored",
+      "count": 8,
+      "seed": 17
+    },
+    {
+      "name": "six-room-native",
+      "count": 15,
+      "seed": 17
+    }
+  ],
+  "commit": false,
+  "push": false
+}

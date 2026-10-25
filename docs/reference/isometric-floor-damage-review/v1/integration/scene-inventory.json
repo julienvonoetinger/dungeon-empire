@@ -1,0 +1,301 @@
+[
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 1,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "1x1CellRoom",
+		"specials": 0,
+		"sprites": 13,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 2,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "1x2Corridor",
+		"specials": 0,
+		"sprites": 6,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			-128.0,
+			128.0
+		],
+		"cells": 3,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "1x3Corridor",
+		"specials": 0,
+		"sprites": 10,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 2,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "2x1Corridor",
+		"specials": 0,
+		"sprites": 7,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 4,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "2x2CellRoom",
+		"specials": 0,
+		"sprites": 22,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			128.0,
+			128.0
+		],
+		"cells": 3,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "3x1Corridor",
+		"specials": 0,
+		"sprites": 10,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			192.0
+		],
+		"cells": 9,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "3x3CellRoom",
+		"specials": 0,
+		"sprites": 33,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			192.0
+		],
+		"cells": 21,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "3x3RoomCornerCorridors",
+		"specials": 0,
+		"sprites": 70,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			192.0
+		],
+		"cells": 23,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "3x3RoomFourCorridors",
+		"specials": 0,
+		"sprites": 93,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			320.0
+		],
+		"cells": 37,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "5x5RoomCornerCorridors",
+		"specials": 0,
+		"sprites": 94,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			320.0
+		],
+		"cells": 39,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "5x5RoomFourCorridors",
+		"specials": 0,
+		"sprites": 118,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			320.0
+		],
+		"cells": 37,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "5x5RoomVerticalCornerCorridors",
+		"specials": 0,
+		"sprites": 96,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			-15.5
+		],
+		"cells": 0,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "DungeonHeart",
+		"specials": 0,
+		"sprites": 3,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "DungeonPreview",
+		"specials": 1,
+		"sprites": 581,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			31.5,
+			6.0
+		],
+		"cells": 0,
+		"hearts": 0,
+		"lights": 1,
+		"scene": "DungeonTorch",
+		"specials": 0,
+		"sprites": 1,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 4,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "EntranceVariants",
+		"specials": 4,
+		"sprites": 36,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			90.0,
+			175.0
+		],
+		"cells": 13,
+		"hearts": 1,
+		"lights": 2,
+		"scene": "MobileReference",
+		"specials": 0,
+		"sprites": 68,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			192.0
+		],
+		"cells": 10,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "PerspectiveRoom",
+		"specials": 1,
+		"sprites": 45,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			-128.0,
+			128.0
+		],
+		"cells": 3,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "ReferenceCalibration",
+		"specials": 3,
+		"sprites": 23,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 1,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "SingleCellRoom",
+		"specials": 0,
+		"sprites": 13,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "SixRoomPreview",
+		"specials": 1,
+		"sprites": 581,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			192.0
+		],
+		"cells": 17,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "WireframeClosedCorridors",
+		"specials": 4,
+		"sprites": 93,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 13,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "WireframeDoorCross",
+		"specials": 4,
+		"sprites": 77,
+		"zoom": 0.75
+	}
+]

@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-25",
+  "status": "selected concept directions",
+  "userReply": "je ne veux garder que A, C et F",
+  "selected": [
+    {
+      "id": "A",
+      "name": "Maçonnerie décalée",
+      "source": "docs/reference/isometric-wall-variation-review/v1/source/a-maconnerie-decalee.png"
+    },
+    {
+      "id": "C",
+      "name": "Blocs en relief",
+      "source": "docs/reference/isometric-wall-variation-review/v1/source/c-blocs-en-relief.png"
+    },
+    {
+      "id": "F",
+      "name": "Pierre corrompue",
+      "source": "docs/reference/isometric-wall-variation-review/v1/source/f-pierre-corrompue.png"
+    }
+  ],
+  "excludedFromNextStep": [
+    "B",
+    "D",
+    "E"
+  ],
+  "scope": [
+    "Only A, C and F proceed to subsequent wireframe work.",
+    "Concept selection does not certify shared end profiles or approve production geometry, integration or placement frequencies.",
+    "Preserve two wall courses, the common isometric frame and pillar junctions; prepare both visible orientations.",
+    "All six original sources, the shown comparison and generation records are retained; corruption details remain separable."
+  ],
+  "sha256": {
+    "docs/reference/isometric-wall-variation-review/v1/source/a-maconnerie-decalee.png": "221a1c6a46a9bcd3bdedcca13a2a474c57b42dae9ccd362c12ead5238163db9b",
+    "docs/reference/isometric-wall-variation-review/v1/source/b-pierres-usees.png": "b16a30b025db50ccc930fdfae932a8038508234a33b4495a7e9772c62aaa285c",
+    "docs/reference/isometric-wall-variation-review/v1/source/c-blocs-en-relief.png": "f8fa6d9e7d8a9a5ac48be972920e124b33bf7e0a8277ae3c83454238071d9aaf",
+    "docs/reference/isometric-wall-variation-review/v1/source/d-mur-repare.png": "e9f16f0878e51b06a2ffea5646c00d9cabf6104ac881050a75a2181cc81745f0",
+    "docs/reference/isometric-wall-variation-review/v1/source/e-niche-aveugle.png": "158f93c64a8032df2a526c8b11b542eac510c9ed49062ff612afbf7cc6befaab",
+    "docs/reference/isometric-wall-variation-review/v1/source/f-pierre-corrompue.png": "1d464f5089a7b4b8cb40edebf52350e8fbfbadc24b7a143ee8e42d9237cdb11c",
+    "docs/reference/isometric-wall-variation-review/v1/comparison.png": "8a2f15912ae0afa1889dd98aec1ee40f2775a451588502d269e6b911d9112290",
+    "docs/reference/isometric-wall-variation-review/v1/generation.json": "3ac3ffd6c1e23906f6c813df642a6e730e5cc3f53d910cfc7a79abbdfe3cf6e0",
+    "docs/reference/isometric-wall-variation-review/v1/source-hashes.json": "bcf1042cca2b58cf7a90adad4372a527755a735355563e108f098b171ce1f8d5",
+    "docs/reference/isometric-wall-variation-review/v1/references/current-wall.png": "07df36d651b1f3d7db0b4e5873b13b86743bb7cfb5172e1557392784685681c1",
+    "docs/reference/isometric-wall-variation-review/v1/references/mockup.png": "58fe4508e153b31aa6e99a6698e36aa16dd43dacd69da03f7f3ed82c4b47defe"
+  },
+  "productionChanged": false,
+  "commit": false,
+  "push": false
+}

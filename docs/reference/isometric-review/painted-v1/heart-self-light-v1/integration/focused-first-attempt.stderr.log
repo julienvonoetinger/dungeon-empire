@@ -1,0 +1,5 @@
+SCRIPT ERROR: Invalid assignment of property or key 'torch_north_cells' with value of type 'Array' on a base object of type 'Node2D (wireframe_cell_study.gd)'.
+   at: _run (res://tools/capture_heart_self_light_integration.gd:125)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tools/capture_heart_self_light_integration.gd:125)
+       [1] _save (res://tools/capture_heart_self_light_integration.gd:26)

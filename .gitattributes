@@ -3,3 +3,34 @@
 /docs/reference/mobile-door-frame-review/**/*.json -text
 /docs/reference/mobile-heart-review/**/*.json -text
 /docs/reference/mobile-light-review/**/*.json -text
+/docs/reference/isometric-review/**/*.json -text
+/docs/reference/isometric-decoration-review/**/*.json -text
+
+# Frozen review snapshots retain exact source bytes across Windows checkouts.
+/docs/reference/ground-perspective-review/** -text
+/docs/reference/isometric-review/** -text
+/docs/reference/isometric-decoration-review/** -text
+/docs/reference/isometric-wall-variation-review/** -text
+/docs/reference/isometric-floor-variation-review/** -text
+/docs/reference/isometric-floor-damage-review/** -text
+
+# Selected review implementations are also covered by approval hashes.
+/tools/prepare_isometric_decoration_review.cjs -text
+/tools/isometric_decoration_review.gd -text
+/tools/capture_isometric_decoration_review.gd -text
+/tools/prepare_isometric_decoration_boards.cjs -text
+/tools/prepare_isometric_edge_cracks_review.cjs -text
+/tools/isometric_edge_cracks_review.gd -text
+/tools/capture_isometric_edge_cracks_review.gd -text
+/tools/prepare_isometric_edge_cracks_boards.cjs -text
+/tools/prepare_isometric_floor_damage_review.cjs -text
+/tools/prepare_isometric_floor_variants_review.cjs -text
+/tools/prepare_heart_self_light_review.cjs -text
+/tools/capture_heart_self_light_review.gd -text
+/tools/isometric_ground_shadow.cjs -text
+/tools/export_isometric_painted_kit.cjs -text
+/tools/isometric_prop_paint.cjs -text
+/tools/prepare_mobile_reference.cjs -text
+/scripts/mobile_dungeon_renderer.gd -text
+/assets/dungeon/isometric-kit/*.json -text
+/assets/dungeon/isometric-kit/*.tres -text

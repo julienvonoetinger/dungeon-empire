@@ -1,0 +1,17 @@
+[
+  {
+    "step": "stage-import",
+    "exit": 0,
+    "stderr": 0
+  },
+  {
+    "step": "export",
+    "exit": 0,
+    "stderr": 0
+  },
+  {
+    "step": "package-startup",
+    "exit": 0,
+    "stderr": 0
+  }
+]

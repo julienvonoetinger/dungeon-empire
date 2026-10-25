@@ -1,0 +1,51 @@
+{
+  "purpose": "Offline diagnostic, not a proposed replacement artwork",
+  "geometry": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "heart": "57d9a61be039d54e524c1d0271c9fc5e8043078cffc294daa427a223d2f4c8ad",
+  "floor": "a9e6d3719658c43184beacc5157832eaf54f9a421680ebd0bda3d852ef500f3b",
+  "shadow": "d8336091b5402a88218c7b81b2e76847be54632f5ea417d36dd9672306fc12fb",
+  "anchor": [
+    0,
+    0,
+    0
+  ],
+  "gameScale": 0.75,
+  "groundZ": 0,
+  "variants": [
+    {
+      "id": "current",
+      "label": "Image actuelle"
+    },
+    {
+      "id": "neutral-orb",
+      "label": "Matière neutre, même vortex"
+    },
+    {
+      "id": "neutral",
+      "label": "Volume neutre seul"
+    }
+  ],
+  "neutralColors": {
+    "top": [
+      66,
+      80,
+      109
+    ],
+    "x": [
+      31,
+      42,
+      64
+    ],
+    "y": [
+      42,
+      54,
+      79
+    ]
+  },
+  "notes": [
+    "Original image and cast shadow unchanged.",
+    "Middle panel uses the same approved vortex source, placement and depth; only rigid material differs.",
+    "Right panel removes that vortex to expose the rigid structure.",
+    "No scene lights, production change, automated tests or artistic approval."
+  ]
+}

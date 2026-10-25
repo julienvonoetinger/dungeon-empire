@@ -1,0 +1,68 @@
+{
+  "status": "approved-projection-direction",
+  "approvedOn": "2026-10-24",
+  "userReply": "oui ça correspond mieux et comme ça nous n'avons plus de paradoxe de perspective et nous pouvons garder notre logique de wireframe.",
+  "approvalScope": [
+    "2:1 isometric projection shown in the reviewed wireframe",
+    "One common geometric frame for floor, architecture and rigid prop supports",
+    "Logical 1x1 grid and existing neighbour logic",
+    "Continue offline wireframes and prepare sprites from the agreed geometry"
+  ],
+  "pendingScope": [
+    "Full-kit reprojection and per-element visual review",
+    "Adapted painted sprites, including heart artwork",
+    "Godot placement, picking and depth-order migration"
+  ],
+  "camera": {
+    "x": [
+      0.5,
+      -0.5,
+      0
+    ],
+    "y": [
+      0.25,
+      0.25,
+      -0.6123724356957945
+    ],
+    "eye": [
+      0.6123724356957945,
+      0.6123724356957945,
+      0.5
+    ]
+  },
+  "logicalCell": [
+    1,
+    1
+  ],
+  "sourceDiamond": [
+    256,
+    128
+  ],
+  "reviewedDisplayDiamond": [
+    192,
+    96
+  ],
+  "note": "Approves the projection direction. The schematic heart is not an approved replacement artwork. This record supersedes the pre-approval status in geometry.json without rewriting that snapshot.",
+  "reviewedFiles": {
+    "docs/reference/isometric-review/wireframe-v1/geometry.json": {
+      "bytes": 697604,
+      "sha256": "a23b7e0ad429853bd6790ac2a02c3a2b95bdb67df46f503bb48a338be78696ab"
+    },
+    "docs/reference/isometric-review/wireframe-v1/room-grid.png": {
+      "bytes": 105883,
+      "sha256": "16b87983644fd2e74bccedd1e73cb393d02c206b68db73a6038ab24ae9e47ab2"
+    },
+    "docs/reference/isometric-review/wireframe-v1/room.png": {
+      "bytes": 75194,
+      "sha256": "6b1d966922103e6ee30392fab839ffcf453a8517753868d4fcc77e4135f4d4d5"
+    },
+    "docs/reference/isometric-review/wireframe-v1/room-transparent.png": {
+      "bytes": 53124,
+      "sha256": "ab766539d54552d07eeb590f7e0929975552faab58387bcdea5d1c50335f1b01"
+    },
+    "docs/reference/isometric-review/wireframe-v1/logical-grid.png": {
+      "bytes": 67104,
+      "sha256": "e2493c8b4d4f1f3bea9e97091ac0dc4eb5685807c5ca7b7a202e6337815cebec"
+    }
+  }
+}

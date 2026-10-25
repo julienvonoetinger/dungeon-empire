@@ -9,6 +9,9 @@ script = ExtResource("1")
 
 [node name="Dungeon" type="Node2D" parent="."]
 script = ExtResource("2")
+wall_variants = true
+floor_variants = true
+floor_damage = true
 layout = ExtResource("3")
 connections = 15
 corridor_length = 3
@@ -21,3 +24,5 @@ Vector2i(-2, 0): "west"
 })
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 64)
+zoom = Vector2(0.75, 0.75)

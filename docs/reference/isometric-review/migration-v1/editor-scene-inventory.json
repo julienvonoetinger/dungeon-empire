@@ -1,0 +1,67 @@
+[
+	{
+		"camera_position": [
+			90.0,
+			175.0
+		],
+		"cells": 13,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "MobileReference",
+		"specials": 0,
+		"sprites": 50,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 13,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "WireframeDoorCross",
+		"specials": 4,
+		"sprites": 61,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "SixRoomPreview",
+		"specials": 1,
+		"sprites": 480,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 4,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "EntranceVariants",
+		"specials": 4,
+		"sprites": 28,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			64.0
+		],
+		"cells": 1,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "SingleCellRoom",
+		"specials": 0,
+		"sprites": 9,
+		"zoom": 0.75
+	}
+]

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-25",
+  "status": "appearance concepts; not selected or integrated",
+  "mode": "built-in ImageGen",
+  "commonPrompt": "Use case: stylized-concept. Asset type: a single alternative dungeon floor patch for a mobile isometric game, as concept art for a future wireframe-based sprite.\nREFERENCE: image 1 is the current floor sprite, the authoritative dark blue-slate palette, planar 2:1 isometric projection, smooth calm stone surfaces, scale of stones and softly rounded narrow bevels. Image 2 is the actual game context for the SAME palette and visual hierarchy. Keep the floor DARK like image 1, not lighter or more saturated; wall highlights and objects must remain more prominent.\nOutput ONE square floor patch viewed as a 2:1 isometric diamond (width twice height), top surface ONLY, no vertical thickness, no slab foundation, no pedestal. Transparent background outside diamond, generous empty margins, no shadow outside the floor. About 12 stones total: three courses of four medium sized stones, comparable to the reference stone scale. Fill the entire diamond with laid paving and narrow dark mortar joints; do not make separate floating stones.\nHand-painted simplified stylized mobile game art. Flat broad surfaces with almost imperceptible broad colour shading, tiny restrained upper-left bevel highlights, no photographic texture. Design variety comes from stone outlines and arrangement, not surface markings. Sharp, clean silhouettes at small size, low contrast within the stone. Preserve an overall regular square area so a later wireframe can define exact edge connections. These are appearance concepts, not verified seamless textures.\nAvoid: cracks, scratches, gouges, chipped holes, rubble, roots, moss, crystals, runes, emblems, carved decoration, light effects, torches, characters, walls, text, labels, gradients or background checkerboard. No noisy microtexture. No raised or tilted stones.",
+  "references": [
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-review/painted-v1/sprites/floor.png",
+    "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/isometric-decoration-review/remove-chip-2026-10-25/captures/MobileReference-native.png"
+  ],
+  "jobs": [
+    {
+      "id": "a-contours-irreguliers",
+      "label": "A · Contours irréguliers",
+      "prompt": "Design A: retain three orderly staggered courses of medium quadrilateral paving stones, but give each stone a subtly hand-cut asymmetric outline. Slightly nonparallel short sides and tiny variations in corner curvature, gently bowed edges. One or two soft angled corners per stone, not broken/chipped edges. The rhythm remains quiet and compact. Keep all joints thin and even. Visually distinguish the stone silhouettes without conspicuous damage or dramatic colour changes.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-875d4e6e-7f12-4d28-bbb6-7207f24c1b73.png",
+      "file": "docs/reference/isometric-floor-variation-review/v1/source/a-contours-irreguliers.png"
+    },
+    {
+      "id": "b-formats-varies",
+      "label": "B · Formats variés",
+      "prompt": "Design B: change the inner arrangement of this floor patch into an irregular modular ashlar pattern: two wider rectangular slabs, several nearly square medium slabs, and a few short rectangular filler stones. Alternate the joining positions to avoid continuous long seams; vary the proportions without making any slab enormous or any thin sliver. Approximately 12 stones with sizes spanning about 0.7 to 1.4 times the reference average. Rounded rectangular outlines and smooth quiet surfaces. This design is distinguished by the varied assembly, not texture or colour variation.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-409a2b3f-5106-487c-921c-59fea317dd68.png",
+      "file": "docs/reference/isometric-floor-variation-review/v1/source/b-formats-varies.png"
+    },
+    {
+      "id": "c-coins-adoucis",
+      "label": "C · Coins adoucis",
+      "prompt": "Design C: three staggered courses of four nearly square paving stones, with more pronounced but still subtle softly chamfered and rounded corners. Each stone has slightly different 1-3 corner chamfers, creating small angular mortar pockets where stones meet, like carefully worn old flagstones. Broad flat smooth tops, thin dark joints and modest soft bevels. Keep stones solid and intact, no cracks or holes. Less regular than the reference but never pebble shaped, octagonal decorative tiling, or a cobblestone path.",
+      "generatedPath": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-4af43a21-949a-4242-8f45-9bb6fbd842d9.png",
+      "file": "docs/reference/isometric-floor-variation-review/v1/source/c-coins-adoucis.png"
+    }
+  ]
+}

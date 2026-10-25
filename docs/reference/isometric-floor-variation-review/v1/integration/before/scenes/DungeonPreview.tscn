@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/six_room_preview.gd" id="1_preview"]
+[ext_resource type="Script" path="res://scripts/wireframe_cell_study.gd" id="2_dungeon"]
+[ext_resource type="Resource" path="res://assets/layouts/six_rooms_wireframe.tres" id="3_layout"]
+
+[node name="DungeonPreview" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="Dungeon" type="Node2D" parent="."]
+script = ExtResource("2_dungeon")
+wall_variants = true
+layout = ExtResource("3_layout")
+entrance_at_closed_ends = true
+heart_positions = PackedVector2Array(12, 14)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 1472)
+zoom = Vector2(0.75, 0.75)

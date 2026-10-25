@@ -1,0 +1,26 @@
+ERROR: Parameter "current_window" is null.
+   at: _reparent_and_show (editor/gui/progress_dialog.cpp:183)
+ERROR: Parameter "current_window" is null.
+   at: _reparent_and_show (editor/gui/progress_dialog.cpp:183)
+WARNING: 6 RIDs of type "Canvas" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 1939 RIDs of type "CanvasItem" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+WARNING: 2 RIDs of type "CanvasLight" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2735)
+ERROR: 2 shaders of type CanvasShaderGLES3 were never freed
+   at: ~ShaderGLES3 (drivers/gles3/shader_gles3.cpp:838)
+ERROR: Texture with GL ID of 19: leaked 20 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 38: leaked 1364 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 66: leaked 1364 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 1082: leaked 11184812 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+ERROR: Texture with GL ID of 1081: leaked 87380 bytes.
+   at: ~Utilities (drivers/gles3/storage/utilities.cpp:82)
+WARNING: 2208 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 91 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,67 @@
+[
+	{
+		"camera_position": [
+			90.0,
+			175.0
+		],
+		"cells": 13,
+		"hearts": 1,
+		"lights": 2,
+		"scene": "MobileReference",
+		"specials": 0,
+		"sprites": 66,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "DungeonPreview",
+		"specials": 1,
+		"sprites": 543,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			512.0,
+			1472.0
+		],
+		"cells": 256,
+		"hearts": 1,
+		"lights": 0,
+		"scene": "SixRoomPreview",
+		"specials": 1,
+		"sprites": 543,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			-128.0,
+			128.0
+		],
+		"cells": 3,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "ReferenceCalibration",
+		"specials": 3,
+		"sprites": 23,
+		"zoom": 0.75
+	},
+	{
+		"camera_position": [
+			0.0,
+			320.0
+		],
+		"cells": 37,
+		"hearts": 0,
+		"lights": 0,
+		"scene": "5x5RoomVerticalCornerCorridors",
+		"specials": 0,
+		"sprites": 90,
+		"zoom": 0.75
+	}
+]

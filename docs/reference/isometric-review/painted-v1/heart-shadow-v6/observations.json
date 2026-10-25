@@ -1,0 +1,100 @@
+[
+	{
+		"heart": [
+			1.5,
+			1.0
+		],
+		"id": "reference",
+		"lights": true,
+		"shadows": [
+			{
+				"source": "torch-horizontal@(1.0, 0.0)",
+				"sprite": "heart_shadow_2"
+			}
+		]
+	},
+	{
+		"heart": [
+			0.899999976158142,
+			1.0
+		],
+		"id": "heart-moved-left",
+		"lights": true,
+		"shadows": [
+			{
+				"source": "torch-vertical@(0.0, 1.0)",
+				"sprite": "heart_shadow_7"
+			}
+		]
+	},
+	{
+		"heart": [
+			1.5,
+			1.0
+		],
+		"id": "torch-moved",
+		"lights": true,
+		"shadows": [
+			{
+				"source": "torch-horizontal@(0.0, 0.0)",
+				"sprite": "heart_shadow_1"
+			}
+		]
+	},
+	{
+		"heart": [
+			0.899999976158142,
+			1.0
+		],
+		"id": "near-edge-contact",
+		"lights": true,
+		"shadows": [
+			{
+				"source": "contact-only",
+				"sprite": "heart_shadow"
+			}
+		]
+	},
+	{
+		"heart": [
+			1.5,
+			1.0
+		],
+		"id": "lights-off",
+		"lights": false,
+		"shadows": [
+			{
+				"source": "contact-only",
+				"sprite": "heart_shadow"
+			}
+		]
+	},
+	{
+		"heart": [
+			1.5,
+			1.0
+		],
+		"id": "outside-light-range",
+		"lights": true,
+		"shadows": [
+			{
+				"source": "contact-only",
+				"sprite": "heart_shadow"
+			}
+		]
+	},
+	{
+		"heart": [
+			1.5,
+			1.0
+		],
+		"id": "no-torches",
+		"lights": true,
+		"shadows": [
+			{
+				"source": "contact-only",
+				"sprite": "heart_shadow"
+			}
+		]
+	}
+]

@@ -1,0 +1,5566 @@
+{
+  "status": "selected art adapted for production integration",
+  "sourceSelection": "docs/reference/isometric-wall-variation-review/v2-subvariants/selection.json",
+  "items": [
+    {
+      "id": "wall-h-0-a1",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16908,
+      "sha256": "d9cec43f148508b3b46aef80bcf932fb373f030a89e0e9cc83e55c90cf188af0"
+    },
+    {
+      "id": "wall-h-1-a1",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15524,
+      "sha256": "4dab139986d886c5fd77d83e164adccc616935d8a93ce70255d8c8e2e5565a19"
+    },
+    {
+      "id": "wall-h-2-a1",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15437,
+      "sha256": "65dca0cd425da844046dbba65604011a68bff8e076ca65362e67b9e1dd1e0a6a"
+    },
+    {
+      "id": "wall-h-3-a1",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13951,
+      "sha256": "ff8a660ba03b8e7c9544c18fa734d82a8364dd3582dd6b5cd05884b6351e3a2a"
+    },
+    {
+      "id": "wall-v-0-a1",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15511,
+      "sha256": "8ab69007ac5a0be410cd58995c22fafcc10f4978b4be99de6131fdf85e251132"
+    },
+    {
+      "id": "wall-v-1-a1",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14428,
+      "sha256": "9c0a1e8a64bfc00610546c47a6048ad92addcda7a7a3151d7111b8c8fabfd83b"
+    },
+    {
+      "id": "wall-v-2-a1",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14121,
+      "sha256": "d5aa22e900e1e9aeb7ecae285f0c67bdb1c06a067c8e0b21f21ad78848d38b0e"
+    },
+    {
+      "id": "wall-v-3-a1",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a1",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.29,
+            0.44,
+            0.78,
+            1
+          ],
+          "bottom": [
+            0,
+            0.25,
+            0.63,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 12930,
+      "sha256": "1f88cd4d163484dad61b7e4742bb82aadaeffb70df513e4055de818666154266"
+    },
+    {
+      "id": "wall-h-0-a2",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 17078,
+      "sha256": "94a15086ac77afc10609ac36fc03708b2f749784131111dd0f28c17184667e2d"
+    },
+    {
+      "id": "wall-h-1-a2",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15447,
+      "sha256": "f9b12449c4e78d02cf6a173f8a8734d7e4795cec1c6af293fd4e924a39e8904f"
+    },
+    {
+      "id": "wall-h-2-a2",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15539,
+      "sha256": "cea85be70e66cae34f7456ef1e686dc4a8203bec4d1c923477bd47d2e189b994"
+    },
+    {
+      "id": "wall-h-3-a2",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13840,
+      "sha256": "95971c3bf34f62d816e5d6eb25ebd789b3ced786f2e5b5395ea58e3a87614d61"
+    },
+    {
+      "id": "wall-v-0-a2",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15616,
+      "sha256": "7a4b4e5bff6eed02560c012c4773cb26d2e038e5ed9aad00d638f743fabb8282"
+    },
+    {
+      "id": "wall-v-1-a2",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14244,
+      "sha256": "294adedbfbb5f30793bf696cfd3fc2da9dd081314eab32d539ad18c97838e56b"
+    },
+    {
+      "id": "wall-v-2-a2",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14137,
+      "sha256": "3cd652f014e7e9a7969377883ae3a36ce9f4eabce6a893a06289ec7f699cbcef"
+    },
+    {
+      "id": "wall-v-3-a2",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a2",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.64,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.44,
+            0.67,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 12724,
+      "sha256": "8acc5373a3ecc2c49b6faf5c547d1d93433860ecf7c71eced2f66c811c6661df"
+    },
+    {
+      "id": "wall-h-0-a3",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16868,
+      "sha256": "b5231e450b5aca6712a3306eca95dd54f4921a0f6a02020fe765954504cfa0dd"
+    },
+    {
+      "id": "wall-h-1-a3",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15215,
+      "sha256": "55bcdced6a5bdce6adfe2a045345fa9c8120e7f21a6c4a96da5867f209869167"
+    },
+    {
+      "id": "wall-h-2-a3",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15414,
+      "sha256": "fd40eefb9d4d28f91bbf9c78ffe0123ef75f751531b88919c7e049d042f9fc76"
+    },
+    {
+      "id": "wall-h-3-a3",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13685,
+      "sha256": "ff4cb5828ec2022a6a227059ab5c13122f79b7bc6e8f4d4168fd0cc1c49aa8c3"
+    },
+    {
+      "id": "wall-v-0-a3",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15430,
+      "sha256": "1a38ccbd269d1e4f35575315a9688e5b5328dbbb3419078442edd56dd2d5d8fd"
+    },
+    {
+      "id": "wall-v-1-a3",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14083,
+      "sha256": "c65326be5cd67055b9aa59379cc3397e76e59be94306321fc156f403d8b85243"
+    },
+    {
+      "id": "wall-v-2-a3",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14127,
+      "sha256": "1f86db804294c6e86d2db89af34f2f372e15adfd038524015e8353a98f9a125e"
+    },
+    {
+      "id": "wall-v-3-a3",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "a",
+        "variant": "a3",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.65,
+            1
+          ],
+          "bottom": [
+            0,
+            0.35,
+            1
+          ],
+          "origin": [
+            155,
+            275
+          ],
+          "u": [
+            900,
+            465
+          ],
+          "down": [
+            0,
+            280
+          ],
+          "back": [
+            150,
+            -72
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 12688,
+      "sha256": "e19b6098493fde09f72fa8e17b72151cc47899f37f7ed06e6cf496ee12136690"
+    },
+    {
+      "id": "wall-h-0-c1",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.10933333333333332,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16546,
+      "sha256": "42711a307ceaefde444b2c13add347a935834f5693501b48c629c3133857e1cc"
+    },
+    {
+      "id": "wall-h-1-c1",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.10933333333333332,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15049,
+      "sha256": "e020188f8148f6710e1f6e69564b208013b00b65929e6f595e9be1b03502a9d7"
+    },
+    {
+      "id": "wall-h-2-c1",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.10933333333333332,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15230,
+      "sha256": "29b972edbf3ee117588a36cb59b6714360a93f651525b2b55ea38921d017a559"
+    },
+    {
+      "id": "wall-h-3-c1",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.10933333333333332,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13595,
+      "sha256": "8eb7635b0d3d696ab140162358cd0adfdead11557c57da6cf06e475f28773be9"
+    },
+    {
+      "id": "wall-v-0-c1",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.10933333333333332,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15119,
+      "sha256": "a1e595d98100c9c0ffefde271a80d8e682676a902ff929161abfcd7167812cc6"
+    },
+    {
+      "id": "wall-v-1-c1",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.10933333333333332,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13813,
+      "sha256": "d710e30da5c7cfa738b34381014fb7c6d94871d31d854dffc4d3421982c96798"
+    },
+    {
+      "id": "wall-v-2-c1",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.10933333333333332,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13791,
+      "sha256": "0176b51a86ff0158c4819cd684c05b1b9fe4b99860435512feb028f4dbca749b"
+    },
+    {
+      "id": "wall-v-3-c1",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.10933333333333332,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c1",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.5,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            970,
+            515
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.026
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 12401,
+      "sha256": "8fb59623b1f958e93c080662fbd2587e0012176c28d4b5b238f9c4aed7443d08"
+    },
+    {
+      "id": "wall-h-0-c2",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.10733333333333334,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16734,
+      "sha256": "73b64743c4c0273e34c919f5f2da69390747f8364455f941d7e35c1995a02602"
+    },
+    {
+      "id": "wall-h-1-c2",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.10733333333333334,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15259,
+      "sha256": "bf3b5c8992b214317eecd396f844963c867c3cd4b82bb53dd9d2d73541d5283b"
+    },
+    {
+      "id": "wall-h-2-c2",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.10733333333333334,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15294,
+      "sha256": "89eeb68cfd423c149b1abb32063eb82ec53ca49adf0b713067eac43851da84fa"
+    },
+    {
+      "id": "wall-h-3-c2",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.10733333333333334,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13676,
+      "sha256": "f2f414e4427faf2cf95c67933ef750e1ba8a8f16490d0cd656a1c7c93ff21e76"
+    },
+    {
+      "id": "wall-v-0-c2",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.10733333333333334,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15310,
+      "sha256": "8142fcb73bc965aaef5e6ee36184e9cb60b75197a5b04c2cbd013b3ae6062014"
+    },
+    {
+      "id": "wall-v-1-c2",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.10733333333333334,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14016,
+      "sha256": "d0d8d80f76001f4ab30b10d988f9b822e444b8b7cf59bcc40cf836ee4e48c3f5"
+    },
+    {
+      "id": "wall-v-2-c2",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.10733333333333334,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14043,
+      "sha256": "c3a52f15ee1c618d3cd712d5700dae9a96c161bcfeb9eac2701908c29cb0f61f"
+    },
+    {
+      "id": "wall-v-3-c2",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.10733333333333334,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c2",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.23,
+            0.46,
+            0.74,
+            1
+          ],
+          "bottom": [
+            0,
+            0.15,
+            0.51,
+            0.83,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            1010,
+            535
+          ],
+          "down": [
+            0,
+            330
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.24,
+              0.45,
+              0.53,
+              0.97,
+              0.024
+            ],
+            [
+              0.52,
+              0.82,
+              0.03,
+              0.47,
+              0.02
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 12580,
+      "sha256": "674d7e3c726d670e875f94ff16b9bae763a4ee91f368af900046f68f81d5ceea"
+    },
+    {
+      "id": "wall-h-0-c3",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.11633333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16009,
+      "sha256": "0271e3c88bf71608e12ef3dfa508de1f50724aff5a926a13a19cbee56ce62f6c"
+    },
+    {
+      "id": "wall-h-1-c3",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.11633333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14706,
+      "sha256": "6bc7a5748f9bf4a9d6bfd7b6f5828cb8d2512ef27def34347760cd914e99c4c1"
+    },
+    {
+      "id": "wall-h-2-c3",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.11633333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14885,
+      "sha256": "03615fd6105f3c8ec5777f0a3a98cddba58d2b26a5de3950448e3be6fc17d2ce"
+    },
+    {
+      "id": "wall-h-3-c3",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.11633333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13434,
+      "sha256": "0c9d79e07259bfff94dc4323822140404f7b3e9ca6587a040cf973f41a394d79"
+    },
+    {
+      "id": "wall-v-0-c3",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.11633333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 14633,
+      "sha256": "a98eb8b9b5174d0ae22b8790f535b7747e89fc43d93144349ae54e3615be8dd4"
+    },
+    {
+      "id": "wall-v-1-c3",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.11633333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13527,
+      "sha256": "247a78d2fdb62afac1a693d92fdcd90f6db73b604add16dfdcebd2d0b7c2b295"
+    },
+    {
+      "id": "wall-v-2-c3",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.11633333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 13496,
+      "sha256": "21615da6979539a081602a9050ba0be9c5d1d2fc2632f1e943d67c283a635820"
+    },
+    {
+      "id": "wall-v-3-c3",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.11633333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "c",
+        "variant": "c3",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": false
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/c3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.33,
+            0.67,
+            1
+          ],
+          "bottom": [
+            0,
+            0.18,
+            0.7,
+            1
+          ],
+          "origin": [
+            95,
+            205
+          ],
+          "u": [
+            960,
+            515
+          ],
+          "down": [
+            0,
+            320
+          ],
+          "back": [
+            155,
+            -85
+          ],
+          "relief": [
+            [
+              0.34,
+              0.66,
+              0.53,
+              0.97,
+              0.016
+            ],
+            [
+              0.19,
+              0.69,
+              0.03,
+              0.47,
+              0.033
+            ]
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 12269,
+      "sha256": "caf1c26a7c32109784380893cd629672369127baa3b6b2cac746350db3bac67f"
+    },
+    {
+      "id": "wall-h-0-f1",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 20182,
+      "sha256": "b7c2b58513493ab3ccf8741ed98ae2d496fc3c928b96ea6f0b6c8d3e49191d68"
+    },
+    {
+      "id": "wall-h-1-f1",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 18480,
+      "sha256": "b1b47d8e24ad3a34f26b0109e791559ee21dc124b914ea39be8ded2167affb41"
+    },
+    {
+      "id": "wall-h-2-f1",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 18682,
+      "sha256": "91694d8bf46d12b52a63c72612557e65b5d267226ea31e835d2779ae7d08e002"
+    },
+    {
+      "id": "wall-h-3-f1",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16906,
+      "sha256": "dd6ac440fa7eb8632f7db5a31889caf1302f304c1ca9973ee84973d3089ef607"
+    },
+    {
+      "id": "wall-v-0-f1",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 19152,
+      "sha256": "0dc5eaf8079422c7584c4a4635aac9a43d84cfadb2d446b3fe40e36eb1e70257"
+    },
+    {
+      "id": "wall-v-1-f1",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 17639,
+      "sha256": "68c8fe974e4ccc7a1d3ae58ef08e2f9dcb1c2fa97a95654be8dbe10317dd9249"
+    },
+    {
+      "id": "wall-v-2-f1",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 17667,
+      "sha256": "0c1e811c0efb4710de82f8b6d95a8bdd73e388f7fa220cece6c290e5b180f5c2"
+    },
+    {
+      "id": "wall-v-3-f1",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f1",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f1.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16109,
+      "sha256": "60f3360f89466650ef115957b4ab2619f54288add4568f00124b320b7e22846c"
+    },
+    {
+      "id": "wall-h-0-f2",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 20242,
+      "sha256": "0df4516dee44185eb5e7ad46b4a11d2defbf08ddfb840a95cd255c0dd7a0e3fe"
+    },
+    {
+      "id": "wall-h-1-f2",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 18505,
+      "sha256": "21f41f1cd68e7310871e3318a142945c6ff719a1969d7fae9e46293a2df31a5b"
+    },
+    {
+      "id": "wall-h-2-f2",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 18381,
+      "sha256": "734f35b7454802e1c62af498d9d2d4795df9826306eb87a6e7506d9466274465"
+    },
+    {
+      "id": "wall-h-3-f2",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16583,
+      "sha256": "b5009c50f12cdffc06853a538818fd7cdfd9c886bdb91e44bd53706d61d14987"
+    },
+    {
+      "id": "wall-v-0-f2",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 19167,
+      "sha256": "56a8fe5019a195a1be01e78080ab29ede3d6f161b2fae04298b9e82cb92ae523"
+    },
+    {
+      "id": "wall-v-1-f2",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 17670,
+      "sha256": "64409e46301cee9be004b376e1952e415b0e1dbd253cbebaf57e5135a24ad4b0"
+    },
+    {
+      "id": "wall-v-2-f2",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 17349,
+      "sha256": "784b58ee8e74cfe28b8e90a6e1f50c53f0587c2ca11c134daa0169caa5dc15a5"
+    },
+    {
+      "id": "wall-v-3-f2",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f2",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f2.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            170,
+            210
+          ],
+          "u": [
+            885,
+            530
+          ],
+          "down": [
+            0,
+            315
+          ],
+          "back": [
+            150,
+            -75
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15746,
+      "sha256": "5edcf76a84451ea85c8bd7e6af3eae750c409e4d38bb24cafacccc48c9583a8c"
+    },
+    {
+      "id": "wall-h-0-f3",
+      "frame": [
+        -13,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "h",
+        "endProfile": 0,
+        "base": "wall-h-0",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 19442,
+      "sha256": "f3a56942d163484f1a810d36bd433ed6e532b06db34b8daaa665a00c3c6e2f9f"
+    },
+    {
+      "id": "wall-h-1-f3",
+      "frame": [
+        2,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          1,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "h",
+        "endProfile": 1,
+        "base": "wall-h-1",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 17828,
+      "sha256": "09efd43341f99a8fac66591107af27d41731b1e0f974307044fc1bc7555f5795"
+    },
+    {
+      "id": "wall-h-2-f3",
+      "frame": [
+        -13,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          0,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "h",
+        "endProfile": 2,
+        "base": "wall-h-2",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 17791,
+      "sha256": "2648e386b318618a24013afdb497e7d62802fe7f6cc67d29dcf778a2cf50caad"
+    },
+    {
+      "id": "wall-h-3-f3",
+      "frame": [
+        2,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          0.12,
+          -0.08333333333333333,
+          0
+        ],
+        "max": [
+          0.88,
+          0.08333333333333333,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "h",
+        "endProfile": 3,
+        "base": "wall-h-3",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16069,
+      "sha256": "37f8eb641e82dc1a8834b833367457b922d72260ddcbb4e400392c4c8321b50c"
+    },
+    {
+      "id": "wall-v-0-f3",
+      "frame": [
+        -141,
+        -57,
+        154,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "v",
+        "endProfile": 0,
+        "base": "wall-v-0",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 18365,
+      "sha256": "e50a6b2af59d2df6e59d6c65899b199730a69e1165a52128c813463c16003dc7"
+    },
+    {
+      "id": "wall-v-1-f3",
+      "frame": [
+        -141,
+        -49,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          1,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "v",
+        "endProfile": 1,
+        "base": "wall-v-1",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16944,
+      "sha256": "1d0ed8784356444047e54969458383eab54720d7d91687787dbb6a5c44627407"
+    },
+    {
+      "id": "wall-v-2-f3",
+      "frame": [
+        -126,
+        -57,
+        139,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "v",
+        "endProfile": 2,
+        "base": "wall-v-2",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 16772,
+      "sha256": "bffe706e5964de29a427e3d8a38abeb88c87e41d9b4df35b1e4c1c913616ac54"
+    },
+    {
+      "id": "wall-v-3-f3",
+      "frame": [
+        -126,
+        -49,
+        124,
+        113
+      ],
+      "bounds": {
+        "min": [
+          -0.08333333333333333,
+          0.12,
+          0
+        ],
+        "max": [
+          0.08333333333333333,
+          0.88,
+          0.3133333333333333
+        ]
+      },
+      "rasterScale": 0.75,
+      "wallVariant": {
+        "family": "f",
+        "variant": "f3",
+        "axis": "v",
+        "endProfile": 3,
+        "base": "wall-v-3",
+        "ornament": true
+      },
+      "approvedSource": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/f3.png",
+      "adaptation": {
+        "sourcePlanes": {
+          "top": [
+            0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1
+          ],
+          "bottom": [
+            0,
+            0.16666666666666666,
+            0.5,
+            0.8333333333333334,
+            1
+          ],
+          "origin": [
+            166,
+            215
+          ],
+          "u": [
+            890,
+            505
+          ],
+          "down": [
+            0,
+            310
+          ],
+          "back": [
+            155,
+            -85
+          ]
+        },
+        "commonTerminalBand": [
+          0.022,
+          0.062
+        ],
+        "mapping": "Source camera on shared XYZ wall support; C relief is physical. F optional surface layer includes its masonry backing.",
+        "palette": "Per-plane common base-wall palette; violet accents retained. No source/alpha changes.",
+        "rasterScale": 0.75
+      },
+      "bytes": 15285,
+      "sha256": "add224efbe91140d7d623a62f70349664c2811521137535836f8c536d8a6904f"
+    }
+  ]
+}

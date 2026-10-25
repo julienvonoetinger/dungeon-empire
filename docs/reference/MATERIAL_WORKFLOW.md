@@ -1,5 +1,20 @@
 # Matières communes appliquées aux wireframes
 
+## État actif — peinture isométrique du 24 octobre 2026
+
+`tools/export_isometric_painted_kit.cjs` réutilise les matières mobiles sobres et
+les illustrations approuvées sur les volumes isométriques conservés. Les UV suivent
+les plans XYZ ; les masques de profondeur et la composition restent hors ligne.
+Les sources ne sont pas régénérées. Le cœur emploie une adaptation de ses détails
+sculptés sur le socle, avec le vortex face à la caméra. Voir la
+[recette complète](isometric-review/painted-v1/README.md) et ses empreintes de sources.
+
+Les contours de finition du sol doivent rester complets avant découpage, distincts
+des guides visibles tronqués. Une couverture périodique de deux pixels évite les
+filets de transparence. L'ombre du socle est un sprite de sol séparé, préparé depuis
+le volume et dessiné sous les objets ; ne pas transformer l'ombre de la peinture
+d'origine en tranche opaque du socle.
+
 ## Décision utilisateur — 23 octobre 2026
 
 Après l'essai avec masques, l'utilisateur a approuvé cette méthode et demandé

@@ -1,0 +1,193 @@
+[
+	{
+		"capture": "reference-bare",
+		"count": 0,
+		"enabled": false,
+		"placements": [],
+		"seed": 17
+	},
+	{
+		"capture": "reference-decorated",
+		"count": 8,
+		"enabled": true,
+		"placements": [
+			{
+				"name": "detail_crack_short_floor",
+				"position": [
+					220.0,
+					171.0
+				],
+				"z": 0
+			},
+			{
+				"name": "detail_crack_branch_floor",
+				"position": [
+					474.0,
+					430.0
+				],
+				"z": 0
+			},
+			{
+				"name": "detail_chip_worn_floor",
+				"position": [
+					-549.0,
+					425.0
+				],
+				"z": 0
+			},
+			{
+				"name": "detail_crack_branch_wall_v",
+				"position": [
+					-73.0,
+					-16.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_short_wall_h",
+				"position": [
+					291.0,
+					110.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_branch_wall_h",
+				"position": [
+					-222.0,
+					112.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_chip_worn_wall_h",
+				"position": [
+					415.0,
+					301.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_corrupt_wall_v",
+				"position": [
+					568.0,
+					429.0
+				],
+				"z": 1
+			}
+		],
+		"seed": 17
+	},
+	{
+		"capture": "reference-seed-43",
+		"count": 4,
+		"enabled": true,
+		"placements": [
+			{
+				"name": "detail_chip_worn_floor",
+				"position": [
+					219.0,
+					169.0
+				],
+				"z": 0
+			},
+			{
+				"name": "detail_chip_worn_wall_h",
+				"position": [
+					287.0,
+					109.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_short_wall_v",
+				"position": [
+					-456.0,
+					302.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_branch_wall_v",
+				"position": [
+					-201.0,
+					304.0
+				],
+				"z": 1
+			}
+		],
+		"seed": 43
+	},
+	{
+		"capture": "reference-restored",
+		"count": 8,
+		"enabled": true,
+		"placements": [
+			{
+				"name": "detail_crack_short_floor",
+				"position": [
+					220.0,
+					171.0
+				],
+				"z": 0
+			},
+			{
+				"name": "detail_crack_branch_floor",
+				"position": [
+					474.0,
+					430.0
+				],
+				"z": 0
+			},
+			{
+				"name": "detail_chip_worn_floor",
+				"position": [
+					-549.0,
+					425.0
+				],
+				"z": 0
+			},
+			{
+				"name": "detail_crack_branch_wall_v",
+				"position": [
+					-73.0,
+					-16.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_short_wall_h",
+				"position": [
+					291.0,
+					110.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_branch_wall_h",
+				"position": [
+					-222.0,
+					112.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_chip_worn_wall_h",
+				"position": [
+					415.0,
+					301.0
+				],
+				"z": 1
+			},
+			{
+				"name": "detail_crack_corrupt_wall_v",
+				"position": [
+					568.0,
+					429.0
+				],
+				"z": 1
+			}
+		],
+		"seed": 17
+	}
+]

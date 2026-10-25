@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-24",
+  "scope": "Visual imports/captures and resource export, no automated test suite or Android device profile",
+  "atlas": {
+    "size": [
+      1024,
+      1024
+    ],
+    "sprites": 26,
+    "pngBytes": 508995,
+    "rgbaBytes": 4194304,
+    "sha256": "eb130fb63b4e04b101af0d14e896eb9a6eb698ec08fbdefdcbf8c56c8167b8ea"
+  },
+  "runtime": {
+    "scenes": 23,
+    "captures": 68
+  },
+  "editor": {
+    "scenes": 5,
+    "captures": 21,
+    "limitations": "Native progress-window and shutdown resource diagnostics remain; stderr is not clean."
+  },
+  "resourceExport": {
+    "sourceDependencies": 45,
+    "scenes": 23,
+    "zipBytes": 436713,
+    "zipSha256": "b95c5781e18742a32ef63df9e732e79f8eb409f7e8b8b8ae982d63356e4b0709",
+    "startup": "--main-pack from an isolated directory without loose project resources; headless startup only, not device rendering"
+  },
+  "logs": {
+    "import": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "runtime": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "editor": {
+      "exitCode": 0,
+      "stderrBytes": 1399
+    },
+    "stage-import": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "export": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    }
+  },
+  "geometrySha256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "review": {
+    "status": "No remaining Critical/Important/Minor code findings",
+    "resolved": [
+      "Interior colour overlap at filtered door split",
+      "Geometry helper hashes in provenance"
+    ],
+    "scopeLimits": [
+      "Artistic approval of adapted heart",
+      "Android performance",
+      "Unshown arbitrary layouts",
+      "Static light leakage"
+    ]
+  },
+  "commit": false,
+  "push": false,
+  "correction": {
+    "changedPreparedSprites": [
+      "floor.png",
+      "heart.png"
+    ],
+    "floorOmittedFinishEdgesBefore": 18,
+    "floorOmittedFinishEdgesAfter": 0,
+    "floorFilterCoverageSourcePixels": 2,
+    "heartGroundContactZ": 0,
+    "heartFasciaSourceRows": [
+      242,
+      252
+    ],
+    "geometrySha256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+    "review": "No remaining code or visual findings in focused independent review",
+    "captures": 68,
+    "editorCaptures": 21
+  }
+}

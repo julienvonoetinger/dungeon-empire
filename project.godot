@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Dungeon Empire 2D"
-run/main_scene="res://scenes/MobileReference.tscn"
+run/main_scene="res://scenes/ReferenceCalibration.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]

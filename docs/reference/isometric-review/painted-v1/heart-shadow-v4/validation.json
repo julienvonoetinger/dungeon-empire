@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-24",
+  "scope": "Visual imports/captures and resource export, no automated test suite or Android device profile",
+  "atlas": {
+    "size": [
+      1024,
+      1024
+    ],
+    "sprites": 27,
+    "pngBytes": 533290,
+    "rgbaBytes": 4194304,
+    "sha256": "3e9d27fb0277440dfbac057cfaf4f74719908628c05b10e53431c4144c9ae9bf"
+  },
+  "runtime": {
+    "scenes": 23,
+    "captures": 68
+  },
+  "editor": {
+    "scenes": 5,
+    "captures": 21,
+    "limitations": "Native screen-index/progress-window and shutdown resource diagnostics remain; stderr is not clean."
+  },
+  "resourceExport": {
+    "sourceDependencies": 45,
+    "scenes": 23,
+    "zipBytes": 454207,
+    "zipSha256": "943f635cef60f0112f81368b89953e696239431e8b9a57dbab4023957a235c5e",
+    "startup": "--main-pack from an isolated directory without loose project resources; headless startup only, not device rendering"
+  },
+  "logs": {
+    "import": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "runtime": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "editor": {
+      "exitCode": 0,
+      "stderrBytes": 1545
+    },
+    "stage-import": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "export": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    },
+    "package-startup": {
+      "exitCode": 0,
+      "stderrBytes": 0
+    }
+  },
+  "geometrySha256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+  "review": {
+    "status": "Prior integration review recorded below; current size-only revision visually inspected without a new independent review",
+    "resolved": [
+      "Interior colour overlap at filtered door split",
+      "Geometry helper hashes in provenance",
+      "Floor whole-stone finish and filtered seams",
+      "Heart original painted shadow excluded from side fascia",
+      "Separate static ground shadow; standalone-preview exception documented"
+    ],
+    "scopeLimits": [
+      "Artistic approval of adapted heart",
+      "Android performance",
+      "Unshown arbitrary layouts",
+      "Static light leakage"
+    ]
+  },
+  "commit": false,
+  "push": false,
+  "correction": {
+    "changedPreparedSprites": [
+      "floor.png",
+      "heart.png"
+    ],
+    "floorOmittedFinishEdgesBefore": 18,
+    "floorOmittedFinishEdgesAfter": 0,
+    "floorFilterCoverageSourcePixels": 2,
+    "heartGroundContactZ": 0,
+    "heartFasciaSourceRows": [
+      242,
+      252
+    ],
+    "geometrySha256": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+    "review": "No remaining code or visual findings in focused independent review",
+    "captures": 68,
+    "editorCaptures": 21
+  },
+  "groundShadow": {
+    "sprite": "heart-shadow",
+    "size": [
+      349,
+      202
+    ],
+    "pngBytes": 8604,
+    "planeZ": 0,
+    "priorPreparedSpritesChanged": [
+      "heart-shadow.png"
+    ],
+    "geometryUnchanged": true,
+    "lighting": "Static; no dynamic torch response",
+    "review": "Size-only v4 inspected in Godot captures; no new independent review or artistic approval",
+    "standalonePreview": "DungeonHeart has no floor plan; its shadow is displayed on the preview background",
+    "groundFootprintScale": 1.5
+  }
+}

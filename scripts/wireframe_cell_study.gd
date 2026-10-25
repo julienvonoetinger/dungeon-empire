@@ -1,7 +1,7 @@
 @tool
 extends "res://scripts/mobile_dungeon_renderer.gd"
 
-## Prepared painted PNGs. Runtime only selects images and places them on the grid.
+## Prepared isometric wireframes. Runtime selects images and places them on the grid.
 signal rebuilt
 
 const DOOR_VARIANTS := {"north":"w10_p00_e00", "south":"w10_p00_e00", "east":"w05_p00_e00", "west":"w05_p00_e00"}
@@ -81,6 +81,44 @@ const GRID = preload("res://scripts/wireframe_cell_layout.gd")
 		pillar_details = value
 		_request_rebuild()
 
+## Optional selected wall families, explicitly enabled by production layouts.
+@export var wall_variants := false:
+	set(value):
+		wall_variants = value
+		_request_rebuild()
+@export var wall_variant_seed := 17:
+	set(value):
+		wall_variant_seed = value
+		_request_rebuild()
+@export var wall_corruption := true:
+	set(value):
+		wall_corruption = value
+		_request_rebuild()
+
+## Compatible B arrangements; production scenes opt in explicitly.
+@export var floor_variants := false:
+	set(value):
+		floor_variants = value
+		_request_rebuild()
+@export var floor_variant_seed := 17:
+	set(value):
+		floor_variant_seed = value
+		_request_rebuild()
+
+## Sparse approved fissures/corruption; original clean B hosts stay available.
+@export var floor_damage := false:
+	set(value):
+		floor_damage = value
+		_request_rebuild()
+@export var floor_damage_seed := 17:
+	set(value):
+		floor_damage_seed = value
+		_request_rebuild()
+@export var floor_corruption := true:
+	set(value):
+		floor_corruption = value
+		_request_rebuild()
+
 var _plan: Dictionary = {}
 var _pending := false
 
@@ -121,6 +159,14 @@ func refresh_preview(reload_textures: bool = true) -> void:
 	_plan["torch_north_cells"] = torch_north_cells
 	_plan["torch_west_cells"] = torch_west_cells
 	_plan["torch_lights_enabled"] = torch_lights_enabled
+	_plan["wall_variants"] = wall_variants
+	_plan["wall_variant_seed"] = wall_variant_seed
+	_plan["wall_corruption"] = wall_corruption
+	_plan["floor_variants"] = floor_variants
+	_plan["floor_variant_seed"] = floor_variant_seed
+	_plan["floor_damage"] = floor_damage
+	_plan["floor_damage_seed"] = floor_damage_seed
+	_plan["floor_corruption"] = floor_corruption
 	render_plan(_plan, specials, pillar_details, reload_textures)
 	rebuilt.emit()
 

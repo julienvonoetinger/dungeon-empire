@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-24",
+  "status": "accepted",
+  "userReply": "Ok",
+  "scope": "Retain the torch-oriented heart shadow approach and appearance shown in the placement comparison. Eight prepared directions, fixed length, contact-only fallback; selection uses actual authored positions on refresh.",
+  "reviewedExamples": [
+    "reference",
+    "heart-moved-left",
+    "torch-moved"
+  ],
+  "reviewedDirectionalSprites": [
+    "heart-shadow-2",
+    "heart-shadow-7",
+    "heart-shadow-1"
+  ],
+  "limits": "Not individual visual approval of every direction or layout; no physical multi-light simulation or device-performance approval.",
+  "production": "Already integrated before this acceptance; this record does not change assets or rendering.",
+  "sha256": {
+    "docs/reference/isometric-review/painted-v1/heart-shadow-v6/comparison.png": "202f7455a0afeade331dd395851f80b76e41f4f2a7e7552a26ab72f356d54b0a",
+    "docs/reference/isometric-review/painted-v1/heart-shadow-v6/placement-comparison.png": "2cd4d0bad2f784a1cb2ff8748bd7abe0972111818ce7566dfbabf406141193eb",
+    "docs/reference/isometric-review/painted-v1/heart-shadow-v6/observations.json": "2e9645ebcbf58e4e1cc8619b4d34e52126d6b643b8df16315136690f519fbf9c",
+    "docs/reference/isometric-review/painted-v1/heart-shadow-v6/captures/reference.png": "8d7a710464b7771c42c34747ae0777c2f235ccdfd2f233e9b2494e02658fc409",
+    "docs/reference/isometric-review/painted-v1/heart-shadow-v6/captures/heart-moved-left.png": "476455b34761f5e6245650b2d39e5649ab629a42c5853d7c907cc399458ce95b",
+    "docs/reference/isometric-review/painted-v1/heart-shadow-v6/captures/torch-moved.png": "020f14a27effa1f17a0b16998aa3b86a9c9f379aa727517bd5d606cdfa013917",
+    "docs/reference/isometric-review/painted-v1/recipe.json": "374bf9cc47926e8132e24b14a3507b971c9ed51de07326ed5634f567818a33a0",
+    "docs/reference/isometric-review/migration-v1/geometry.json": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+    "assets/dungeon/isometric-kit/atlas-256.png": "eb5de0965fad360fce1b7452121d3bf63174c488f49026bb4d43ef9d028efe71",
+    "assets/dungeon/isometric-kit/catalog.json": "3cd5c16264b19be4f27eea48bbde9b5295c9841b84cfccafb867c0a1b3c9830c",
+    "assets/dungeon/isometric-kit/catalog.tres": "0246e240eb254110aa9832fb9dd93b36d1339d233e8263133a014b9a10bfde56",
+    "tools/isometric_ground_shadow.cjs": "44f923a81eaf34dec5c8790225407c1abe12bdc23212b3fe914424421ea14f80",
+    "tools/export_isometric_painted_kit.cjs": "c251c00fb31bcdb352bd209ab405ec7f5fdb45f297b99c6667cf14b2f68204c6",
+    "tools/isometric_prop_paint.cjs": "b3ec05517e9fad6cde357dcee5695b3a216b9eaebfe36b68f67ebba5791b63ca",
+    "tools/prepare_mobile_reference.cjs": "e4333828e7f7598243788c71f204da147bea41214d3ce30b035f182a35192b95",
+    "scripts/mobile_dungeon_renderer.gd": "3bf56e3fdc9c62d81cb408a1b0eaf94256acfab46911a1da7dc7e633196084cf",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-0.png": "18b0402a8f72daab373abbf0ea1537130fad14c344d2199167abcf5b645f93a2",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-1.png": "50af524797836847580c45bc781c41248a088ed6884162dfd6f33c998569b73f",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-2.png": "cef3d0d37865dc40e0679cd913b28f8e10917c251cb178b4ed11e477019963e9",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-3.png": "a2c8e31312dd114d922845fadf490ec0a7bbeb4ba5c51ff99246bd7ae42c5588",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-4.png": "0b3733c60ebe17b571b5735de193a92144c031275055b8609cd6111015544655",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-5.png": "47eabb83852e1bd5573cf2b120709ff37edce3e419ddb5b70fc515d4e30de116",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-6.png": "5f13c7b111017b40087470293fef9913a65c0a3c68eb1bf578a4488ab734fd7d",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow-7.png": "c10d4916d9ab3cceed4c91f9f8b3cec104f36092168d9279cff3187e4045db4f",
+    "docs/reference/isometric-review/painted-v1/sprites/heart-shadow.png": "4779334f4a28ee7a8ded3614b133ecece7ea9960717375c61d341b20db4ac00c"
+  }
+}

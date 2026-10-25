@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "status": "unapproved visual refinements",
+  "edits": [
+    {
+      "id": "crack-short-v2",
+      "source": "crack-short",
+      "prompt": "Edit ONLY this transparent stone fissure decal. Preserve the overall asymmetric diagonal route, muted blue-slate hand-painted style and genuine transparent canvas. Make the central dark recess and its chipped edge about TWO TIMES broader, with a main broken section broad enough to read when the entire decal is 30 pixels long. Three strong angular bends, tapering irregular ends, one short side split. It must be a shallow crack cut INTO flat stone, not an elongated raised rock or lightning symbol. Narrow low-contrast stone bevel around dark navy cavity, no long shiny edge. Entire untouched canvas transparent. No background tile, no ground shadow, no loose stones, no purple, no text. Keep full subject within frame."
+    },
+    {
+      "id": "chip-worn-v2",
+      "source": "chip-worn",
+      "prompt": "Edit this transparent stone damage decal to fix the illusion that it is a raised rock. Replace the thick protruding rim with a VERY SHALLOW CHIPPED RECESS in an otherwise flat stone surface. Paint just the dark uneven inner depression and a thin low beveled edge, no outward-facing vertical walls, no block stacked on top, no shadow cast onto the surrounding surface. Keep irregular compact silhouette, large simple painted facets, blue-slate palette, dim edge highlight. Aim for the look of a small scuff/chip knocked out of a masonry surface that reads clearly at 25 pixels across. All surrounding area truly transparent; remove the large soft halo. No brick background or intact tile. No pebbles or loose debris. No perspective foreshortening: perfectly straight-on texture/decal view."
+    }
+  ]
+}
