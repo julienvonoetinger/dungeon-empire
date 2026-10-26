@@ -1,0 +1,89 @@
+{
+  "selection": "User approved v9 implementation; originals and prompts in docs/reference/interface-review/v9-rock-cutout/source/",
+  "records": [
+    {
+      "asset": "assets\\dungeon\\bedrock\\quiet.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\quiet.png",
+      "method": "byte-identical copy",
+      "sha256": "18d74dfa7ed4895fd37359fd9f28dc6df22d048a253bed5de210e37a26f35ef2"
+    },
+    {
+      "asset": "assets\\dungeon\\bedrock\\strata.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\strata.png",
+      "method": "byte-identical copy",
+      "sha256": "337bd63af94bd999aa946a46a556caa113f9631782742a6932fe595b574ef817"
+    },
+    {
+      "asset": "assets\\dungeon\\bedrock\\mineral.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\mineral.png",
+      "method": "byte-identical copy",
+      "sha256": "f004d00ae2ff33c2155f32da42a366c8f4fcf7be4f79a6f7ed130546e2342545"
+    },
+    {
+      "asset": "assets\\ui\\forge\\dig.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\dig.png",
+      "method": "byte-identical copy",
+      "sha256": "b6e5f91eb8b7a5334a8eff9f7f7adbb7a1b00b07ec1257f77976eed3e026f0b9"
+    },
+    {
+      "asset": "assets\\ui\\forge\\spikes.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\spikes.png",
+      "method": "byte-identical copy",
+      "sha256": "b9d1569e4af55edc0830f0ae1dad97ced99518574b88c7fbb56ac2fddc5885a1"
+    },
+    {
+      "asset": "assets\\ui\\forge\\door.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\door.png",
+      "method": "byte-identical copy",
+      "sha256": "dd289fe5278f435150ea946cc1e88ad85f7b611c5002cd91658bb8ece387f624"
+    },
+    {
+      "asset": "assets\\ui\\forge\\chest.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\chest.png",
+      "method": "byte-identical copy",
+      "sha256": "7a7f0505bbb65afd7bfb599c96aae6223ffea45a35823bacb91c43ef765435db"
+    },
+    {
+      "asset": "assets\\ui\\forge\\locked.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\locked.png",
+      "method": "byte-identical copy",
+      "sha256": "113b01cfccfe133e088580c56e00f86dc4e506bdfafee2b23f62e49afe5bb0f9"
+    },
+    {
+      "asset": "assets\\ui\\forge\\heart.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\heart.png",
+      "method": "byte-identical copy",
+      "sha256": "0d61a9d757df5debfc88c52c46505c865f73edb0343c7f6474371cf9ef60c0a9"
+    },
+    {
+      "asset": "assets\\ui\\forge\\crystal.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\crystal.png",
+      "method": "byte-identical copy",
+      "sha256": "f423ca95a1dfee90b40c6f65d04138f2653e2193727574e94132835cadfdfb4b"
+    },
+    {
+      "asset": "assets\\ui\\forge\\candles.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\candles.png",
+      "method": "byte-identical copy",
+      "sha256": "0f42a61cf586f7fb6571601ffe246756e468f55b3efbffe92ea9af9b322dabc8"
+    },
+    {
+      "asset": "assets\\ui\\forge\\idol.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\idol.png",
+      "method": "byte-identical copy",
+      "sha256": "3fd4b2e1d9908d941daed3c4df1405f2090b5894477b9b39dc17e1f9222deab3"
+    },
+    {
+      "asset": "assets\\ui\\forge\\stone.png",
+      "source": "docs\\reference\\interface-review\\v9-rock-cutout\\assets\\stone.png",
+      "method": "Uniform resize to 64px for native 11px nine-slice margins; native alpha preserved",
+      "sha256": "9aae0ef875e3dee612988c38f327c72624e5f62b446f37d25c18bc37986291ef"
+    },
+    {
+      "asset": "assets\\ui\\forge\\health.svg",
+      "source": "tools/prepare_native_forge.cjs",
+      "method": "Code-native health glyph in the existing utility vector style",
+      "sha256": "96798684e2fa740b6180801570feb47cda0fc1f923e0ab5f2cd2eabb7fd70dad"
+    }
+  ]
+}

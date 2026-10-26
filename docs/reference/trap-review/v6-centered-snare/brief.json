@@ -1,0 +1,24 @@
+{
+  "tool": "Built-in ImageGen",
+  "selected": "source/entrave.png",
+  "attempts": [
+    {
+      "output": "source/attempt-too-small.png",
+      "status": "Rejected: relocation too slight",
+      "references": [
+        "../v5-flush-states/source/entrave.png",
+        "center-guide.png"
+      ],
+      "prompt": "Use case: precise-object-edit.\nEdit target: first attached image, the current three-state Entrave trap sheet for an isometric dungeon game.\nSupporting second image: geometric centering guide, same sheet registration. Gold crosses mark approximately the center of each pavement diamond. The guide is ONLY explanatory; do not paint any guide lines, crosses, text or labels in the final image.\n\nCorrect ONE problem: the complete trap mechanism AND its flat dark mounting insert sit too far forward/down on each floor diamond. Reposition them toward the back/up by about 45-50 pixels at this source resolution so their GROUND FOOTPRINT is centered on the pavement diamond. Keep each outer blue stone pavement diamond fixed in its present position, size, framing, perspective and colors. Do not move/reframe the entire tiles to simulate a correction. Replace the stone paving exposed by the local move naturally.\n\nFirst state: open steel jaws with a central pressure pedal, hinges, front spring and small violet latch. The pressure pedal and the overall mechanism's ground center must be at the center of the cell, not in its front half. Balance the visible paving around the dark insert. The top of the slightly raised pedal naturally lies a little above the ground center in the image.\nSecond state: the SAME mechanical trap closed, violet charge visible.\nThird state: the SAME closed trap exhausted, violet charge off.\nAll three states must share exactly the same ground anchor, same mounting footprint, scale and orientation. The tall closed jaws naturally rise above the shared ground center. Do NOT instead center each state's visual bounding box.\n\nPreserve the existing precise trap design, blade shapes, springs, metal colors, slate blue paving, painted dungeon style, lighting and state ordering. Keep the mounting insert flush/coplanar with the surrounding paving. Absolutely no sunken pit, exposed vertical hole walls, new platform or bright grey backing. No extra ornament, no new pedestal. Three states side by side on native transparent background as in the first image. Preserve the transparent canvas around the tiles."
+    },
+    {
+      "output": "source/entrave.png",
+      "status": "Current proposal, not user-approved or integrated",
+      "references": [
+        "source/attempt-too-small.png",
+        "target-insert-guide.png"
+      ],
+      "prompt": "Precise-object-edit. The first image is the edit target: three states of an isometric bear-jaw trap. The second is the REQUIRED layout guide: gold diamonds show the new mounting insert locations, gold crosses the pedal/ground centers. DO NOT render any guide strokes or crosses.\n\nThe last attempt barely moved the trap. This time move the ENTIRE DARK DIAMOND INSERT plus every mechanical part UPWARD on each blue floor patch by about 50 pixels, leaving the blue floor patch outline stationary. Repaint only the paving immediately around the moved insert. The dark insert MUST match the gold diamond's placement in the second image: its back corner near y278, side corners near y378, front corner near y478 in the first panel. Currently its front corner is around y535, which is wrong and too far down. Move the pedal from y420 to about y370 and the front spring from y465 to about y415. Make this substantial relocation clearly visible. Keep the trap the same size.\n\nApply the SAME ground placement to all three panels. Open jaws and pedal on left; closed jaws violet active in middle; closed jaws unlit on right. The mount stays coplanar/flush with paving, no pit walls and no raised slab. Keep all existing mechanical shapes, blue-stone dungeon art style, scale, view direction, outer pavement shape and transparent background. No labels. All three floor patches must remain in their current canvas positions. Do not shrink the trap, do not change the camera, do not move only its top."
+    }
+  ]
+}

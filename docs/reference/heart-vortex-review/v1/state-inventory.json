@@ -1,0 +1,361 @@
+{
+	"kind": "Static headless state observations; no GPU capture or raid simulation",
+	"observations": [
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "standalone-live",
+			"phase": 0.0,
+			"processing": true
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.25,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "quarter-cycle",
+			"phase": 0.25,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.25,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "rebuilt-same-phase",
+			"phase": 0.25,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.25,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "recover-existing-clock",
+			"phase": 0.25,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": false,
+					"phase": 0.25,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "disabled",
+			"phase": 0.25,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.25,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "enabled-resume",
+			"phase": 0.25,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.01,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "loop-wrap",
+			"phase": 0.01,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 4,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				},
+				{
+					"enabled": true,
+					"phase": 0.0,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "two-hearts-one-clock",
+			"phase": 0.0,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 0,
+			"materials": [],
+			"name": "hearts-removed",
+			"phase": 0.0,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "game-initial",
+			"phase": 0.0,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0833333333333333,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "game-running",
+			"phase": 0.0833333333333333,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0833333333333333,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "game-paused",
+			"phase": 0.0833333333333333,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0833333333333333,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "confirmation",
+			"phase": 0.0833333333333333,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0833333333333333,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "raid-result",
+			"phase": 0.0833333333333333,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0833333333333333,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "save-blocked",
+			"phase": 0.0833333333333333,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.0833333333333333,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "game-over",
+			"phase": 0.0833333333333333,
+			"processing": false
+		},
+		{
+			"clock_count": 1,
+			"ground_effects": 2,
+			"materials": [
+				{
+					"enabled": true,
+					"phase": 0.166666666666667,
+					"uniforms": [
+						"atlas_rect",
+						"frame_size",
+						"vortex_center",
+						"vortex_radius",
+						"phase",
+						"animation_enabled"
+					]
+				}
+			],
+			"name": "game-resumed",
+			"phase": 0.166666666666667,
+			"processing": false
+		}
+	]
+}

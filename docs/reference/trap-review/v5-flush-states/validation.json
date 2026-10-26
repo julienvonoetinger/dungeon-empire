@@ -1,0 +1,91 @@
+{
+  "status": "Unapproved painted appearance proposal; no Godot integration",
+  "tool": "Built-in ImageGen",
+  "uniformResize": true,
+  "nativeAlphaPreserved": true,
+  "previewFraming": "Vertical bounds measured at alpha>32 with 24 source pixels padding. Crop only; source alpha never modified, original source retained byte-identical.",
+  "productionUnchanged": true,
+  "registration": "Generated perspective follows guide visually; not calibrated exact XYZ or native sprite registration",
+  "states": [
+    "armed",
+    "triggered proposal",
+    "depleted"
+  ],
+  "entries": [
+    {
+      "id": "pointes",
+      "name": "Pointes",
+      "description": "Acier taillé, logements individuels et rails sombres.",
+      "captions": [
+        "Pointes rentrées · mécanisme armé",
+        "Pointes déployées",
+        "Pointes retirées · logements éteints"
+      ],
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-67c46054-36e7-4a86-9d71-52195cbd4ad2.png",
+      "source": "source/pointes.png",
+      "sourceSize": [
+        1942,
+        809
+      ],
+      "sha256": "1d249ebbf51f3b97f2eb3ca45228b8bcf3cd4eced0905a470261ecbd8a82ff59",
+      "nativeAlpha": true,
+      "crop": {
+        "left": 0,
+        "top": 183,
+        "width": 1942,
+        "height": 445
+      },
+      "height": 275
+    },
+    {
+      "id": "entrave",
+      "name": "Entrave",
+      "description": "Mâchoires articulées sur un support affleurant au dallage.",
+      "captions": [
+        "Mâchoires ouvertes · pédale prête",
+        "Mâchoires refermées",
+        "Mâchoires verrouillées · énergie éteinte"
+      ],
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-b1d2f28b-a42c-4a9f-9d54-255203d01278.png",
+      "source": "source/entrave.png",
+      "sourceSize": [
+        1945,
+        809
+      ],
+      "sha256": "1e4555e14868d053d645649735ac2fad3055de059d9b8f7d1e7b683ed63fd1d9",
+      "nativeAlpha": true,
+      "crop": {
+        "left": 0,
+        "top": 166,
+        "width": 1945,
+        "height": 477
+      },
+      "height": 294
+    },
+    {
+      "id": "neant",
+      "name": "Néant",
+      "description": "Sceau d’obsidienne dans le même plan que les dalles.",
+      "captions": [
+        "Sceau chargé",
+        "Vortex ouvert dans le plan du sol",
+        "Sceau refermé · gravure éteinte"
+      ],
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-4087aca9-49d5-4a03-9a08-dd45f5142474.png",
+      "source": "source/neant.png",
+      "sourceSize": [
+        1944,
+        809
+      ],
+      "sha256": "b1f90293d78d23480ff360bdc1b2cc6b75827a630f89a697b228247bab0ccb67",
+      "nativeAlpha": true,
+      "crop": {
+        "left": 0,
+        "top": 171,
+        "width": 1944,
+        "height": 457
+      },
+      "height": 282
+    }
+  ]
+}

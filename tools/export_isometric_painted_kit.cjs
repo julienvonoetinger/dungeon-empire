@@ -7,6 +7,9 @@ const WallVariants=require('./isometric_wall_variants.cjs');
 const FloorVariants=require('./isometric_floor_variants.cjs');
 const FloorDamage=require('./isometric_floor_damage.cjs');
 const RitualProps=require('./isometric_ritual_props.cjs');
+const TreasureChest=require('./isometric_treasure_chest.cjs');
+const SealDoor=require('./isometric_seal_door.cjs');
+const InsetTraps=require('./isometric_painted_traps.cjs');
 const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const OUT='docs/reference/isometric-review/painted-v1',ASSETS='assets/dungeon/isometric-kit',GEOMETRY='docs/reference/isometric-review/migration-v1/geometry.json';
 const write=(p,b)=>writeGeneratedFile(path.join(P.ROOT,p),b),json=(p,v)=>write(p,JSON.stringify(v,null,2)+'\n');
@@ -19,9 +22,12 @@ async function prepare(item,model) {
   if(item.groundEffect){console.log('Prepared '+item.id);return;}
   // Original visible guide, translated only if the effect needs a larger canvas.
   const sourceId=item.id==='pillar-top-carved'?'pillar':item.id;
-  const original=fs.readFileSync(path.join(P.ROOT,`docs/reference/isometric-review/migration-v1/guides/${sourceId}.svg`),'utf8');
-  const body=original.slice(original.indexOf('>')+1,original.lastIndexOf('</svg>'));
-  const guide=`<svg xmlns="http://www.w3.org/2000/svg" width="${item.frame[2]}" height="${item.frame[3]}"><g transform="translate(${model.frame[0]-item.frame[0]} ${model.frame[1]-item.frame[1]})">${body}</g></svg>`;
+  let guide=item.guide;
+  if(!guide){
+    const original=fs.readFileSync(path.join(P.ROOT,`docs/reference/isometric-review/migration-v1/guides/${sourceId}.svg`),'utf8');
+    const body=original.slice(original.indexOf('>')+1,original.lastIndexOf('</svg>'));
+    guide=`<svg xmlns="http://www.w3.org/2000/svg" width="${item.frame[2]}" height="${item.frame[3]}"><g transform="translate(${model.frame[0]-item.frame[0]} ${model.frame[1]-item.frame[1]})">${body}</g></svg>`;
+  }
   const png=await sharp(Buffer.from(guide)).png().toBuffer();
   write(`${OUT}/guides/${item.id}.svg`,guide);write(`${OUT}/guides/${item.id}.png`,png);
   write(`${OUT}/overlays/${item.id}.png`,await sharp(item.png).composite([{input:png}]).png().toBuffer());
@@ -42,7 +48,7 @@ async function main() {
     }
     if(m.id==='pillar') {const cap=await Props.cap(m,item);items.push(cap);await prepare(cap,m);}
   }
-  for(const d of ['north','east','south','west'])for(const item of await Stone.doors(d)) {items.push(item);await prepare(item,byId.get(item.id));}
+  for(const d of ['north','east','south','west'])for(const item of await SealDoor.doors(d)) {items.push(item);await prepare(item,item);}
   const wallVariants=await WallVariants.approvedWallVariants();
   items.push(...wallVariants);
   const floorVariants=await FloorVariants.preparedFloorVariants();
@@ -51,7 +57,25 @@ async function main() {
   for(const item of floorDamage){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
   const ritualProps=await RitualProps.preparedRitualProps();
   for(const item of ritualProps){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
+  // Keep the near-full architecture page unchanged; gameplay props get a small page.
   const atlas=await B.pack(items,256,ASSETS,false);
+  const treasureChest=await TreasureChest.preparedTreasureChest();
+  for(const item of treasureChest){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
+  const chestPath=`res://${ASSETS}/chests/atlas-256.png`;
+  const chestAtlas=await B.pack(treasureChest,256,ASSETS+'/chests',false,256);
+  atlas.pages=[{path:`res://${ASSETS}/atlas-256.png`,width:atlas.width,height:atlas.height,sourceBytes:atlas.sourceBytes,uncompressedRGBABytes:atlas.uncompressedRGBABytes},
+    {path:chestPath,width:chestAtlas.width,height:chestAtlas.height,sourceBytes:chestAtlas.sourceBytes,uncompressedRGBABytes:chestAtlas.uncompressedRGBABytes}];
+  atlas.sourceBytes+=chestAtlas.sourceBytes;
+  atlas.uncompressedRGBABytes+=chestAtlas.uncompressedRGBABytes;
+  for(const [id,entry] of Object.entries(chestAtlas.regions))atlas.regions[id]={...entry,atlas_path:chestPath};
+  const traps=await InsetTraps.preparedInsetTraps(floorVariants[0]);
+  const trapPath=`res://${ASSETS}/traps/atlas-256.png`;
+  for(const item of traps){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
+  const trapAtlas=await B.pack(traps,256,ASSETS+'/traps',false,512);
+  atlas.pages.push({path:trapPath,width:trapAtlas.width,height:trapAtlas.height,sourceBytes:trapAtlas.sourceBytes,uncompressedRGBABytes:trapAtlas.uncompressedRGBABytes});
+  atlas.sourceBytes+=trapAtlas.sourceBytes;
+  atlas.uncompressedRGBABytes+=trapAtlas.uncompressedRGBABytes;
+  for(const [id,entry] of Object.entries(trapAtlas.regions))atlas.regions[id]={...entry,atlas_path:trapPath};
   for(const item of items) {
     atlas.regions[item.id].bounds=item.bounds;
     if(item.light)atlas.regions[item.id].light=item.light;
@@ -64,16 +88,21 @@ async function main() {
     if(item.floorVariant)atlas.regions[item.id].floor_variant=item.floorVariant;
     if(item.floorDamage)atlas.regions[item.id].floor_damage=item.floorDamage;
     if(item.decoration)atlas.regions[item.id].decoration=item.decoration;
+    if(item.vortex)atlas.regions[item.id].vortex=item.vortex;
+    if(item.wallJunction)atlas.regions[item.id].wall_junction=item.wallJunction;
+    if(item.trap)atlas.regions[item.id].trap=item.trap;
   }
-  const manifest={id:'isometric-painted-v1',appearance:'approved material sources adapted to frozen isometric volumes',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
+  const manifest={id:'isometric-painted-v1',appearance:'shared dungeon stone and Sceau interdit; flush wall-height jambs adapted from seal-v1',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
   manifest.wallVariants=wallVariants.filter(v=>!v.wallVariant.ornament).map(v=>v.id);
   manifest.optionalWallOrnaments=wallVariants.filter(v=>v.wallVariant.ornament).map(v=>v.id);
   manifest.floorVariants=floorVariants.map(v=>v.id);
   manifest.floorDamage=floorDamage.map(v=>v.id);
-  manifest.decorations=ritualProps.filter(v=>v.decoration).map(v=>v.id);
+  manifest.decorations=[...ritualProps,...treasureChest].filter(v=>v.decoration).map(v=>v.id);
   json(`${ASSETS}/catalog.json`,manifest);
-  const resources=items.map((m,i)=>`[sub_resource type="AtlasTexture" id="Sprite_${i}"]\natlas = ExtResource("2")\nregion = Rect2(${atlas.regions[m.id].region.join(', ')})\nfilter_clip = true\n`).join('\n');
-  write(`${ASSETS}/catalog.tres`,`[gd_resource type="Resource" load_steps=${items.length+3} format=3]\n\n[ext_resource type="Script" path="res://scripts/mobile_kit_definition.gd" id="1"]\n[ext_resource type="Texture2D" path="res://${ASSETS}/atlas-256.png" id="2"]\n\n${resources}\n[resource]\nscript = ExtResource("1")\nprojection_x = Vector3(${P.camera.x.join(', ')})\nprojection_y = Vector3(${P.camera.y.join(', ')})\nview_direction = Vector3(${P.camera.eye.join(', ')})\nentries = ${JSON.stringify(atlas.regions)}\ntextures = {${items.map((p,i)=>JSON.stringify(p.id)+`: SubResource("Sprite_${i}")`).join(',\n')}}\n`);
+  const pageIds=new Map(atlas.pages.map((p,i)=>[p.path,String(i+2)]));
+  const resources=items.map((m,i)=>`[sub_resource type="AtlasTexture" id="Sprite_${i}"]\natlas = ExtResource("${pageIds.get(atlas.regions[m.id].atlas_path||atlas.pages[0].path)}")\nregion = Rect2(${atlas.regions[m.id].region.join(', ')})\nfilter_clip = true\n`).join('\n');
+  const pageResources=atlas.pages.map(p=>`[ext_resource type="Texture2D" path="${p.path}" id="${pageIds.get(p.path)}"]`).join('\n');
+  write(`${ASSETS}/catalog.tres`,`[gd_resource type="Resource" load_steps=${items.length+atlas.pages.length+2} format=3]\n\n[ext_resource type="Script" path="res://scripts/mobile_kit_definition.gd" id="1"]\n${pageResources}\n\n${resources}\n[resource]\nscript = ExtResource("1")\nprojection_x = Vector3(${P.camera.x.join(', ')})\nprojection_y = Vector3(${P.camera.y.join(', ')})\nview_direction = Vector3(${P.camera.eye.join(', ')})\nentries = ${JSON.stringify(atlas.regions)}\ntextures = {${items.map((p,i)=>JSON.stringify(p.id)+`: SubResource("Sprite_${i}")`).join(',\n')}}\n`);
   const sourceFiles=[...P.sourceFiles,GEOMETRY,...Object.keys(fixedSources),...Object.values(Props.sources).map(v=>v[0]),'assets/dungeon/shared-materials/catalog.json',
     'tools/export_isometric_painted_kit.cjs','tools/isometric_kit_geometry.cjs','tools/wireframe_geometry.cjs','tools/isometric_paint_geometry.cjs','tools/isometric_stone_paint.cjs','tools/isometric_prop_paint.cjs','tools/prepare_mobile_reference.cjs','tools/painted_material_renderer.cjs','tools/stone_edge_finish.cjs','assets/dungeon/shared-materials/stone-finish.json'];
   const materialCatalog=JSON.parse(fs.readFileSync(path.join(P.ROOT,'assets/dungeon/shared-materials/catalog.json')));
@@ -82,10 +111,13 @@ async function main() {
   sourceFiles.push('tools/isometric_floor_variants.cjs',...FloorVariants.referenceFiles);
   sourceFiles.push('tools/isometric_floor_damage.cjs',...FloorDamage.referenceFiles);
   sourceFiles.push('tools/isometric_ritual_props.cjs',...RitualProps.referenceFiles);
+  sourceFiles.push('tools/isometric_treasure_chest.cjs',...TreasureChest.referenceFiles);
+  sourceFiles.push('tools/isometric_seal_door.cjs',...SealDoor.referenceFiles);
+  sourceFiles.push('tools/isometric_painted_traps.cjs',...InsetTraps.referenceFiles);
   for(const entry of Object.values(materialCatalog.entries))if(entry.file)sourceFiles.push(path.posix.normalize('assets/dungeon/shared-materials/'+entry.file));
   json(`${OUT}/recipe.json`,{...manifest,generator:'tools/export_isometric_painted_kit.cjs',geometry:GEOMETRY,sourceHashes:Object.fromEntries([...new Set(sourceFiles)].map(p=>[p,P.hash(p)])),
     items:items.map(({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,png})=>({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,bytes:png.length})),
-    notes:['No approved source regenerated; wireframe snapshots unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','All 4 doors are painted as complete volumes, then split at wall height without an added seam.']});
+    notes:['Historical approved sources and wireframe snapshots remain unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','The four doors retain the approved seal-v1 upper/inner frame, leaf, horns and seals. After user feedback, outer masonry below wall height is replaced by flush jamb blocks and all stone uses the shared wall material. Generated frontal paint is retained only on wood/metal/seal; final pixels are split at wall height.']});
   console.log(JSON.stringify({sprites:items.length,atlas:[atlas.width,atlas.height],pngBytes:atlas.sourceBytes,rgbaBytes:atlas.uncompressedRGBABytes}));
 }
 main().catch(e=>{console.error(e.stack);process.exitCode=1;});

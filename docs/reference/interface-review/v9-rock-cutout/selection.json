@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-25",
+  "status": "approved direction and implementation requested",
+  "evidence": "User requested implementation with v9-rock-cutout as current review",
+  "scope": "Stone/violet Forge UI and actual enlarged rock cutout, following excavation. Native runtime adaptation retains materials and geometry direction; it is not an approval of unshown native pixels or phone performance.",
+  "supersedes": "Pending status in v9 notes, generation and validation snapshots; those historical files remain unchanged.",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "b5535c2daad88ab916a0a80bc141820e238cb1d2d9c1bea4049c2df3fff01b44"
+    },
+    {
+      "path": "world.js",
+      "sha256": "f5dae3935e85ff01d12de94d599eb22f472e08369cac0d0f3e7183f7f6af83c1"
+    },
+    {
+      "path": "review.js",
+      "sha256": "f62cdc42f6dde9d7a2018cf746c793c02f7a217eae17b8528c042d4c75593650"
+    },
+    {
+      "path": "review.css",
+      "sha256": "bbd2fc93ba65d92154c7e231cd56785f5dfd61933252e74a7d9dc513aea91e12"
+    },
+    {
+      "path": "spacing.css",
+      "sha256": "c11c613a2313fd4f9931c69f88b2737f982fe04c9bf7f03aaf3066eb6e42ee80"
+    },
+    {
+      "path": "notes.html",
+      "sha256": "711331ddbf0f220cc52483343e0ebec2d0c793558120de65d8a8c871eca56d59"
+    },
+    {
+      "path": "comparison.png",
+      "sha256": "e13652e17e2f0998ae2c49502caf7d0f99006865a63d86e89b8e3dde3e4bae08"
+    },
+    {
+      "path": "captures/844-tools.png",
+      "sha256": "56659025bc55ce1c6e049862104b4b0e529f18d99586dd3cb4214f46af1c552b"
+    },
+    {
+      "path": "captures/844-peek.png",
+      "sha256": "6bc65f1ea5c72e3e8f4402dac61be06a1c7bf4c501858a10d200d5ac5a121c9d"
+    },
+    {
+      "path": "captures/1024-expanded.png",
+      "sha256": "d383004dc9c8dfd798f60bb8b66c4b38ab1cb24419d34d631c0d01a2a00b7759"
+    },
+    {
+      "path": "assets/architecture.png",
+      "sha256": "82ace8c467c584a5436efb25f681aac645b4e427af07e9af05160b7c134cca6b"
+    },
+    {
+      "path": "assets/candles.png",
+      "sha256": "0f42a61cf586f7fb6571601ffe246756e468f55b3efbffe92ea9af9b322dabc8"
+    },
+    {
+      "path": "assets/chest.png",
+      "sha256": "7a7f0505bbb65afd7bfb599c96aae6223ffea45a35823bacb91c43ef765435db"
+    },
+    {
+      "path": "assets/chests.png",
+      "sha256": "930bc7090716c506a62f68ea52b16038394d6a070725c4a30384102047833495"
+    },
+    {
+      "path": "assets/crystal.png",
+      "sha256": "f423ca95a1dfee90b40c6f65d04138f2653e2193727574e94132835cadfdfb4b"
+    },
+    {
+      "path": "assets/dig.png",
+      "sha256": "b6e5f91eb8b7a5334a8eff9f7f7adbb7a1b00b07ec1257f77976eed3e026f0b9"
+    },
+    {
+      "path": "assets/door.png",
+      "sha256": "dd289fe5278f435150ea946cc1e88ad85f7b611c5002cd91658bb8ece387f624"
+    },
+    {
+      "path": "assets/dust.png",
+      "sha256": "f8bcfb5eb333313aa8c7f377b40ecc5f534a061d5b9cfa5ef68020a86fcf1f8b"
+    },
+    {
+      "path": "assets/heart.png",
+      "sha256": "0d61a9d757df5debfc88c52c46505c865f73edb0343c7f6474371cf9ef60c0a9"
+    },
+    {
+      "path": "assets/idol.png",
+      "sha256": "3fd4b2e1d9908d941daed3c4df1405f2090b5894477b9b39dc17e1f9222deab3"
+    },
+    {
+      "path": "assets/locked.png",
+      "sha256": "113b01cfccfe133e088580c56e00f86dc4e506bdfafee2b23f62e49afe5bb0f9"
+    },
+    {
+      "path": "assets/mineral.png",
+      "sha256": "f004d00ae2ff33c2155f32da42a366c8f4fcf7be4f79a6f7ed130546e2342545"
+    },
+    {
+      "path": "assets/quiet.png",
+      "sha256": "18d74dfa7ed4895fd37359fd9f28dc6df22d048a253bed5de210e37a26f35ef2"
+    },
+    {
+      "path": "assets/spikes.png",
+      "sha256": "b9d1569e4af55edc0830f0ae1dad97ced99518574b88c7fbb56ac2fddc5885a1"
+    },
+    {
+      "path": "assets/stone.png",
+      "sha256": "e7a9c206f659b4e6cb58e73c3c6e13491124e91ef59d9e92432826b6a89d7f5c"
+    },
+    {
+      "path": "assets/strata.png",
+      "sha256": "337bd63af94bd999aa946a46a556caa113f9631782742a6932fe595b574ef817"
+    }
+  ]
+}

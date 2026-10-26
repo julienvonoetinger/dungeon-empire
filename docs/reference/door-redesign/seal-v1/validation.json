@@ -1,0 +1,96 @@
+{
+  "status": "offline-geometric-review-only",
+  "protectedInputsUnchanged": {
+    "docs/reference/isometric-review/wireframe-v1/selection.json": "698d009700c099b64b8d59c974c81ad018e811552f9962678505a15a8d77251f",
+    "docs/reference/isometric-review/wireframe-v1/geometry.json": "a23b7e0ad429853bd6790ac2a02c3a2b95bdb67df46f503bb48a338be78696ab",
+    "docs/reference/mobile-door-frame-review/wireframe-v8/geometry.json": "32afaa0de39cd8de3cb3ae7b1576491d2e5b72d334c870420d8c8549ebac2d2c",
+    "docs/reference/entrance-stairs-open-south-wireframe.json": "b9bbcfee6c32b7e4957cd37d1300263ea2d5cb034614cb2098b76358f3413e07",
+    "docs/reference/mobile-light-review/wireframe-v1/geometry.json": "8ac21006096d9b3f083ccb7e009357135dea739237a43692111e47225263e2a4",
+    "docs/reference/isometric-review/migration-v1/geometry.json": "316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0",
+    "assets/dungeon/isometric-kit/catalog.json": "2fb9a86aa67a018593d31d55d43bdcff4984d9148ea350bd7e18ba9107e6f92e",
+    "assets/dungeon/isometric-kit/catalog.tres": "f43c83456485819b182e6cc8aacf90a04f022a8b7866d39cfbcea1226117ef24",
+    "tools/mobile_approved_doors.cjs": "e7c2ca56dd04702da56873a3ce978aa89fb7ef0333386f211aa85ad42133288e",
+    "tools/isometric_stone_paint.cjs": "d977340e2ee5c3c73a4b7f81b10b8e5e9703d32ddd725b99f3f14d4841dfd2cf",
+    "project.godot": "20e1f7ddd30b08c0c5017dc103a6f3cb88cc19f6c3e1c852c1a10b43c5e18768"
+  },
+  "projection": {
+    "x": [
+      0.5,
+      -0.5,
+      0
+    ],
+    "y": [
+      0.25,
+      0.25,
+      -0.6123724356957945
+    ],
+    "eye": [
+      0.6123724356957945,
+      0.6123724356957945,
+      0.5
+    ]
+  },
+  "orientations": {
+    "south": {
+      "frame": [
+        -195,
+        -106,
+        390,
+        272
+      ],
+      "faces": 649,
+      "visibleEdges": 541,
+      "nativeSize": [
+        293,
+        204
+      ]
+    },
+    "north": {
+      "frame": [
+        -195,
+        -108,
+        390,
+        274
+      ],
+      "faces": 649,
+      "visibleEdges": 543,
+      "nativeSize": [
+        293,
+        206
+      ]
+    },
+    "east": {
+      "frame": [
+        -195,
+        -106,
+        390,
+        272
+      ],
+      "faces": 649,
+      "visibleEdges": 541,
+      "nativeSize": [
+        293,
+        204
+      ]
+    },
+    "west": {
+      "frame": [
+        -195,
+        -108,
+        390,
+        274
+      ],
+      "faces": 649,
+      "visibleEdges": 543,
+      "nativeSize": [
+        293,
+        206
+      ]
+    }
+  },
+  "limitations": [
+    "Geometry and proportions await user feedback.",
+    "No runtime sprite, atlas, placement, animation or mobile device validation.",
+    "Existing game and approved sources are unchanged by this generator."
+  ]
+}

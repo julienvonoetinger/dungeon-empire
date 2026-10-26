@@ -1,8 +1,260 @@
 # Dungeon Empire — conception
 
+## 0. État jouable — première boucle isométrique du 25 octobre 2026
+
+`scenes/game/DungeonGame.tscn` ajoute une première boucle jouable indépendante
+des 24 scènes de présentation. L'utilisateur a choisi de reprendre le prototype
+`v1.0.0` et accepté des repères provisoires pour héros, coffres et pièges.
+Les règles viennent des cinq modules `scripts/game/` restaurés de ce tag ;
+`game_session.gd` relie simulation, HUD, caméra et sauvegarde au rendu actuel.
+Ces fonctionnalités sont implémentées ; la validation interactive complète reste
+à terminer. Voir [le relevé de validation](docs/gameplay/validation-2026-10-25.md).
+
+### Grille, préparation et économie
+
+- Grille logique 16×16 ; cœur solide **1×1**, au centre de sa case, sans changer
+  son sprite. L'ancienne empreinte 2×2 est abandonnée dans cette version.
+- Nouveau donjon : 320 or, 100 PV du cœur, roche partout. Ancrage gratuit du
+  cœur avec confirmation ; l'anneau d'accès d'une case est excavé gratuitement,
+  diagonales comprises, limité aux frontières. Entrées et portes y sont interdites.
+- Creusement : 5 or, voisin cardinal d'un espace excavé. La roche soutenant
+  l'entrée est protégée. Retirer une structure laisse du sol, sans remboursement.
+  Cœur et entrée sont permanents. Poser un élément sur roche ne creuse pas.
+- Une porte exige deux voisins rocheux opposés (la limite de carte compte comme
+  roche). L'entrée unique exige un dos rocheux et un passage ouvert devant.
+  Le héros passe par cette bouche, jamais par le dos de l'escalier.
+  La variante visuelle de l'escalier porte le nom de ce côté ouvert : sa marche
+  basse rejoint le passage et sa marche haute reste contre la paroi. La position
+  logique enregistrée est conservée lors de la correction de son orientation.
+- Construire/remplacer, réparer, collecter, absorber et transférer ne sont
+  possibles qu'en préparation, hors pause, bilan et confirmation de redémarrage.
+
+| Élément/action | Prix | État et contrainte |
+| --- | ---: | --- |
+| Coffre simple | 0 | Capacité 150, traversable |
+| Coffre verrouillé / scellé | 40 / 80 | Capacité 150 ; le scellé requiert le niveau 4 |
+| Pointes | 35 | 3 charges, 30 dégâts (20 contre le Paladin) |
+| Entrave | 30 | Niveau 2, 3 charges, 16 dégâts et arrêt de 3 secondes |
+| Néant | 45 | Niveau 3, 1 charge, bannissement vivant du visiteur avec son butin |
+| Porte normale / magique | 40 / 80 | 60 PV ; magique au niveau 4 |
+| Entrée | 0 | Unique, permanente |
+| Réparer porte ou protection de coffre | 15 | Restaure intégralement / referme la protection |
+| Réparer piège | 10 par charge | Autant de charges manquantes que l'or permet |
+
+Les coffres conservent chacun leur contenu. Dépenses et réallocation suivent
+l'ordre de grille du prototype. Les 320 or initiaux peuvent être temporairement
+non stockés, mais un raid exige une capacité totale suffisante. Les transferts
+entre coffres sont gratuits, limités au solde source et à la place disponible.
+Améliorer un coffre facture la différence de protection ; répétition et baisse
+de gamme sont refusées. Supprimer du stockage peut laisser le surplus en butin.
+Ramasser ne dépose que ce qui tient dans les coffres. Absorber un corps donne
+2 PV au cœur (maximum 100) ; le bouton explicite confirme l'absorption.
+
+Le **donjon d'essai** est un démarrage facultatif, confirmé : cœur en (8,8), salle
+3×3, couloir vers l'entrée (3,8), trois coffres, porte (5,8), pointes (6,8).
+Il commence avec **245 or**, après le prix de la porte et des pointes ; ses sols
+sont préaménagés gratuitement. Cette exception ne modifie pas le démarrage normal.
+
+### Raids, héros et progression
+
+Préparation → raid autonome → bilan → préparation. Cœur + entrée + capacité de
+stockage suffisante rendent le donjon prêt. Départ manuel ou après **25 secondes** ;
+sélection/outil actif, pause et bilan suspendent le compte à rebours. Pendant le
+raid, le joueur observe et déplace la caméra ; les commandes économiques sont
+bloquées. La défaite survient à 0 PV du cœur. Bilan et XP sont attribués une seule
+fois par identifiant de raid. Retour à la préparation : délai remis à 25 secondes.
+
+Quatre classes simulées, représentées par quatre couleurs provisoires :
+
+- **Vulpin** : recherche les coffres, vole, tente les serrures normales et repart.
+  N'attaque pas le cœur ; ne saute pas les pièges et n'ouvre pas les sceaux.
+- **Paladin** : recherche le cœur, frappe les portes normales, résiste aux pointes.
+  Une frappe réussie retire 42 PV du cœur, puis il repart.
+- **Ranger** : explore avec une perception plus large ; évite les portes intactes
+  et peut sauter un piège connu si la réception est libre. Contact du cœur : 24 PV.
+- **Mage** : recherche le cœur, ouvre les protections magiques, ne vole pas dans
+  les coffres. Contact du cœur : 24 PV, puis départ.
+
+Conserver les personnalités, variations individuelles, connaissance partielle et
+morale du prototype. Perception de rayon 2 (3 Ranger), non occultée par les murs ;
+navigation cardinale en coordonnées logiques, pas dans les pixels isométriques.
+Déplacement normal de 0,48 seconde ; les durées historiques d'interaction restent
+actives malgré l'absence des anciennes animations 3D. Le temps de déplacement
+visuel est séparé du délai de décision et des immobilisations : une interaction
+stationnaire ne doit jamais rejouer le pas précédent.
+
+La retraite suit le chemin de l'entrée. Le succès est enregistré après le
+franchissement, pas au début du retour ; un piège peut encore tuer le visiteur.
+La mort laisse corps et butin, avec la régénération du cœur propre à la classe.
+Les cadavres influencent les décisions suivantes. Aucun raid hors ligne.
+
+Les visiteurs survivants gardent identité, personnalité, XP et découvertes ;
+un mort ne revient pas. Choix 50 % ancien visiteur éligible / 50 % recrue,
+sans reprendre l'individu du raid immédiatement précédent. Les règles de
+pression du Mage et d'XP d'expédition de `v1.0.0` sont conservées. Le cœur gagne
+25 XP par héros tué ; seuils de niveau 0/60/150/280, déblocages 2/3/4 ci-dessus.
+Les anciens réglages `testing/vulpin_only` et `testing/unlock_defenses` ne sont
+pas activés. Pas de groupes, monstres défenseurs, recherches ou monde extérieur.
+
+### Contrôles, rendu et sauvegarde
+
+Projection 2:1 et zoom fixe **0,75**. Glisser sur le donjon au doigt ou à la souris
+déplace la vue. Après choix d'un outil, toucher une case libre construit directement
+et garde l'outil actif. Le glissement depuis une icône de palette affiche une cible
+52 unités au-dessus du doigt ; relâcher dans le monde applique la même action.
+Un glissement commencé dans le monde ne construit pas. Sans outil, toucher
+sélectionne une case. Ancrage initial du cœur et remplacement/retrait d'un objet
+demandent toujours **Confirmer**. Les réparations utilisent la pose directe.
+Pas de zoom, rotation ni suivi automatique ; bouton de recentrage dans **Voir**.
+Un second doigt annule le geste. Perte de focus : pause,
+sans reprise automatique. Échap et le bouton Pause ne ferment pas implicitement
+une confirmation de redémarrage ; annuler celle-ci revient au menu de pause.
+
+Le HUD **Forge en pierre et violet** adopte la maquette v9, dans une zone réservée
+distincte du SubViewport du monde : aucun panneau ne recouvre la vue jouable.
+Trois dispositions selon l'espace sûr :
+- **Colonne** (paysage d'au moins 600 unités de haut) : 136 unités ; timer, trésorerie
+  or/vie empilée, puis en bas les quatre familles en lignes de 58 et la rangée
+  Annuler/Observer. Catalogue, sélection et menus élargissent la zone à 244 unités.
+- **Rail large** (paysage plus court) : 252 unités (au plus la moitié de la largeur).
+  Timer et trésorerie côte à côte sur 86 unités, familles en 2 × 2 de 58 et
+  Annuler/Observer dessous : les quatre familles sont toujours entièrement visibles.
+  Variantes, sélection et menus occupent la même largeur, sans déplacer la vue.
+- **Dock** (portrait) : en bas, pleine largeur ; timer et trésorerie sur une rangée
+  de 58, familles 2 × 2 avec Annuler/Observer en colonne de 76. Catalogue (deux
+  colonnes de cartes dès 340 unités), sélection et menus forment une feuille
+  limitée à 55 % de la hauteur, défilante au-delà.
+La trésorerie a son propre cadre, sans bordure doublée ; le menu du domaine ne
+répète ni ces valeurs ni l'état par défaut. Le catalogue a deux niveaux : Terrain,
+Portes, Pièges, Trésors puis leurs variantes (cartes de 72 unités, icône et texte
+centrés). Choisir une variante replie la liste et l'arme pour la pose répétée.
+Les cellules de famille étroites (moins de 120 unités) resserrent icône (26) et
+marges (10) sans réduire la cible de 58 ; un nom de variante trop long passe sur
+deux lignes.
+**Pose répétée** : la famille armée affiche l'icône, le nom et le coût de la
+variante. Une **barre de pose** apparaît dans un emplacement réservé de 64 unités
+au-dessus des familles : armer un outil ne redimensionne jamais la vue. Elle
+indique « Variante · coût / Touchez une case. » ou le refus en cours, et porte un
+bouton libellé **Arrêter** qui désarme l'outil et efface ce refus. Sans outil ni
+message, l'emplacement laisse voir la roche.
+**Annuler** et **Observer** sont des tuiles icône + libellé qui gardent toujours le
+même sens. Observer réduit le paysage à 64 unités (timer compact) et le portrait à
+une barre ; tuiles **Bâtir**, **Centrer**, **Pause**.
+Les messages du simulateur hérités de v1.0.0 (anglais ou sans accents) sont
+affichés en français par une table d'affichage (`hud_notices.gd`) ; le texte et les
+règles du simulateur ne changent pas. Pendant l'aménagement, le timer indique
+« Délai suspendu ».
+**Échelle de présentation** : une case garde la taille physique de la référence
+paysage (720 unités de base sur le petit côté). En portrait, l'étirement
+canvas_items/expand rapportait 1280 unités à la largeur et dessinait les cases
+1,78 fois plus petites ; le zoom de caméra est multiplié par
+`min(fenêtre)·visible.x / (720·fenêtre.x)`, au moins 1 (1 sur tout paysage 16:9 ou
+plus large). Ce facteur ne dépend pas de l'étendue du donjon ; pas de zoom joueur,
+déplacement libre inchangé.
+Trésorerie/Pause ouvre l'état du domaine et le bouton **Lancer le raid**.
+Outil, sélection ou catalogue ouverts suspendent le délai de préparation.
+Un cadre indépendant conserve le timer hors du défilement : délai avant raid,
+temps écoulé pendant le raid, pause ou prérequis manquants. Ses marges sont de
+12 unités ; sur écran court le statut de pause passe dans le titre. Tous les
+panneaux partagent la pierre violette. Leur espacement transparent laisse voir
+le matériau rocheux, projeté avec la même caméra sous la colonne réservée.
+
+Les coffres et pièges reprennent les couronnes de la version mobile précédente :
+or avec un tas de pièces pour le remplissage, cuivre avec l'icône du piège pour
+ses charges, segments selon sa capacité. Les anneaux restent à 32 unités d'écran
+et au-dessus de la maçonnerie ; les objets eux-mêmes gardent leur profondeur.
+Les valeurs exactes se lisent en sélectionnant la case. Aucune valeur de vie
+artificielle n'est ajoutée aux coffres ou pièges.
+
+**Annuler** restaure les dernières constructions de cette session (32 maximum),
+avec l'or, les structures, la connaissance du royaume et le délai correspondants.
+L'ancrage initial du cœur n'entre pas dans cet historique. Collecte, absorption,
+transfert, début du raid et redémarrage effacent l'historique ; il n'est pas sauvegardé.
+
+Une sélection affiche seulement ses actions pertinentes : collecte, absorption,
+état d'une porte/piège ou transfert d'un coffre. Les transferts conservent le
+choix de destination et le réglage exact à l'unité : boutons **−1/+1**, **−25/+25**
+et **Tout**, puis confirmation explicite. Le montant est borné au solde source et
+à la place du coffre cible. Un panneau trop haut se parcourt au doigt dans la
+colonne réservée. Les commandes de montants se répartissent sur plusieurs lignes.
+
+Les cibles tactiles ont un minimum de **48×48 unités d'interface**.
+L'échelle du HUD compense l'étirement du viewport
+indépendamment de la caméra ; sur mobile, elle utilise la densité d'écran et les
+zones sûres exposées par Godot. Les petits écrans gardent des panneaux défilants
+plutôt que des boutons réduits. Une protection explicite empêche les événements
+tactiles du HUD de sélectionner le terrain derrière lui. Échap/Retour Android
+ferme d'abord un choix d'outil/catalogue ou ouvre la pause ; une confirmation,
+un bilan, une sauvegarde illisible ou une défaite demande ses boutons explicites.
+Retour Android ne quitte pas automatiquement cette scène.
+
+Le terrain extérieur suit l'union des cases excavées avec une marge de 0,90 case,
+coins biseautés et petites irrégularités. La roche est découpée : son dessus à
+z=0,3133333333333333 ne dépasse pas les murs ; le sol brut à z=0 et les tranches
+visibles séparent roche et maçonnerie. Trois matières de la maquette sont réutilisées
+en coordonnées du monde. Les maillages sont recalculés uniquement lorsque les
+cases excavées changent. La couverture fixe déborde largement la carte 16×16 et
+les limites actuelles de caméra ; ce n'est pas un monde infini chargé par portions.
+
+L'import, les captures natives et une vérification interactive isolée de la pose,
+du déplacement et de l'annulation sont consignés dans
+`docs/gameplay/forge-integration-2026-10-25.md`. La police MSDF évite le flou lié
+à l'échelle du HUD. Le téléphone réel, les gestes multitouch et le profil GPU
+mobile restent hors de cette validation.
+
+Le vortex du cœur est animé en jeu par un shader2D : rotation intérieure sur12s,
+dérive radiale légère et pulsation violette trois fois par cycle. Le socle, la
+silhouette de l'anneau et la liaison restent fixes. Les pixels de l'atlas et les
+effets de sol sont inchangés ; aucune texture ni sprite supplémentaire.
+La pause, les confirmations, le bilan et la fin de partie figent l'animation.
+L'aperçu de l'éditeur reste statique ; lancer la scène pour voir le mouvement.
+La propriété `vortex_animation_enabled` permet de revenir au rendu fixe.
+
+Architecture et cœur réutilisent l'atlas approuvé. Les coffres utilisent deux
+états rituels en quatre orientations, avec leurs ombres : un verrou actif affiche le modèle
+fermé au sceau violet ; un coffre gratuit ou forcé affiche le modèle entrouvert
+avec de petites pièces. Les pièces sont un motif fixe, tandis que le compteur
+indique le contenu réel. Les deux protections payantes partagent le sprite fermé.
+La serrure reste sur la caisse ouverte ; le couvercle conserve son chevron métallique
+d'origine. Tous les coffres mesurent environ72px de large au zoom.75, contre96px
+auparavant. La vue choisit un côté libre, hors roche, cœur, autre coffre, escalier
+et porte intacte : deux cases de recul, puis dégagement latéral. Égalités stables
+sud/est/nord/ouest. Un coffre entièrement entouré conserve le sud par défaut avec
+le diagnostic accessible=false ; ses règles de placement et de raid ne changent pas.
+La page de coffres représente1MiB RGBA, sans modifier l'atlas principal.
+Pointes, Entrave et Néant utilisent les peintures validées, avec un support affleurant
+centré dans la case. Leur page dédiée contient quinze régions (2 Mio RGBA).
+Les états armé, déclenché et épuisé suivent les charges et les activations réelles.
+Le déclenchement reste visible après un coup mortel ; son horloge de présentation
+se fige pendant la pause et le bilan, puis reprend. Réparer ou retirer le piège
+annule cet état transitoire. Les héros, corps et butins gardent des indicateurs
+vectoriels provisoires. Porte ouverte ou détruite :
+passage libre avec repère, en attendant un asset dédié. Les groupes mur + ornement
+restent ensemble dans le tri. Le héros s'insère dans l'ordre des supports sans
+reconstruire l'architecture à chaque frame. Les décors ne deviennent pas des
+obstacles de gameplay. Le clic sélectionne le plan de sol, pas la silhouette
+opaque d'un objet en hauteur ; ce comportement provisoire diffère de l'ancien HUD.
+
+Fichier **`user://isometric_run_v1.save`**, indépendant de `mobile_run_v1.save`.
+Sauvegarde après les changements de préparation et le bilan ; checkpoint avant
+le raid. Quitter en raid retrouve la préparation précédente, sans héros à
+mi-action. Sauvegarde temporaire contrôlée, copie de secours `.bak`, puis renommage.
+Un fichier illisible bloque l'édition et reste conservé jusqu'à un redémarrage
+explicitement confirmé ; une erreur d'écriture est signalée et empêche le raid.
+Recommencer conserve l'XP du cœur, mais réinitialise carte, richesse et visiteurs.
+
+Pour les vérifications manuelles, l'argument utilisateur **`--review-session`**
+emploie uniquement `user://isometric_review_v1.save`. Il ne change ni règles ni
+tirages. **`--forge-review`** utilise séparément `user://forge_review_v1.save`
+et le titre de fenêtre « Forge · Vérification ».
+La scène de démarrage locale dans `project.godot` reste inchangée :
+ouvrir DungeonGame puis **F6**. Pas de validation tactile réelle ni de mesure
+sur téléphone à ce stade.
+
 ## État actif — textures isométriques du 25 octobre 2026
 
-Les 23 scènes utilisent 108 régions peintes dans un atlas 1024×2048. La projection
+Les 24 scènes de présentation et la scène jouable utilisent le catalogue commun
+de 120 régions peintes dans un atlas 1024×2048. La projection
 2:1, la grille logique 1×1, le zoom fixe .75 et le déplacement libre sont conservés.
 Les matières et illustrations approuvées sont projetées hors ligne sur les volumes
 de migration-v1 ; Godot place uniquement des images préparées. Les deux arches
@@ -25,6 +277,9 @@ stabilise et `floor_corruption` permet de garder uniquement les fissures.
 Pas de voisin décoré immédiat, pas de décor sous le socle du cœur ou dans une case
 spéciale. Les dalles propres et leurs raccords restent identiques.
 Il s'agit d'apparence : aucune collision, navigation ou règle de jeu nouvelle.
+Les six décors rituels intégrés sont également dans cet atlas, avec leurs ombres
+séparées ; seules les bougies ajoutent une lumière optionnelle. La nouvelle scène
+jouable ne distribue pas automatiquement ces décors.
 
 [Recette, provenance et limites](docs/reference/isometric-review/painted-v1/README.md).
 Reproduction : `node tools/export_isometric_painted_kit.cjs`. Les sections suivantes

@@ -1,0 +1,390 @@
+[
+  {
+    "direction": "south",
+    "splitRGBABytesDifferent": 56,
+    "maxSplitAlphaError": 0,
+    "maxSplitPremultipliedError": 0.984313725490196,
+    "parts": [
+      {
+        "id": "door-south-leaf",
+        "frame": [
+          -97,
+          -24,
+          194,
+          139
+        ],
+        "bounds": {
+          "min": [
+            -0.08333333333333333,
+            0.365,
+            0
+          ],
+          "max": [
+            1.0833333333333333,
+            0.635,
+            0.3133333333333333
+          ]
+        }
+      },
+      {
+        "id": "door-south-arch",
+        "frame": [
+          -88,
+          -103,
+          177,
+          164
+        ],
+        "bounds": {
+          "min": [
+            -0.04115537037037038,
+            0.36,
+            0.3133333333333333
+          ],
+          "max": [
+            1.0411553703703704,
+            0.64,
+            0.895
+          ]
+        }
+      }
+    ],
+    "report": {
+      "geometry": "docs/reference/door-redesign/seal-v1/geometry.json",
+      "adaptation": "v2: outer jambs below wall height replaced by flush masonry blocks after user join/style rejection; upper/inner frame, leaf, horns and seals unchanged",
+      "stone": "existing walls-planes texture and B.materials render profiles; generated facade used only for wood/metal/seal",
+      "projection": {
+        "x": [
+          0.5,
+          -0.5,
+          0
+        ],
+        "y": [
+          0.25,
+          0.25,
+          -0.6123724356957945
+        ],
+        "eye": [
+          0.6123724356957945,
+          0.6123724356957945,
+          0.5
+        ]
+      },
+      "source": "docs/reference/door-redesign/seal-v1/painted-v1/face-source.png",
+      "fit": {
+        "sourceBounds": [
+          46,
+          190,
+          1162,
+          901
+        ],
+        "guideBounds": [
+          39,
+          155,
+          946,
+          736
+        ],
+        "uniformScale": 0.8141135972461274,
+        "translation": [
+          1.550774526678083,
+          2.8020654044750017
+        ],
+        "aspectError": 0.004352048448583723
+      },
+      "packedRasterScale": 0.8,
+      "split": "whole final pixels at wall height, 2px opaque colour overlap",
+      "overlap": 1120,
+      "sourceAlpha": "generated alpha retained in original; prepared alpha derives exclusively from XYZ model"
+    }
+  },
+  {
+    "direction": "west",
+    "splitRGBABytesDifferent": 70,
+    "maxSplitAlphaError": 0,
+    "maxSplitPremultipliedError": 0.984313725490196,
+    "parts": [
+      {
+        "id": "door-west-leaf",
+        "frame": [
+          -97,
+          -24,
+          194,
+          139
+        ],
+        "bounds": {
+          "min": [
+            0.365,
+            -0.08333333333333333,
+            0
+          ],
+          "max": [
+            0.635,
+            1.0833333333333333,
+            0.3133333333333333
+          ]
+        }
+      },
+      {
+        "id": "door-west-arch",
+        "frame": [
+          -89,
+          -105,
+          177,
+          166
+        ],
+        "bounds": {
+          "min": [
+            0.36,
+            -0.04115537037037038,
+            0.3133333333333333
+          ],
+          "max": [
+            0.64,
+            1.0411553703703704,
+            0.895
+          ]
+        }
+      }
+    ],
+    "report": {
+      "geometry": "docs/reference/door-redesign/seal-v1/geometry.json",
+      "adaptation": "v2: outer jambs below wall height replaced by flush masonry blocks after user join/style rejection; upper/inner frame, leaf, horns and seals unchanged",
+      "stone": "existing walls-planes texture and B.materials render profiles; generated facade used only for wood/metal/seal",
+      "projection": {
+        "x": [
+          0.5,
+          -0.5,
+          0
+        ],
+        "y": [
+          0.25,
+          0.25,
+          -0.6123724356957945
+        ],
+        "eye": [
+          0.6123724356957945,
+          0.6123724356957945,
+          0.5
+        ]
+      },
+      "source": "docs/reference/door-redesign/seal-v1/painted-v1/face-source.png",
+      "fit": {
+        "sourceBounds": [
+          46,
+          190,
+          1162,
+          901
+        ],
+        "guideBounds": [
+          39,
+          155,
+          946,
+          736
+        ],
+        "uniformScale": 0.8141135972461274,
+        "translation": [
+          1.550774526678083,
+          2.8020654044750017
+        ],
+        "aspectError": 0.004352048448583723
+      },
+      "packedRasterScale": 0.8,
+      "split": "whole final pixels at wall height, 2px opaque colour overlap",
+      "overlap": 1127,
+      "sourceAlpha": "generated alpha retained in original; prepared alpha derives exclusively from XYZ model"
+    }
+  },
+  {
+    "direction": "north",
+    "splitRGBABytesDifferent": 66,
+    "maxSplitAlphaError": 0,
+    "maxSplitPremultipliedError": 0.984313725490196,
+    "parts": [
+      {
+        "id": "door-north-leaf",
+        "frame": [
+          -97,
+          -24,
+          194,
+          139
+        ],
+        "bounds": {
+          "min": [
+            -0.08333333333333326,
+            0.365,
+            0
+          ],
+          "max": [
+            1.0833333333333333,
+            0.635,
+            0.3133333333333333
+          ]
+        }
+      },
+      {
+        "id": "door-north-arch",
+        "frame": [
+          -88,
+          -105,
+          177,
+          166
+        ],
+        "bounds": {
+          "min": [
+            -0.041155370370370425,
+            0.36,
+            0.3133333333333333
+          ],
+          "max": [
+            1.0411553703703704,
+            0.64,
+            0.895
+          ]
+        }
+      }
+    ],
+    "report": {
+      "geometry": "docs/reference/door-redesign/seal-v1/geometry.json",
+      "adaptation": "v2: outer jambs below wall height replaced by flush masonry blocks after user join/style rejection; upper/inner frame, leaf, horns and seals unchanged",
+      "stone": "existing walls-planes texture and B.materials render profiles; generated facade used only for wood/metal/seal",
+      "projection": {
+        "x": [
+          0.5,
+          -0.5,
+          0
+        ],
+        "y": [
+          0.25,
+          0.25,
+          -0.6123724356957945
+        ],
+        "eye": [
+          0.6123724356957945,
+          0.6123724356957945,
+          0.5
+        ]
+      },
+      "source": "docs/reference/door-redesign/seal-v1/painted-v1/face-source.png",
+      "fit": {
+        "sourceBounds": [
+          46,
+          190,
+          1162,
+          901
+        ],
+        "guideBounds": [
+          39,
+          155,
+          946,
+          736
+        ],
+        "uniformScale": 0.8141135972461274,
+        "translation": [
+          1.550774526678083,
+          2.8020654044750017
+        ],
+        "aspectError": 0.004352048448583723
+      },
+      "packedRasterScale": 0.8,
+      "split": "whole final pixels at wall height, 2px opaque colour overlap",
+      "overlap": 1120,
+      "sourceAlpha": "generated alpha retained in original; prepared alpha derives exclusively from XYZ model"
+    }
+  },
+  {
+    "direction": "east",
+    "splitRGBABytesDifferent": 63,
+    "maxSplitAlphaError": 0,
+    "maxSplitPremultipliedError": 0.984313725490196,
+    "parts": [
+      {
+        "id": "door-east-leaf",
+        "frame": [
+          -97,
+          -24,
+          194,
+          139
+        ],
+        "bounds": {
+          "min": [
+            0.365,
+            -0.08333333333333326,
+            0
+          ],
+          "max": [
+            0.635,
+            1.0833333333333333,
+            0.3133333333333333
+          ]
+        }
+      },
+      {
+        "id": "door-east-arch",
+        "frame": [
+          -89,
+          -103,
+          177,
+          164
+        ],
+        "bounds": {
+          "min": [
+            0.36,
+            -0.041155370370370425,
+            0.3133333333333333
+          ],
+          "max": [
+            0.64,
+            1.0411553703703704,
+            0.895
+          ]
+        }
+      }
+    ],
+    "report": {
+      "geometry": "docs/reference/door-redesign/seal-v1/geometry.json",
+      "adaptation": "v2: outer jambs below wall height replaced by flush masonry blocks after user join/style rejection; upper/inner frame, leaf, horns and seals unchanged",
+      "stone": "existing walls-planes texture and B.materials render profiles; generated facade used only for wood/metal/seal",
+      "projection": {
+        "x": [
+          0.5,
+          -0.5,
+          0
+        ],
+        "y": [
+          0.25,
+          0.25,
+          -0.6123724356957945
+        ],
+        "eye": [
+          0.6123724356957945,
+          0.6123724356957945,
+          0.5
+        ]
+      },
+      "source": "docs/reference/door-redesign/seal-v1/painted-v1/face-source.png",
+      "fit": {
+        "sourceBounds": [
+          46,
+          190,
+          1162,
+          901
+        ],
+        "guideBounds": [
+          39,
+          155,
+          946,
+          736
+        ],
+        "uniformScale": 0.8141135972461274,
+        "translation": [
+          1.550774526678083,
+          2.8020654044750017
+        ],
+        "aspectError": 0.004352048448583723
+      },
+      "packedRasterScale": 0.8,
+      "split": "whole final pixels at wall height, 2px opaque colour overlap",
+      "overlap": 1127,
+      "sourceAlpha": "generated alpha retained in original; prepared alpha derives exclusively from XYZ model"
+    }
+  }
+]

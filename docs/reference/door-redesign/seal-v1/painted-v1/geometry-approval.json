@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-26",
+  "userReply": "Ok go",
+  "status": "wireframe-approved-for-paint-and-integration",
+  "files": {
+    "geometry.json": "3487d891f72e745f7e54b9ad69a1a54f7a4f0a95daf4d707084ab2f11471184e",
+    "wireframe-board.png": "0132bb03e14557624a548dbcd9e350dfac91c9c6ceea9faca50ef8de688bb95d",
+    "prepare.cjs": "d94caf65f8e872216bb67dffcc6dfcb3001a3e4f3838205587dda7b1a9c279f5",
+    "concept-selected.png": "8832e1daec13502889eec8ef497528452dfb175e7188fb0cc18550393cac1f33"
+  },
+  "guideMapping": {
+    "size": [
+      1024,
+      1024
+    ],
+    "scale": 820,
+    "xOrigin": 512,
+    "xCentre": 0.5,
+    "zOrigin": 890
+  },
+  "newPaintingStatus": "new-painted-adaptation-not-yet-reviewed"
+}

@@ -1,0 +1,23 @@
+{
+  "unchangedPages": 2,
+  "unchangedRegions": 136,
+  "newRegions": [
+    "trap-spike-ready-floor",
+    "trap-spike-spent-floor",
+    "trap-snare-ready-floor",
+    "trap-snare-spent-floor",
+    "trap-void-ready-floor",
+    "trap-void-spent-floor",
+    "trap-spike-mechanism",
+    "trap-snare-mechanism"
+  ],
+  "unchangedFloorPixelsChecked": 174960,
+  "page": {
+    "path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+    "width": 512,
+    "height": 512,
+    "sourceBytes": 106068,
+    "uncompressedRGBABytes": 1048576
+  },
+  "totalRGBABytes": 10485760
+}

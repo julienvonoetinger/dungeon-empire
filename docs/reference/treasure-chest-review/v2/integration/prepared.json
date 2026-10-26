@@ -1,0 +1,302 @@
+{
+  "date": "2026-10-25",
+  "selection": "docs/reference/treasure-chest-review/v2/selection.json",
+  "sourceHashes": {
+    "docs/reference/treasure-chest-review/v2/source/chest-ritual-v1.png": "43a91744225be6f46592aa7d81fd053fca9d1d1e6bee64d0fda5fc089b6d9418",
+    "docs/reference/treasure-chest-review/v3-free/source/chest-open-coins-v2.png": "00619832be7b9df30959883e8b32b3d35fcdc13a86b4d73d76abab921819b311"
+  },
+  "camera": {
+    "x": [
+      0.5,
+      -0.5,
+      0
+    ],
+    "y": [
+      0.25,
+      0.25,
+      -0.6123724356957945
+    ],
+    "eye": [
+      0.6123724356957945,
+      0.6123724356957945,
+      0.5
+    ]
+  },
+  "items": [
+    {
+      "id": "prop-chest",
+      "rasterScale": 0.75,
+      "frame": [
+        -110.84968496849686,
+        -93.91359135913592,
+        200,
+        137
+      ],
+      "bounds": {
+        "min": [
+          -0.30812432493249325,
+          -0.24265684068406843,
+          0
+        ],
+        "max": [
+          0.30674606210621064,
+          0.2412785778577858,
+          0.5694255239514525
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-shadow"
+      ],
+      "approvedSource": "docs/reference/treasure-chest-review/v2/source/chest-ritual-v1.png",
+      "decoration": {
+        "source": "prop-chest",
+        "label": "Coffre verrouillé",
+        "footprint": [
+          [
+            -0.2728960396039604,
+            0.22327857785778582
+          ],
+          [
+            0.2887460621062106,
+            0.15781109360936096
+          ],
+          [
+            0.2715177767776778,
+            -0.22465684068406844
+          ],
+          [
+            -0.29012432493249324,
+            -0.15918935643564358
+          ]
+        ],
+        "gameBodyWidth": 96
+      },
+      "adaptation": {
+        "sourceScale": 0.17641764176417643,
+        "sourceCrop": {
+          "left": 112,
+          "top": 263,
+          "width": 1111,
+          "height": 755
+        },
+        "sourceAnchor": [
+          729,
+          784
+        ],
+        "sourceFoot": [
+          [
+            369,
+            766
+          ],
+          [
+            824,
+            946
+          ],
+          [
+            1089,
+            801
+          ],
+          [
+            634,
+            621
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 30167
+    },
+    {
+      "id": "prop-chest-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -76,
+        -41,
+        156,
+        87
+      ],
+      "bounds": {
+        "min": [
+          -0.6171875,
+          -0.6328125,
+          0
+        ],
+        "max": [
+          0.671875,
+          0.65625,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.2728960396039604,
+            0.22327857785778582
+          ],
+          [
+            0.2887460621062106,
+            0.15781109360936096
+          ],
+          [
+            0.2715177767776778,
+            -0.22465684068406844
+          ],
+          [
+            -0.29012432493249324,
+            -0.15918935643564358
+          ]
+        ],
+        "castWorld": [
+          0.055,
+          0.025
+        ],
+        "contactSoftness": 0.8,
+        "castSoftness": 2.4,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 2599
+    },
+    {
+      "id": "prop-chest-open",
+      "rasterScale": 0.75,
+      "frame": [
+        -88.63407590759077,
+        -120.8036303630363,
+        191,
+        166
+      ],
+      "bounds": {
+        "min": [
+          -0.31121208488036306,
+          -0.22382102155528052,
+          0
+        ],
+        "max": [
+          0.31121208488036306,
+          0.22382102155528052,
+          0.6525246403155968
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-open-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v3-free/source/chest-open-coins-v2.png",
+      "decoration": {
+        "source": "prop-chest-open",
+        "label": "Coffre sans protection",
+        "footprint": [
+          [
+            -0.2709122963077558,
+            0.20582102155528054
+          ],
+          [
+            0.29321208488036304,
+            0.15519447452557755
+          ],
+          [
+            0.2709122963077558,
+            -0.20582102155528054
+          ],
+          [
+            -0.29321208488036304,
+            -0.15519447452557755
+          ]
+        ],
+        "gameBodyWidth": 96
+      },
+      "adaptation": {
+        "sourceScale": 0.1542904290429043,
+        "sourceCrop": {
+          "left": 164,
+          "top": 22,
+          "width": 1212,
+          "height": 1052
+        },
+        "sourceAnchor": [
+          725.5,
+          792
+        ],
+        "sourceFoot": [
+          [
+            330,
+            765
+          ],
+          [
+            840,
+            978
+          ],
+          [
+            1121,
+            819
+          ],
+          [
+            611,
+            606
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 33927
+    },
+    {
+      "id": "prop-chest-open-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -74,
+        -41,
+        151,
+        87
+      ],
+      "bounds": {
+        "min": [
+          -0.609375,
+          -0.62109375,
+          0
+        ],
+        "max": [
+          0.66015625,
+          0.6484375,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.2709122963077558,
+            0.20582102155528054
+          ],
+          [
+            0.29321208488036304,
+            0.15519447452557755
+          ],
+          [
+            0.2709122963077558,
+            -0.20582102155528054
+          ],
+          [
+            -0.29321208488036304,
+            -0.15519447452557755
+          ]
+        ],
+        "castWorld": [
+          0.055,
+          0.025
+        ],
+        "contactSoftness": 0.8,
+        "castSoftness": 2.4,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 2706
+    }
+  ],
+  "notes": [
+    "Closed appearance accepted; free/open-with-coins variant subsequently requested by user, shown for feedback. No runtime light.",
+    "Short static ambient cast/contact matches existing ritual props. Receiving-floor mask is applied by the shared renderer.",
+    "Support is a placement proxy, not reconstructed physical geometry."
+  ]
+}

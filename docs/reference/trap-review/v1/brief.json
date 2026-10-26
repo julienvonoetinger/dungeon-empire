@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-26",
+  "status": "Appearance proposals in preparation; no user selection or gameplay integration",
+  "scope": "The existing three traps: Pointes, Entrave, Néant",
+  "direction": "Low floor inserts; same blue slate/iron, restrained violet, readable in the shared 2:1 camera at mobile scale",
+  "proposedGroundWidth": 96,
+  "gameDiamond": [
+    192,
+    96
+  ],
+  "constraints": [
+    "Keep existing damage/charges/progression unchanged",
+    "No floating base; trap contacts the floor",
+    "Néant lies in the ground plane, distinct from the upright heart",
+    "Original images and native alpha retained",
+    "Preview montage is not a Godot capture or calibrated support geometry"
+  ],
+  "tool": "built-in image_gen"
+}

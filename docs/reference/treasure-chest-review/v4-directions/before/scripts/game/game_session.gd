@@ -1,0 +1,259 @@
+class_name IsometricGameSession
+extends Node
+
+## Rules restored from v1.0.0; this controller owns phases and player commands.
+signal changed(structure: bool)
+signal frame_updated
+const Types = preload("res://scripts/game/game_types.gd")
+const Save = preload("res://scripts/game/gameplay_save.gd")
+const SAVE_PATH := "user://isometric_run_v1.save"
+var save_path := SAVE_PATH
+const FIELDS := ["grid", "gold", "vault_gold", "vault_locks", "vault_opened", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over"]
+var sim := DungeonSim.new()
+var raid := RaidDirector.new()
+var progression := CoreProgression.new()
+var paused := false
+var confirmation_open := false
+var catalog_open := false
+var result_open := false
+var tool: int = Types.Tool.NONE
+var selected := Vector2i(-1, -1)
+var preview: Dictionary = {}
+var notice := ""
+var save_error := ""
+var save_blocked := false
+var last_reward: Dictionary = {}
+var _visual_state := 0
+
+func _ready() -> void:
+	# Explicit manual-review slot; never touches the player's current dungeon.
+	if OS.get_cmdline_user_args().has("--review-session"):
+		save_path = "user://isometric_review_v1.save"
+		get_window().title = "Dungeon Empire · Vérification"
+	sim.raid = raid
+	raid.sim = sim
+	raid.solid_core = true
+	raid.raid_finished.connect(_raid_finished)
+	sim.new_map()
+	var data := Save.read_save(save_path)
+	if not data.is_empty() and Save.apply(data, sim, raid, progression):
+		notice = "Donjon retrouvé. La préparation reprend."
+	elif FileAccess.file_exists(save_path) or FileAccess.file_exists(save_path + ".bak"):
+		save_blocked = true
+		save_error = "Sauvegarde illisible : elle est conservée. Recommencer pour créer une nouvelle partie."
+	else:
+		notice = "Placez le cœur, ou essayez le donjon préparé."
+	_visual_state = _structure_hash()
+	changed.emit(true)
+
+func phase() -> String:
+	if sim.game_over: return "Défaite"
+	if result_open: return "Bilan"
+	if raid.raid_active: return "Raid"
+	if not sim._has_core(): return "Ancrage du cœur"
+	return "Préparation"
+
+func can_edit() -> bool:
+	return not paused and not confirmation_open and not result_open and not raid.raid_active and not sim.game_over and not save_blocked
+
+func ready_for_raid() -> bool:
+	return sim._has_required_storage() and not sim.game_over and not save_blocked
+
+func _process(delta: float) -> void:
+	if not paused and not confirmation_open and not result_open and not save_blocked and not sim.game_over:
+		if raid.raid_active:
+			raid._update_hero(minf(delta, .1))
+			var next := _structure_hash()
+			if next != _visual_state:
+				_visual_state = next
+				changed.emit(true)
+		elif ready_for_raid() and not catalog_open and tool == Types.Tool.NONE and selected.x < 0:
+			raid.raid_timer = maxf(0, raid.raid_timer - minf(delta, .1))
+			if raid.raid_timer <= 0: start_raid()
+	frame_updated.emit()
+
+func _structure_hash() -> int:
+	var intact: Array = []
+	for p in sim.door_hp:
+		intact.append([p, sim._door_intact(p)])
+	var protected_vaults: Array = []
+	for p in sim._vault_positions():
+		protected_vaults.append([p, sim.vault_protected(p)])
+	return hash([sim.grid, intact, protected_vaults])
+
+func choose_tool(value: int) -> void:
+	if not can_edit(): return
+	tool = value
+	selected = Vector2i(-1, -1)
+	preview = {}
+	changed.emit(false)
+
+func select_cell(cell: Vector2i) -> void:
+	if not can_edit() or not sim._inside(cell): return
+	selected = cell
+	preview = {}
+	if not sim._has_core() or tool != Types.Tool.NONE:
+		preview = check_action(cell)
+	changed.emit(false)
+
+func cancel_selection() -> void:
+	selected = Vector2i(-1, -1)
+	tool = Types.Tool.NONE
+	preview = {}
+	changed.emit(false)
+
+func check_action(cell: Vector2i) -> Dictionary:
+	if not can_edit() or not sim._inside(cell): return {"valid": false, "reason": "Action indisponible", "cost": 0}
+	if sim._has_core() and not progression.allows(tool):
+		return {"valid": false, "reason": "Niveau du cœur requis : %d" % progression.required_level(tool), "cost": 0}
+	var copy := DungeonSim.new()
+	for field in FIELDS:
+		var value = sim.get(field)
+		copy.set(field, value.duplicate(true) if value is Array or value is Dictionary else value)
+	_apply(copy, cell)
+	var modified := false
+	for field in FIELDS:
+		if copy.get(field) != sim.get(field): modified = true
+	return {"valid": modified, "cost": maxi(0, sim.gold - copy.gold), "reason": copy.message}
+
+func _apply(target: DungeonSim, cell: Vector2i) -> void:
+	if not target._has_core():
+		target._place_core(cell)
+		return
+	if tool == Types.Tool.REPAIR:
+		if target._is_door_tile(target.grid[cell.y][cell.x]): target.repair_door(cell)
+		elif target._is_trap_tile(target.grid[cell.y][cell.x]): target.repair_trap(cell)
+		else: target.repair_vault(cell)
+		return
+	if target.grid[cell.y][cell.x] == Types.Tile.ROCK and tool != Types.Tool.DIG:
+		target.message = "Creusez cette case avant de bâtir."
+		return
+	target.selected_tool = tool
+	target._build_at(cell)
+
+func confirm_action() -> void:
+	if selected.x < 0 or not can_edit(): return
+	preview = check_action(selected)
+	if not preview.valid:
+		notice = str(preview.reason)
+		changed.emit(false)
+		return
+	_apply(sim, selected)
+	sim._storage_state()
+	notice = "Action effectuée."
+	_after_edit()
+
+func _after_edit() -> void:
+	selected = Vector2i(-1, -1)
+	preview = {}
+	_visual_state = _structure_hash()
+	_save()
+	changed.emit(true)
+
+func collect_selected() -> void:
+	if not can_edit() or selected.x < 0: return
+	var total := 0
+	for bag in sim.loot_bags:
+		if bag.pos == selected:
+			var amount := sim._deposit_gold(int(bag.gold))
+			bag.gold -= amount
+			total += amount
+	sim.loot_bags = sim.loot_bags.filter(func(bag): return bag.gold > 0)
+	notice = "%d or récupéré (limité par les coffres)." % total
+	_after_edit()
+
+func absorb_selected() -> void:
+	if not can_edit() or selected.x < 0: return
+	for corpse in sim.corpses:
+		if corpse.pos == selected:
+			sim.corpses.erase(corpse)
+			sim.core_hp = mini(Types.CORE_MAX, sim.core_hp + 2)
+			raid.invalidate_kingdom_knowledge(selected)
+			notice = "Corps absorbé : +2 PV au cœur."
+			_after_edit()
+			return
+
+func transfer_selected(destination: Vector2i, amount: int) -> void:
+	if not can_edit() or selected.x < 0: return
+	var moved := sim.transfer_gold(selected, destination, amount)
+	notice = "%d or transféré." % moved
+	_save()
+	changed.emit(false)
+
+func start_raid() -> void:
+	if not can_edit() or not ready_for_raid(): return
+	if not _save():
+		notice = "Le raid attend une sauvegarde de préparation valide."
+		changed.emit(false)
+		return
+	cancel_selection()
+	raid._start_raid()
+	notice = "Le visiteur explore seul. Observez le raid."
+	changed.emit(true)
+
+func _raid_finished(_result: Dictionary) -> void:
+	last_reward = progression.claim(raid.last_result)
+	result_open = true
+	selected = Vector2i(-1, -1)
+	tool = Types.Tool.NONE
+	notice = "Raid terminé. Consultez le bilan."
+	_save()
+	changed.emit(true)
+
+func continue_preparation() -> void:
+	if sim.game_over: return
+	result_open = false
+	paused = false
+	raid.raid_timer = Types.RAID_DELAY
+	notice = "Réparez vos défenses et préparez le prochain raid."
+	changed.emit(false)
+
+func set_paused(value: bool) -> void:
+	if confirmation_open and not value: return
+	paused = value
+	changed.emit(false)
+
+func restart(prepared: bool) -> void:
+	# Called only after an explicit confirmation in the HUD.
+	sim.new_map()
+	raid.reset_for_new_map()
+	progression.last_raid_id = 0
+	result_open = false
+	paused = false
+	confirmation_open = false
+	catalog_open = false
+	save_blocked = false
+	tool = Types.Tool.NONE
+	selected = Vector2i(-1, -1)
+	preview = {}
+	if prepared:
+		sim._place_core(Vector2i(8, 8))
+		for x in range(3, 7): sim.grid[8][x] = Types.Tile.FLOOR
+		sim._place_entrance(Vector2i(3, 8))
+		for p in [Vector2i(7, 7), Vector2i(9, 7), Vector2i(9, 9)]: sim.build_vault(p, 0)
+		sim._place(Vector2i(5, 8), Types.Tile.DOOR, Types.COST_DOOR)
+		sim._place(Vector2i(6, 8), Types.Tile.SPIKE, Types.COST_SPIKE)
+		sim._storage_state()
+		notice = "Donjon d’essai : 245 or, une porte et des pointes. Lancez le raid."
+		# Inspection keeps the preparation countdown stopped for the first look.
+		selected = Vector2i(8, 8)
+	else:
+		notice = "Choisissez une case pour ancrer le cœur."
+	_visual_state = _structure_hash()
+	_save()
+	changed.emit(true)
+
+func _save() -> bool:
+	if save_blocked: return false
+	var ok := Save.write_save(save_path, Save.capture(sim, raid, progression))
+	save_error = "" if ok else "Échec de sauvegarde : votre dernier fichier est conservé."
+	return ok
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
+		if is_node_ready(): set_paused(true)
+
+func _exit_tree() -> void:
+	# RefCounted simulation/director intentionally reference each other in play.
+	sim.raid = null
+	raid.sim = null

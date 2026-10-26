@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-25",
+  "status": "Appearance proposal; not approved or integrated",
+  "current": "source/chest-ritual-v1.png",
+  "entries": [
+    {
+      "name": "Coffre précédent — écarté",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\treasure-chest-review\\v1\\source\\chest-closed-v2.png",
+      "width": 96,
+      "inspection": {
+        "size": [
+          1536,
+          1024
+        ],
+        "body": [
+          265,
+          100,
+          1319,
+          981
+        ],
+        "zero": 936154,
+        "partial": 636710,
+        "sha256": "76b7a2da24745bc9a611ee67f9f0a185ae8e99299349bcf7a0398c0f2c3a74dd"
+      }
+    },
+    {
+      "name": "Coffre rituel — proposition",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\treasure-chest-review\\v2\\source\\chest-ritual-v1.png",
+      "width": 96,
+      "inspection": {
+        "size": [
+          1402,
+          1122
+        ],
+        "body": [
+          368,
+          278,
+          1093,
+          948
+        ],
+        "zero": 1250598,
+        "partial": 321283,
+        "sha256": "43a91744225be6f46592aa7d81fd053fca9d1d1e6bee64d0fda5fc089b6d9418"
+      }
+    },
+    {
+      "name": "Idole — référence existante",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\isometric-prop-review\\v1\\source\\b-idole.png",
+      "height": 76,
+      "inspection": {
+        "size": [
+          1402,
+          1122
+        ],
+        "body": [
+          453,
+          230,
+          982,
+          922
+        ],
+        "zero": 1319190,
+        "partial": 253113,
+        "sha256": "1cc0a6bc940332c59920ffdb37a7c2ba94f9d46a5184360d07c1fcbe221ba69e"
+      }
+    }
+  ],
+  "display": {
+    "cameraZoom": 0.75,
+    "chestBodyWidth": 96,
+    "groundDiamond": [
+      192,
+      96
+    ]
+  },
+  "policy": "Original pixels/alpha untouched. Uniform resize only. Alpha128 measures size, never masks pixels.",
+  "limitations": [
+    "Ground grid is exact 2:1; generated source geometry is not numerically calibrated.",
+    "Contact anchors are provisional. No added shadow, Godot capture or production changes."
+  ]
+}

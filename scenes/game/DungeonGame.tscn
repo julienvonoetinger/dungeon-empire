@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/game_session.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/isometric_game_view.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/game_input.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/game_hud.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/game/dungeon_terrain.gd" id="5"]
+
+[node name="DungeonGame" type="Node"]
+script = ExtResource("1")
+
+[node name="PlayArea" type="SubViewportContainer" parent="."]
+offset_right = 1100.0
+offset_bottom = 720.0
+mouse_filter = 2
+stretch = true
+
+[node name="World" type="SubViewport" parent="PlayArea"]
+size = Vector2i(1100, 720)
+handle_input_locally = false
+gui_disable_input = true
+render_target_update_mode = 4
+
+[node name="Terrain" type="Node2D" parent="PlayArea/World"]
+script = ExtResource("5")
+
+[node name="Dungeon" type="Node2D" parent="PlayArea/World"]
+script = ExtResource("2")
+
+[node name="Camera2D" type="Camera2D" parent="PlayArea/World"]
+zoom = Vector2(0.75,0.75)
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("3")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4")

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sceau interdit — rendu intégré</title>
+<style>body{margin:0;background:#090f19;color:#d7dceb;font:17px system-ui}main{max-width:1280px;margin:auto;padding:24px}h1{font-size:28px}p{line-height:1.6;color:#b5c0d2}.views{display:grid;grid-template-columns:1fr 1fr;gap:20px}img{display:block;width:100%;height:auto}a{color:#c7a3ef}details{margin:24px 0}summary{cursor:pointer;padding:14px;background:#171d2c}@media(max-width:700px){.views{grid-template-columns:1fr}}</style>
+<main><h1>C — Sceau interdit</h1><p>Peinture intégrée sur le wireframe validé. Captures du rendu Godot ; la vue d’ensemble utilise l’échelle du jeu, les détails sont agrandis.</p>
+<img src="native-joined/cross-native.png" alt="Les quatre portes dans les couloirs du donjon">
+<div class="views"><img src="native-joined/door-south-detail.png" alt="Porte orientée sud, détails"><img src="native-joined/door-east-detail.png" alt="Porte orientée est, détails"></div>
+<p>Les pieds s’insèrent dans une interruption locale du mur. Le raccord réutilise la tranche peinte du mur, masquée par la porte lorsqu’elle passe devant. Suppression et remise de portes vérifiées : aucun masque résiduel.</p>
+<p>Atlas : 9 Mio RGBA, inchangé. PNG : +14 164 octets. Les 128 autres régions conservent leurs pixels et leurs paramètres d’affichage. Source des portes réduite à 80 % pour rester dans l’atlas existant ; dimensions dans le monde inchangées.</p>
+<details><summary>Peinture et orientations hors scène</summary><img src="painted-board.png" alt="Les quatre peintures projetées"></details>
+<p><a href="painting.json">Source ImageGen et prompt complet</a> · <a href="integration-integrity.json">Contrôle des atlas</a> · <a href="native-joined/observations.json">Observations Godot</a></p>
+<p>Cette nouvelle peinture reste soumise au retour artistique de l’utilisateur. Validation statique sur ordinateur, sans test sur téléphone, profil de performances ni nouveau test complet de raid.</p></main></html>

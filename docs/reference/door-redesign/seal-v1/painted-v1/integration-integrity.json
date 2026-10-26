@@ -1,0 +1,24 @@
+{
+  "unrelatedRegions": 128,
+  "unexpected": [],
+  "allIdsUnchanged": true,
+  "beforeRGBA": 9437184,
+  "afterRGBA": 9437184,
+  "pngDelta": 14164,
+  "pages": [
+    {
+      "path": "res://assets/dungeon/isometric-kit/atlas-256.png",
+      "width": 1024,
+      "height": 2048,
+      "sourceBytes": 1580347,
+      "uncompressedRGBABytes": 8388608
+    },
+    {
+      "path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+      "width": 256,
+      "height": 1024,
+      "sourceBytes": 107001,
+      "uncompressedRGBABytes": 1048576
+    }
+  ]
+}

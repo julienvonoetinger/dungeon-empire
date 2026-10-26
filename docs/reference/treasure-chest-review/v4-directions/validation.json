@@ -1,0 +1,468 @@
+{
+  "date": "2026-10-25",
+  "retainedNonChestRegions": 120,
+  "nonChestPixelsAndMetadataIdentical": true,
+  "mainAtlasByteIdentical": true,
+  "preservedSelectionFiles": 6,
+  "userProjectSettingsUnchanged": true,
+  "size": {
+    "before": 96,
+    "after": 72,
+    "ratio": 0.75
+  },
+  "atlas": {
+    "regions": 136,
+    "pages": [
+      {
+        "path": "res://assets/dungeon/isometric-kit/atlas-256.png",
+        "width": 1024,
+        "height": 2048,
+        "sourceBytes": 1566183,
+        "uncompressedRGBABytes": 8388608
+      },
+      {
+        "path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+        "width": 256,
+        "height": 1024,
+        "sourceBytes": 107001,
+        "uncompressedRGBABytes": 1048576
+      }
+    ],
+    "pngBytes": 1673184,
+    "deltaPNG": 63276,
+    "rgbaBytes": 9437184,
+    "deltaRGBA": 786432
+  },
+  "observations": [
+    {
+      "state": "corners-mixed",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            9
+          ],
+          "facing": "east"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            9
+          ],
+          "facing": "north"
+        }
+      ],
+      "chests": [
+        "prop-chest",
+        "prop-chest-open-east",
+        "prop-chest-open",
+        "prop-chest-north"
+      ],
+      "shadows": 4,
+      "labels": [
+        "95 / 150",
+        "95 / 150",
+        "95 / 150",
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "corners-open",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            9
+          ],
+          "facing": "east"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            9
+          ],
+          "facing": "north"
+        }
+      ],
+      "chests": [
+        "prop-chest-open",
+        "prop-chest-open-east",
+        "prop-chest-open",
+        "prop-chest-open-north"
+      ],
+      "shadows": 4,
+      "labels": [
+        "95 / 150",
+        "95 / 150",
+        "95 / 150",
+        "95 / 150"
+      ],
+      "unlockChangesStructure": true
+    },
+    {
+      "state": "gold-without-rebuild",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            9
+          ],
+          "facing": "east"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            9
+          ],
+          "facing": "north"
+        }
+      ],
+      "chests": [
+        "prop-chest-open",
+        "prop-chest-open-east",
+        "prop-chest-open",
+        "prop-chest-open-north"
+      ],
+      "shadows": 4,
+      "labels": [
+        "12 / 150",
+        "95 / 150",
+        "95 / 150",
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "corners-restored",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            5
+          ],
+          "facing": "south"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            5,
+            9
+          ],
+          "facing": "east"
+        },
+        {
+          "accessible": true,
+          "cell": [
+            9,
+            9
+          ],
+          "facing": "north"
+        }
+      ],
+      "chests": [
+        "prop-chest",
+        "prop-chest-open-east",
+        "prop-chest-open",
+        "prop-chest-north"
+      ],
+      "shadows": 4,
+      "labels": [
+        "12 / 150",
+        "95 / 150",
+        "95 / 150",
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "single-exit-(0, 1)",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "south"
+        }
+      ],
+      "chests": [
+        "prop-chest"
+      ],
+      "shadows": 1,
+      "labels": [
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "single-exit-(1, 0)",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "east"
+        }
+      ],
+      "chests": [
+        "prop-chest-east"
+      ],
+      "shadows": 1,
+      "labels": [
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "single-exit-(0, -1)",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "north"
+        }
+      ],
+      "chests": [
+        "prop-chest-north"
+      ],
+      "shadows": 1,
+      "labels": [
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "single-exit-(-1, 0)",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "west"
+        }
+      ],
+      "chests": [
+        "prop-chest-west"
+      ],
+      "shadows": 1,
+      "labels": [
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "enclosed-fallback",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": false,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "south"
+        }
+      ],
+      "chests": [
+        "prop-chest"
+      ],
+      "shadows": 1,
+      "labels": [
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "border",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            0,
+            0
+          ],
+          "facing": "east"
+        }
+      ],
+      "chests": [
+        "prop-chest-open-east"
+      ],
+      "shadows": 1,
+      "labels": [
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "heart-vault-door-obstacles",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "north"
+        },
+        {
+          "accessible": false,
+          "cell": [
+            8,
+            7
+          ],
+          "facing": "south"
+        }
+      ],
+      "chests": [
+        "prop-chest-open-north",
+        "prop-chest-open"
+      ],
+      "shadows": 2,
+      "labels": [
+        "95 / 150",
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "door-open-clearance",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "west"
+        },
+        {
+          "accessible": false,
+          "cell": [
+            8,
+            7
+          ],
+          "facing": "south"
+        }
+      ],
+      "chests": [
+        "prop-chest-open-west",
+        "prop-chest-open"
+      ],
+      "shadows": 2,
+      "labels": [
+        "95 / 150",
+        "95 / 150"
+      ]
+    },
+    {
+      "state": "stairs-excluded",
+      "issues": [],
+      "facings": [
+        {
+          "accessible": true,
+          "cell": [
+            7,
+            7
+          ],
+          "facing": "west"
+        },
+        {
+          "accessible": false,
+          "cell": [
+            8,
+            7
+          ],
+          "facing": "south"
+        }
+      ],
+      "chests": [
+        "prop-chest-open-west",
+        "prop-chest-open"
+      ],
+      "shadows": 2,
+      "labels": [
+        "95 / 150",
+        "95 / 150"
+      ]
+    }
+  ],
+  "limits": [
+    "Static headless inventory and offline atlas composites, not GPU capture. No native app control, automated test suite, device profile or full raid verification.",
+    "Direction favours local clearance; if all four sides are blocked, accessible=false and south fallback. No placement/economy/raid rule changes.",
+    "Coins remain fixed artwork; gold captions report actual contents.",
+    "Contact is a painted-source support proxy, not reconstructed3D. New art/scale remains subject to user feedback."
+  ]
+}

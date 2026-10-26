@@ -1,0 +1,15 @@
+{
+  "kind": "Offline wireframe geometry checks; no Godot integration",
+  "checks": {
+    "floorAtZero": true,
+    "noFloorInsideOpening": true,
+    "openingIsSquare": true,
+    "groundAxesRatio": 2,
+    "insertBelowFloor": true,
+    "frameNeverAboveFloor": true,
+    "widthAtGameScale": 107.52000000000001,
+    "spikeHeight": 0.12
+  },
+  "productionChanged": false,
+  "sourceArtworkChanged": false
+}

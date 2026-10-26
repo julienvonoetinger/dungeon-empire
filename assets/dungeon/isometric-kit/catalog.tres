@@ -1,7 +1,9 @@
-[gd_resource type="Resource" load_steps=123 format=3]
+[gd_resource type="Resource" load_steps=156 format=3]
 
 [ext_resource type="Script" path="res://scripts/mobile_kit_definition.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/atlas-256.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/chests/atlas-256.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/traps/atlas-256.png" id="4"]
 
 [sub_resource type="AtlasTexture" id="Sprite_0"]
 atlas = ExtResource("2")
@@ -10,57 +12,57 @@ filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_1"]
 atlas = ExtResource("2")
-region = Rect2(194, 878, 154, 129)
+region = Rect2(837, 793, 154, 129)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_2"]
 atlas = ExtResource("2")
-region = Rect2(704, 1188, 139, 121)
+region = Rect2(505, 1160, 139, 121)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_3"]
 atlas = ExtResource("2")
-region = Rect2(537, 1283, 139, 121)
+region = Rect2(128, 1162, 139, 121)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_4"]
 atlas = ExtResource("2")
-region = Rect2(456, 1808, 124, 113)
+region = Rect2(117, 1786, 124, 113)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_5"]
 atlas = ExtResource("2")
-region = Rect2(4, 884, 154, 129)
+region = Rect2(4, 841, 154, 129)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_6"]
 atlas = ExtResource("2")
-region = Rect2(851, 1188, 139, 121)
+region = Rect2(275, 1254, 139, 121)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_7"]
 atlas = ExtResource("2")
-region = Rect2(294, 1352, 139, 121)
+region = Rect2(652, 1245, 139, 121)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_8"]
 atlas = ExtResource("2")
-region = Rect2(456, 1929, 124, 113)
+region = Rect2(117, 1907, 124, 113)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_9"]
 atlas = ExtResource("2")
-region = Rect2(943, 639, 66, 90)
+region = Rect2(940, 4, 66, 90)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_10"]
 atlas = ExtResource("2")
-region = Rect2(940, 4, 66, 90)
+region = Rect2(940, 102, 66, 90)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_11"]
 atlas = ExtResource("2")
-region = Rect2(790, 750, 208, 115)
+region = Rect2(4, 718, 208, 115)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_12"]
@@ -75,7 +77,7 @@ filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_14"]
 atlas = ExtResource("2")
-region = Rect2(194, 755, 208, 115)
+region = Rect2(220, 829, 208, 115)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_15"]
@@ -95,412 +97,412 @@ filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_18"]
 atlas = ExtResource("2")
-region = Rect2(976, 978, 42, 64)
+region = Rect2(4, 1980, 42, 64)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_19"]
 atlas = ExtResource("2")
-region = Rect2(976, 1050, 42, 64)
+region = Rect2(54, 1980, 42, 64)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_20"]
 atlas = ExtResource("2")
-region = Rect2(410, 755, 158, 133)
+region = Rect2(220, 589, 156, 112)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_21"]
 atlas = ExtResource("2")
-region = Rect2(220, 589, 182, 158)
+region = Rect2(874, 512, 142, 133)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_22"]
 atlas = ExtResource("2")
-region = Rect2(576, 802, 158, 133)
+region = Rect2(384, 589, 156, 112)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_23"]
 atlas = ExtResource("2")
-region = Rect2(4, 718, 182, 158)
+region = Rect2(710, 636, 142, 132)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_24"]
 atlas = ExtResource("2")
-region = Rect2(538, 1153, 158, 122)
+region = Rect2(220, 709, 156, 112)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_25"]
 atlas = ExtResource("2")
-region = Rect2(410, 589, 182, 158)
+region = Rect2(860, 653, 142, 132)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_26"]
 atlas = ExtResource("2")
-region = Rect2(128, 1225, 158, 122)
+region = Rect2(384, 709, 156, 112)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_27"]
 atlas = ExtResource("2")
-region = Rect2(600, 636, 182, 158)
+region = Rect2(560, 577, 142, 133)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_28"]
 atlas = ExtResource("2")
-region = Rect2(356, 896, 116, 97)
+region = Rect2(436, 845, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_29"]
 atlas = ExtResource("2")
-region = Rect2(4, 1231, 105, 91)
+region = Rect2(4, 1188, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_30"]
 atlas = ExtResource("2")
-region = Rect2(4, 1330, 105, 91)
+region = Rect2(4, 1287, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_31"]
 atlas = ExtResource("2")
-region = Rect2(569, 1515, 93, 85)
+region = Rect2(908, 1544, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_32"]
 atlas = ExtResource("2")
-region = Rect2(742, 873, 116, 97)
+region = Rect2(560, 845, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_33"]
 atlas = ExtResource("2")
-region = Rect2(117, 1355, 105, 91)
+region = Rect2(117, 1291, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_34"]
 atlas = ExtResource("2")
-region = Rect2(4, 1429, 105, 91)
+region = Rect2(4, 1386, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_35"]
 atlas = ExtResource("2")
-region = Rect2(569, 1608, 93, 85)
+region = Rect2(908, 1637, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_36"]
 atlas = ExtResource("2")
-region = Rect2(866, 873, 116, 97)
+region = Rect2(684, 887, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_37"]
 atlas = ExtResource("2")
-region = Rect2(117, 1454, 105, 91)
+region = Rect2(799, 1247, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_38"]
 atlas = ExtResource("2")
-region = Rect2(4, 1528, 105, 91)
+region = Rect2(912, 1247, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_39"]
 atlas = ExtResource("2")
-region = Rect2(569, 1701, 93, 85)
+region = Rect2(682, 1643, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_40"]
 atlas = ExtResource("2")
-region = Rect2(480, 943, 116, 97)
+region = Rect2(808, 930, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_41"]
 atlas = ExtResource("2")
-region = Rect2(684, 1317, 105, 91)
+region = Rect2(799, 1346, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_42"]
 atlas = ExtResource("2")
-region = Rect2(797, 1317, 105, 91)
+region = Rect2(912, 1346, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_43"]
 atlas = ExtResource("2")
-region = Rect2(588, 1794, 93, 85)
+region = Rect2(569, 1671, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_44"]
 atlas = ExtResource("2")
-region = Rect2(356, 1001, 116, 97)
+region = Rect2(436, 950, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_45"]
 atlas = ExtResource("2")
-region = Rect2(910, 1317, 105, 91)
+region = Rect2(422, 1289, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_46"]
 atlas = ExtResource("2")
-region = Rect2(441, 1412, 105, 91)
+region = Rect2(535, 1289, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_47"]
 atlas = ExtResource("2")
-region = Rect2(588, 1887, 93, 85)
+region = Rect2(783, 1643, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_48"]
 atlas = ExtResource("2")
-region = Rect2(604, 943, 116, 97)
+region = Rect2(560, 950, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_49"]
 atlas = ExtResource("2")
-region = Rect2(554, 1412, 105, 91)
+region = Rect2(648, 1374, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_50"]
 atlas = ExtResource("2")
-region = Rect2(230, 1481, 105, 91)
+region = Rect2(230, 1383, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_51"]
 atlas = ExtResource("2")
-region = Rect2(670, 1515, 93, 85)
+region = Rect2(884, 1730, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_52"]
 atlas = ExtResource("2")
-region = Rect2(166, 1015, 116, 97)
+region = Rect2(684, 992, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_53"]
 atlas = ExtResource("2")
-region = Rect2(117, 1553, 105, 91)
+region = Rect2(117, 1390, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_54"]
 atlas = ExtResource("2")
-region = Rect2(4, 1627, 105, 91)
+region = Rect2(4, 1485, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_55"]
 atlas = ExtResource("2")
-region = Rect2(670, 1608, 93, 85)
+region = Rect2(670, 1736, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_56"]
 atlas = ExtResource("2")
-region = Rect2(4, 1021, 116, 97)
+region = Rect2(808, 1035, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_57"]
 atlas = ExtResource("2")
-region = Rect2(4, 1726, 105, 91)
+region = Rect2(761, 1445, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_58"]
 atlas = ExtResource("2")
-region = Rect2(4, 1825, 105, 91)
+region = Rect2(874, 1445, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_59"]
 atlas = ExtResource("2")
-region = Rect2(670, 1701, 93, 85)
+region = Rect2(771, 1736, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_60"]
 atlas = ExtResource("2")
-region = Rect2(728, 978, 116, 97)
+region = Rect2(166, 952, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_61"]
 atlas = ExtResource("2")
-region = Rect2(4, 1924, 105, 91)
+region = Rect2(343, 1388, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_62"]
 atlas = ExtResource("2")
-region = Rect2(667, 1416, 105, 91)
+region = Rect2(230, 1482, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_63"]
 atlas = ExtResource("2")
-region = Rect2(771, 1515, 93, 85)
+region = Rect2(872, 1823, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_64"]
 atlas = ExtResource("2")
-region = Rect2(852, 978, 116, 97)
+region = Rect2(290, 952, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_65"]
 atlas = ExtResource("2")
-region = Rect2(780, 1416, 105, 91)
+region = Rect2(117, 1489, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_66"]
 atlas = ExtResource("2")
-region = Rect2(893, 1416, 105, 91)
+region = Rect2(4, 1584, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_67"]
 atlas = ExtResource("2")
-region = Rect2(872, 1515, 93, 85)
+region = Rect2(249, 1916, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_68"]
 atlas = ExtResource("2")
-region = Rect2(480, 1048, 116, 97)
+region = Rect2(4, 978, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_69"]
 atlas = ExtResource("2")
-region = Rect2(343, 1511, 105, 91)
+region = Rect2(456, 1388, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_70"]
 atlas = ExtResource("2")
-region = Rect2(230, 1580, 105, 91)
+region = Rect2(569, 1473, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_71"]
 atlas = ExtResource("2")
-region = Rect2(771, 1608, 93, 85)
+region = Rect2(350, 1916, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_72"]
 atlas = ExtResource("2")
-region = Rect2(604, 1048, 116, 97)
+region = Rect2(414, 1055, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_73"]
 atlas = ExtResource("2")
-region = Rect2(117, 1652, 105, 91)
+region = Rect2(343, 1487, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_74"]
 atlas = ExtResource("2")
-region = Rect2(456, 1511, 105, 91)
+region = Rect2(456, 1487, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_75"]
 atlas = ExtResource("2")
-region = Rect2(872, 1608, 93, 85)
+region = Rect2(451, 1685, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_76"]
 atlas = ExtResource("2")
-region = Rect2(290, 1106, 116, 97)
+region = Rect2(538, 1055, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_77"]
 atlas = ExtResource("2")
-region = Rect2(117, 1751, 105, 91)
+region = Rect2(230, 1581, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_78"]
 atlas = ExtResource("2")
-region = Rect2(117, 1850, 105, 91)
+region = Rect2(117, 1588, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_79"]
 atlas = ExtResource("2")
-region = Rect2(771, 1701, 93, 85)
+region = Rect2(343, 1685, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_80"]
 atlas = ExtResource("2")
-region = Rect2(128, 1120, 116, 97)
+region = Rect2(662, 1097, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_81"]
 atlas = ExtResource("2")
-region = Rect2(117, 1949, 105, 91)
+region = Rect2(4, 1683, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_82"]
 atlas = ExtResource("2")
-region = Rect2(230, 1679, 105, 91)
+region = Rect2(4, 1782, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_83"]
 atlas = ExtResource("2")
-region = Rect2(872, 1701, 93, 85)
+region = Rect2(552, 1764, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_84"]
 atlas = ExtResource("2")
-region = Rect2(4, 1126, 116, 97)
+region = Rect2(786, 1140, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_85"]
 atlas = ExtResource("2")
-region = Rect2(230, 1778, 105, 91)
+region = Rect2(4, 1881, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_86"]
 atlas = ExtResource("2")
-region = Rect2(230, 1877, 105, 91)
+region = Rect2(682, 1544, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_87"]
 atlas = ExtResource("2")
-region = Rect2(689, 1794, 93, 85)
+region = Rect2(451, 1778, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_88"]
 atlas = ExtResource("2")
-region = Rect2(728, 1083, 116, 97)
+region = Rect2(128, 1057, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_89"]
 atlas = ExtResource("2")
-region = Rect2(343, 1610, 105, 91)
+region = Rect2(569, 1572, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_90"]
 atlas = ExtResource("2")
-region = Rect2(343, 1709, 105, 91)
+region = Rect2(343, 1586, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_91"]
 atlas = ExtResource("2")
-region = Rect2(689, 1887, 93, 85)
+region = Rect2(343, 1778, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_92"]
 atlas = ExtResource("2")
-region = Rect2(852, 1083, 116, 97)
+region = Rect2(4, 1083, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_93"]
 atlas = ExtResource("2")
-region = Rect2(343, 1808, 105, 91)
+region = Rect2(456, 1586, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_94"]
 atlas = ExtResource("2")
-region = Rect2(343, 1907, 105, 91)
+region = Rect2(230, 1680, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_95"]
 atlas = ExtResource("2")
-region = Rect2(790, 1794, 93, 85)
+region = Rect2(451, 1916, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_96"]
 atlas = ExtResource("2")
-region = Rect2(414, 1153, 116, 97)
+region = Rect2(252, 1057, 116, 97)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_97"]
 atlas = ExtResource("2")
-region = Rect2(456, 1610, 105, 91)
+region = Rect2(117, 1687, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_98"]
 atlas = ExtResource("2")
-region = Rect2(456, 1709, 105, 91)
+region = Rect2(795, 1544, 105, 91)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_99"]
 atlas = ExtResource("2")
-region = Rect2(891, 1794, 93, 85)
+region = Rect2(552, 1916, 93, 85)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_100"]
@@ -525,22 +527,22 @@ filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_104"]
 atlas = ExtResource("2")
-region = Rect2(588, 1984, 153, 48)
+region = Rect2(622, 1857, 153, 48)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_105"]
 atlas = ExtResource("2")
-region = Rect2(790, 1887, 105, 89)
+region = Rect2(653, 1916, 105, 89)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_106"]
 atlas = ExtResource("2")
-region = Rect2(903, 1887, 113, 61)
+region = Rect2(905, 1916, 113, 61)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_107"]
 atlas = ExtResource("2")
-region = Rect2(749, 1984, 131, 53)
+region = Rect2(766, 1916, 131, 53)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_108"]
@@ -550,7 +552,7 @@ filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_109"]
 atlas = ExtResource("2")
-region = Rect2(230, 1395, 53, 31)
+region = Rect2(249, 2013, 53, 31)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_110"]
@@ -560,47 +562,202 @@ filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_111"]
 atlas = ExtResource("2")
-region = Rect2(290, 2006, 50, 33)
+region = Rect2(714, 1202, 50, 33)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_112"]
 atlas = ExtResource("2")
-region = Rect2(874, 512, 128, 119)
+region = Rect2(548, 718, 128, 119)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_113"]
 atlas = ExtResource("2")
-region = Rect2(230, 2006, 52, 37)
+region = Rect2(249, 1871, 52, 37)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_114"]
 atlas = ExtResource("2")
-region = Rect2(790, 639, 145, 103)
+region = Rect2(684, 776, 145, 103)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_115"]
 atlas = ExtResource("2")
-region = Rect2(230, 1355, 54, 32)
+region = Rect2(652, 1202, 54, 32)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_116"]
 atlas = ExtResource("2")
-region = Rect2(408, 1258, 121, 86)
+region = Rect2(376, 1160, 121, 86)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_117"]
 atlas = ExtResource("2")
-region = Rect2(600, 577, 62, 44)
+region = Rect2(552, 1857, 62, 44)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_118"]
 atlas = ExtResource("2")
-region = Rect2(294, 1211, 106, 99)
+region = Rect2(910, 1140, 106, 99)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Sprite_119"]
 atlas = ExtResource("2")
-region = Rect2(230, 1434, 52, 30)
+region = Rect2(310, 2013, 52, 30)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_120"]
+atlas = ExtResource("3")
+region = Rect2(4, 423, 114, 78)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_121"]
+atlas = ExtResource("3")
+region = Rect2(126, 449, 59, 33)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_122"]
+atlas = ExtResource("3")
+region = Rect2(127, 116, 118, 97)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_123"]
+atlas = ExtResource("3")
+region = Rect2(193, 449, 57, 33)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_124"]
+atlas = ExtResource("3")
+region = Rect2(4, 324, 129, 91)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_125"]
+atlas = ExtResource("3")
+region = Rect2(141, 407, 59, 34)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_126"]
+atlas = ExtResource("3")
+region = Rect2(140, 221, 112, 93)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_127"]
+atlas = ExtResource("3")
+region = Rect2(193, 490, 58, 32)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_128"]
+atlas = ExtResource("3")
+region = Rect2(4, 4, 129, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_129"]
+atlas = ExtResource("3")
+region = Rect2(141, 365, 59, 34)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_130"]
+atlas = ExtResource("3")
+region = Rect2(4, 116, 115, 99)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_131"]
+atlas = ExtResource("3")
+region = Rect2(141, 322, 59, 35)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_132"]
+atlas = ExtResource("3")
+region = Rect2(4, 223, 128, 93)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_133"]
+atlas = ExtResource("3")
+region = Rect2(193, 530, 59, 32)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_134"]
+atlas = ExtResource("3")
+region = Rect2(141, 4, 110, 93)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_135"]
+atlas = ExtResource("3")
+region = Rect2(126, 490, 59, 33)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_136"]
+atlas = ExtResource("4")
+region = Rect2(4, 4, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_137"]
+atlas = ExtResource("4")
+region = Rect2(215, 452, 120, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_138"]
+atlas = ExtResource("4")
+region = Rect2(215, 4, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_139"]
+atlas = ExtResource("4")
+region = Rect2(343, 452, 120, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_140"]
+atlas = ExtResource("4")
+region = Rect2(4, 116, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_141"]
+atlas = ExtResource("4")
+region = Rect2(215, 550, 120, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_142"]
+atlas = ExtResource("4")
+region = Rect2(215, 116, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_143"]
+atlas = ExtResource("4")
+region = Rect2(343, 550, 120, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_144"]
+atlas = ExtResource("4")
+region = Rect2(4, 228, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_145"]
+atlas = ExtResource("4")
+region = Rect2(4, 564, 120, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_146"]
+atlas = ExtResource("4")
+region = Rect2(215, 228, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_147"]
+atlas = ExtResource("4")
+region = Rect2(132, 648, 120, 90)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_148"]
+atlas = ExtResource("4")
+region = Rect2(4, 340, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_149"]
+atlas = ExtResource("4")
+region = Rect2(215, 340, 203, 104)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Sprite_150"]
+atlas = ExtResource("4")
+region = Rect2(4, 452, 203, 104)
 filter_clip = true
 
 [resource]
@@ -608,7 +765,7 @@ script = ExtResource("1")
 projection_x = Vector3(0.5, -0.5, 0)
 projection_y = Vector3(0.25, 0.25, -0.6123724356957945)
 view_direction = Vector3(0.6123724356957945, 0.6123724356957945, 0.5)
-entries = {"heart-self-glow":{"region":[4,4,516,260],"offset":[-258,-130],"size":[516,260],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"add"},"heart-self-shadow":{"region":[528,4,404,208],"offset":[-202,-104],"size":[404,208],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"mix"},"heart":{"region":[528,220,212,215],"offset":[-106,-161],"size":[212,215],"bounds":{"min":[-0.40625,-0.40625,0],"max":[0.40625,0.40625,0.76]},"ground_effects":["heart-self-shadow","heart-self-glow"]},"floor":{"region":[748,220,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]}},"floor-b1":{"region":[748,366,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":1,"edgeProfile":"shared-complete-stones-v1"}},"floor-b2":{"region":[4,272,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":2,"edgeProfile":"shared-complete-stones-v1"}},"floor-b3":{"region":[4,418,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":3,"edgeProfile":"shared-complete-stones-v1"}},"floor-b4":{"region":[282,443,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":4,"edgeProfile":"shared-complete-stones-v1"}},"prop-crystals":{"region":[560,443,154,126],"offset":[-103.02227171492206,-110.18485523385301],"size":[205,167],"bounds":{"min":[-0.18937040645879735,-0.18820462138084634,0],"max":[0.1678033825167038,0.16022577951002226,0.4254812100188696]},"ground_effects":["prop-crystals-shadow"],"decoration":{"source":"a-cristaux","label":"A · Cristaux corrompus","footprint":[[-0.1538836302895323,0.14222577951002227],[-0.06411817928730512,0.1410599944320713],[0.11774429287305123,0.12240743318485524],[0.1486375974387528,-0.03905380011135858],[0.1498033825167038,-0.1567980929844098],[0.037305122494432075,-0.17020462138084635],[-0.12357321826280625,-0.11891007795100224],[-0.17137040645879736,0.03613933741648108]],"gameHeight":62}},"stair-east":{"region":[282,272,208,146],"offset":[-109,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333337,0],"max":[0.84,0.9166666666666666,0.25]}},"stair-south":{"region":[4,564,208,146],"offset":[-99,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333333,0],"max":[0.9166666666666666,0.84,0.25]}},"prop-idol":{"region":[722,512,144,116],"offset":[-98.56031128404669,-113.0443579766537],"size":[192,154],"bounds":{"min":[-0.1711614785992218,-0.1597315175097276,0],"max":[0.16030301556420232,0.1574455252918288,0.5319538765334091]},"ground_effects":["prop-idol-shadow"],"decoration":{"source":"b-idole","label":"B · Idole de pierre","footprint":[[-0.1531614785992218,0.12801556420233462],[0.1394455252918288,0.1394455252918288],[0.14230301556420233,-0.13773103112840468],[-0.1394455252918288,-0.14173151750972762]],"gameHeight":76}},"door-north-arch":{"region":[220,589,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[-0.08333333333333348,0.41666666666666663,0.3133333333333333],"max":[1.0833333333333335,0.5833333333333333,0.8966666666666665]}},"door-east-arch":{"region":[4,718,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[0.4166666666666667,-0.08333333333333348,0.3133333333333333],"max":[0.5833333333333334,1.0833333333333335,0.8966666666666665]}},"door-south-arch":{"region":[410,589,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[-0.08333333333333337,0.4166666666666667,0.3133333333333333],"max":[1.0833333333333335,0.5833333333333334,0.8966666666666665]}},"door-west-arch":{"region":[600,636,182,158],"offset":[-91,-95],"size":[182,158],"bounds":{"min":[0.41666666666666663,-0.08333333333333337,0.3133333333333333],"max":[0.5833333333333333,1.0833333333333335,0.8966666666666665]}},"prop-stele":{"region":[874,512,128,119],"offset":[-88.06441476826394,-113.10133542812255],"size":[170,158],"bounds":{"min":[-0.21360094265514531,-0.16419132953652787,0],"max":[0.212072810290652,0.16419132953652787,0.5731170214738054]},"ground_effects":["prop-stele-shadow"],"decoration":{"source":"c-stele","label":"C · Stèle rituelle","footprint":[[-0.15077572663000788,0.14466319717203457],[0.19407281029065201,0.1461913295365279],[0.1461913295365279,-0.1461913295365279],[-0.19560094265514533,-0.14466319717203457]],"gameHeight":84}},"prop-basin":{"region":[790,639,145,103],"offset":[-81.9848,-92.41760000000001],"size":[193,137],"bounds":{"min":[-0.16447499999999998,-0.16683749999999997,0],"max":[0.247753125,0.278465625,0.3163516002804475]},"ground_effects":["prop-basin-shadow"],"decoration":{"source":"d-vasque","label":"D · Vasque d’offrandes","footprint":[[-0.07560000000000001,0.24806250000000002],[-0.01476562499999999,0.260465625],[-0.012403125000000001,0.168328125],[0.21321562500000002,0.032484374999999996],[0.229753125,-0.062015625000000005],[-0.146475,-0.14883749999999998]],"gameHeight":49}},"stair-north":{"region":[790,750,208,115],"offset":[-109,5],"size":[208,115],"bounds":{"min":[0.08333333333333337,0.16000000000000003,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"stair-west":{"region":[194,755,208,115],"offset":[-99,5],"size":[208,115],"bounds":{"min":[0.16000000000000003,0.08333333333333333,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"door-north-leaf":{"region":[410,755,158,133],"offset":[-91,-33],"size":[158,133],"bounds":{"min":[-0.08333333333333348,0.41666666666666663,0],"max":[0.9166666666666667,0.5833333333333333,0.3133333333333333]}},"door-east-leaf":{"region":[576,802,158,133],"offset":[-67,-33],"size":[158,133],"bounds":{"min":[0.4166666666666667,-0.08333333333333348,0],"max":[0.5833333333333334,0.9166666666666667,0.3133333333333333]}},"wall-h-0":{"region":[194,878,154,129],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-v-0":{"region":[4,884,154,129],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-h-0-a1":{"region":[356,896,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a1":{"region":[742,873,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a2":{"region":[866,873,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a2":{"region":[480,943,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a3":{"region":[356,1001,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a3":{"region":[604,943,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c1":{"region":[166,1015,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c1":{"region":[4,1021,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c2":{"region":[728,978,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c2":{"region":[852,978,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c3":{"region":[480,1048,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c3":{"region":[604,1048,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-f1":{"region":[290,1106,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f1":{"region":[128,1120,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f2":{"region":[4,1126,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f2":{"region":[728,1083,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f3":{"region":[852,1083,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f3":{"region":[414,1153,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"door-south-leaf":{"region":[538,1153,158,122],"offset":[-67,-22],"size":[158,122],"bounds":{"min":[0.08333333333333331,0.4166666666666667,0],"max":[1.0833333333333335,0.5833333333333334,0.3133333333333333]}},"door-west-leaf":{"region":[128,1225,158,122],"offset":[-91,-22],"size":[158,122],"bounds":{"min":[0.41666666666666663,0.08333333333333331,0],"max":[0.5833333333333333,1.0833333333333335,0.3133333333333333]}},"prop-candles":{"region":[294,1211,106,99],"offset":[-72.98894154818326,-97.22906793048973],"size":[141,132],"bounds":{"min":[-0.2020762601515146,-0.20207626015151453,0],"max":[0.20207626015151453,0.20207626015151456,0.4735385914590094]},"light":{"emission":[-0.6492890995260664,-43.28593996840443],"radius":110,"energy":0.65,"color":[1,0.55,0.2]},"ground_effects":["prop-candles-shadow"],"decoration":{"source":"f-cierges","label":"F · Cierges rituels","footprint":[[0.1479499901263823,-0.1479499901263823],[0.16654871231224508,-0.12366563279127299],[0.17874706088554232,-0.09462887454048091],[0.18407626015151454,-0.06195558170958242],[0.18233151197102018,-0.026901370618675147],[0.17357986603816955,0.009186645058645346],[0.15815764319818226,0.044921623118291995],[0.13665751082591704,0.0789302883938392],[0.10990570695102686,0.10990570695102686],[0.0789302883938392,0.13665751082591704],[0.044921623118292044,0.15815764319818224],[0.009186645058645401,0.1735798660381695],[-0.02690137061867505,0.18233151197102027],[-0.06195558170958245,0.18407626015151457],[-0.09462887454048088,0.1787470608855423],[-0.12366563279127299,0.16654871231224508],[-0.1479499901263823,0.1479499901263823],[-0.16654871231224508,0.12366563279127299],[-0.17874706088554224,0.094628874540481],[-0.1840762601515146,0.061955581709582465],[-0.1823315119710202,0.02690137061867519],[-0.1735798660381695,-0.009186645058645401],[-0.15815764319818232,-0.044921623118291946],[-0.1366575108259171,-0.07893028839383916],[-0.1099057069510269,-0.10990570695102682],[-0.0789302883938392,-0.13665751082591704],[-0.044921623118291995,-0.15815764319818226],[-0.009186645058645526,-0.17357986603816952],[0.02690137061867505,-0.18233151197102027],[0.06195558170958242,-0.18407626015151454],[0.0946288745404808,-0.1787470608855422],[0.12366563279127289,-0.1665487123122452]],"gameHeight":67}},"prop-grimoire":{"region":[408,1258,121,86],"offset":[-82.9972337482711,-66.92807745504841],"size":[161,114],"bounds":{"min":[-0.2597498703319502,-0.22242708333333333,0],"max":[0.2589016251728907,0.2198823478561549,0.2957356192125574]},"ground_effects":["prop-grimoire-shadow"],"decoration":{"source":"e-grimoire","label":"E · Grimoire scellé","footprint":[[-0.2006099801175657,0.16668017375518673],[0.24090162517289074,0.20188234785615491],[0.198489367219917,-0.1696490318118949],[-0.2417498703319502,-0.20442708333333334]],"gameHeight":56}},"wall-h-1":{"region":[704,1188,139,121],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-h-2":{"region":[537,1283,139,121],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-1":{"region":[851,1188,139,121],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-v-2":{"region":[294,1352,139,121],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-1-a1":{"region":[4,1231,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a1":{"region":[4,1330,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a1":{"region":[117,1355,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a1":{"region":[4,1429,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a2":{"region":[117,1454,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a2":{"region":[4,1528,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a2":{"region":[684,1317,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a2":{"region":[797,1317,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a3":{"region":[910,1317,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a3":{"region":[441,1412,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a3":{"region":[554,1412,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a3":{"region":[230,1481,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c1":{"region":[117,1553,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c1":{"region":[4,1627,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c1":{"region":[4,1726,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c1":{"region":[4,1825,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c2":{"region":[4,1924,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c2":{"region":[667,1416,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c2":{"region":[780,1416,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c2":{"region":[893,1416,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c3":{"region":[343,1511,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c3":{"region":[230,1580,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c3":{"region":[117,1652,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c3":{"region":[456,1511,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-f1":{"region":[117,1751,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f1":{"region":[117,1850,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f1":{"region":[117,1949,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f1":{"region":[230,1679,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f2":{"region":[230,1778,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f2":{"region":[230,1877,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f2":{"region":[343,1610,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f2":{"region":[343,1709,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f3":{"region":[343,1808,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f3":{"region":[343,1907,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f3":{"region":[456,1610,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f3":{"region":[456,1709,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-3":{"region":[456,1808,124,113],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-3":{"region":[456,1929,124,113],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-3-a1":{"region":[569,1515,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a1":{"region":[569,1608,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a2":{"region":[569,1701,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a2":{"region":[588,1794,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a3":{"region":[588,1887,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a3":{"region":[670,1515,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c1":{"region":[670,1608,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c1":{"region":[670,1701,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c2":{"region":[771,1515,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c2":{"region":[872,1515,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c3":{"region":[771,1608,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c3":{"region":[872,1608,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-f1":{"region":[771,1701,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f1":{"region":[872,1701,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f2":{"region":[689,1794,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f2":{"region":[689,1887,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f3":{"region":[790,1794,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f3":{"region":[891,1794,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"prop-grimoire-shadow":{"region":[600,577,62,44],"offset":[-60,-41],"size":[123,87],"bounds":{"min":[-0.5546875,-0.56640625,0],"max":[0.60546875,0.59375,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b2-damage-b":{"region":[790,1887,105,89],"offset":[-45,23],"size":[105,89],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"b","base":"floor-b2","corruption":false}},"prop-stele-shadow":{"region":[230,2006,52,37],"offset":[-50,-34],"size":[104,73],"bounds":{"min":[-0.4609375,-0.4765625,0],"max":[0.515625,0.5,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b1-damage-a":{"region":[588,1984,153,48],"offset":[-69,44],"size":[153,48],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"a","base":"floor-b1","corruption":false}},"floor-b4-damage-d":{"region":[749,1984,131,53],"offset":[-62,46],"size":[131,53],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"d","base":"floor-b4","corruption":true}},"prop-basin-shadow":{"region":[230,1355,54,32],"offset":[-54,-31],"size":[108,64],"bounds":{"min":[-0.453125,-0.453125,0],"max":[0.46875,0.46875,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b3-damage-c":{"region":[903,1887,113,61],"offset":[-49,39],"size":[113,61],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"c","base":"floor-b3","corruption":true}},"prop-idol-shadow":{"region":[290,2006,50,33],"offset":[-48,-30],"size":[100,65],"bounds":{"min":[-0.421875,-0.4375,0],"max":[0.4765625,0.4609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-crystals-shadow":{"region":[230,1395,53,31],"offset":[-50,-28],"size":[106,61],"bounds":{"min":[-0.4140625,-0.4375,0],"max":[0.4765625,0.453125,0]},"ground_effect":true,"ground_blend":"mix"},"prop-candles-shadow":{"region":[230,1434,52,30],"offset":[-50,-27],"size":[104,59],"bounds":{"min":[-0.40625,-0.421875,0],"max":[0.4609375,0.4453125,0]},"ground_effect":true,"ground_blend":"mix"},"pillar":{"region":[943,639,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"pillar-top-carved":{"region":[940,4,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"torch-horizontal":{"region":[976,978,42,64],"offset":[21,-26],"size":[42,64],"bounds":{"min":[0.421,0.08333333333333333,0.037],"max":[0.579,0.2753333333333333,0.264]},"light":{"emission":[38.86933333333333,-11.870910340391085],"emitter_world":[0.5,0.19633333333333333,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}},"torch-vertical":{"region":[976,1050,42,64],"offset":[-63,-26],"size":[42,64],"bounds":{"min":[0.08333333333333333,0.421,0.037],"max":[0.2753333333333333,0.579,0.264]},"light":{"emission":[-38.86933333333333,-11.870910340391085],"emitter_world":[0.19633333333333333,0.5,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}}}
+entries = {"heart-self-glow":{"region":[4,4,516,260],"offset":[-258,-130],"size":[516,260],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"add"},"heart-self-shadow":{"region":[528,4,404,208],"offset":[-202,-104],"size":[404,208],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"mix"},"heart":{"region":[528,220,212,215],"offset":[-106,-161],"size":[212,215],"bounds":{"min":[-0.40625,-0.40625,0],"max":[0.40625,0.40625,0.76]},"ground_effects":["heart-self-shadow","heart-self-glow"],"vortex":{"center":[106,73.2102876186509],"radius":51.2}},"floor":{"region":[748,220,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]}},"floor-b1":{"region":[748,366,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":1,"edgeProfile":"shared-complete-stones-v1"}},"floor-b2":{"region":[4,272,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":2,"edgeProfile":"shared-complete-stones-v1"}},"floor-b3":{"region":[4,418,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":3,"edgeProfile":"shared-complete-stones-v1"}},"floor-b4":{"region":[282,443,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":4,"edgeProfile":"shared-complete-stones-v1"}},"prop-crystals":{"region":[560,443,154,126],"offset":[-103.02227171492206,-110.18485523385301],"size":[205,167],"bounds":{"min":[-0.18937040645879735,-0.18820462138084634,0],"max":[0.1678033825167038,0.16022577951002226,0.4254812100188696]},"ground_effects":["prop-crystals-shadow"],"decoration":{"source":"a-cristaux","label":"A · Cristaux corrompus","footprint":[[-0.1538836302895323,0.14222577951002227],[-0.06411817928730512,0.1410599944320713],[0.11774429287305123,0.12240743318485524],[0.1486375974387528,-0.03905380011135858],[0.1498033825167038,-0.1567980929844098],[0.037305122494432075,-0.17020462138084635],[-0.12357321826280625,-0.11891007795100224],[-0.17137040645879736,0.03613933741648108]],"gameHeight":62}},"stair-east":{"region":[282,272,208,146],"offset":[-109,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333337,0],"max":[0.84,0.9166666666666666,0.25]}},"stair-south":{"region":[4,564,208,146],"offset":[-99,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333333,0],"max":[0.9166666666666666,0.84,0.25]}},"prop-idol":{"region":[722,512,144,116],"offset":[-98.56031128404669,-113.0443579766537],"size":[192,154],"bounds":{"min":[-0.1711614785992218,-0.1597315175097276,0],"max":[0.16030301556420232,0.1574455252918288,0.5319538765334091]},"ground_effects":["prop-idol-shadow"],"decoration":{"source":"b-idole","label":"B · Idole de pierre","footprint":[[-0.1531614785992218,0.12801556420233462],[0.1394455252918288,0.1394455252918288],[0.14230301556420233,-0.13773103112840468],[-0.1394455252918288,-0.14173151750972762]],"gameHeight":76}},"door-north-arch":{"region":[874,512,142,133],"offset":[-88,-105],"size":[177,166],"bounds":{"min":[-0.041155370370370425,0.36,0.3133333333333333],"max":[1.0411553703703704,0.64,0.895]}},"door-west-arch":{"region":[560,577,142,133],"offset":[-89,-105],"size":[177,166],"bounds":{"min":[0.36,-0.04115537037037038,0.3133333333333333],"max":[0.64,1.0411553703703704,0.895]}},"door-east-arch":{"region":[710,636,142,132],"offset":[-89,-103],"size":[177,164],"bounds":{"min":[0.36,-0.041155370370370425,0.3133333333333333],"max":[0.64,1.0411553703703704,0.895]}},"door-south-arch":{"region":[860,653,142,132],"offset":[-88,-103],"size":[177,164],"bounds":{"min":[-0.04115537037037038,0.36,0.3133333333333333],"max":[1.0411553703703704,0.64,0.895]}},"door-north-leaf":{"region":[220,589,156,112],"offset":[-97,-24],"size":[194,139],"bounds":{"min":[-0.08333333333333326,0.365,0],"max":[1.0833333333333333,0.635,0.3133333333333333]},"wall_junction":{"axis":"v","span":[0.365,0.635]}},"door-east-leaf":{"region":[384,589,156,112],"offset":[-97,-24],"size":[194,139],"bounds":{"min":[0.365,-0.08333333333333326,0],"max":[0.635,1.0833333333333333,0.3133333333333333]},"wall_junction":{"axis":"h","span":[0.365,0.635]}},"door-south-leaf":{"region":[220,709,156,112],"offset":[-97,-24],"size":[194,139],"bounds":{"min":[-0.08333333333333333,0.365,0],"max":[1.0833333333333333,0.635,0.3133333333333333]},"wall_junction":{"axis":"v","span":[0.365,0.635]}},"door-west-leaf":{"region":[384,709,156,112],"offset":[-97,-24],"size":[194,139],"bounds":{"min":[0.365,-0.08333333333333333,0],"max":[0.635,1.0833333333333333,0.3133333333333333]},"wall_junction":{"axis":"h","span":[0.365,0.635]}},"prop-stele":{"region":[548,718,128,119],"offset":[-88.06441476826394,-113.10133542812255],"size":[170,158],"bounds":{"min":[-0.21360094265514531,-0.16419132953652787,0],"max":[0.212072810290652,0.16419132953652787,0.5731170214738054]},"ground_effects":["prop-stele-shadow"],"decoration":{"source":"c-stele","label":"C · Stèle rituelle","footprint":[[-0.15077572663000788,0.14466319717203457],[0.19407281029065201,0.1461913295365279],[0.1461913295365279,-0.1461913295365279],[-0.19560094265514533,-0.14466319717203457]],"gameHeight":84}},"prop-basin":{"region":[684,776,145,103],"offset":[-81.9848,-92.41760000000001],"size":[193,137],"bounds":{"min":[-0.16447499999999998,-0.16683749999999997,0],"max":[0.247753125,0.278465625,0.3163516002804475]},"ground_effects":["prop-basin-shadow"],"decoration":{"source":"d-vasque","label":"D · Vasque d’offrandes","footprint":[[-0.07560000000000001,0.24806250000000002],[-0.01476562499999999,0.260465625],[-0.012403125000000001,0.168328125],[0.21321562500000002,0.032484374999999996],[0.229753125,-0.062015625000000005],[-0.146475,-0.14883749999999998]],"gameHeight":49}},"stair-north":{"region":[4,718,208,115],"offset":[-109,5],"size":[208,115],"bounds":{"min":[0.08333333333333337,0.16000000000000003,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"stair-west":{"region":[220,829,208,115],"offset":[-99,5],"size":[208,115],"bounds":{"min":[0.16000000000000003,0.08333333333333333,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"wall-h-0":{"region":[837,793,154,129],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-v-0":{"region":[4,841,154,129],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-h-0-a1":{"region":[436,845,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a1":{"region":[560,845,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a2":{"region":[684,887,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a2":{"region":[808,930,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a3":{"region":[436,950,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a3":{"region":[560,950,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c1":{"region":[684,992,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c1":{"region":[808,1035,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c2":{"region":[166,952,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c2":{"region":[290,952,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c3":{"region":[4,978,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c3":{"region":[414,1055,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-f1":{"region":[538,1055,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f1":{"region":[662,1097,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f2":{"region":[786,1140,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f2":{"region":[128,1057,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f3":{"region":[4,1083,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f3":{"region":[252,1057,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"prop-candles":{"region":[910,1140,106,99],"offset":[-72.98894154818326,-97.22906793048973],"size":[141,132],"bounds":{"min":[-0.2020762601515146,-0.20207626015151453,0],"max":[0.20207626015151453,0.20207626015151456,0.4735385914590094]},"light":{"emission":[-0.6492890995260664,-43.28593996840443],"radius":110,"energy":0.65,"color":[1,0.55,0.2]},"ground_effects":["prop-candles-shadow"],"decoration":{"source":"f-cierges","label":"F · Cierges rituels","footprint":[[0.1479499901263823,-0.1479499901263823],[0.16654871231224508,-0.12366563279127299],[0.17874706088554232,-0.09462887454048091],[0.18407626015151454,-0.06195558170958242],[0.18233151197102018,-0.026901370618675147],[0.17357986603816955,0.009186645058645346],[0.15815764319818226,0.044921623118291995],[0.13665751082591704,0.0789302883938392],[0.10990570695102686,0.10990570695102686],[0.0789302883938392,0.13665751082591704],[0.044921623118292044,0.15815764319818224],[0.009186645058645401,0.1735798660381695],[-0.02690137061867505,0.18233151197102027],[-0.06195558170958245,0.18407626015151457],[-0.09462887454048088,0.1787470608855423],[-0.12366563279127299,0.16654871231224508],[-0.1479499901263823,0.1479499901263823],[-0.16654871231224508,0.12366563279127299],[-0.17874706088554224,0.094628874540481],[-0.1840762601515146,0.061955581709582465],[-0.1823315119710202,0.02690137061867519],[-0.1735798660381695,-0.009186645058645401],[-0.15815764319818232,-0.044921623118291946],[-0.1366575108259171,-0.07893028839383916],[-0.1099057069510269,-0.10990570695102682],[-0.0789302883938392,-0.13665751082591704],[-0.044921623118291995,-0.15815764319818226],[-0.009186645058645526,-0.17357986603816952],[0.02690137061867505,-0.18233151197102027],[0.06195558170958242,-0.18407626015151454],[0.0946288745404808,-0.1787470608855422],[0.12366563279127289,-0.1665487123122452]],"gameHeight":67}},"prop-grimoire":{"region":[376,1160,121,86],"offset":[-82.9972337482711,-66.92807745504841],"size":[161,114],"bounds":{"min":[-0.2597498703319502,-0.22242708333333333,0],"max":[0.2589016251728907,0.2198823478561549,0.2957356192125574]},"ground_effects":["prop-grimoire-shadow"],"decoration":{"source":"e-grimoire","label":"E · Grimoire scellé","footprint":[[-0.2006099801175657,0.16668017375518673],[0.24090162517289074,0.20188234785615491],[0.198489367219917,-0.1696490318118949],[-0.2417498703319502,-0.20442708333333334]],"gameHeight":56}},"wall-h-1":{"region":[505,1160,139,121],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-h-2":{"region":[128,1162,139,121],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-1":{"region":[275,1254,139,121],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-v-2":{"region":[652,1245,139,121],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-1-a1":{"region":[4,1188,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a1":{"region":[4,1287,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a1":{"region":[117,1291,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a1":{"region":[4,1386,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a2":{"region":[799,1247,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a2":{"region":[912,1247,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a2":{"region":[799,1346,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a2":{"region":[912,1346,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a3":{"region":[422,1289,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a3":{"region":[535,1289,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a3":{"region":[648,1374,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a3":{"region":[230,1383,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c1":{"region":[117,1390,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c1":{"region":[4,1485,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c1":{"region":[761,1445,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c1":{"region":[874,1445,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c2":{"region":[343,1388,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c2":{"region":[230,1482,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c2":{"region":[117,1489,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c2":{"region":[4,1584,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c3":{"region":[456,1388,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c3":{"region":[569,1473,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c3":{"region":[343,1487,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c3":{"region":[456,1487,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-f1":{"region":[230,1581,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f1":{"region":[117,1588,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f1":{"region":[4,1683,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f1":{"region":[4,1782,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f2":{"region":[4,1881,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f2":{"region":[682,1544,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f2":{"region":[569,1572,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f2":{"region":[343,1586,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f3":{"region":[456,1586,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f3":{"region":[230,1680,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f3":{"region":[117,1687,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f3":{"region":[795,1544,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-3":{"region":[117,1786,124,113],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-3":{"region":[117,1907,124,113],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-3-a1":{"region":[908,1544,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a1":{"region":[908,1637,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a2":{"region":[682,1643,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a2":{"region":[569,1671,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a3":{"region":[783,1643,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a3":{"region":[884,1730,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c1":{"region":[670,1736,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c1":{"region":[771,1736,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c2":{"region":[872,1823,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c2":{"region":[249,1916,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c3":{"region":[350,1916,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c3":{"region":[451,1685,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-f1":{"region":[343,1685,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f1":{"region":[552,1764,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f2":{"region":[451,1778,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f2":{"region":[343,1778,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f3":{"region":[451,1916,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f3":{"region":[552,1916,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"prop-grimoire-shadow":{"region":[552,1857,62,44],"offset":[-60,-41],"size":[123,87],"bounds":{"min":[-0.5546875,-0.56640625,0],"max":[0.60546875,0.59375,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b2-damage-b":{"region":[653,1916,105,89],"offset":[-45,23],"size":[105,89],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"b","base":"floor-b2","corruption":false}},"prop-stele-shadow":{"region":[249,1871,52,37],"offset":[-50,-34],"size":[104,73],"bounds":{"min":[-0.4609375,-0.4765625,0],"max":[0.515625,0.5,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b1-damage-a":{"region":[622,1857,153,48],"offset":[-69,44],"size":[153,48],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"a","base":"floor-b1","corruption":false}},"floor-b4-damage-d":{"region":[766,1916,131,53],"offset":[-62,46],"size":[131,53],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"d","base":"floor-b4","corruption":true}},"prop-basin-shadow":{"region":[652,1202,54,32],"offset":[-54,-31],"size":[108,64],"bounds":{"min":[-0.453125,-0.453125,0],"max":[0.46875,0.46875,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b3-damage-c":{"region":[905,1916,113,61],"offset":[-49,39],"size":[113,61],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"c","base":"floor-b3","corruption":true}},"prop-idol-shadow":{"region":[714,1202,50,33],"offset":[-48,-30],"size":[100,65],"bounds":{"min":[-0.421875,-0.4375,0],"max":[0.4765625,0.4609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-crystals-shadow":{"region":[249,2013,53,31],"offset":[-50,-28],"size":[106,61],"bounds":{"min":[-0.4140625,-0.4375,0],"max":[0.4765625,0.453125,0]},"ground_effect":true,"ground_blend":"mix"},"prop-candles-shadow":{"region":[310,2013,52,30],"offset":[-50,-27],"size":[104,59],"bounds":{"min":[-0.40625,-0.421875,0],"max":[0.4609375,0.4453125,0]},"ground_effect":true,"ground_blend":"mix"},"pillar":{"region":[940,4,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"pillar-top-carved":{"region":[940,102,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"torch-horizontal":{"region":[4,1980,42,64],"offset":[21,-26],"size":[42,64],"bounds":{"min":[0.421,0.08333333333333333,0.037],"max":[0.579,0.2753333333333333,0.264]},"light":{"emission":[38.86933333333333,-11.870910340391085],"emitter_world":[0.5,0.19633333333333333,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}},"torch-vertical":{"region":[54,1980,42,64],"offset":[-63,-26],"size":[42,64],"bounds":{"min":[0.08333333333333333,0.421,0.037],"max":[0.2753333333333333,0.579,0.264]},"light":{"emission":[-38.86933333333333,-11.870910340391085],"emitter_world":[0.19633333333333333,0.5,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}},"prop-chest-north":{"region":[4,4,129,104],"offset":[-90.7911111111111,-93.71555555555555],"size":[172,138],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.2442847222222222,-0.1791458333333333,0],"max":[0.2442847222222222,0.1791458333333333,0.414372014820821]},"ground_effects":["prop-chest-north-shadow"],"decoration":{"source":"prop-chest-north","label":"Coffre verrouillé","footprint":[[-0.2117013888888889,0.16114583333333332],[0.2262847222222222,0.13149305555555554],[0.2117013888888889,-0.16114583333333332],[-0.2262847222222222,-0.13149305555555554]],"gameBodyWidth":72,"chest_state":"closed","facing":"north"}},"prop-chest-open-north":{"region":[4,116,115,99],"offset":[-78.02965779467681,-91.00342205323193],"size":[153,131],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.2503698906844106,-0.1702576045627376,0],"max":[0.2503698906844106,0.1702576045627376,0.45354318604616245]},"ground_effects":["prop-chest-open-north-shadow"],"decoration":{"source":"prop-chest-open-north","label":"Coffre ouvert","footprint":[[-0.2204194391634981,0.15225760456273763],[0.23236989068441063,0.131454966730038],[0.2204194391634981,-0.15225760456273763],[-0.23236989068441063,-0.131454966730038]],"gameBodyWidth":72,"chest_state":"open","facing":"north"}},"prop-chest-open":{"region":[127,116,118,97],"offset":[-82.40247561890472,-89.576144036009],"size":[157,129],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.2361243553075769,-0.17111298527756938,0],"max":[0.2361243553075769,0.17111298527756938,0.4861538860278129]},"ground_effects":["prop-chest-open-shadow"],"decoration":{"source":"prop-chest-open","label":"Coffre ouvert","footprint":[[-0.20153524709302323,0.1531129852775694],[0.2181243553075769,0.11545122608777193],[0.20153524709302323,-0.1531129852775694],[-0.2181243553075769,-0.11545122608777193]],"gameBodyWidth":72,"chest_state":"open","facing":"south"}},"prop-chest-west":{"region":[4,223,128,93],"offset":[-88.19940696812453,-84.69236471460341],"size":[170,124],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.17494206356560413,-0.24319864251297257,0],"max":[0.17494206356560413,0.24319864251297257,0.4356457908686493]},"ground_effects":["prop-chest-west-shadow"],"decoration":{"source":"prop-chest-west","label":"Coffre verrouillé","footprint":[[-0.15694206356560414,0.21654640011119347],[0.10166384822090438,0.22519864251297259],[0.15694206356560414,-0.21654640011119347],[-0.10166384822090438,-0.22519864251297259]],"gameBodyWidth":72,"chest_state":"closed","facing":"west"}},"prop-chest-open-west":{"region":[141,4,110,93],"offset":[-82.1448,-83.67840000000001],"size":[146,124],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.165546875,-0.245865625,0],"max":[0.165546875,0.245865625,0.42826266290385395]},"ground_effects":["prop-chest-open-west-shadow"],"decoration":{"source":"prop-chest-open-west","label":"Coffre ouvert","footprint":[[-0.14754687500000002,0.223871875],[0.111159375,0.22786562500000002],[0.14754687500000002,-0.223871875],[-0.111159375,-0.22786562500000002]],"gameBodyWidth":72,"chest_state":"open","facing":"west"}},"prop-chest-open-east":{"region":[140,221,112,93],"offset":[-80.86669303797468,-88.95411392405063],"size":[149,123],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.17326880191851263,-0.24003662727452532,0],"max":[0.17326880191851263,0.24003662727452532,0.4866166609965635]},"ground_effects":["prop-chest-open-east-shadow"],"decoration":{"source":"prop-chest-open-east","label":"Coffre ouvert","footprint":[[-0.15526880191851264,0.21083397201344936],[0.09701499456091774,0.22203662727452533],[0.15526880191851264,-0.21083397201344936],[-0.09701499456091774,-0.22203662727452533]],"gameBodyWidth":72,"chest_state":"open","facing":"east"}},"prop-chest-east":{"region":[4,324,129,91],"offset":[-93.27327327327328,-88.44632132132132],"size":[171,121],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.16933199605855853,-0.25650706174924925,0],"max":[0.16933199605855853,0.25650706174924925,0.4434638240121694]},"ground_effects":["prop-chest-east-shadow"],"decoration":{"source":"prop-chest-east","label":"Coffre verrouillé","footprint":[[-0.15133199605855854,0.2208761495870871],[0.10725471565315317,0.23850706174924927],[0.15133199605855854,-0.2208761495870871],[-0.10725471565315317,-0.23850706174924927]],"gameBodyWidth":72,"chest_state":"closed","facing":"east"}},"prop-chest":{"region":[4,423,114,78],"offset":[-83.63726372637262,-70.93519351935193],"size":[151,104],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.23559324369936993,-0.1864926305130513,0],"max":[0.2345595465796579,0.18545893339333933,0.42706914296358944]},"ground_effects":["prop-chest-shadow"],"decoration":{"source":"prop-chest","label":"Coffre verrouillé","footprint":[[-0.20467202970297027,0.16745893339333934],[0.21655954657965792,0.11835832020702068],[0.2036383325832583,-0.1684926305130513],[-0.21759324369936994,-0.11939201732673267]],"gameBodyWidth":72,"chest_state":"closed","facing":"south"}},"prop-chest-open-north-shadow":{"region":[141,322,59,35],"offset":[-57,-33],"size":[117,70],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.48046875,-0.4921875,0],"max":[0.5234375,0.51171875,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-north-shadow":{"region":[141,365,59,34],"offset":[-57,-32],"size":[117,68],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.47265625,-0.484375,0],"max":[0.515625,0.50390625,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-east-shadow":{"region":[141,407,59,34],"offset":[-57,-32],"size":[117,67],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.47265625,-0.484375,0],"max":[0.5078125,0.49609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-shadow":{"region":[126,449,59,33],"offset":[-57,-31],"size":[117,66],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.46484375,-0.4765625,0],"max":[0.5078125,0.49609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-open-shadow":{"region":[193,449,57,33],"offset":[-55,-31],"size":[113,66],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.45703125,-0.46875,0],"max":[0.5,0.48828125,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-open-west-shadow":{"region":[126,490,59,33],"offset":[-57,-31],"size":[117,66],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.46484375,-0.4765625,0],"max":[0.5078125,0.49609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-open-east-shadow":{"region":[193,490,58,32],"offset":[-56,-30],"size":[115,64],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.453125,-0.46484375,0],"max":[0.49609375,0.484375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-west-shadow":{"region":[193,530,59,32],"offset":[-57,-30],"size":[117,64],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.45703125,-0.46875,0],"max":[0.5,0.48828125,0]},"ground_effect":true,"ground_blend":"mix"},"trap-spike-ready-floor":{"region":[4,4,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"spike","state":"ready","layer":"floor"}},"trap-spike-triggered-floor":{"region":[215,4,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"spike","state":"triggered","layer":"floor"}},"trap-spike-spent-floor":{"region":[4,116,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"spike","state":"spent","layer":"floor"}},"trap-snare-ready-floor":{"region":[215,116,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"snare","state":"ready","layer":"floor"}},"trap-snare-triggered-floor":{"region":[4,228,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"snare","state":"triggered","layer":"floor"}},"trap-snare-spent-floor":{"region":[215,228,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"snare","state":"spent","layer":"floor"}},"trap-void-ready-floor":{"region":[4,340,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"void","state":"ready","layer":"floor"}},"trap-void-triggered-floor":{"region":[215,340,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"void","state":"triggered","layer":"floor"}},"trap-void-spent-floor":{"region":[4,452,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"void","state":"spent","layer":"floor"}},"trap-spike-ready-mechanism":{"region":[215,452,120,90],"offset":[-80,-8],"size":[160,120],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.2,0.2,0],"max":[0.8,0.8,0.24]},"trap":{"kind":"spike","state":"ready","layer":"mechanism"}},"trap-spike-triggered-mechanism":{"region":[343,452,120,90],"offset":[-80,-8],"size":[160,120],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.2,0.2,0],"max":[0.8,0.8,0.24]},"trap":{"kind":"spike","state":"triggered","layer":"mechanism"}},"trap-spike-spent-mechanism":{"region":[215,550,120,90],"offset":[-80,-8],"size":[160,120],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.2,0.2,0],"max":[0.8,0.8,0.24]},"trap":{"kind":"spike","state":"spent","layer":"mechanism"}},"trap-snare-ready-mechanism":{"region":[343,550,120,90],"offset":[-80,-8],"size":[160,120],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.2,0.2,0],"max":[0.8,0.8,0.24]},"trap":{"kind":"snare","state":"ready","layer":"mechanism"}},"trap-snare-triggered-mechanism":{"region":[4,564,120,90],"offset":[-80,-8],"size":[160,120],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.2,0.2,0],"max":[0.8,0.8,0.24]},"trap":{"kind":"snare","state":"triggered","layer":"mechanism"}},"trap-snare-spent-mechanism":{"region":[132,648,120,90],"offset":[-80,-8],"size":[160,120],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.2,0.2,0],"max":[0.8,0.8,0.24]},"trap":{"kind":"snare","state":"spent","layer":"mechanism"}}}
 textures = {"floor": SubResource("Sprite_0"),
 "wall-h-0": SubResource("Sprite_1"),
 "wall-h-1": SubResource("Sprite_2"),
@@ -728,4 +885,35 @@ textures = {"floor": SubResource("Sprite_0"),
 "prop-grimoire": SubResource("Sprite_116"),
 "prop-grimoire-shadow": SubResource("Sprite_117"),
 "prop-candles": SubResource("Sprite_118"),
-"prop-candles-shadow": SubResource("Sprite_119")}
+"prop-candles-shadow": SubResource("Sprite_119"),
+"prop-chest": SubResource("Sprite_120"),
+"prop-chest-shadow": SubResource("Sprite_121"),
+"prop-chest-open": SubResource("Sprite_122"),
+"prop-chest-open-shadow": SubResource("Sprite_123"),
+"prop-chest-east": SubResource("Sprite_124"),
+"prop-chest-east-shadow": SubResource("Sprite_125"),
+"prop-chest-open-east": SubResource("Sprite_126"),
+"prop-chest-open-east-shadow": SubResource("Sprite_127"),
+"prop-chest-north": SubResource("Sprite_128"),
+"prop-chest-north-shadow": SubResource("Sprite_129"),
+"prop-chest-open-north": SubResource("Sprite_130"),
+"prop-chest-open-north-shadow": SubResource("Sprite_131"),
+"prop-chest-west": SubResource("Sprite_132"),
+"prop-chest-west-shadow": SubResource("Sprite_133"),
+"prop-chest-open-west": SubResource("Sprite_134"),
+"prop-chest-open-west-shadow": SubResource("Sprite_135"),
+"trap-spike-ready-floor": SubResource("Sprite_136"),
+"trap-spike-ready-mechanism": SubResource("Sprite_137"),
+"trap-spike-triggered-floor": SubResource("Sprite_138"),
+"trap-spike-triggered-mechanism": SubResource("Sprite_139"),
+"trap-spike-spent-floor": SubResource("Sprite_140"),
+"trap-spike-spent-mechanism": SubResource("Sprite_141"),
+"trap-snare-ready-floor": SubResource("Sprite_142"),
+"trap-snare-ready-mechanism": SubResource("Sprite_143"),
+"trap-snare-triggered-floor": SubResource("Sprite_144"),
+"trap-snare-triggered-mechanism": SubResource("Sprite_145"),
+"trap-snare-spent-floor": SubResource("Sprite_146"),
+"trap-snare-spent-mechanism": SubResource("Sprite_147"),
+"trap-void-ready-floor": SubResource("Sprite_148"),
+"trap-void-triggered-floor": SubResource("Sprite_149"),
+"trap-void-spent-floor": SubResource("Sprite_150")}

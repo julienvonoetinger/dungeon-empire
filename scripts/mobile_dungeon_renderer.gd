@@ -10,6 +10,8 @@ const GROUND_EFFECT_MASK = preload("res://scripts/ground_effect_mask.gd")
 const WALL_VARIANTS = preload("res://scripts/dungeon_wall_variants.gd")
 const FLOOR_VARIANTS = preload("res://scripts/dungeon_floor_variants.gd")
 const FLOOR_DAMAGE = preload("res://scripts/dungeon_floor_damage.gd")
+const VORTEX_ANIMATOR = preload("res://scripts/heart_vortex_animator.gd")
+const DOOR_WALL_JUNCTION = preload("res://scripts/door_wall_junction.gd")
 const CELL := 256.0
 const DIRECTIONS := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
@@ -23,6 +25,18 @@ var _frame := Rect2(0, 0, 256, 256)
 var _editor_filesystem: Object
 var _watch_pending := false
 var _stamp := ""
+var _vortex_animator: Node
+var _door_wall_junctions: Dictionary = {}
+
+@export var vortex_animation_enabled := true:
+	set(value):
+		vortex_animation_enabled = value
+		if is_instance_valid(_vortex_animator):
+			_vortex_animator.set_enabled(value)
+
+
+func _vortex_can_advance() -> bool:
+	return true
 
 
 func _watch_assets() -> void:
@@ -48,7 +62,13 @@ func _exit_tree() -> void:
 
 
 func _asset_stamp() -> String:
-	return "%d/%d/%d" % [FileAccess.get_modified_time(CATALOG_PATH), FileAccess.get_modified_time(ATLAS_PATH), FileAccess.get_modified_time(LIGHT_FALLOFF_PATH)]
+	var stamp := "%d/%d/%d" % [FileAccess.get_modified_time(CATALOG_PATH), FileAccess.get_modified_time(ATLAS_PATH), FileAccess.get_modified_time(LIGHT_FALLOFF_PATH)]
+	if _definition != null:
+		var pages := {}
+		for entry: Dictionary in _definition.get("entries").values():
+			if entry.has("atlas_path"): pages[str(entry.atlas_path)] = true
+		for page: String in pages: stamp += "/%s:%d" % [page, FileAccess.get_modified_time(page)]
+	return stamp
 
 
 func _assets_changed(paths: PackedStringArray) -> void:
@@ -87,9 +107,14 @@ func _load_definition(reload_textures: bool) -> bool:
 			return false
 		# The atlas dependency and its subresource regions must belong to one export.
 		var atlas := ResourceLoader.load(ATLAS_PATH, "Texture2D", mode) as Texture2D
+		var pages := {ATLAS_PATH:atlas}
+		var entries: Dictionary = _definition.get("entries")
 		var textures: Dictionary = _definition.get("textures")
-		for texture: AtlasTexture in textures.values():
-			texture.atlas = atlas
+		for id: String in textures:
+			var page := str(entries[id].get("atlas_path", ATLAS_PATH))
+			if not pages.has(page): pages[page] = ResourceLoader.load(page, "Texture2D", mode) as Texture2D
+			var texture: AtlasTexture = textures[id]
+			texture.atlas = pages[page]
 		_light_falloff = ResourceLoader.load(LIGHT_FALLOFF_PATH, "Texture2D", mode) as Texture2D
 		_stamp = _asset_stamp()
 	return true
@@ -141,6 +166,16 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 	_frame = _frame.merge(part.rect)
 	var entries: Dictionary = _definition.get("entries")
 	var entry: Dictionary = entries[part.id]
+	if part.has("wall_segment"):
+		sprite.material = DOOR_WALL_JUNCTION.material(entry, sprite.texture as AtlasTexture, part.wall_segment, _definition)
+		sprite.set_meta("wall_segment", part.wall_segment)
+	if entry.has("vortex"):
+		if not is_instance_valid(_vortex_animator):
+			_vortex_animator = VORTEX_ANIMATOR.new()
+			_vortex_animator.name = "VortexAnimator"
+			add_child(_vortex_animator)
+			_vortex_animator.set_enabled(vortex_animation_enabled)
+		sprite.material = _vortex_animator.bind(entry, sprite.texture)
 	if entry.get("ground_effect", false):
 		# The prepared alpha darkens the receiving floor, including lit floor.
 		sprite.light_mask = 0
@@ -369,6 +404,12 @@ func _ground_shadow(part: Dictionary, parts: Array[Dictionary], cells: Dictionar
 func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, reload_textures := true) -> void:
 	if not _load_definition(reload_textures):
 		return
+	_door_wall_junctions = DOOR_WALL_JUNCTION.collect(specials, _definition.get("entries"))
+	if not is_instance_valid(_vortex_animator):
+		_vortex_animator = get_node_or_null("VortexAnimator")
+	if is_instance_valid(_vortex_animator):
+		_vortex_animator.clear_materials()
+		_vortex_animator.set_enabled(vortex_animation_enabled)
 	# An open editor can hot-reload the old renderer without calling _ready again.
 	# Retire only its unowned generated direct children; keep authored scene nodes.
 	for child in get_children():
@@ -401,6 +442,8 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 			var candidate := FLOOR_VARIANTS.select(cell, int(plan.get("floor_variant_seed", 17)))
 			if _definition.get("entries").has(candidate):
 				floor_id = candidate
+		var replacement_id: String = plan.get("floor_replacements", {}).get(cell, "")
+		if _definition.get("entries").has(replacement_id): floor_id = replacement_id
 		var floor_part := _part(floor_id, Vector2(cell))
 		if first:
 			_frame = floor_part.rect
@@ -416,6 +459,10 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 			for point: Vector2i in [start, end]:
 				axes[point] = int(axes.get(point, 0)) | (1 if horizontal else 2)
 	var parts: Array[Dictionary] = []
+	for cell: Vector2i in plan.get("mechanisms", {}):
+		var mechanism_id: String = plan.mechanisms[cell]
+		if cells.has(cell) and _definition.get("entries").has(mechanism_id):
+			parts.append(_part(mechanism_id, Vector2(cell)))
 	for edge in edges:
 		var bits := (1 if axes[edge.a] == 3 else 0) | (2 if axes[edge.b] == 3 else 0)
 		parts.append(_part("wall-%s-%d" % ["h" if edge.h else "v", bits], Vector2(edge.a)))
@@ -461,6 +508,8 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		damaged_floors = FLOOR_DAMAGE.select(floors, parts, specials, int(plan.get("floor_damage_seed", 17)), bool(plan.get("floor_corruption", true)))
 	for floor_part in floors:
 		_draw_part(floor_part, 0)
+		# Socket floors own their paving cutout. Damage overlays would fill it in.
+		if plan.get("floor_replacements", {}).has(Vector2i(floor_part.at)): continue
 		var replacement: String = damaged_floors.get(Vector2i(floor_part.at), "")
 		if not replacement.is_empty() and _definition.get("entries").has(replacement):
 			_draw_part(_part(replacement, floor_part.at), 0)
@@ -479,10 +528,16 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		var shadow := _ground_shadow(part, parts, cells, specials)
 		if not shadow.is_empty():
 			_draw_part(shadow, 0)
+	# A rail crossing a door cannot be one sortable sprite: its rear portion is
+	# behind the jamb, while its foreground portion must cover that same jamb.
+	parts = DOOR_WALL_JUNCTION.split_parts(parts, _door_wall_junctions, _definition.get("view_direction"))
 	for part in _ordered_parts(parts):
 		_draw_part(part, 1)
 		if part.has("wall_ornament"):
-			_draw_part(_part(part.wall_ornament, part.at), 1)
+			var ornament := _part(part.wall_ornament, part.at)
+			if part.has("wall_segment"):
+				ornament["wall_segment"] = part.wall_segment
+			_draw_part(ornament, 1)
 		if pillar_details and part.id == "pillar" and _definition.get("entries").has("pillar-top-carved"):
 			_draw_part(_part("pillar-top-carved", part.at), 1)
 	_frame = _frame.grow(24.0)

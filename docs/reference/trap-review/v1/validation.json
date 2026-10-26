@@ -1,0 +1,88 @@
+{
+  "kind": "Offline appearance montage; not Godot or calibrated geometry",
+  "entries": [
+    {
+      "id": "pointes",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\trap-review\\v1\\source\\pointes-v1.png",
+      "inspection": {
+        "size": [
+          1536,
+          1024
+        ],
+        "crop": {
+          "left": 0,
+          "top": 39,
+          "width": 1516,
+          "height": 985
+        },
+        "solid": {
+          "left": 148,
+          "top": 174,
+          "width": 1239,
+          "height": 793
+        },
+        "sha256": "42cabaed4352debdb62682bedc493ec4147f3fe0143e396a06c2df2d643669b2"
+      }
+    },
+    {
+      "id": "entrave",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\trap-review\\v1\\source\\entrave-v1.png",
+      "inspection": {
+        "size": [
+          1254,
+          1254
+        ],
+        "crop": {
+          "left": 0,
+          "top": 100,
+          "width": 1218,
+          "height": 1088
+        },
+        "solid": {
+          "left": 52,
+          "top": 252,
+          "width": 1150,
+          "height": 814
+        },
+        "sha256": "af06b08fa27f60d07aeabfc274bdf1d0babc7c81dc4375f32050b8ecf3e6b7fe"
+      }
+    },
+    {
+      "id": "neant",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\trap-review\\v1\\source\\neant-v1.png",
+      "inspection": {
+        "size": [
+          1536,
+          1024
+        ],
+        "crop": {
+          "left": 0,
+          "top": 19,
+          "width": 1522,
+          "height": 1005
+        },
+        "solid": {
+          "left": 125,
+          "top": 115,
+          "width": 1287,
+          "height": 833
+        },
+        "sha256": "8a4e723546fc2ff0743bf9a3af92732228ba78573b3b1b7557b09006fc952cea"
+      }
+    }
+  ],
+  "uniformResize": true,
+  "nativeAlphaPreserved": true,
+  "proposedWidth": 96,
+  "gameCellDiamond": [
+    192,
+    96
+  ],
+  "productionUnchanged": true,
+  "remaining": [
+    "Appearance selection",
+    "Exact XYZ supports/contact and camera fit",
+    "Ready/triggered/spent states",
+    "Integration with existing charges and status rings"
+  ]
+}

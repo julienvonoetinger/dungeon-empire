@@ -1,0 +1,3 @@
+const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
+async function main(){await sharp(path.join(__dirname,'source/mass-original.png')).resize({width:256}).png().toFile(path.join(__dirname,'assets/mass.png'));const im=await sharp(path.join(__dirname,'assets/mass.png')).png().toBuffer();await sharp({create:{width:512,height:512,channels:4,background:'#101722'}}).composite([{input:im,left:0,top:0},{input:im,left:256,top:0},{input:im,left:0,top:256},{input:im,left:256,top:256}]).png().toFile(path.join(__dirname,'mass-repeat-check.png'));console.log('Uniform downsample 256px, no repaint; native dust alpha retained from v4.');}
+main().catch(e=>{console.error(e);process.exitCode=1;});

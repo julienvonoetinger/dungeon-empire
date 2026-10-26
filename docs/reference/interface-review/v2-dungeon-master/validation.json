@@ -1,0 +1,1005 @@
+{
+  "javascriptErrors": [],
+  "productionFilesUnchanged": true,
+  "observations": [
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "obsidian",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 197.578125,
+          "y": 13,
+          "w": 124.84375,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 782,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 21,
+          "y": 305,
+          "w": 135,
+          "h": 66
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 160,
+          "y": 305,
+          "w": 135,
+          "h": 66
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 299,
+          "y": 305,
+          "w": 135,
+          "h": 66
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 438,
+          "y": 305,
+          "w": 135,
+          "h": 66
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 577,
+          "y": 305,
+          "w": 82,
+          "h": 66
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 682,
+          "y": 305,
+          "w": 67,
+          "h": 66
+        },
+        {
+          "label": "Terminer",
+          "x": 756,
+          "y": 305,
+          "w": 67,
+          "h": 66
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "forge",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 197.578125,
+          "y": 12.5,
+          "w": 124.84375,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 782,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 718,
+          "y": 84,
+          "w": 106,
+          "h": 56.5
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 718,
+          "y": 143.5,
+          "w": 106,
+          "h": 56.5
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 718,
+          "y": 203,
+          "w": 106,
+          "h": 56.5
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 718,
+          "y": 262.5,
+          "w": 106,
+          "h": 56.5
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 718,
+          "y": 322,
+          "w": 106,
+          "h": 48
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 489,
+          "y": 323,
+          "w": 100,
+          "h": 52
+        },
+        {
+          "label": "Terminer",
+          "x": 596,
+          "y": 323,
+          "w": 100,
+          "h": 52
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "theme": "grimoire",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 197.578125,
+          "y": 13,
+          "w": 124.84375,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 782,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Favoris",
+          "x": 20,
+          "y": 259,
+          "w": 157.59375,
+          "h": 48
+        },
+        {
+          "label": "Terrain",
+          "x": 181.59375,
+          "y": 259,
+          "w": 157.609375,
+          "h": 48
+        },
+        {
+          "label": "Défenses",
+          "x": 343.203125,
+          "y": 259,
+          "w": 157.59375,
+          "h": 48
+        },
+        {
+          "label": "Trésors",
+          "x": 504.796875,
+          "y": 259,
+          "w": 157.609375,
+          "h": 48
+        },
+        {
+          "label": "Décors",
+          "x": 666.40625,
+          "y": 259,
+          "w": 157.59375,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 21,
+          "y": 313,
+          "w": 137.484375,
+          "h": 58
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 162.484375,
+          "y": 313,
+          "w": 137.5,
+          "h": 58
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 303.984375,
+          "y": 313,
+          "w": 137.484375,
+          "h": 58
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 445.46875,
+          "y": 313,
+          "w": 137.484375,
+          "h": 58
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 586.953125,
+          "y": 313,
+          "w": 82,
+          "h": 58
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 684.953125,
+          "y": 313,
+          "w": 65,
+          "h": 58
+        },
+        {
+          "label": "Terminer",
+          "x": 756.953125,
+          "y": 313,
+          "w": 66.046875,
+          "h": 58
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "theme": "obsidian",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 184.578125,
+          "y": 13,
+          "w": 118,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 678,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 17,
+          "y": 275,
+          "w": 119.6875,
+          "h": 66
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 140.6875,
+          "y": 275,
+          "w": 119.703125,
+          "h": 66
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 264.390625,
+          "y": 275,
+          "w": 119.6875,
+          "h": 66
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 388.078125,
+          "y": 275,
+          "w": 119.703125,
+          "h": 66
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 511.78125,
+          "y": 275,
+          "w": 72,
+          "h": 66
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 597.78125,
+          "y": 275,
+          "w": 59,
+          "h": 66
+        },
+        {
+          "label": "Terminer",
+          "x": 660.78125,
+          "y": 275,
+          "w": 62.21875,
+          "h": 66
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "theme": "forge",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 184.578125,
+          "y": 12.5,
+          "w": 118,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 678,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 618,
+          "y": 84,
+          "w": 106,
+          "h": 49
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 618,
+          "y": 136,
+          "w": 106,
+          "h": 49
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 618,
+          "y": 188,
+          "w": 106,
+          "h": 49
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 618,
+          "y": 240,
+          "w": 106,
+          "h": 49
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 618,
+          "y": 292,
+          "w": 106,
+          "h": 48
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 392,
+          "y": 293,
+          "w": 100,
+          "h": 52
+        },
+        {
+          "label": "Terminer",
+          "x": 496,
+          "y": 293,
+          "w": 100,
+          "h": 52
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "theme": "grimoire",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 184.578125,
+          "y": 13,
+          "w": 118,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 678,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Favoris",
+          "x": 16,
+          "y": 229,
+          "w": 138.390625,
+          "h": 48
+        },
+        {
+          "label": "Terrain",
+          "x": 158.390625,
+          "y": 229,
+          "w": 138.40625,
+          "h": 48
+        },
+        {
+          "label": "Défenses",
+          "x": 300.796875,
+          "y": 229,
+          "w": 138.390625,
+          "h": 48
+        },
+        {
+          "label": "Trésors",
+          "x": 443.1875,
+          "y": 229,
+          "w": 138.40625,
+          "h": 48
+        },
+        {
+          "label": "Décors",
+          "x": 585.59375,
+          "y": 229,
+          "w": 138.40625,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 17,
+          "y": 283,
+          "w": 117.75,
+          "h": 58
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 138.75,
+          "y": 283,
+          "w": 117.75,
+          "h": 58
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 260.5,
+          "y": 283,
+          "w": 117.75,
+          "h": 58
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 382.25,
+          "y": 283,
+          "w": 117.75,
+          "h": 58
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 504,
+          "y": 283,
+          "w": 72,
+          "h": 58
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 589,
+          "y": 283,
+          "w": 65,
+          "h": 58
+        },
+        {
+          "label": "Terminer",
+          "x": 658,
+          "y": 283,
+          "w": 65,
+          "h": 58
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "theme": "obsidian",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 197.578125,
+          "y": 13,
+          "w": 124.84375,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 962,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 21,
+          "y": 491,
+          "w": 180,
+          "h": 66
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 205,
+          "y": 491,
+          "w": 180,
+          "h": 66
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 389,
+          "y": 491,
+          "w": 180,
+          "h": 66
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 573,
+          "y": 491,
+          "w": 180,
+          "h": 66
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 757,
+          "y": 491,
+          "w": 82,
+          "h": 66
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 862,
+          "y": 491,
+          "w": 67,
+          "h": 66
+        },
+        {
+          "label": "Terminer",
+          "x": 936,
+          "y": 491,
+          "w": 67,
+          "h": 66
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "theme": "forge",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 197.578125,
+          "y": 12.5,
+          "w": 124.84375,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 962,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 898,
+          "y": 84,
+          "w": 106,
+          "h": 103
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 898,
+          "y": 190,
+          "w": 106,
+          "h": 103
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 898,
+          "y": 296,
+          "w": 106,
+          "h": 103
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 898,
+          "y": 402,
+          "w": 106,
+          "h": 103
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 898,
+          "y": 508,
+          "w": 106,
+          "h": 48
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 669,
+          "y": 509,
+          "w": 100,
+          "h": 52
+        },
+        {
+          "label": "Terminer",
+          "x": 776,
+          "y": 509,
+          "w": 100,
+          "h": 52
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "theme": "grimoire",
+      "buttons": [
+        {
+          "label": "État du cœur : 100 %, niveau 1",
+          "x": 197.578125,
+          "y": 13,
+          "w": 124.84375,
+          "h": 50
+        },
+        {
+          "label": "Mettre en pause",
+          "x": 962,
+          "y": 12,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Recentrer la vue sur le cœur",
+          "x": 14,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Afficher la grille",
+          "x": 69,
+          "y": 78,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "label": "Favoris",
+          "x": 20,
+          "y": 445,
+          "w": 193.59375,
+          "h": 48
+        },
+        {
+          "label": "Terrain",
+          "x": 217.59375,
+          "y": 445,
+          "w": 193.609375,
+          "h": 48
+        },
+        {
+          "label": "Défenses",
+          "x": 415.203125,
+          "y": 445,
+          "w": 193.59375,
+          "h": 48
+        },
+        {
+          "label": "Trésors",
+          "x": 612.796875,
+          "y": 445,
+          "w": 193.609375,
+          "h": 48
+        },
+        {
+          "label": "Décors",
+          "x": 810.40625,
+          "y": 445,
+          "w": 193.59375,
+          "h": 48
+        },
+        {
+          "label": "Creuser, 5 or",
+          "x": 21,
+          "y": 499,
+          "w": 182.484375,
+          "h": 58
+        },
+        {
+          "label": "Pointes, 35 or",
+          "x": 207.484375,
+          "y": 499,
+          "w": 182.5,
+          "h": 58
+        },
+        {
+          "label": "Porte, 40 or",
+          "x": 393.984375,
+          "y": 499,
+          "w": 182.484375,
+          "h": 58
+        },
+        {
+          "label": "Coffre, Gratuit",
+          "x": 580.46875,
+          "y": 499,
+          "w": 182.484375,
+          "h": 58
+        },
+        {
+          "label": "Afficher les familles d’outils",
+          "x": 766.953125,
+          "y": 499,
+          "w": 82,
+          "h": 58
+        },
+        {
+          "label": "Aucune action à annuler",
+          "x": 864.953125,
+          "y": 499,
+          "w": 65,
+          "h": 58
+        },
+        {
+          "label": "Terminer",
+          "x": 936.953125,
+          "y": 499,
+          "w": 66.046875,
+          "h": 58
+        }
+      ],
+      "overflow": false,
+      "smallTargets": [],
+      "outside": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "tool-selected",
+      "theme": "obsidian",
+      "mode": "build",
+      "selected": "spike",
+      "gold": 320,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "three-placements",
+      "theme": "obsidian",
+      "mode": "build",
+      "selected": "spike",
+      "gold": 215,
+      "placements": 3,
+      "history": 3,
+      "pan": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "undo-one",
+      "theme": "obsidian",
+      "mode": "build",
+      "selected": "spike",
+      "gold": 250,
+      "placements": 2,
+      "history": 2,
+      "pan": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "occupied-no-charge",
+      "theme": "obsidian",
+      "mode": "build",
+      "selected": "spike",
+      "gold": 250,
+      "placements": 2,
+      "history": 2,
+      "pan": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "pan-no-placement",
+      "theme": "obsidian",
+      "mode": "build",
+      "selected": "spike",
+      "gold": 320,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 64.99996948242188,
+        "y": 30
+      }
+    },
+    {
+      "name": "drag-placement",
+      "theme": "obsidian",
+      "mode": "build",
+      "selected": "spike",
+      "gold": 285,
+      "placements": 1,
+      "history": 1,
+      "pan": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "overview",
+      "theme": "obsidian",
+      "mode": "overview",
+      "selected": "spike",
+      "gold": 285,
+      "placements": 1,
+      "history": 1,
+      "pan": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "raid-boundary",
+      "theme": "obsidian",
+      "mode": "raid",
+      "selected": null,
+      "gold": 285,
+      "placements": 1,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "limits": [
+    "Browser mockup only; no Godot implementation or phone validation.",
+    "Excavation only previews floor extensions; architecture joins are not rebuilt.",
+    "Raid display is static; no gameplay simulation."
+  ]
+}

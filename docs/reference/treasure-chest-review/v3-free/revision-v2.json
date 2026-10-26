@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-25",
+  "status": "Revised open chest after user rejects oversized coins; user feedback on this appearance pending",
+  "mode": "built-in image_gen edit",
+  "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-5bdc3cfd-c993-439f-9817-8f9a520371cf.png",
+  "file": "docs/reference/treasure-chest-review/v3-free/source/chest-open-coins-v2.png",
+  "prompt": "Use case: precise-object-edit.\nEdit ONLY the COINS INSIDE this open chest. The user says they are much too large.\nReduce every coin's diameter to about ONE QUARTER of the current largest coin diameter. A coin should be about 1/18 of the chest's outside width. Replace the giant disks with a compact low pile of roughly 20-30 small ordinary gold coins resting deep inside the cavity. A few coin faces can overlap visibly at the front; the rest form simple layered shapes. Most coins lie naturally flat or slightly tilted, not enormous vertical medallions. Keep dark negative space around the pile so the cavity is readable. Muted old gold/ochre, simple painted highlights; no neon, sparkle or external coins.\nSTRICT INVARIANTS: preserve the exact chest silhouette, dimensions, canvas framing, pixel positions of the entire wooden/iron body, horns, lid angle, dark iron front plate, ground contacts, original 2:1 orthographic camera, colours and painted style. Do NOT change any part outside the coins/cavity. No new lock or violet seal. Keep the chest ajar.\nThis is a mobile 2D game sprite: coins are small objects that read collectively as a modest pile of gold, not six huge tokens. Preserve genuine transparent native-alpha background with no added halo, ground shadow, floor or backdrop. One complete object, no text.",
+  "reference": "source/chest-open-coins.png",
+  "supersedes": "Oversized coins in the first open version; original retained as rejected history"
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-26",
+  "tool": "image_gen.imagegen",
+  "source": "face-source.png",
+  "guideSha256": "eddfc72eed1058608aaed50342b589d6a14c59d9ef8f3c001ef6bd41903561a5",
+  "sourceSha256": "c9c113c9ab976fee65ad6276ea644c6c21f6c398e36f22b48047aed88a57e57f",
+  "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-6ff7538c-014e-4a01-a0f4-149b8dc35091.png",
+  "prompt": "Use case: sketch-to-render. Asset: a painted FRONTAL ORTHOGRAPHIC texture for an existing 2D isometric dungeon door model, not a new design. Image 1 is the EXACT flat frontal geometry guide and edit target. Image 2 is the approved concept C and is ONLY the painting/material reference. Paint image 1 with the polished hand-painted blue-slate stone, dark plum wood, heavy slate iron and restrained luminous violet seals of image 2. Keep image 1's EXACT geometry, silhouette, object framing, relative proportions, front elevation camera, horns, block boundaries, smooth recessed masonry field, recessed wooden leaf and all metal/seal placements. Do not rotate into an isometric view. No perspective, side faces, floor, wall extensions or other objects. Keep the 1024x1024 square layout; object footprint and margins must stay aligned with image 1. Transparent background outside the silhouette. Give the broad stone surfaces subtle painted facets, narrow edge wear and some sparse chips; quiet darker recess. On the smooth wooden leaf PAINT 5 to 7 dark plum wood planks with broad subtle grain (not geometric grooves or protruding planks). Paint the metal bands with restrained highlights and small rivet heads kept within their existing shapes. The large violet crown seal is a recessed elongated ritual socket with a dark inner core and violet edge, matching the concept; preserve its outline. Central leaf seal remains vertical and violet with one diamond clasp. All decoration stays within the guide geometry. Remove diagram/wireframe lines, replace them with natural painted bevel shading. Mobile-game readability: broad values and strong material differentiation, no noisy microdetail, no photorealism, no bright gold/orange oak, no castle heraldry, no new glyphs. Match the existing muted blue stone palette; saturation concentrated in purple seals, no exterior halo or cast shadow. This flat painting will be mapped back onto the exact XYZ wireframe, so do not redesign shapes or introduce depth distortion.",
+  "referenceRoles": {
+    "face-guide.png": "exact flat frontal guide generated from approved XYZ vertices",
+    "../concept-selected.png": "selected painting/material reference"
+  },
+  "status": "new-painted-adaptation-for-user-feedback",
+  "preparation": "Uniform scale/translation fits colour to the guide; vertices and silhouette stay fixed. Thickness uses existing approved stone material. No independent direction generations."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "New painted appearance proposals after rejection of v3 gray procedural art. Not integrated or approved.",
+  "tool": "Built-in ImageGen",
+  "scope": "Three state sheets. Shared inset floor remains selected; new mechanism paint and snare silhouette proposed.",
+  "states": {
+    "armed": "Ready to trigger. Spikes down; snare open; void seal faintly active.",
+    "triggered": "Proposed transient visual state; not yet implemented in the game. Spikes up; jaws close; floor vortex opens.",
+    "depleted": "No remaining charges. Spike sockets empty; snare latched shut and unlit; void seal closed and unlit."
+  }
+}

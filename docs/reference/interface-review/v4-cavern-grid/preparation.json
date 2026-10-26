@@ -1,0 +1,141 @@
+{
+  "method": "Native-alpha bounding crop and uniform downsample only. Ground is mapped once to XY in the review renderer; no raster painting.",
+  "assets": [
+    {
+      "name": "ground",
+      "source": [
+        1254,
+        1254
+      ],
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "nativeZeroAlphaPixels": 0,
+      "nativePartialAlphaPixels": 0,
+      "prepared": {
+        "format": "png",
+        "mediaType": "image/png",
+        "width": 256,
+        "height": 256,
+        "space": "srgb",
+        "channels": 3,
+        "depth": "uchar",
+        "density": 72,
+        "isProgressive": false,
+        "isPalette": false,
+        "bitsPerSample": 8,
+        "hasProfile": false,
+        "hasAlpha": false,
+        "autoOrient": {
+          "width": 256,
+          "height": 256
+        }
+      }
+    },
+    {
+      "name": "dust",
+      "source": [
+        1774,
+        887
+      ],
+      "crop": {
+        "left": 0,
+        "top": 15,
+        "width": 1764,
+        "height": 872
+      },
+      "nativeZeroAlphaPixels": 918486,
+      "nativePartialAlphaPixels": 655047,
+      "prepared": {
+        "format": "png",
+        "mediaType": "image/png",
+        "width": 256,
+        "height": 127,
+        "space": "srgb",
+        "channels": 4,
+        "depth": "uchar",
+        "density": 72,
+        "isProgressive": false,
+        "isPalette": false,
+        "bitsPerSample": 8,
+        "hasProfile": false,
+        "hasAlpha": true,
+        "autoOrient": {
+          "width": 256,
+          "height": 127
+        }
+      }
+    },
+    {
+      "name": "outcrop",
+      "source": [
+        1536,
+        1024
+      ],
+      "crop": {
+        "left": 33,
+        "top": 20,
+        "width": 1473,
+        "height": 1004
+      },
+      "nativeZeroAlphaPixels": 1034814,
+      "nativePartialAlphaPixels": 538050,
+      "prepared": {
+        "format": "png",
+        "mediaType": "image/png",
+        "width": 256,
+        "height": 174,
+        "space": "srgb",
+        "channels": 4,
+        "depth": "uchar",
+        "density": 72,
+        "isProgressive": false,
+        "isPalette": false,
+        "bitsPerSample": 8,
+        "hasProfile": false,
+        "hasAlpha": true,
+        "autoOrient": {
+          "width": 256,
+          "height": 174
+        }
+      }
+    },
+    {
+      "name": "rubble",
+      "source": [
+        1536,
+        1024
+      ],
+      "crop": {
+        "left": 0,
+        "top": 55,
+        "width": 1500,
+        "height": 969
+      },
+      "nativeZeroAlphaPixels": 1143857,
+      "nativePartialAlphaPixels": 429007,
+      "prepared": {
+        "format": "png",
+        "mediaType": "image/png",
+        "width": 256,
+        "height": 165,
+        "space": "srgb",
+        "channels": 4,
+        "depth": "uchar",
+        "density": 72,
+        "isProgressive": false,
+        "isPalette": false,
+        "bitsPerSample": 8,
+        "hasProfile": false,
+        "hasAlpha": true,
+        "autoOrient": {
+          "width": 256,
+          "height": 165
+        }
+      }
+    }
+  ]
+}

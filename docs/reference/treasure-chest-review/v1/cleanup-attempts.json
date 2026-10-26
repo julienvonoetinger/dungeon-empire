@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-25",
+  "tool": "built-in image_gen",
+  "chosenStyleSource": "source/chest-closed-v2.png",
+  "status": "Cleanup unsuccessful; keep muted v2 as appearance proposal, not production ready",
+  "attempts": [
+    {
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-7b46f6d9-9d57-4e65-80af-1d268ae27895.png",
+      "prompt": "Use case: background-extraction.\nEdit the supplied chest sprite ONLY to finish its transparency. Preserve this exact stylized dark burgundy chest, blue-gray chunky iron fittings, gold keyhole plate, proportions, orientation, painted colours and edge highlights.\nRemove ALL of the unwanted bluish/purple aura, fuzzy halo, haze and shadow surrounding the chest. Those are background contamination, not part of this nonmagical object. There must be absolutely nothing outside the actual solid chest silhouette.\nReturn the identical chest as a clean game sprite on a genuinely TRANSPARENT background, with fully opaque solid wood/metal interior and a narrow antialiased outer silhouette. Do NOT change the design, repaint the style, add effects, floor, backing, checkerboard, cast shadow, text, outline glow, or a new background. Keep the whole object, including all corner fittings, with clear transparent margins."
+    },
+    {
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-27af9afc-d14c-4337-81a4-dc80f27493f7.png",
+      "prompt": "Create the clean transparent cutout of this exact chest. Keep its subdued burgundy wood, dark slate-blue metal, small gold lock, style, shape and camera unchanged. Remove the soft cloudy blue-purple surroundings entirely. The chest is a SOLID OPAQUE game object. Everything beyond its thin dark outer contour is EMPTY TRANSPARENCY, including below it and between its bottom corner fittings. No shadow, reflection, glow, soft halo, mist, backdrop or surrounding coloured pixels. Only a narrow antialiased boundary may have partial transparency. Do not brighten, saturate or repaint the chest. Deliver one full chest with generous clear transparent margins."
+    }
+  ]
+}

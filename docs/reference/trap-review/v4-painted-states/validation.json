@@ -1,0 +1,91 @@
+{
+  "status": "Unapproved painted appearance proposal; no Godot integration",
+  "tool": "Built-in ImageGen",
+  "uniformResize": true,
+  "nativeAlphaPreserved": true,
+  "previewFraming": "Vertical bounds measured at alpha>32 with 24 source pixels padding. Crop only; source alpha never modified, original source retained byte-identical.",
+  "productionUnchanged": true,
+  "registration": "Generated perspective follows guide visually; not calibrated exact XYZ or native sprite registration",
+  "states": [
+    "armed",
+    "triggered proposal",
+    "depleted"
+  ],
+  "entries": [
+    {
+      "id": "pointes",
+      "name": "Pointes",
+      "description": "Acier taillé, logements individuels et rails sombres.",
+      "captions": [
+        "Pointes rentrées · mécanisme armé",
+        "Pointes déployées",
+        "Pointes retirées · logements éteints"
+      ],
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-67c46054-36e7-4a86-9d71-52195cbd4ad2.png",
+      "source": "source/pointes.png",
+      "sourceSize": [
+        1942,
+        809
+      ],
+      "sha256": "1d249ebbf51f3b97f2eb3ca45228b8bcf3cd4eced0905a470261ecbd8a82ff59",
+      "nativeAlpha": true,
+      "crop": {
+        "left": 0,
+        "top": 183,
+        "width": 1942,
+        "height": 445
+      },
+      "height": 275
+    },
+    {
+      "id": "entrave",
+      "name": "Entrave",
+      "description": "Deux mâchoires articulées, une pédale et des ressorts.",
+      "captions": [
+        "Mâchoires ouvertes · pédale prête",
+        "Mâchoires refermées",
+        "Mâchoires verrouillées · énergie éteinte"
+      ],
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-088886f3-db8f-4a4e-b823-134ffb595a37.png",
+      "source": "source/entrave.png",
+      "sourceSize": [
+        1942,
+        809
+      ],
+      "sha256": "016c032cb7ea4d650fd1b51271daf3fdd94ccb48aedf8f158f17bce5ed25fc6c",
+      "nativeAlpha": true,
+      "crop": {
+        "left": 0,
+        "top": 169,
+        "width": 1942,
+        "height": 457
+      },
+      "height": 282
+    },
+    {
+      "id": "neant",
+      "name": "Néant",
+      "description": "Un sceau d’obsidienne en retrait dans le sol.",
+      "captions": [
+        "Sceau chargé",
+        "Vortex ouvert dans le plan du sol",
+        "Sceau refermé · gravure éteinte"
+      ],
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-91dd07df-8c1b-4c2a-bce3-b4cf7da39dae.png",
+      "source": "source/neant.png",
+      "sourceSize": [
+        1942,
+        809
+      ],
+      "sha256": "7d343cf96cf5e7eeac1d3380dad29393de722d972e8d4a1ac618939736b80db2",
+      "nativeAlpha": true,
+      "crop": {
+        "left": 0,
+        "top": 179,
+        "width": 1942,
+        "height": 427
+      },
+      "height": 264
+    }
+  ]
+}

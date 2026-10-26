@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-25",
+  "tool": "built-in image_gen",
+  "original": "bedrock-original.png",
+  "role": "material swatch for a world-aligned surface, not a scenery backdrop",
+  "reference": "docs/reference/isometric-wall-variation-review/v2-subvariants/source/a1.png",
+  "prompt": "Use case: stylized-concept. Asset: one square SEAMLESS TILEABLE PAINTED BEDROCK SURFACE TEXTURE for an evil mobile dungeon. Image 1 is a STYLE AND PALETTE reference ONLY, not an edit target. Match its soft hand-painted broad blue-grey slate planes and understated bevel shading. Show contiguous natural bedrock with large irregular softly rounded rock masses that meet, shallow fine fissures and a few broad subdued brush facets. It must read as quiet solid unexcavated rock, NOT regular brick paving, NOT separate loose pebbles, NOT a pile of boulders. Flat material swatch viewed directly perpendicular to its surface; no camera perspective, no isometric view here (we apply projection later), no horizon, no wall or ledge or frame. ALL edges continue naturally and seamlessly to opposite edges. Restrained low contrast with colors predominantly dark desaturated slate #263149 and #2c3851, gently lit ridges #35435c, fine dark fissures #1b273c. Do NOT make a triangular low-poly mesh; favor natural broad painted curved facets like the supplied masonry. No white highlights, no glowing cracks, no crystals, no grass, no lava, no gold, no characters, no glyphs, no holes to a black void. Tiny details should be omitted for mobile readability. This is background material, calmer and slightly darker than the reference bricks, full bleed opaque."
+}

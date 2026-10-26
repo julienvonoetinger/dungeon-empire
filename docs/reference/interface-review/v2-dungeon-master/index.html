@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dungeon Empire — Le maître du donjon</title>
+<link rel="stylesheet" href="review.css">
+<link rel="stylesheet" href="refinements.css">
+</head>
+<body>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="icon-sigil" viewBox="0 0 40 40"><path d="m5 5 8 7 7-9 7 9 8-7-4 20-11 12L9 25Z"/><path d="m12 19 8 6 8-6m-8-6v12"/></symbol>
+<symbol id="icon-coin" viewBox="0 0 40 40"><path d="m20 3 14 8v18l-14 8-14-8V11Z"/><path d="M20 10v20m-6-15h10l-8 10h10"/></symbol>
+<symbol id="icon-pick" viewBox="0 0 40 40"><path d="m10 34 20-26M5 16Q20-2 36 14l-12-3-12 7Z"/></symbol>
+<symbol id="icon-spike" viewBox="0 0 40 40"><path d="m3 29 17-9 17 9v5l-17 5L3 34ZM8 29l6-20 6 20Zm14 1 6-27 7 27Z"/></symbol>
+<symbol id="icon-door" viewBox="0 0 40 40"><path d="M5 36V17a15 15 0 0 1 30 0v19ZM11 36V17a9 9 0 0 1 18 0v19M12 20h16M12 29h16m-8-20v27"/></symbol>
+<symbol id="icon-chest" viewBox="0 0 40 40"><path d="M4 35V15L9 6h22l5 9v20ZM4 19h32M11 6v29M29 6v29m-9-12 5 5-5 6-5-6Z"/></symbol>
+<symbol id="icon-crystal" viewBox="0 0 40 40"><path d="m20 3 9 11-4 18-5 5-5-5-4-18ZM20 3v34M4 20l7-5 4 17-6 2Zm32 0-7-5-4 17 6 2Z"/></symbol>
+<symbol id="icon-hammer" viewBox="0 0 40 40"><path d="m9 35 18-23M16 8l7-6 14 12-7 7Z"/></symbol>
+<symbol id="icon-undo" viewBox="0 0 40 40"><path d="M13 9 4 18l9 9M5 18h17a11 11 0 0 1 0 22" transform="translate(3 -4)"/></symbol>
+<symbol id="icon-pause" viewBox="0 0 40 40"><path d="M13 9v22M27 9v22" stroke-width="5"/></symbol>
+<symbol id="icon-target" viewBox="0 0 40 40"><circle cx="20" cy="20" r="10"/><path d="M20 3v10m0 14v10M3 20h10m14 0h10"/></symbol>
+<symbol id="icon-arrow" viewBox="0 0 40 40"><path d="M7 20h26M23 9l11 11-11 11"/></symbol>
+<symbol id="icon-close" viewBox="0 0 40 40"><path d="m10 10 20 20M30 10 10 30"/></symbol>
+<symbol id="icon-check" viewBox="0 0 40 40"><path d="m7 21 9 9L34 10"/></symbol>
+<symbol id="icon-grid" viewBox="0 0 40 40"><path d="m3 20 17-10 17 10-17 10ZM20 10v20M11 15l17 10M11 25l17-10"/></symbol>
+<symbol id="icon-more" viewBox="0 0 40 40"><circle cx="9" cy="20" r="2"/><circle cx="20" cy="20" r="2"/><circle cx="31" cy="20" r="2"/></symbol>
+</defs></svg>
+<header class="review-head"><div><p class="eyebrow">DUNGEON EMPIRE / ÉTUDE D’INTERFACE 02</p><h1>Le donjon est à vous.</h1><p class="intro">Trois directions mobiles. Une même scène. Construire, enchaîner, corriger.</p></div><span class="status-tag">MAQUETTES INTERACTIVES</span></header>
+<nav class="concepts" aria-label="Directions artistiques">
+<button class="concept" data-theme="obsidian" aria-pressed="true"><span class="letter">A</span><span><b>Obsidienne</b><small>Palette directe · violet & fer noir</small></span><em>Conseillée</em></button>
+<button class="concept" data-theme="forge" aria-pressed="false"><span class="letter">B</span><span><b>La forge</b><small>Commandes latérales · fer & braise</small></span></button>
+<button class="concept" data-theme="grimoire" aria-pressed="false"><span class="letter">C</span><span><b>Le grimoire</b><small>Familles visibles · pierre & argent</small></span></button>
+</nav>
+<main class="review-main">
+<div class="preview-column">
+<div class="preview-label"><span id="preview-name">A / OBSIDIENNE</span><span>PAYSAGE · <span id="size-label">844 × 390</span></span></div>
+<section id="game" class="game" data-theme="obsidian" data-mode="build" data-backdrop="rock" aria-label="Maquette interactive du donjon">
+<div class="cavern"></div><div class="ambience"></div><canvas id="world" aria-label="Terrain isométrique : touchez une case pour poser, glissez pour déplacer la vue"></canvas><div class="edge-shade"></div>
+<header class="hud-top">
+<div class="resources"><div class="master-sigil"><svg><use href="#icon-sigil"/></svg></div><div class="gold resource"><svg><use href="#icon-coin"/></svg><span><b id="gold">320</b><small>OR DISPONIBLE</small></span></div><button class="core resource" id="core-info" aria-label="État du cœur : 100 %, niveau 1"><span class="core-mark">◈</span><span><b>100 <small>%</small></b><small>CŒUR · NIV. 1</small></span></button></div>
+<div class="phase"><span id="phase-title">AMÉNAGEMENT</span><small id="phase-sub">Délai du raid suspendu</small></div><button class="icon-button pause" id="pause" aria-label="Mettre en pause"><svg><use href="#icon-pause"/></svg></button>
+</header>
+<div class="world-tools"><button class="icon-button" id="recenter" aria-label="Recentrer la vue sur le cœur"><svg><use href="#icon-target"/></svg></button><button class="icon-button" id="toggle-grid" aria-label="Afficher la grille" aria-pressed="false"><svg><use href="#icon-grid"/></svg></button></div>
+<div id="hint" class="gesture-hint">Choisissez un outil, puis touchez les cases.</div>
+<div class="selection-badge" id="selection-badge" hidden><svg><use href="#icon-spike"/></svg><span id="selection-label">Pointes · 35 or</span></div>
+<div class="build-ui" id="build-ui">
+<nav class="families" id="families" aria-label="Familles d’outils"><button data-family="quick" aria-pressed="true">Favoris</button><button data-family="terrain" aria-pressed="false">Terrain</button><button data-family="defenses" aria-pressed="false">Défenses</button><button data-family="treasure" aria-pressed="false">Trésors</button><button data-family="decor" aria-pressed="false">Décors</button></nav>
+<div class="tool-dock"><div class="tool-list" id="tool-list"></div><div class="dock-actions"><button class="undo" id="undo" disabled><svg><use href="#icon-undo"/></svg><span>Annuler</span></button><button class="finish" id="finish"><svg><use href="#icon-check"/></svg><span>Terminer</span></button></div></div>
+</div>
+<div id="overview-ui" class="overview-ui" hidden><button id="build" class="main-action"><svg><use href="#icon-pick"/></svg>Aménager</button><button id="raid" class="raid-action">Lancer le raid<svg><use href="#icon-arrow"/></svg></button></div>
+<div id="raid-ui" class="raid-ui" hidden><span class="invader-dot"></span><span><b>INTRUS DANS LE DONJON</b><small>Le cœur doit tenir.</small></span><button id="end-raid">Voir le bilan<svg><use href="#icon-arrow"/></svg></button></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<section class="modal-layer" id="modal" hidden><div class="modal"><div class="modal-rune"><svg><use href="#icon-sigil"/></svg></div><p class="eyebrow" id="modal-kicker">VOTRE DOMAINE</p><h2 id="modal-title">Le temps s’arrête.</h2><p id="modal-copy">Reprenez la construction quand vous le souhaitez.</p><button id="resume" class="main-action">Reprendre</button></div></section>
+</section>
+<div class="review-controls"><label>Fond <select id="background"><option value="rock">Roche encaissante</option><option value="mist">Roche & brume discrète</option><option value="void">Vide actuel · comparaison</option></select></label><label>Format <select id="format"><option value="844">844 × 390</option><option value="740">740 × 360</option><option value="1024">1024 × 576</option></select></label><button id="reset">Réinitialiser l’essai</button></div>
+</div>
+<aside class="design-notes"><p class="eyebrow" id="note-kicker">A / RECOMMANDATION</p><h2 id="note-title">La main sur le donjon.</h2><p id="note-copy">Une palette basse, stable, avec vos outils usuels. Le violet signale une action ; le métal reste sombre.</p><div class="note-rule"></div><p class="eyebrow">À ESSAYER</p><ol><li>Choisissez <b>Pointes</b>.</li><li>Touchez plusieurs cases libres.</li><li>Corrigez avec <b>Annuler</b>.</li></ol><p class="small-note">Glisser sur le terrain déplace la vue. Le glisser-déposer depuis un outil fonctionne aussi, avec un aperçu au-dessus du doigt.</p><div class="metric"><b>3 poses : 6 → 3 actions</b><span>Une fois l’outil sélectionné, plus de confirmation par case.</span></div><p class="small-note" id="tradeoff">À surveiller : rendre le changement de famille suffisamment visible.</p></aside>
+</main>
+<section class="rationale"><article><span>01 / GESTES</span><h3>Poser sans recommencer.</h3><p>L’outil reste actif. Une touche pose, un glissement déplace la vue. L’annulation rend l’expérimentation réversible.</p></article><article><span>02 / IDENTITÉ</span><h3>Vous êtes le maître.</h3><p>Fer noir, pierre, sceaux et accents magiques. L’or désigne la ressource, pas tout l’habillage.</p></article><article><span>03 / ENVIRONNEMENT</span><h3>Creusé dans la roche.</h3><p>Une masse minérale continue entoure les murs. Le sol jouable reste plus clair ; la brume se limite aux bords.</p></article></section>
+<footer>Étude visuelle et gestuelle, sans sauvegarde ni dépense dans le jeu. Décors et annulation sont des propositions à intégrer ; les coûts de décors restent à définir. <a href="README.html">Notes & limites</a></footer>
+<script src="assets/data.js"></script><script src="review.js"></script>
+</body></html>

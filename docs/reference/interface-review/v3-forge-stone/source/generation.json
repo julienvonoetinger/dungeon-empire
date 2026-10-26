@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-25",
+  "tool": "built-in image_gen",
+  "status": "proposed UI artwork, no production integration",
+  "reference": "docs/reference/treasure-chest-review/v4-directions/corners-open.png",
+  "items": [
+    {
+      "file": "dig-original.png",
+      "prompt": "Use case: stylized-concept. Create ONE highly legible hand-painted fantasy mobile game UI icon, a DIGGING PICKAXE, isolated on truly transparent background. Compact bold silhouette designed to be readable at only 40 pixels. A single heavy curved silver-blue iron pickaxe head on a thick dark reddish-brown wooden handle, diagonal from lower-left to upper-right. At the head two or three chipped slate fragments imply excavation; keep fragments close to the tool, not scattered. Match the attached dungeon reference ONLY as an art style/palette reference: chunky painted planes, clean dark outlines, beveled cold slate edges, stylized 2D fantasy, simple broad shading, high contrast silver blade. No photorealism, no fine scratches, no tiny runes, no neon, no gems, no gold frame, no button background, no circular badge, no lettering, no additional objects. Use most of a square canvas with small transparent margin. The attached reference is NOT the edit target: do not depict the dungeon room or the heart."
+    },
+    {
+      "file": "spikes-original.png",
+      "prompt": "Use case: stylized-concept. ONE isolated painted game UI icon on truly transparent background: a DUNGEON SPIKE TRAP. It must read clearly at 40 pixels. Four thick lethal pale silver tapered spikes rising from a low square dark blue-grey iron-and-stone plate, visible as a 2:1 isometric diamond. Broad simple planes, strong clean dark outlines, softly bevelled painted highlights, stylized 2D mobile fantasy art. The four spikes are clearly separate, no thin needles, very little detail. Small violet corruption seam only at one corner of the plate, not purple spikes. Composition fills a square canvas with small transparent margin, no ground, no cast shadow outside the object, no button frame, no text or letters, no black or colored background. Match attached dungeon image as STYLE AND PALETTE reference only: cool desaturated blue stone, readable sculpted bevels, restrained violet. Do not include the room, altar, vortex, chests or other objects."
+    },
+    {
+      "file": "stone-original.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE square reusable fantasy game UI stone button skin, face-on, truly transparent outside the stone. Match supplied dungeon reference only as style/palette: painted cool desaturated dark blue slate, chunky clean bevels, NOT photorealistic. A near-square single slab with softly clipped corners, a substantial raised bevel, clean brighter blue-grey top and left edges, dark navy bottom and right bevels. Large quiet flat dark indigo-grey central area occupying 75% of the square so a separate icon and readable text can be placed over it. A short subtle violet corruption crack is carved into the upper right bevel and another tiny faint purple vein at bottom left, KEEP THE CENTER COMPLETELY BARE. Painted broad facets, very restrained texture, high-quality 2D mobile game material, thick readable edge. It should look like one block of dungeon masonry made into a tactile button. No icons, no symbols, no diamond ornament, no letters, no skull, no frame inside a frame, no gold, no border glow around the whole square, no base pedestal, no perspective tilt. Full square slab nearly fills canvas, small transparent margin."
+    }
+  ]
+}

@@ -1,0 +1,723 @@
+{
+  "date": "2026-10-25",
+  "method": "offline in-memory browser render, all requests blocked, no URL navigation or user-profile interaction",
+  "errors": [],
+  "productionUnchanged": true,
+  "layouts": [
+    {
+      "width": 844,
+      "height": 390,
+      "panel": "tools",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 728,
+        "height": 390
+      },
+      "game": {
+        "width": 844,
+        "height": 390
+      },
+      "visibleFraction": 0.8625592417061612,
+      "buttons": [
+        {
+          "name": "Ouvrir l’état du donjon et la pause",
+          "x": 738,
+          "y": 6,
+          "w": 100,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 738,
+          "y": 58,
+          "w": 100,
+          "h": 62,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 738,
+          "y": 124,
+          "w": 100,
+          "h": 62,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 738,
+          "y": 190,
+          "w": 100,
+          "h": 62,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Catalogue",
+          "x": 738,
+          "y": 256,
+          "w": 100,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Aucune pose à annuler",
+          "x": 738,
+          "y": 336,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Passer à la vue dégagée",
+          "x": 790,
+          "y": 336,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "panel": "peek",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 788,
+        "height": 390
+      },
+      "game": {
+        "width": 844,
+        "height": 390
+      },
+      "visibleFraction": 0.933649289099526,
+      "buttons": [
+        {
+          "name": "Revenir à l’aménagement",
+          "x": 792,
+          "y": 4,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Recentrer sur le cœur",
+          "x": 792,
+          "y": 61,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Ouvrir le menu et la pause",
+          "x": 792,
+          "y": 338,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "panel": "catalog",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 600,
+        "height": 390
+      },
+      "game": {
+        "width": 844,
+        "height": 390
+      },
+      "visibleFraction": 0.7109004739336493,
+      "buttons": [
+        {
+          "name": "Fermer le catalogue",
+          "x": 615,
+          "y": 9,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "EssentielsTerrainDéfensesTrésorsDécors · étude",
+          "x": 653.75,
+          "y": 67,
+          "w": 179.25,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 615,
+          "y": 125,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 727.5,
+          "y": 125,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 615,
+          "y": 208,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Coffre, Gratuit",
+          "x": 727.5,
+          "y": 208,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "panel": "tools",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 624,
+        "height": 360
+      },
+      "game": {
+        "width": 740,
+        "height": 360
+      },
+      "visibleFraction": 0.8432432432432433,
+      "buttons": [
+        {
+          "name": "Ouvrir l’état du donjon et la pause",
+          "x": 634,
+          "y": 6,
+          "w": 100,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 634,
+          "y": 58,
+          "w": 100,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 634,
+          "y": 114,
+          "w": 100,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 634,
+          "y": 170,
+          "w": 100,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Catalogue",
+          "x": 634,
+          "y": 226,
+          "w": 100,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Aucune pose à annuler",
+          "x": 634,
+          "y": 306,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Passer à la vue dégagée",
+          "x": 686,
+          "y": 306,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "panel": "peek",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 684,
+        "height": 360
+      },
+      "game": {
+        "width": 740,
+        "height": 360
+      },
+      "visibleFraction": 0.9243243243243243,
+      "buttons": [
+        {
+          "name": "Revenir à l’aménagement",
+          "x": 688,
+          "y": 4,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Recentrer sur le cœur",
+          "x": 688,
+          "y": 61,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Ouvrir le menu et la pause",
+          "x": 688,
+          "y": 308,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "panel": "catalog",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 496,
+        "height": 360
+      },
+      "game": {
+        "width": 740,
+        "height": 360
+      },
+      "visibleFraction": 0.6702702702702703,
+      "buttons": [
+        {
+          "name": "Fermer le catalogue",
+          "x": 511,
+          "y": 9,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "EssentielsTerrainDéfensesTrésorsDécors · étude",
+          "x": 549.75,
+          "y": 67,
+          "w": 179.25,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 511,
+          "y": 125,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 623.5,
+          "y": 125,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 511,
+          "y": 208,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Coffre, Gratuit",
+          "x": 623.5,
+          "y": 208,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "panel": "tools",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 908,
+        "height": 576
+      },
+      "game": {
+        "width": 1024,
+        "height": 576
+      },
+      "visibleFraction": 0.88671875,
+      "buttons": [
+        {
+          "name": "Ouvrir l’état du donjon et la pause",
+          "x": 918,
+          "y": 6,
+          "w": 100,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 918,
+          "y": 58,
+          "w": 100,
+          "h": 124,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 918,
+          "y": 186,
+          "w": 100,
+          "h": 124,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 918,
+          "y": 314,
+          "w": 100,
+          "h": 124,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Catalogue",
+          "x": 918,
+          "y": 442,
+          "w": 100,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Aucune pose à annuler",
+          "x": 918,
+          "y": 522,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Passer à la vue dégagée",
+          "x": 970,
+          "y": 522,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "panel": "peek",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 968,
+        "height": 576
+      },
+      "game": {
+        "width": 1024,
+        "height": 576
+      },
+      "visibleFraction": 0.9453125,
+      "buttons": [
+        {
+          "name": "Revenir à l’aménagement",
+          "x": 972,
+          "y": 4,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Recentrer sur le cœur",
+          "x": 972,
+          "y": 61,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Ouvrir le menu et la pause",
+          "x": 972,
+          "y": 524,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "panel": "catalog",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 780,
+        "height": 576
+      },
+      "game": {
+        "width": 1024,
+        "height": 576
+      },
+      "visibleFraction": 0.76171875,
+      "buttons": [
+        {
+          "name": "Fermer le catalogue",
+          "x": 795,
+          "y": 9,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "EssentielsTerrainDéfensesTrésorsDécors · étude",
+          "x": 833.75,
+          "y": 67,
+          "w": 179.25,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 795,
+          "y": 125,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 907.5,
+          "y": 125,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 795,
+          "y": 208,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Coffre, Gratuit",
+          "x": 907.5,
+          "y": 208,
+          "w": 105.5,
+          "h": 76,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "three-placements",
+      "panel": "tools",
+      "gold": 215,
+      "selected": "spike",
+      "placements": 3,
+      "history": 3,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "undo",
+      "panel": "tools",
+      "gold": 250,
+      "selected": "spike",
+      "placements": 2,
+      "history": 2,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "occupied",
+      "panel": "tools",
+      "gold": 250,
+      "selected": "spike",
+      "placements": 2,
+      "history": 2,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "pan",
+      "panel": "tools",
+      "gold": 320,
+      "selected": null,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 65,
+        "y": 25
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "catalogue-select-retracts",
+      "panel": "tools",
+      "gold": 320,
+      "selected": "chest",
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "excavation",
+      "panel": "tools",
+      "gold": 315,
+      "selected": "dig",
+      "placements": 1,
+      "history": 1,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "undo-excavation",
+      "panel": "tools",
+      "gold": 320,
+      "selected": "dig",
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "peek",
+      "panel": "peek",
+      "gold": 320,
+      "selected": null,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "resume",
+      "panel": "tools",
+      "gold": 320,
+      "selected": null,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    }
+  ],
+  "limits": [
+    "Not a Godot capture or device validation.",
+    "New art and bedrock geometry are proposals, not user-approved production assets.",
+    "Illustrative excavation rebuilds boundary strips, not the complete production pillar/door/layout system."
+  ]
+}

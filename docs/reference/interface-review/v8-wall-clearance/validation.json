@@ -1,0 +1,1372 @@
+{
+  "date": "2026-10-25",
+  "method": "offline in-memory browser render, all requests blocked, no URL navigation or user-profile interaction",
+  "errors": [],
+  "productionUnchanged": true,
+  "layouts": [
+    {
+      "width": 844,
+      "height": 390,
+      "panel": "tools",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 708,
+        "height": 390
+      },
+      "game": {
+        "width": 844,
+        "height": 390
+      },
+      "visibleFraction": 0.8388625592417062,
+      "buttons": [
+        {
+          "name": "Ouvrir l’état du donjon et la pause",
+          "x": 718,
+          "y": 6,
+          "w": 120,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 718,
+          "y": 62,
+          "w": 120,
+          "h": 59.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 718,
+          "y": 125.328125,
+          "w": 120,
+          "h": 59.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 718,
+          "y": 188.65625,
+          "w": 120,
+          "h": 59.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Catalogue",
+          "x": 718,
+          "y": 252,
+          "w": 120,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Aucune pose à annuler",
+          "x": 718,
+          "y": 332,
+          "w": 58,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Passer à la vue dégagée",
+          "x": 780,
+          "y": 332,
+          "w": 58,
+          "h": 52,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "panel": "peek",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 788,
+        "height": 390
+      },
+      "game": {
+        "width": 844,
+        "height": 390
+      },
+      "visibleFraction": 0.933649289099526,
+      "buttons": [
+        {
+          "name": "Revenir à l’aménagement",
+          "x": 792,
+          "y": 4,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Recentrer sur le cœur",
+          "x": 792,
+          "y": 61,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Ouvrir le menu et la pause",
+          "x": 792,
+          "y": 338,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "panel": "catalog",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 600,
+        "height": 390
+      },
+      "game": {
+        "width": 844,
+        "height": 390
+      },
+      "visibleFraction": 0.7109004739336493,
+      "buttons": [
+        {
+          "name": "Fermer le catalogue",
+          "x": 615,
+          "y": 9,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "EssentielsTerrainDéfensesTrésorsDécors · étude",
+          "x": 653.75,
+          "y": 67,
+          "w": 179.25,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 615,
+          "y": 125,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 727.5,
+          "y": 125,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 615,
+          "y": 228,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Coffre, Gratuit",
+          "x": 727.5,
+          "y": 228,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "panel": "tools",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 604,
+        "height": 360
+      },
+      "game": {
+        "width": 740,
+        "height": 360
+      },
+      "visibleFraction": 0.8162162162162162,
+      "buttons": [
+        {
+          "name": "Ouvrir l’état du donjon et la pause",
+          "x": 614,
+          "y": 6,
+          "w": 120,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 614,
+          "y": 62,
+          "w": 120,
+          "h": 49.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 614,
+          "y": 115.328125,
+          "w": 120,
+          "h": 49.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 614,
+          "y": 168.65625,
+          "w": 120,
+          "h": 49.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Catalogue",
+          "x": 614,
+          "y": 222,
+          "w": 120,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Aucune pose à annuler",
+          "x": 614,
+          "y": 302,
+          "w": 58,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Passer à la vue dégagée",
+          "x": 676,
+          "y": 302,
+          "w": 58,
+          "h": 52,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "panel": "peek",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 684,
+        "height": 360
+      },
+      "game": {
+        "width": 740,
+        "height": 360
+      },
+      "visibleFraction": 0.9243243243243243,
+      "buttons": [
+        {
+          "name": "Revenir à l’aménagement",
+          "x": 688,
+          "y": 4,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Recentrer sur le cœur",
+          "x": 688,
+          "y": 61,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Ouvrir le menu et la pause",
+          "x": 688,
+          "y": 308,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 740,
+      "height": 360,
+      "panel": "catalog",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 496,
+        "height": 360
+      },
+      "game": {
+        "width": 740,
+        "height": 360
+      },
+      "visibleFraction": 0.6702702702702703,
+      "buttons": [
+        {
+          "name": "Fermer le catalogue",
+          "x": 511,
+          "y": 9,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "EssentielsTerrainDéfensesTrésorsDécors · étude",
+          "x": 549.75,
+          "y": 67,
+          "w": 179.25,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 511,
+          "y": 125,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 623.5,
+          "y": 125,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 511,
+          "y": 228,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Coffre, Gratuit",
+          "x": 623.5,
+          "y": 228,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "panel": "tools",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 888,
+        "height": 576
+      },
+      "game": {
+        "width": 1024,
+        "height": 576
+      },
+      "visibleFraction": 0.8671875,
+      "buttons": [
+        {
+          "name": "Ouvrir l’état du donjon et la pause",
+          "x": 898,
+          "y": 6,
+          "w": 120,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 898,
+          "y": 62,
+          "w": 120,
+          "h": 121.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 898,
+          "y": 187.328125,
+          "w": 120,
+          "h": 121.328125,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 898,
+          "y": 312.65625,
+          "w": 120,
+          "h": 121.34375,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Catalogue",
+          "x": 898,
+          "y": 438,
+          "w": 120,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Aucune pose à annuler",
+          "x": 898,
+          "y": 518,
+          "w": 58,
+          "h": 52,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Passer à la vue dégagée",
+          "x": 960,
+          "y": 518,
+          "w": 58,
+          "h": 52,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "panel": "peek",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 968,
+        "height": 576
+      },
+      "game": {
+        "width": 1024,
+        "height": 576
+      },
+      "visibleFraction": 0.9453125,
+      "buttons": [
+        {
+          "name": "Revenir à l’aménagement",
+          "x": 972,
+          "y": 4,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Recentrer sur le cœur",
+          "x": 972,
+          "y": 61,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Ouvrir le menu et la pause",
+          "x": 972,
+          "y": 524,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    },
+    {
+      "width": 1024,
+      "height": 576,
+      "panel": "catalog",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 780,
+        "height": 576
+      },
+      "game": {
+        "width": 1024,
+        "height": 576
+      },
+      "visibleFraction": 0.76171875,
+      "buttons": [
+        {
+          "name": "Fermer le catalogue",
+          "x": 795,
+          "y": 9,
+          "w": 48,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "EssentielsTerrainDéfensesTrésorsDécors · étude",
+          "x": 833.75,
+          "y": 67,
+          "w": 179.25,
+          "h": 48,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Creuser, 5 or",
+          "x": 795,
+          "y": 125,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Pointes, 35 or",
+          "x": 907.5,
+          "y": 125,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Porte, 40 or",
+          "x": 795,
+          "y": 228,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        },
+        {
+          "name": "Coffre, Gratuit",
+          "x": 907.5,
+          "y": 228,
+          "w": 105.5,
+          "h": 96,
+          "overlapsTerrain": false
+        }
+      ],
+      "pageOverflow": false,
+      "small": [],
+      "outside": [],
+      "overlap": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "three-placements",
+      "panel": "tools",
+      "gold": 215,
+      "selected": "spike",
+      "placements": 3,
+      "history": 3,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "undo",
+      "panel": "tools",
+      "gold": 250,
+      "selected": "spike",
+      "placements": 2,
+      "history": 2,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "occupied",
+      "panel": "tools",
+      "gold": 250,
+      "selected": "spike",
+      "placements": 2,
+      "history": 2,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "pan",
+      "panel": "tools",
+      "gold": 320,
+      "selected": null,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 65,
+        "y": 25
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "catalogue-select-retracts",
+      "panel": "tools",
+      "gold": 320,
+      "selected": "chest",
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "excavation",
+      "panel": "tools",
+      "gold": 315,
+      "selected": "dig",
+      "placements": 1,
+      "history": 1,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "undo-excavation",
+      "panel": "tools",
+      "gold": 320,
+      "selected": "dig",
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "peek",
+      "panel": "peek",
+      "gold": 320,
+      "selected": null,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    },
+    {
+      "name": "resume",
+      "panel": "tools",
+      "gold": 320,
+      "selected": null,
+      "placements": 0,
+      "history": 0,
+      "pan": {
+        "x": 0,
+        "y": 0
+      },
+      "integrated": true,
+      "raid": false
+    }
+  ],
+  "spacing": [
+    {
+      "w": 740,
+      "h": 360,
+      "panel": "tools",
+      "entries": [
+        {
+          "text": "320",
+          "left": 33.09375,
+          "right": 55.84375,
+          "top": 7.5,
+          "bottom": 20.5
+        },
+        {
+          "text": "100 %",
+          "left": 76.3125,
+          "right": 15,
+          "top": 27.5,
+          "bottom": 10.5
+        },
+        {
+          "text": "Creuser",
+          "left": 54,
+          "right": 23.484375,
+          "top": 9.15625,
+          "bottom": 24.171875
+        },
+        {
+          "text": "5 or",
+          "left": 54,
+          "right": 46.78125,
+          "top": 25.15625,
+          "bottom": 9.171875
+        },
+        {
+          "text": "Pointes",
+          "left": 54,
+          "right": 24.578125,
+          "top": 9.15625,
+          "bottom": 24.171875
+        },
+        {
+          "text": "35 or",
+          "left": 54,
+          "right": 40.84375,
+          "top": 25.15625,
+          "bottom": 9.171875
+        },
+        {
+          "text": "Porte",
+          "left": 54,
+          "right": 35.40625,
+          "top": 9.15625,
+          "bottom": 24.171875
+        },
+        {
+          "text": "40 or",
+          "left": 54,
+          "right": 40.84375,
+          "top": 25.15625,
+          "bottom": 9.171875
+        },
+        {
+          "text": "Catalogue",
+          "left": 48.875,
+          "right": 18.875,
+          "top": 16.5,
+          "bottom": 16.5
+        },
+        {
+          "text": "Annuler",
+          "left": 11.71875,
+          "right": 11.71875,
+          "top": 28.5,
+          "bottom": 9.5
+        },
+        {
+          "text": "Voir",
+          "left": 20.328125,
+          "right": 20.328125,
+          "top": 28.5,
+          "bottom": 9.5
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 740,
+      "h": 360,
+      "panel": "catalog",
+      "entries": [
+        {
+          "text": "Creuser",
+          "left": 31.484375,
+          "right": 31.5,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "5 or",
+          "left": 44,
+          "right": 44.03125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Pointes",
+          "left": 32.03125,
+          "right": 32.046875,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "35 or",
+          "left": 41.3125,
+          "right": 41.328125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Porte",
+          "left": 37.453125,
+          "right": 37.453125,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "40 or",
+          "left": 41.3125,
+          "right": 41.328125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Coffre",
+          "left": 35.21875,
+          "right": 35.21875,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "Gratuit",
+          "left": 37.59375,
+          "right": 37.609375,
+          "top": 68.5,
+          "bottom": 13.5
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 740,
+      "h": 360,
+      "panel": "menu",
+      "entries": [
+        {
+          "text": "Reprendre l’aménagement",
+          "left": 38.859375,
+          "right": 38.859375,
+          "top": 16,
+          "bottom": 16
+        },
+        {
+          "text": "Recentrer la vue",
+          "left": 66.59375,
+          "right": 66.609375,
+          "top": 16,
+          "bottom": 16
+        },
+        {
+          "text": "Lancer le raid · aperçu",
+          "left": 51.15625,
+          "right": 51.171875,
+          "top": 16,
+          "bottom": 16
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 844,
+      "h": 390,
+      "panel": "tools",
+      "entries": [
+        {
+          "text": "320",
+          "left": 33.09375,
+          "right": 55.84375,
+          "top": 7.5,
+          "bottom": 20.5
+        },
+        {
+          "text": "100 %",
+          "left": 76.3125,
+          "right": 15,
+          "top": 27.5,
+          "bottom": 10.5
+        },
+        {
+          "text": "Creuser",
+          "left": 54,
+          "right": 23.484375,
+          "top": 14.15625,
+          "bottom": 29.171875
+        },
+        {
+          "text": "5 or",
+          "left": 54,
+          "right": 46.78125,
+          "top": 30.15625,
+          "bottom": 14.171875
+        },
+        {
+          "text": "Pointes",
+          "left": 54,
+          "right": 24.578125,
+          "top": 14.15625,
+          "bottom": 29.171875
+        },
+        {
+          "text": "35 or",
+          "left": 54,
+          "right": 40.84375,
+          "top": 30.15625,
+          "bottom": 14.171875
+        },
+        {
+          "text": "Porte",
+          "left": 54,
+          "right": 35.40625,
+          "top": 14.15625,
+          "bottom": 29.171875
+        },
+        {
+          "text": "40 or",
+          "left": 54,
+          "right": 40.84375,
+          "top": 30.15625,
+          "bottom": 14.171875
+        },
+        {
+          "text": "Catalogue",
+          "left": 48.875,
+          "right": 18.875,
+          "top": 16.5,
+          "bottom": 16.5
+        },
+        {
+          "text": "Annuler",
+          "left": 11.71875,
+          "right": 11.71875,
+          "top": 28.5,
+          "bottom": 9.5
+        },
+        {
+          "text": "Voir",
+          "left": 20.328125,
+          "right": 20.328125,
+          "top": 28.5,
+          "bottom": 9.5
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 844,
+      "h": 390,
+      "panel": "catalog",
+      "entries": [
+        {
+          "text": "Creuser",
+          "left": 31.484375,
+          "right": 31.5,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "5 or",
+          "left": 44,
+          "right": 44.03125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Pointes",
+          "left": 32.03125,
+          "right": 32.046875,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "35 or",
+          "left": 41.3125,
+          "right": 41.328125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Porte",
+          "left": 37.453125,
+          "right": 37.453125,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "40 or",
+          "left": 41.3125,
+          "right": 41.328125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Coffre",
+          "left": 35.21875,
+          "right": 35.21875,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "Gratuit",
+          "left": 37.59375,
+          "right": 37.609375,
+          "top": 68.5,
+          "bottom": 13.5
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 844,
+      "h": 390,
+      "panel": "menu",
+      "entries": [
+        {
+          "text": "Reprendre l’aménagement",
+          "left": 38.859375,
+          "right": 38.859375,
+          "top": 16,
+          "bottom": 16
+        },
+        {
+          "text": "Recentrer la vue",
+          "left": 66.59375,
+          "right": 66.609375,
+          "top": 16,
+          "bottom": 16
+        },
+        {
+          "text": "Lancer le raid · aperçu",
+          "left": 51.15625,
+          "right": 51.171875,
+          "top": 16,
+          "bottom": 16
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 1024,
+      "h": 576,
+      "panel": "tools",
+      "entries": [
+        {
+          "text": "320",
+          "left": 33.09375,
+          "right": 55.84375,
+          "top": 7.5,
+          "bottom": 20.5
+        },
+        {
+          "text": "100 %",
+          "left": 76.3125,
+          "right": 15,
+          "top": 27.5,
+          "bottom": 10.5
+        },
+        {
+          "text": "Creuser",
+          "left": 54,
+          "right": 23.484375,
+          "top": 45.15625,
+          "bottom": 60.171875
+        },
+        {
+          "text": "5 or",
+          "left": 54,
+          "right": 46.78125,
+          "top": 61.15625,
+          "bottom": 45.171875
+        },
+        {
+          "text": "Pointes",
+          "left": 54,
+          "right": 24.578125,
+          "top": 45.15625,
+          "bottom": 60.171875
+        },
+        {
+          "text": "35 or",
+          "left": 54,
+          "right": 40.84375,
+          "top": 61.15625,
+          "bottom": 45.171875
+        },
+        {
+          "text": "Porte",
+          "left": 54,
+          "right": 35.40625,
+          "top": 45.171875,
+          "bottom": 60.171875
+        },
+        {
+          "text": "40 or",
+          "left": 54,
+          "right": 40.84375,
+          "top": 61.171875,
+          "bottom": 45.171875
+        },
+        {
+          "text": "Catalogue",
+          "left": 48.875,
+          "right": 18.875,
+          "top": 16.5,
+          "bottom": 16.5
+        },
+        {
+          "text": "Annuler",
+          "left": 11.71875,
+          "right": 11.71875,
+          "top": 28.5,
+          "bottom": 9.5
+        },
+        {
+          "text": "Voir",
+          "left": 20.328125,
+          "right": 20.328125,
+          "top": 28.5,
+          "bottom": 9.5
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 1024,
+      "h": 576,
+      "panel": "catalog",
+      "entries": [
+        {
+          "text": "Creuser",
+          "left": 31.484375,
+          "right": 31.5,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "5 or",
+          "left": 44,
+          "right": 44.03125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Pointes",
+          "left": 32.03125,
+          "right": 32.046875,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "35 or",
+          "left": 41.3125,
+          "right": 41.328125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Porte",
+          "left": 37.453125,
+          "right": 37.453125,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "40 or",
+          "left": 41.3125,
+          "right": 41.328125,
+          "top": 68.5,
+          "bottom": 13.5
+        },
+        {
+          "text": "Coffre",
+          "left": 35.21875,
+          "right": 35.21875,
+          "top": 51.5,
+          "bottom": 28.5
+        },
+        {
+          "text": "Gratuit",
+          "left": 37.59375,
+          "right": 37.609375,
+          "top": 68.5,
+          "bottom": 13.5
+        }
+      ],
+      "tooClose": []
+    },
+    {
+      "w": 1024,
+      "h": 576,
+      "panel": "menu",
+      "entries": [
+        {
+          "text": "Reprendre l’aménagement",
+          "left": 38.859375,
+          "right": 38.859375,
+          "top": 16,
+          "bottom": 16
+        },
+        {
+          "text": "Recentrer la vue",
+          "left": 66.59375,
+          "right": 66.609375,
+          "top": 16,
+          "bottom": 16
+        },
+        {
+          "text": "Lancer le raid · aperçu",
+          "left": 51.15625,
+          "right": 51.171875,
+          "top": 16,
+          "bottom": 16
+        }
+      ],
+      "tooClose": []
+    }
+  ],
+  "terrain": {
+    "expanded": {
+      "cells": 36,
+      "boundaries": 34,
+      "invalidBoundaries": 0,
+      "texturePeriodWorldCells": 3,
+      "clearanceWidth": 0.46,
+      "clearanceFeather": 0.2,
+      "rockHeight": 0.3133333333333333,
+      "wallCapHeights": [
+        0.3133333333333333
+      ],
+      "loadedImages": [
+        "architecture",
+        "chests",
+        "spikes",
+        "dust",
+        "quiet",
+        "strata",
+        "mineral"
+      ],
+      "scale": 0.49
+    },
+    "distant": {
+      "bounds": {
+        "x0": -13,
+        "y0": -140,
+        "x1": 11,
+        "y1": -116
+      },
+      "pan": {
+        "x": -8000,
+        "y": 4500
+      }
+    },
+    "stableBoundariesAfterReset": true,
+    "stablePixelsAfterReset": true
+  },
+  "mineralMotion": {
+    "shared": 31,
+    "stableWorld": true,
+    "exactPan": true
+  },
+  "inherited": [
+    {
+      "name": "architecture.png",
+      "unchanged": true
+    },
+    {
+      "name": "candles.png",
+      "unchanged": true
+    },
+    {
+      "name": "chest.png",
+      "unchanged": true
+    },
+    {
+      "name": "chests.png",
+      "unchanged": true
+    },
+    {
+      "name": "crystal.png",
+      "unchanged": true
+    },
+    {
+      "name": "dig.png",
+      "unchanged": true
+    },
+    {
+      "name": "door.png",
+      "unchanged": true
+    },
+    {
+      "name": "dust.png",
+      "unchanged": true
+    },
+    {
+      "name": "heart.png",
+      "unchanged": true
+    },
+    {
+      "name": "idol.png",
+      "unchanged": true
+    },
+    {
+      "name": "locked.png",
+      "unchanged": true
+    },
+    {
+      "name": "mineral.png",
+      "unchanged": true
+    },
+    {
+      "name": "quiet.png",
+      "unchanged": true
+    },
+    {
+      "name": "spikes.png",
+      "unchanged": true
+    },
+    {
+      "name": "stone.png",
+      "unchanged": true
+    },
+    {
+      "name": "strata.png",
+      "unchanged": true
+    }
+  ],
+  "failures": [],
+  "limits": [
+    "Not a Godot capture or device validation.",
+    "Flat mineral appearance and distribution remain proposals.",
+    "Illustrative excavation rebuilds boundary strips, not the complete production pillar/door/layout system.",
+    "All exterior material layers share the actual wall cap plane, no raised rock face or outcrop.",
+    "Quiet clearance around the cell union: .46 world cells plus .20 feather, illustrative rendering only.",
+    "No production chunk persistence, terrain streaming or phone profile."
+  ]
+}

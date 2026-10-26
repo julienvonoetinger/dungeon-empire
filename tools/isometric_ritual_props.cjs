@@ -22,18 +22,19 @@ const fits=[
 ];
 const polygon=points=>points.map(p=>p.join(',')).join(' ');
 async function shadow(fit,foot){
- const direction=[.055,.025]; // Short ambient cast, away from upper-left paint.
+ const scale=fit.shadowScale??1;
+ const direction=[.055*scale,.025*scale]; // Short ambient cast, away from upper-left paint.
  const screen=foot.map(project),shift=project(direction);
  const all=screen.concat(screen.map(p=>[p[0]+shift[0],p[1]+shift[1]]));
- const lo=[0,1].map(c=>Math.floor(Math.min(...all.map(p=>p[c]))-12));
- const hi=[0,1].map(c=>Math.ceil(Math.max(...all.map(p=>p[c]))+12));
+ const lo=[0,1].map(c=>Math.floor(Math.min(...all.map(p=>p[c]))-12*scale));
+ const hi=[0,1].map(c=>Math.ceil(Math.max(...all.map(p=>p[c]))+12*scale));
  const frame=[...lo,hi[0]-lo[0],hi[1]-lo[1]],[x,y,w,h]=frame;
- const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.4"/></filter><filter id="contact" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation=".8"/></filter></defs><g transform="translate(${-x} ${-y})"><polygon points="${polygon(screen)}" transform="translate(${shift.join(' ')})" fill="#030811" opacity=".22" filter="url(#soft)"/><polygon points="${polygon(screen)}" fill="#030811" opacity=".30" filter="url(#contact)"/></g></svg>`;
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="${2.4*scale}"/></filter><filter id="contact" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="${.8*scale}"/></filter></defs><g transform="translate(${-x} ${-y})"><polygon points="${polygon(screen)}" transform="translate(${shift.join(' ')})" fill="#030811" opacity=".22" filter="url(#soft)"/><polygon points="${polygon(screen)}" fill="#030811" opacity=".30" filter="url(#contact)"/></g></svg>`;
  const png=await sharp(Buffer.from(svg)).png().toBuffer();
  const corners=[[x,y],[x+w,y],[x+w,y+h],[x,y+h]].map(ground);
  return {id:fit.id+'-shadow',png,rasterScale:.5,frame,
   bounds:{min:[...([0,1].map(c=>Math.min(...corners.map(p=>p[c])))),0],max:[...([0,1].map(c=>Math.max(...corners.map(p=>p[c])))),0]},
-  groundEffect:true,groundBlend:'mix',adaptation:{footprint:foot,castWorld:direction,contactSoftness:.8,castSoftness:2.4,kind:'short static ambient contact; not a dynamic light simulation'}};
+  groundEffect:true,groundBlend:'mix',adaptation:{footprint:foot,castWorld:direction,contactSoftness:.8*scale,castSoftness:2.4*scale,kind:'short static ambient contact; not a dynamic light simulation'}};
 }
 async function preparedRitualProps(){
  const selection=read(REVIEW+'/selection.json'),review=read(REVIEW+'/validation.json');
@@ -68,5 +69,5 @@ async function preparedRitualProps(){
  json(OUT+'/prepared.json',{date:'2026-10-25',selection:REVIEW+'/selection.json',camera:P.camera,items:items.map(({png,densityPng,...rest})=>({...rest,bytes:png.length})),notes:['Selected native paintings retained; supports and contact shadows are calibrated proxies.','Sprite camera is painted, not a new reconstructed 3D object. No invented orientations.','Shadows are prepared offline, receiving-floor masking and depth order are shared with the existing kit.']});
  return items;
 }
-module.exports={preparedRitualProps,referenceFiles:[REVIEW+'/selection.json',REVIEW+'/validation.json',...fits.map(f=>REVIEW+'/source/'+f.key+'.png')]};
+module.exports={preparedRitualProps,preparedPropShadow:shadow,referenceFiles:[REVIEW+'/selection.json',REVIEW+'/validation.json',...fits.map(f=>REVIEW+'/source/'+f.key+'.png')]};
 if(require.main===module)preparedRitualProps().then(items=>console.log(JSON.stringify({prepared:items.length,bytes:items.reduce((n,i)=>n+i.png.length,0)}))).catch(e=>{console.error(e.stack);process.exitCode=1;});

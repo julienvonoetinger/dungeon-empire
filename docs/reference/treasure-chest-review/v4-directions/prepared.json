@@ -1,0 +1,1135 @@
+{
+  "date": "2026-10-25",
+  "selection": "docs/reference/treasure-chest-review/v2/selection.json",
+  "sourceHashes": {
+    "docs/reference/treasure-chest-review/v4-directions/source/closed-south.png": "43a91744225be6f46592aa7d81fd053fca9d1d1e6bee64d0fda5fc089b6d9418",
+    "docs/reference/treasure-chest-review/v4-directions/source/open-south.png": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c",
+    "docs/reference/treasure-chest-review/v4-directions/source/closed-east.png": "8d40067547821e57b812c5a7d91520c6bdb4d354ee33b1deb5ae4670d3c03bd5",
+    "docs/reference/treasure-chest-review/v4-directions/source/open-east.png": "3ee68a289d021dc48375142ed5159a6a380318f3a433be95992c5d6383203244",
+    "docs/reference/treasure-chest-review/v4-directions/source/closed-north.png": "f60ef108ee8d023a3cfb811702ba199b33afe586323f2a242dfdc4164486d2bb",
+    "docs/reference/treasure-chest-review/v4-directions/source/open-north.png": "cac6d6987fb137072ef92b7f56083fa9febaed039219fe9f73ec49e784137d0d",
+    "docs/reference/treasure-chest-review/v4-directions/source/closed-west.png": "2cd7d8e32f8d4f51118fc2ef782d8154cca00b92b26f7d4998a879ba2ddb3b8b",
+    "docs/reference/treasure-chest-review/v4-directions/source/open-west.png": "86d2cab713fb07467117d055eb828464f51146b0dfd11e4e0a978b61931ed6ba"
+  },
+  "camera": {
+    "x": [
+      0.5,
+      -0.5,
+      0
+    ],
+    "y": [
+      0.25,
+      0.25,
+      -0.6123724356957945
+    ],
+    "eye": [
+      0.6123724356957945,
+      0.6123724356957945,
+      0.5
+    ]
+  },
+  "items": [
+    {
+      "id": "prop-chest",
+      "rasterScale": 0.75,
+      "frame": [
+        -83.63726372637262,
+        -70.93519351935193,
+        151,
+        104
+      ],
+      "bounds": {
+        "min": [
+          -0.23559324369936993,
+          -0.1864926305130513,
+          0
+        ],
+        "max": [
+          0.2345595465796579,
+          0.18545893339333933,
+          0.42706914296358944
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-shadow"
+      ],
+      "approvedSource": "docs/reference/treasure-chest-review/v4-directions/source/closed-south.png",
+      "decoration": {
+        "source": "prop-chest",
+        "label": "Coffre verrouillé",
+        "footprint": [
+          [
+            -0.20467202970297027,
+            0.16745893339333934
+          ],
+          [
+            0.21655954657965792,
+            0.11835832020702068
+          ],
+          [
+            0.2036383325832583,
+            -0.1684926305130513
+          ],
+          [
+            -0.21759324369936994,
+            -0.11939201732673267
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "closed",
+        "facing": "south"
+      },
+      "adaptation": {
+        "sourceScale": 0.1323132313231323,
+        "sourceCrop": {
+          "left": 112,
+          "top": 263,
+          "width": 1111,
+          "height": 755
+        },
+        "sourceAnchor": [
+          729,
+          784
+        ],
+        "sourceFoot": [
+          [
+            369,
+            766
+          ],
+          [
+            824,
+            946
+          ],
+          [
+            1089,
+            801
+          ],
+          [
+            634,
+            621
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 17995
+    },
+    {
+      "id": "prop-chest-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -57,
+        -31,
+        117,
+        66
+      ],
+      "bounds": {
+        "min": [
+          -0.46484375,
+          -0.4765625,
+          0
+        ],
+        "max": [
+          0.5078125,
+          0.49609375,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.20467202970297027,
+            0.16745893339333934
+          ],
+          [
+            0.21655954657965792,
+            0.11835832020702068
+          ],
+          [
+            0.2036383325832583,
+            -0.1684926305130513
+          ],
+          [
+            -0.21759324369936994,
+            -0.11939201732673267
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1785
+    },
+    {
+      "id": "prop-chest-open",
+      "rasterScale": 0.75,
+      "frame": [
+        -82.40247561890472,
+        -89.576144036009,
+        157,
+        129
+      ],
+      "bounds": {
+        "min": [
+          -0.2361243553075769,
+          -0.17111298527756938,
+          0
+        ],
+        "max": [
+          0.2361243553075769,
+          0.17111298527756938,
+          0.4861538860278129
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-open-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+      "decoration": {
+        "source": "prop-chest-open",
+        "label": "Coffre ouvert",
+        "footprint": [
+          [
+            -0.20153524709302323,
+            0.1531129852775694
+          ],
+          [
+            0.2181243553075769,
+            0.11545122608777193
+          ],
+          [
+            0.20153524709302323,
+            -0.1531129852775694
+          ],
+          [
+            -0.2181243553075769,
+            -0.11545122608777193
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "open",
+        "facing": "south"
+      },
+      "adaptation": {
+        "sourceScale": 0.11477869467366841,
+        "sourceCrop": {
+          "left": 25,
+          "top": 29,
+          "width": 1333,
+          "height": 1093
+        },
+        "sourceAnchor": [
+          725.5,
+          792
+        ],
+        "sourceFoot": [
+          [
+            330,
+            765
+          ],
+          [
+            840,
+            978
+          ],
+          [
+            1121,
+            819
+          ],
+          [
+            611,
+            606
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 22720
+    },
+    {
+      "id": "prop-chest-open-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -55,
+        -31,
+        113,
+        66
+      ],
+      "bounds": {
+        "min": [
+          -0.45703125,
+          -0.46875,
+          0
+        ],
+        "max": [
+          0.5,
+          0.48828125,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.20153524709302323,
+            0.1531129852775694
+          ],
+          [
+            0.2181243553075769,
+            0.11545122608777193
+          ],
+          [
+            0.20153524709302323,
+            -0.1531129852775694
+          ],
+          [
+            -0.2181243553075769,
+            -0.11545122608777193
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1835
+    },
+    {
+      "id": "prop-chest-east",
+      "rasterScale": 0.75,
+      "frame": [
+        -93.27327327327328,
+        -88.44632132132132,
+        171,
+        121
+      ],
+      "bounds": {
+        "min": [
+          -0.16933199605855853,
+          -0.25650706174924925,
+          0
+        ],
+        "max": [
+          0.16933199605855853,
+          0.25650706174924925,
+          0.4434638240121694
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-east-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v4-directions/source/closed-east.png",
+      "decoration": {
+        "source": "prop-chest-east",
+        "label": "Coffre verrouillé",
+        "footprint": [
+          [
+            -0.15133199605855854,
+            0.2208761495870871
+          ],
+          [
+            0.10725471565315317,
+            0.23850706174924927
+          ],
+          [
+            0.15133199605855854,
+            -0.2208761495870871
+          ],
+          [
+            -0.10725471565315317,
+            -0.23850706174924927
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "closed",
+        "facing": "east"
+      },
+      "adaptation": {
+        "sourceScale": 0.12537537537537538,
+        "sourceCrop": {
+          "left": 0,
+          "top": 89,
+          "width": 1332,
+          "height": 937
+        },
+        "sourceAnchor": [
+          728,
+          778.5
+        ],
+        "sourceFoot": [
+          [
+            348,
+            814
+          ],
+          [
+            594,
+            955
+          ],
+          [
+            1108,
+            743
+          ],
+          [
+            862,
+            602
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 19442
+    },
+    {
+      "id": "prop-chest-east-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -57,
+        -32,
+        117,
+        67
+      ],
+      "bounds": {
+        "min": [
+          -0.47265625,
+          -0.484375,
+          0
+        ],
+        "max": [
+          0.5078125,
+          0.49609375,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.15133199605855854,
+            0.2208761495870871
+          ],
+          [
+            0.10725471565315317,
+            0.23850706174924927
+          ],
+          [
+            0.15133199605855854,
+            -0.2208761495870871
+          ],
+          [
+            -0.10725471565315317,
+            -0.23850706174924927
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1761
+    },
+    {
+      "id": "prop-chest-open-east",
+      "rasterScale": 0.75,
+      "frame": [
+        -80.86669303797468,
+        -88.95411392405063,
+        149,
+        123
+      ],
+      "bounds": {
+        "min": [
+          -0.17326880191851263,
+          -0.24003662727452532,
+          0
+        ],
+        "max": [
+          0.17326880191851263,
+          0.24003662727452532,
+          0.4866166609965635
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-open-east-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v4-directions/source/open-east.png",
+      "decoration": {
+        "source": "prop-chest-open-east",
+        "label": "Coffre ouvert",
+        "footprint": [
+          [
+            -0.15526880191851264,
+            0.21083397201344936
+          ],
+          [
+            0.09701499456091774,
+            0.22203662727452533
+          ],
+          [
+            0.15526880191851264,
+            -0.21083397201344936
+          ],
+          [
+            -0.09701499456091774,
+            -0.22203662727452533
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "open",
+        "facing": "east"
+      },
+      "adaptation": {
+        "sourceScale": 0.11471518987341772,
+        "sourceCrop": {
+          "left": 53,
+          "top": 61,
+          "width": 1264,
+          "height": 1035
+        },
+        "sourceAnchor": [
+          740.5,
+          819
+        ],
+        "sourceFoot": [
+          [
+            332,
+            850
+          ],
+          [
+            601,
+            997
+          ],
+          [
+            1149,
+            788
+          ],
+          [
+            880,
+            641
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 22333
+    },
+    {
+      "id": "prop-chest-open-east-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -56,
+        -30,
+        115,
+        64
+      ],
+      "bounds": {
+        "min": [
+          -0.453125,
+          -0.46484375,
+          0
+        ],
+        "max": [
+          0.49609375,
+          0.484375,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.15526880191851264,
+            0.21083397201344936
+          ],
+          [
+            0.09701499456091774,
+            0.22203662727452533
+          ],
+          [
+            0.15526880191851264,
+            -0.21083397201344936
+          ],
+          [
+            -0.09701499456091774,
+            -0.22203662727452533
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1753
+    },
+    {
+      "id": "prop-chest-north",
+      "rasterScale": 0.75,
+      "frame": [
+        -90.7911111111111,
+        -93.71555555555555,
+        172,
+        138
+      ],
+      "bounds": {
+        "min": [
+          -0.2442847222222222,
+          -0.1791458333333333,
+          0
+        ],
+        "max": [
+          0.2442847222222222,
+          0.1791458333333333,
+          0.414372014820821
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-north-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v4-directions/source/closed-north.png",
+      "decoration": {
+        "source": "prop-chest-north",
+        "label": "Coffre verrouillé",
+        "footprint": [
+          [
+            -0.2117013888888889,
+            0.16114583333333332
+          ],
+          [
+            0.2262847222222222,
+            0.13149305555555554
+          ],
+          [
+            0.2117013888888889,
+            -0.16114583333333332
+          ],
+          [
+            -0.2262847222222222,
+            -0.13149305555555554
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "closed",
+        "facing": "north"
+      },
+      "adaptation": {
+        "sourceScale": 0.12444444444444444,
+        "sourceCrop": {
+          "left": 0,
+          "top": 23,
+          "width": 1350,
+          "height": 1075
+        },
+        "sourceAnchor": [
+          713.5,
+          760
+        ],
+        "sourceFoot": [
+          [
+            330,
+            734
+          ],
+          [
+            811,
+            944
+          ],
+          [
+            1097,
+            786
+          ],
+          [
+            616,
+            576
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 18344
+    },
+    {
+      "id": "prop-chest-north-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -57,
+        -32,
+        117,
+        68
+      ],
+      "bounds": {
+        "min": [
+          -0.47265625,
+          -0.484375,
+          0
+        ],
+        "max": [
+          0.515625,
+          0.50390625,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.2117013888888889,
+            0.16114583333333332
+          ],
+          [
+            0.2262847222222222,
+            0.13149305555555554
+          ],
+          [
+            0.2117013888888889,
+            -0.16114583333333332
+          ],
+          [
+            -0.2262847222222222,
+            -0.13149305555555554
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1886
+    },
+    {
+      "id": "prop-chest-open-north",
+      "rasterScale": 0.75,
+      "frame": [
+        -78.02965779467681,
+        -91.00342205323193,
+        153,
+        131
+      ],
+      "bounds": {
+        "min": [
+          -0.2503698906844106,
+          -0.1702576045627376,
+          0
+        ],
+        "max": [
+          0.2503698906844106,
+          0.1702576045627376,
+          0.45354318604616245
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-open-north-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v4-directions/source/open-north.png",
+      "decoration": {
+        "source": "prop-chest-open-north",
+        "label": "Coffre ouvert",
+        "footprint": [
+          [
+            -0.2204194391634981,
+            0.15225760456273763
+          ],
+          [
+            0.23236989068441063,
+            0.131454966730038
+          ],
+          [
+            0.2204194391634981,
+            -0.15225760456273763
+          ],
+          [
+            -0.23236989068441063,
+            -0.131454966730038
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "open",
+        "facing": "north"
+      },
+      "adaptation": {
+        "sourceScale": 0.11330798479087452,
+        "sourceCrop": {
+          "left": 41,
+          "top": 0,
+          "width": 1315,
+          "height": 1122
+        },
+        "sourceAnchor": [
+          712,
+          785.5
+        ],
+        "sourceFoot": [
+          [
+            291,
+            747
+          ],
+          [
+            826,
+            991
+          ],
+          [
+            1133,
+            824
+          ],
+          [
+            598,
+            580
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 20305
+    },
+    {
+      "id": "prop-chest-open-north-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -57,
+        -33,
+        117,
+        70
+      ],
+      "bounds": {
+        "min": [
+          -0.48046875,
+          -0.4921875,
+          0
+        ],
+        "max": [
+          0.5234375,
+          0.51171875,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.2204194391634981,
+            0.15225760456273763
+          ],
+          [
+            0.23236989068441063,
+            0.131454966730038
+          ],
+          [
+            0.2204194391634981,
+            -0.15225760456273763
+          ],
+          [
+            -0.23236989068441063,
+            -0.131454966730038
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1845
+    },
+    {
+      "id": "prop-chest-west",
+      "rasterScale": 0.75,
+      "frame": [
+        -88.19940696812453,
+        -84.69236471460341,
+        170,
+        124
+      ],
+      "bounds": {
+        "min": [
+          -0.17494206356560413,
+          -0.24319864251297257,
+          0
+        ],
+        "max": [
+          0.17494206356560413,
+          0.24319864251297257,
+          0.4356457908686493
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-west-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v4-directions/source/closed-west.png",
+      "decoration": {
+        "source": "prop-chest-west",
+        "label": "Coffre verrouillé",
+        "footprint": [
+          [
+            -0.15694206356560414,
+            0.21654640011119347
+          ],
+          [
+            0.10166384822090438,
+            0.22519864251297259
+          ],
+          [
+            0.15694206356560414,
+            -0.21654640011119347
+          ],
+          [
+            -0.10166384822090438,
+            -0.22519864251297259
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "closed",
+        "facing": "west"
+      },
+      "adaptation": {
+        "sourceScale": 0.12305411415863603,
+        "sourceCrop": {
+          "left": 21,
+          "top": 103,
+          "width": 1349,
+          "height": 979
+        },
+        "sourceAnchor": [
+          721.5,
+          775
+        ],
+        "sourceFoot": [
+          [
+            333,
+            806
+          ],
+          [
+            593,
+            945
+          ],
+          [
+            1110,
+            744
+          ],
+          [
+            850,
+            605
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 18865
+    },
+    {
+      "id": "prop-chest-west-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -57,
+        -30,
+        117,
+        64
+      ],
+      "bounds": {
+        "min": [
+          -0.45703125,
+          -0.46875,
+          0
+        ],
+        "max": [
+          0.5,
+          0.48828125,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.15694206356560414,
+            0.21654640011119347
+          ],
+          [
+            0.10166384822090438,
+            0.22519864251297259
+          ],
+          [
+            0.15694206356560414,
+            -0.21654640011119347
+          ],
+          [
+            -0.10166384822090438,
+            -0.22519864251297259
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1671
+    },
+    {
+      "id": "prop-chest-open-west",
+      "rasterScale": 0.75,
+      "frame": [
+        -82.1448,
+        -83.67840000000001,
+        146,
+        124
+      ],
+      "bounds": {
+        "min": [
+          -0.165546875,
+          -0.245865625,
+          0
+        ],
+        "max": [
+          0.165546875,
+          0.245865625,
+          0.42826266290385395
+        ]
+      },
+      "groundEffects": [
+        "prop-chest-open-west-shadow"
+      ],
+      "requestedSource": "docs/reference/treasure-chest-review/v4-directions/source/open-west.png",
+      "decoration": {
+        "source": "prop-chest-open-west",
+        "label": "Coffre ouvert",
+        "footprint": [
+          [
+            -0.14754687500000002,
+            0.223871875
+          ],
+          [
+            0.111159375,
+            0.22786562500000002
+          ],
+          [
+            0.14754687500000002,
+            -0.223871875
+          ],
+          [
+            -0.111159375,
+            -0.22786562500000002
+          ]
+        ],
+        "gameBodyWidth": 72,
+        "chest_state": "open",
+        "facing": "west"
+      },
+      "adaptation": {
+        "sourceScale": 0.1136,
+        "sourceCrop": {
+          "left": 49,
+          "top": 45,
+          "width": 1250,
+          "height": 1053
+        },
+        "sourceAnchor": [
+          754.5,
+          764
+        ],
+        "sourceFoot": [
+          [
+            336,
+            807
+          ],
+          [
+            623,
+            955
+          ],
+          [
+            1173,
+            721
+          ],
+          [
+            886,
+            573
+          ]
+        ],
+        "policy": "One uniform source scale; preserve native alpha, no rotation, mirroring or repainting",
+        "support": "Calibrated source-space contact proxy inverted through the common 2:1 ground projection"
+      },
+      "bytes": 19047
+    },
+    {
+      "id": "prop-chest-open-west-shadow",
+      "rasterScale": 0.5,
+      "frame": [
+        -57,
+        -31,
+        117,
+        66
+      ],
+      "bounds": {
+        "min": [
+          -0.46484375,
+          -0.4765625,
+          0
+        ],
+        "max": [
+          0.5078125,
+          0.49609375,
+          0
+        ]
+      },
+      "groundEffect": true,
+      "groundBlend": "mix",
+      "adaptation": {
+        "footprint": [
+          [
+            -0.14754687500000002,
+            0.223871875
+          ],
+          [
+            0.111159375,
+            0.22786562500000002
+          ],
+          [
+            0.14754687500000002,
+            -0.223871875
+          ],
+          [
+            -0.111159375,
+            -0.22786562500000002
+          ]
+        ],
+        "castWorld": [
+          0.04125,
+          0.018750000000000003
+        ],
+        "contactSoftness": 0.6000000000000001,
+        "castSoftness": 1.7999999999999998,
+        "kind": "short static ambient contact; not a dynamic light simulation"
+      },
+      "bytes": 1829
+    }
+  ],
+  "notes": [
+    "Original closed south art preserved. New directions and open lock correction requested; appearance subject to feedback. Original chevron retained by explicit user clarification.",
+    "Body72px at .75, reduced25% from96. Native alpha and source proportions preserved.",
+    "Short static ambient cast/contact scaled with the chest. Shared floor receiver mask. No runtime light.",
+    "Support is a placement proxy, not reconstructed physical geometry."
+  ]
+}

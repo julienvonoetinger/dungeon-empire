@@ -112,8 +112,8 @@ async function paint(id, geometry, output = OUT) {
   return {id,png:result.png,frame,report:result.report};
 }
 
-async function pack(items,density,assets = ASSETS, writeResources = true) {
-  const factor=density/PX,gutter=4,width=density===256?1024:512;
+async function pack(items,density,assets = ASSETS, writeResources = true, pageWidth = null) {
+  const factor=density/PX,gutter=4,width=pageWidth??(density===256?1024:512);
   const orders=[
     [...items].sort((a,b)=>b.frame[3]-a.frame[3]),
     [...items].sort((a,b)=>b.frame[2]*b.frame[3]-a.frame[2]*a.frame[3]),

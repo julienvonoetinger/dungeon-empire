@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-25",
+  "userReply": "oui c'est beaucoup mieuux",
+  "selected": {
+    "id": "ritual-chest-closed",
+    "file": "docs/reference/treasure-chest-review/v2/source/chest-ritual-v1.png",
+    "reviewedGameBodyWidth": 96,
+    "cameraZoom": 0.75
+  },
+  "scope": "Shown ritual chest appearance accepted: plum wood, slate/charcoal claw-like fittings, short horn tips and violet seal. Preserve original artwork and native alpha; do not regenerate during integration.",
+  "integrationStatus": "Pending preparation and integration. Support geometry, contact anchor, ordering and ground shadow still require preparation. This step records appearance only.",
+  "supersedes": "Pending artistic selection in generation.json, review.json and earlier AGENTS entry. Those pre-approval snapshots remain unchanged.",
+  "reviewedFiles": {
+    "docs/reference/treasure-chest-review/v2/source/chest-ritual-v1.png": "43a91744225be6f46592aa7d81fd053fca9d1d1e6bee64d0fda5fc089b6d9418",
+    "docs/reference/treasure-chest-review/v2/mobile-comparison.png": "02125f31da64c000437ee1999df232dd70128225383ca2cc3c7bcb6119453cd2",
+    "docs/reference/treasure-chest-review/v2/chest-ritual-v1-scale-preview.png": "8325d471e28fd37b6e02bce1e8b61749d030b6b80199c80fbda12ef6515dd8dc",
+    "docs/reference/treasure-chest-review/v2/generation.json": "cf0aedc8dbb3c65292ea848114705331e01821004e2346d45ea3ac9588d8e219",
+    "docs/reference/treasure-chest-review/v2/review.json": "774d576c6bef372ec8a5b87a7d2e93375333b39bf762fbf894f2d5bc0e1b6a66",
+    "docs/reference/treasure-chest-review/v2/prepare-review.cjs": "7d31ee2a7444c9d4924845ee84b5290715da8143270bc1b32db9d0ec4dcfccb6"
+  }
+}

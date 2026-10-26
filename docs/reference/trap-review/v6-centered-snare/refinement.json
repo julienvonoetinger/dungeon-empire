@@ -1,0 +1,12 @@
+{
+  "tool": "Built-in ImageGen",
+  "previousAttempt": {
+    "source": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-2ee05909-d1cc-4bd4-911b-e5a9e55b9f18.png",
+    "assessment": "Relocation too slight, base remains too far forward. Not selected."
+  },
+  "references": [
+    "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-2ee05909-d1cc-4bd4-911b-e5a9e55b9f18.png",
+    "target-insert-guide.png"
+  ],
+  "prompt": "Precise-object-edit. The first image is the edit target: three states of an isometric bear-jaw trap. The second is the REQUIRED layout guide: gold diamonds show the new mounting insert locations, gold crosses the pedal/ground centers. DO NOT render any guide strokes or crosses.\n\nThe last attempt barely moved the trap. This time move the ENTIRE DARK DIAMOND INSERT plus every mechanical part UPWARD on each blue floor patch by about 50 pixels, leaving the blue floor patch outline stationary. Repaint only the paving immediately around the moved insert. The dark insert MUST match the gold diamond's placement in the second image: its back corner near y278, side corners near y378, front corner near y478 in the first panel. Currently its front corner is around y535, which is wrong and too far down. Move the pedal from y420 to about y370 and the front spring from y465 to about y415. Make this substantial relocation clearly visible. Keep the trap the same size.\n\nApply the SAME ground placement to all three panels. Open jaws and pedal on left; closed jaws violet active in middle; closed jaws unlit on right. The mount stays coplanar/flush with paving, no pit walls and no raised slab. Keep all existing mechanical shapes, blue-stone dungeon art style, scale, view direction, outer pavement shape and transparent background. No labels. All three floor patches must remain in their current canvas positions. Do not shrink the trap, do not change the camera, do not move only its top."
+}

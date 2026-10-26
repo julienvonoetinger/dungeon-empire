@@ -1,0 +1,2868 @@
+[
+	{
+		"controls": [
+			{
+				"minimum": "(118.0, 358.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (708.0, 0.0), S: (136.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 52.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@4",
+				"rect": "[P: (714.0, 6.0), S: (124.0, 52.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@9",
+				"rect": "[P: (714.0, 62.0), S: (124.0, 60.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@15",
+				"rect": "[P: (714.0, 126.0), S: (124.0, 61.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@21",
+				"rect": "[P: (714.0, 191.0), S: (124.0, 61.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@27",
+				"rect": "[P: (714.0, 256.0), S: (124.0, 48.0)]",
+				"text": "Catalogue",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@30",
+				"rect": "[P: (714.0, 336.0), S: (60.0, 48.0)]",
+				"text": "↶",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@31",
+				"rect": "[P: (778.0, 336.0), S: (60.0, 48.0)]",
+				"text": "Voir",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "tools",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1306.948, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 214.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (788.0, 0.0), S: (56.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (792.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (792.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (792.0, 336.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "observe",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1454.626, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(228.0, 132.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38",
+				"rect": "[P: (600.0, 0.0), S: (244.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HBoxContainer@40/@Button@42",
+				"rect": "[P: (784.0, 12.0), S: (48.0, 48.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(59.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@44",
+				"rect": "[P: (612.0, 66.0), S: (67.0, 48.0)]",
+				"text": "Terrain",
+				"type": "Button"
+			},
+			{
+				"minimum": "(69.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@45",
+				"rect": "[P: (683.0, 66.0), S: (77.0, 48.0)]",
+				"text": "Défenses",
+				"type": "Button"
+			},
+			{
+				"minimum": "(60.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@46",
+				"rect": "[P: (764.0, 66.0), S: (68.0, 48.0)]",
+				"text": "Trésors",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@69",
+				"rect": "[P: (612.0, 120.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@75",
+				"rect": "[P: (720.0, 120.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@81",
+				"rect": "[P: (612.0, 248.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@87",
+				"rect": "[P: (720.0, 248.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@93",
+				"rect": "[P: (612.0, 376.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "catalog",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(240.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (600.0, 0.0), S: (244.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(168.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@128",
+				"rect": "[P: (612.0, 108.0), S: (220.0, 48.0)]",
+				"text": "Transférer l’or",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (612.0, 162.0), S: (220.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "selection",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(248.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (600.0, 0.0), S: (248.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (612.0, 108.0), S: (216.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(169.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@131",
+				"rect": "[P: (612.0, 162.0), S: (169.0, 48.0)]",
+				"text": "Ramasser le butin",
+				"type": "Button"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@132",
+				"rect": "[P: (612.0, 214.0), S: (155.0, 48.0)]",
+				"text": "Absorber · +2 PV",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (612.0, 268.0), S: (48.0, 69.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (780.0, 268.0), S: (48.0, 69.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (612.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (664.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (780.0, 343.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (612.0, 395.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (664.0, 395.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (612.0, 449.0), S: (216.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "transfer-loot",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (600.0, 0.0), S: (244.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(99.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (612.0, 147.0), S: (220.0, 48.0)]",
+				"text": "REPRENDRE",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@157",
+				"rect": "[P: (612.0, 205.0), S: (220.0, 48.0)]",
+				"text": "Lancer le raid",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (612.0, 263.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (612.0, 321.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "menu",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 251.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (788.0, 0.0), S: (56.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (792.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (792.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (792.0, 336.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "raid",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1454.626, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (600.0, 0.0), S: (244.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (612.0, 192.0), S: (220.0, 48.0)]",
+				"text": "RETOUR AU DONJON",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (612.0, 250.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (612.0, 308.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "result-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (600.0, 0.0), S: (244.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(198.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (612.0, 177.0), S: (220.0, 48.0)]",
+				"text": "Confirmer le remplacement",
+				"type": "Button"
+			},
+			{
+				"minimum": "(71.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (612.0, 235.0), S: (220.0, 48.0)]",
+				"text": "Annuler",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "reset",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (600.0, 0.0), S: (244.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (612.0, 192.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (612.0, 250.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "defeat-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (600.0, 0.0), S: (244.0, 390.0385)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (612.0, 102.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (612.0, 160.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "save-blocked-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1107.583, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(118.0, 358.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (604.0, 0.0), S: (136.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 52.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@4",
+				"rect": "[P: (610.0, 6.0), S: (124.0, 52.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@9",
+				"rect": "[P: (610.0, 62.0), S: (124.0, 50.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@15",
+				"rect": "[P: (610.0, 116.0), S: (124.0, 51.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@21",
+				"rect": "[P: (610.0, 171.0), S: (124.0, 51.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@27",
+				"rect": "[P: (610.0, 226.0), S: (124.0, 48.0)]",
+				"text": "Catalogue",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@30",
+				"rect": "[P: (610.0, 306.0), S: (60.0, 48.0)]",
+				"text": "↶",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@31",
+				"rect": "[P: (674.0, 306.0), S: (60.0, 48.0)]",
+				"text": "Voir",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "tools",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1208.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 214.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (684.0, 0.0), S: (56.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (688.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (688.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (688.0, 306.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "observe",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1368.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(228.0, 132.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38",
+				"rect": "[P: (496.0, 0.0), S: (244.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HBoxContainer@40/@Button@42",
+				"rect": "[P: (680.0, 12.0), S: (48.0, 48.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(59.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@44",
+				"rect": "[P: (508.0, 66.0), S: (67.0, 48.0)]",
+				"text": "Terrain",
+				"type": "Button"
+			},
+			{
+				"minimum": "(69.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@45",
+				"rect": "[P: (579.0, 66.0), S: (77.0, 48.0)]",
+				"text": "Défenses",
+				"type": "Button"
+			},
+			{
+				"minimum": "(60.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@46",
+				"rect": "[P: (660.0, 66.0), S: (68.0, 48.0)]",
+				"text": "Trésors",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@69",
+				"rect": "[P: (508.0, 120.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@75",
+				"rect": "[P: (616.0, 120.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@81",
+				"rect": "[P: (508.0, 248.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@87",
+				"rect": "[P: (616.0, 248.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@93",
+				"rect": "[P: (508.0, 376.0), S: (104.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "catalog",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(248.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (496.0, 0.0), S: (248.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (508.0, 108.0), S: (216.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (508.0, 162.0), S: (48.0, 69.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (676.0, 162.0), S: (48.0, 69.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (508.0, 237.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (560.0, 237.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (676.0, 237.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (508.0, 289.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (560.0, 289.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (508.0, 343.0), S: (216.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "selection",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(248.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (496.0, 0.0), S: (248.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (508.0, 108.0), S: (216.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(169.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@131",
+				"rect": "[P: (508.0, 162.0), S: (169.0, 48.0)]",
+				"text": "Ramasser le butin",
+				"type": "Button"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@132",
+				"rect": "[P: (508.0, 214.0), S: (155.0, 48.0)]",
+				"text": "Absorber · +2 PV",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (508.0, 268.0), S: (48.0, 69.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (676.0, 268.0), S: (48.0, 69.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (508.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (560.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (676.0, 343.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (508.0, 395.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (560.0, 395.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (508.0, 449.0), S: (216.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "transfer-loot",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(246.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (496.0, 0.0), S: (246.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(99.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (508.0, 147.0), S: (214.0, 48.0)]",
+				"text": "REPRENDRE",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@157",
+				"rect": "[P: (508.0, 205.0), S: (214.0, 48.0)]",
+				"text": "Lancer le raid",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (508.0, 263.0), S: (214.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (508.0, 321.0), S: (214.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "menu",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 251.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (684.0, 0.0), S: (56.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (688.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (688.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (688.0, 306.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "raid",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1368.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(246.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (496.0, 0.0), S: (246.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (508.0, 192.0), S: (214.0, 48.0)]",
+				"text": "RETOUR AU DONJON",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (508.0, 250.0), S: (214.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (508.0, 308.0), S: (214.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "result-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (496.0, 0.0), S: (244.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(198.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (508.0, 177.0), S: (220.0, 48.0)]",
+				"text": "Confirmer le remplacement",
+				"type": "Button"
+			},
+			{
+				"minimum": "(71.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (508.0, 235.0), S: (220.0, 48.0)]",
+				"text": "Annuler",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "reset",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (496.0, 0.0), S: (244.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (508.0, 192.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (508.0, 250.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "defeat-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (496.0, 0.0), S: (244.0, 360.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (508.0, 102.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (508.0, 160.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			740,
+			360
+		],
+		"state": "save-blocked-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (992.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(118.0, 358.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (1144.0, 0.0), S: (136.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 52.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@4",
+				"rect": "[P: (1150.0, 6.0), S: (124.0, 52.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@9",
+				"rect": "[P: (1150.0, 62.0), S: (124.0, 170.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@15",
+				"rect": "[P: (1150.0, 236.0), S: (124.0, 171.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@21",
+				"rect": "[P: (1150.0, 411.0), S: (124.0, 171.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@27",
+				"rect": "[P: (1150.0, 586.0), S: (124.0, 48.0)]",
+				"text": "Catalogue",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@30",
+				"rect": "[P: (1150.0, 666.0), S: (60.0, 48.0)]",
+				"text": "↶",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@31",
+				"rect": "[P: (1214.0, 666.0), S: (60.0, 48.0)]",
+				"text": "Voir",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "tools",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1144.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 214.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (1224.0, 0.0), S: (56.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (1228.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (1228.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (1228.0, 666.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "observe",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1224.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(220.0, 132.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HBoxContainer@40/@Button@42",
+				"rect": "[P: (1220.0, 12.0), S: (48.0, 48.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(59.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@44",
+				"rect": "[P: (1048.0, 66.0), S: (67.0, 48.0)]",
+				"text": "Terrain",
+				"type": "Button"
+			},
+			{
+				"minimum": "(69.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@45",
+				"rect": "[P: (1119.0, 66.0), S: (77.0, 48.0)]",
+				"text": "Défenses",
+				"type": "Button"
+			},
+			{
+				"minimum": "(60.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@46",
+				"rect": "[P: (1200.0, 66.0), S: (68.0, 48.0)]",
+				"text": "Trésors",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@69",
+				"rect": "[P: (1048.0, 120.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@75",
+				"rect": "[P: (1160.0, 120.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@81",
+				"rect": "[P: (1048.0, 248.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@87",
+				"rect": "[P: (1160.0, 248.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@93",
+				"rect": "[P: (1048.0, 376.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "catalog",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(240.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (1048.0, 108.0), S: (220.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (1048.0, 162.0), S: (48.0, 69.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (1220.0, 162.0), S: (48.0, 69.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (1048.0, 237.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (1100.0, 237.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (1220.0, 237.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (1048.0, 289.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (1100.0, 289.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (1048.0, 343.0), S: (220.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "selection",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(240.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (1048.0, 108.0), S: (220.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(169.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@131",
+				"rect": "[P: (1048.0, 162.0), S: (169.0, 48.0)]",
+				"text": "Ramasser le butin",
+				"type": "Button"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@132",
+				"rect": "[P: (1048.0, 214.0), S: (155.0, 48.0)]",
+				"text": "Absorber · +2 PV",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (1048.0, 268.0), S: (48.0, 69.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (1220.0, 268.0), S: (48.0, 69.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (1048.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (1100.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (1220.0, 343.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (1048.0, 395.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (1100.0, 395.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (1048.0, 449.0), S: (220.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "transfer-loot",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(99.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (1048.0, 147.0), S: (220.0, 48.0)]",
+				"text": "REPRENDRE",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@157",
+				"rect": "[P: (1048.0, 205.0), S: (220.0, 48.0)]",
+				"text": "Lancer le raid",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (1048.0, 263.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (1048.0, 321.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "menu",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 251.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (1224.0, 0.0), S: (56.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (1228.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (1228.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (1228.0, 666.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "raid",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1224.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (1048.0, 192.0), S: (220.0, 48.0)]",
+				"text": "RETOUR AU DONJON",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (1048.0, 250.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (1048.0, 308.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "result-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(198.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (1048.0, 177.0), S: (220.0, 48.0)]",
+				"text": "Confirmer le remplacement",
+				"type": "Button"
+			},
+			{
+				"minimum": "(71.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (1048.0, 235.0), S: (220.0, 48.0)]",
+				"text": "Annuler",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "reset",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (1048.0, 192.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (1048.0, 250.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "defeat-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (1036.0, 0.0), S: (244.0, 720.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (1048.0, 102.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (1048.0, 160.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "save-blocked-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1036.0, 720.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(118.0, 358.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (254.0, 0.0), S: (136.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 52.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@4",
+				"rect": "[P: (260.0, 6.0), S: (124.0, 52.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@9",
+				"rect": "[P: (260.0, 62.0), S: (124.0, 211.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@15",
+				"rect": "[P: (260.0, 277.0), S: (124.0, 212.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@21",
+				"rect": "[P: (260.0, 493.0), S: (124.0, 212.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@27",
+				"rect": "[P: (260.0, 709.0), S: (124.0, 48.0)]",
+				"text": "Catalogue",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@30",
+				"rect": "[P: (260.0, 789.0), S: (60.0, 48.0)]",
+				"text": "↶",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@31",
+				"rect": "[P: (324.0, 789.0), S: (60.0, 48.0)]",
+				"text": "Voir",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "tools",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (833.6411, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 214.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (334.0, 0.0), S: (56.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (338.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (338.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (338.0, 789.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "observe",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1096.205, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(220.0, 132.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HBoxContainer@40/@Button@42",
+				"rect": "[P: (330.0, 12.0), S: (48.0, 48.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(59.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@44",
+				"rect": "[P: (158.0, 66.0), S: (67.0, 48.0)]",
+				"text": "Terrain",
+				"type": "Button"
+			},
+			{
+				"minimum": "(69.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@45",
+				"rect": "[P: (229.0, 66.0), S: (77.0, 48.0)]",
+				"text": "Défenses",
+				"type": "Button"
+			},
+			{
+				"minimum": "(60.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@46",
+				"rect": "[P: (310.0, 66.0), S: (68.0, 48.0)]",
+				"text": "Trésors",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@69",
+				"rect": "[P: (158.0, 120.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@75",
+				"rect": "[P: (270.0, 120.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@81",
+				"rect": "[P: (158.0, 248.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@87",
+				"rect": "[P: (270.0, 248.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@93",
+				"rect": "[P: (158.0, 376.0), S: (108.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "catalog",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(240.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (158.0, 108.0), S: (220.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (158.0, 162.0), S: (48.0, 69.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (330.0, 162.0), S: (48.0, 69.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (158.0, 237.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (210.0, 237.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (330.0, 237.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (158.0, 289.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (210.0, 289.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (158.0, 343.0), S: (220.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "selection",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(240.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (158.0, 108.0), S: (220.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(169.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@131",
+				"rect": "[P: (158.0, 162.0), S: (169.0, 48.0)]",
+				"text": "Ramasser le butin",
+				"type": "Button"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@132",
+				"rect": "[P: (158.0, 214.0), S: (155.0, 48.0)]",
+				"text": "Absorber · +2 PV",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (158.0, 268.0), S: (48.0, 69.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (330.0, 268.0), S: (48.0, 69.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (158.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (210.0, 343.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (330.0, 343.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (158.0, 395.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (210.0, 395.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (158.0, 449.0), S: (220.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "transfer-loot",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(99.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (158.0, 147.0), S: (220.0, 48.0)]",
+				"text": "REPRENDRE",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@157",
+				"rect": "[P: (158.0, 205.0), S: (220.0, 48.0)]",
+				"text": "Lancer le raid",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (158.0, 263.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (158.0, 321.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "menu",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 251.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (334.0, 0.0), S: (56.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (338.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (338.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (338.0, 789.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "raid",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1096.205, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (158.0, 192.0), S: (220.0, 48.0)]",
+				"text": "RETOUR AU DONJON",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (158.0, 250.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (158.0, 308.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "result-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(198.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (158.0, 177.0), S: (220.0, 48.0)]",
+				"text": "Confirmer le remplacement",
+				"type": "Button"
+			},
+			{
+				"minimum": "(71.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (158.0, 235.0), S: (220.0, 48.0)]",
+				"text": "Annuler",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "reset",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (158.0, 192.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (158.0, 250.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "defeat-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(238.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (146.0, 0.0), S: (244.0, 843.9844)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (158.0, 102.0), S: (220.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (158.0, 160.0), S: (220.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "save-blocked-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (479.1795, 2770.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(118.0, 358.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (184.0, 0.0), S: (136.0, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 52.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@4",
+				"rect": "[P: (190.0, 6.0), S: (124.0, 52.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@9",
+				"rect": "[P: (190.0, 62.0), S: (124.0, 120.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@15",
+				"rect": "[P: (190.0, 186.0), S: (124.0, 120.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 50.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@VBoxContainer@8/@Button@21",
+				"rect": "[P: (190.0, 310.0), S: (124.0, 120.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@Button@27",
+				"rect": "[P: (190.0, 434.0), S: (124.0, 48.0)]",
+				"text": "Catalogue",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@30",
+				"rect": "[P: (190.0, 514.0), S: (60.0, 48.0)]",
+				"text": "↶",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@3/@HBoxContainer@29/@Button@31",
+				"rect": "[P: (254.0, 514.0), S: (60.0, 48.0)]",
+				"text": "Voir",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "tools",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (736.0, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 214.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (264.0, 0.0), S: (56.0, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (268.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (268.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (268.0, 514.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "observe",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1056.0, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(128.0, 184.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38",
+				"rect": "[P: (108.8, 0.0), S: (211.2, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HBoxContainer@40/@Button@42",
+				"rect": "[P: (259.8, 12.0), S: (48.0, 48.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(59.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@44",
+				"rect": "[P: (120.8, 66.0), S: (86.0, 48.0)]",
+				"text": "Terrain",
+				"type": "Button"
+			},
+			{
+				"minimum": "(69.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@45",
+				"rect": "[P: (210.8, 66.0), S: (96.0, 48.0)]",
+				"text": "Défenses",
+				"type": "Button"
+			},
+			{
+				"minimum": "(60.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@HFlowContainer@43/@Button@46",
+				"rect": "[P: (120.8, 118.0), S: (187.0, 48.0)]",
+				"text": "Trésors",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@69",
+				"rect": "[P: (120.8, 172.0), S: (179.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@75",
+				"rect": "[P: (120.8, 300.0), S: (179.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@81",
+				"rect": "[P: (120.8, 428.0), S: (179.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@87",
+				"rect": "[P: (120.8, 556.0), S: (179.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(96.0, 124.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@38/@VBoxContainer@39/@ScrollContainer@49/@GridContainer@50/@Button@93",
+				"rect": "[P: (120.8, 684.0), S: (179.0, 124.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "catalog",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(207.2, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (108.8, 0.0), S: (211.2, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (120.8, 108.0), S: (187.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (120.8, 162.0), S: (48.0, 117.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (259.8, 162.0), S: (48.0, 117.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (120.8, 285.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (172.8, 285.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (120.8, 337.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (172.8, 337.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (224.8, 337.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (120.8, 391.0), S: (187.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "selection",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(207.2, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117",
+				"rect": "[P: (108.8, 0.0), S: (211.2, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@122/@Button@129",
+				"rect": "[P: (120.8, 108.0), S: (187.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(169.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@131",
+				"rect": "[P: (120.8, 162.0), S: (169.0, 48.0)]",
+				"text": "Ramasser le butin",
+				"type": "Button"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@HFlowContainer@130/@Button@132",
+				"rect": "[P: (120.8, 214.0), S: (155.0, 48.0)]",
+				"text": "Absorber · +2 PV",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@135",
+				"rect": "[P: (120.8, 268.0), S: (48.0, 117.0)]",
+				"text": "‹",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HBoxContainer@134/@Button@137",
+				"rect": "[P: (259.8, 268.0), S: (48.0, 117.0)]",
+				"text": "›",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@139",
+				"rect": "[P: (120.8, 391.0), S: (48.0, 48.0)]",
+				"text": "−25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@140",
+				"rect": "[P: (172.8, 391.0), S: (48.0, 48.0)]",
+				"text": "−1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@142",
+				"rect": "[P: (120.8, 443.0), S: (48.0, 48.0)]",
+				"text": "+1",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@143",
+				"rect": "[P: (172.8, 443.0), S: (48.0, 48.0)]",
+				"text": "+25",
+				"type": "Button"
+			},
+			{
+				"minimum": "(56.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@HFlowContainer@138/@Button@144",
+				"rect": "[P: (224.8, 443.0), S: (56.0, 48.0)]",
+				"text": "Tout",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@117/@ScrollContainer@120/@VBoxContainer@121/@VBoxContainer@133/@Button@145",
+				"rect": "[P: (120.8, 497.0), S: (187.0, 48.0)]",
+				"text": "TRANSFÉRER",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "transfer-loot",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(205.2, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (108.8, 0.0), S: (211.2, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(99.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (120.8, 147.0), S: (187.0, 48.0)]",
+				"text": "REPRENDRE",
+				"type": "Button"
+			},
+			{
+				"minimum": "(106.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@157",
+				"rect": "[P: (120.8, 205.0), S: (187.0, 48.0)]",
+				"text": "Lancer le raid",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (120.8, 263.0), S: (187.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (120.8, 321.0), S: (187.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "menu",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(56.0, 251.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2",
+				"rect": "[P: (264.0, 0.0), S: (56.0, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@33",
+				"rect": "[P: (268.0, 6.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@34",
+				"rect": "[P: (268.0, 60.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			},
+			{
+				"minimum": "(48.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@PanelContainer@2/@VBoxContainer@32/@Button@37",
+				"rect": "[P: (268.0, 514.0), S: (48.0, 48.0)]",
+				"text": "",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "raid",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (1056.0, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(205.2, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (108.8, 0.0), S: (211.2, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(155.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (120.8, 214.0), S: (187.0, 48.0)]",
+				"text": "RETOUR AU DONJON",
+				"type": "Button"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (120.8, 272.0), S: (187.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (120.8, 330.0), S: (187.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "result-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(222.0, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (108.8, 0.0), S: (222.0, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(198.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@154",
+				"rect": "[P: (120.8, 177.0), S: (198.0, 48.0)]",
+				"text": "Confirmer le remplacement",
+				"type": "Button"
+			},
+			{
+				"minimum": "(71.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (120.8, 235.0), S: (198.0, 48.0)]",
+				"text": "Annuler",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "reset",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(205.2, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (108.8, 0.0), S: (211.2, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (120.8, 244.0), S: (187.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (120.8, 302.0), S: (187.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "defeat-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	},
+	{
+		"controls": [
+			{
+				"minimum": "(205.2, 24.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147",
+				"rect": "[P: (108.8, 0.0), S: (211.2, 568.0)]",
+				"text": "",
+				"type": "PanelContainer"
+			},
+			{
+				"minimum": "(135.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@155",
+				"rect": "[P: (120.8, 132.0), S: (187.0, 48.0)]",
+				"text": "Nouveau donjon…",
+				"type": "Button"
+			},
+			{
+				"minimum": "(122.0, 48.0)",
+				"path": "/root/DungeonGame/HUD/ForgeHUD/@ColorRect@146/@PanelContainer@147/@ScrollContainer@150/@VBoxContainer@151/@Button@156",
+				"rect": "[P: (120.8, 190.0), S: (187.0, 48.0)]",
+				"text": "Donjon d’essai…",
+				"type": "Button"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "save-blocked-paused",
+		"terrain_rebuilds": 2,
+		"world": "[P: (0.0, 0.0), S: (435.2, 2272.0)]"
+	}
+]

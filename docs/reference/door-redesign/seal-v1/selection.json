@@ -1,0 +1,36 @@
+{
+  "status": "concept-direction-selected; geometry-proposal",
+  "selectedOn": "2026-10-26",
+  "userReply": "C",
+  "title": "C · SCEAU INTERDIT",
+  "appearanceSource": "concept-selected.png",
+  "appearanceSha256": "8832e1daec13502889eec8ef497528452dfb175e7188fb0cc18550393cac1f33",
+  "approvalScope": [
+    "Direction C — Sceau interdit from the three presented concepts."
+  ],
+  "pendingScope": [
+    "Wireframe adaptation, proportions, stone points and seal relief shown in wireframe-board.png.",
+    "Painted sprites, production integration, opening states and runtime ordering."
+  ],
+  "source": {
+    "tool": "image_gen.imagegen",
+    "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-7832dbbe-8426-442f-b3b5-7cfa3044d3c3.png",
+    "prompt": "Use case: stylized-concept. Produce one refined visual design study for an evil dungeon doorway for the mobile 2D isometric game Dungeon Empire. Input image 1 is a reference for the existing blue-slate masonry, floor proportions and fixed orthographic 2:1 isometric camera; the current perfectly round, concentric door arches are the rejected shape. Input image 2 is the approved ritual chest and is a STYLE/material reference only: blue charcoal facets, dark plum wood, heavy clawlike fittings, restrained violet accents. Do not draw the chest.\nLayout: horizontal concept sheet, flat near-black blue background. One large three-quarter ISOMETRIC painted doorway at left (about 65% width), integrated in a short piece of existing low blue dungeon wall on each side, on a few flat diamond floor tiles. Right column shows the exact same design once at small gameplay reading size (~160 pixels wide) and once as a simple untextured grey solid-form sketch at the SAME isometric angle. Leave generous separation. No perspective convergence, no front view, no text besides the supplied short title at top. Walls/floor must have the same isometric camera, wall colors and relative sizes as the game reference; make the door assembly around twice the low wall height, not a giant monument.\nArt: polished hand-painted mobile game asset, broad facets, controlled outlines, strong readable silhouette and 2-3 large sculptural details. Architectural thickness, recess and contact with the floor clearly visible. Door stays CLOSED. There is actual solid masonry around and ABOVE a smaller deeply recessed wooden door. The outer architecture and the smaller door surround are separated by a quiet recessed stone field; avoid a third concentric ring. The carved frame should feel built into the wall. Short inset dark metal fittings and dark plum/charcoal wood, no bright orange oak, gold trim, royal heraldry, pretty castle, lush vegetation, scenic background, heroes or UI. Small violet accents only, preserve blue stone palette. Not photorealistic, not gritty horror, no excessive tiny runes or veins. This is a conceptual proposal, not a production sprite or exact geometry export.\nTitle exact: C · SCEAU INTERDIT\nDirection C: forbidden ritual vault. Replace the circular arch with two leaning angular stone jambs and a sharply faceted, broken-shoulder lintel, forming a compact almost-hexagonal portal. A large dark recessed stone panel separates the outer stone silhouette from the smaller inset wooden leaf. A SINGLE bold violet vertical seal sits across the heavy closed door, held in a thick dark metal clasp with clawlike angled ends inspired by the chest. The seal and a sculpted central lintel notch are the main readable motifs. Deep shadow at the door recess, broad plane changes. No demon face, no little runes carpeting surfaces, no blue glowing sci-fi energy shield, no perfect pointed cathedral arch.",
+    "references": [
+      "docs/reference/isometric-review/painted-v1/captures/WireframeDoorCross-native.png",
+      "docs/reference/treasure-chest-review/v2/source/chest-ritual-v1.png"
+    ]
+  },
+  "geometry": {
+    "generator": "prepare.cjs",
+    "basis": "Existing kit camera, PX=256, wall height=1.88/6, wall thickness=1/6.",
+    "reviewNotes": [
+      "One authored XYZ model rotated into four orientations; no raster mirroring.",
+      "Smooth leaf; no internal plank lines.",
+      "Recessed solid stone field between outer frame and inner surround.",
+      "Small violet faces identify the future seal material only.",
+      "All dimensions are an adaptation proposed by Codex, not recovered from the conceptual image."
+    ]
+  },
+  "preservation": "Existing approved door artwork, source freezes, game assets and user UI work are not export destinations."
+}

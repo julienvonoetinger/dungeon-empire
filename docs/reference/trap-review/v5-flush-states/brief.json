@@ -1,0 +1,24 @@
+{
+  "status": "Appearance correction proposal; not integrated or approved",
+  "tool": "Built-in ImageGen",
+  "request": "Raise Entrave and Néant supports flush to the paving plane, matching Pointes; remove visible pit walls.",
+  "preserve": "Pointes sheet copied byte-for-byte; three states, mechanism design, native alpha and common isometric appearance retained.",
+  "requests": [
+    {
+      "id": "entrave",
+      "prompt": "Use case: precise-object-edit. FIRST image is the edit target: an existing three-state horizontal sprite sheet. SECOND image (spikes) is the authoritative reference for HOW THE TRAP SUPPORT MEETS THE FLOOR. Correct ONLY the floor elevation/integration in all three target panels. The current target looks sunken in a deep stone-lined pit. REMOVE that pit completely: no visible vertical stone courses, no inner vertical walls, no lowered platform, no dark trench around the mechanism. Raise the dark iron/obsidian insert surface so it is EXACTLY FLUSH AND COPLANAR with the tops of the surrounding paving stones, like the second image. The paving should end in a very thin hairline seam touching the flush insert directly. The dark surface is inset into the paving at the same height, not on top of it: no raised tray or outer rim either. Keep the dark blue-black materials; do not introduce a light gray square. Preserve the target's painted dark-fantasy artwork, 2:1 orthographic isometric perspective, three equal-size panels, same framing/canvas, colors, state sequence, shape and component count of the trap, same floor scale and lighting. Preserve native transparent background outside the three floor patches. No labels or text. This is a localized elevation correction, not a redesign. Keep the existing three states LEFT armed / MIDDLE triggered / RIGHT depleted. Entrave: Keep the recognisable two opposing toothed jaws, hinges, spring mechanism and central pedal. In the armed state the pressure pedal should be at or just above the paving level, and the opened jaw mechanisms should sit ON the flush embedded metal insert, not at the bottom of a cavity. Only the jaws and their linkage project above the floor. In both closed states keep the same interlocking closed jaws and the same violet active/off distinction, raising their support to floor level. The entire deep back wall currently visible behind the jaws must disappear. Do not shrink the jaws or replace them with a ring.",
+      "references": [
+        "docs/reference/trap-review/v4-painted-states/source/entrave.png",
+        "docs/reference/trap-review/v4-painted-states/source/pointes.png"
+      ]
+    },
+    {
+      "id": "neant",
+      "prompt": "Use case: precise-object-edit. FIRST image is the edit target: an existing three-state horizontal sprite sheet. SECOND image (spikes) is the authoritative reference for HOW THE TRAP SUPPORT MEETS THE FLOOR. Correct ONLY the floor elevation/integration in all three target panels. The current target looks sunken in a deep stone-lined pit. REMOVE that pit completely: no visible vertical stone courses, no inner vertical walls, no lowered platform, no dark trench around the mechanism. Raise the dark iron/obsidian insert surface so it is EXACTLY FLUSH AND COPLANAR with the tops of the surrounding paving stones, like the second image. The paving should end in a very thin hairline seam touching the flush insert directly. The dark surface is inset into the paving at the same height, not on top of it: no raised tray or outer rim either. Keep the dark blue-black materials; do not introduce a light gray square. Preserve the target's painted dark-fantasy artwork, 2:1 orthographic isometric perspective, three equal-size panels, same framing/canvas, colors, state sequence, shape and component count of the trap, same floor scale and lighting. Preserve native transparent background outside the three floor patches. No labels or text. This is a localized elevation correction, not a redesign. Keep the existing three states LEFT armed / MIDDLE triggered / RIGHT depleted. Néant: Keep exactly the same four claw brackets and three versions of the circular obsidian seal. All three circular seal surfaces and their thin surrounding metal mounting must sit in the SAME horizontal plane as the surrounding paving, with a seamless small joint. No view of interior stone walls or black outer pit around the seal. Left faint charged sigil / middle bright violet inward vortex / right unlit closed obsidian sigil remain. The central magical swirl may suggest magical depth, but the supporting seal and its outer edge are physically FLUSH with the floor. Avoid a funnel shape in the middle state: its luminous elliptical surface is planar, not lowered.",
+      "references": [
+        "docs/reference/trap-review/v4-painted-states/source/neant.png",
+        "docs/reference/trap-review/v4-painted-states/source/pointes.png"
+      ]
+    }
+  ]
+}

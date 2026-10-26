@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-25",
+  "shader": "shaders/heart_vortex.gdshader",
+  "shaderHash": "bfb8642d275ad40a6eb2fb3f464395f8b5fcd9fee09c0f779048af6ae114d480",
+  "kind": "Same fragment body executed in isolated headless WebGL2; not a Godot GPU capture",
+  "renderer": "WebKit WebGL",
+  "statistics": [
+    {
+      "phase": 0,
+      "changedPixels": 0,
+      "outsideEffect": 0,
+      "alphaChanged": 0,
+      "maxRGBDifference": 0
+    },
+    {
+      "phase": 0.125,
+      "changedPixels": 10123,
+      "outsideEffect": 0,
+      "alphaChanged": 0,
+      "maxRGBDifference": 253
+    },
+    {
+      "phase": 0.25,
+      "changedPixels": 10349,
+      "outsideEffect": 0,
+      "alphaChanged": 0,
+      "maxRGBDifference": 253
+    },
+    {
+      "phase": 0.5,
+      "changedPixels": 5288,
+      "outsideEffect": 0,
+      "alphaChanged": 0,
+      "maxRGBDifference": 254
+    },
+    {
+      "phase": 0.75,
+      "changedPixels": 10163,
+      "outsideEffect": 0,
+      "alphaChanged": 0,
+      "maxRGBDifference": 254
+    },
+    {
+      "phase": 1,
+      "changedPixels": 0,
+      "outsideEffect": 0,
+      "alphaChanged": 0,
+      "maxRGBDifference": 0
+    }
+  ],
+  "unchangedAtlasPages": true,
+  "unchangedPreparedRegions": 136,
+  "textureMemoryDelta": 0,
+  "extraSprites": 0,
+  "cycleSeconds": 12,
+  "gif": {
+    "frames": 144,
+    "width": 400,
+    "height": 310
+  },
+  "limits": [
+    "Godot state inventory is headless; WebGL preview does not validate Godot GPU lights/compositing.",
+    "No automated test suite, native UI control, phone profile or full raid run."
+  ]
+}

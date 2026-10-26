@@ -1,0 +1,17 @@
+{
+  "method": "Uniform downsample only, native alpha preserved. Existing outcrop/rubble pixels are reused unchanged from v4.",
+  "assets": [
+    {
+      "name": "quiet",
+      "width": 256,
+      "height": 256,
+      "bytes": 96739
+    },
+    {
+      "name": "strata",
+      "width": 384,
+      "height": 192,
+      "bytes": 121263
+    }
+  ]
+}

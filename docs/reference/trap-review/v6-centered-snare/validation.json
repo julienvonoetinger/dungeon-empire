@@ -1,0 +1,37 @@
+{
+  "tool": "Built-in ImageGen",
+  "status": "Appearance proposal; not integrated into Godot",
+  "nativeAlphaPreserved": true,
+  "originalByteIdentical": true,
+  "productionUnchanged": true,
+  "framing": "Alpha >32 measures bounds only, with 24 source pixels padding; uniform resize, no source repaint or warp.",
+  "registration": "Visual ground-footprint centering; not calibrated XYZ or native sprite anchors.",
+  "before": {
+    "crop": {
+      "left": 0,
+      "top": 166,
+      "width": 1945,
+      "height": 477
+    },
+    "sourceSize": [
+      1945,
+      809
+    ],
+    "height": 265,
+    "sha256": "1e4555e14868d053d645649735ac2fad3055de059d9b8f7d1e7b683ed63fd1d9"
+  },
+  "after": {
+    "crop": {
+      "left": 0,
+      "top": 145,
+      "width": 1946,
+      "height": 525
+    },
+    "sourceSize": [
+      1946,
+      808
+    ],
+    "height": 291,
+    "sha256": "6b9f662a55fdfaa96da7e2ad3560f151124ba36e5343f114762f03aaef51898a"
+  }
+}

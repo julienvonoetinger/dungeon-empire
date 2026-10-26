@@ -1,0 +1,16 @@
+const fs = require('node:fs'), path = require('node:path'), crypto = require('node:crypto');
+const ROOT=path.resolve(__dirname,'../../../..');
+const read=p=>JSON.parse(fs.readFileSync(path.join(ROOT,p),'utf8').replace(/^\uFEFF/,''));
+const cat=read('assets/dungeon/isometric-kit/catalog.json');
+const scene=read('docs/reference/treasure-chest-review/v4-directions/scene-inventory.json').captures.find(x=>x.capture==='corners-open');
+const keys=new Set(scene.sprites.map(s=>s.id));
+for(const id of ['prop-chest','prop-chest-open','prop-crystals','prop-candles','prop-idol','floor-b1','door-north-arch','door-north-leaf'])keys.add(id);
+const regions=Object.fromEntries([...keys].map(id=>[id,cat.atlas.regions[id]]));
+const data={regions,sprites:scene.sprites.map(s=>({id:s.id,p:s.position,size:s.size,z:s.z})).sort((a,b)=>a.z-b.z)};
+fs.writeFileSync(path.join(__dirname,'assets/data.js'),'window.REVIEW_DATA = '+JSON.stringify(data)+';\n');
+fs.copyFileSync(path.join(ROOT,'assets/dungeon/isometric-kit/atlas-256.png'),path.join(__dirname,'assets/architecture.png'));
+fs.copyFileSync(path.join(ROOT,'assets/dungeon/isometric-kit/chests/atlas-256.png'),path.join(__dirname,'assets/chests.png'));
+const protectedPaths=['project.godot','scripts/game/game_hud.gd','scripts/game/game_session.gd','assets/dungeon/isometric-kit/catalog.json','assets/dungeon/isometric-kit/atlas-256.png','assets/dungeon/isometric-kit/chests/atlas-256.png'];
+const manifest=Object.fromEntries(protectedPaths.map(p=>[p,crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,p))).digest('hex')]));
+fs.writeFileSync(path.join(__dirname,'baseline.json'),JSON.stringify(manifest,null,2)+'\n');
+console.log(JSON.stringify({sprites:data.sprites.length,regions:keys.size,productionWrites:0}));

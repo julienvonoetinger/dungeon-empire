@@ -1,5 +1,747 @@
 # Repository instructions
 
+## Accepted painted traps and three runtime states integrated — 2026-10-26
+
+- User authorizes integration after v6 centered Entrave. selection.json in
+  trap-review/v7-integrated-paint freezes v5 Pointes/Néant and v6 Entrave sources.
+  isometric_painted_traps.cjs replaces the old procedural preparation in export.
+  Uniform fit, common cell-centre anchors, exact native flush aperture; source
+  paintings immutable. Raised parts use separate source silhouette/support
+  proxies; this is not reconstructed 3D geometry. No new ImageGen call.
+- Receiver uses floor-b1, whose crossing stones match all current B variants.
+  Legacy floor.png had incompatible joints. Outside paving271836 pixels checked
+  identical; two earlier atlas pages and136 entries unchanged. Trap page now
+  512x1024,15regions,200743PNG bytes/2MiB RGBA; total kit11MiB (+1MiB).
+- RaidDirector emits trap_activated only after successful consumption/effects.
+  Ready/triggered/spent swaps preserve sprite frames and support bounds. Short
+  presentation clock survives lethal raid end, freezes in pause/results/guards,
+  resumes afterward; repair/removal/new raid/reset clear stale effects. No
+  economy, charge count, damage, save format, camera or HUD glyph/layout change.
+- Independent review identified lethal-hit skip and inherited asset watcher
+  disabling the new clock. Both reproduced red then green; view keeps processing
+  while effects exist, including after rebuild. Native final capture exit0,
+  empty stderr,11 recorded scenarios plus removal and actor overlap views.
+  Sources/atlas checks and native board inspected. Evidence under v7; earlier
+  captures retained. No phone profile/full campaign audit/player-save access,
+  commit or push. Native art is an integration adaptation of selected paint.
+
+## Entrave mechanism recentered on its paving — 2026-10-26
+
+- User reports Entrave is too far forward in its cell. Isolated v6 review edits
+  only this painted three-state sheet via built-in ImageGen. First relocation
+  was too slight; second moves the mechanism and flush dark insert toward the
+  cell centre. Same support placement across open/closed/exhausted views.
+- Current comparison: docs/reference/trap-review/v6-centered-snare/comparison.png.
+  Original native-alpha sources, both prompts and centering diagrams retained;
+  prepare-review.cjs makes labeled before/after and reduced views, both inspected.
+  Geometric guide is approximate illustration registration, not calibrated XYZ.
+  Generated paving was locally repainted; this is not a pixel-exact translation.
+- Final source matches the generated original; six production baseline hashes
+  unchanged. Pointes/Néant and runtime untouched. Visual proposal only, not
+  integrated or artistically approved. No game tests, commit or push.
+
+## Entrave and Néant supports brought flush with paving — 2026-10-26
+
+- User requires Entrave and Néant to sit at the same floor level as Pointes,
+  rejecting v4's sunken appearance. This supersedes the visible pit-wall/deep
+  recess interpretation for these painted proposals; preserve historical guides.
+- v5-flush-states edits only those two sheets through built-in ImageGen using
+  Pointes as the floor-contact reference. Three states retained; visible pit
+  walls removed, dark insert/obsidian supports meet paving with a thin seam.
+  Pointes source is copied byte-identically from v4. Originals and prompts saved.
+- Current review: docs/reference/trap-review/v5-flush-states/comparison.png and
+  index.html; generator prepare_painted_trap_states.cjs --flush. Full comparison
+  inspected; source hashes/native alpha verified and production baseline unchanged.
+  Appearance proposal only; no calibrated XYZ change or runtime integration,
+  gameplay/save change, tests, commit or push. Triggered remains a proposed state.
+
+## Trap paint rejected; full state sheets proposed — 2026-10-26
+
+- User rejects v3 trap images and gray backing, says Entrave does not read as a
+  trap, and requests seeing the different states. Keep the approved inset floor
+  concept; do not treat the earlier "Ok" as continuing approval of v3's paint.
+- New isolated appearance review: trap-review/v4-painted-states/index.html and
+  comparison.png. Three built-in ImageGen sheets, each with armed/triggered/spent
+  views. Dark recessed housings, polished steel facets, an articulated two-jaw
+  Entrave with pedal/springs, and an inset obsidian seal/vortex for Néant.
+- Armed spikes show retracted tips, triggered spikes extend, spent sockets are
+  dark. Entrave opens when armed and closes when triggered; depleted stays
+  latched with energy off. Néant is charged/open/extinguished. Triggered is a
+  newly proposed transient visual state, not implemented animation or a rule change.
+- Original generated PNGs and exact prompts/references retained in source/ and
+  brief.json. Editorial framing only (alpha>32 bounding measurement plus24px
+  padding), native alpha unchanged within crop, uniform resize; no raster warp,
+  mirroring or repaint by code. Generated perspectives follow the guides visually
+  but are not calibrated native XYZ/registration or approved production artwork.
+- Inspected full sheets, labeled comparison and reduced views. Source copies
+  match originals; production baseline hashes unchanged. These proposals are not
+  integrated: existing v3 assets/runtime remain until the visual direction is
+  settled. No Godot/gameplay/save change, automated tests, commit or push.
+
+## Approved socket wireframe; three inset traps integrated — 2026-10-26
+
+- User's latest "Ok" approves v2-inset-floor geometry, frozen by selection.json.
+  This supersedes its old proposal status; it does not approve new painted art.
+  Pointes, Entrave and Néant now replace the full floor tile with the same
+  periodic paving cut around the .22.. .78 opening; insert remains at z=-.025.
+- New geometry-native generator isometric_inset_traps.cjs uses the shared camera,
+  original floor pixels and a built-in ImageGen iron material, retained with
+  prompt/provenance under trap-review/v3-integrated/source. No raised stone base.
+  Nine spikes / toothed jaws are separate physically ordered solids; the violet
+  seal is recessed. Charge zero retracts the solids or extinguishes the seal.
+- Game view swaps matching ready/spent floor textures without a scene rebuild;
+  existing charge rings remain. No HUD redesign, economy, effects, charge counts,
+  save schema, hero behavior or camera change. Old provisional triangles removed.
+- Third atlas512x512:8 regions,106068PNG bytes/1MiB RGBA; total144 regions/10MiB.
+  Two earlier PNG pages and136 region entries unchanged.174960 surrounding floor
+  pixels checked identical. Existing door junction split/order preserved.
+- Evidence: trap-review/v3-integrated/index.html and review-board.png (native GPU
+  details at2x and game view at.75), export-validation.json/native-validation.json.
+  Import exit0/empty stderr; isolated native capture exit0/empty stderr,8 states
+  including missing-charge defaults, spent rebuild, repair, partial charge,
+  actor and removal. Original red check failed on missing prepared trap floors.
+- Focused independent review found no concrete actionable bug. Exact actor
+  occlusion inspected visually, no pixel oracle/full raid/device performance
+  claim. No player-save access, commit or push. Prior proposals remain history.
+
+## Trap floor socket wireframe proposed — 2026-10-26
+
+- User rejects the traps looking placed on top of the floor; requests a new
+  floor tile with a central square into which the trap texture fits. V1's raised
+  bases are superseded as an integration direction, not approved trap artwork.
+- Isolated review: docs/reference/trap-review/v2-inset-floor/wireframe-board.png.
+  One logical1x1 floor module, central .22.. .78 square cutout, chamfer to
+  .235.. .765 at z=-.02, cavity bottom-.09, receiving insert-.025. Surrounding
+  periodic stones remain at z0. No extra raised perimeter. Dimensions proposed.
+- prepare_inset_trap_wireframe.cjs renders the actual shared XYZ projection with
+  depth-tested cavity faces, empty/idle/raised-pointes diagrams and a section.
+  Checks: no floor inside the opening; frame never above ground; square opening;
+  exact2:1 ground projection; insert below ground. Nine spikes rooted in sockets.
+- This is a geometric design review, not production integration or approved
+  art. Same receiver is intended for Pointes/Entrave/Néant. No ImageGen call,
+  raster art edit, active asset/script change, Godot run, save access, tests,
+  commit or push. Old proposals are retained.
+
+## First three trap appearances proposed — 2026-10-26
+
+- User asks to make the traps. Scope question (three existing traps or Pointes
+  first) was optional and unanswered; defaulted to the existing Pointes/Entrave/
+  Néant trio, as an appearance review. No selection or production integration.
+- Current board: docs/reference/trap-review/v1/revised/comparison.png; index.html
+  includes source and prompt links. Six built-in ImageGen sources retained,
+  native alpha, uniform resizing only, proposed96px width on existing paving.
+- Shared blue slate/iron/violet; spike insert, open jaw mechanism, floor-plane
+  banishment portal. Original proposals copied the UI spike icon's steep camera.
+  Code-native XYZ guides use the exact shared2:1 camera; revised paintings use
+  those guides but remain approximate, not validated exact projected geometry.
+  Pointes source has eight spikes and a blank front pad despite the requested
+  nine-spike guide; retain as an unselected design, don't claim exact matching.
+- prepare_trap_guides.cjs uses a depth buffer; prepare_trap_review.cjs produces
+  offline boards, not GPU captures. Guides themselves are proposals, not frozen
+  approved geometry. Ready/triggered/spent states, support/contact fitting and
+  native integration remain pending. No rules, charges, UI, game saves, active
+  atlas, automated tests, commit or push changed. Review directory has .gdignore.
+
+## Sceau interdit: far-jamb occlusion corrected — 2026-10-26
+
+- User rejects v2 joins again. Its claimed successful join inspection below was
+  incomplete: the far rail was drawn before the complete lower door, so the
+  jamb overpainted the retained foreground rail. This is a depth-order defect,
+  not a reason to repaint or lower the door. V2 images remain as before evidence.
+- Split intersecting wall supports into retained ranges before/after .365..635
+  after variant selection and before sorting. Preserve full texture anchors and
+  rectangles, recompute each segment's physical bounds/depth. Ornaments inherit
+  the clip; gameplay keeps separate solid groups. The shader clips each segment
+  and reuses its original terminal paint; the door-alpha workaround is removed.
+- No source image, geometry, prepared sprite, atlas, UI or gameplay rule changed.
+  Adds two wall draw segments per door with both side rails; texture memory stays
+  unchanged. Lookup and segments rebuild when a door is removed or restored.
+- Evidence: door-redesign/seal-v1/painted-v3/. Exact XYZ ray-union comparison of
+  the south contact:3622 legacy interior ownership errors,0 with native recorded
+  segment order. Painted bevel/filter boundaries are excluded, not claimed exact.
+  Eleven native static views cover four orientations; five isolated game states
+  exercise actor insertion and destroyed/restored doors,16/0/16 segments and
+  distinct solid groups. Two game-view captures inspected. Empty capture stderr.
+- Focused independent review confirms the original occlusion defect and no
+  further concrete issue in the fix. No player save access, phone/performance
+  profiling, full raid simulation, commit or push.
+
+## Sceau interdit: wall joins and stone corrected — 2026-10-26
+
+- User rejects painted-v1 joins and stone style; this supersedes that appearance.
+  Current evidence: door-redesign/seal-v1/painted-v2/index.html and native/.
+- All stone now uses the same walls-planes material and B.materials profiles as
+  the walls, with quiet edge finish. Generated paint retained only on wood,
+  metal and seals. Upper/inner frame, horns and leaf geometry preserved.
+- Outer masonry below H intentionally adapted to two closed flush jamb blocks:
+  x=-T/2.. .17 and .83..1+T/2, y=.365..635, z=0..H. Original reviewed source
+  remains immutable; this is the requested join correction, not a new approval.
+  Junction top faces belong to the lower sprite. No notched cap or hidden foot
+  in current four-direction native views. Existing local rail cut remains.
+- Export/import/capture exit0 with empty stderr;8/0/8 cut rails on door
+  present/removed/restored. Fresh focused review found no concrete regression.
+  Refreshed projection check passes;128 unrelated region pixels/metadata stay
+  unchanged.136 sprites,9MiB RGBA, PNG delta -43,535 bytes vs pre-door baseline.
+- .gdignore excludes review sources from Godot; .gitignore excludes disposable
+  packing studies. No player saves, UI/rule changes, phone/profile/full-raid
+  checks, commit or push. New appearance still awaits the user's feedback.
+
+## Sceau interdit door painted and integrated — 2026-10-26
+
+- User selects concept C, then approves seal-v1 wireframe with "Ok go".
+  Geometry/camera/source hashes frozen in door-redesign/seal-v1/painted-v1.
+  New ImageGen frontal painting, original/prompt retained; dark plum wood,
+  slate stone and restrained violet seals. New painting awaits artistic feedback.
+- tools/isometric_seal_door.cjs maps paint onto the exact approved XYZ model,
+  rotates four directions and splits final pixels at wall height with opaque
+  filtering overlap. Existing door IDs and logical size retained; .8 source
+  raster density avoids growing the main atlas. Historical sources unchanged.
+- Approved corridor geometry requires rail gaps at .365..635. Door metadata
+  declares the junction; renderer only cuts those adjoining rails/ornaments.
+  door_wall_junction shader reconstructs the rail surface, reuses its painted
+  terminal for the cut cap, and lets prepared door alpha occlude that cap.
+  Lookup/materials rebuild with occupancy. No new runtime texture or game rule.
+- Final export/import and11 native static captures exit0/empty stderr. Four
+  orientations inspected; removing/restoring doors gives8/0/8 cut rails. Focused
+  independent review found join/guide-provenance issues, now fixed; final review
+  found no remaining concrete issue.128 unrelated regions retain pixels and
+  metadata.136 sprites, total9MiB RGBA unchanged; PNG delta+14,164 bytes.
+- Evidence: door-redesign/seal-v1/painted-v1/index.html and native-joined/.
+  Native/ is earlier pre-junction evidence. Review source folder has .gdignore.
+  No player save access, UI/economy changes, phone/performance/full-raid check,
+  commit or push. Existing Claude UI work remains untouched.
+
+## Forge UX pass 2: four families, portrait scale, faithful mocks — 2026-10-26
+
+- Review of the pass-1 PDF: Trésors hidden at 844x390, Pièges cut at 740/667,
+  small portrait dungeon, smooth generic mock panels, eye→cross morph. Keep the
+  portrait dock, strict world/controls split, two-level catalogue, padding,
+  persistent timer, separate resources, chest/trap rings, rock environment.
+- game_hud.gd modes: column (landscape safe height >= 600, rail 136), wide
+  (shorter landscape, rail 252: timer+resources side by side, families 2x2,
+  Annuler/Observer row; catalogue/selection same width), dock (portrait).
+  Placement bar in a reserved 64-unit slot: armed variant/cost or refusal plus
+  labelled "Arrêter"; arming never resizes the world. Stable labelled tiles
+  Annuler/Observer and Bâtir/Centrer/Pause. Clock building note "Délai suspendu".
+- hud_notices.gd: display-only French wording of v1.0.0 sim messages; sim text
+  and rules untouched. Do not translate inside dungeon_sim.gd for UI purposes.
+- game_input.gd presentation_scale(): camera zoom .75 x max(1, short side x
+  visible.x / (720 x window.x)); compensates canvas_items/expand in portrait
+  (x1.78), 1 on landscape >= 16:9. Not dungeon-extent dependent; pan divides
+  by camera.zoom. 4:3 landscape tablets would also get >1 (not captured).
+- Evidence: interface-review/design-pass-2/. capture_forge_navigation.gd
+  --design-pass-2: 78 states/6 sizes, incl. scale-before at identical size;
+  geometry+ellipsis/line-count check 0 issues (649 labels measured).
+  tools/review_forge_interactions.gd: synthetic taps through the real viewport,
+  review slot user://forge_ux_review_v2.save removed after, player save SHA-256
+  unchanged; 53 checks, 0 failures on 844x390/667x375/390x844/320x568.
+- Claude Design canvas claude.ai/artifact/8jkFUgqyG3KxoqmUNmCiQx v8: pass-1
+  boards kept, P2 boards added. tools/build_forge_review_boards.cjs writes the
+  mocks (Godot-exported stone/icons in mock-kit/, layout mirrors game_hud.gd) and
+  the print page; revue-ui-forge.pdf (13 pages, fonts/images embedded) printed
+  by headless Chrome. artifact-assets.json maps repo files to canvas blobs.
+- Import/capture/review exit0, empty stderr (import: Android build-tools notice
+  only). No touch-device validation, DPI/safe-area or performance test, no rule,
+  economy, save or sprite change, no automated test suite, commit or push.
+
+## Forge UX pass: portrait dock and armed-tool feedback — 2026-10-26
+
+- User requests a UX/UI diagnosis and coherent native improvement using Claude
+  Design. Claude Design is available as the claude.ai Design Artifact type (no
+  design system attached). Canvas: claude.ai/artifact/8jkFUgqyG3KxoqmUNmCiQx,
+  diagnostic + landscape/portrait mocks + native results. Mocks are proposals.
+- Portrait (height > width) now uses a full-width bottom dock: timer+resources
+  in one 58-unit row, families 2x2 with undo/observe column, sheets (catalogue
+  2 columns from 340 units, selection, menus) capped at 55% height. Landscape
+  keeps the 136/244/56 rail; family rows 56 below 420 high so three fit at 390.
+- Armed tool: family row shows variant icon/name/cost; observe becomes a cross
+  "Arrêter la pose" (cancel_selection). Status line only for real notices, two
+  lines max; default "Aménagement" no longer shown nor repeated in domain menu.
+  New code-native undo.svg/eye.svg in assets/ui/forge. Selection header is one
+  row (icon/title/close); transfer steps in a grid, "Tout" beside the amount.
+- Evidence: capture_forge_navigation.gd --design-pass, 72 states/six sizes incl.
+  667x375 into interface-review/design-pass. Import/capture exit0, capture
+  stderr empty (import stderr: Android build-tools notice only). Geometry check:
+  0 targets <48, overflow or HUD/world overlap (previous capture set: 14 panel
+  overflows of 2-7 units). No rules/economy/save/sprite changes, no device touch
+  test, no automated tests, commit or push.
+
+## Tighter spacing between HUD blocks — 2026-10-26
+
+- Removed the extra 4-unit layout gaps between timer, resources and menu;
+  transparent padding in the stone art keeps their frames visibly separate.
+  Interior padding and block dimensions unchanged. `--block-spacing` captures
+  ten native views/five sizes plus extension in interface-review/block-spacing;
+  exit0/empty stderr, landscape and portrait inspected. No tests or commit/push.
+
+## Resource block horizontal spacing — 2026-10-26
+
+- Gold and health now occupy expanding columns: on wide panels the gold group
+  anchors left and health right, each icon stays 8 units from its number and
+  outer padding stays 14. On narrow stacked rows values share the right edge.
+- Focused native capture flag `--resource-spacing` writes ten views/five sizes
+  plus extension under interface-review/resource-spacing, preserving prior
+  captures. Exit0/empty stderr; wide/stacked/portrait views inspected. No tests,
+  gameplay changes, user-save access, commit or push.
+
+## Direct catalogue, persistent clock and mobile status rings — 2026-10-26
+
+- User requests consistent menus, two construction levels, shorter centred
+  catalogue cards, a visible raid timer and the previous mobile pie gauges.
+  Main rail now offers Terrain/Portes/Pièges/Trésors directly, then a scrolling
+  list of variants. Selecting one returns to repeated placement. No quick-tool
+  shortcut layer. Cards are 72 units with horizontal icon/text and vertical
+  centring. Family rows remain 58 units with 30-unit glyphs and 14/12 padding.
+- A temporary small-screen square grid was rejected for crowding. It is removed:
+  keep padded list rows and scroll on short screens. Widths remain 136/244/56;
+  do not restore mini-buttons merely to fit everything above the fold.
+- Timer is fixed above the menus, 12-unit insets, 60 high on short layouts and
+  84 otherwise. Shows preparation countdown, elapsed raid time, pause or unmet
+  prerequisites. Existing countdown suspension rules unchanged. Gold/health
+  are a separate standalone block, retained in submenus, horizontal when wide;
+  removed duplicated totals/health from the domain menu. Observation stays narrow.
+- Transparent gaps show the existing world-mapped rock material via a cached
+  four-vertex HUD backing quad. Same projection/camera, no room rendering under
+  UI, no new terrain textures. All panels use the existing stone/violet skin.
+- v1.0.0 vault/trap rings adapted into ui/world_badge.gd: gold fill ratio for
+  vaults, copper remaining-charge ratio for traps, charge segments and lock
+  state. User explicitly replaces the chest glyph with a gold coin pile;
+  assets/ui/forge/coins.svg extends existing code-native utility art. No chest
+  health is invented. Exact amounts/charges remain in cell selection.
+- Rings stay 32 logical screen units through project stretch/DPI and render
+  above masonry (z=10 relative); actual props/trap ground markers keep depth.
+  No economy, save schema, raid AI, camera scale or approved painted art changes.
+- Presentation evidence: interface-review/catalogue-direct/, static native
+  capture tool capture_forge_navigation.gd, 80 states across five viewport sizes
+  plus extension. No main player-save access, automated tests, phone gestures,
+  performance profile, commit or push. Prior review captures remain untouched.
+  Final native capture and headless import both exit0 with empty stderr;
+  checked tall/narrow/short views, catalogue, domain and bottom scroll visually.
+
+## Forge padding and resource icons aligned — 2026-10-25
+
+- User requests more interior space, Catalogue icon equal to Door, and real
+  gold/health symbols aligned with the tools. Shared rows now use30px icon boxes,
+  14px horizontal/12px vertical padding and8px icon/text gap. Tool/Catalogue
+  buttons stay58px high rather than expanding. Resource rows share the same
+  columns with a gold coin and new code-native violet health-heart SVG.
+- PNG canvas padding caused another mismatch (chest subject93px vs door138px
+  in144px sources). Generated AtlasTexture regions normalize display framing
+  without repainting PNGs; alpha8 measures bounds with3px padding. Generator:
+  prepare_native_forge.cjs, metadata assets/ui/forge/icon_regions.gd. Shared
+  theme caches these regions. Health glyph extends the existing utility SVG style.
+- On short screens the tools/resources area scrolls, retaining readable padding;
+  status and Undo/See remain fixed. Thin scrollbar preserves full Catalogue label.
+  Rail width and dungeon viewport unchanged. No gameplay or camera changes.
+- Evidence: interface-review/spacing-hud/,16 native static captures/four sizes,
+  includes top/bottom scroll positions, catalogue and observation. Capture and
+  import exit0/empty stderr. No player save, automated tests, phone gesture or
+  performance validation, commit or push. Earlier compact captures preserved.
+
+## Forge button stretch and heart label corrected — 2026-10-25
+
+- User rejects tall construction buttons and reports the heart text on the
+  bottom border. Native1280x720 reproduction: quick buttons168/169px high;
+  treasury child minimum41px exceeded its35px available area.
+- Quick buttons no longer expand vertically:52 logical units,48 below390px
+  usable height. An empty spring takes extra rail height before Undo/See.
+  Treasury height follows its text minimum plus11px padding on each side (63px
+  with the current font). Short screens keep one ellipsized status line; full
+  notice remains in its tooltip and domain menu. Rail width and world unchanged.
+- capture_forge_compact_hud.gd preserves12 before and12 after native views in
+  interface-review/compact-hud, including245 gold/58% heart, four screen sizes,
+  tools/catalogue/observation. Both captures and final import exit0/empty stderr.
+  Viewed all four tools captures and measured bounds. No new image generation,
+  gameplay change, automated tests, user-save access, commit or push.
+
+## Approved Forge and real rock cutout integrated — 2026-10-25
+
+- User requested implementation of v9-rock-cutout. selection.json freezes that
+  mock and supersedes its pending status; previous notes/captures stay immutable.
+  Native appearance is an implementation adaptation, not newly approved pixels.
+- DungeonGame now reserves a separate PlayArea/World SubViewport for the dungeon.
+  Stone/violet rail uses 136 logical units, observation56, expanded244 maximum.
+  Native painted build icons, MSDF text, 48-unit targets, scrolling panels and
+  narrow catalogue fallback. Pause/treasury offers raid; UI never overlays world.
+- Direct repeat placement on ordinary rock/floor; initial core and occupied
+  replacement retain confirmation. Palette drag uses raised52-unit preview and
+  validates both actual drop and raised target. World drag only pans; canceled
+  touch, second finger, focus loss cancel placement. Fixed.75 camera unchanged.
+- Transient undo stores up to32 construction snapshots, including affected raid
+  knowledge/timer; cleared on raid/reset/collection/absorption/transfer, not saved.
+  Preserve economy, progression and save schema. --forge-review uses a separate
+  user://forge_review_v1.save; never the main player save for validation.
+- Terrain union margin.90, cap z=.3133333333333333, raw ground z0, exposed faces;
+  cached meshes rebuild only on excavated occupancy changes. Three world-mapped
+  materials; 64x64-world coverage includes16x16 map/camera margin, not streaming.
+  Shader patch distribution adapts the mock for GPU, not exact Canvas2D pixels.
+- Thirteen native PNGs adopted by prepare_native_forge.cjs:12 unchanged copies
+  and stone uniformly64px for11px slice margins. Provenance in assets/ui/forge.
+  Existing dungeon atlases/approved artwork preserved; no new art generation.
+- Import exit0/empty stderr. Native GPU captures:55 presentations across five
+  sizes plus extended layout; see interface-review/implementation and capture
+  logs. Manual isolated mouse review verified core confirm, repeated dig costs,
+  undo refund/terrain, pan without purchase, palette placement/UI cancellation,
+  catalogue retraction and observation/pause. Control window closed afterward.
+- One independent code review found modal-priority, canceled-touch and actual
+  drop-boundary defects; all corrected. Presentation refinements fixed small
+  text scaling, long-card overflow and narrow contextual actions. No physical
+  multitouch/DPI/safe-area test, full raid/save audit or phone profile. No
+  automated tests, commit or push. Details: docs/gameplay/forge-integration-2026-10-25.md.
+
+## Soft clearance rejected; geometric rock cutout proposed — 2026-10-25
+
+- User explicitly requires a real cutout, not the v8 shadow-like band. Current
+  isolated mock: docs/reference/interface-review/v9-rock-cutout/. Remove the
+  soft clearance passes. Subtract an enlarged opening from the terrain alpha,
+  exposing a separate raw ground plane at z=0 around the masonry.
+- Opening is the union of cell rectangles expanded by 0.90 world cell, with
+  bevelled corners and shallow deterministic edge chips. Cache the contour by
+  cell occupancy and margin. This width/appearance remains a proposal.
+- Visible inner rock faces connect z=0 to the unchanged masonry cap height
+  0.3133333333333333. Texture coordinates follow world axes across adjacent
+  face segments. Exterior never rises above walls. No new images or UI changes.
+- Fresh offline render on three landscape sizes: no errors/layout failures.
+  Extension: 36 cells, 34 valid boundaries, one joined cut contour. All 34
+  sampled gap pixels have zero exterior-layer alpha; an exterior sample is
+  opaque. Reset restores identical pixels; all 16 asset PNGs and production
+  baseline hashes unchanged. Initial/extended/mobile captures inspected.
+  Mock only, not artistic approval or Godot/device validation. No commit/push.
+
+## Exterior texture clearance proposed — 2026-10-25
+
+- User requests space between the masonry and exterior texture because v7 is
+  too close. Current mock: docs/reference/interface-review/v8-wall-clearance/.
+  A quiet dark stone strip extends 0.46 logical cell from the cell union, plus
+  0.20 cell transition; masonry occupies part of that width. This spacing is
+  a proposed visual choice, not an approved dimension or appearance.
+- Apply one compound nonzero path per opacity pass so neighbouring cells do
+  not accumulate darkness. The margin follows excavation, corners and room
+  extensions in world coordinates. Same wall-cap plane and masks as v7; no
+  raised rock, new sprites, generation, camera or UI changes.
+- Fresh offline render: three landscape sizes, no errors/layout failures,
+  36-cell expansion with 34 valid boundaries and exact reset pixels. Viewed
+  initial and extended rooms. All 16 PNG assets and production baseline hashes
+  unchanged. Mock only; no Godot integration, device profile, commit or push.
+
+## Exterior piles and raised cutaway rejected; flush rock mock — 2026-10-25
+
+- User rejects the v6 piles resting on the exterior texture and explicitly
+  requires exterior rock not to be higher than the masonry. The liked image
+  was a material/crystal reference, not approval of freestanding formations.
+  This supersedes the placement interpretation below and the raised v5 faces.
+- Current isolated proposal: docs/reference/interface-review/v7-flush-rock/.
+  Remove outcrop/rubble sprites and raised rear faces. All exterior material,
+  hole masks and border fringes share the actual catalogue wall-cap height,
+  0.3133333333333333, on every side. Masonry, pillars, camera and UI unchanged.
+- Quiet material and strata retain v6 pixels. Reuse the earlier top-down native
+  alpha mineral-vein source, uniformly reduced to256px, in the same XY plane.
+  Source/prompt/provenance retained; no new ImageGen call. This inclusion and
+  the new transition are proposals, not user-approved appearances.
+- Offline in-memory captures on three landscape sizes: no browser errors or
+  layout failures.36-cell extension has34 valid boundary edges; exact pixels
+  return on reset.31 shared mineral patches preserve world position/scale and
+  follow a40x20px pan exactly. No elevated rock assets are loaded. Viewed initial
+  build/observation and extended-room captures. Production baseline hashes
+  unchanged. No Godot integration, game tests, device profile, commit or push.
+
+## Rock variety and liked crystal outcrop mock — 2026-10-25
+
+- User finds v5's rock texture too uniform and explicitly likes the existing
+  v4 blue-rock cluster with violet crystals. Reuse that artwork; this does not
+  revert their selected rooms-excavated-in-rock direction to an open cavern.
+- Current isolated proposal: docs/reference/interface-review/v6-rock-variety/.
+  New ImageGen calm top material256px and native-alpha strata384x192, prompts
+  and originals retained. Uniform downsample only. Top material repeats every
+  3world cells, rear faces keep v5's2cell material. Same cutaway and UI geometry.
+- Coarse world-coordinate strata patches and broad ambient shadow pockets
+  vary the texture density. v4 outcrop/rubble PNGs are reused byte-for-byte;
+  one uniform screen scale, no mirroring or second isometric projection. Their
+  hashed placements remain fixed in world coordinates. Conservative projected
+  footprint exclusion keeps them away from playable cells and their borders.
+- A thin vein was generated while the user's crystal preference was arriving;
+  retained as an unused source study, not loaded in this mock. New distribution
+  and geology remain unapproved, despite the preference for the outcrop itself.
+- Offline in-memory browser captures/observations on3landscape sizes. Spacing,
+  48px targets, no UI overlay, expansion and reset remain observed. Existing
+  reliefs follow a40x20px pan exactly and preserve their world position/scale.
+  Production hashes unchanged; no Godot integration, device profile, game tests,
+  commit or push. Renderer only draws the design study; chunking remains open.
+
+## Underground rock direction clarified; extensible cutaway UI mock — 2026-10-25
+
+- User rejects v3's oversized texture/abrupt transition, then v4's open cavern
+  appearance. They liked the cavern atmosphere but require an extensible grid,
+  and explicitly choose rooms excavated in solid rock. This supersedes the
+  earlier interpretation that cavern atmosphere itself was rejected.
+- Current isolated proposal: docs/reference/interface-review/v5-subterranean/.
+  New ImageGen compact-rock material, original/prompt retained,256px repeat
+  every two logical cells. One XY projection; no full-scene fixed background.
+  Boundary adjacency opens rock around dug cells; rear natural faces rise above
+  masonry, foreground cut is lower for visibility. This is a cutaway convention
+  study, not a physically complete terrain renderer or new approved artwork.
+- Prepared native-alpha dust from v4 stays below masonry. Open-ground texture
+  and scattered boulders are absent from v5. V4 is retained as rejected history;
+  its validation snapshot predates the final spacing fix and is not a pass claim.
+- Forge rail136px (previously116), observation56, catalogue244; more internal
+  padding, taller catalogue cards. At844x390: world83.9%/93.4%/71.1%, no overlay.
+  Three landscape sizes observed; targets>=48 CSSpx, checked label insets>=10px
+  horizontal/7px vertical. Not a physical phone accessibility validation.
+- Review excavation and36-cell expansion derive34 exposed edges. Pattern scale
+  stays fixed; pan far outside the room remains covered. Reset restores identical
+  world pixels. Captures/validation are offline in-memory browser observations,
+  requests blocked, no user-app control or local URL navigation. Production
+  hashes unchanged. No Godot integration, game tests, device profile, commit/push.
+- Direction is selected; new appearance remains for user feedback. Production
+  chunking, cutaway occlusion, terrain persistence and full wall joins remain open.
+
+## Forge layout chosen; stone UI and integrated bedrock proposed — 2026-10-25
+
+- User prefers v2 Forge's lateral layout, but rejects the generic UI skin,
+  ambiguous outline icons and independent cavern backdrop. Priority: maximize
+  the visible dungeon and keep controls from covering it. New isolated review:
+  docs/reference/interface-review/v3-forge-stone/index.html. New art is unapproved.
+- View and rail occupy separate grid columns, no top/bottom overlays. Rail116px
+  for build,56px for observation,244px for catalogue/menu. At844x390, world owns
+  86.3% /93.4% /71.1%. All nine layouts across740/844/1024 have >=48px controls,
+  no overlap or offscreen controls. CSS pixels, not physical phone validation.
+- New ImageGen pickaxe, spikes, stone nine-slice skin and bedrock material;
+  originals/prompts retained in source/. Door/chest/decor icons reuse kit pixels.
+  Bedrock uses common world projection at z=.20, moves with the camera, and
+  hides exterior wall feet. Front receiving mask is specific to this review
+  room; general layout integration remains open. The photographic v2 background
+  and initial abstract triangle surface are not the current proposal.
+- Browser mock only: repeated placement/undo, occupied rejection, pan, catalogue
+  retraction and illustrative excavation observed. No game simulation or saves.
+  In-memory offline rendering blocks requests and does not navigate local URLs
+  or control user apps. Production hashes unchanged. No game tests/commit/push.
+
+## Dungeon master UI mockups proposed — 2026-10-25
+
+- User requests a more evil dungeon-master identity, fewer mobile construction
+  and placement actions, and an environment surrounding the dungeon. Current
+  proposals: docs/reference/interface-review/v2-dungeon-master/index.html.
+- A Obsidian: persistent lower quick tools; B Forge: right-thumb rail; C Grimoire:
+  visible families. Common repeated tap placement, optional drag from palette,
+  pan without placement and undo. These are unselected disposable browser mocks,
+  not Godot integration. Existing tool already persists; per-cell confirm is the
+  step proposed for removal. Destructive/economic transactions need own design.
+- Existing sprite atlas pixels retained. New ImageGen cavern background original
+  and exact prompt retained under source/. Background is an atmosphere study,
+  not optimized mobile terrain. Excavation mocks do not rebuild wall joins;
+  decor economy, complete catalogue, native touch and raid simulation stay open.
+- Nine browser layouts at740x360,844x390,1024x576 inspected: controls >=48 CSS px,
+  no page overflow or JS error. Repeated placement, refund/undo, blocked occupied
+  cell, pan, drag and raid history boundary observed in validation.json. Production
+  files preserved. No game tests, commit or push. Automatic local-file opening
+  rejected by browser security policy; deliver screenshots and local review file.
+
+## Heart vortex animation integrated — 2026-10-25
+
+- User accepts slow animated spiral and gentle violet pulse, with fixed pedestal,
+  ring silhouette and neck. Implemented by isolating the interior in a shader
+  mask within the existing atlas sprite. No new source art or physical layers.
+- isometric_prop_paint emits vortex centre/radius in logical frame coordinates;
+  export adds only this field to the heart entry. All136 prepared region pixels,
+  positions and other metadata, both atlas files, ground shadow/glow and user
+  project.godot remain unchanged. No extra sprite or texture memory (still9MiB).
+- heart_vortex.gdshader samples only inside its atlas region. Interior flow ends
+  before the ring; halo changes RGB gently and excludes the neck. Original alpha
+  and vertex modulation retained; existing lighting mode/solid ordering retained.
+  UV motion is now intentional ONLY inside this explicitly requested vortex mask.
+- heart_vortex_animator owns a bounded12s phase, one controller per renderer,
+  one material per heart. Three subtle light pulses per cycle; no TIME dependence.
+  Rebuilds clear stale materials and retain phase, recover an existing controller,
+  and stop processing without hearts. Gameplay pause/confirmation/result/save
+  block/game-over freeze phase. Editor stays static; scenes animate when run.
+  Inspector vortex_animation_enabled disables the effect.
+- Evidence: docs/reference/heart-vortex-review/v1/. Final background export/import
+  and17 static Godot observations exit0, empty stderr. Same fragment body runs
+  in isolated headless WebGL2 for preview.html and144-frame/12s vortex.gif.
+  Pixel inspection: no alpha/outside-mask differences; phase0/1 match static
+  exactly. Browser declaration adapter does not modify the fragment body.
+- Independent focused read-only review found no concrete issue. Preview is NOT
+  a native Godot GPU capture; GPU lighting/compositing, device performance and
+  full raid/save behavior remain unverified. New movement is subject to user
+  feedback. No native UI control, automated tests, commit or push.
+
+## Chest directions, persistent lock and smaller mobile scale — 2026-10-25
+
+- User requests angle variants facing usable space, the same lock on open chests,
+  matching lid hardware, and smaller scale. After rejecting straight lip/tab
+  revisions, explicitly confirms the ORIGINAL closed metal chevron. Preserve it;
+  one violet keyhole escutcheon on the lower body, none on the raised lid.
+- Seven new ImageGen sources plus unchanged closed south under
+  treasure-chest-review/v4-directions/. generation-complete.json stores prompts
+  and provenance; source fits/hashes in tools/chest_direction_sources.json.
+  Rejected tab images and accepted original selection remain intact. Appearance
+  of new views/scale is subject to user feedback, not automatically approved.
+- All eight prepared chest bodies reduced25%,96 to72px at.75, uniform source
+  resize/native alpha. Support proxies and short static shadows scaled too.
+  No raster mirroring/rotation, runtime geometry, or new light emitter.
+- chest_orientation.gd excludes outside/ROCK, CORE, VAULT, ENTRANCE and intact
+  doors. Prefer two-step clearance then lateral space, stable S/E/N/W ties.
+  Rebuilds respond to grid/door/protection changes, not gold/camera/hero motion.
+  Enclosed fallback stays south, accessible=false. Presentation only; no save,
+  placement, pathfinding or economy changes. Captions use chest metadata.
+- Main120 regions/pixels/metadata and1024x2048 atlas byte-identical. Chest page
+  now256x1024,16regions,107001PNG bytes/1MiB RGBA; total136regions,
+  1673184PNG bytes/9MiB RGBA. Delta63276PNG bytes/+768KiB RGBA vs prior page.
+- Final hidden-process export/import and13 static Godot presentations exit0,
+  empty stderr. Initial shell-piped Node exporter had native teardown assertion;
+  final rerun via hidden Start-Process was clean. Source/selection/project
+  integrity checks and focused independent review found no concrete issue.
+  Boards are offline atlas composites of recorded placements, NOT GPU captures.
+  No native UI control, automated tests, device/full-raid check, commit or push.
+
+## Ritual chest gameplay integration and free variant — 2026-10-25
+
+- User authorizes accepted closed chest integration, then asks to distinguish
+  the free chest with an ajar lid/coins. Closed art remains immutable. New native
+  ImageGen source: treasure-chest-review/v3-free/source/chest-open-coins-v2.png;
+  first open version rejected for oversized coins. V2 has a small pile; its
+  appearance remains subject to feedback, not recorded as user-approved.
+- isometric_treasure_chest.cjs guards all six accepted selection hashes and the
+  current open source. Uniform native-alpha crop/resize, measured lower contacts
+  and common inverse ground projection; support proxies, not reconstructed3D.
+  Both body widths approximately96px at.75. Shared ritual-prop shadow helper
+  supplies separate short ambient cast/contact, with existing floor receivers.
+- prop-chest/prop-chest-open and their shadows share a256x256 companion atlas:
+  43725 PNG bytes/256KiB RGBA. Main1024x2048 atlas byte-identical; all120 regions
+  retain pixels and metadata. Total124 regions,1609908 PNG bytes,8.25MiB RGBA.
+  Catalogue entries can specify atlas_path; shared loader/watch handles both
+  pages. Full exporter reproduces both. Failed packing changes were discarded.
+- Gameplay selects closed iff vault_protected is true; free/forced use open.
+  Protected state participates in structure hash, so raid unlocking redraws.
+  Gold captions remain dynamic and grouped with prepared solids. No economy,
+  save format or camera changes. Both paid tiers share closed appearance; open
+  coins are fixed artwork, not a simulated count. No new point-light emitter.
+- Evidence: treasure-chest-review/v2/integration/. Final headless import and
+  eight static scene inventories exit0/empty stderr. Counts/update/removal,
+  forced/restored lock and actor before/after order inspected. Comparison and
+  layout-montage are offline composites, not GPU captures. Independent focused
+  code reviews found no concrete remaining issue. No native UI control,
+  automated test suite, full raid/device verification, commit or push.
+
+## Ritual chest appearance accepted — 2026-10-25
+
+- User replies "oui c'est beaucoup mieuux" to the ritual chest and mobile
+  comparison. Retain this appearance: dark plum wood, claw-like slate fittings,
+  short horn tips and violet seal. Do not regenerate it during integration.
+- treasure-chest-review/v2/selection.json freezes six source/review/preparation
+  files by SHA256. Earlier generation/review JSON remain pre-approval snapshots;
+  this selection supersedes their pending artistic status.
+- Appearance selection only. Production preparation/integration, calibrated
+  support/contact/ordering and ground shadow remain pending. No new rendering,
+  automated tests, gameplay edits, native UI control, commit or push.
+
+## Ritual chest proposal after heroic styling rejection — 2026-10-25
+
+- User rejects the burgundy/gold-lock chest as too heroic. New proposal in
+  docs/reference/treasure-chest-review/v2/: dark plum wood, heavy slate/charcoal
+  claw-like fittings, two short horn tips and a violet seal; no gold. Built-in
+  ImageGen uses the accepted idol and dungeon capture as direct references.
+- Original/source and exact prompt retained. prepare-review.cjs compares the
+  previous chest, new chest and idol on actual paving at proposed96px width,
+  plus2x. Native alpha unchanged, uniform resize only; source copy SHA256 matches.
+  New silhouette has no visible external haze in this review. Perspective and
+  contact anchors remain provisional, not recovered/calibrated support geometry.
+- Appearance not approved or integrated. Old proposal/history, active kit and
+  gameplay preserved. No automated tests, native UI control, commit or push.
+
+## Treasure chest style proposal revised — 2026-10-25
+
+- User asks for a treasure chest sprite, then rejects the first golden/orange
+  chest as mismatched to the dungeon. Built-in ImageGen v2 uses the approved
+  grimoire and current dungeon as references: muted burgundy wood, slate fittings,
+  gold concentrated on the lock. This remains an unapproved appearance proposal.
+- docs/reference/treasure-chest-review/v1 retains sources, exact prompts and
+  cleanup provenance. Two subsequent cleanup attempts retained external haze;
+  do not claim a clean production cutout. V2 is the current style candidate.
+- prepare-review.cjs produces mobile-comparison.png on actual paving: proposed
+  chest body96px wide at .75 zoom, plus2x enlargement and existing book reference.
+  Uniform resize only, native alpha preserved; alpha128 only measures size.
+  Scale-preview PNG is provisional. Anchors/source geometry are not calibrated.
+- No chest integration, production art changes, automated tests, native UI
+  control, commit or push. Preserve the existing gameplay/HUD/stair work.
+
+## Gameplay stair orientation corrected — 2026-10-25
+
+- User screenshot shows the high step facing the corridor. Gameplay view mapped
+  the mouth direction to the opposite stair suffix. Frozen migration geometry
+  confirms north/east/south/west descend toward UP/RIGHT/DOWN/LEFT respectively.
+- isometric_game_view.gd now maps mouth directly using ENTRANCE_OPEN_SIDES.
+  _wall_entrance_face returns the walkable mouth despite its legacy name. Keep
+  simulation/pathfinding, saved cell, hero exit motion and prepared art unchanged.
+- Source geometry inspected in all four directions; headless import and8-frame
+  DungeonGame startup exit0/empty stderr. Logs: artifacts/stair-orientation-*.
+  No automated tests, native UI control, GPU capture, commit or push.
+
+## Native mobile black/gold HUD implemented — 2026-10-25
+
+- User explicitly requests implementation of the HTML interface. DungeonGame
+  now uses native Godot controls: top resources/phase, bottom Bâtir/Raid,
+  retracting three-category catalogue, compact placement/context, visitor and
+  guarded welcome/pause/result/defeat/reset dialogs. No world camera/art change.
+- scripts/game/ui provides theme/catalogue/selection.19 SVGs under
+  assets/ui/black-gold,12419 source bytes; prepare_game_hud_assets.cjs reproduces
+  them from the retained HTML proposal. This is not GPU/APK size.
+- Minimum48 UI-unit targets, main actions56 high; independent HUD canvas scale
+  compensates viewport stretch, uses mobile DPI/safe area. Overflow contexts and
+  dialogs scroll. Transfers retain exact integer amounts via ±1/±25/All.
+- Session catalog_open pauses preparation countdown only. Existing rules/save
+  guards remain. Input shields native HUD touches; Escape/Android Back route to
+  HUD. SceneTree quit_on_go_back disabled here/restored on scene exit.
+- Read-only independent review found recenter overlap and reduced transfer
+  precision; both addressed. Geometry includes transfer+body+loot overflow.
+  Evidence: docs/gameplay/mobile-hud-2026-10-25.md, artifacts/hud-layout.json.
+  Forty-two static layouts/three sizes, no targets nominally under48. Headless
+  import/startup checked; no native GPU visual/touch/device validation or tests.
+- User still needs their computer: no native UI control/restart. Existing
+  project.godot main scene preserved. No commit/push. Open DungeonGame/F6 later.
+
+## Mobile interface appearance proposal — 2026-10-25
+
+- User chooses black/gold close to the original mockup and stresses mobile
+  usability. Local proposal: docs/reference/interface-review/v1/index.html.
+  Top resources, bottom thumb actions, retracting category catalogue, compact
+  placement bar, raid and result states. Layout remains a proposal for feedback.
+- CSS/SVG HUD over an unchanged prior dungeon capture; illustrative values and
+  navigation only, no live Godot HUD or gameplay edits. Eleven background Chrome
+  renders at844x390/740x360/1280x720; no page errors/overflow/targets under48px.
+  Small-screen views inspected. No device/touch validation or gameplay tests.
+- Do not infer new camera scale from the fitted screenshot, or approval of this
+  layout from the user's style choice. Later port must preserve all session
+  guards, first-heart flow, chest transfers, reset confirmation and defeat states.
+- Native UI control remains prohibited while the user needs their computer.
+  No commit or push. Existing gameplay work and project.godot change preserved.
+
+## First playable isometric loop; review complete, interactive validation partial — 2026-10-25
+
+- User chooses the previous preparation/autonomous raid/result loop and explicitly
+  accepts provisional hero/chest/trap markers. New scene: scenes/game/DungeonGame.tscn.
+  Five simulation modules and the save adapter are restored from v1.0.0; no 3D
+  Main/assets/HUD restoration. The existing 24 visual scenes and atlas stay unchanged.
+- Grid16x16; solid heart1x1 at cell+.5 fits approved art. Keep .75 fixed zoom/free
+  pan; tap/select/confirm, no drag digging. Four hero classes and normal progression
+  gates retained; no Vulpin-only/unlock-defense override. Optional prepared starter
+  has245gold, door+spikes+three vaults; normal start320gold/unexcavated.
+- Session owns guarded phases, checkpoint and results. isometric_run_v1.save is
+  separate from the old mobile slot. --review-session uses isometric_review_v1.save
+  only; no AI/balance overrides. Preserve the user's normal save and running game.
+- Independent source review found two issues, corrected: explicit step_started_at
+  prevents replaying movement when decision/snare timers reset; confirmation_open
+  blocks unpause/edit/simulation behind restart confirmation. Host+ornament groups
+  stay together and actors insert into cached support order without repainting.
+- Evidence/scope: docs/gameplay/validation-2026-10-25.md. Import and headless startup
+  successful, final startup8frames exit0/empty stderr. Manual isolated session
+  verified starter creation/render and raid entry; complete raid/bilan, economy UI,
+  touch and full visual ordering remain unvalidated. Do not report them as passed.
+- User needs their computer: STOP native UI control; continue background/source
+  work only unless they authorize it again. No automated tests added/run, phone
+  profile, commit or push. Existing project.godot local main-scene change preserved.
+  Open DungeonGame and F6 later to load corrected scripts; don't restart user apps.
+
 ## All six selected ritual props integrated — 2026-10-25
 
 - User authorizes preparation/integration with "ok vas-y". All six appearances

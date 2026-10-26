@@ -1,0 +1,9 @@
+/* Mobile readability pass. Geometry remains independent of the world camera. */
+.tool b{font-size:13px}.tool small{font-size:11px}.tool.more{flex-basis:82px}.tool.more b{font-size:12px}.dock-actions button{font-size:12px}
+.resource small{font-size:10px;letter-spacing:.35px}.phase>span{font-size:12px}.phase small{font-size:11px}.gesture-hint{font-size:12px}
+.game[data-theme=grimoire] .phase>span{font-family:Georgia,serif;font-size:13px;letter-spacing:1px}
+.game[data-theme=grimoire] .tool-dock{background:repeating-linear-gradient(175deg,#d8c8df03 0 1px,transparent 1px 8px),linear-gradient(#28252ff5,#16151dfa)}
+.game[data-theme=forge] .tool b{font-size:12px}.game[data-theme=forge] .tool.more{flex-basis:48px}.game[data-theme=forge] .tool.more b{font-size:11px}.game[data-theme=forge] .tool-dock{border-top:2px solid #b0886a;border-bottom:3px solid #382b24}
+.review-main.wide-review{display:block}.wide-review .design-notes{display:none}.wide-review .preview-column{max-width:1024px;margin:auto}.wide-review .game{max-width:1024px}
+.cavern{transition:background-position .04s linear}
+@media(max-width:760px){.resource small{font-size:9px}.phase>span{font-size:11px}.phase small{font-size:10px}.tool b{font-size:12px}.tool small{font-size:10px}.tool.more{flex-basis:72px}.tool.more b{font-size:11px}.dock-actions button{font-size:11px}.game[data-theme=grimoire] .tool b{font-size:11px}}

@@ -1,0 +1,272 @@
+{
+	"failures": 0,
+	"player_save_sha256_after": "a4b2c76f9b2e775f938ce6c23f3836517f386d021c466995b08041335d3878fc",
+	"player_save_sha256_before": "a4b2c76f9b2e775f938ce6c23f3836517f386d021c466995b08041335d3878fc",
+	"steps": [
+		{
+			"check": "844x390 quatre familles visibles",
+			"detail": "wide",
+			"ok": true
+		},
+		{
+			"check": "844x390 Pièges ouvre les variantes",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "844x390 variante armée, catalogue replié",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "844x390 barre de pose + Arrêter visibles",
+			"detail": "Pointes · 35 or / Touchez une case.",
+			"ok": true
+		},
+		{
+			"check": "844x390 armer ne déplace pas la vue",
+			"detail": "[P: (0.0, 0.0), S: (1092.815, 720.0)]",
+			"ok": true
+		},
+		{
+			"check": "844x390 pose directe 1",
+			"detail": "or 190",
+			"ok": true
+		},
+		{
+			"check": "844x390 pose répétée 2, outil conservé",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "844x390 refus affiché dans la barre",
+			"detail": "Or insuffisant : 35 requis.",
+			"ok": true
+		},
+		{
+			"check": "844x390 Arrêter désarme et efface le refus",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "844x390 vue stable pendant toute la pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "844x390 Annuler retire la dernière pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "844x390 Observer libère la vue",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "844x390 Bâtir revient aux familles",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 quatre familles visibles",
+			"detail": "wide",
+			"ok": true
+		},
+		{
+			"check": "667x375 Pièges ouvre les variantes",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 variante armée, catalogue replié",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 barre de pose + Arrêter visibles",
+			"detail": "Pointes · 35 or / Touchez une case.",
+			"ok": true
+		},
+		{
+			"check": "667x375 armer ne déplace pas la vue",
+			"detail": "[P: (0.0, 0.0), S: (796.4018, 720.0)]",
+			"ok": true
+		},
+		{
+			"check": "667x375 pose directe 1",
+			"detail": "or 190",
+			"ok": true
+		},
+		{
+			"check": "667x375 pose répétée 2, outil conservé",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 refus affiché dans la barre",
+			"detail": "Or insuffisant : 35 requis.",
+			"ok": true
+		},
+		{
+			"check": "667x375 Arrêter désarme et efface le refus",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 vue stable pendant toute la pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 Annuler retire la dernière pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 Observer libère la vue",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "667x375 Bâtir revient aux familles",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 quatre familles visibles",
+			"detail": "dock",
+			"ok": true
+		},
+		{
+			"check": "390x844 Pièges ouvre les variantes",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 variante armée, catalogue replié",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 barre de pose + Arrêter visibles",
+			"detail": "Pointes · 35 or / Touchez une case.",
+			"ok": true
+		},
+		{
+			"check": "390x844 armer ne déplace pas la vue",
+			"detail": "[P: (0.0, 0.0), S: (1280.0, 1923.231)]",
+			"ok": true
+		},
+		{
+			"check": "390x844 pose directe 1",
+			"detail": "or 190",
+			"ok": true
+		},
+		{
+			"check": "390x844 pose répétée 2, outil conservé",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 refus affiché dans la barre",
+			"detail": "Or insuffisant : 35 requis.",
+			"ok": true
+		},
+		{
+			"check": "390x844 Arrêter désarme et efface le refus",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 vue stable pendant toute la pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 Annuler retire la dernière pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 Observer libère la vue",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "390x844 Bâtir revient aux familles",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 quatre familles visibles",
+			"detail": "dock",
+			"ok": true
+		},
+		{
+			"check": "320x568 Pièges ouvre les variantes",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 variante armée, catalogue replié",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 barre de pose + Arrêter visibles",
+			"detail": "Pointes · 35 or / Touchez une case.",
+			"ok": true
+		},
+		{
+			"check": "320x568 armer ne déplace pas la vue",
+			"detail": "[P: (0.0, 0.0), S: (1280.0, 1240.0)]",
+			"ok": true
+		},
+		{
+			"check": "320x568 pose directe 1",
+			"detail": "or 190",
+			"ok": true
+		},
+		{
+			"check": "320x568 pose répétée 2, outil conservé",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 refus affiché dans la barre",
+			"detail": "Or insuffisant : 35 requis.",
+			"ok": true
+		},
+		{
+			"check": "320x568 Arrêter désarme et efface le refus",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 vue stable pendant toute la pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 Annuler retire la dernière pose",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 Observer libère la vue",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "320x568 Bâtir revient aux familles",
+			"detail": "",
+			"ok": true
+		},
+		{
+			"check": "sauvegarde joueur inchangée",
+			"detail": "a4b2c76f9b2e → a4b2c76f9b2e",
+			"ok": true
+		}
+	]
+}

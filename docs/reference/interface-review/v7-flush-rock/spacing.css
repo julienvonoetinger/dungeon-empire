@@ -1,0 +1,23 @@
+/* More room inside the painted bevel, without controls over the world. */
+.game{grid-template-columns:minmax(0,1fr) 136px}
+.treasury{padding:0 8px}
+.compact{grid-template-rows:52px minmax(0,1fr) 48px 24px 52px}
+.tool{padding:1px 8px;gap:7px}
+.tool img{width:32px;height:32px}
+.tool b{font-size:12px;line-height:14px;white-space:nowrap}
+.tool-copy{gap:3px}
+.catalogue-button{padding:0 8px;gap:6px}
+.catalogue-art{width:24px;height:26px}
+.catalogue-art img{width:22px;height:22px}
+.catalogue-art img:last-child{left:6px;width:20px;height:20px}
+.utility{padding:2px 4px}
+.utility span{font-size:10px;line-height:12px}
+.rail-actions .utility svg{width:18px;height:18px}
+.catalog-grid .tool{height:96px;padding:8px 6px;gap:4px}
+.catalog-grid .tool img{width:36px;height:34px}
+.catalog-grid .tool-copy{gap:3px}
+.catalog-grid .tool small{line-height:12px}
+.menu-action{padding:5px 12px}
+.game[data-panel=peek]{grid-template-columns:minmax(0,1fr) 56px}
+.game[data-panel=catalog],.game[data-panel=menu]{grid-template-columns:minmax(0,1fr) 244px}
+.expansion-note{color:#ba9cda}

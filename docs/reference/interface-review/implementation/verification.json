@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-25",
+  "godot": "4.7.2.stable.steam.ed1daf0bf",
+  "import": {
+    "exit_code": 0,
+    "stderr_bytes": 0
+  },
+  "capture": {
+    "exit_code": 0,
+    "stderr_bytes": 0,
+    "static_presentations": 55,
+    "extended_layouts": 1,
+    "sizes": [
+      "740x360",
+      "844x390",
+      "1280x720",
+      "390x844",
+      "320x568"
+    ]
+  },
+  "manual": {
+    "slot": "user://forge_review_v1.save",
+    "input": "desktop mouse",
+    "observed": [
+      "core confirmation",
+      "repeat dig 320 to315 to310",
+      "undo to315 and terrain restored",
+      "pan unchanged gold315",
+      "palette spikes to280",
+      "UI drop unchanged280",
+      "catalogue retraction",
+      "observation and pause"
+    ],
+    "stderr_bytes": 0,
+    "review_window_closed": true
+  },
+  "review": {
+    "independent_passes": 1,
+    "fixed": [
+      "modal precedence",
+      "canceled touch",
+      "actual and lifted drop bounds"
+    ],
+    "visual_fixes": [
+      "MSDF text",
+      "long catalogue cards",
+      "narrow panels",
+      "raid menu access"
+    ]
+  },
+  "limits": [
+    "No physical touch or phone performance validation",
+    "No full raid/save audit",
+    "No automated tests",
+    "No commit or push"
+  ]
+}

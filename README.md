@@ -1,8 +1,23 @@
-# Dungeon Empire — base 2D mobile
+# Dungeon Empire — prototype 2D isométrique mobile
 
-Les **23 scènes** utilisent **108 régions préparées dans un atlas 1024×2048** :
+Une première boucle jouable est disponible dans **`scenes/game/DungeonGame.tscn`** :
+aménager le donjon, observer un raid autonome, puis consulter le bilan et réparer.
+Les héros utilisent encore des repères provisoires. Pointes, Entrave et Néant
+ont leurs sprites peints, avec les états armé, déclenché et épuisé. Les coffres ont leurs
+sprites rituels en quatre orientations vers l'espace libre : entrouverts sans
+protection, fermés avec un verrou actif. La serrure reste sur la caisse dans les
+deux états ; corps de72px au zoom.75. La revue du
+code et le démarrage sans interface sont vérifiés ; la validation interactive
+complète reste à terminer. [État détaillé](docs/gameplay/validation-2026-10-25.md).
+
+Les **24 scènes de présentation** et la scène jouable réutilisent **120 régions
+préparées dans un atlas 1024×2048**, complétées par seize régions de coffres et
+d'ombres dans une page 256×1024 et quinze régions de pièges dans une page
+512×1024 du même catalogue, soit **151 régions au total** :
 sol, murs, piliers, quatre portes, quatre escaliers, cœur et torches.
 Les anciens décors de fissures et d'éclats de pierre ont été retirés.
+Le vortex du cœur tourne doucement en jeu, avec une légère pulsation violette.
+Le socle reste fixe ; aucune texture supplémentaire. L'éditeur reste statique.
 Vingt scènes de disposition activent neuf variantes de murs : maçonneries,
 reliefs et corruption optionnelle. Leurs pierres partagent la palette du mur
 de base ; les accents violets restent distincts.
@@ -23,14 +38,46 @@ au zoom fixe 0,75 dans la vue logique 1280×720. Déplacement au doigt ou avec l
 bouton gauche de la souris ; aucun zoom utilisateur. Les matières et dessins
 approuvés ont été adaptés à la géométrie isométrique, préparée d'abord en wireframe.
 
-Ce projet est une étude visuelle. Aucun gameplay n'est implémenté.
+Le kit visuel reste indépendant de la simulation ; les illustrations approuvées
+n'ont pas été modifiées pour ajouter le gameplay.
+
+## Jouer
+
+Ouvrir `scenes/game/DungeonGame.tscn`, puis **F6** dans Godot. Choisir un nouveau
+donjon, ou **Donjon d'essai** puis confirmer pour disposer d'une entrée, d'une
+porte, de pointes et de trois coffres. **Lancer le raid** commence l'expédition.
+
+Glisser sur le donjon déplace la vue ; le zoom reste fixe. Choisir un outil puis
+toucher les cases pour poser en série, ou glisser l'outil depuis la palette.
+**↶** annule la dernière construction de cette session. L'ancrage du cœur et le
+remplacement d'un objet gardent une confirmation explicite.
+La **Forge en pierre et violet** réserve une colonne aux commandes, hors de la
+vue du donjon. Le catalogue commence directement par **Terrain, Portes, Pièges
+et Trésors** : choisir une famille puis son outil, qui reste actif pour poser
+en série. **Voir** réduit cette colonne. Les cibles gardent au moins
+48 unités d'interface. Les coffres se gèrent via un panneau contextuel avec
+transferts à l'unité ; les longs panneaux et bilans peuvent défiler. Le menu
+accessible par la trésorerie ou Pause propose **Lancer le raid**.
+Le timer reste visible au-dessus des panneaux, avec son état de pause pendant
+la construction. Les couronnes dorées avec des pièces indiquent le remplissage
+des coffres ; les couronnes cuivrées des pièges montrent les charges restantes.
+Les montants exacts restent dans le panneau de la case sélectionnée.
+La roche extérieure est réellement découpée autour des salles, à hauteur des
+murs, avec un espace de sol brut. Cette ouverture suit chaque creusement.
+Échap ou Retour Android ferme le choix en cours ou ouvre la pause.
+L'intégration et ses limites sont décrites dans
+[le relevé de la Forge](docs/gameplay/forge-integration-2026-10-25.md).
+La sauvegarde `user://isometric_run_v1.save` ne remplace pas celle de l'ancien jeu.
+Le démarrage principal défini localement dans `project.godot` est conservé.
 
 ## Ouvrir les scènes
 
 Ouvrir `project.godot` dans Godot.
 
-- **F5** : `scenes/MobileReference.tscn`, avec le cœur sculpté et deux torches éclairées.
+- **F5** : la scène de démarrage choisie dans les réglages locaux du projet.
 - **F6** : lancer la scène sélectionnée.
+- **MobileReference** : le cœur sculpté, deux torches et trois décors rituels.
+- **DungeonDecorations** : les six décors rituels et leurs ombres.
 - **SixRoomPreview** : six salles, couloirs de deux cases de large, entrée par escalier et cœur.
 - **WireframeDoorCross** : les quatre orientations de portes.
 - **WireframeClosedCorridors** : salle avec quatre couloirs et escaliers terminaux.
@@ -42,11 +89,11 @@ Dans l'éditeur, sélectionner **Dungeon → Actualiser le rendu** après la fin
 l'import. Le catalogue et l'atlas sont rechargés ensemble ; les réimports suivants
 actualisent l'aperçu. Les grandes scènes s'explorent en déplaçant la vue.
 
-Les 20 scènes de salles/couloirs activent les fissures et l'usure. Dans le nœud
-**Dungeon**, **Surface Details** active les décors et **Surface Detail Seed**
-change leur répartition. Les motifs sont espacés, stables entre actualisations,
-avec une corruption rare. Les supports de torches, portes, escaliers et cases
-sous le cœur sont exclus. Les props isolés et la planche des escaliers restent nus.
+Les 20 scènes de salles/couloirs activent les variantes et dégâts des dalles.
+Dans le nœud **Dungeon**, **Floor Damage** active ces dégâts et **Floor Damage Seed**
+change leur répartition stable. **Floor Corruption** active la corruption ; portes,
+escaliers et supports du cœur sont exclus. Les anciens overlays Surface Details
+ont été retirés. Les props isolés et la planche des escaliers restent nus.
 
 ## Où sont les sprites ?
 
@@ -55,6 +102,9 @@ sous le cœur sont exclus. Les props isolés et la planche des escaliers restent
 | `assets/dungeon/isometric-kit/` | Atlas et catalogue peints actifs |
 | `assets/dungeon/mobile-kit/` | Ancien kit peint conservé ; petite texture de lumière partagée |
 | `assets/dungeon/shared-materials/` | Matières et recettes peintes de référence |
+| `assets/dungeon/bedrock/` | Trois matières de roche pour l'extérieur découpé |
+| `assets/ui/forge/` | Pierre extensible et icônes peintes de la Forge |
+| `assets/ui/black-gold/` | Ancien habillage et symboles utilitaires encore réutilisés |
 | `docs/reference/isometric-review/painted-v1/` | Sprites peints, guides magenta, superpositions, recette et captures |
 | `docs/reference/isometric-review/migration-v1/` | Géométrie et revue wireframe conservées |
 
@@ -83,14 +133,15 @@ node tools/prepare_isometric_migration_review.cjs
 ```
 
 Les images sont dans `docs/reference/isometric-review/painted-v1/captures/`.
-L'atlas peint pèse **1 504 113 octets PNG**, soit environ **1,43 Mio**, et **8 Mio
-RGBA** sans mipmaps. Aucun profilage sur téléphone effectué. Ces commandes
+Les trois pages du kit peint pèsent **1 830 392 octets PNG**, soit environ
+**1,75 Mio**, et **11 Mio RGBA** sans mipmaps. Aucun profilage sur téléphone effectué. Ces commandes
 produisent des aperçus, pas une suite de tests.
 
 Suivre [la recette de migration peinte](docs/reference/isometric-review/painted-v1/README.md)
-pour exporter les 52 dépendances actives des 23 scènes depuis une copie propre.
-La dernière revue est dans
-[l'intégration des décors de dalles B](docs/reference/isometric-floor-damage-review/v1/integration/README.md).
+pour exporter le kit visuel depuis une copie propre. L'exporteur du kit couvre
+les 24 scènes de présentation ; il n'est pas encore un export mobile du jeu.
+La dernière intégration visuelle est celle des
+[trois pièges et de leurs états](docs/reference/trap-review/v7-integrated-paint/index.html).
 
 ## Documentation
 

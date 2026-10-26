@@ -118,6 +118,6 @@ async function heart(m) {
     const z=-sy/(P.PX*-P.camera.y[2]),diff=sx*2/P.PX,p=[diff/2,-diff/2,z];
     if(P.dot(p,P.camera.eye)>=mesh.depth[k]-1e-8)over(raw,k*4,c);
   }
-  return {id:m.id,frame,bounds:m.bounds,png:await encoded(raw,mesh,frame),adaptation:{source:sources.heart[0],sourceSha256:sources.heart[1],rigidGeometry:'frozen migration-v1',mapping:'Approved caps, lower ritual field and border mapped to rigid XYZ support. Hidden back field reflected. Original vortex retained as a camera-facing layer with spatial feather mask.',groundFasciaSourceRows:[242,252],groundContactZ:0,vortex:{sourceCentre,radius:54,uniformScale:scale},status:'reprojected appearance; not a new artwork approval'}};
+  return {id:m.id,frame,bounds:m.bounds,png:await encoded(raw,mesh,frame),vortex:{center:centre.map((v,i)=>v-frame[i]),radius:54*scale},adaptation:{source:sources.heart[0],sourceSha256:sources.heart[1],rigidGeometry:'frozen migration-v1',mapping:'Approved caps, lower ritual field and border mapped to rigid XYZ support. Hidden back field reflected. Original vortex retained as a camera-facing layer with spatial feather mask.',groundFasciaSourceRows:[242,252],groundContactZ:0,vortex:{sourceCentre,radius:54,uniformScale:scale},status:'reprojected appearance; not a new artwork approval'}};
 }
 module.exports={torch,heart,cap,sources};

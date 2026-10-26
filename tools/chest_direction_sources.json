@@ -1,0 +1,246 @@
+{
+  "gameBodyWidth": 72,
+  "cameraZoom": 0.75,
+  "items": [
+    {
+      "id": "prop-chest",
+      "facing": "south",
+      "state": "closed",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/closed-south.png",
+      "anchor": [
+        729,
+        784
+      ],
+      "foot": [
+        [
+          369,
+          766
+        ],
+        [
+          824,
+          946
+        ],
+        [
+          1089,
+          801
+        ],
+        [
+          634,
+          621
+        ]
+      ],
+      "accepted": true,
+      "sha256": "43a91744225be6f46592aa7d81fd053fca9d1d1e6bee64d0fda5fc089b6d9418"
+    },
+    {
+      "id": "prop-chest-open",
+      "facing": "south",
+      "state": "open",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+      "anchor": [
+        725.5,
+        792
+      ],
+      "foot": [
+        [
+          330,
+          765
+        ],
+        [
+          840,
+          978
+        ],
+        [
+          1121,
+          819
+        ],
+        [
+          611,
+          606
+        ]
+      ],
+      "accepted": false,
+      "sha256": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c"
+    },
+    {
+      "id": "prop-chest-east",
+      "facing": "east",
+      "state": "closed",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/closed-east.png",
+      "anchor": [
+        728,
+        778.5
+      ],
+      "foot": [
+        [
+          348,
+          814
+        ],
+        [
+          594,
+          955
+        ],
+        [
+          1108,
+          743
+        ],
+        [
+          862,
+          602
+        ]
+      ],
+      "accepted": false,
+      "sha256": "8d40067547821e57b812c5a7d91520c6bdb4d354ee33b1deb5ae4670d3c03bd5"
+    },
+    {
+      "id": "prop-chest-open-east",
+      "facing": "east",
+      "state": "open",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/open-east.png",
+      "anchor": [
+        740.5,
+        819
+      ],
+      "foot": [
+        [
+          332,
+          850
+        ],
+        [
+          601,
+          997
+        ],
+        [
+          1149,
+          788
+        ],
+        [
+          880,
+          641
+        ]
+      ],
+      "accepted": false,
+      "sha256": "3ee68a289d021dc48375142ed5159a6a380318f3a433be95992c5d6383203244"
+    },
+    {
+      "id": "prop-chest-north",
+      "facing": "north",
+      "state": "closed",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/closed-north.png",
+      "anchor": [
+        713.5,
+        760
+      ],
+      "foot": [
+        [
+          330,
+          734
+        ],
+        [
+          811,
+          944
+        ],
+        [
+          1097,
+          786
+        ],
+        [
+          616,
+          576
+        ]
+      ],
+      "accepted": false,
+      "sha256": "f60ef108ee8d023a3cfb811702ba199b33afe586323f2a242dfdc4164486d2bb"
+    },
+    {
+      "id": "prop-chest-open-north",
+      "facing": "north",
+      "state": "open",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/open-north.png",
+      "anchor": [
+        712,
+        785.5
+      ],
+      "foot": [
+        [
+          291,
+          747
+        ],
+        [
+          826,
+          991
+        ],
+        [
+          1133,
+          824
+        ],
+        [
+          598,
+          580
+        ]
+      ],
+      "accepted": false,
+      "sha256": "cac6d6987fb137072ef92b7f56083fa9febaed039219fe9f73ec49e784137d0d"
+    },
+    {
+      "id": "prop-chest-west",
+      "facing": "west",
+      "state": "closed",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/closed-west.png",
+      "anchor": [
+        721.5,
+        775
+      ],
+      "foot": [
+        [
+          333,
+          806
+        ],
+        [
+          593,
+          945
+        ],
+        [
+          1110,
+          744
+        ],
+        [
+          850,
+          605
+        ]
+      ],
+      "accepted": false,
+      "sha256": "2cd7d8e32f8d4f51118fc2ef782d8154cca00b92b26f7d4998a879ba2ddb3b8b"
+    },
+    {
+      "id": "prop-chest-open-west",
+      "facing": "west",
+      "state": "open",
+      "source": "docs/reference/treasure-chest-review/v4-directions/source/open-west.png",
+      "anchor": [
+        754.5,
+        764
+      ],
+      "foot": [
+        [
+          336,
+          807
+        ],
+        [
+          623,
+          955
+        ],
+        [
+          1173,
+          721
+        ],
+        [
+          886,
+          573
+        ]
+      ],
+      "accepted": false,
+      "sha256": "86d2cab713fb07467117d055eb828464f51146b0dfd11e4e0a978b61931ed6ba"
+    }
+  ]
+}

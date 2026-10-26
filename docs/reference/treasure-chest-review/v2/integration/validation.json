@@ -1,0 +1,274 @@
+{
+  "date": "2026-10-25",
+  "retainedRegions": 120,
+  "retainedPixelsAndMetadataIdentical": true,
+  "mainAtlasByteIdentical": true,
+  "selectionFiles": 6,
+  "userProjectSettingsUnchanged": true,
+  "atlas": {
+    "regions": 124,
+    "pages": [
+      {
+        "path": "res://assets/dungeon/isometric-kit/atlas-256.png",
+        "width": 1024,
+        "height": 2048,
+        "sourceBytes": 1566183,
+        "uncompressedRGBABytes": 8388608
+      },
+      {
+        "path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+        "width": 256,
+        "height": 256,
+        "sourceBytes": 43725,
+        "uncompressedRGBABytes": 262144
+      }
+    ],
+    "pngBytes": 1609908,
+    "deltaPNG": 43725,
+    "rgbaBytes": 8650752,
+    "deltaRGBA": 262144
+  },
+  "observations": [
+    {
+      "state": "four-chests",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 4,
+      "labels": [
+        "150 / 150",
+        "37 / 150",
+        "37 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": -1
+    },
+    {
+      "state": "gold-without-rebuild",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 4,
+      "labels": [
+        "150 / 150",
+        "91 / 150",
+        "37 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": -1
+    },
+    {
+      "state": "lock-forced",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 4,
+      "labels": [
+        "150 / 150",
+        "91 / 150",
+        "37 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": -1,
+      "visualHashChanged": true
+    },
+    {
+      "state": "lock-restored",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 4,
+      "labels": [
+        "150 / 150",
+        "91 / 150",
+        "37 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": -1
+    },
+    {
+      "state": "removed",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 3,
+      "labels": [
+        "150 / 150",
+        "91 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": -1
+    },
+    {
+      "state": "restored",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 4,
+      "labels": [
+        "150 / 150",
+        "91 / 150",
+        "37 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": -1
+    },
+    {
+      "state": "hero-behind",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 4,
+      "labels": [
+        "150 / 150",
+        "91 / 150",
+        "37 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": 43
+    },
+    {
+      "state": "hero-in-front",
+      "issues": [],
+      "chests": [
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        },
+        {
+          "id": "prop-chest-open",
+          "atlas": "res://assets/dungeon/isometric-kit/chests/atlas-256.png"
+        }
+      ],
+      "shadows": 4,
+      "labels": [
+        "150 / 150",
+        "91 / 150",
+        "37 / 150",
+        "0 / 150"
+      ],
+      "heroIndex": 51
+    }
+  ],
+  "limits": [
+    "Offline montage, not a GPU capture. No native app control, automated test suite, device profile or full raid verification.",
+    "Coins are a fixed appearance for an unprotected chest; the numeric caption reports its actual contents.",
+    "Closed art was accepted; the newly requested open/smaller-coins appearance remains subject to feedback."
+  ]
+}

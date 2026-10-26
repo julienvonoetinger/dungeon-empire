@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-25",
+  "status": "Appearance proposal; not approved or integrated",
+  "current": "source/chest-closed-v2.png",
+  "entries": [
+    {
+      "name": "Premier essai — écarté",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\treasure-chest-review\\v1\\source\\chest-closed-v1.png",
+      "width": 96,
+      "inspection": {
+        "size": [
+          1254,
+          1254
+        ],
+        "body": [
+          115,
+          145,
+          1172,
+          1149
+        ],
+        "zero": 839664,
+        "partial": 731727,
+        "sha256": "4067cd47d1bc21d07bc3cfbd661882c5108d4ea345edc8f7597b6e20cdc326c4"
+      }
+    },
+    {
+      "name": "Nouvelle proposition",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\treasure-chest-review\\v1\\source\\chest-closed-v2.png",
+      "width": 96,
+      "inspection": {
+        "size": [
+          1536,
+          1024
+        ],
+        "body": [
+          265,
+          100,
+          1319,
+          981
+        ],
+        "zero": 936154,
+        "partial": 636710,
+        "sha256": "76b7a2da24745bc9a611ee67f9f0a185ae8e99299349bcf7a0398c0f2c3a74dd"
+      }
+    },
+    {
+      "name": "Grimoire — référence existante",
+      "file": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\isometric-prop-review\\v1\\source\\e-grimoire.png",
+      "height": 56,
+      "inspection": {
+        "size": [
+          1466,
+          1073
+        ],
+        "body": [
+          309,
+          206,
+          1182,
+          894
+        ],
+        "zero": 1222615,
+        "partial": 349361,
+        "sha256": "0cc713880533221906394e37ab8e98f628e73dc82c375c84147b4c6a57b6f6d7"
+      }
+    }
+  ],
+  "display": {
+    "cameraZoom": 0.75,
+    "chestBodyWidth": 96,
+    "groundDiamond": [
+      192,
+      96
+    ]
+  },
+  "policy": "Original pixels/alpha untouched. Uniform resize only. Alpha128 measures size, never masks pixels.",
+  "limitations": [
+    "Generated chest retains unwanted external haze. Cleanup attempts did not solve it.",
+    "Ground grid is exact 2:1; generated source geometry is not numerically calibrated.",
+    "Contact anchors are provisional. No added shadow, Godot capture or production changes."
+  ]
+}
