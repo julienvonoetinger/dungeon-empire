@@ -22,6 +22,12 @@ var chest_facings: Dictionary = {}
 var _overlay: Node2D
 var _placement_cell := Vector2i(-1,-1)
 var _placement_valid := false
+var access_visible := false:
+	set(value):
+		access_visible=value
+		if is_instance_valid(_floor_guide): _floor_guide.queue_redraw()
+var _valid_cells: Array[Vector2i] = []
+var _floor_guide: Node2D
 
 func _ready() -> void:
 	session = owner as IsometricGameSession
@@ -29,6 +35,8 @@ func _ready() -> void:
 	session.frame_updated.connect(_update_markers)
 	session.raid.trap_activated.connect(_on_trap_activated)
 	get_tree().root.size_changed.connect(_update_markers)
+	_floor_guide=Node2D.new(); _floor_guide.name="GroundGuide"; add_child(_floor_guide)
+	_floor_guide.draw.connect(_draw_ground_guide)
 	_overlay=Node2D.new()
 	_overlay.name="PlacementGuide"
 	_overlay.z_index=5
@@ -37,7 +45,14 @@ func _ready() -> void:
 
 func _on_change(structure: bool) -> void:
 	if structure: rebuild()
+	_valid_cells.clear()
+	if session.can_edit() and session.sim._has_core() and session.tool!=Types.Tool.NONE:
+		for y in Types.ROWS:
+			for x in Types.COLS:
+				var cell:=Vector2i(x,y)
+				if session.sim.grid[y][x] in [Types.Tile.FLOOR,Types.Tile.ROCK] and session.check_action(cell).get("valid",false): _valid_cells.append(cell)
 	queue_redraw()
+	_floor_guide.queue_redraw()
 	_overlay.queue_redraw()
 
 func _vortex_can_advance() -> bool:
@@ -122,6 +137,8 @@ func rebuild() -> void:
 		_actor.z_index = 1
 		_world.add_child(_actor)
 	_update_markers()
+	# Same layer as floors, after their container; solids retain layer 1.
+	move_child(_floor_guide,-1)
 
 func _ordered_parts(parts: Array[Dictionary]) -> Array[Dictionary]:
 	_paint_order = super._ordered_parts(parts)
@@ -284,11 +301,25 @@ func _draw() -> void:
 	if not session.sim._has_core():
 		for y in Types.ROWS:
 			for x in Types.COLS: draw_polyline(_diamond(Vector2i(x,y)),Color(.4,.45,.65,.22),1,true)
-	elif session.can_edit() and session.tool == Types.Tool.DIG:
-		for y in Types.ROWS:
-			for x in Types.COLS:
-				var p := Vector2i(x,y)
-				if session.sim._is_diggable_rock(p): draw_polyline(_diamond(p),Color(.85,.67,.35,.5),1.5,true)
+
+func _draw_ground_guide() -> void:
+	if session.can_edit():
+		for cell in _valid_cells: _floor_guide.draw_polyline(_diamond(cell),Color(.74,.50,.85,.42),1.5,true)
+	if access_visible:
+		# Geometric access guide, not a prediction of a hero's private knowledge.
+		var entrance:=session.sim._find_tile(Types.Tile.ENTRANCE)
+		if entrance.x<0: return
+		var pending: Array[Vector2i]=[entrance]
+		var seen: Dictionary={entrance:true}
+		while not pending.is_empty():
+			var cell: Vector2i=pending.pop_front()
+			var at:=grid_to_local(Vector2(cell)+Vector2(.5,.5))
+			_floor_guide.draw_circle(at,3,Color(.91,.83,.66,.5))
+			for direction in Types.DIRS:
+				var next:=cell+direction
+				if seen.has(next) or not session.sim._inside(next): continue
+				if session.sim.grid[next.y][next.x] in [Types.Tile.ROCK,Types.Tile.CORE]: continue
+				seen[next]=true; pending.append(next)
 
 func show_placement(cell: Vector2i, valid: bool) -> void:
 	_placement_cell=cell; _placement_valid=valid

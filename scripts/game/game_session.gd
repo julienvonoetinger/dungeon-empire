@@ -23,6 +23,7 @@ var notice := ""
 var save_error := ""
 var save_blocked := false
 var last_reward: Dictionary = {}
+var raid_speed := 1
 var _visual_state := 0
 var _build_history: Array[Dictionary] = []
 
@@ -66,7 +67,9 @@ func ready_for_raid() -> bool:
 func _process(delta: float) -> void:
 	if not paused and not confirmation_open and not result_open and not save_blocked and not sim.game_over:
 		if raid.raid_active:
-			raid._update_hero(minf(delta, .1))
+			# Fixed substeps preserve the existing step/timer bounds at 2x.
+			for step in clampi(raid_speed,1,2):
+				if raid.raid_active and not result_open: raid._update_hero(minf(delta, .1))
 			var next := _structure_hash()
 			if next != _visual_state:
 				_visual_state = next

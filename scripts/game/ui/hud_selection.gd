@@ -14,6 +14,7 @@ var confirm: Button
 var collect: Button
 var absorb: Button
 var transfer: Button
+var repair: Button
 var transfers: VBoxContainer
 var target_label: Label
 var amount_label: Label
@@ -68,6 +69,10 @@ func _ready() -> void:
 	close.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	confirm = UI.button(header, "CONFIRMER", func(): session.confirm_action(), "", true)
 	transfer = UI.button(header, "Transférer l’or", _open_transfer, "arrow")
+	repair = UI.button(header,"Réparer",func():
+		var cell:=session.selected
+		session.choose_tool(Types.Tool.REPAIR)
+		session.select_cell(cell),"hammer")
 	actions = HFlowContainer.new()
 	content.add_child(actions)
 	collect = UI.button(actions, "Ramasser le butin", func(): session.collect_selected(), "coin", true)
@@ -130,6 +135,11 @@ func refresh() -> void:
 		elif session.sim._is_door_tile(tile): detail.text = "%d / %d PV" % [session.sim.door_hp.get(p, Types.DOOR_MAX_HP), Types.DOOR_MAX_HP]
 		elif Types.is_trap_tile(tile): detail.text = "%d / %d charges" % [session.sim.trap_charges.get(p, 0), Types.trap_max_charges(tile)]
 	confirm.visible = placing
+	var repair_action:=session.check_action(p,Types.Tool.REPAIR)
+	repair.visible=not placing and (Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
+	repair.disabled=not repair_action.get("valid",false)
+	repair.text="Réparer · %d or" % repair_action.get("cost",0)
+	repair.tooltip_text=Notices.french(str(repair_action.get("reason","")))
 	confirm.disabled = not session.can_edit() or not session.preview.get("valid", false)
 	collect.visible = p.x >= 0 and session.sim.loot_bags.any(func(b): return b.pos == p and b.gold > 0)
 	absorb.visible = p.x >= 0 and session.sim.corpses.any(func(c): return c.pos == p)

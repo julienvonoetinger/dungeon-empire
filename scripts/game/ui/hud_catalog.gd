@@ -23,6 +23,9 @@ var category := 1
 var cards: Array[Dictionary] = []
 var heading: Label
 var row: GridContainer
+var tabs: HBoxContainer
+var tab_buttons: Array[Button]=[]
+var count_label: Label
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -33,8 +36,18 @@ func _ready() -> void:
 	heading = UI.label(header,"",17)
 	heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	var close := UI.button(header, "‹", func(): closed.emit())
-	close.tooltip_text = "Retour aux familles"
+	var close := UI.button(header, "✕", func(): closed.emit())
+	close.tooltip_text = "Fermer le catalogue"
+	count_label=UI.label(box,"",12,UI.MUTED)
+	tabs=HBoxContainer.new(); box.add_child(tabs)
+	tabs.add_theme_constant_override("separation",4)
+	for index in GROUPS.size():
+		var tab:=UI.button(tabs,GROUPS[index],func(): _choose_category(index))
+		tab.add_theme_font_size_override("font_size",11)
+		tab.add_theme_stylebox_override("normal",UI.command_surface(false,4))
+		tab.add_theme_stylebox_override("pressed",UI.command_surface(true,4))
+		tab.toggle_mode=true; tab.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		tab_buttons.append(tab)
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
@@ -77,18 +90,26 @@ func _ready() -> void:
 
 func fit_width(width: float) -> void:
 	# Full-width portrait sheets hold two comfortable cards per row.
-	row.columns = 2 if width >= 340 else 1
+	row.columns = 2 if width >= 350 else 1
 	row.add_theme_constant_override("h_separation", 4)
 	row.add_theme_constant_override("v_separation", 4)
 
 func preferred_height() -> float:
 	var box: Control = get_child(0)
-	return box.get_child(0).get_combined_minimum_size().y + 6 + row.get_combined_minimum_size().y + 24
+	return box.get_child(0).get_combined_minimum_size().y+count_label.get_combined_minimum_size().y+tabs.get_combined_minimum_size().y+row.get_combined_minimum_size().y+42
 
 func _choose_category(index: int) -> void:
 	category = index
 	heading.text = GROUPS[index]
 	for card in cards: card.button.visible = card.category == index
+	for i in tab_buttons.size(): tab_buttons[i].set_pressed_no_signal(i==index)
+	if is_instance_valid(count_label):
+		var unlocked:=0; var total:=0
+		for card in cards:
+			if card.category==index:
+				total+=1
+				if not card.lock.visible: unlocked+=1
+		count_label.text="%d / %d débloqués · touchez pour armer" % [unlocked,total]
 
 func refresh(session: IsometricGameSession) -> void:
 	for card in cards:
@@ -98,6 +119,7 @@ func refresh(session: IsometricGameSession) -> void:
 		card.lock.text = "Niv. %d" % session.progression.required_level(card.id) if not unlocked else ""
 		card.lock.visible = not unlocked
 		card.button.set_pressed_no_signal(session.tool == card.id)
+	_choose_category(category)
 
 static func definition(tool: int) -> Array:
 	for item in TOOLS:

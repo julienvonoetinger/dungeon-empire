@@ -63,12 +63,14 @@ func _input(event: InputEvent) -> void:
 			_pointer=-2
 			_touches.erase(event.index)
 			_cancel_palette()
+			session.get_node("HUD").cancel_pointer()
 			return
 		if event.pressed:
 			_touches[event.index] = true
 			if _touches.size() > 1:
 				_pointer = -2
 				_cancel_palette()
+				session.get_node("HUD").cancel_pointer()
 		else:
 			_touches.erase(event.index)
 			if _pointer == event.index: call_deferred("_cancel_if_released", event.index)
@@ -121,7 +123,7 @@ func _finish(point: Vector2) -> void:
 	if not _dragged and not session.get_node("HUD").blocks_pointer(point):
 		var local_point: Vector2 = point - session.get_node("PlayArea").position
 		var world_point: Vector2 = view.get_global_transform_with_canvas().affine_inverse() * local_point
-		session.activate_cell(view.pick_cell(world_point))
+		session.get_node("HUD").world_tapped(view.pick_cell(world_point))
 	_pointer = -2
 
 func _threshold() -> float:
@@ -174,6 +176,7 @@ func _notification(what: int) -> void:
 		_pointer = -2
 		_touches.clear()
 		_cancel_palette()
+		if is_instance_valid(session): session.get_node("HUD").cancel_pointer()
 
 func _go_back() -> void:
 	session.get_node("HUD").handle_back()

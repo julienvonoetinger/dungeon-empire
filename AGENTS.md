@@ -1,5 +1,39 @@
 # Repository instructions
 
+## Master mobile HUD first integration — 2026-10-26
+
+- User requests implementation of Claude Design PDF v2 plus24818 header capture.
+  Replaces permanent Forge rail with fullscreen world, painted stone/vortex band,
+  contextual radial and temporary catalogue/selection sheets. Fixed camera and
+  portrait compensation unchanged. Current review: interface-review/v10-master-mobile.
+- Native-alpha ImageGen header/ten-rune eye reconstructed from screenshot;
+  originals/prompts retained. This is an integration adaptation, not the original
+  Claude export or automatic artistic approval. Uniform preparation in
+  tools/prepare_master_ui.cjs; current painted trap atlas supplies new glyphs.
+  Cinzel OFL bundled, MSDF enabled. New production files ~520KiB incl.font;
+  HUD PNGs <.8MiB uncompressed RGBA. Dungeon atlas pixels unchanged.
+- Four stable radial families, existing unlocked variants only, max5 quick
+  wedges at48-unit thickness; Tout reaches all. Empty-cell choice places once
+  and keeps tool armed. Pan/invalid taps preserve it; Back/Arrêter stops. Occupied
+  replacements retain confirmation. Catalogue tabs, locked levels, repairs,
+  exact transfers, initial heart, pause/reset/result/save guards remain native.
+- Short landscape moves radial footer beside rings (420x208), header84 high;
+  regular260x256/header96. Fullscreen HUD shields prevent click-through.
+  Access dots show geometric access, not predicted AI routes. Floor guides draw
+  after floor container atz0 and beneath z1 solids. Runtime1x/2x uses bounded
+  simulation substeps, no save schema or balance changes.
+- tools/verify_master_mobile.gd exercises transactions, real viewport taps/pan,
+  four corners through568x299, cancellation/two-finger rearm, disk-write failure
+  visibility and2x/pause. Final exit0/empty stderr. Native112captures/7sizes in
+  v10, no measured label overflow; critical states and short/portrait inspected.
+  Independent read-only review found save-error, multitouch, font and short
+  radial issues; corrected and re-reviewed with no remaining concrete finding.
+- Review uses isolated artifact paths; no normal player-save access. Import
+  exit0/empty stderr; no hardware phone/multitouch/safe-area/performance profile
+  or full campaign audit. Replay/sharing/new traps/multihero rewards, six eye
+  emotion animations and catalogue long-press sheets are not included. Edge
+  recenter is immediate. No commit/push. See v10/validation.md and plan ledger.
+
 ## Accepted painted traps and three runtime states integrated — 2026-10-26
 
 - User authorizes integration after v6 centered Entrave. selection.json in

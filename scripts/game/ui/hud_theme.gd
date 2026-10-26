@@ -1,9 +1,9 @@
 extends RefCounted
 
-const GOLD := Color("d2b1f0")
-const INK := Color("111727")
-const TEXT := Color("eef0fa")
-const MUTED := Color("b3bbcf")
+const GOLD := Color("d9b45c")
+const INK := Color("1a1119")
+const TEXT := Color("e8dcc8")
+const MUTED := Color("beb1c7")
 const ASSETS := "res://assets/ui/black-gold/"
 const PAINTED := {"pick":"dig","hammer":"dig","spike":"spikes","door":"door","chest":"chest","locked":"locked","gem":"heart","void":"crystal"}
 const ICON_REGIONS = preload("res://assets/ui/forge/icon_regions.gd")
@@ -27,6 +27,14 @@ static func flat(color: Color, radius: int = 5) -> StyleBoxFlat:
 	style.set_corner_radius_all(radius)
 	return style
 
+static func command_surface(selected: bool=false, margin: float=10) -> StyleBoxFlat:
+	var style:=flat(Color("392340") if selected else INK,6)
+	style.corner_detail=1
+	style.border_color=Color("ba87d6") if selected else Color("91849a")
+	style.set_border_width_all(2)
+	style.set_content_margin_all(margin)
+	return style
+
 static func slim_scrollbar(scroll: ScrollContainer) -> void:
 	for part in ["scroll", "scroll_focus", "grabber", "grabber_highlight", "grabber_pressed"]:
 		var style := flat(Color("7b698e") if part.begins_with("grabber") else Color("151c2d"), 2)
@@ -47,9 +55,9 @@ static func create() -> Theme:
 	theme.set_constant("shadow_offset_y", "Label", 1)
 	theme.set_stylebox("panel", "PanelContainer", surface("panel"))
 	for state in ["normal", "hover", "pressed"]:
-		theme.set_stylebox(state, "Button", surface("selected" if state == "pressed" else "button", 10))
-	var disabled := surface("button",10)
-	disabled.modulate_color = Color(.5,.55,.65,.85)
+		theme.set_stylebox(state, "Button", command_surface(state == "pressed", 10))
+	var disabled := command_surface(false,10)
+	disabled.bg_color=Color("1d1920"); disabled.border_color=Color("514957")
 	theme.set_stylebox("disabled", "Button", disabled)
 	var focus := flat(Color.TRANSPARENT, 10)
 	focus.border_color = Color("d2a4ff")
@@ -68,6 +76,10 @@ static func create() -> Theme:
 
 static func icon(name: String) -> Texture2D:
 	if _icons.has(name): return _icons[name]
+	if name in ["spike","snare","void"]:
+		_icons[name]=load("res://assets/ui/master/trap-"+name+".png")
+		return _icons[name]
+	if name in ["catalog","path","prey"]: return load("res://assets/ui/master/"+name+".svg")
 	if name=="health": return preload("res://assets/ui/forge/health.svg")
 	if name=="coins": return preload("res://assets/ui/forge/coins.svg")
 	if name in ["undo","eye"]: return load("res://assets/ui/forge/" + name + ".svg")
@@ -97,7 +109,7 @@ static func button(parent: Node, text: String, action: Callable, glyph: String =
 	if not glyph.is_empty(): item.icon = icon(glyph)
 	if gold:
 		for state in ["normal", "hover", "pressed"]:
-			item.add_theme_stylebox_override(state, surface("gold", 12))
+			item.add_theme_stylebox_override(state, command_surface(true, 12))
 		for state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
 			item.add_theme_color_override(state, TEXT)
 	item.pressed.connect(func():
@@ -108,6 +120,10 @@ static func button(parent: Node, text: String, action: Callable, glyph: String =
 ## Icon above a short visible label: actions stay understandable without tooltips.
 static func tile(parent: Node, glyph: String, text: String, action: Callable) -> Button:
 	var item := button(parent, "", action)
+	for state in ["normal","hover","pressed"]:
+		var circle:=command_surface(state=="pressed",0)
+		circle.set_corner_radius_all(28); circle.corner_detail=12
+		item.add_theme_stylebox_override(state,circle)
 	item.custom_minimum_size = Vector2(56, 58)
 	item.tooltip_text = text
 	var box := VBoxContainer.new()
@@ -116,7 +132,7 @@ static func tile(parent: Node, glyph: String, text: String, action: Callable) ->
 	box.add_theme_constant_override("separation", 1)
 	item.add_child(box)
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	box.offset_left = 6; box.offset_right = -6; box.offset_top = 6; box.offset_bottom = -6
+	box.offset_left = 8; box.offset_right = -8; box.offset_top = 5; box.offset_bottom = -5
 	var mark := picture(box, glyph, 24)
 	mark.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	var words := label(box, text, 11)
