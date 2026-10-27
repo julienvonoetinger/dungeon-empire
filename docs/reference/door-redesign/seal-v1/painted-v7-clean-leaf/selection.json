@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-27",
+  "approval": "ok maintenant crée la texture correspondante",
+  "geometrySource": "../wireframe-v6-clean-leaf",
+  "geometryFiles": {
+    "geometry.json": "c199d7de6f8b8062c8669714c4dd28c384f0a8fb049290082c1a01dfbad1ea54",
+    "face-guide-magenta.png": "97969d32d2ed65872c097e443e1cec456b909632052b97d5151a0ccd1c23aa45",
+    "leaf-mask.png": "923c70658ef1873898c7b2d0a6190445eb3e051ebefe0019a71db20466b5a494"
+  },
+  "paintingSourceSha256": "036862ef379c4a33f6c3ae3f2668c591439ebbea4528c310e647e25ee2e47e49",
+  "paintingStatus": "created-for-visual-review"
+}

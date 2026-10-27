@@ -1,0 +1,1027 @@
+[
+	{
+		"capture": "cross-native",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-north-detail",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-north-native",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-east-detail",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-east-native",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-south-detail",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-south-native",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-west-detail",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "door-west-native",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	},
+	{
+		"capture": "doors-removed",
+		"cut_rails": 0,
+		"door_parts": []
+	},
+	{
+		"capture": "doors-restored",
+		"cut_rails": 16,
+		"door_parts": [
+			{
+				"id": "door-west-leaf",
+				"position": [
+					-357.0,
+					-151.0
+				],
+				"size": [
+					163,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-west-arch",
+				"position": [
+					-345.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-leaf",
+				"position": [
+					155.0,
+					-151.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-north-arch",
+				"position": [
+					167.0,
+					-233.0
+				],
+				"size": [
+					143,
+					134
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-leaf",
+				"position": [
+					155.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-east-arch",
+				"position": [
+					167.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-leaf",
+				"position": [
+					-357.0,
+					105.0
+				],
+				"size": [
+					162,
+					112
+				],
+				"z": 1
+			},
+			{
+				"id": "door-south-arch",
+				"position": [
+					-345.0,
+					24.0
+				],
+				"size": [
+					143,
+					133
+				],
+				"z": 1
+			}
+		]
+	}
+]

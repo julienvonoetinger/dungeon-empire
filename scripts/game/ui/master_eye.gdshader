@@ -5,9 +5,11 @@ uniform float life = 1.0;
 void fragment() {
 	vec2 p = UV - vec2(.5);
 	float r = length(p);
-	vec2 q = mat2(vec2(cos(phase),sin(phase)),vec2(-sin(phase),cos(phase))) * p;
-	// Blend samples, not angles: phase 0 and 2PI match at every radius.
-	vec4 ink = mix(texture(TEXTURE,UV),texture(TEXTURE,q+vec2(.5)),1.0-smoothstep(.23,.29,r));
+	// Keep the pupil and highlight steady so the medallion reads as an eye.
+	// A subtle iris pulse replaces the portal-like rotation.
+	vec4 ink = texture(TEXTURE,UV);
+	float iris = smoothstep(.07,.12,r) * (1.0-smoothstep(.23,.29,r));
+	ink.rgb *= 1.0 - iris * .04 * (.5+.5*sin(phase));
 	float sector = floor(fract((atan(p.y,p.x)+1.8849556)/6.2831853)*10.0);
 	if (r > .30 && sector >= ceil(life*10.0)) {
 		float grey = dot(ink.rgb,vec3(.2126,.7152,.0722));

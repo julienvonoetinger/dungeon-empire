@@ -1,5 +1,291 @@
 # Repository instructions
 
+## Open doors keep their stone frame — 2026-10-27
+
+- User reports unlocked doors disappearing. View now emits door specials for
+  every door tile, selects open-frame layers when !_door_intact, and retains
+  wall junction cuts. Closed leaf/arch IDs are height splits, not material parts;
+  hiding one was not sufficient. Removed obsolete open-door diamond/text marker.
+- Same accepted v6 model/v7 paint: only terminal leaf/leaf-edge faces excluded
+  for the open state. Original stone indices/UVs/materials preserved. No ImageGen
+  call or source artwork changes. Repair restores the closed layers; actual
+  tile removal removes the frame. Open and forced states share the empty frame.
+- Added8 parts on a separate512x512 atlas:140335PNG bytes/1MiB RGBA. All151 prior
+  entries/pixels and3 atlas page hashes unchanged; kit now159 parts/12MiB RGBA.
+  1782 interior aperture pixels per direction verified transparent, excluding
+  the Lanczos edge support. Runtime collision/rules/save format unchanged.
+- verify_open_doors.gd baseline28 checks/6fail; final40/0 with actual thief/mage
+  unlock, live structural refresh, in-memory save reconstruction, force/repair/
+  removal. Both actor traversal axes visually inspected, no pixel-depth oracle.
+  Seven existing contact states pass (forced frames now retain16segments).
+  verify_master_mobile passes. Independent review found no actionable defect.
+- Android0.1.3-test/code4 import/export/signature/packed-resource startup and40
+  checks pass, empty Godot stderr. Same package/cert; public prerelease
+  android-test-0.1.3 verified digest and HTTP200. SHA256:
+  13793b9e2beb2bb70f3959761555caf8fe5a9d6fbddfced8f364c6fe2a6dfc7f.
+  No normal player-save access, physical phone/profile check, commit or push.
+
+## Android portrait and orientation changes — 2026-10-27
+
+- User requests portrait and automatic orientation. project.godot now uses
+  display/window/handheld/orientation=6 (SENSOR). Godot 4.7.2 exports fullUser13,
+  respecting Android's rotation lock; configChanges0x3ff4 includes orientation,
+  screenSize/screenLayout. Obsolete preset screen/orientation removed.
+- Existing portrait HUD and fixed-scale compensation reused. Resize cancels
+  world/palette/radial and ordinary button presses, retaining the session,
+  camera centre, selected tool and open menu. Enabled BaseButtons are briefly
+  disabled/re-enabled to clear press attempts without changing toggle state.
+- First-open catalogue and placement panels had stale minimum sizes; their
+  minimum-size changes now queue layout. No new art, game rules or save schema.
+- verify_mobile_rotation.gd: baseline220 checks/6 failures; final227/0 across
+  five size transitions/51 captures. Real viewport mouse/touch stale-release
+  and fresh-input checks included. Existing verify_master_mobile:0 failures.
+  Independent review raised retained BaseButton capture; reproduced, fixed,
+  re-reviewed with no further actionable finding. Isolated artifact saves only.
+- Android0.1.2-test/code3, same package/certificate. Import/export/signature and
+  exact packed-resource smoke/227 rotation checks pass, empty Godot stderr.
+  Published prerelease android-test-0.1.2; remote digest/local SHA256 match,
+  anonymous download HTTP200. APK SHA256:
+  125e53a19fe27b942233acb168946d872187364364269b27d020060150e09356.
+  No physical sensor/DPI/safe-area/performance validation, commit or push.
+  APK includes current uncommitted work; release tag is only the base commit.
+
+## Android header fill containment — 2026-10-27
+
+- User's phone capture shows gold vertical lines rising from both fill endpoints.
+  The 3px rounded StyleBoxFlat fill with asymmetric top border/AA is implicated;
+  exact device/driver cause was not reproduced on desktop. Do not claim otherwise.
+- Header fill now uses a plain borderless non-AA rectangle; existing rounded
+  tracks clip their children. Layout, values, game rules and saves unchanged.
+- verify_header_gauges.gd checks 40 GPU cases: 8 fractional scales/oversampling
+  factors, fill 0/1/54/99/100. No pixel leaks; fill visible and empty at zero.
+  Baseline NVIDIA also passed containment. Evidence artifacts/header-gauges-*.
+- Android 0.1.1-test/code2 uses the same org.dungeonempire.preview package and
+  signing certificate as 0.1.0. Import/export/signature exit0; exact APK resources
+  launch on native GPU through initial/prepared/four catalogue families/raid,
+  isolated artifact save only. Fresh focused review found no runtime issue.
+  Phone confirmation remains pending. No commit/push or engine upgrade.
+
+## Accepted clean door geometry and texture integrated — 2026-10-27
+
+- User approves v7 and explicitly requests integration. v8 selection.json freezes
+  v6 geometry, magenta guide, v7 painting, registration and palette. Production
+  isometric_seal_texture.cjs reproduces the accepted preview; isometric_seal_door
+  retains existing IDs, two-layer split and .8 density. No new ImageGen call.
+- Wall junction metadata is now 1/3..2/3, aligned with the two-course jambs.
+  Existing segmented wall clipping/depth code is unchanged. Smooth leaf has only
+  front/back planes plus perimeter thickness; no modelled leaf hardware returns.
+- Export validation compares all four exact models and 75,972 visible interior
+  pixels with the accepted preview: zero difference. Split alpha error zero,
+  premultiplied rounding under one byte. 143 unrelated regions/pixels/metadata
+  unchanged; total 151 sprites, 11MiB RGBA unchanged. PNG -11,135 bytes versus
+  the immediately preceding v4 export. Source paintings/guides remain immutable.
+- Evidence: door-redesign/seal-v1/painted-v8-integrated/index.html. Import and
+  capture exit0/empty stderr; eleven static native views and four gameplay
+  screenshots. Seven recorded states cover actors, destruction/restoration and
+  unique depth groups. Near-threshold actor overlap inspected using real move
+  interpolation. Static contacts: zero interior ownership errors; painted/filter
+  boundaries excluded. No pixel-perfect actor oracle or phone/campaign profiling.
+- Fresh read-only review found no actionable defect. No UI/economy/camera/save
+  change or normal player-save access, commit or push. v6/v7's previous proposal
+  and non-integrated statuses below are superseded by this accepted integration.
+
+## Texture created from accepted clean door wireframe — 2026-10-27
+
+- User accepts v6 and requests its texture. Built-in ImageGen uses the actual
+  face-guide-magenta.png as edit target, surrounding walls as material reference
+  and old painting only for plum wood/iron/violet theme. New native-alpha source,
+  original path, exact prompt and reference roles retained under
+  door-redesign/seal-v1/painted-v7-clean-leaf/source/. No original source overwritten.
+- prepare_seal_clean_texture.cjs previews the exact accepted v6 XYZ in four
+  orientations. Battant remains two smooth planes: all clasp/iron/wood/seal
+  details on that area are painted, with no hardware geometry reintroduced.
+  Junctions remain 1/3..2/3. Uniform source registration; generated stone fronts
+  use the existing shared-wall palette transfer, side/top faces the shared B
+  finish. Source aspect differs from guide by about 2.58%; prepared geometry and
+  silhouette remain XYZ-defined. Original generated pixels/alpha unchanged.
+- Current review: painted-v7-clean-leaf/index.html and painted-board.png; front
+  source and two enlarged/four .75-scale projected views inspected. These are
+  offline geometry renders, not native Godot screenshots or new artistic approval.
+  Ten protected source/runtime hashes verified unchanged; no runtime export,
+  gameplay, save access, commit or push. Prior v4 export remains active until
+  the new appearance is integrated. V6's old proposal status is superseded by
+  the user's request to paint it; the new v7 paint still awaits visual feedback.
+
+## Clean door joins and interchangeable smooth leaf wireframe — 2026-10-27
+
+- User requires removing v5's orange fragments and keeping the wooden leaf a
+  smooth receiving surface: no modelled clasp, handle, planks or leaf seals.
+  They also explicitly ask about the magenta guide. Historical paint used the
+  colored frontal face-guide (with hardware), whereas runtime magenta guides
+  were inspection output. Do not claim the new magenta guide has been painted.
+- New isolated review: door-redesign/seal-v1/wireframe-v6-clean-leaf/index.html.
+  prepare_seal_clean_wireframe.cjs moves jamb depth/cut limits to 1/3..2/3,
+  coinciding with upper wall joints. Four small fragments removed; widened jamb
+  faces fill their old space. Twelve contact endpoints checked, smallest retained
+  wall stone 1/6. Frame/horns/upper seal otherwise retained from current geometry.
+- 133 leaf hardware faces removed; the unchanged opening contour becomes one
+  flat front and back plane with thickness. No inner leaf wire edges. Frontal
+  magenta PNG/SVG and separate leaf mask share exact XYZ/mapping with four 2:1
+  orientation guides. Board and frontal guide inspected. Future paint variations
+  must fit this receiving surface, not reintroduce hard-coded hardware geometry.
+- Thirteen source/runtime hashes unchanged by this review. No production
+  integration, new paint, Godot run, save access, commit or push. V6 is the new
+  geometry proposal; earlier in-progress v4 export remains the runtime state.
+  Keep user feedback distinct from technical checks and await geometry review.
+
+## Door junction wireframes requested after masonry/color rejection — 2026-10-27
+
+- User still sees tiny bricks and bad joints at the door feet and explicitly
+  requests wireframes. Suspend paint iterations; successful exports do not
+  approve the geometry. Current review: door-redesign/seal-v1/wireframe-v5-junctions.
+- prepare_seal_junction_wireframe.cjs renders the actual current door XYZ model,
+  the base wall courses, and the runtime .365..635 rail cut. Four orange upper
+  wall fragments remain between this cut and joints at 1/3 and 2/3: .0316667
+  cell long, 9.5% of an upper brick. Two orientations, contact closeup and top
+  plan inspected. This is a line/volume schematic; painted erosion, bevels and
+  filtering fringes are intentionally absent. Six production hashes unchanged
+  by the review generator. No new junction fix applied in this wireframe step.
+- Earlier in this turn, uncommitted v4 masonry changes added jamb courses at H/2,
+  shared soft-stone B finish on planar masonry, continuous slope grading and a
+  stone keystone (formerly tagged metal). Source paintings remain immutable;
+  143 non-door regions unchanged, 11MiB RGBA. Initial native captures/import
+  passed before the final keystone change, but full final validation and artistic
+  approval remain pending. Preserve earlier HUD/trap changes and segmented wall
+  depth ordering. No save access, commit or push. Await geometry feedback.
+
+## Approved larger trap square integrated — 2026-10-27
+
+- User approves v11 with “voilà c'est correct”. v12-approved-square/selection.json
+  freezes that geometry/board; v9 collar and v10 angled joints remain rejected
+  history. The active receiver now uses the exact twelve approved rectangular
+  stones around .16..84, z0, with the existing calm floor material.
+- Resized slabs retain their original material anchors. A .06 boundary colour
+  guard fades by .07, where the geometry is unchanged; this only reconciles
+  rounded finish/filtering. A check rejected .10 because an old edge is at .92.
+  No overlay collar or restored inner slab cuts. Original paintings unchanged.
+- Support registration and raised XYZ grow uniformly by .68/.56 about the cell
+  centre; no anisotropic sprite squeeze. All mechanism states share a derived
+  padded frame and scaled conservative bounds. Entrave remains a 2.5D surface
+  proxy; Pointes retains one shared 3x3 socket layout across its three states.
+- Fifteen trap regions updated; two other pages/136 regions unchanged. Trap
+  atlas stays512x1024/2MiB RGBA, PNG214176 bytes vs185182 before this turn.
+  Derived UI trap icons regenerated; no HUD layout, game rules, state logic,
+  save schema or player-save access changed.
+- Geometry RED→GREEN (.22 rejected, .16 accepted); 12 exact rectangles,
+  area .5376,45 registration round trips. Export checks:220428 identical B1
+  border pixels,2600 identical state-ground samples,transparent mechanism
+  margins. Godot import and two GPU captures exit0/empty stderr;11 state
+  scenarios pass. Nine-state scene, neighbouring paving and actor views inspected.
+- Independent read-only review found no actionable issue. Visible mechanism
+  geometry fits bounds; invisible unmasked jaw tessellation corners do not
+  affect it. B3/B4's single boundary-pixel difference from B1 predates this work.
+  Native evidence and review in trap-review/v12-approved-square. Painted result
+  is an integration adaptation, not automatic artistic approval. No exact actor
+  depth oracle, phone/performance/full-campaign check, commit or push.
+
+## Larger square socket with straight paving joints — 2026-10-27
+
+- User rejects v10's angled joints and requests simply enlarging the central
+  square. This supersedes that proposed geometry; remain in wireframe review.
+- New isolated study: trap-review/v11-larger-square/index.html and
+  wireframe-board.png, generated by prepare_trap_square_wireframe.cjs.
+  Centred opening grows from .22..78 to .16..84 (side .56 to .68, +21.43%).
+  The four inner B1 slabs are removed. Only two lower side stones change
+  width; all stones remain rectangles, with existing joints elsewhere intact.
+  No collar or angled/stepped joint is added. Same z0 and shared camera.
+- Board shows the surrounding 3x3 paving and top view; a dashed inner square
+  indicates the previous opening size. Whole-rectangle checks cover 96 stones,
+  384 projected edges on the two 2:1 axes, exact coverage and zero overlap.
+  Geometry outside the central cell is unchanged. Eight watched production
+  and v10 evidence hashes verified unchanged; board visually inspected.
+- This is an unapproved dimension/layout proposal, not texture integration.
+  No source painting, active atlas/generator, scene, gameplay, save, Godot run,
+  commit or push. Keep v10 as rejected historical evidence; await feedback.
+
+## Trap paving wireframe revised before textures — 2026-10-26
+
+- User rejects v9's added collar: it still visibly cuts the original outer
+  stones. They explicitly request fixing the wireframe first. Do not treat
+  v9's successful technical checks as approval of its paving appearance.
+- Isolated proposal: trap-review/v10-paving-wireframe/wireframe-board.png.
+  prepare_trap_paving_wireframe.cjs replaces the four inner B1 slabs with a
+  square opening and reshapes twelve existing boundary-crossing stones up
+  to that opening. Complete outlines include their unchanged neighbouring
+  portions; there is no extra inner collar or seam at the logical cell edge.
+- Slightly angled interior stone joints are a proposed design choice, not
+  approved geometry. Same .22..78 opening, z0 and shared 2:1 projection.
+  Board shows a 3x3 neighbourhood and top view with logical grid distinguished
+  from real joints. Geometry JSON retains full outlines and original pieces.
+- Checks: area .6864, no overlap or stone in opening, twelve connected closed
+  outlines, 529200 sample comparisons of new outlines against intended unions
+  and unchanged neighbouring geometry. Board visually inspected. No painted
+  source, production generator, sprite, atlas, scene or gameplay changed in
+  this wireframe step; no Godot run, save access, commit or push. Await visual
+  feedback before texture work. V9 remains historical/current runtime evidence.
+
+## Registered trap supports and purpose-built paving — 2026-10-26
+
+- User rejects the apparent pasted/cut-out traps, then explicitly requires
+  paving laid around the central square. This supersedes v7's intact B-floor
+  crop around .22..78 as a satisfactory receiver. No new artwork generation.
+- isometric_trap_receiver.cjs builds eight complete framing stones on z0:
+  four sides/four corners, outer .10..90 and opening .22..78, using the same
+  calm stone material. The outer .06 boundary strip stays pixel-identical to
+  B1 for adjacency. No raised curb or deep pit; the thin seam is flush.
+- isometric_trap_registration.cjs maps support paint into the exact2:1 floor
+  plane, independently of raised parts. Pointes uses fixed3x3 empty sockets
+  across states and projected pyramid facets textured from selected paint.
+  Entrave uses a height-aware2.5D jaw surface, not reconstructed hidden volume.
+  Raised paint is removed from the floor layer; original source hashes intact.
+- All15 trap regions updated, same512x1024 page/2MiB RGBA (PNG185182 vs200743).
+  136 unrelated regions and both other atlas pages unchanged. Derived HUD trap
+  glyphs regenerated. State machine, charges, effects, saves and camera untouched.
+- Native scene overview plus ready/triggered/spent closeups and actor views
+  inspected in trap-review/v9-registered-sockets. Import/captures exit0/empty
+  stderr; painted trap harness11 recorded checks passed, including repair,
+  pause, lethal hit, live clock, rebuild and removal. Export validation checks
+  eight nonoverlapping stones,220428 unchanged boundary pixels and2600 shared
+  spike-ground pixels (5200 old cross-state differences,0 now in that interior).
+  Actor overlap inspected visually, not a pixel-depth oracle. No phone/full
+  campaign profiling, commit or push. Artistic feedback still belongs to user.
+
+## All trap states presentation scene — 2026-10-26
+
+- User requests one scene showing all traps and all their states. New
+  scenes/DungeonTraps.tscn presents Pointes/Entrave/Néant in rows and
+  ready/triggered/spent in columns, with French labels and frozen states.
+- @tool trap_states_preview.gd reuses the native renderer, grid projection,
+  socket paving and all15 existing prepared trap layers. No new paint, atlas,
+  simulation session, save access or behavior changes. Shared preview camera
+  stays.75 with drag panning. Visible both as an editor tool and when run viaF6.
+- Native1280x720 capture inspected: nine examples,15 actual prepared layers,
+  capture exit0/empty stderr. Import exit0/empty stderr. Evidence in
+  trap-review/v8-state-scene; capture_trap_states_preview.gd regenerates it.
+  Earlier uncommitted header corrections preserved. No commit/push.
+
+## Header alignment, readable eye and raid hint — 2026-10-26
+
+- User reports separated icons/values, floating gauges, portal-like eye and a
+  construction hint during raids. Header footprint stays96/84; painted band
+  uses its height, paired icon/value groups share measured baselines, gauges
+  are inset into the lower iron rail. Eye84/72 instead of76/64; health plaque
+  attached below it. Long captions and five-digit gold fit narrow layouts.
+- Built-in ImageGen retouches only the intended inner-eye design with a radial
+  iris/round pupil, preserving the ten-rune frame visually. Source/prompt and
+  user reference retained in interface-review/v11-header-alignment/source;
+  v10 sources immutable. Native alpha/uniform preparation via prepare_master_ui.
+  Runtime eye192x194,93552bytes (-2710); other production art unchanged.
+  Shader keeps pupil/reflection fixed with subtle pulse; life sectors retained.
+- Hint refreshes from raid/access/preparation state, with no construction text
+  during raids. Landscape hint reserves space for1x/2x buttons. No game rules,
+  camera, economy, save schema or player-save access changes.
+-30 final native captures/five sizes,150 header labels/no measured clipping;
+  short landscape, portrait, five-digit totals and raid hint inspected.
+  Import/capture exit0/empty stderr; verify_master_mobile exit0/0 failures with
+  raid/access/return transitions included. Evidence and limits in v11. No
+  physical phone/profile validation, commit or push. Appearance awaits feedback.
+
 ## Master mobile HUD first integration — 2026-10-26
 
 - User requests implementation of Claude Design PDF v2 plus24818 header capture.

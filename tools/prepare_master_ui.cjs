@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, '..');
 const source = path.join(root, 'docs/reference/interface-review/v10-master-mobile/source');
 const out = path.join(root, 'assets/ui/master');
 async function prepare(name,width) {
-  const input=path.join(source,name+'.png');
+  const input=path.join(name==='eye' ? path.join(root,'docs/reference/interface-review/v11-header-alignment/source') : source,name+'.png');
   const {data,info}=await sharp(input).ensureAlpha().raw().toBuffer({resolveWithObject:true});
   let left=info.width,top=info.height,right=0,bottom=0;
   for(let y=0;y<info.height;y++)for(let x=0;x<info.width;x++) {

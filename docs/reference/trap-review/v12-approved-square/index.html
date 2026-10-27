@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pièges — carré validé intégré</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0c111b;color:#e2e8f3;font:16px/1.5 system-ui;padding:24px}main{max-width:1280px;margin:auto}h1{font-size:26px;margin:0 0 10px}h2{font-size:21px;margin:28px 0 12px}p{max-width:1000px;color:#b4c0d3}a{color:#ccb3ef}img{width:100%;height:auto;display:block;border:1px solid #29374a}figure{margin:0}figcaption{padding:10px 0;color:#b4c0d3}.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}summary{cursor:pointer;color:#ccb3ef;padding:12px 0}
+</style><main>
+<h1>Le carré validé, appliqué aux trois pièges</h1>
+<p>Le logement central occupe désormais 68 % de la largeur de la case. Les pierres restent rectangulaires et utilisent le matériau du dallage voisin. Les mécanismes ont été agrandis dans les mêmes proportions sur les trois axes.</p>
+<p>Captures natives de Godot. Le wireframe a été validé ; le rendu peint présenté ici reste soumis à votre appréciation.</p>
+<figure><img src="catalogue/overview.png" alt="Pointes, Entrave et Néant, prêts, déclenchés et épuisés"><figcaption>La scène DungeonTraps présente les neuf états avec leurs textures intégrées.</figcaption></figure>
+<h2>Raccords avec le dallage</h2>
+<div class="details">
+<figure><a href="native/ready-spike.png"><img src="native/ready-spike.png" alt="Pointes intégrées dans le dallage"></a><figcaption>Pointes — prêt</figcaption></figure>
+<figure><a href="native/triggered-snare.png"><img src="native/triggered-snare.png" alt="Entrave fermée et raccords rectangulaires"></a><figcaption>Entrave — déclenché</figcaption></figure>
+<figure><a href="native/ready-void.png"><img src="native/ready-void.png" alt="Sceau de Néant dans le logement agrandi"></a><figcaption>Néant — prêt</figcaption></figure>
+</div>
+<details><summary>Ancien rendu conservé pour comparaison</summary><img src="before/overview.png" alt="Ancienne bordure rejetée"></details>
+<h2>Vérification</h2>
+<p>Douze pierres conformes au wireframe validé ; quinze couches de pièges ; 136 autres régions et deux pages d’atlas préservées. Les 220 428 pixels de bord contrôlés restent identiques au dallage B1. Les mécanismes gardent un cadrage commun entre leurs états, avec une marge transparente vérifiée.</p>
+<p>Import et captures : code de sortie 0, aucune erreur sur stderr. Le contrôle natif des pièges passe ses onze scénarios. Atlas des pièges : 512 × 1024, toujours 2 Mio RGBA ; le PNG passe de 185 182 à 214 176 octets.</p>
+<p>Limites : les mâchoires d’Entrave restent une représentation 2,5D de la peinture existante. Les superpositions avec l’acteur provisoire ont été examinées visuellement, sans comparaison exhaustive de profondeur. Pas de test sur téléphone ni de profil de performances.</p>
+<p><a href="../v11-larger-square/index.html">Wireframe validé</a> · <a href="selection.json">Référence figée</a> · <a href="receiver-geometry.json">Géométrie intégrée</a> · <a href="export-validation.json">Contrôles de l’export</a> · <a href="native/native-validation.json">Scénarios natifs</a></p>
+</main></html>

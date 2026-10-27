@@ -1,11 +1,14 @@
 extends SceneTree
 ## Static native visual check. Does not create a game session or access saves.
-const OUT := "res://docs/reference/door-redesign/seal-v1/painted-v3/native/"
+var OUT := "res://docs/reference/door-redesign/seal-v1/painted-v3/native/"
 var viewport: SubViewport
 var records: Array[Dictionary] = []
 var failed := false
 
 func _initialize() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--output="):
+			OUT = argument.trim_prefix("--output=").trim_suffix("/") + "/"
 	create_timer(20.0).timeout.connect(_timeout)
 	_capture.call_deferred()
 

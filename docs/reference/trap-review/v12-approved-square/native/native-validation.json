@@ -1,0 +1,103 @@
+{
+	"failed": false,
+	"records": [
+		{
+			"ids": [
+				"trap-spike-ready-floor",
+				"trap-snare-ready-floor",
+				"trap-void-ready-floor",
+				"trap-spike-ready-mechanism",
+				"trap-snare-ready-mechanism"
+			],
+			"state": "armed"
+		},
+		{
+			"ids": [
+				"trap-spike-triggered-floor",
+				"trap-snare-triggered-floor",
+				"trap-void-triggered-floor",
+				"trap-spike-triggered-mechanism",
+				"trap-snare-triggered-mechanism"
+			],
+			"state": "last-charge-trigger"
+		},
+		{
+			"ids": [
+				"trap-spike-triggered-floor",
+				"trap-snare-triggered-floor",
+				"trap-void-triggered-floor",
+				"trap-spike-triggered-mechanism",
+				"trap-snare-triggered-mechanism"
+			],
+			"state": "trigger-survives-rebuild"
+		},
+		{
+			"ids": [
+				"trap-spike-triggered-floor",
+				"trap-snare-triggered-floor",
+				"trap-void-triggered-floor",
+				"trap-spike-triggered-mechanism",
+				"trap-snare-triggered-mechanism"
+			],
+			"state": "pause-holds-trigger"
+		},
+		{
+			"ids": [
+				"trap-spike-triggered-floor",
+				"trap-snare-triggered-floor",
+				"trap-void-triggered-floor",
+				"trap-spike-triggered-mechanism",
+				"trap-snare-triggered-mechanism"
+			],
+			"state": "triggered"
+		},
+		{
+			"ids": [
+				"trap-spike-spent-floor",
+				"trap-snare-spent-floor",
+				"trap-void-spent-floor",
+				"trap-spike-spent-mechanism",
+				"trap-snare-spent-mechanism"
+			],
+			"state": "spent"
+		},
+		{
+			"ids": [
+				"trap-spike-ready-floor",
+				"trap-snare-ready-floor",
+				"trap-void-ready-floor",
+				"trap-spike-ready-mechanism",
+				"trap-snare-ready-mechanism"
+			],
+			"state": "ready"
+		},
+		{
+			"ids": [
+				"trap-spike-ready-floor",
+				"trap-snare-ready-floor",
+				"trap-void-ready-floor",
+				"trap-spike-ready-mechanism",
+				"trap-snare-ready-mechanism"
+			],
+			"state": "missing-charges-default"
+		},
+		{
+			"ids": [
+				"trap-spike-ready-floor",
+				"trap-snare-ready-floor",
+				"trap-void-ready-floor",
+				"trap-spike-ready-mechanism",
+				"trap-snare-ready-mechanism"
+			],
+			"state": "repair-cancels-active-trigger"
+		},
+		{
+			"passed": true,
+			"state": "lethal-last-charge-result-and-resume"
+		},
+		{
+			"passed": true,
+			"state": "live-frame-clock-expiry"
+		}
+	]
+}

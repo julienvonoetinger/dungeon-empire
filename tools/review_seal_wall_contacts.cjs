@@ -2,10 +2,11 @@
 // one door and both continuous corridor rails, at the shared XYZ projection.
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const P=require('./isometric_paint_geometry.cjs'),S=require('./isometric_seal_door.cjs');
-const OUT=path.join(P.ROOT,'docs/reference/door-redesign/seal-v1/painted-v3');
+const OUT=path.resolve(P.ROOT,process.argv.find(a=>a.startsWith('--output='))?.slice(9)||'docs/reference/door-redesign/seal-v1/painted-v3');
 async function main(){
  const fixed=process.argv.includes('--fixed');
  const catalog=JSON.parse(fs.readFileSync(path.join(P.ROOT,'assets/dungeon/isometric-kit/catalog.json'))),entries=catalog.atlas.regions;
+ const [cutStart,cutEnd]=entries['door-south-leaf'].wall_junction.span;
  const atlas=await sharp(path.join(P.ROOT,'assets/dungeon/isometric-kit/atlas-256.png')).ensureAlpha().raw().toBuffer({resolveWithObject:true});
  const sample=(e,s)=>{const u=(s[0]-e.offset[0])/e.size[0],v=(s[1]-e.offset[1])/e.size[1];if(u<0||v<0||u>=1||v>=1)return 0;const [x,y,w,h]=e.region;return atlas.data[((y+Math.floor(v*h))*atlas.info.width+x+Math.floor(u*w))*4+3]/255;};
  const door=S.geometry('south'),wall=P.models.find(m=>m.id==='wall-v-0');
@@ -28,8 +29,8 @@ async function main(){
   const doorA=Math.max(sample(entries['door-south-leaf'],s),sample(entries['door-south-arch'],s));
   const wallA=side=>{
    const local=[s[0]-side*128,s[1]-side*64],hit=casts[side?2:0](s);if(!hit)return 0;
-   const a=sample(entries['wall-v-0'],local),q=hit.p[1];if(q<.365||q>.635)return a;
-   const origin=P.ground(local),t=(.365-origin[1])/P.camera.eye[1],p=origin.map((v,i)=>v+P.camera.eye[i]*t);
+   const a=sample(entries['wall-v-0'],local),q=hit.p[1];if(q<cutStart||q>cutEnd)return a;
+   const origin=P.ground(local),t=(cutStart-origin[1])/P.camera.eye[1],p=origin.map((v,i)=>v+P.camera.eye[i]*t);
    if(p.some((v,i)=>v<wall.bounds.min[i]-1e-6||v>wall.bounds.max[i]+1e-6))return 0;
    p[1]=wall.bounds.max[1]-.0003;
    return sample(entries['wall-v-0'],P.project(p))*(1-doorA);

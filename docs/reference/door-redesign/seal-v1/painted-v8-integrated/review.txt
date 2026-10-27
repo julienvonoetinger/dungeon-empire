@@ -1,0 +1,8 @@
+Fresh read-only scoped review, 2026-10-27: no actionable findings.
+Reviewer checked accepted-input hashes, exact v6 faces in four orientations,
+exported 1/3..2/3 spans, 143 unchanged non-door regions and unchanged 11MiB.
+Syntax checks passed; four native closeups and contact/export reports inspected.
+No independent Godot run, campaign/device profiling or exact actor-depth oracle.
+After review, the capture harness added two close movement-interpolated actor
+views; final native harness exit 0, seven recorded states, empty stderr.
+Production code and exported assets did not change after this review.

@@ -1,0 +1,21 @@
+{
+	"capture_error": 0,
+	"prepared_sprites": [
+		"trap-snare-ready-floor",
+		"trap-snare-ready-mechanism",
+		"trap-snare-spent-floor",
+		"trap-snare-spent-mechanism",
+		"trap-snare-triggered-floor",
+		"trap-snare-triggered-mechanism",
+		"trap-spike-ready-floor",
+		"trap-spike-ready-mechanism",
+		"trap-spike-spent-floor",
+		"trap-spike-spent-mechanism",
+		"trap-spike-triggered-floor",
+		"trap-spike-triggered-mechanism",
+		"trap-void-ready-floor",
+		"trap-void-spent-floor",
+		"trap-void-triggered-floor"
+	],
+	"scene": "res://scenes/DungeonTraps.tscn"
+}

@@ -1,0 +1,17 @@
+Independent read-only review: no actionable finding.
+
+Reviewed current generators against saved v12/before copies and approved v11
+geometry, plus the plan. Geometry check passed independently. Actual source-
+masked jaw surfaces and spike vertices fit the scaled support bounds; invisible
+corners of the unmasked jaw tessellation extend farther but do not render.
+Common state frames have padding, and shared socket registration is preserved.
+
+Boundary pixels agree with B1/B2. B3/B4 have one pre-existing differing pixel
+from B1, not introduced by the integration. Reviewer inspected ready-mobile,
+triggered-snare and actor insertion captures; author also inspected the final
+nine-state catalogue, ready-spike, ready-void, triggered-snare and actor-spike.
+
+Reviewer declined artistic approval, exhaustive actor pixel depth, phone
+performance/full campaign, and independent rerunning of the file-writing
+export validator. These remain validation limits; no broader correctness claim
+is made. The author ran the export validation and native captures recorded here.

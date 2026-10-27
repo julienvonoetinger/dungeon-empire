@@ -2,13 +2,16 @@ extends SceneTree
 ## Isolated presentation exercise. Never loads or writes the player save.
 const Game = preload("res://scenes/game/DungeonGame.tscn")
 const Types = preload("res://scripts/game/game_types.gd")
-const OUT := "res://docs/reference/trap-review/v7-integrated-paint/"
+var OUT := "res://docs/reference/trap-review/v7-integrated-paint/"
 var failed := false
 var records: Array = []
 var positions := [Vector2i(6,7), Vector2i(8,7), Vector2i(10,7)]
 var kinds := [Types.Tile.SPIKE, Types.Tile.SNARE, Types.Tile.VOID]
 
 func _initialize() -> void:
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--output="): OUT=arg.trim_prefix("--output=").trim_suffix("/")+"/"
+	DirAccess.make_dir_recursive_absolute(OUT)
 	create_timer(60).timeout.connect(func(): quit(2))
 	_run.call_deferred()
 

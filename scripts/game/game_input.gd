@@ -25,7 +25,7 @@ func _ready() -> void:
 	view = session.get_node("PlayArea/World/Dungeon")
 	camera = session.get_node("PlayArea/World/Camera2D")
 	_apply_presentation()
-	get_tree().root.size_changed.connect(_apply_presentation)
+	get_tree().root.size_changed.connect(_window_resized)
 	session.changed.connect(_changed)
 	call_deferred("center_core")
 
@@ -42,6 +42,19 @@ func presentation_scale() -> float:
 
 func _apply_presentation() -> void:
 	camera.zoom = Vector2.ONE * FIXED_ZOOM * presentation_scale()
+
+func _window_resized() -> void:
+	# Coordinates from before rotation no longer describe the same screen.
+	# Discard the gesture, but retain the armed tool, open menu and camera centre.
+	if _pointer >= 0 or not _touches.is_empty():
+		_suppress_mouse_until = Time.get_ticks_msec() + 500
+	_pointer = -2
+	_touches.clear()
+	_dragged = false
+	_cancel_palette()
+	var hud := session.get_node("HUD")
+	if hud.is_node_ready(): hud.cancel_pointer()
+	_apply_presentation()
 
 func center_core() -> void:
 	var cell := session.sim._core_origin()

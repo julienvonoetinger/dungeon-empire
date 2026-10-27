@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-27",
+  "userApproval": "Oui c'est corrigé. Tu peux intégrer",
+  "status": "accepted-geometry-and-texture",
+  "files": {
+    "docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/geometry.json": "c199d7de6f8b8062c8669714c4dd28c384f0a8fb049290082c1a01dfbad1ea54",
+    "docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/face-guide-magenta.png": "97969d32d2ed65872c097e443e1cec456b909632052b97d5151a0ccd1c23aa45",
+    "docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/checks.json": "a73461258730758d57a7793a0b176ef14eb61ee5e9cd5c9a44d9ae62b2628117",
+    "docs/reference/door-redesign/seal-v1/painted-v7-clean-leaf/source/face-source.png": "036862ef379c4a33f6c3ae3f2668c591439ebbea4528c310e647e25ee2e47e49",
+    "docs/reference/door-redesign/seal-v1/painted-v7-clean-leaf/preparation.json": "60826cd5922fea150b7657fb87364efd724453ead481b04257c97c4cbbeb27db",
+    "docs/reference/door-redesign/seal-v1/painted-v7-clean-leaf/selection.json": "d695a7d52a9e976220a86a2c2cb925da54e546cf50940af44dbbd58d3c6870df",
+    "docs/reference/door-redesign/seal-v1/painted-v7-clean-leaf/source/prompt.txt": "40840846fa540d40852209508af314b9256c020f3d049999300c5ddd7af41ed7",
+    "tools/seal_masonry_finish.cjs": "e4ec0646718478d719048ad2759e6dac6c099b198f840e8549cc4c3ac6fb755e"
+  }
+}

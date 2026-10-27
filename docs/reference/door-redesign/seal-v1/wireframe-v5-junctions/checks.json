@@ -1,0 +1,46 @@
+{
+  "protectedFiles": {
+    "tools/isometric_seal_door.cjs": "23d34f220a9dc4316f03a1eac8417dc4016e4145e7b6b96cb7f41d5b9cbc1f53",
+    "tools/seal_masonry_finish.cjs": "e4ec0646718478d719048ad2759e6dac6c099b198f840e8549cc4c3ac6fb755e",
+    "scripts/door_wall_junction.gd": "6f3f90066f4550e28a493f8abc5a4e6f379087019c799c755cce398bb3cf4b2f",
+    "shaders/door_wall_junction.gdshader": "b1128bb531d40fdcb37145820bcaf69c9114bd1fd5223d2f89d9b010afa2cb6a",
+    "assets/dungeon/isometric-kit/catalog.json": "7f1cb851720f10af3f0a1079d86b9ecd43f44244a3806e23063068895a269750",
+    "assets/dungeon/isometric-kit/atlas-256.png": "a75f68324abb502278043483e6991179979cb4e2d8afacff8591fd6cd225b5ce"
+  },
+  "fragments": [
+    {
+      "x": 0,
+      "row": 1,
+      "min": 0.3333333333333333,
+      "max": 0.365,
+      "width": 0.031666666666666676,
+      "fractionOfUpperBrick": 0.09500000000000003
+    },
+    {
+      "x": 0,
+      "row": 1,
+      "min": 0.635,
+      "max": 0.6666666666666666,
+      "width": 0.03166666666666662,
+      "fractionOfUpperBrick": 0.09499999999999986
+    },
+    {
+      "x": 1,
+      "row": 1,
+      "min": 0.3333333333333333,
+      "max": 0.365,
+      "width": 0.031666666666666676,
+      "fractionOfUpperBrick": 0.09500000000000003
+    },
+    {
+      "x": 1,
+      "row": 1,
+      "min": 0.635,
+      "max": 0.6666666666666666,
+      "width": 0.03166666666666662,
+      "fractionOfUpperBrick": 0.09499999999999986
+    }
+  ],
+  "source": "Current door geometry and base wall masonry course positions; runtime wall clipping interval; no texture and no renderer change",
+  "limits": "Masonry line schematic uses the base wall courses; it does not draw painted erosion, rounding or raster-filter fringes."
+}

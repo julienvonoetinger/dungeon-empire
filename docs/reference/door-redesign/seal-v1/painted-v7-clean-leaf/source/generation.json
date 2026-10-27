@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-27",
+  "tool": "image_gen.imagegen",
+  "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-66ba5c65-e764-45d0-a544-016c797e4b33.png",
+  "source": "face-source.png",
+  "prompt": "prompt.txt",
+  "transparentBackground": true,
+  "references": [
+    {
+      "path": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/face-guide-magenta.png",
+      "role": "exact approved magenta edit target"
+    },
+    {
+      "path": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/door-redesign/seal-v1/painted-v3/native/door-south-detail.png",
+      "role": "surrounding wall material reference, not old door geometry"
+    },
+    {
+      "path": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/door-redesign/seal-v1/painted-v1/face-source.png",
+      "role": "wood/iron/violet palette and visual theme only"
+    }
+  ],
+  "userRequest": "ok maintenant crée la texture correspondante",
+  "status": "new texture created on accepted v6 wireframe; appearance review, not runtime integration"
+}

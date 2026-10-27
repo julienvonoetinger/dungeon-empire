@@ -129,8 +129,16 @@ func run() -> void:
 	var elapsed: float=game.raid.elapsed_seconds
 	game._process(.05)
 	check(is_equal_approx(game.raid.elapsed_seconds-elapsed,.1),"2x advances two bounded simulation steps")
+	hud._refresh_live()
+	check(hud.hint.text=="Raid en cours · Glissez pour explorer","Raid instructions must describe observation, not construction")
+	hud._toggle_path()
+	check(hud.hint.text.contains("Accès possibles"),"Access overlay retains its own explanation during a raid")
+	hud._toggle_path()
+	check(hud.hint.text.begins_with("Raid en cours"),"Closing access overlay restores the raid instruction")
 	game.paused=true; elapsed=game.raid.elapsed_seconds; game._process(.05)
 	check(game.raid.elapsed_seconds==elapsed,"Pause freezes speed controls' simulation")
+	game.raid.raid_active=false; game.paused=false; hud._refresh_live()
+	check(hud.hint.text.contains("bâtir"),"Preparation restores the construction instruction after a raid")
 	game.queue_free(); await process_frame
 	print("Master mobile checks: ",failures.size()," failures")
 	quit(0 if failures.is_empty() else 1)

@@ -1,0 +1,307 @@
+{
+  "kind": "native draw order and segmented shader equations",
+  "holes": 272,
+  "wrong": 653,
+  "interiorWrong": 0,
+  "order": [
+    {
+      "cut": true,
+      "id": "wall-v-0",
+      "layer": 1,
+      "position": [
+        -397,
+        71
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "span": [
+        0,
+        0.333333343267441
+      ],
+      "side": 0
+    },
+    {
+      "cut": true,
+      "id": "wall-v-0",
+      "layer": 1,
+      "position": [
+        -269,
+        135
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "span": [
+        0,
+        0.333333343267441
+      ],
+      "side": 2
+    },
+    {
+      "cut": false,
+      "id": "door-south-leaf",
+      "layer": 1,
+      "position": [
+        -357,
+        105
+      ],
+      "scale": [
+        1.24691355228424,
+        1.25
+      ],
+      "span": [],
+      "side": 1
+    },
+    {
+      "cut": true,
+      "id": "wall-v-0",
+      "layer": 1,
+      "position": [
+        -397,
+        71
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "span": [
+        0.666666686534882,
+        1
+      ],
+      "side": 0
+    },
+    {
+      "cut": false,
+      "id": "door-south-arch",
+      "layer": 1,
+      "position": [
+        -345,
+        24
+      ],
+      "scale": [
+        1.24475526809692,
+        1.24812030792236
+      ],
+      "span": [],
+      "side": 1
+    },
+    {
+      "cut": true,
+      "id": "wall-v-0",
+      "layer": 1,
+      "position": [
+        -269,
+        135
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "span": [
+        0.666666686534882,
+        1
+      ],
+      "side": 2
+    }
+  ],
+  "examples": [
+    {
+      "screen": [
+        -51.75,
+        47.75
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -73.75,
+        48.25
+      ],
+      "expected": 1,
+      "actual": -1,
+      "hit": [
+        0.09049479166666663,
+        0.6666666666666666,
+        0.0013289332371870237
+      ]
+    },
+    {
+      "screen": [
+        -53.25,
+        48.25
+      ],
+      "expected": 1,
+      "actual": -1,
+      "hit": [
+        0.17,
+        0.586015625,
+        0.000861148737697221
+      ]
+    },
+    {
+      "screen": [
+        -50.25,
+        48.25
+      ],
+      "expected": 1,
+      "actual": -1,
+      "hit": [
+        0.18242187499999996,
+        0.575,
+        0.0014352478961619823
+      ]
+    },
+    {
+      "screen": [
+        -73.25,
+        48.75
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -53.75,
+        48.75
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -49.75,
+        48.75
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -73.25,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -72.75,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -72.25,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -54.75,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -54.25,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -53.75,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -49.75,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -49.25,
+        49.25
+      ],
+      "expected": -1,
+      "actual": 1
+    },
+    {
+      "screen": [
+        -57.25,
+        49.75
+      ],
+      "expected": 1,
+      "actual": -1,
+      "hit": [
+        0.17,
+        0.617265625,
+        0.00405058850694615
+      ]
+    },
+    {
+      "screen": [
+        -56.75,
+        49.75
+      ],
+      "expected": 1,
+      "actual": -1,
+      "hit": [
+        0.17,
+        0.613359375,
+        0.002455868622321686
+      ]
+    },
+    {
+      "screen": [
+        -56.25,
+        49.75
+      ],
+      "expected": 1,
+      "actual": -1,
+      "hit": [
+        0.17,
+        0.609453125,
+        0.000861148737697221
+      ]
+    },
+    {
+      "screen": [
+        -48.75,
+        49.75
+      ],
+      "expected": 1,
+      "actual": -1,
+      "hit": [
+        0.21414062499999997,
+        0.595,
+        0.012981019860843122
+      ]
+    },
+    {
+      "screen": [
+        -70.75,
+        50.25
+      ],
+      "expected": -1,
+      "actual": 1
+    }
+  ]
+}

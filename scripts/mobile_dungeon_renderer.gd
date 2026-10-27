@@ -473,9 +473,11 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		var special: String = specials[cell]
 		var direction := special.get_slice("/", 1)
 		if special.begins_with("doors/"):
-			var leaf_id := "door-%s-leaf" % direction
+			var prefix := "door-%s" % direction
+			if plan.get("open_doors", {}).get(cell, false): prefix += "-open"
+			var leaf_id := prefix + "-leaf"
 			parts.append(_part(leaf_id, Vector2(cell)))
-			parts.append(_part("door-%s-arch" % direction, Vector2(cell)))
+			parts.append(_part(prefix + "-arch", Vector2(cell)))
 			# Additional prepared masonry uses the same physical support ordering.
 			# Historical review catalogues omit companions and retain two parts.
 			var entries: Dictionary = _definition.get("entries")

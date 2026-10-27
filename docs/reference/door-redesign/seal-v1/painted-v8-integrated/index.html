@@ -1,0 +1,14 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Porte intégrée — captures Godot</title>
+<style>body{margin:24px;background:#0b101a;color:#e2e6ef;font:17px system-ui}main{max-width:1320px;margin:auto}h1{margin-bottom:12px}p{line-height:1.55;max-width:1000px}a{color:#d4b4ff}img{max-width:100%;height:auto}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}figure{margin:0}figcaption{padding:8px 0 20px;color:#b9c5d6}</style>
+<main><h1>La porte validée est intégrée</h1><p>Captures réelles de Godot : géométrie v6, peinture v7, battant lisse et raccords alignés sur les joints des murs. Les 143 autres sprites sont conservés. La mémoire des atlas reste à 11 Mio.</p>
+<a href="native/cross-native.png"><img src="native/cross-native.png" alt="Les quatre portes dans la scène native"></a>
+<h2>Raccords dans les quatre orientations</h2><section>
+<figure><a href="native/door-south-detail.png"><img src="native/door-south-detail.png" alt="Porte sud"></a><figcaption>Sud</figcaption></figure>
+<figure><a href="native/door-east-detail.png"><img src="native/door-east-detail.png" alt="Porte est"></a><figcaption>Est</figcaption></figure>
+<figure><a href="native/door-north-detail.png"><img src="native/door-north-detail.png" alt="Porte nord"></a><figcaption>Nord</figcaption></figure>
+<figure><a href="native/door-west-detail.png"><img src="native/door-west-detail.png" alt="Porte ouest"></a><figcaption>Ouest</figcaption></figure>
+</section><h2>Personnage et profondeur</h2><section>
+<figure><img src="actor-behind.png" alt="Personnage masqué derrière la porte"><figcaption>Personnage derrière, près du seuil.</figcaption></figure>
+<figure><img src="actor-in-front.png" alt="Personnage devant la porte"><figcaption>Personnage devant, près du seuil.</figcaption></figure>
+</section><p>Vérifications : export et import réussis, correspondance des pixels comparés avec l’aperçu accepté, reconstruction des deux couches, suppression/restauration des portes et sept états de contrôle en jeu. Le diagnostic des contacts ne trouve aucune erreur d’ordre dans les intérieurs solides ; il exclut les franges peintes et filtrées. Pas de test sur téléphone ni de campagne complète.</p>
+<p><a href="export-validation.json">Contrôles des sprites</a> · <a href="fixed-contact-diagnostic.json">Diagnostic des contacts</a> · <a href="game-contact-inventory.json">États en jeu</a> · <a href="selection.json">Sources validées</a> · <a href="../painted-v7-clean-leaf/index.html">Aperçu approuvé</a></p></main>

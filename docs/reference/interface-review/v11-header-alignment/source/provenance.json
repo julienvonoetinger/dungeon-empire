@@ -1,0 +1,12 @@
+{
+  "tool": "Built-in ImageGen",
+  "intent": "Edit inner portal into radial iris; preserve ten-rune frame",
+  "prompt": "Edit target: the first image, an isolated blue slate circular ten-rune medallion. Appearance reference: second image, the user's mockup crop. Make ONLY the inner eye read like the reference: a perfectly centered round jet-black pupil surrounded by a clear radial violet iris with fine spokes, concentric lavender corona and a restrained glossy highlight. It is a stylized sinister watching eye, NOT a pinwheel, NOT a swirling portal, no spiral arms, no slit pupil. Use bold readable contrast that still reads when the full medallion is displayed at 90 pixels. Preserve the existing outer blue slate stone frame, ten rune positions, engraved glowing purple runes, circular shape, painted game UI style and entire outline. Keep modest violet luminance comparable to the reference; avoid blazing white swirl. The final image must be ONLY the isolated circular medallion on native transparent background, no screenshot background, no text or health label, no shadow outside the original outline.",
+  "references": [
+    "../../v10-master-mobile/source/eye.png",
+    "reference-eye.png"
+  ],
+  "generatedOriginal": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-433b2577-9a08-4cce-97ef-f6e43d58cb3d.png",
+  "preparation": "Native alpha retained; alpha>8 framing plus 3px; uniform width 192 via prepare_master_ui.cjs",
+  "status": "Requested correction; awaiting user visual feedback"
+}

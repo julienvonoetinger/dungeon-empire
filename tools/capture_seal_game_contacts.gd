@@ -2,11 +2,15 @@ extends SceneTree
 ## Isolated static scene review; no gameplay commands or player save access.
 const Game = preload("res://scenes/game/DungeonGame.tscn")
 const Types = preload("res://scripts/game/game_types.gd")
-const OUT := "res://docs/reference/door-redesign/seal-v1/painted-v3/"
+var OUT := "res://docs/reference/door-redesign/seal-v1/painted-v3/"
 var records: Array[Dictionary] = []
 var failed := false
 
 func _initialize() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--output="):
+			OUT = argument.trim_prefix("--output=").trim_suffix("/") + "/"
+	DirAccess.make_dir_recursive_absolute(OUT)
 	create_timer(25.0).timeout.connect(func(): quit(2))
 	_capture.call_deferred()
 
@@ -62,9 +66,27 @@ func _capture() -> void:
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		if world.get_texture().get_image().save_png(OUT + "game-" + ("north" if p.x==8 else "west") + ".png") != OK: failed = true
+	# Keep both sides of the actor/door depth transition as visual evidence.
+	camera.position = view.grid_to_local(Vector2(8.5,10.5)) + Vector2(0,-40)
+	camera.force_update_scroll()
+	for side in [0, 1]:
+		# Sample close to the door using the actual movement interpolation, so
+		# actor and masonry overlap on screen instead of merely sharing a corridor.
+		game.raid.hero.pos = Vector2i(8,10 + side)
+		game.raid.hero.move_from = Vector2i(8,9 + side)
+		game.raid.hero.step_started_at = 0.0
+		game.raid.elapsed_seconds = Types.TURN_TIME * (.78 if side == 0 else .22)
+		view._update_markers()
+		await process_frame
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		if world.get_texture().get_image().save_png(OUT + ("actor-behind.png" if side == 0 else "actor-in-front.png")) != OK: failed = true
+		_record("overlap-behind" if side == 0 else "overlap-in-front",view,16)
+	game.raid.hero.erase("move_from")
+	game.raid.hero.erase("step_started_at")
 	for p in gates: game.sim.door_hp[p] = 0
 	view.rebuild()
-	_record("destroyed",view,0)
+	_record("destroyed",view,16) # Empty frames retain their wall junctions.
 	for p in gates: game.sim.door_hp[p] = Types.DOOR_MAX_HP
 	view.rebuild()
 	_record("restored",view,16)

@@ -1,0 +1,1262 @@
+[
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (260, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROCHAINES PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "idle"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (260, 0), S: (760, 96)]",
+		"hint": "Raid en cours · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROIES ENTRÉES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "raid"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (260, 0), S: (760, 96)]",
+		"hint": "Accès possibles depuis l’entrée · le héros choisit son trajet.",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROIES ENTRÉES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "access"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (260, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROCHAINES PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "after-raid"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (260, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "STOCKAGE REQUIS"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (165.0, 35.5), S: (42.0, 30.0)]",
+				"text": "—:—"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (567.5, 35.5), S: (65.0, 30.0)]",
+				"text": "38400"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "large-gold"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (260, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PAUSE"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			1280,
+			720
+		],
+		"state": "pause"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (42, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROCHAINES PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "idle"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (42, 0), S: (760, 96)]",
+		"hint": "Raid en cours · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROIES ENTRÉES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "raid"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (42, 0), S: (760, 96)]",
+		"hint": "Accès possibles depuis l’entrée · le héros choisit son trajet.",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROIES ENTRÉES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "access"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (42, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PROCHAINES PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "after-raid"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (42, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "STOCKAGE REQUIS"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (165.0, 35.5), S: (42.0, 30.0)]",
+				"text": "—:—"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (567.5, 35.5), S: (65.0, 30.0)]",
+				"text": "38400"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "large-gold"
+	},
+	{
+		"eye": "[P: (338.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (42, 0), S: (760, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (310.0, 14.0)]",
+				"text": "PAUSE"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (432.0, 23.0), S: (310.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (162.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (581.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (333.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			844,
+			390
+		],
+		"state": "pause"
+	},
+	{
+		"eye": "[P: (242.0, 0.0), S: (72.0, 72.0)]",
+		"header": "[P: (6, 0), S: (556, 84)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 16.0), S: (214.0, 14.0)]",
+				"text": "PROCHAINES PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (324.0, 16.0), S: (214.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (116.5, 28.5), S: (43.0, 28.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (426.5, 28.5), S: (35.0, 28.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (231.0, 65.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			568,
+			299
+		],
+		"state": "idle"
+	},
+	{
+		"eye": "[P: (242.0, 0.0), S: (72.0, 72.0)]",
+		"header": "[P: (6, 0), S: (556, 84)]",
+		"hint": "Raid en cours · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 16.0), S: (214.0, 14.0)]",
+				"text": "PROIES ENTRÉES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (324.0, 16.0), S: (214.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (116.5, 28.5), S: (43.0, 28.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (426.5, 28.5), S: (35.0, 28.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (231.0, 65.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			568,
+			299
+		],
+		"state": "raid"
+	},
+	{
+		"eye": "[P: (242.0, 0.0), S: (72.0, 72.0)]",
+		"header": "[P: (6, 0), S: (556, 84)]",
+		"hint": "Accès possibles depuis l’entrée · le héros choisit son trajet.",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 16.0), S: (214.0, 14.0)]",
+				"text": "PROIES ENTRÉES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (324.0, 16.0), S: (214.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (116.5, 28.5), S: (43.0, 28.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (426.5, 28.5), S: (35.0, 28.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (231.0, 65.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			568,
+			299
+		],
+		"state": "access"
+	},
+	{
+		"eye": "[P: (242.0, 0.0), S: (72.0, 72.0)]",
+		"header": "[P: (6, 0), S: (556, 84)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 16.0), S: (214.0, 14.0)]",
+				"text": "PROCHAINES PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (324.0, 16.0), S: (214.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (116.5, 28.5), S: (43.0, 28.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (426.5, 28.5), S: (35.0, 28.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (231.0, 65.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			568,
+			299
+		],
+		"state": "after-raid"
+	},
+	{
+		"eye": "[P: (242.0, 0.0), S: (72.0, 72.0)]",
+		"header": "[P: (6, 0), S: (556, 84)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 16.0), S: (214.0, 14.0)]",
+				"text": "STOCKAGE REQUIS"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (324.0, 16.0), S: (214.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (119.0, 28.5), S: (38.0, 28.0)]",
+				"text": "—:—"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (414.5, 28.5), S: (59.0, 28.0)]",
+				"text": "38400"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (231.0, 65.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			568,
+			299
+		],
+		"state": "large-gold"
+	},
+	{
+		"eye": "[P: (242.0, 0.0), S: (72.0, 72.0)]",
+		"header": "[P: (6, 0), S: (556, 84)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 16.0), S: (214.0, 14.0)]",
+				"text": "PAUSE"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (324.0, 16.0), S: (214.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (116.5, 28.5), S: (43.0, 28.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (426.5, 28.5), S: (35.0, 28.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (231.0, 65.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			568,
+			299
+		],
+		"state": "pause"
+	},
+	{
+		"eye": "[P: (147.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (378, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (119.0, 14.0)]",
+				"text": "PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (241.0, 23.0), S: (119.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (67.0, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (294.5, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (142.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "idle"
+	},
+	{
+		"eye": "[P: (147.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (378, 96)]",
+		"hint": "Raid en cours · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (119.0, 14.0)]",
+				"text": "RAID"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (241.0, 23.0), S: (119.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (67.0, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (294.5, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (142.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "raid"
+	},
+	{
+		"eye": "[P: (147.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (378, 96)]",
+		"hint": "Accès possibles depuis l’entrée · le héros choisit son trajet.",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (119.0, 14.0)]",
+				"text": "RAID"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (241.0, 23.0), S: (119.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (67.0, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (294.5, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (142.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "access"
+	},
+	{
+		"eye": "[P: (147.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (378, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (119.0, 14.0)]",
+				"text": "PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (241.0, 23.0), S: (119.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (67.0, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (294.5, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (142.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "after-raid"
+	},
+	{
+		"eye": "[P: (147.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (378, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (119.0, 14.0)]",
+				"text": "STOCKAGE REQUIS"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (241.0, 23.0), S: (119.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (69.5, 35.5), S: (42.0, 30.0)]",
+				"text": "—:—"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (281.0, 35.5), S: (65.0, 30.0)]",
+				"text": "38400"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (142.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "large-gold"
+	},
+	{
+		"eye": "[P: (147.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (378, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (119.0, 14.0)]",
+				"text": "PAUSE"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (241.0, 23.0), S: (119.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (67.0, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (294.5, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (142.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			390,
+			844
+		],
+		"state": "pause"
+	},
+	{
+		"eye": "[P: (112.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (308, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (84.0, 14.0)]",
+				"text": "PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (206.0, 23.0), S: (84.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (49.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (242.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (107.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "idle"
+	},
+	{
+		"eye": "[P: (112.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (308, 96)]",
+		"hint": "Raid en cours · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (84.0, 14.0)]",
+				"text": "RAID"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (206.0, 23.0), S: (84.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (49.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (242.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (107.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "raid"
+	},
+	{
+		"eye": "[P: (112.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (308, 96)]",
+		"hint": "Accès possibles depuis l’entrée · le héros choisit son trajet.",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (84.0, 14.0)]",
+				"text": "RAID"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (206.0, 23.0), S: (84.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (49.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (242.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (107.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 34 %"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "access"
+	},
+	{
+		"eye": "[P: (112.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (308, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (84.0, 14.0)]",
+				"text": "PROIES"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (206.0, 23.0), S: (84.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (49.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (242.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (107.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "after-raid"
+	},
+	{
+		"eye": "[P: (112.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (308, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (84.0, 14.0)]",
+				"text": "STOCKAGE REQUIS"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (206.0, 23.0), S: (84.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (52.0, 35.5), S: (42.0, 30.0)]",
+				"text": "—:—"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (232.0, 36.5), S: (58.0, 28.0)]",
+				"text": "38400"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (107.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "large-gold"
+	},
+	{
+		"eye": "[P: (112.0, 0.0), S: (84.0, 84.0)]",
+		"header": "[P: (6, 0), S: (308, 96)]",
+		"hint": "Touchez une case pour bâtir · Glissez pour explorer",
+		"labels": [
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (18.0, 23.0), S: (84.0, 14.0)]",
+				"text": "PAUSE"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (206.0, 23.0), S: (84.0, 14.0)]",
+				"text": "OR"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (49.5, 35.5), S: (47.0, 30.0)]",
+				"text": "01:14"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (242.0, 35.5), S: (38.0, 30.0)]",
+				"text": "225"
+			},
+			{
+				"clipped": false,
+				"height_ok": true,
+				"rect": "[P: (107.0, 77.0), S: (94.0, 18.0)]",
+				"text": "CŒUR · 100 %"
+			}
+		],
+		"size": [
+			320,
+			568
+		],
+		"state": "pause"
+	}
+]

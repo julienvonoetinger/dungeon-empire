@@ -74,6 +74,9 @@ func _ready() -> void:
 	stop_button=UI.button(pose_box,"Arrêter",_stop_placing,"cross")
 	stop_button.add_theme_font_size_override("font_size",12); stop_button.add_theme_constant_override("icon_max_width",16)
 	stop_button.custom_minimum_size=Vector2(94,48)
+	# Wrapped text/container minima settle after a viewport or width change.
+	# Refit then, rather than retaining a transient oversized panel until a tap.
+	pose_bar.minimum_size_changed.connect(_queue_layout)
 	hint=UI.label(root,"",12,UI.MUTED); hint.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	radial_shield=Control.new(); root.add_child(radial_shield); radial_shield.mouse_filter=Control.MOUSE_FILTER_STOP
@@ -84,6 +87,8 @@ func _ready() -> void:
 	radial_shield.hide()
 	catalog=Catalog.new(); root.add_child(catalog)
 	catalog.tool_chosen.connect(_choose_tool); catalog.closed.connect(_close_catalog)
+	catalog.minimum_size_changed.connect(_queue_layout)
+	catalog.row.minimum_size_changed.connect(_queue_layout)
 	for card in catalog.cards: card.button.gui_input.connect(func(event): session.get_node("Input").palette_event(card.button,card.id,event))
 	selection=Selection.new(); selection.session=session; root.add_child(selection)
 	selection.dismissed.connect(session.cancel_selection); selection.layout_changed.connect(_queue_layout)
@@ -161,7 +166,7 @@ func _toggle_path() -> void:
 	var view=session.get_node("PlayArea/World/Dungeon")
 	view.access_visible=not view.access_visible; view.queue_redraw()
 	path_button.set_pressed_no_signal(view.access_visible)
-	hint.text="Accès possibles depuis l’entrée · le héros choisit son trajet." if view.access_visible else ""
+	_refresh_live()
 
 func _launch_raid() -> void:
 	if not session.ready_for_raid() or session.confirmation_open or session.result_open or session.save_blocked: return
@@ -228,7 +233,12 @@ func _refresh_live() -> void:
 	if session.sim.core_hp<_last_hp and not shade.visible: _float_notice("−%d %%" % (_last_hp-session.sim.core_hp),Color("e78392"))
 	_last_gold=session.sim.gold; _last_hp=session.sim.core_hp
 	hint.visible=not shade.visible and not pose_bar.visible and not catalog.visible and not selection.visible and not radial.visible
-	if hint.text.is_empty(): hint.text="Touchez une case pour bâtir · Glissez pour explorer"
+	if session.get_node("PlayArea/World/Dungeon").access_visible:
+		hint.text="Accès possibles depuis l’entrée · le héros choisit son trajet."
+	elif session.raid.raid_active:
+		hint.text="Raid en cours · Glissez pour explorer"
+	else:
+		hint.text="Touchez une case pour bâtir · Glissez pour explorer"
 
 func _float_notice(text: String, color: Color) -> void:
 	var label:=UI.label(root,text,19,color)
@@ -240,8 +250,12 @@ func _float_notice(text: String, color: Color) -> void:
 	tween.chain().tween_callback(label.queue_free)
 
 func cancel_pointer() -> void:
-	# Canceled touch/focus loss must never become a radial release purchase.
+	# Drop pending presses without changing selected toggles or disabled actions.
 	radial.cancel_pointer()
+	for button: BaseButton in root.find_children("*","BaseButton",true,false):
+		if not button.disabled:
+			button.disabled=true
+			button.disabled=false
 
 func _queue_layout() -> void:
 	if _layout_queued: return
@@ -269,7 +283,9 @@ func _layout() -> void:
 	pose_bar.size=Vector2(pose_width,70)
 	hint.position=Vector2(_safe.position.x+8,_safe.end.y-utilities.size.y-50); hint.size=Vector2(_safe.size.x-16,32)
 	if mode=="landscape":
-		hint.position=Vector2(_safe.position.x+10,_safe.end.y-48); hint.size=Vector2(_safe.size.x-utilities.size.x-30,32)
+		var speed_space:=speeds.size.x+12 if speeds.visible else 0.0
+		hint.position=Vector2(_safe.position.x+10+speed_space,_safe.end.y-48)
+		hint.size=Vector2(_safe.size.x-utilities.size.x-speed_space-30,32)
 	var sheet_width:=minf(_safe.size.x-16,386)
 	var sheet_height:=minf(_safe.size.y-112,520) if mode=="landscape" else minf(_safe.size.y*.60,_safe.size.y-112)
 	catalog.fit_width(sheet_width)

@@ -14,6 +14,9 @@
 /docs/reference/isometric-floor-variation-review/** -text
 /docs/reference/isometric-floor-damage-review/** -text
 /docs/reference/isometric-prop-review/** -text
+/docs/reference/door-redesign/** -text
+/docs/reference/trap-review/** -text
+/docs/reference/interface-review/v11-header-alignment/** -text
 
 # Selected review implementations are also covered by approval hashes.
 /tools/prepare_isometric_decoration_review.cjs -text
@@ -31,6 +34,7 @@
 /tools/capture_heart_self_light_review.gd -text
 /tools/isometric_ground_shadow.cjs -text
 /tools/export_isometric_painted_kit.cjs -text
+/tools/seal_masonry_finish.cjs -text
 /tools/isometric_prop_paint.cjs -text
 /tools/prepare_mobile_reference.cjs -text
 /scripts/mobile_dungeon_renderer.gd -text

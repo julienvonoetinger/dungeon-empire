@@ -1,0 +1,47 @@
+{
+  "status": "isolated-wireframe-only",
+  "oldSpan": [
+    0.365,
+    0.635
+  ],
+  "newSpan": [
+    0.3333333333333333,
+    0.6666666666666666
+  ],
+  "oldFragments": 4,
+  "newFragments": 0,
+  "minimumRetainedWallStoneLength": 0.16666666666666663,
+  "coincidentContactChecks": 12,
+  "removedHardwareFaces": 133,
+  "unchangedFrameFaces": 211,
+  "smoothLeafPlanes": 2,
+  "guide": {
+    "mapping": {
+      "size": [
+        1024,
+        1024
+      ],
+      "scale": 820,
+      "xOrigin": 512,
+      "xCentre": 0.5,
+      "zOrigin": 890
+    },
+    "frontalVisibleSegments": 158,
+    "leafPerimeterSegments": 20
+  },
+  "protectedFiles": {
+    "tools/isometric_seal_door.cjs": "23d34f220a9dc4316f03a1eac8417dc4016e4145e7b6b96cb7f41d5b9cbc1f53",
+    "tools/seal_masonry_finish.cjs": "e4ec0646718478d719048ad2759e6dac6c099b198f840e8549cc4c3ac6fb755e",
+    "scripts/door_wall_junction.gd": "6f3f90066f4550e28a493f8abc5a4e6f379087019c799c755cce398bb3cf4b2f",
+    "shaders/door_wall_junction.gdshader": "b1128bb531d40fdcb37145820bcaf69c9114bd1fd5223d2f89d9b010afa2cb6a",
+    "assets/dungeon/isometric-kit/catalog.json": "7f1cb851720f10af3f0a1079d86b9ecd43f44244a3806e23063068895a269750",
+    "assets/dungeon/isometric-kit/catalog.tres": "f5a3823c9fe59c0433b809e2000ba12ce8c08e52b017ea4d5d239a19c08afe37",
+    "assets/dungeon/isometric-kit/atlas-256.png": "a75f68324abb502278043483e6991179979cb4e2d8afacff8591fd6cd225b5ce",
+    "assets/dungeon/isometric-kit/traps/atlas-256.png": "1305bbe66a50789b85398305b25ec4effee3857974efd580fc8861857b78c46a",
+    "docs/reference/door-redesign/seal-v1/geometry.json": "3487d891f72e745f7e54b9ad69a1a54f7a4f0a95daf4d707084ab2f11471184e",
+    "docs/reference/door-redesign/seal-v1/painted-v1/geometry-approval.json": "21d408b2eabe1a4c34aec67ec347d854f5996b5b40f56e1abb24a0c947c8f8d6",
+    "docs/reference/door-redesign/seal-v1/painted-v1/face-source.png": "c9c113c9ab976fee65ad6276ea644c6c21f6c398e36f22b48047aed88a57e57f",
+    "docs/reference/door-redesign/seal-v1/painted-v1/face-guide.png": "eddfc72eed1058608aaed50342b589d6a14c59d9ef8f3c001ef6bd41903561a5",
+    "docs/reference/door-redesign/seal-v1/painted-v1/painting.json": "8821423727e16582f44a171a367c573cc25d88605da0a63a1fca76a418beb646"
+  }
+}

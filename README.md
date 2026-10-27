@@ -10,7 +10,7 @@ deux états ; corps de72px au zoom.75. La revue du
 code et le démarrage sans interface sont vérifiés ; la validation interactive
 complète reste à terminer. [État détaillé](docs/gameplay/validation-2026-10-25.md).
 
-Les **24 scènes de présentation** et la scène jouable réutilisent **120 régions
+Les **25 scènes de présentation** et la scène jouable réutilisent **120 régions
 préparées dans un atlas 1024×2048**, complétées par seize régions de coffres et
 d'ombres dans une page 256×1024 et quinze régions de pièges dans une page
 512×1024 du même catalogue, soit **151 régions au total** :
@@ -78,6 +78,9 @@ Ouvrir `project.godot` dans Godot.
 - **F6** : lancer la scène sélectionnée.
 - **MobileReference** : le cœur sculpté, deux torches et trois décors rituels.
 - **DungeonDecorations** : les six décors rituels et leurs ombres.
+- **DungeonTraps** : Pointes, Entrave et Néant en lignes, états prêt/déclenché/épuisé
+  en colonnes. Les neuf exemples sont figés, avec leurs dalles et mécanismes de
+  production. Ouvrir `scenes/DungeonTraps.tscn`, puis **F6** ; glisser déplace la vue.
 - **SixRoomPreview** : six salles, couloirs de deux cases de large, entrée par escalier et cœur.
 - **WireframeDoorCross** : les quatre orientations de portes.
 - **WireframeClosedCorridors** : salle avec quatre couloirs et escaliers terminaux.
@@ -125,6 +128,34 @@ godot --headless --editor --path . --import
 Les anciens exporteurs, dont `export_mobile_kit.cjs`, reconstruisent les étapes
 historiques. Ils ne mettent pas à jour le catalogue isométrique actif.
 
+## APK Android jouable
+
+`tools/prepare_android_game.cjs` prépare une copie isolée du jeu courant dans
+`artifacts/`, avec les ressources chargées dynamiquement, les réglages d'import
+Android et le preset `tools/android-game-export.cfg`. Le preset historique
+`Android Mobile` reste réservé au kit visuel.
+
+```powershell
+node tools/prepare_android_game.cjs
+$stage = (Get-Content build/android-game-inventory.json -Raw | ConvertFrom-Json).staging
+# Remplacer godot par le chemin de Godot 4.7.2 si nécessaire.
+godot --headless --path $stage --editor --import
+godot --headless --path $stage --export-debug "Android Game" "$PWD/build/dungeon-empire-0.1.3-test.apk"
+```
+
+Les modèles Android correspondant à la version de Godot, le JDK et le SDK Android
+doivent être installés et configurés dans Godot. Cet APK de test signé couvre
+ARM64/ARMv7 en portrait et paysage, Android 7.0 minimum. Activez la rotation
+automatique du téléphone pour basculer en tournant l'appareil ; son verrouillage
+d'orientation reste respecté. Le HUD se réorganise en conservant la partie,
+le centre de la caméra et l'outil sélectionné. Un geste interrompu par la rotation
+est annulé pour éviter une activation au relâchement.
+
+La signature et le démarrage natif
+des ressources extraites de l'APK ont été vérifiés ; aucun essai sur téléphone
+ni profilage Android n'a encore été effectué. APK et inventaire restent ignorés
+par Git dans `build/`. La clé de signature n'est pas ajoutée au dépôt.
+
 ## Capturer un aperçu
 
 ```powershell
@@ -133,8 +164,9 @@ node tools/prepare_isometric_migration_review.cjs
 ```
 
 Les images sont dans `docs/reference/isometric-review/painted-v1/captures/`.
-Les trois pages du kit peint pèsent **1 830 392 octets PNG**, soit environ
-**1,75 Mio**, et **11 Mio RGBA** sans mipmaps. Aucun profilage sur téléphone effectué. Ces commandes
+Les quatre pages du kit peint pèsent **2 015 739 octets PNG**, soit environ
+**1,92 Mio**, et **12 Mio RGBA** sans mipmaps. La quatrième page contient les cadres
+des portes ouvertes ; les trois pages précédentes restent inchangées. Aucun profilage sur téléphone effectué. Ces commandes
 produisent des aperçus, pas une suite de tests.
 
 Suivre [la recette de migration peinte](docs/reference/isometric-review/painted-v1/README.md)

@@ -1,0 +1,151 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "source": "source/face-source.png",
+  "guide": "docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/face-guide-magenta.png",
+  "approvedGeometry": "docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/geometry.json",
+  "approval": "2026-10-27: ok maintenant crée la texture correspondante",
+  "fit": {
+    "sourceBounds": [
+      31,
+      156,
+      1192,
+      940
+    ],
+    "guideBounds": [
+      33,
+      155,
+      958,
+      736
+    ],
+    "uniformScale": 0.7829787234042553,
+    "translation": [
+      21.072340425531877,
+      32.85531914893613
+    ],
+    "relativeAspectDifference": -0.025771776307022543
+  },
+  "records": [
+    {
+      "direction": "south",
+      "frame": [
+        -151,
+        -111,
+        302,
+        257
+      ],
+      "sourcePixels": 178790,
+      "fallback": 2844,
+      "faceCount": 319,
+      "leafFaces": 2
+    },
+    {
+      "direction": "east",
+      "frame": [
+        -151,
+        -111,
+        302,
+        257
+      ],
+      "sourcePixels": 178772,
+      "fallback": 2862,
+      "faceCount": 319,
+      "leafFaces": 2
+    },
+    {
+      "direction": "north",
+      "frame": [
+        -151,
+        -112,
+        302,
+        258
+      ],
+      "sourcePixels": 178767,
+      "fallback": 2860,
+      "faceCount": 319,
+      "leafFaces": 2
+    },
+    {
+      "direction": "west",
+      "frame": [
+        -151,
+        -112,
+        302,
+        258
+      ],
+      "sourcePixels": 178792,
+      "fallback": 2835,
+      "faceCount": 319,
+      "leafFaces": 2
+    }
+  ],
+  "palette": {
+    "source": {
+      "count": 38121,
+      "luma": [
+        20.49674506603841,
+        63.15738153693774,
+        74.02904221532293,
+        81.07718435913314,
+        116.99687531679966,
+        184.1157348737221
+      ],
+      "rgb": [
+        57.64802030004535,
+        74.98257637700748,
+        112.65273095144602
+      ]
+    },
+    "targets": {
+      "top": {
+        "count": 10860,
+        "luma": [
+          27.8370125,
+          55.31082644017725,
+          62.5426,
+          66.348175,
+          75.7046,
+          85.39992914201183
+        ],
+        "rgb": [
+          51,
+          63,
+          91.875
+        ]
+      },
+      "north": {
+        "count": 4025,
+        "luma": [
+          20.526600000000002,
+          37.9107375,
+          39.5975125,
+          41.560649999999995,
+          58.61992633136094,
+          74.64823104125735
+        ],
+        "rgb": [
+          28.8125,
+          40,
+          67.1875
+        ]
+      },
+      "west": {
+        "count": 24477,
+        "luma": [
+          22.740833554083885,
+          30.931224999999998,
+          32.38015,
+          34.16035,
+          42.0919125,
+          49.3162625
+        ],
+        "rgb": [
+          21,
+          33,
+          59.1875
+        ]
+      }
+    }
+  },
+  "process": "Immutable original generated RGBA. Uniform image registration; XYZ UV sampling on approved smooth leaf and masonry front. Generated stone front graded with existing wall palette transfer; side/top stone uses existing shared B material. No modelled leaf hardware.",
+  "limits": "Offline context preview, not a native Godot capture. Generated painting approximates the guide; prepared silhouettes and projection derive from approved XYZ. No new gameplay/export change."
+}

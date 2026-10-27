@@ -1,0 +1,32 @@
+{
+  "opening": [
+    0.16,
+    0.84,
+    0.16,
+    0.84
+  ],
+  "oldSide": 0.56,
+  "newSide": 0.68,
+  "sideIncreasePercent": 21.42857143,
+  "removedWholeInnerSlabs": 4,
+  "resizedRectangularSlabs": 2,
+  "squareCentred": true,
+  "rectangularStones": 96,
+  "checkedProjectedEdges": 384,
+  "overlapArea": 0,
+  "uncoveredPavingArea": 0,
+  "pavingAreaInCell": 0.5376,
+  "neighbourGeometryUnchanged": true,
+  "planeZ": 0,
+  "productionIntegrated": false,
+  "unchangedFiles": {
+    "assets/dungeon/isometric-kit/catalog.json": "ae26c5562954fe7d4e27de6a4f552d87074f94dace9a6317b7d97acf30ce355a",
+    "assets/dungeon/isometric-kit/catalog.tres": "1948b560ea11479cb1ca850349065fba3f93ce4d7177341a649367fb963e92fb",
+    "assets/dungeon/isometric-kit/traps/atlas-256.png": "11c77073e95d4f5de6cfe76a2da8f63cd8d80637508c09b894ffc3b7568609c8",
+    "tools/isometric_trap_receiver.cjs": "dbccea0254702ce1e60ae8f1819be180ee794ebab4b0e82afeafd730bf4220ee",
+    "tools/isometric_trap_registration.cjs": "42ecb2f7d3e88a4ef9dc1f343a29025df11f90577452c4caf15b90cfaf4f27ba",
+    "tools/isometric_painted_traps.cjs": "779221ebaf10e4a3fbe4f90c34c3778628d5bbb84c4390d6d9190dcd0cca2003",
+    "docs/reference/trap-review/v10-paving-wireframe/geometry.json": "7b8e365ad2f0bca66907cc4d14644a774afe7d2bc0d63f7c1a3b4eaf007b7c37",
+    "docs/reference/trap-review/v10-paving-wireframe/wireframe-board.png": "788fc8ebf60997f234e6f3eccb114a583c7b8a29ccf143c006c00de7a04a58af"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "nonDoor": 143,
+  "rgbaBytes": 11534336,
+  "pngDelta": -11135,
+  "acceptedFiles": 8,
+  "reports": [
+    {
+      "direction": "south",
+      "comparedPreviewPixels": 18932,
+      "maxDifference": 0,
+      "splitAlpha": 0,
+      "splitColor": 0.984313725490196,
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    },
+    {
+      "direction": "east",
+      "comparedPreviewPixels": 18932,
+      "maxDifference": 0,
+      "splitAlpha": 0,
+      "splitColor": 0.984313725490196,
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    },
+    {
+      "direction": "north",
+      "comparedPreviewPixels": 19054,
+      "maxDifference": 0,
+      "splitAlpha": 0,
+      "splitColor": 0.984313725490196,
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    },
+    {
+      "direction": "west",
+      "comparedPreviewPixels": 19054,
+      "maxDifference": 0,
+      "splitAlpha": 0,
+      "splitColor": 0.984313725490196,
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    }
+  ]
+}

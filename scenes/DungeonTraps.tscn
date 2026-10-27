@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/six_room_preview.gd" id="1_preview"]
+[ext_resource type="Script" path="res://scripts/trap_states_preview.gd" id="2_traps"]
+
+[node name="DungeonTraps" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="Dungeon" type="Node2D" parent="."]
+script = ExtResource("2_traps")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 320)
+zoom = Vector2(0.75, 0.75)

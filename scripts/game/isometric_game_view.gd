@@ -85,6 +85,7 @@ func rebuild() -> void:
 	_actor_at = Vector2(INF, INF)
 	var cells := {}
 	var specials := {}
+	var open_doors := {}
 	var hearts := PackedVector2Array()
 	var chests := {}
 	var trap_floors := {}
@@ -107,15 +108,16 @@ func rebuild() -> void:
 				var orientation := ChestOrientation.select(sim, p)
 				chest_facings[p] = orientation
 				chests[Vector2(p) + Vector2(.5,.5)] = ChestOrientation.sprite_id(sim.vault_protected(p), orientation.facing)
-			if sim._is_door_tile(tile) and sim._door_intact(p):
+			if sim._is_door_tile(tile):
 				var vertical_passage := sim._is_rock_cell(p + Vector2i.LEFT) and sim._is_rock_cell(p + Vector2i.RIGHT)
 				specials[p] = "doors/north" if vertical_passage else "doors/west"
+				if not sim._door_intact(p): open_doors[p] = true
 			if tile == Types.Tile.ENTRANCE:
 				# Despite its legacy name, this returns the direction into the dungeon.
 				var mouth := sim._wall_entrance_face(p)
 				if ENTRANCE_OPEN_SIDES.has(mouth):
 					specials[p] = "entrances/" + ENTRANCE_OPEN_SIDES[mouth]
-	var plan := {"cells":cells,"openings":{},"hearts":hearts,"decoration_positions":chests,"wall_variants":true,"floor_variants":true,"floor_damage":true,"floor_replacements":trap_floors,"mechanisms":mechanisms}
+	var plan := {"cells":cells,"openings":{},"hearts":hearts,"decoration_positions":chests,"wall_variants":true,"floor_variants":true,"floor_damage":true,"floor_replacements":trap_floors,"mechanisms":mechanisms,"open_doors":open_doors}
 	render_plan(plan, specials, true, false)
 	for p: Vector2i in cells:
 		var tile: int = sim.grid[p.y][p.x]
@@ -123,7 +125,6 @@ func rebuild() -> void:
 			_add_marker("trap", p, Color("dc7682") if tile == Types.Tile.SPIKE else Color("9b85df"), false)
 			var marker: Node2D = _markers.back().node
 			marker.badge.configure("spike" if tile==Types.Tile.SPIKE else "snare" if tile==Types.Tile.SNARE else "void",Color("c66b50"),true)
-		elif sim._is_door_tile(tile) and not sim._door_intact(p): _add_marker("door", p, Color("80c7b2"), false)
 	for corpse in sim.corpses: _add_marker("corpse", corpse.pos, Color("aa7187"), false)
 	for bag in sim.loot_bags:
 		if bag.gold > 0: _add_marker("loot", bag.pos, Color("f4c55b"), false)
@@ -242,7 +243,6 @@ func _update_markers() -> void:
 				var charges := int(sim.trap_charges.get(p, maximum))
 				item.node.badge.set_amount(charges,maximum)
 				item.node.active = charges > 0
-			"door": text_value = "Ouverte" if sim.door_opened.get(p,false) else "Brisée"
 			"corpse": text_value = "Corps"
 			"loot": text_value = "Butin"
 		item.node.refresh(text_value)
