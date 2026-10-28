@@ -1,0 +1,193 @@
+{
+  "scope": "Body paint quality correction, isolated sprite review; no production hero integration or APK.",
+  "profiles": {
+    "reference": {
+      "density": 160,
+      "counts": {
+        "idle": 24,
+        "walk": 24,
+        "run": 24,
+        "hurt": 13,
+        "lock-door": 24,
+        "lock-chest": 24,
+        "loot": 24,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 32,
+      "frameSlots": 632,
+      "uniqueSprites": 616,
+      "reusedSlots": 16,
+      "pages": 9,
+      "pngBytes": 7760933,
+      "rgbaBytes": 32227328,
+      "untrimmedRgbaBytes": 141926400,
+      "trimmedContentBytes": 28478504,
+      "packingVerified": true,
+      "pckBytes": 8011176,
+      "previousPckBytes": 7775336,
+      "nativeChecks": 834,
+      "nativeAnchorCases": 32,
+      "nativeAlphaMaxError": 0,
+      "packOnly": true
+    },
+    "balanced": {
+      "density": 128,
+      "counts": {
+        "idle": 8,
+        "walk": 16,
+        "run": 16,
+        "hurt": 7,
+        "lock-door": 12,
+        "lock-chest": 12,
+        "loot": 12,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 32,
+      "frameSlots": 336,
+      "uniqueSprites": 320,
+      "reusedSlots": 16,
+      "pages": 3,
+      "pngBytes": 3005771,
+      "rgbaBytes": 11419648,
+      "untrimmedRgbaBytes": 47185920,
+      "trimmedContentBytes": 9730936,
+      "packingVerified": true,
+      "pckBytes": 3162088,
+      "previousPckBytes": 3208744,
+      "nativeChecks": 508,
+      "nativeAnchorCases": 32,
+      "nativeAlphaMaxError": 0,
+      "packOnly": true
+    },
+    "compact": {
+      "density": 96,
+      "counts": {
+        "idle": 6,
+        "walk": 12,
+        "run": 12,
+        "hurt": 7,
+        "lock-door": 8,
+        "lock-chest": 8,
+        "loot": 8,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 32,
+      "frameSlots": 248,
+      "uniqueSprites": 232,
+      "reusedSlots": 16,
+      "pages": 3,
+      "pngBytes": 1381543,
+      "rgbaBytes": 4923392,
+      "untrimmedRgbaBytes": 19243008,
+      "trimmedContentBytes": 4095756,
+      "packingVerified": true,
+      "pckBytes": 1512712,
+      "previousPckBytes": 1537288,
+      "nativeChecks": 420,
+      "nativeAnchorCases": 32,
+      "nativeAlphaMaxError": 0,
+      "packOnly": true
+    }
+  },
+  "timingCases": 96,
+  "unchangedDeadFrameProfiles": 12,
+  "paintedParts": 48,
+  "sources": [
+    {
+      "file": "source/se-original.png",
+      "sha256": "46b5622fc1bf5b4313235a4a0b200e6796ebc062c10679d41fb76a5c30b037d0",
+      "prompt": "source/se-prompt.txt",
+      "generator": "Built-in ImageGen"
+    },
+    {
+      "file": "source/se-fixed-original.png",
+      "sha256": "d8cb7af3b9c7c6a4308738d14af63498a7d1620cf8d12f73a75bdc91cf19e960",
+      "prompt": "source/se-fixed-prompt.txt",
+      "generator": "Built-in ImageGen"
+    },
+    {
+      "file": "source/sw-original.png",
+      "sha256": "b401385e0df0ddb0443f59f30ce35a18d8cc4e15e3c92e27ca1a3e11be732abb",
+      "prompt": "source/sw-prompt.txt",
+      "generator": "Built-in ImageGen"
+    },
+    {
+      "file": "source/sw-fixed-original.png",
+      "sha256": "af3172229d8a10146fb550a58d690edf794ac8937110a6d391438ba46a047baf",
+      "prompt": "source/sw-fixed-prompt.txt",
+      "generator": "Built-in ImageGen"
+    },
+    {
+      "file": "source/nw-original.png",
+      "sha256": "9f1f3c5849ab898f686e6b9b8a9623f64dfbb985607386b176e2df6001b9c43a",
+      "prompt": "source/nw-prompt.txt",
+      "generator": "Built-in ImageGen"
+    },
+    {
+      "file": "source/nw-fixed-original.png",
+      "sha256": "2eb444719d0b3e57fa82289ae31c50a44b792c6f21da9dc4de548a833f9685d3",
+      "prompt": "source/nw-fixed-prompt.txt",
+      "generator": "Built-in ImageGen"
+    },
+    {
+      "file": "source/ne-original.png",
+      "sha256": "5d4369c7dc861ef6136a0f50aeedb90e8e0dbaab676dc51a3fbd0cf10f659f83",
+      "prompt": "source/ne-prompt.txt",
+      "generator": "Built-in ImageGen"
+    }
+  ],
+  "reusedHeadPaintings": [
+    {
+      "file": "../v11-painted-sprites/source/head-se.png",
+      "sha256": "348502cb7b57f92096a3ae59ffc4bf5d9a5353cdb1300ad1ef51af3977b77a15"
+    },
+    {
+      "file": "../v11-painted-sprites/source/head-hurt-se.png",
+      "sha256": "05420f2c875bdc86a6293873da3bd1ff5e6236094847531361606c015b4712d1"
+    },
+    {
+      "file": "../v11-painted-sprites/source/head-sw.png",
+      "sha256": "945ee89a297a9532738ce00b6bf5ba85ee2c81306c48e240b66c66246d791209"
+    },
+    {
+      "file": "../v11-painted-sprites/source/head-hurt-sw.png",
+      "sha256": "a97566d26289094eb60fd1a426a583676446abd867ef070051d66073bc5c59d7"
+    },
+    {
+      "file": "../v11-painted-sprites/source/head-nw.png",
+      "sha256": "68dc9447e634a6e1be87501a136dbb7df59f5aa435b4a384804c969f3054371a"
+    },
+    {
+      "file": "../v11-painted-sprites/source/head-hurt-nw.png",
+      "sha256": "68dc9447e634a6e1be87501a136dbb7df59f5aa435b4a384804c969f3054371a"
+    },
+    {
+      "file": "../v11-painted-sprites/source/head-ne.png",
+      "sha256": "8f8dcb1f51b903c50d7217abbd05c878671a2d39c6bd5612cd88c199c509ca15"
+    },
+    {
+      "file": "../v11-painted-sprites/source/head-hurt-ne.png",
+      "sha256": "8f8dcb1f51b903c50d7217abbd05c878671a2d39c6bd5612cd88c199c509ca15"
+    }
+  ],
+  "nativeChecks": 1762,
+  "viewer": {
+    "checks": 588,
+    "directions": 4,
+    "failures": [],
+    "profiles": 3,
+    "sizes": 6,
+    "states": 8
+  },
+  "oldApkSha256": "f67a7a75416a3752243a8389e9d7e1581907b0ba45d813f28e6994bb58b09bd3",
+  "limits": [
+    "Painted parts follow the existing 3D skeletal poses; no full 3D texture projection or fallback colors.",
+    "Parts use uniform fitting and alpha cards. Generated silhouettes approximate the geometry; attachment seams and equipment continuity still require artistic review.",
+    "Tail artwork follows the first tail bone as one painted piece, not the three proxy segments.",
+    "Painting refinement does not change timings or AI; native viewer is independent from gameplay.",
+    "No physical-phone or performance profile, no new APK."
+  ]
+}

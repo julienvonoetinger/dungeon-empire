@@ -1,0 +1,6 @@
+const fs=require('fs'),path=require('path'),sharp=require('sharp');const dir=__dirname,data=JSON.parse(fs.readFileSync(path.join(dir,'guide-geometry.json')));
+(async()=>{const out={};for(const[d,parts]of Object.entries(data)){const file=path.join(dir,'source',d==='ne'?d+'-original.png':d+'-fixed-original.png');if(!fs.existsSync(file))continue;const m=await sharp(file).metadata(),cw=Math.floor(m.width/3),ch=Math.floor(m.height/4);out[d]=[];
+ for(let i=0;i<parts.length;i++){const p=parts[i],cell=await sharp(file).extract({left:i%3*cw,top:Math.floor(i/3)*ch,width:cw,height:ch}).png().toBuffer(),{data:raw,info}=await sharp(cell).ensureAlpha().raw().toBuffer({resolveWithObject:true});let x0=cw,y0=ch,x1=0,y1=0;for(let y=0;y<ch;y++)for(let x=0;x<cw;x++)if(raw[(y*cw+x)*4+3]>8){x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y)}x0=Math.max(0,x0-3);y0=Math.max(0,y0-3);x1=Math.min(cw-1,x1+3);y1=Math.min(ch-1,y1+3);const crop={left:x0,top:y0,width:x1-x0+1,height:y1-y0+1};await sharp(cell).extract(crop).png().toFile(path.join(dir,'source',d+'-'+p.name+'.png'));out[d].push({...p,paintCrop:crop,paintFile:'source/'+d+'-'+p.name+'.png'});
+ }}fs.writeFileSync(path.join(dir,'parts.json'),JSON.stringify(out,null,2));console.log(Object.keys(out));})();
+
+

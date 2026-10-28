@@ -1,0 +1,56 @@
+{
+  "frameSize": [
+    256,
+    256
+  ],
+  "uniquePoses": 5,
+  "fps": 10,
+  "order": [
+    1,
+    2,
+    3,
+    4,
+    0
+  ],
+  "durationsMs": [
+    60,
+    100,
+    120,
+    100,
+    100
+  ],
+  "duration": 0.48,
+  "loop": false,
+  "filter": "linear",
+  "directions": {
+    "se": {
+      "sheet": "hurt-se.png",
+      "anchor": [
+        128.00010681152344,
+        195.92598342895508
+      ]
+    },
+    "sw": {
+      "sheet": "hurt-sw.png",
+      "anchor": [
+        127.99988555908203,
+        195.92598342895508
+      ]
+    },
+    "nw": {
+      "sheet": "hurt-nw.png",
+      "anchor": [
+        127.99992370605469,
+        195.9259490966797
+      ]
+    },
+    "ne": {
+      "sheet": "hurt-ne.png",
+      "anchor": [
+        128.0000762939453,
+        195.9259490966797
+      ]
+    }
+  },
+  "source": "035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4"
+}

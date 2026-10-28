@@ -1,0 +1,19 @@
+Preview only: scenes/VulpinHurt.tscn
+
+Eight whole-mesh poses per direction, rendered from the unchanged user Meshy GLB.
+Source, masters and held-pose Blender: docs/reference/vulpin-review/v19-hurt-recoil/.
+Same 30-degree isometric camera, 256px frame and ground anchor as walk/run.
+Four 2048x256 PNG sheets, 32 unique poses total. No runtime 3D skeleton.
+
+One-shot clip: impact (60ms), recoil (60ms), deeper recoil (80ms), braced hold
+(120ms), return (100ms), straighten (100ms), balance (100ms), neutral (100ms).
+Total 720ms. SpriteFrames loop=false. No forward-fold pose.
+The final frame reuses the neutral region rather than duplicating its pixels.
+Feet keep the same stance; recoil is in the torso/head/arms, not grid displacement.
+
+Open VulpinHurt.tscn and press F6. Space or Subir un coup triggers a reaction.
+Pause, next pose, 0.5x/1x/1.5x/2x and optional repeat with a rest gap are available.
+The editor shows a static neutral pose. The preview does not apply game damage.
+
+Visual trial; no facial morphs, automatic self-intersection guarantee, player-save
+access, gameplay integration, camera rule changes or APK build.

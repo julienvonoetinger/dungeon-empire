@@ -1,0 +1,14 @@
+{
+  "approved_direction": "User: Ok go. Build a simplified articulated Vulpin, validate untextured motion before painted materials.",
+  "scope": "Isolated geometric animation review, not runtime hero integration.",
+  "steps": [
+    "Build an editable Blender armature and low-detail fox mannequin with fixed bone lengths.",
+    "Animate a continuous walk with two foot IK targets, alternating world-locked stance, and opposite arm swing.",
+    "Check evaluated bone lengths, actual stance displacement, floor height, loop continuity and game camera projection.",
+    "Bake four orientations with one common scale and root; show the mannequin on native dungeon paving.",
+    "Deliver animated previews and the editable .blend; record visual and technical limits."
+  ],
+  "unchanged": ["painted production sprites", "hero rules and speeds", "player saves", "APK", "git commits and remote"],
+  "character_reference": "../v3-free-hands/source/vulpin-original.png",
+  "state_reference": "../v4-action-states/selection.json"
+}

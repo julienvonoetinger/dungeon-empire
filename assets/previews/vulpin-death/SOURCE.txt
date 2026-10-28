@@ -1,0 +1,24 @@
+Review scene: scenes/VulpinDeath.tscn (F6).
+
+Ten held whole-mesh poses in four views, rendered from the user's Meshy rig:
+standing, buckling legs, lowering, knees, knee support, reach, forward fall,
+reception, settle, final prone corpse with the head turned sideways. User explicitly requested this fall on
+2026-10-28, superseding the previous static-only death decision.
+
+The fall is a 0.55-second non-loop clip: the previous 2x is now normal speed.
+The 0.5x/1x/1.5x/2x controls are relative to this new base.
+Repeat is off by default; the final
+image persists. dead-se/sw/nw/ne are one-frame resources sharing the last
+fall texture. No corpse duplication, side roll or autonomous gameplay logic.
+
+Same 30-degree camera and pixel density as the other Meshy actions, with a
+wider 384px virtual canvas to avoid clipping the extended body. AtlasTexture
+margins preserve the canvas and shared anchor while packing only visible art.
+The camera target is lower; use frames.tres metadata/ground_anchor, not the
+standing actions' numeric offset. Scale remains 0.85.
+
+Source: docs/reference/vulpin-review/v24-meshy-dead/render_fall.py and packed
+vulpin-fall-poses.blend. The original GLB/paint and previous sheets are intact.
+No facial rig: eyes remain open in the source mesh; no eyelid animation. This is a visual
+trial; floor/bounds checks do not prove natural motion or self-intersection.
+No player saves, main scene, game rules, APK, commit or push changed.

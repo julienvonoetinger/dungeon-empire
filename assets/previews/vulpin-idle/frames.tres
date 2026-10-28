@@ -1,0 +1,52 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/previews/vulpin-hurt/hurt-se.png" id="1"]
+[ext_resource type="Texture2D" path="res://assets/previews/vulpin-hurt/hurt-sw.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/previews/vulpin-hurt/hurt-nw.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/previews/vulpin-hurt/hurt-ne.png" id="4"]
+
+[sub_resource type="AtlasTexture" id="se"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 256, 256)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="sw"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 256, 256)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="nw"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 256, 256)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="ne"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 256, 256)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("se")}],
+"loop": false,
+"name": &"se",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("sw")}],
+"loop": false,
+"name": &"sw",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("nw")}],
+"loop": false,
+"name": &"nw",
+"speed": 1.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("ne")}],
+"loop": false,
+"name": &"ne",
+"speed": 1.0
+}]
+metadata/state = "idle"
+metadata/ground_anchor = Vector2(128, 195.92598)
+metadata/hero_scale = 0.85

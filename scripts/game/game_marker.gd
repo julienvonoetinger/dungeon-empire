@@ -1,6 +1,6 @@
 extends Node2D
 
-## Provisional gameplay symbols; chests and traps carry the shared mobile ring.
+## Provisional gameplay symbols and shared mobile status rings.
 const Badge = preload("res://scripts/game/ui/world_badge.gd")
 var kind := "chest"
 var caption := ""
@@ -28,7 +28,7 @@ func _ready() -> void:
 	label.add_theme_constant_override("outline_size", 6)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(label)
-	if kind in ["chest","trap"]:
+	if kind in ["chest","trap","door"]:
 		label.hide()
 		badge=Badge.new()
 		badge.name="StatusRing"
@@ -37,7 +37,7 @@ func _ready() -> void:
 		badge.position=Vector2(-28,-72)
 		badge.scale=Vector2.ONE*(4.0/3.0)
 		add_child(badge)
-		badge.configure("coins" if kind=="chest" else "spike",Color("e9b94f") if kind=="chest" else Color("c66b50"),kind=="trap")
+		badge.configure("coins" if kind=="chest" else "door" if kind=="door" else "spike",Color("e9b94f") if kind=="chest" else Color("c66b50"),kind=="trap")
 
 func refresh(text_value: String, ratio := 1.0) -> void:
 	caption = text_value
@@ -56,7 +56,7 @@ func _draw() -> void:
 		draw_circle(Vector2(0, -66), 16, Color("131a29"), false, 3, true)
 		draw_line(Vector2(-24, -91), Vector2(24, -91), Color("161e2a"), 6)
 		draw_line(Vector2(-24, -91), Vector2(-24 + 48 * health, -91), Color("80d6a0"), 4)
-	elif kind == "chest":
+	elif kind in ["chest","door"]:
 		pass
 	elif kind == "trap":
 		pass # The prepared inset tile owns the mechanism; retain only its ring.

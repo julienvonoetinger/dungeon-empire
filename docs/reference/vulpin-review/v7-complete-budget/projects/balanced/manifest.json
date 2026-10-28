@@ -1,0 +1,8837 @@
+{
+  "profile": "balanced",
+  "density": 128,
+  "scale": 0.8,
+  "canvas": 192,
+  "root": [
+    96,
+    150.4
+  ],
+  "clips": {
+    "se-idle": {
+      "loop": true,
+      "seconds": 1.6,
+      "frames": [
+        {
+          "sprite": "se-idle-0",
+          "duration": 0.2
+        },
+        {
+          "sprite": "se-idle-3",
+          "duration": 0.2
+        },
+        {
+          "sprite": "se-idle-6",
+          "duration": 0.2
+        },
+        {
+          "sprite": "se-idle-9",
+          "duration": 0.2
+        },
+        {
+          "sprite": "se-idle-12",
+          "duration": 0.2
+        },
+        {
+          "sprite": "se-idle-15",
+          "duration": 0.2
+        },
+        {
+          "sprite": "se-idle-18",
+          "duration": 0.2
+        },
+        {
+          "sprite": "se-idle-21",
+          "duration": 0.2
+        }
+      ],
+      "label": "Attente"
+    },
+    "se-walk": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "se-walk-0",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-3",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-6",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-9",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-12",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-15",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-18",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-21",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-24",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-27",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-30",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-33",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-36",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-39",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-42",
+          "duration": 0.05
+        },
+        {
+          "sprite": "se-walk-45",
+          "duration": 0.05
+        }
+      ],
+      "label": "Marche"
+    },
+    "se-run": {
+      "loop": true,
+      "seconds": 0.6,
+      "frames": [
+        {
+          "sprite": "se-run-0",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-3",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-6",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-9",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-12",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-15",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-18",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-21",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-24",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-27",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-30",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-33",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-36",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-39",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-42",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "se-run-45",
+          "duration": 0.0375
+        }
+      ],
+      "label": "Course"
+    },
+    "se-hurt": {
+      "loop": false,
+      "seconds": 0.4,
+      "frames": [
+        {
+          "sprite": "se-idle-0",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "se-hurt-2",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "se-hurt-4",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "se-hurt-6",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "se-hurt-8",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "se-hurt-10",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "se-idle-0",
+          "duration": 0.05714285714285715
+        }
+      ],
+      "label": "Dégâts"
+    },
+    "se-lock-door": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "se-lock-door-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-door-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage porte"
+    },
+    "se-lock-chest": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "se-lock-chest-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "se-lock-chest-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage coffre"
+    },
+    "se-loot": {
+      "loop": true,
+      "seconds": 1.2,
+      "frames": [
+        {
+          "sprite": "se-loot-0",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-2",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-4",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-6",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-8",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-10",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-12",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-14",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-16",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-18",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-20",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "se-loot-22",
+          "duration": 0.09999999999999999
+        }
+      ],
+      "label": "Ramassage"
+    },
+    "se-death": {
+      "loop": false,
+      "seconds": 1.5,
+      "frames": [
+        {
+          "sprite": "se-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-4",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-6",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-8",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-10",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-12",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-14",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-16",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-18",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-20",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-22",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "se-death-22",
+          "duration": 0.11538461538461539
+        }
+      ],
+      "label": "Chute"
+    },
+    "se-dead": {
+      "loop": false,
+      "seconds": 1,
+      "frames": [
+        {
+          "sprite": "se-death-22",
+          "duration": 1
+        }
+      ],
+      "label": "Mort"
+    },
+    "sw-idle": {
+      "loop": true,
+      "seconds": 1.6,
+      "frames": [
+        {
+          "sprite": "sw-idle-0",
+          "duration": 0.2
+        },
+        {
+          "sprite": "sw-idle-3",
+          "duration": 0.2
+        },
+        {
+          "sprite": "sw-idle-6",
+          "duration": 0.2
+        },
+        {
+          "sprite": "sw-idle-9",
+          "duration": 0.2
+        },
+        {
+          "sprite": "sw-idle-12",
+          "duration": 0.2
+        },
+        {
+          "sprite": "sw-idle-15",
+          "duration": 0.2
+        },
+        {
+          "sprite": "sw-idle-18",
+          "duration": 0.2
+        },
+        {
+          "sprite": "sw-idle-21",
+          "duration": 0.2
+        }
+      ],
+      "label": "Attente"
+    },
+    "sw-walk": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "sw-walk-0",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-3",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-6",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-9",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-12",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-15",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-18",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-21",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-24",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-27",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-30",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-33",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-36",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-39",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-42",
+          "duration": 0.05
+        },
+        {
+          "sprite": "sw-walk-45",
+          "duration": 0.05
+        }
+      ],
+      "label": "Marche"
+    },
+    "sw-run": {
+      "loop": true,
+      "seconds": 0.6,
+      "frames": [
+        {
+          "sprite": "sw-run-0",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-3",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-6",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-9",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-12",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-15",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-18",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-21",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-24",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-27",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-30",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-33",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-36",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-39",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-42",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "sw-run-45",
+          "duration": 0.0375
+        }
+      ],
+      "label": "Course"
+    },
+    "sw-hurt": {
+      "loop": false,
+      "seconds": 0.4,
+      "frames": [
+        {
+          "sprite": "sw-idle-0",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "sw-hurt-2",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "sw-hurt-4",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "sw-hurt-6",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "sw-hurt-8",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "sw-hurt-10",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "sw-idle-0",
+          "duration": 0.05714285714285715
+        }
+      ],
+      "label": "Dégâts"
+    },
+    "sw-lock-door": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "sw-lock-door-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-door-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage porte"
+    },
+    "sw-lock-chest": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "sw-lock-chest-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "sw-lock-chest-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage coffre"
+    },
+    "sw-loot": {
+      "loop": true,
+      "seconds": 1.2,
+      "frames": [
+        {
+          "sprite": "sw-loot-0",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-2",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-4",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-6",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-8",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-10",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-12",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-14",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-16",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-18",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-20",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "sw-loot-22",
+          "duration": 0.09999999999999999
+        }
+      ],
+      "label": "Ramassage"
+    },
+    "sw-death": {
+      "loop": false,
+      "seconds": 1.5,
+      "frames": [
+        {
+          "sprite": "sw-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-4",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-6",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-8",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-10",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-12",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-14",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-16",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-18",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-20",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-22",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "sw-death-22",
+          "duration": 0.11538461538461539
+        }
+      ],
+      "label": "Chute"
+    },
+    "sw-dead": {
+      "loop": false,
+      "seconds": 1,
+      "frames": [
+        {
+          "sprite": "sw-death-22",
+          "duration": 1
+        }
+      ],
+      "label": "Mort"
+    },
+    "nw-idle": {
+      "loop": true,
+      "seconds": 1.6,
+      "frames": [
+        {
+          "sprite": "nw-idle-0",
+          "duration": 0.2
+        },
+        {
+          "sprite": "nw-idle-3",
+          "duration": 0.2
+        },
+        {
+          "sprite": "nw-idle-6",
+          "duration": 0.2
+        },
+        {
+          "sprite": "nw-idle-9",
+          "duration": 0.2
+        },
+        {
+          "sprite": "nw-idle-12",
+          "duration": 0.2
+        },
+        {
+          "sprite": "nw-idle-15",
+          "duration": 0.2
+        },
+        {
+          "sprite": "nw-idle-18",
+          "duration": 0.2
+        },
+        {
+          "sprite": "nw-idle-21",
+          "duration": 0.2
+        }
+      ],
+      "label": "Attente"
+    },
+    "nw-walk": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "nw-walk-0",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-3",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-6",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-9",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-12",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-15",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-18",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-21",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-24",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-27",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-30",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-33",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-36",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-39",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-42",
+          "duration": 0.05
+        },
+        {
+          "sprite": "nw-walk-45",
+          "duration": 0.05
+        }
+      ],
+      "label": "Marche"
+    },
+    "nw-run": {
+      "loop": true,
+      "seconds": 0.6,
+      "frames": [
+        {
+          "sprite": "nw-run-0",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-3",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-6",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-9",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-12",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-15",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-18",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-21",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-24",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-27",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-30",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-33",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-36",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-39",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-42",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "nw-run-45",
+          "duration": 0.0375
+        }
+      ],
+      "label": "Course"
+    },
+    "nw-hurt": {
+      "loop": false,
+      "seconds": 0.4,
+      "frames": [
+        {
+          "sprite": "nw-idle-0",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "nw-hurt-2",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "nw-hurt-4",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "nw-hurt-6",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "nw-hurt-8",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "nw-hurt-10",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "nw-idle-0",
+          "duration": 0.05714285714285715
+        }
+      ],
+      "label": "Dégâts"
+    },
+    "nw-lock-door": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "nw-lock-door-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-door-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage porte"
+    },
+    "nw-lock-chest": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "nw-lock-chest-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "nw-lock-chest-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage coffre"
+    },
+    "nw-loot": {
+      "loop": true,
+      "seconds": 1.2,
+      "frames": [
+        {
+          "sprite": "nw-loot-0",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-2",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-4",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-6",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-8",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-10",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-12",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-14",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-16",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-18",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-20",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "nw-loot-22",
+          "duration": 0.09999999999999999
+        }
+      ],
+      "label": "Ramassage"
+    },
+    "nw-death": {
+      "loop": false,
+      "seconds": 1.5,
+      "frames": [
+        {
+          "sprite": "nw-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-4",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-6",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-8",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-10",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-12",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-14",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-16",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-18",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-20",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-22",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "nw-death-22",
+          "duration": 0.11538461538461539
+        }
+      ],
+      "label": "Chute"
+    },
+    "nw-dead": {
+      "loop": false,
+      "seconds": 1,
+      "frames": [
+        {
+          "sprite": "nw-death-22",
+          "duration": 1
+        }
+      ],
+      "label": "Mort"
+    },
+    "ne-idle": {
+      "loop": true,
+      "seconds": 1.6,
+      "frames": [
+        {
+          "sprite": "ne-idle-0",
+          "duration": 0.2
+        },
+        {
+          "sprite": "ne-idle-3",
+          "duration": 0.2
+        },
+        {
+          "sprite": "ne-idle-6",
+          "duration": 0.2
+        },
+        {
+          "sprite": "ne-idle-9",
+          "duration": 0.2
+        },
+        {
+          "sprite": "ne-idle-12",
+          "duration": 0.2
+        },
+        {
+          "sprite": "ne-idle-15",
+          "duration": 0.2
+        },
+        {
+          "sprite": "ne-idle-18",
+          "duration": 0.2
+        },
+        {
+          "sprite": "ne-idle-21",
+          "duration": 0.2
+        }
+      ],
+      "label": "Attente"
+    },
+    "ne-walk": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "ne-walk-0",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-3",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-6",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-9",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-12",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-15",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-18",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-21",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-24",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-27",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-30",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-33",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-36",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-39",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-42",
+          "duration": 0.05
+        },
+        {
+          "sprite": "ne-walk-45",
+          "duration": 0.05
+        }
+      ],
+      "label": "Marche"
+    },
+    "ne-run": {
+      "loop": true,
+      "seconds": 0.6,
+      "frames": [
+        {
+          "sprite": "ne-run-0",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-3",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-6",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-9",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-12",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-15",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-18",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-21",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-24",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-27",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-30",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-33",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-36",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-39",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-42",
+          "duration": 0.0375
+        },
+        {
+          "sprite": "ne-run-45",
+          "duration": 0.0375
+        }
+      ],
+      "label": "Course"
+    },
+    "ne-hurt": {
+      "loop": false,
+      "seconds": 0.4,
+      "frames": [
+        {
+          "sprite": "ne-idle-0",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "ne-hurt-2",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "ne-hurt-4",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "ne-hurt-6",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "ne-hurt-8",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "ne-hurt-10",
+          "duration": 0.05714285714285715
+        },
+        {
+          "sprite": "ne-idle-0",
+          "duration": 0.05714285714285715
+        }
+      ],
+      "label": "Dégâts"
+    },
+    "ne-lock-door": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "ne-lock-door-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-door-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage porte"
+    },
+    "ne-lock-chest": {
+      "loop": true,
+      "seconds": 0.8,
+      "frames": [
+        {
+          "sprite": "ne-lock-chest-0",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-2",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-4",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-6",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-8",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-10",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-12",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-14",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-16",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-18",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-20",
+          "duration": 0.06666666666666667
+        },
+        {
+          "sprite": "ne-lock-chest-22",
+          "duration": 0.06666666666666667
+        }
+      ],
+      "label": "Crochetage coffre"
+    },
+    "ne-loot": {
+      "loop": true,
+      "seconds": 1.2,
+      "frames": [
+        {
+          "sprite": "ne-loot-0",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-2",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-4",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-6",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-8",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-10",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-12",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-14",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-16",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-18",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-20",
+          "duration": 0.09999999999999999
+        },
+        {
+          "sprite": "ne-loot-22",
+          "duration": 0.09999999999999999
+        }
+      ],
+      "label": "Ramassage"
+    },
+    "ne-death": {
+      "loop": false,
+      "seconds": 1.5,
+      "frames": [
+        {
+          "sprite": "ne-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-0",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-4",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-6",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-8",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-10",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-12",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-14",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-16",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-18",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-20",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-22",
+          "duration": 0.11538461538461539
+        },
+        {
+          "sprite": "ne-death-22",
+          "duration": 0.11538461538461539
+        }
+      ],
+      "label": "Chute"
+    },
+    "ne-dead": {
+      "loop": false,
+      "seconds": 1,
+      "frames": [
+        {
+          "sprite": "ne-death-22",
+          "duration": 1
+        }
+      ],
+      "label": "Mort"
+    }
+  },
+  "sprites": {
+    "se-death-12": {
+      "page": 0,
+      "rect": [
+        2,
+        2,
+        76,
+        114
+      ],
+      "offset": [
+        -14,
+        -112.4
+      ],
+      "crop": [
+        82,
+        38,
+        76,
+        114
+      ]
+    },
+    "se-walk-0": {
+      "page": 0,
+      "rect": [
+        82,
+        2,
+        66,
+        114
+      ],
+      "offset": [
+        -37,
+        -99.4
+      ],
+      "crop": [
+        59,
+        51,
+        66,
+        114
+      ]
+    },
+    "se-walk-3": {
+      "page": 0,
+      "rect": [
+        152,
+        2,
+        68,
+        113
+      ],
+      "offset": [
+        -39,
+        -99.4
+      ],
+      "crop": [
+        57,
+        51,
+        68,
+        113
+      ]
+    },
+    "se-walk-9": {
+      "page": 0,
+      "rect": [
+        224,
+        2,
+        68,
+        113
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        68,
+        113
+      ]
+    },
+    "sw-walk-27": {
+      "page": 0,
+      "rect": [
+        296,
+        2,
+        68,
+        113
+      ],
+      "offset": [
+        -29,
+        -99.4
+      ],
+      "crop": [
+        67,
+        51,
+        68,
+        113
+      ]
+    },
+    "se-walk-6": {
+      "page": 0,
+      "rect": [
+        368,
+        2,
+        67,
+        113
+      ],
+      "offset": [
+        -40,
+        -100.4
+      ],
+      "crop": [
+        56,
+        50,
+        67,
+        113
+      ]
+    },
+    "sw-walk-24": {
+      "page": 0,
+      "rect": [
+        439,
+        2,
+        67,
+        113
+      ],
+      "offset": [
+        -29,
+        -99.4
+      ],
+      "crop": [
+        67,
+        51,
+        67,
+        113
+      ]
+    },
+    "sw-walk-30": {
+      "page": 0,
+      "rect": [
+        510,
+        2,
+        67,
+        113
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        67,
+        113
+      ]
+    },
+    "se-death-10": {
+      "page": 0,
+      "rect": [
+        581,
+        2,
+        71,
+        112
+      ],
+      "offset": [
+        -19,
+        -111.4
+      ],
+      "crop": [
+        77,
+        39,
+        71,
+        112
+      ]
+    },
+    "se-idle-6": {
+      "page": 0,
+      "rect": [
+        656,
+        2,
+        69,
+        112
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        69,
+        112
+      ]
+    },
+    "sw-idle-18": {
+      "page": 0,
+      "rect": [
+        729,
+        2,
+        69,
+        112
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        69,
+        112
+      ]
+    },
+    "sw-idle-21": {
+      "page": 0,
+      "rect": [
+        802,
+        2,
+        69,
+        112
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        69,
+        112
+      ]
+    },
+    "ne-walk-27": {
+      "page": 0,
+      "rect": [
+        875,
+        2,
+        68,
+        112
+      ],
+      "offset": [
+        -39,
+        -100.4
+      ],
+      "crop": [
+        57,
+        50,
+        68,
+        112
+      ]
+    },
+    "nw-walk-3": {
+      "page": 0,
+      "rect": [
+        947,
+        2,
+        68,
+        112
+      ],
+      "offset": [
+        -29,
+        -100.4
+      ],
+      "crop": [
+        67,
+        50,
+        68,
+        112
+      ]
+    },
+    "se-walk-12": {
+      "page": 0,
+      "rect": [
+        2,
+        120,
+        68,
+        112
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        68,
+        112
+      ]
+    },
+    "se-walk-15": {
+      "page": 0,
+      "rect": [
+        74,
+        120,
+        68,
+        112
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        68,
+        112
+      ]
+    },
+    "sw-walk-33": {
+      "page": 0,
+      "rect": [
+        146,
+        120,
+        68,
+        112
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        68,
+        112
+      ]
+    },
+    "sw-walk-36": {
+      "page": 0,
+      "rect": [
+        218,
+        120,
+        68,
+        112
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        68,
+        112
+      ]
+    },
+    "ne-walk-30": {
+      "page": 0,
+      "rect": [
+        290,
+        120,
+        67,
+        112
+      ],
+      "offset": [
+        -40,
+        -100.4
+      ],
+      "crop": [
+        56,
+        50,
+        67,
+        112
+      ]
+    },
+    "nw-walk-6": {
+      "page": 0,
+      "rect": [
+        361,
+        120,
+        67,
+        112
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        67,
+        112
+      ]
+    },
+    "se-idle-3": {
+      "page": 0,
+      "rect": [
+        432,
+        120,
+        67,
+        112
+      ],
+      "offset": [
+        -39,
+        -100.4
+      ],
+      "crop": [
+        57,
+        50,
+        67,
+        112
+      ]
+    },
+    "sw-hurt-10": {
+      "page": 0,
+      "rect": [
+        503,
+        120,
+        67,
+        112
+      ],
+      "offset": [
+        -26,
+        -100.4
+      ],
+      "crop": [
+        70,
+        50,
+        67,
+        112
+      ]
+    },
+    "se-death-4": {
+      "page": 0,
+      "rect": [
+        574,
+        120,
+        66,
+        112
+      ],
+      "offset": [
+        -37,
+        -101.4
+      ],
+      "crop": [
+        59,
+        49,
+        66,
+        112
+      ]
+    },
+    "se-death-6": {
+      "page": 0,
+      "rect": [
+        644,
+        120,
+        66,
+        112
+      ],
+      "offset": [
+        -32,
+        -104.4
+      ],
+      "crop": [
+        64,
+        46,
+        66,
+        112
+      ]
+    },
+    "se-hurt-2": {
+      "page": 0,
+      "rect": [
+        714,
+        120,
+        66,
+        112
+      ],
+      "offset": [
+        -40,
+        -100.4
+      ],
+      "crop": [
+        56,
+        50,
+        66,
+        112
+      ]
+    },
+    "sw-idle-0": {
+      "page": 0,
+      "rect": [
+        784,
+        120,
+        66,
+        112
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        66,
+        112
+      ]
+    },
+    "se-death-0": {
+      "page": 0,
+      "rect": [
+        854,
+        120,
+        65,
+        112
+      ],
+      "offset": [
+        -38,
+        -100.4
+      ],
+      "crop": [
+        58,
+        50,
+        65,
+        112
+      ]
+    },
+    "se-idle-0": {
+      "page": 0,
+      "rect": [
+        923,
+        120,
+        65,
+        112
+      ],
+      "offset": [
+        -38,
+        -100.4
+      ],
+      "crop": [
+        58,
+        50,
+        65,
+        112
+      ]
+    },
+    "se-walk-45": {
+      "page": 0,
+      "rect": [
+        2,
+        236,
+        65,
+        112
+      ],
+      "offset": [
+        -36,
+        -99.4
+      ],
+      "crop": [
+        60,
+        51,
+        65,
+        112
+      ]
+    },
+    "sw-death-0": {
+      "page": 0,
+      "rect": [
+        71,
+        236,
+        65,
+        112
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        65,
+        112
+      ]
+    },
+    "sw-walk-21": {
+      "page": 0,
+      "rect": [
+        140,
+        236,
+        65,
+        112
+      ],
+      "offset": [
+        -29,
+        -99.4
+      ],
+      "crop": [
+        67,
+        51,
+        65,
+        112
+      ]
+    },
+    "se-hurt-4": {
+      "page": 0,
+      "rect": [
+        209,
+        236,
+        64,
+        112
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        64,
+        112
+      ]
+    },
+    "sw-hurt-2": {
+      "page": 0,
+      "rect": [
+        277,
+        236,
+        63,
+        112
+      ],
+      "offset": [
+        -26,
+        -100.4
+      ],
+      "crop": [
+        70,
+        50,
+        63,
+        112
+      ]
+    },
+    "sw-hurt-8": {
+      "page": 0,
+      "rect": [
+        344,
+        236,
+        63,
+        112
+      ],
+      "offset": [
+        -23,
+        -100.4
+      ],
+      "crop": [
+        73,
+        50,
+        63,
+        112
+      ]
+    },
+    "se-hurt-10": {
+      "page": 0,
+      "rect": [
+        411,
+        236,
+        62,
+        112
+      ],
+      "offset": [
+        -36,
+        -100.4
+      ],
+      "crop": [
+        60,
+        50,
+        62,
+        112
+      ]
+    },
+    "se-hurt-6": {
+      "page": 0,
+      "rect": [
+        477,
+        236,
+        61,
+        112
+      ],
+      "offset": [
+        -39,
+        -100.4
+      ],
+      "crop": [
+        57,
+        50,
+        61,
+        112
+      ]
+    },
+    "se-hurt-8": {
+      "page": 0,
+      "rect": [
+        542,
+        236,
+        60,
+        112
+      ],
+      "offset": [
+        -37,
+        -100.4
+      ],
+      "crop": [
+        59,
+        50,
+        60,
+        112
+      ]
+    },
+    "sw-hurt-6": {
+      "page": 0,
+      "rect": [
+        606,
+        236,
+        60,
+        112
+      ],
+      "offset": [
+        -22,
+        -100.4
+      ],
+      "crop": [
+        74,
+        50,
+        60,
+        112
+      ]
+    },
+    "sw-hurt-4": {
+      "page": 0,
+      "rect": [
+        670,
+        236,
+        59,
+        112
+      ],
+      "offset": [
+        -23,
+        -100.4
+      ],
+      "crop": [
+        73,
+        50,
+        59,
+        112
+      ]
+    },
+    "ne-lock-door-18": {
+      "page": 0,
+      "rect": [
+        733,
+        236,
+        70,
+        111
+      ],
+      "offset": [
+        -40,
+        -101.4
+      ],
+      "crop": [
+        56,
+        49,
+        70,
+        111
+      ]
+    },
+    "ne-lock-door-20": {
+      "page": 0,
+      "rect": [
+        807,
+        236,
+        70,
+        111
+      ],
+      "offset": [
+        -40,
+        -101.4
+      ],
+      "crop": [
+        56,
+        49,
+        70,
+        111
+      ]
+    },
+    "ne-lock-door-22": {
+      "page": 0,
+      "rect": [
+        881,
+        236,
+        70,
+        111
+      ],
+      "offset": [
+        -40,
+        -101.4
+      ],
+      "crop": [
+        56,
+        49,
+        70,
+        111
+      ]
+    },
+    "nw-lock-door-10": {
+      "page": 0,
+      "rect": [
+        2,
+        352,
+        70,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        70,
+        111
+      ]
+    },
+    "nw-lock-door-6": {
+      "page": 0,
+      "rect": [
+        76,
+        352,
+        70,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        70,
+        111
+      ]
+    },
+    "nw-lock-door-8": {
+      "page": 0,
+      "rect": [
+        150,
+        352,
+        70,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        70,
+        111
+      ]
+    },
+    "ne-lock-door-0": {
+      "page": 0,
+      "rect": [
+        224,
+        352,
+        69,
+        111
+      ],
+      "offset": [
+        -39,
+        -101.4
+      ],
+      "crop": [
+        57,
+        49,
+        69,
+        111
+      ]
+    },
+    "ne-lock-door-16": {
+      "page": 0,
+      "rect": [
+        297,
+        352,
+        69,
+        111
+      ],
+      "offset": [
+        -39,
+        -101.4
+      ],
+      "crop": [
+        57,
+        49,
+        69,
+        111
+      ]
+    },
+    "nw-lock-door-12": {
+      "page": 0,
+      "rect": [
+        370,
+        352,
+        69,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        69,
+        111
+      ]
+    },
+    "nw-lock-door-4": {
+      "page": 0,
+      "rect": [
+        443,
+        352,
+        69,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        69,
+        111
+      ]
+    },
+    "se-idle-9": {
+      "page": 0,
+      "rect": [
+        516,
+        352,
+        69,
+        111
+      ],
+      "offset": [
+        -41,
+        -99.4
+      ],
+      "crop": [
+        55,
+        51,
+        69,
+        111
+      ]
+    },
+    "ne-lock-door-14": {
+      "page": 0,
+      "rect": [
+        589,
+        352,
+        68,
+        111
+      ],
+      "offset": [
+        -38,
+        -101.4
+      ],
+      "crop": [
+        58,
+        49,
+        68,
+        111
+      ]
+    },
+    "ne-walk-33": {
+      "page": 0,
+      "rect": [
+        661,
+        352,
+        68,
+        111
+      ],
+      "offset": [
+        -41,
+        -101.4
+      ],
+      "crop": [
+        55,
+        49,
+        68,
+        111
+      ]
+    },
+    "nw-lock-door-2": {
+      "page": 0,
+      "rect": [
+        733,
+        352,
+        68,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        68,
+        111
+      ]
+    },
+    "nw-walk-9": {
+      "page": 0,
+      "rect": [
+        805,
+        352,
+        68,
+        111
+      ],
+      "offset": [
+        -27,
+        -101.4
+      ],
+      "crop": [
+        69,
+        49,
+        68,
+        111
+      ]
+    },
+    "se-walk-18": {
+      "page": 0,
+      "rect": [
+        877,
+        352,
+        68,
+        111
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        68,
+        111
+      ]
+    },
+    "sw-walk-39": {
+      "page": 0,
+      "rect": [
+        949,
+        352,
+        68,
+        111
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        68,
+        111
+      ]
+    },
+    "sw-walk-42": {
+      "page": 0,
+      "rect": [
+        2,
+        467,
+        68,
+        111
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        68,
+        111
+      ]
+    },
+    "ne-lock-door-12": {
+      "page": 0,
+      "rect": [
+        955,
+        236,
+        67,
+        111
+      ],
+      "offset": [
+        -37,
+        -101.4
+      ],
+      "crop": [
+        59,
+        49,
+        67,
+        111
+      ]
+    },
+    "ne-lock-door-2": {
+      "page": 0,
+      "rect": [
+        74,
+        467,
+        67,
+        111
+      ],
+      "offset": [
+        -37,
+        -101.4
+      ],
+      "crop": [
+        59,
+        49,
+        67,
+        111
+      ]
+    },
+    "nw-lock-door-0": {
+      "page": 0,
+      "rect": [
+        145,
+        467,
+        67,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        67,
+        111
+      ]
+    },
+    "nw-lock-door-14": {
+      "page": 0,
+      "rect": [
+        216,
+        467,
+        67,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        67,
+        111
+      ]
+    },
+    "nw-walk-0": {
+      "page": 0,
+      "rect": [
+        287,
+        467,
+        67,
+        111
+      ],
+      "offset": [
+        -29,
+        -99.4
+      ],
+      "crop": [
+        67,
+        51,
+        67,
+        111
+      ]
+    },
+    "sw-idle-15": {
+      "page": 0,
+      "rect": [
+        358,
+        467,
+        67,
+        111
+      ],
+      "offset": [
+        -28,
+        -99.4
+      ],
+      "crop": [
+        68,
+        51,
+        67,
+        111
+      ]
+    },
+    "ne-lock-door-10": {
+      "page": 0,
+      "rect": [
+        429,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -36,
+        -101.4
+      ],
+      "crop": [
+        60,
+        49,
+        66,
+        111
+      ]
+    },
+    "ne-lock-door-4": {
+      "page": 0,
+      "rect": [
+        499,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -36,
+        -101.4
+      ],
+      "crop": [
+        60,
+        49,
+        66,
+        111
+      ]
+    },
+    "ne-run-21": {
+      "page": 0,
+      "rect": [
+        569,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -36,
+        -99.4
+      ],
+      "crop": [
+        60,
+        51,
+        66,
+        111
+      ]
+    },
+    "ne-run-9": {
+      "page": 0,
+      "rect": [
+        639,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -36,
+        -101.4
+      ],
+      "crop": [
+        60,
+        49,
+        66,
+        111
+      ]
+    },
+    "ne-walk-24": {
+      "page": 0,
+      "rect": [
+        709,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -37,
+        -99.4
+      ],
+      "crop": [
+        59,
+        51,
+        66,
+        111
+      ]
+    },
+    "nw-lock-door-16": {
+      "page": 0,
+      "rect": [
+        779,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        66,
+        111
+      ]
+    },
+    "nw-lock-door-22": {
+      "page": 0,
+      "rect": [
+        849,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        66,
+        111
+      ]
+    },
+    "nw-run-33": {
+      "page": 0,
+      "rect": [
+        919,
+        467,
+        66,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        66,
+        111
+      ]
+    },
+    "nw-run-45": {
+      "page": 0,
+      "rect": [
+        2,
+        582,
+        66,
+        111
+      ],
+      "offset": [
+        -30,
+        -99.4
+      ],
+      "crop": [
+        66,
+        51,
+        66,
+        111
+      ]
+    },
+    "se-idle-12": {
+      "page": 0,
+      "rect": [
+        72,
+        582,
+        66,
+        111
+      ],
+      "offset": [
+        -39,
+        -99.4
+      ],
+      "crop": [
+        57,
+        51,
+        66,
+        111
+      ]
+    },
+    "sw-death-4": {
+      "page": 0,
+      "rect": [
+        142,
+        582,
+        66,
+        111
+      ],
+      "offset": [
+        -26,
+        -100.4
+      ],
+      "crop": [
+        70,
+        50,
+        66,
+        111
+      ]
+    },
+    "ne-lock-door-6": {
+      "page": 0,
+      "rect": [
+        212,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -35,
+        -101.4
+      ],
+      "crop": [
+        61,
+        49,
+        65,
+        111
+      ]
+    },
+    "ne-lock-door-8": {
+      "page": 0,
+      "rect": [
+        281,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -35,
+        -101.4
+      ],
+      "crop": [
+        61,
+        49,
+        65,
+        111
+      ]
+    },
+    "ne-run-12": {
+      "page": 0,
+      "rect": [
+        350,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -35,
+        -100.4
+      ],
+      "crop": [
+        61,
+        50,
+        65,
+        111
+      ]
+    },
+    "ne-walk-21": {
+      "page": 0,
+      "rect": [
+        419,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -36,
+        -100.4
+      ],
+      "crop": [
+        60,
+        50,
+        65,
+        111
+      ]
+    },
+    "nw-lock-door-18": {
+      "page": 0,
+      "rect": [
+        488,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        65,
+        111
+      ]
+    },
+    "nw-lock-door-20": {
+      "page": 0,
+      "rect": [
+        557,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        65,
+        111
+      ]
+    },
+    "nw-run-36": {
+      "page": 0,
+      "rect": [
+        626,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -30,
+        -100.4
+      ],
+      "crop": [
+        66,
+        50,
+        65,
+        111
+      ]
+    },
+    "nw-walk-45": {
+      "page": 0,
+      "rect": [
+        695,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -29,
+        -100.4
+      ],
+      "crop": [
+        67,
+        50,
+        65,
+        111
+      ]
+    },
+    "sw-idle-12": {
+      "page": 0,
+      "rect": [
+        764,
+        582,
+        65,
+        111
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        65,
+        111
+      ]
+    },
+    "ne-walk-18": {
+      "page": 0,
+      "rect": [
+        833,
+        582,
+        64,
+        111
+      ],
+      "offset": [
+        -36,
+        -100.4
+      ],
+      "crop": [
+        60,
+        50,
+        64,
+        111
+      ]
+    },
+    "nw-walk-42": {
+      "page": 0,
+      "rect": [
+        901,
+        582,
+        64,
+        111
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        64,
+        111
+      ]
+    },
+    "se-idle-15": {
+      "page": 0,
+      "rect": [
+        2,
+        697,
+        64,
+        111
+      ],
+      "offset": [
+        -37,
+        -99.4
+      ],
+      "crop": [
+        59,
+        51,
+        64,
+        111
+      ]
+    },
+    "sw-idle-3": {
+      "page": 0,
+      "rect": [
+        70,
+        697,
+        64,
+        111
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        64,
+        111
+      ]
+    },
+    "se-idle-18": {
+      "page": 0,
+      "rect": [
+        138,
+        697,
+        63,
+        111
+      ],
+      "offset": [
+        -36,
+        -99.4
+      ],
+      "crop": [
+        60,
+        51,
+        63,
+        111
+      ]
+    },
+    "se-idle-21": {
+      "page": 0,
+      "rect": [
+        205,
+        697,
+        63,
+        111
+      ],
+      "offset": [
+        -36,
+        -99.4
+      ],
+      "crop": [
+        60,
+        51,
+        63,
+        111
+      ]
+    },
+    "sw-idle-6": {
+      "page": 0,
+      "rect": [
+        272,
+        697,
+        63,
+        111
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        63,
+        111
+      ]
+    },
+    "sw-idle-9": {
+      "page": 0,
+      "rect": [
+        339,
+        697,
+        63,
+        111
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        63,
+        111
+      ]
+    },
+    "ne-death-12": {
+      "page": 0,
+      "rect": [
+        406,
+        697,
+        91,
+        110
+      ],
+      "offset": [
+        -73,
+        -108.4
+      ],
+      "crop": [
+        23,
+        42,
+        91,
+        110
+      ]
+    },
+    "ne-idle-18": {
+      "page": 0,
+      "rect": [
+        501,
+        697,
+        69,
+        110
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        69,
+        110
+      ]
+    },
+    "ne-idle-21": {
+      "page": 0,
+      "rect": [
+        574,
+        697,
+        69,
+        110
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        69,
+        110
+      ]
+    },
+    "nw-idle-6": {
+      "page": 0,
+      "rect": [
+        647,
+        697,
+        69,
+        110
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        69,
+        110
+      ]
+    },
+    "nw-idle-9": {
+      "page": 0,
+      "rect": [
+        720,
+        697,
+        69,
+        110
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        69,
+        110
+      ]
+    },
+    "se-run-6": {
+      "page": 0,
+      "rect": [
+        793,
+        697,
+        69,
+        110
+      ],
+      "offset": [
+        -40,
+        -97.4
+      ],
+      "crop": [
+        56,
+        53,
+        69,
+        110
+      ]
+    },
+    "ne-idle-15": {
+      "page": 0,
+      "rect": [
+        866,
+        697,
+        67,
+        110
+      ],
+      "offset": [
+        -39,
+        -100.4
+      ],
+      "crop": [
+        57,
+        50,
+        67,
+        110
+      ]
+    },
+    "ne-run-6": {
+      "page": 0,
+      "rect": [
+        937,
+        697,
+        67,
+        110
+      ],
+      "offset": [
+        -37,
+        -101.4
+      ],
+      "crop": [
+        59,
+        49,
+        67,
+        110
+      ]
+    },
+    "nw-idle-3": {
+      "page": 0,
+      "rect": [
+        2,
+        812,
+        67,
+        110
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        67,
+        110
+      ]
+    },
+    "nw-run-0": {
+      "page": 0,
+      "rect": [
+        73,
+        812,
+        67,
+        110
+      ],
+      "offset": [
+        -29,
+        -100.4
+      ],
+      "crop": [
+        67,
+        50,
+        67,
+        110
+      ]
+    },
+    "nw-run-30": {
+      "page": 0,
+      "rect": [
+        144,
+        812,
+        67,
+        110
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        67,
+        110
+      ]
+    },
+    "se-death-8": {
+      "page": 0,
+      "rect": [
+        215,
+        812,
+        67,
+        110
+      ],
+      "offset": [
+        -26,
+        -107.4
+      ],
+      "crop": [
+        70,
+        43,
+        67,
+        110
+      ]
+    },
+    "se-run-0": {
+      "page": 0,
+      "rect": [
+        286,
+        812,
+        67,
+        110
+      ],
+      "offset": [
+        -38,
+        -95.4
+      ],
+      "crop": [
+        58,
+        55,
+        67,
+        110
+      ]
+    },
+    "se-walk-21": {
+      "page": 0,
+      "rect": [
+        357,
+        812,
+        67,
+        110
+      ],
+      "offset": [
+        -40,
+        -99.4
+      ],
+      "crop": [
+        56,
+        51,
+        67,
+        110
+      ]
+    },
+    "ne-death-4": {
+      "page": 0,
+      "rect": [
+        428,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -40,
+        -101.4
+      ],
+      "crop": [
+        56,
+        49,
+        66,
+        110
+      ]
+    },
+    "ne-death-6": {
+      "page": 0,
+      "rect": [
+        498,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -45,
+        -104.4
+      ],
+      "crop": [
+        51,
+        46,
+        66,
+        110
+      ]
+    },
+    "ne-idle-0": {
+      "page": 0,
+      "rect": [
+        568,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -39,
+        -100.4
+      ],
+      "crop": [
+        57,
+        50,
+        66,
+        110
+      ]
+    },
+    "ne-run-18": {
+      "page": 0,
+      "rect": [
+        638,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -36,
+        -98.4
+      ],
+      "crop": [
+        60,
+        52,
+        66,
+        110
+      ]
+    },
+    "ne-run-24": {
+      "page": 0,
+      "rect": [
+        708,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -37,
+        -100.4
+      ],
+      "crop": [
+        59,
+        50,
+        66,
+        110
+      ]
+    },
+    "nw-death-4": {
+      "page": 0,
+      "rect": [
+        778,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -29,
+        -100.4
+      ],
+      "crop": [
+        67,
+        50,
+        66,
+        110
+      ]
+    },
+    "nw-run-42": {
+      "page": 0,
+      "rect": [
+        848,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -30,
+        -98.4
+      ],
+      "crop": [
+        66,
+        52,
+        66,
+        110
+      ]
+    },
+    "sw-death-6": {
+      "page": 0,
+      "rect": [
+        918,
+        812,
+        66,
+        110
+      ],
+      "offset": [
+        -21,
+        -99.4
+      ],
+      "crop": [
+        75,
+        51,
+        66,
+        110
+      ]
+    },
+    "ne-death-0": {
+      "page": 1,
+      "rect": [
+        2,
+        2,
+        65,
+        110
+      ],
+      "offset": [
+        -38,
+        -100.4
+      ],
+      "crop": [
+        58,
+        50,
+        65,
+        110
+      ]
+    },
+    "ne-run-15": {
+      "page": 1,
+      "rect": [
+        71,
+        2,
+        65,
+        110
+      ],
+      "offset": [
+        -35,
+        -99.4
+      ],
+      "crop": [
+        61,
+        51,
+        65,
+        110
+      ]
+    },
+    "nw-death-0": {
+      "page": 1,
+      "rect": [
+        140,
+        2,
+        65,
+        110
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        65,
+        110
+      ]
+    },
+    "nw-run-39": {
+      "page": 1,
+      "rect": [
+        209,
+        2,
+        65,
+        110
+      ],
+      "offset": [
+        -30,
+        -99.4
+      ],
+      "crop": [
+        66,
+        51,
+        65,
+        110
+      ]
+    },
+    "ne-idle-3": {
+      "page": 1,
+      "rect": [
+        278,
+        2,
+        64,
+        110
+      ],
+      "offset": [
+        -37,
+        -100.4
+      ],
+      "crop": [
+        59,
+        50,
+        64,
+        110
+      ]
+    },
+    "nw-idle-0": {
+      "page": 1,
+      "rect": [
+        346,
+        2,
+        64,
+        110
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        64,
+        110
+      ]
+    },
+    "se-walk-42": {
+      "page": 1,
+      "rect": [
+        414,
+        2,
+        64,
+        110
+      ],
+      "offset": [
+        -36,
+        -100.4
+      ],
+      "crop": [
+        60,
+        50,
+        64,
+        110
+      ]
+    },
+    "sw-walk-18": {
+      "page": 1,
+      "rect": [
+        482,
+        2,
+        64,
+        110
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        64,
+        110
+      ]
+    },
+    "ne-walk-15": {
+      "page": 1,
+      "rect": [
+        550,
+        2,
+        63,
+        110
+      ],
+      "offset": [
+        -35,
+        -100.4
+      ],
+      "crop": [
+        61,
+        50,
+        63,
+        110
+      ]
+    },
+    "nw-idle-21": {
+      "page": 1,
+      "rect": [
+        617,
+        2,
+        63,
+        110
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        63,
+        110
+      ]
+    },
+    "nw-walk-39": {
+      "page": 1,
+      "rect": [
+        684,
+        2,
+        63,
+        110
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        63,
+        110
+      ]
+    },
+    "se-death-14": {
+      "page": 1,
+      "rect": [
+        751,
+        2,
+        82,
+        109
+      ],
+      "offset": [
+        -13,
+        -106.4
+      ],
+      "crop": [
+        83,
+        44,
+        82,
+        109
+      ]
+    },
+    "ne-death-10": {
+      "page": 1,
+      "rect": [
+        837,
+        2,
+        80,
+        109
+      ],
+      "offset": [
+        -61,
+        -108.4
+      ],
+      "crop": [
+        35,
+        42,
+        80,
+        109
+      ]
+    },
+    "sw-run-30": {
+      "page": 1,
+      "rect": [
+        921,
+        2,
+        69,
+        109
+      ],
+      "offset": [
+        -29,
+        -97.4
+      ],
+      "crop": [
+        67,
+        53,
+        69,
+        109
+      ]
+    },
+    "ne-run-3": {
+      "page": 1,
+      "rect": [
+        2,
+        116,
+        68,
+        109
+      ],
+      "offset": [
+        -38,
+        -101.4
+      ],
+      "crop": [
+        58,
+        49,
+        68,
+        109
+      ]
+    },
+    "nw-run-27": {
+      "page": 1,
+      "rect": [
+        74,
+        116,
+        68,
+        109
+      ],
+      "offset": [
+        -30,
+        -101.4
+      ],
+      "crop": [
+        66,
+        49,
+        68,
+        109
+      ]
+    },
+    "se-run-3": {
+      "page": 1,
+      "rect": [
+        146,
+        116,
+        68,
+        109
+      ],
+      "offset": [
+        -39,
+        -96.4
+      ],
+      "crop": [
+        57,
+        54,
+        68,
+        109
+      ]
+    },
+    "sw-run-27": {
+      "page": 1,
+      "rect": [
+        218,
+        116,
+        68,
+        109
+      ],
+      "offset": [
+        -29,
+        -96.4
+      ],
+      "crop": [
+        67,
+        54,
+        68,
+        109
+      ]
+    },
+    "sw-run-24": {
+      "page": 1,
+      "rect": [
+        290,
+        116,
+        67,
+        109
+      ],
+      "offset": [
+        -29,
+        -95.4
+      ],
+      "crop": [
+        67,
+        55,
+        67,
+        109
+      ]
+    },
+    "sw-walk-45": {
+      "page": 1,
+      "rect": [
+        361,
+        116,
+        67,
+        109
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        67,
+        109
+      ]
+    },
+    "nw-idle-12": {
+      "page": 1,
+      "rect": [
+        432,
+        116,
+        66,
+        109
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        66,
+        109
+      ]
+    },
+    "se-walk-24": {
+      "page": 1,
+      "rect": [
+        502,
+        116,
+        66,
+        109
+      ],
+      "offset": [
+        -39,
+        -99.4
+      ],
+      "crop": [
+        57,
+        51,
+        66,
+        109
+      ]
+    },
+    "sw-walk-0": {
+      "page": 1,
+      "rect": [
+        572,
+        116,
+        66,
+        109
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        66,
+        109
+      ]
+    },
+    "se-walk-30": {
+      "page": 1,
+      "rect": [
+        642,
+        116,
+        65,
+        109
+      ],
+      "offset": [
+        -37,
+        -100.4
+      ],
+      "crop": [
+        59,
+        50,
+        65,
+        109
+      ]
+    },
+    "ne-idle-12": {
+      "page": 1,
+      "rect": [
+        711,
+        116,
+        64,
+        109
+      ],
+      "offset": [
+        -37,
+        -99.4
+      ],
+      "crop": [
+        59,
+        51,
+        64,
+        109
+      ]
+    },
+    "ne-walk-9": {
+      "page": 1,
+      "rect": [
+        779,
+        116,
+        64,
+        109
+      ],
+      "offset": [
+        -36,
+        -100.4
+      ],
+      "crop": [
+        60,
+        50,
+        64,
+        109
+      ]
+    },
+    "nw-idle-15": {
+      "page": 1,
+      "rect": [
+        847,
+        116,
+        64,
+        109
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        64,
+        109
+      ]
+    },
+    "nw-walk-33": {
+      "page": 1,
+      "rect": [
+        915,
+        116,
+        64,
+        109
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        64,
+        109
+      ]
+    },
+    "ne-idle-6": {
+      "page": 1,
+      "rect": [
+        2,
+        229,
+        63,
+        109
+      ],
+      "offset": [
+        -36,
+        -99.4
+      ],
+      "crop": [
+        60,
+        51,
+        63,
+        109
+      ]
+    },
+    "ne-idle-9": {
+      "page": 1,
+      "rect": [
+        69,
+        229,
+        63,
+        109
+      ],
+      "offset": [
+        -36,
+        -99.4
+      ],
+      "crop": [
+        60,
+        51,
+        63,
+        109
+      ]
+    },
+    "ne-walk-12": {
+      "page": 1,
+      "rect": [
+        136,
+        229,
+        63,
+        109
+      ],
+      "offset": [
+        -35,
+        -100.4
+      ],
+      "crop": [
+        61,
+        50,
+        63,
+        109
+      ]
+    },
+    "nw-idle-18": {
+      "page": 1,
+      "rect": [
+        203,
+        229,
+        63,
+        109
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        63,
+        109
+      ]
+    },
+    "nw-walk-36": {
+      "page": 1,
+      "rect": [
+        270,
+        229,
+        63,
+        109
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        63,
+        109
+      ]
+    },
+    "se-run-9": {
+      "page": 1,
+      "rect": [
+        337,
+        229,
+        70,
+        108
+      ],
+      "offset": [
+        -41,
+        -96.4
+      ],
+      "crop": [
+        55,
+        54,
+        70,
+        108
+      ]
+    },
+    "sw-run-33": {
+      "page": 1,
+      "rect": [
+        411,
+        229,
+        70,
+        108
+      ],
+      "offset": [
+        -29,
+        -96.4
+      ],
+      "crop": [
+        67,
+        54,
+        70,
+        108
+      ]
+    },
+    "ne-run-27": {
+      "page": 1,
+      "rect": [
+        485,
+        229,
+        68,
+        108
+      ],
+      "offset": [
+        -39,
+        -101.4
+      ],
+      "crop": [
+        57,
+        49,
+        68,
+        108
+      ]
+    },
+    "ne-walk-36": {
+      "page": 1,
+      "rect": [
+        557,
+        229,
+        68,
+        108
+      ],
+      "offset": [
+        -41,
+        -101.4
+      ],
+      "crop": [
+        55,
+        49,
+        68,
+        108
+      ]
+    },
+    "nw-run-3": {
+      "page": 1,
+      "rect": [
+        629,
+        229,
+        68,
+        108
+      ],
+      "offset": [
+        -29,
+        -101.4
+      ],
+      "crop": [
+        67,
+        49,
+        68,
+        108
+      ]
+    },
+    "nw-walk-12": {
+      "page": 1,
+      "rect": [
+        701,
+        229,
+        68,
+        108
+      ],
+      "offset": [
+        -27,
+        -101.4
+      ],
+      "crop": [
+        69,
+        49,
+        68,
+        108
+      ]
+    },
+    "ne-hurt-10": {
+      "page": 1,
+      "rect": [
+        773,
+        229,
+        67,
+        108
+      ],
+      "offset": [
+        -41,
+        -98.4
+      ],
+      "crop": [
+        55,
+        52,
+        67,
+        108
+      ]
+    },
+    "ne-walk-3": {
+      "page": 1,
+      "rect": [
+        844,
+        229,
+        66,
+        108
+      ],
+      "offset": [
+        -38,
+        -100.4
+      ],
+      "crop": [
+        58,
+        50,
+        66,
+        108
+      ]
+    },
+    "nw-hurt-2": {
+      "page": 1,
+      "rect": [
+        914,
+        229,
+        66,
+        108
+      ],
+      "offset": [
+        -26,
+        -98.4
+      ],
+      "crop": [
+        70,
+        52,
+        66,
+        108
+      ]
+    },
+    "nw-walk-27": {
+      "page": 1,
+      "rect": [
+        2,
+        342,
+        66,
+        108
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        66,
+        108
+      ]
+    },
+    "se-run-45": {
+      "page": 1,
+      "rect": [
+        72,
+        342,
+        66,
+        108
+      ],
+      "offset": [
+        -36,
+        -94.4
+      ],
+      "crop": [
+        60,
+        56,
+        66,
+        108
+      ]
+    },
+    "se-walk-27": {
+      "page": 1,
+      "rect": [
+        142,
+        342,
+        66,
+        108
+      ],
+      "offset": [
+        -38,
+        -99.4
+      ],
+      "crop": [
+        58,
+        51,
+        66,
+        108
+      ]
+    },
+    "sw-run-21": {
+      "page": 1,
+      "rect": [
+        212,
+        342,
+        66,
+        108
+      ],
+      "offset": [
+        -30,
+        -94.4
+      ],
+      "crop": [
+        66,
+        56,
+        66,
+        108
+      ]
+    },
+    "sw-walk-3": {
+      "page": 1,
+      "rect": [
+        282,
+        342,
+        66,
+        108
+      ],
+      "offset": [
+        -28,
+        -99.4
+      ],
+      "crop": [
+        68,
+        51,
+        66,
+        108
+      ]
+    },
+    "ne-walk-6": {
+      "page": 1,
+      "rect": [
+        352,
+        342,
+        65,
+        108
+      ],
+      "offset": [
+        -37,
+        -100.4
+      ],
+      "crop": [
+        59,
+        50,
+        65,
+        108
+      ]
+    },
+    "nw-walk-30": {
+      "page": 1,
+      "rect": [
+        421,
+        342,
+        65,
+        108
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        65,
+        108
+      ]
+    },
+    "sw-walk-6": {
+      "page": 1,
+      "rect": [
+        490,
+        342,
+        65,
+        108
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        65,
+        108
+      ]
+    },
+    "ne-hurt-2": {
+      "page": 1,
+      "rect": [
+        559,
+        342,
+        63,
+        108
+      ],
+      "offset": [
+        -37,
+        -98.4
+      ],
+      "crop": [
+        59,
+        52,
+        63,
+        108
+      ]
+    },
+    "nw-hurt-10": {
+      "page": 1,
+      "rect": [
+        626,
+        342,
+        62,
+        108
+      ],
+      "offset": [
+        -26,
+        -98.4
+      ],
+      "crop": [
+        70,
+        52,
+        62,
+        108
+      ]
+    },
+    "ne-death-8": {
+      "page": 1,
+      "rect": [
+        692,
+        342,
+        72,
+        107
+      ],
+      "offset": [
+        -52,
+        -105.4
+      ],
+      "crop": [
+        44,
+        45,
+        72,
+        107
+      ]
+    },
+    "se-lock-door-10": {
+      "page": 1,
+      "rect": [
+        768,
+        342,
+        70,
+        107
+      ],
+      "offset": [
+        -40,
+        -95.4
+      ],
+      "crop": [
+        56,
+        55,
+        70,
+        107
+      ]
+    },
+    "se-lock-door-6": {
+      "page": 1,
+      "rect": [
+        842,
+        342,
+        70,
+        107
+      ],
+      "offset": [
+        -40,
+        -95.4
+      ],
+      "crop": [
+        56,
+        55,
+        70,
+        107
+      ]
+    },
+    "se-lock-door-8": {
+      "page": 1,
+      "rect": [
+        916,
+        342,
+        70,
+        107
+      ],
+      "offset": [
+        -40,
+        -95.4
+      ],
+      "crop": [
+        56,
+        55,
+        70,
+        107
+      ]
+    },
+    "sw-lock-door-18": {
+      "page": 1,
+      "rect": [
+        2,
+        454,
+        70,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        70,
+        107
+      ]
+    },
+    "sw-lock-door-20": {
+      "page": 1,
+      "rect": [
+        76,
+        454,
+        70,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        70,
+        107
+      ]
+    },
+    "sw-lock-door-22": {
+      "page": 1,
+      "rect": [
+        150,
+        454,
+        70,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        70,
+        107
+      ]
+    },
+    "se-lock-door-12": {
+      "page": 1,
+      "rect": [
+        224,
+        454,
+        69,
+        107
+      ],
+      "offset": [
+        -39,
+        -95.4
+      ],
+      "crop": [
+        57,
+        55,
+        69,
+        107
+      ]
+    },
+    "se-lock-door-4": {
+      "page": 1,
+      "rect": [
+        297,
+        454,
+        69,
+        107
+      ],
+      "offset": [
+        -39,
+        -95.4
+      ],
+      "crop": [
+        57,
+        55,
+        69,
+        107
+      ]
+    },
+    "sw-lock-door-0": {
+      "page": 1,
+      "rect": [
+        370,
+        454,
+        69,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        69,
+        107
+      ]
+    },
+    "sw-lock-door-16": {
+      "page": 1,
+      "rect": [
+        443,
+        454,
+        69,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        69,
+        107
+      ]
+    },
+    "ne-run-0": {
+      "page": 1,
+      "rect": [
+        516,
+        454,
+        68,
+        107
+      ],
+      "offset": [
+        -39,
+        -100.4
+      ],
+      "crop": [
+        57,
+        50,
+        68,
+        107
+      ]
+    },
+    "nw-run-24": {
+      "page": 1,
+      "rect": [
+        588,
+        454,
+        68,
+        107
+      ],
+      "offset": [
+        -29,
+        -100.4
+      ],
+      "crop": [
+        67,
+        50,
+        68,
+        107
+      ]
+    },
+    "se-lock-door-2": {
+      "page": 1,
+      "rect": [
+        660,
+        454,
+        68,
+        107
+      ],
+      "offset": [
+        -38,
+        -95.4
+      ],
+      "crop": [
+        58,
+        55,
+        68,
+        107
+      ]
+    },
+    "sw-lock-door-14": {
+      "page": 1,
+      "rect": [
+        732,
+        454,
+        68,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        68,
+        107
+      ]
+    },
+    "se-lock-door-0": {
+      "page": 1,
+      "rect": [
+        804,
+        454,
+        67,
+        107
+      ],
+      "offset": [
+        -37,
+        -95.4
+      ],
+      "crop": [
+        59,
+        55,
+        67,
+        107
+      ]
+    },
+    "se-lock-door-14": {
+      "page": 1,
+      "rect": [
+        875,
+        454,
+        67,
+        107
+      ],
+      "offset": [
+        -37,
+        -95.4
+      ],
+      "crop": [
+        59,
+        55,
+        67,
+        107
+      ]
+    },
+    "sw-lock-door-12": {
+      "page": 1,
+      "rect": [
+        946,
+        454,
+        67,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        67,
+        107
+      ]
+    },
+    "sw-lock-door-2": {
+      "page": 1,
+      "rect": [
+        2,
+        565,
+        67,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        67,
+        107
+      ]
+    },
+    "nw-death-6": {
+      "page": 1,
+      "rect": [
+        73,
+        565,
+        66,
+        107
+      ],
+      "offset": [
+        -34,
+        -98.4
+      ],
+      "crop": [
+        62,
+        52,
+        66,
+        107
+      ]
+    },
+    "se-lock-door-16": {
+      "page": 1,
+      "rect": [
+        143,
+        565,
+        66,
+        107
+      ],
+      "offset": [
+        -36,
+        -95.4
+      ],
+      "crop": [
+        60,
+        55,
+        66,
+        107
+      ]
+    },
+    "se-lock-door-22": {
+      "page": 1,
+      "rect": [
+        213,
+        565,
+        66,
+        107
+      ],
+      "offset": [
+        -36,
+        -95.4
+      ],
+      "crop": [
+        60,
+        55,
+        66,
+        107
+      ]
+    },
+    "sw-lock-door-10": {
+      "page": 1,
+      "rect": [
+        283,
+        565,
+        66,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        66,
+        107
+      ]
+    },
+    "sw-lock-door-4": {
+      "page": 1,
+      "rect": [
+        353,
+        565,
+        66,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        66,
+        107
+      ]
+    },
+    "se-lock-door-18": {
+      "page": 1,
+      "rect": [
+        423,
+        565,
+        65,
+        107
+      ],
+      "offset": [
+        -35,
+        -95.4
+      ],
+      "crop": [
+        61,
+        55,
+        65,
+        107
+      ]
+    },
+    "se-lock-door-20": {
+      "page": 1,
+      "rect": [
+        492,
+        565,
+        65,
+        107
+      ],
+      "offset": [
+        -35,
+        -95.4
+      ],
+      "crop": [
+        61,
+        55,
+        65,
+        107
+      ]
+    },
+    "sw-lock-door-6": {
+      "page": 1,
+      "rect": [
+        561,
+        565,
+        65,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        65,
+        107
+      ]
+    },
+    "sw-lock-door-8": {
+      "page": 1,
+      "rect": [
+        630,
+        565,
+        65,
+        107
+      ],
+      "offset": [
+        -30,
+        -95.4
+      ],
+      "crop": [
+        66,
+        55,
+        65,
+        107
+      ]
+    },
+    "se-walk-33": {
+      "page": 1,
+      "rect": [
+        699,
+        565,
+        64,
+        107
+      ],
+      "offset": [
+        -36,
+        -100.4
+      ],
+      "crop": [
+        60,
+        50,
+        64,
+        107
+      ]
+    },
+    "sw-walk-9": {
+      "page": 1,
+      "rect": [
+        767,
+        565,
+        64,
+        107
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        64,
+        107
+      ]
+    },
+    "se-walk-36": {
+      "page": 1,
+      "rect": [
+        835,
+        565,
+        63,
+        107
+      ],
+      "offset": [
+        -35,
+        -100.4
+      ],
+      "crop": [
+        61,
+        50,
+        63,
+        107
+      ]
+    },
+    "se-walk-39": {
+      "page": 1,
+      "rect": [
+        902,
+        565,
+        63,
+        107
+      ],
+      "offset": [
+        -35,
+        -100.4
+      ],
+      "crop": [
+        61,
+        50,
+        63,
+        107
+      ]
+    },
+    "sw-walk-15": {
+      "page": 1,
+      "rect": [
+        2,
+        676,
+        63,
+        107
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        63,
+        107
+      ]
+    },
+    "se-run-12": {
+      "page": 1,
+      "rect": [
+        69,
+        676,
+        70,
+        106
+      ],
+      "offset": [
+        -41,
+        -95.4
+      ],
+      "crop": [
+        55,
+        55,
+        70,
+        106
+      ]
+    },
+    "sw-run-36": {
+      "page": 1,
+      "rect": [
+        143,
+        676,
+        70,
+        106
+      ],
+      "offset": [
+        -29,
+        -95.4
+      ],
+      "crop": [
+        67,
+        55,
+        70,
+        106
+      ]
+    },
+    "ne-run-30": {
+      "page": 1,
+      "rect": [
+        217,
+        676,
+        69,
+        106
+      ],
+      "offset": [
+        -40,
+        -102.4
+      ],
+      "crop": [
+        56,
+        48,
+        69,
+        106
+      ]
+    },
+    "nw-run-6": {
+      "page": 1,
+      "rect": [
+        290,
+        676,
+        69,
+        106
+      ],
+      "offset": [
+        -29,
+        -102.4
+      ],
+      "crop": [
+        67,
+        48,
+        69,
+        106
+      ]
+    },
+    "ne-walk-45": {
+      "page": 1,
+      "rect": [
+        363,
+        676,
+        67,
+        106
+      ],
+      "offset": [
+        -40,
+        -100.4
+      ],
+      "crop": [
+        56,
+        50,
+        67,
+        106
+      ]
+    },
+    "nw-walk-21": {
+      "page": 1,
+      "rect": [
+        434,
+        676,
+        67,
+        106
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        67,
+        106
+      ]
+    },
+    "ne-walk-0": {
+      "page": 1,
+      "rect": [
+        505,
+        676,
+        66,
+        106
+      ],
+      "offset": [
+        -39,
+        -99.4
+      ],
+      "crop": [
+        57,
+        51,
+        66,
+        106
+      ]
+    },
+    "nw-walk-24": {
+      "page": 1,
+      "rect": [
+        575,
+        676,
+        66,
+        106
+      ],
+      "offset": [
+        -27,
+        -99.4
+      ],
+      "crop": [
+        69,
+        51,
+        66,
+        106
+      ]
+    },
+    "se-run-42": {
+      "page": 1,
+      "rect": [
+        645,
+        676,
+        66,
+        106
+      ],
+      "offset": [
+        -36,
+        -94.4
+      ],
+      "crop": [
+        60,
+        56,
+        66,
+        106
+      ]
+    },
+    "sw-run-18": {
+      "page": 1,
+      "rect": [
+        715,
+        676,
+        66,
+        106
+      ],
+      "offset": [
+        -30,
+        -94.4
+      ],
+      "crop": [
+        66,
+        56,
+        66,
+        106
+      ]
+    },
+    "sw-walk-12": {
+      "page": 1,
+      "rect": [
+        785,
+        676,
+        63,
+        106
+      ],
+      "offset": [
+        -28,
+        -100.4
+      ],
+      "crop": [
+        68,
+        50,
+        63,
+        106
+      ]
+    },
+    "sw-death-8": {
+      "page": 1,
+      "rect": [
+        852,
+        676,
+        72,
+        105
+      ],
+      "offset": [
+        -20,
+        -95.4
+      ],
+      "crop": [
+        76,
+        55,
+        72,
+        105
+      ]
+    },
+    "ne-run-33": {
+      "page": 1,
+      "rect": [
+        928,
+        676,
+        70,
+        105
+      ],
+      "offset": [
+        -41,
+        -101.4
+      ],
+      "crop": [
+        55,
+        49,
+        70,
+        105
+      ]
+    },
+    "nw-run-9": {
+      "page": 1,
+      "rect": [
+        2,
+        787,
+        70,
+        105
+      ],
+      "offset": [
+        -29,
+        -101.4
+      ],
+      "crop": [
+        67,
+        49,
+        70,
+        105
+      ]
+    },
+    "ne-run-45": {
+      "page": 1,
+      "rect": [
+        76,
+        787,
+        69,
+        105
+      ],
+      "offset": [
+        -40,
+        -99.4
+      ],
+      "crop": [
+        56,
+        51,
+        69,
+        105
+      ]
+    },
+    "nw-run-21": {
+      "page": 1,
+      "rect": [
+        149,
+        787,
+        69,
+        105
+      ],
+      "offset": [
+        -29,
+        -99.4
+      ],
+      "crop": [
+        67,
+        51,
+        69,
+        105
+      ]
+    },
+    "ne-walk-39": {
+      "page": 1,
+      "rect": [
+        222,
+        787,
+        68,
+        105
+      ],
+      "offset": [
+        -41,
+        -101.4
+      ],
+      "crop": [
+        55,
+        49,
+        68,
+        105
+      ]
+    },
+    "nw-walk-15": {
+      "page": 1,
+      "rect": [
+        294,
+        787,
+        68,
+        105
+      ],
+      "offset": [
+        -27,
+        -101.4
+      ],
+      "crop": [
+        69,
+        49,
+        68,
+        105
+      ]
+    },
+    "se-run-27": {
+      "page": 1,
+      "rect": [
+        366,
+        787,
+        68,
+        105
+      ],
+      "offset": [
+        -38,
+        -97.4
+      ],
+      "crop": [
+        58,
+        53,
+        68,
+        105
+      ]
+    },
+    "ne-run-36": {
+      "page": 1,
+      "rect": [
+        438,
+        787,
+        70,
+        104
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        70,
+        104
+      ]
+    },
+    "ne-run-39": {
+      "page": 1,
+      "rect": [
+        512,
+        787,
+        70,
+        104
+      ],
+      "offset": [
+        -41,
+        -99.4
+      ],
+      "crop": [
+        55,
+        51,
+        70,
+        104
+      ]
+    },
+    "ne-run-42": {
+      "page": 1,
+      "rect": [
+        586,
+        787,
+        70,
+        104
+      ],
+      "offset": [
+        -41,
+        -98.4
+      ],
+      "crop": [
+        55,
+        52,
+        70,
+        104
+      ]
+    },
+    "nw-run-12": {
+      "page": 1,
+      "rect": [
+        660,
+        787,
+        70,
+        104
+      ],
+      "offset": [
+        -29,
+        -100.4
+      ],
+      "crop": [
+        67,
+        50,
+        70,
+        104
+      ]
+    },
+    "nw-run-15": {
+      "page": 1,
+      "rect": [
+        734,
+        787,
+        70,
+        104
+      ],
+      "offset": [
+        -29,
+        -99.4
+      ],
+      "crop": [
+        67,
+        51,
+        70,
+        104
+      ]
+    },
+    "nw-run-18": {
+      "page": 1,
+      "rect": [
+        808,
+        787,
+        70,
+        104
+      ],
+      "offset": [
+        -29,
+        -98.4
+      ],
+      "crop": [
+        67,
+        52,
+        70,
+        104
+      ]
+    },
+    "se-run-15": {
+      "page": 1,
+      "rect": [
+        882,
+        787,
+        70,
+        104
+      ],
+      "offset": [
+        -41,
+        -94.4
+      ],
+      "crop": [
+        55,
+        56,
+        70,
+        104
+      ]
+    },
+    "sw-run-39": {
+      "page": 1,
+      "rect": [
+        2,
+        896,
+        70,
+        104
+      ],
+      "offset": [
+        -29,
+        -94.4
+      ],
+      "crop": [
+        67,
+        56,
+        70,
+        104
+      ]
+    },
+    "ne-walk-42": {
+      "page": 1,
+      "rect": [
+        76,
+        896,
+        68,
+        104
+      ],
+      "offset": [
+        -41,
+        -100.4
+      ],
+      "crop": [
+        55,
+        50,
+        68,
+        104
+      ]
+    },
+    "nw-walk-18": {
+      "page": 1,
+      "rect": [
+        148,
+        896,
+        68,
+        104
+      ],
+      "offset": [
+        -27,
+        -100.4
+      ],
+      "crop": [
+        69,
+        50,
+        68,
+        104
+      ]
+    },
+    "sw-run-3": {
+      "page": 1,
+      "rect": [
+        220,
+        896,
+        68,
+        104
+      ],
+      "offset": [
+        -30,
+        -97.4
+      ],
+      "crop": [
+        66,
+        53,
+        68,
+        104
+      ]
+    },
+    "se-run-30": {
+      "page": 1,
+      "rect": [
+        292,
+        896,
+        67,
+        104
+      ],
+      "offset": [
+        -37,
+        -97.4
+      ],
+      "crop": [
+        59,
+        53,
+        67,
+        104
+      ]
+    },
+    "sw-run-6": {
+      "page": 1,
+      "rect": [
+        363,
+        896,
+        67,
+        104
+      ],
+      "offset": [
+        -30,
+        -97.4
+      ],
+      "crop": [
+        66,
+        53,
+        67,
+        104
+      ]
+    },
+    "se-run-39": {
+      "page": 1,
+      "rect": [
+        956,
+        787,
+        65,
+        104
+      ],
+      "offset": [
+        -35,
+        -95.4
+      ],
+      "crop": [
+        61,
+        55,
+        65,
+        104
+      ]
+    },
+    "ne-death-14": {
+      "page": 1,
+      "rect": [
+        434,
+        896,
+        98,
+        103
+      ],
+      "offset": [
+        -82,
+        -100.4
+      ],
+      "crop": [
+        14,
+        50,
+        98,
+        103
+      ]
+    },
+    "ne-lock-chest-18": {
+      "page": 1,
+      "rect": [
+        536,
+        896,
+        74,
+        103
+      ],
+      "offset": [
+        -40,
+        -93.4
+      ],
+      "crop": [
+        56,
+        57,
+        74,
+        103
+      ]
+    },
+    "ne-lock-chest-20": {
+      "page": 1,
+      "rect": [
+        614,
+        896,
+        74,
+        103
+      ],
+      "offset": [
+        -40,
+        -93.4
+      ],
+      "crop": [
+        56,
+        57,
+        74,
+        103
+      ]
+    },
+    "ne-lock-chest-22": {
+      "page": 1,
+      "rect": [
+        692,
+        896,
+        74,
+        103
+      ],
+      "offset": [
+        -40,
+        -93.4
+      ],
+      "crop": [
+        56,
+        57,
+        74,
+        103
+      ]
+    },
+    "ne-loot-18": {
+      "page": 1,
+      "rect": [
+        770,
+        896,
+        74,
+        103
+      ],
+      "offset": [
+        -40,
+        -93.4
+      ],
+      "crop": [
+        56,
+        57,
+        74,
+        103
+      ]
+    },
+    "ne-loot-20": {
+      "page": 1,
+      "rect": [
+        848,
+        896,
+        74,
+        103
+      ],
+      "offset": [
+        -40,
+        -93.4
+      ],
+      "crop": [
+        56,
+        57,
+        74,
+        103
+      ]
+    },
+    "ne-loot-22": {
+      "page": 1,
+      "rect": [
+        926,
+        896,
+        74,
+        103
+      ],
+      "offset": [
+        -40,
+        -93.4
+      ],
+      "crop": [
+        56,
+        57,
+        74,
+        103
+      ]
+    },
+    "nw-lock-chest-10": {
+      "page": 2,
+      "rect": [
+        2,
+        2,
+        74,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        74,
+        103
+      ]
+    },
+    "nw-lock-chest-6": {
+      "page": 2,
+      "rect": [
+        80,
+        2,
+        74,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        74,
+        103
+      ]
+    },
+    "nw-lock-chest-8": {
+      "page": 2,
+      "rect": [
+        158,
+        2,
+        74,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        74,
+        103
+      ]
+    },
+    "nw-loot-10": {
+      "page": 2,
+      "rect": [
+        236,
+        2,
+        74,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        74,
+        103
+      ]
+    },
+    "nw-loot-6": {
+      "page": 2,
+      "rect": [
+        314,
+        2,
+        74,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        74,
+        103
+      ]
+    },
+    "nw-loot-8": {
+      "page": 2,
+      "rect": [
+        392,
+        2,
+        74,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        74,
+        103
+      ]
+    },
+    "ne-lock-chest-0": {
+      "page": 2,
+      "rect": [
+        470,
+        2,
+        73,
+        103
+      ],
+      "offset": [
+        -39,
+        -93.4
+      ],
+      "crop": [
+        57,
+        57,
+        73,
+        103
+      ]
+    },
+    "ne-lock-chest-16": {
+      "page": 2,
+      "rect": [
+        547,
+        2,
+        73,
+        103
+      ],
+      "offset": [
+        -39,
+        -93.4
+      ],
+      "crop": [
+        57,
+        57,
+        73,
+        103
+      ]
+    },
+    "ne-loot-0": {
+      "page": 2,
+      "rect": [
+        624,
+        2,
+        73,
+        103
+      ],
+      "offset": [
+        -39,
+        -93.4
+      ],
+      "crop": [
+        57,
+        57,
+        73,
+        103
+      ]
+    },
+    "ne-loot-16": {
+      "page": 2,
+      "rect": [
+        701,
+        2,
+        73,
+        103
+      ],
+      "offset": [
+        -39,
+        -93.4
+      ],
+      "crop": [
+        57,
+        57,
+        73,
+        103
+      ]
+    },
+    "nw-lock-chest-12": {
+      "page": 2,
+      "rect": [
+        778,
+        2,
+        73,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        73,
+        103
+      ]
+    },
+    "nw-lock-chest-4": {
+      "page": 2,
+      "rect": [
+        855,
+        2,
+        73,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        73,
+        103
+      ]
+    },
+    "nw-loot-12": {
+      "page": 2,
+      "rect": [
+        932,
+        2,
+        73,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        73,
+        103
+      ]
+    },
+    "nw-loot-4": {
+      "page": 2,
+      "rect": [
+        2,
+        109,
+        73,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        73,
+        103
+      ]
+    },
+    "ne-lock-chest-14": {
+      "page": 2,
+      "rect": [
+        79,
+        109,
+        72,
+        103
+      ],
+      "offset": [
+        -38,
+        -93.4
+      ],
+      "crop": [
+        58,
+        57,
+        72,
+        103
+      ]
+    },
+    "ne-loot-14": {
+      "page": 2,
+      "rect": [
+        155,
+        109,
+        72,
+        103
+      ],
+      "offset": [
+        -38,
+        -93.4
+      ],
+      "crop": [
+        58,
+        57,
+        72,
+        103
+      ]
+    },
+    "nw-lock-chest-2": {
+      "page": 2,
+      "rect": [
+        231,
+        109,
+        72,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        72,
+        103
+      ]
+    },
+    "nw-loot-2": {
+      "page": 2,
+      "rect": [
+        307,
+        109,
+        72,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        72,
+        103
+      ]
+    },
+    "ne-lock-chest-12": {
+      "page": 2,
+      "rect": [
+        383,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -37,
+        -93.4
+      ],
+      "crop": [
+        59,
+        57,
+        71,
+        103
+      ]
+    },
+    "ne-lock-chest-2": {
+      "page": 2,
+      "rect": [
+        458,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -37,
+        -93.4
+      ],
+      "crop": [
+        59,
+        57,
+        71,
+        103
+      ]
+    },
+    "ne-loot-12": {
+      "page": 2,
+      "rect": [
+        533,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -37,
+        -93.4
+      ],
+      "crop": [
+        59,
+        57,
+        71,
+        103
+      ]
+    },
+    "ne-loot-2": {
+      "page": 2,
+      "rect": [
+        608,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -37,
+        -93.4
+      ],
+      "crop": [
+        59,
+        57,
+        71,
+        103
+      ]
+    },
+    "nw-lock-chest-0": {
+      "page": 2,
+      "rect": [
+        683,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        71,
+        103
+      ]
+    },
+    "nw-lock-chest-14": {
+      "page": 2,
+      "rect": [
+        758,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        71,
+        103
+      ]
+    },
+    "nw-loot-0": {
+      "page": 2,
+      "rect": [
+        833,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        71,
+        103
+      ]
+    },
+    "nw-loot-14": {
+      "page": 2,
+      "rect": [
+        908,
+        109,
+        71,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        71,
+        103
+      ]
+    },
+    "ne-lock-chest-10": {
+      "page": 2,
+      "rect": [
+        2,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -36,
+        -93.4
+      ],
+      "crop": [
+        60,
+        57,
+        70,
+        103
+      ]
+    },
+    "ne-lock-chest-4": {
+      "page": 2,
+      "rect": [
+        76,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -36,
+        -93.4
+      ],
+      "crop": [
+        60,
+        57,
+        70,
+        103
+      ]
+    },
+    "ne-loot-10": {
+      "page": 2,
+      "rect": [
+        150,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -36,
+        -93.4
+      ],
+      "crop": [
+        60,
+        57,
+        70,
+        103
+      ]
+    },
+    "ne-loot-4": {
+      "page": 2,
+      "rect": [
+        224,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -36,
+        -93.4
+      ],
+      "crop": [
+        60,
+        57,
+        70,
+        103
+      ]
+    },
+    "nw-lock-chest-16": {
+      "page": 2,
+      "rect": [
+        298,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        70,
+        103
+      ]
+    },
+    "nw-lock-chest-22": {
+      "page": 2,
+      "rect": [
+        372,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        70,
+        103
+      ]
+    },
+    "nw-loot-16": {
+      "page": 2,
+      "rect": [
+        446,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        70,
+        103
+      ]
+    },
+    "nw-loot-22": {
+      "page": 2,
+      "rect": [
+        520,
+        216,
+        70,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        70,
+        103
+      ]
+    },
+    "ne-lock-chest-6": {
+      "page": 2,
+      "rect": [
+        594,
+        216,
+        69,
+        103
+      ],
+      "offset": [
+        -35,
+        -93.4
+      ],
+      "crop": [
+        61,
+        57,
+        69,
+        103
+      ]
+    },
+    "ne-lock-chest-8": {
+      "page": 2,
+      "rect": [
+        667,
+        216,
+        69,
+        103
+      ],
+      "offset": [
+        -35,
+        -93.4
+      ],
+      "crop": [
+        61,
+        57,
+        69,
+        103
+      ]
+    },
+    "ne-loot-6": {
+      "page": 2,
+      "rect": [
+        740,
+        216,
+        69,
+        103
+      ],
+      "offset": [
+        -35,
+        -93.4
+      ],
+      "crop": [
+        61,
+        57,
+        69,
+        103
+      ]
+    },
+    "ne-loot-8": {
+      "page": 2,
+      "rect": [
+        813,
+        216,
+        69,
+        103
+      ],
+      "offset": [
+        -35,
+        -93.4
+      ],
+      "crop": [
+        61,
+        57,
+        69,
+        103
+      ]
+    },
+    "nw-lock-chest-18": {
+      "page": 2,
+      "rect": [
+        886,
+        216,
+        69,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        69,
+        103
+      ]
+    },
+    "nw-lock-chest-20": {
+      "page": 2,
+      "rect": [
+        2,
+        323,
+        69,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        69,
+        103
+      ]
+    },
+    "nw-loot-18": {
+      "page": 2,
+      "rect": [
+        75,
+        323,
+        69,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        69,
+        103
+      ]
+    },
+    "nw-loot-20": {
+      "page": 2,
+      "rect": [
+        148,
+        323,
+        69,
+        103
+      ],
+      "offset": [
+        -34,
+        -93.4
+      ],
+      "crop": [
+        62,
+        57,
+        69,
+        103
+      ]
+    },
+    "se-run-24": {
+      "page": 2,
+      "rect": [
+        221,
+        323,
+        68,
+        103
+      ],
+      "offset": [
+        -39,
+        -95.4
+      ],
+      "crop": [
+        57,
+        55,
+        68,
+        103
+      ]
+    },
+    "sw-run-0": {
+      "page": 2,
+      "rect": [
+        293,
+        323,
+        68,
+        103
+      ],
+      "offset": [
+        -29,
+        -95.4
+      ],
+      "crop": [
+        67,
+        55,
+        68,
+        103
+      ]
+    },
+    "se-run-33": {
+      "page": 2,
+      "rect": [
+        365,
+        323,
+        66,
+        103
+      ],
+      "offset": [
+        -36,
+        -97.4
+      ],
+      "crop": [
+        60,
+        53,
+        66,
+        103
+      ]
+    },
+    "sw-run-9": {
+      "page": 2,
+      "rect": [
+        435,
+        323,
+        66,
+        103
+      ],
+      "offset": [
+        -30,
+        -97.4
+      ],
+      "crop": [
+        66,
+        53,
+        66,
+        103
+      ]
+    },
+    "se-run-18": {
+      "page": 2,
+      "rect": [
+        505,
+        323,
+        70,
+        102
+      ],
+      "offset": [
+        -41,
+        -93.4
+      ],
+      "crop": [
+        55,
+        57,
+        70,
+        102
+      ]
+    },
+    "sw-run-42": {
+      "page": 2,
+      "rect": [
+        579,
+        323,
+        70,
+        102
+      ],
+      "offset": [
+        -29,
+        -93.4
+      ],
+      "crop": [
+        67,
+        57,
+        70,
+        102
+      ]
+    },
+    "se-run-21": {
+      "page": 2,
+      "rect": [
+        653,
+        323,
+        69,
+        102
+      ],
+      "offset": [
+        -40,
+        -94.4
+      ],
+      "crop": [
+        56,
+        56,
+        69,
+        102
+      ]
+    },
+    "sw-run-45": {
+      "page": 2,
+      "rect": [
+        726,
+        323,
+        69,
+        102
+      ],
+      "offset": [
+        -29,
+        -94.4
+      ],
+      "crop": [
+        67,
+        56,
+        69,
+        102
+      ]
+    },
+    "nw-death-8": {
+      "page": 2,
+      "rect": [
+        799,
+        323,
+        67,
+        102
+      ],
+      "offset": [
+        -41,
+        -93.4
+      ],
+      "crop": [
+        55,
+        57,
+        67,
+        102
+      ]
+    },
+    "se-run-36": {
+      "page": 2,
+      "rect": [
+        870,
+        323,
+        65,
+        102
+      ],
+      "offset": [
+        -35,
+        -96.4
+      ],
+      "crop": [
+        61,
+        54,
+        65,
+        102
+      ]
+    },
+    "sw-run-15": {
+      "page": 2,
+      "rect": [
+        939,
+        323,
+        65,
+        102
+      ],
+      "offset": [
+        -30,
+        -94.4
+      ],
+      "crop": [
+        66,
+        56,
+        65,
+        102
+      ]
+    },
+    "nw-hurt-4": {
+      "page": 2,
+      "rect": [
+        2,
+        430,
+        64,
+        102
+      ],
+      "offset": [
+        -23,
+        -92.4
+      ],
+      "crop": [
+        73,
+        58,
+        64,
+        102
+      ]
+    },
+    "ne-hurt-8": {
+      "page": 2,
+      "rect": [
+        959,
+        216,
+        63,
+        102
+      ],
+      "offset": [
+        -40,
+        -92.4
+      ],
+      "crop": [
+        56,
+        58,
+        63,
+        102
+      ]
+    },
+    "nw-hurt-8": {
+      "page": 2,
+      "rect": [
+        70,
+        430,
+        60,
+        102
+      ],
+      "offset": [
+        -23,
+        -92.4
+      ],
+      "crop": [
+        73,
+        58,
+        60,
+        102
+      ]
+    },
+    "ne-hurt-4": {
+      "page": 2,
+      "rect": [
+        134,
+        430,
+        59,
+        102
+      ],
+      "offset": [
+        -36,
+        -92.4
+      ],
+      "crop": [
+        60,
+        58,
+        59,
+        102
+      ]
+    },
+    "sw-run-12": {
+      "page": 2,
+      "rect": [
+        197,
+        430,
+        65,
+        101
+      ],
+      "offset": [
+        -30,
+        -96.4
+      ],
+      "crop": [
+        66,
+        54,
+        65,
+        101
+      ]
+    },
+    "se-death-16": {
+      "page": 2,
+      "rect": [
+        266,
+        430,
+        83,
+        100
+      ],
+      "offset": [
+        -12,
+        -96.4
+      ],
+      "crop": [
+        84,
+        54,
+        83,
+        100
+      ]
+    },
+    "nw-hurt-6": {
+      "page": 2,
+      "rect": [
+        353,
+        430,
+        61,
+        99
+      ],
+      "offset": [
+        -22,
+        -89.4
+      ],
+      "crop": [
+        74,
+        61,
+        61,
+        99
+      ]
+    },
+    "ne-hurt-6": {
+      "page": 2,
+      "rect": [
+        418,
+        430,
+        59,
+        99
+      ],
+      "offset": [
+        -37,
+        -89.4
+      ],
+      "crop": [
+        59,
+        61,
+        59,
+        99
+      ]
+    },
+    "sw-death-10": {
+      "page": 2,
+      "rect": [
+        481,
+        430,
+        80,
+        94
+      ],
+      "offset": [
+        -19,
+        -85.4
+      ],
+      "crop": [
+        77,
+        65,
+        80,
+        94
+      ]
+    },
+    "se-lock-chest-10": {
+      "page": 2,
+      "rect": [
+        565,
+        430,
+        74,
+        94
+      ],
+      "offset": [
+        -40,
+        -82.4
+      ],
+      "crop": [
+        56,
+        68,
+        74,
+        94
+      ]
+    },
+    "se-lock-chest-6": {
+      "page": 2,
+      "rect": [
+        643,
+        430,
+        74,
+        94
+      ],
+      "offset": [
+        -40,
+        -82.4
+      ],
+      "crop": [
+        56,
+        68,
+        74,
+        94
+      ]
+    },
+    "se-lock-chest-8": {
+      "page": 2,
+      "rect": [
+        721,
+        430,
+        74,
+        94
+      ],
+      "offset": [
+        -40,
+        -82.4
+      ],
+      "crop": [
+        56,
+        68,
+        74,
+        94
+      ]
+    },
+    "se-loot-10": {
+      "page": 2,
+      "rect": [
+        799,
+        430,
+        74,
+        94
+      ],
+      "offset": [
+        -40,
+        -82.4
+      ],
+      "crop": [
+        56,
+        68,
+        74,
+        94
+      ]
+    },
+    "se-loot-6": {
+      "page": 2,
+      "rect": [
+        877,
+        430,
+        74,
+        94
+      ],
+      "offset": [
+        -40,
+        -82.4
+      ],
+      "crop": [
+        56,
+        68,
+        74,
+        94
+      ]
+    },
+    "se-loot-8": {
+      "page": 2,
+      "rect": [
+        2,
+        536,
+        74,
+        94
+      ],
+      "offset": [
+        -40,
+        -82.4
+      ],
+      "crop": [
+        56,
+        68,
+        74,
+        94
+      ]
+    },
+    "sw-lock-chest-18": {
+      "page": 2,
+      "rect": [
+        80,
+        536,
+        74,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        74,
+        94
+      ]
+    },
+    "sw-lock-chest-20": {
+      "page": 2,
+      "rect": [
+        158,
+        536,
+        74,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        74,
+        94
+      ]
+    },
+    "sw-lock-chest-22": {
+      "page": 2,
+      "rect": [
+        236,
+        536,
+        74,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        74,
+        94
+      ]
+    },
+    "sw-loot-18": {
+      "page": 2,
+      "rect": [
+        314,
+        536,
+        74,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        74,
+        94
+      ]
+    },
+    "sw-loot-20": {
+      "page": 2,
+      "rect": [
+        392,
+        536,
+        74,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        74,
+        94
+      ]
+    },
+    "sw-loot-22": {
+      "page": 2,
+      "rect": [
+        470,
+        536,
+        74,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        74,
+        94
+      ]
+    },
+    "se-lock-chest-12": {
+      "page": 2,
+      "rect": [
+        548,
+        536,
+        73,
+        94
+      ],
+      "offset": [
+        -39,
+        -82.4
+      ],
+      "crop": [
+        57,
+        68,
+        73,
+        94
+      ]
+    },
+    "se-lock-chest-4": {
+      "page": 2,
+      "rect": [
+        625,
+        536,
+        73,
+        94
+      ],
+      "offset": [
+        -39,
+        -82.4
+      ],
+      "crop": [
+        57,
+        68,
+        73,
+        94
+      ]
+    },
+    "se-loot-12": {
+      "page": 2,
+      "rect": [
+        702,
+        536,
+        73,
+        94
+      ],
+      "offset": [
+        -39,
+        -82.4
+      ],
+      "crop": [
+        57,
+        68,
+        73,
+        94
+      ]
+    },
+    "se-loot-4": {
+      "page": 2,
+      "rect": [
+        779,
+        536,
+        73,
+        94
+      ],
+      "offset": [
+        -39,
+        -82.4
+      ],
+      "crop": [
+        57,
+        68,
+        73,
+        94
+      ]
+    },
+    "sw-lock-chest-0": {
+      "page": 2,
+      "rect": [
+        856,
+        536,
+        73,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        73,
+        94
+      ]
+    },
+    "sw-lock-chest-16": {
+      "page": 2,
+      "rect": [
+        933,
+        536,
+        73,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        73,
+        94
+      ]
+    },
+    "sw-loot-0": {
+      "page": 2,
+      "rect": [
+        2,
+        634,
+        73,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        73,
+        94
+      ]
+    },
+    "sw-loot-16": {
+      "page": 2,
+      "rect": [
+        79,
+        634,
+        73,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        73,
+        94
+      ]
+    },
+    "se-lock-chest-2": {
+      "page": 2,
+      "rect": [
+        156,
+        634,
+        72,
+        94
+      ],
+      "offset": [
+        -38,
+        -82.4
+      ],
+      "crop": [
+        58,
+        68,
+        72,
+        94
+      ]
+    },
+    "se-loot-2": {
+      "page": 2,
+      "rect": [
+        232,
+        634,
+        72,
+        94
+      ],
+      "offset": [
+        -38,
+        -82.4
+      ],
+      "crop": [
+        58,
+        68,
+        72,
+        94
+      ]
+    },
+    "sw-lock-chest-14": {
+      "page": 2,
+      "rect": [
+        308,
+        634,
+        72,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        72,
+        94
+      ]
+    },
+    "sw-loot-14": {
+      "page": 2,
+      "rect": [
+        384,
+        634,
+        72,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        72,
+        94
+      ]
+    },
+    "se-lock-chest-0": {
+      "page": 2,
+      "rect": [
+        460,
+        634,
+        71,
+        94
+      ],
+      "offset": [
+        -37,
+        -82.4
+      ],
+      "crop": [
+        59,
+        68,
+        71,
+        94
+      ]
+    },
+    "se-lock-chest-14": {
+      "page": 2,
+      "rect": [
+        535,
+        634,
+        71,
+        94
+      ],
+      "offset": [
+        -37,
+        -82.4
+      ],
+      "crop": [
+        59,
+        68,
+        71,
+        94
+      ]
+    },
+    "se-loot-0": {
+      "page": 2,
+      "rect": [
+        610,
+        634,
+        71,
+        94
+      ],
+      "offset": [
+        -37,
+        -82.4
+      ],
+      "crop": [
+        59,
+        68,
+        71,
+        94
+      ]
+    },
+    "se-loot-14": {
+      "page": 2,
+      "rect": [
+        685,
+        634,
+        71,
+        94
+      ],
+      "offset": [
+        -37,
+        -82.4
+      ],
+      "crop": [
+        59,
+        68,
+        71,
+        94
+      ]
+    },
+    "sw-lock-chest-12": {
+      "page": 2,
+      "rect": [
+        760,
+        634,
+        71,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        71,
+        94
+      ]
+    },
+    "sw-lock-chest-2": {
+      "page": 2,
+      "rect": [
+        835,
+        634,
+        71,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        71,
+        94
+      ]
+    },
+    "sw-loot-12": {
+      "page": 2,
+      "rect": [
+        910,
+        634,
+        71,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        71,
+        94
+      ]
+    },
+    "sw-loot-2": {
+      "page": 2,
+      "rect": [
+        2,
+        732,
+        71,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        71,
+        94
+      ]
+    },
+    "se-lock-chest-16": {
+      "page": 2,
+      "rect": [
+        77,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -36,
+        -82.4
+      ],
+      "crop": [
+        60,
+        68,
+        70,
+        94
+      ]
+    },
+    "se-lock-chest-22": {
+      "page": 2,
+      "rect": [
+        151,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -36,
+        -82.4
+      ],
+      "crop": [
+        60,
+        68,
+        70,
+        94
+      ]
+    },
+    "se-loot-16": {
+      "page": 2,
+      "rect": [
+        225,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -36,
+        -82.4
+      ],
+      "crop": [
+        60,
+        68,
+        70,
+        94
+      ]
+    },
+    "se-loot-22": {
+      "page": 2,
+      "rect": [
+        299,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -36,
+        -82.4
+      ],
+      "crop": [
+        60,
+        68,
+        70,
+        94
+      ]
+    },
+    "sw-lock-chest-10": {
+      "page": 2,
+      "rect": [
+        373,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        70,
+        94
+      ]
+    },
+    "sw-lock-chest-4": {
+      "page": 2,
+      "rect": [
+        447,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        70,
+        94
+      ]
+    },
+    "sw-loot-10": {
+      "page": 2,
+      "rect": [
+        521,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        70,
+        94
+      ]
+    },
+    "sw-loot-4": {
+      "page": 2,
+      "rect": [
+        595,
+        732,
+        70,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        70,
+        94
+      ]
+    },
+    "se-lock-chest-18": {
+      "page": 2,
+      "rect": [
+        669,
+        732,
+        69,
+        94
+      ],
+      "offset": [
+        -35,
+        -82.4
+      ],
+      "crop": [
+        61,
+        68,
+        69,
+        94
+      ]
+    },
+    "se-lock-chest-20": {
+      "page": 2,
+      "rect": [
+        742,
+        732,
+        69,
+        94
+      ],
+      "offset": [
+        -35,
+        -82.4
+      ],
+      "crop": [
+        61,
+        68,
+        69,
+        94
+      ]
+    },
+    "se-loot-18": {
+      "page": 2,
+      "rect": [
+        815,
+        732,
+        69,
+        94
+      ],
+      "offset": [
+        -35,
+        -82.4
+      ],
+      "crop": [
+        61,
+        68,
+        69,
+        94
+      ]
+    },
+    "se-loot-20": {
+      "page": 2,
+      "rect": [
+        888,
+        732,
+        69,
+        94
+      ],
+      "offset": [
+        -35,
+        -82.4
+      ],
+      "crop": [
+        61,
+        68,
+        69,
+        94
+      ]
+    },
+    "sw-lock-chest-6": {
+      "page": 2,
+      "rect": [
+        2,
+        830,
+        69,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        69,
+        94
+      ]
+    },
+    "sw-lock-chest-8": {
+      "page": 2,
+      "rect": [
+        75,
+        830,
+        69,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        69,
+        94
+      ]
+    },
+    "sw-loot-6": {
+      "page": 2,
+      "rect": [
+        148,
+        830,
+        69,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        69,
+        94
+      ]
+    },
+    "sw-loot-8": {
+      "page": 2,
+      "rect": [
+        221,
+        830,
+        69,
+        94
+      ],
+      "offset": [
+        -34,
+        -82.4
+      ],
+      "crop": [
+        62,
+        68,
+        69,
+        94
+      ]
+    },
+    "ne-death-16": {
+      "page": 2,
+      "rect": [
+        294,
+        830,
+        101,
+        92
+      ],
+      "offset": [
+        -87,
+        -88.4
+      ],
+      "crop": [
+        9,
+        62,
+        101,
+        92
+      ]
+    },
+    "se-death-18": {
+      "page": 2,
+      "rect": [
+        399,
+        830,
+        82,
+        90
+      ],
+      "offset": [
+        -10,
+        -87.4
+      ],
+      "crop": [
+        86,
+        63,
+        82,
+        90
+      ]
+    },
+    "nw-death-10": {
+      "page": 2,
+      "rect": [
+        485,
+        830,
+        71,
+        90
+      ],
+      "offset": [
+        -52,
+        -82.4
+      ],
+      "crop": [
+        44,
+        68,
+        71,
+        90
+      ]
+    },
+    "se-death-20": {
+      "page": 2,
+      "rect": [
+        560,
+        830,
+        82,
+        82
+      ],
+      "offset": [
+        -9,
+        -82.4
+      ],
+      "crop": [
+        87,
+        68,
+        82,
+        82
+      ]
+    },
+    "ne-death-18": {
+      "page": 2,
+      "rect": [
+        646,
+        830,
+        100,
+        81
+      ],
+      "offset": [
+        -88,
+        -78.4
+      ],
+      "crop": [
+        8,
+        72,
+        100,
+        81
+      ]
+    },
+    "se-death-22": {
+      "page": 2,
+      "rect": [
+        750,
+        830,
+        82,
+        80
+      ],
+      "offset": [
+        -9,
+        -81.4
+      ],
+      "crop": [
+        87,
+        69,
+        82,
+        80
+      ]
+    },
+    "sw-death-12": {
+      "page": 2,
+      "rect": [
+        836,
+        830,
+        91,
+        79
+      ],
+      "offset": [
+        -18,
+        -71.4
+      ],
+      "crop": [
+        78,
+        79,
+        91,
+        79
+      ]
+    },
+    "nw-death-22": {
+      "page": 2,
+      "rect": [
+        931,
+        830,
+        82,
+        76
+      ],
+      "offset": [
+        -73,
+        -38.400000000000006
+      ],
+      "crop": [
+        23,
+        112,
+        82,
+        76
+      ]
+    },
+    "nw-death-20": {
+      "page": 2,
+      "rect": [
+        2,
+        928,
+        82,
+        74
+      ],
+      "offset": [
+        -73,
+        -36.400000000000006
+      ],
+      "crop": [
+        23,
+        114,
+        82,
+        74
+      ]
+    },
+    "nw-death-12": {
+      "page": 2,
+      "rect": [
+        88,
+        928,
+        76,
+        73
+      ],
+      "offset": [
+        -62,
+        -66.4
+      ],
+      "crop": [
+        34,
+        84,
+        76,
+        73
+      ]
+    },
+    "ne-death-20": {
+      "page": 2,
+      "rect": [
+        168,
+        928,
+        99,
+        72
+      ],
+      "offset": [
+        -88,
+        -72.4
+      ],
+      "crop": [
+        8,
+        78,
+        99,
+        72
+      ]
+    },
+    "ne-death-22": {
+      "page": 2,
+      "rect": [
+        271,
+        928,
+        98,
+        69
+      ],
+      "offset": [
+        -88,
+        -71.4
+      ],
+      "crop": [
+        8,
+        79,
+        98,
+        69
+      ]
+    },
+    "sw-death-22": {
+      "page": 2,
+      "rect": [
+        373,
+        928,
+        98,
+        69
+      ],
+      "offset": [
+        -10,
+        -37.400000000000006
+      ],
+      "crop": [
+        86,
+        113,
+        98,
+        69
+      ]
+    },
+    "nw-death-18": {
+      "page": 2,
+      "rect": [
+        475,
+        928,
+        82,
+        68
+      ],
+      "offset": [
+        -72,
+        -33.400000000000006
+      ],
+      "crop": [
+        24,
+        117,
+        82,
+        68
+      ]
+    },
+    "sw-death-20": {
+      "page": 2,
+      "rect": [
+        561,
+        928,
+        99,
+        67
+      ],
+      "offset": [
+        -11,
+        -35.400000000000006
+      ],
+      "crop": [
+        85,
+        115,
+        99,
+        67
+      ]
+    },
+    "sw-death-18": {
+      "page": 2,
+      "rect": [
+        664,
+        928,
+        100,
+        61
+      ],
+      "offset": [
+        -12,
+        -33.400000000000006
+      ],
+      "crop": [
+        84,
+        117,
+        100,
+        61
+      ]
+    },
+    "sw-death-14": {
+      "page": 2,
+      "rect": [
+        768,
+        928,
+        98,
+        60
+      ],
+      "offset": [
+        -16,
+        -52.400000000000006
+      ],
+      "crop": [
+        80,
+        98,
+        98,
+        60
+      ]
+    },
+    "nw-death-14": {
+      "page": 2,
+      "rect": [
+        870,
+        928,
+        81,
+        56
+      ],
+      "offset": [
+        -68,
+        -48.400000000000006
+      ],
+      "crop": [
+        28,
+        102,
+        81,
+        56
+      ]
+    },
+    "nw-death-16": {
+      "page": 3,
+      "rect": [
+        2,
+        2,
+        83,
+        54
+      ],
+      "offset": [
+        -71,
+        -32.400000000000006
+      ],
+      "crop": [
+        25,
+        118,
+        83,
+        54
+      ]
+    },
+    "sw-death-16": {
+      "page": 3,
+      "rect": [
+        89,
+        2,
+        101,
+        53
+      ],
+      "offset": [
+        -14,
+        -36.400000000000006
+      ],
+      "crop": [
+        82,
+        114,
+        101,
+        53
+      ]
+    }
+  },
+  "pages": [
+    {
+      "file": "atlas-0.png",
+      "width": 1024,
+      "height": 924,
+      "bytes": 971471
+    },
+    {
+      "file": "atlas-1.png",
+      "width": 1024,
+      "height": 1004,
+      "bytes": 1033167
+    },
+    {
+      "file": "atlas-2.png",
+      "width": 1024,
+      "height": 1004,
+      "bytes": 731753
+    },
+    {
+      "file": "atlas-3.png",
+      "width": 1024,
+      "height": 60,
+      "bytes": 20025
+    }
+  ],
+  "scope": "Untextured animation budget prototype; not production hero"
+}

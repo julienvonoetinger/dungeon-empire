@@ -1,0 +1,271 @@
+{
+  "checks": [
+    {
+      "pose": 0,
+      "view": "se",
+      "clearance_cells": 0.011026462119555602,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 0,
+      "view": "sw",
+      "clearance_cells": 0.02010713149180199,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 0,
+      "view": "nw",
+      "clearance_cells": 0.0166365296266012,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 0,
+      "view": "ne",
+      "clearance_cells": 0.013794031431795972,
+      "chest_height": 0.42706914296358944
+    },
+    {
+      "pose": 1,
+      "view": "se",
+      "clearance_cells": 0.009633196710243291,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 1,
+      "view": "sw",
+      "clearance_cells": 0.018713866082489677,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 1,
+      "view": "nw",
+      "clearance_cells": 0.015243264217288888,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 1,
+      "view": "ne",
+      "clearance_cells": 0.012400766022483661,
+      "chest_height": 0.42706914296358944
+    },
+    {
+      "pose": 2,
+      "view": "se",
+      "clearance_cells": 0.00827590856821303,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 2,
+      "view": "sw",
+      "clearance_cells": 0.017356577940459417,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 2,
+      "view": "nw",
+      "clearance_cells": 0.013885976075258627,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 2,
+      "view": "ne",
+      "clearance_cells": 0.0110434778804534,
+      "chest_height": 0.42706914296358944
+    },
+    {
+      "pose": 3,
+      "view": "se",
+      "clearance_cells": 0.006883130986253677,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 3,
+      "view": "sw",
+      "clearance_cells": 0.015963800358500063,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 3,
+      "view": "nw",
+      "clearance_cells": 0.012493198493299273,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 3,
+      "view": "ne",
+      "clearance_cells": 0.009650700298494047,
+      "chest_height": 0.42706914296358944
+    },
+    {
+      "pose": 4,
+      "view": "se",
+      "clearance_cells": 0.008242858265048836,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 4,
+      "view": "sw",
+      "clearance_cells": 0.017323527637295222,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 4,
+      "view": "nw",
+      "clearance_cells": 0.013852925772094432,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 4,
+      "view": "ne",
+      "clearance_cells": 0.011010427577289206,
+      "chest_height": 0.42706914296358944
+    },
+    {
+      "pose": 5,
+      "view": "se",
+      "clearance_cells": 0.009603408752502124,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 5,
+      "view": "sw",
+      "clearance_cells": 0.01868407812474851,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 5,
+      "view": "nw",
+      "clearance_cells": 0.01521347625954772,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 5,
+      "view": "ne",
+      "clearance_cells": 0.012370978064742494,
+      "chest_height": 0.42706914296358944
+    },
+    {
+      "pose": 6,
+      "view": "se",
+      "clearance_cells": 0.011026462119555602,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 6,
+      "view": "sw",
+      "clearance_cells": 0.02010713149180199,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 6,
+      "view": "nw",
+      "clearance_cells": 0.0166365296266012,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 6,
+      "view": "ne",
+      "clearance_cells": 0.013794031431795972,
+      "chest_height": 0.42706914296358944
+    },
+    {
+      "pose": 7,
+      "view": "se",
+      "clearance_cells": 0.012479699804074568,
+      "chest_height": 0.4356457908686493
+    },
+    {
+      "pose": 7,
+      "view": "sw",
+      "clearance_cells": 0.021560369176320954,
+      "chest_height": 0.414372014820821
+    },
+    {
+      "pose": 7,
+      "view": "nw",
+      "clearance_cells": 0.018089767311120164,
+      "chest_height": 0.4434638240121694
+    },
+    {
+      "pose": 7,
+      "view": "ne",
+      "clearance_cells": 0.015247269116314938,
+      "chest_height": 0.42706914296358944
+    }
+  ],
+  "contacts": {
+    "height": 0.15,
+    "views": {
+      "nw": {
+        "local": [
+          12.11044765695928,
+          -16.644123519123525
+        ],
+        "grid": [
+          0.10098595187558299,
+          0.006373079555588607
+        ],
+        "inferred": false
+      },
+      "se": {
+        "local": [
+          -12.11044765695928,
+          -30.38607954231349
+        ],
+        "grid": [
+          -0.10098595187558299,
+          -0.006373079555588607
+        ],
+        "inferred": true
+      },
+      "ne": {
+        "local": [
+          -14.760070743916486,
+          -16.268526852685255
+        ],
+        "grid": [
+          -0.001042661671288997,
+          0.11427039101555855
+        ],
+        "inferred": false
+      },
+      "sw": {
+        "local": [
+          14.760070743916486,
+          -30.76167620875176
+        ],
+        "grid": [
+          0.001042661671288997,
+          -0.11427039101555855
+        ],
+        "inferred": true
+      }
+    },
+    "measurements": {
+      "nw": {
+        "id": "prop-chest-east",
+        "pixel": [
+          79.5,
+          54
+        ],
+        "regionSize": [
+          129,
+          91
+        ]
+      },
+      "ne": {
+        "id": "prop-chest",
+        "pixel": [
+          52,
+          41
+        ],
+        "regionSize": [
+          114,
+          78
+        ]
+      }
+    },
+    "notes": "Visible painted keyholes measured; hidden backs inferred by opposite grid offset. Not reconstructed3D."
+  },
+  "method": "Conservative triangle separation from the catalogue's chest bounds.\n\nThe head may project over the receiving plane ABOVE the chest. Only triangles\ntouching the chest's height interval need to remain outside its front plane.\nPainted chest bounds are placement proxies, not reconstructed lid geometry.\n"
+}

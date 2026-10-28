@@ -1,0 +1,7 @@
+# Full-resolution renders can be reproduced from the archived model and poses.
+masters/
+
+# Automatic Blender backups. Keep the door's old pose as an explicit red/green
+# regression fixture used by verify_masonry_clearance.py --before.
+*.blend[1-9]
+!v20-door-lockpick/vulpin-lockpick-poses.blend1

@@ -1,0 +1,13 @@
+Source: docs/reference/vulpin-review/v22-chest-lockpick/render_chest_lockpick.py
+Meshy GLB SHA256: 035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4
+8 held whole-mesh crouched poses, 4 isometric directions, two small3D lockpicks.
+Original character mesh/materials; same256px camera/ground anchor/.85 scale.
+8fps,1second loop.4 sheets847196PNG bytes;8MiB uncompressed RGBA.
+Closed/locked chest stays closed during all attempts. No automatic unlocking.
+Preview scene only: scenes/VulpinChestLockpick.tscn.
+Visible painted keyholes measured, hidden rear keyholes inferred. Geometry
+separation uses conservative catalogue bounds, not reconstructed chest art.
+Reproduce in order: render_chest_lockpick.py (Blender), calibrate_chests.cjs
+(Node), verify_chest_clearance.py and verify_saved_poses.py (Blender),
+prepare.cjs (Node), Godot import and capture_vulpin_chest_lockpick_preview.gd,
+then prepare_native_preview.cjs (Node). Original GLB must be available.

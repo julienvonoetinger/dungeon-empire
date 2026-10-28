@@ -1,0 +1,71 @@
+{
+  "request": "Generate the painted Vulpin sprites from approved designs and simplified motion set.",
+  "design": "Orange fox thief; olive hood/tunic, cream muzzle, leather gear, empty hands except tiny lockpicks.",
+  "states": [
+    "idle",
+    "walk",
+    "run",
+    "hurt",
+    "lock-door",
+    "lock-chest",
+    "loot",
+    "dead"
+  ],
+  "directions": [
+    "se",
+    "sw",
+    "nw",
+    "ne"
+  ],
+  "motionSource": "../v9-motion-correction/build_clips.py (pose functions only); v10 timings and no fall",
+  "method": "ImageGen turnaround/body projection, separate ImageGen head/expressions on head bone cards, four static ImageGen corpses. Offline Blender renders, uniform reduction and lossless trim/atlas packing; only 2D sprites load at runtime.",
+  "reproduce": [
+    "node register.cjs",
+    "node components.cjs",
+    "Blender --background --factory-startup --python-exit-code 1 --python paint_rig.py -- --full",
+    "node prepare.cjs",
+    "Godot native verify.gd in each profile project",
+    "node mobile/stage.cjs; isolated Godot mobile/verify_mobile.gd",
+    "node review.cjs; node validate.cjs"
+  ],
+  "sources": [
+    {
+      "file": "source/turnaround-original.png",
+      "prompt": "source/prompt.txt",
+      "sha256": "885a4576c65b75ee74f1200981f28e034a24949a2c7daf3a162f6833bcb246d1",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    },
+    {
+      "file": "source/heads-original.png",
+      "prompt": "source/head-prompt.txt",
+      "sha256": "01dd1921fd96ef28c559a51a4f390620819f768e90b8b595648e0db729a5903f",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    },
+    {
+      "file": "source/heads-hurt-original.png",
+      "prompt": "source/hurt-head-prompt.txt",
+      "sha256": "f4229ff98cee7ea94c0507ac013bc355b6c0c5ba5facb7aeae25ee36b37a97e5",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    },
+    {
+      "file": "source/dead-original.png",
+      "prompt": "source/dead-prompt.txt",
+      "sha256": "5f62200473305b285ba405dd471e38d0d3cd6562187b5a9de69502ae15a7a5c0",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    }
+  ],
+  "references": [
+    {
+      "file": "../v3-free-hands/source/vulpin-original.png",
+      "sha256": "9a47321f907514b3f639ffd080a36d9bb831629ee3c874633dad9c126be5f3fe"
+    },
+    {
+      "file": "../v4-action-states/source/states-original.png",
+      "sha256": "95fb0f4af87e2bd8dc8d252b358003a07be032c1e1ba1c777c199c66ee01c95d"
+    }
+  ]
+}

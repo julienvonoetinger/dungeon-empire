@@ -1,0 +1,51 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+21:44:23 | INFO: Data are loaded, start creating Blender stuff
+21:44:23 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+INFO:glTFImporter:glTF import finished in 0.07s
+21:44:24 | INFO: glTF import finished in 0.07s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\render_run.py:116: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('RunStudio');world.use_nodes=True;scene.world=world
+00:03.188  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-00.png'
+00:04.016  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-01.png'
+00:04.875  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-02.png'
+00:05.735  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-03.png'
+00:06.625  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-04.png'
+00:07.469  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-05.png'
+00:08.360  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-06.png'
+00:09.219  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\se\run-07.png'
+00:10.110  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-00.png'
+00:10.969  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-01.png'
+00:11.844  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-02.png'
+00:12.750  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-03.png'
+00:13.672  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-04.png'
+00:14.532  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-05.png'
+00:15.422  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-06.png'
+00:16.266  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\sw\run-07.png'
+00:17.125  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-00.png'
+00:17.985  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-01.png'
+00:18.844  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-02.png'
+00:19.719  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-03.png'
+00:20.594  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-04.png'
+00:21.485  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-05.png'
+00:22.422  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-06.png'
+00:23.266  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\nw\run-07.png'
+00:24.141  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-00.png'
+00:25.000  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-01.png'
+00:25.907  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-02.png'
+00:26.735  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-03.png'
+00:27.610  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-04.png'
+00:28.469  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-05.png'
+00:29.344  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-06.png'
+00:30.219  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v17-meshy-run\masters\ne\run-07.png'
+Info: No new files have been packed
+Info: Saved as "vulpin-run-poses.blend"
+RUN_POSES_OK 32 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

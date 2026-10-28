@@ -1,0 +1,25 @@
+{
+	"checks": [
+		"live autoplay",
+		"pause freezes travel and pose",
+		"single clock and rate",
+		"double rate travel and poses",
+		"four facing directions",
+		"endpoints and repeated reversal",
+		"centreline path",
+		"foreground wall ordering",
+		"three viewport sizes"
+	],
+	"corridors": 2,
+	"directions": [
+		"se",
+		"sw",
+		"nw",
+		"ne"
+	],
+	"failures": [],
+	"normal_poses_per_second": 16.0,
+	"poses_per_direction": 8,
+	"scene": "res://scenes/VulpinRun.tscn",
+	"seconds_per_leg": 1.85719525986354
+}

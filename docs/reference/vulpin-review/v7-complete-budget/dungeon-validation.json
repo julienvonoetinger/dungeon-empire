@@ -1,0 +1,13 @@
+{
+	"actions": [
+		"walk",
+		"run",
+		"lock-chest",
+		"death"
+	],
+	"captures": 49,
+	"directions": 2,
+	"note": "Static native sampling of imported pack in real dungeon. Demonstration stride matched to rig; actual gameplay speeds unchanged and not synchronized.",
+	"profile": "balanced",
+	"save_written": false
+}

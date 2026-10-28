@@ -1,0 +1,18 @@
+{
+	"checks": [
+		"one-shot resource and neutral finish",
+		"autoplay",
+		"pause",
+		"step/wrap",
+		"retrigger",
+		"0.5x and 2x timing",
+		"optional repeat and rest gap",
+		"live playback",
+		"fixed ground anchors",
+		"three viewport sizes"
+	],
+	"directions": 4,
+	"duration_seconds": 0.48,
+	"failures": [],
+	"scene": "res://scenes/VulpinHurt.tscn"
+}

@@ -1,0 +1,83 @@
+{
+  "idle": {
+    "samples": 121,
+    "max_bone_error": 3.847110082721983e-07,
+    "max_target_error": 2.4722009931559945e-07,
+    "stance_floor_error": 2.1606683731079102e-07,
+    "stance_drift": 1.1348386266624791e-07,
+    "min_sole": -2.1606683731079102e-07,
+    "loop_error": 0.0
+  },
+  "walk": {
+    "samples": 121,
+    "max_bone_error": 4.392683990439572e-07,
+    "max_target_error": 3.282486017333074e-07,
+    "stance_floor_error": 3.0547380447387695e-07,
+    "stance_drift": 2.2351741790771484e-07,
+    "min_sole": -3.0547380447387695e-07,
+    "loop_error": 0.0
+  },
+  "run": {
+    "samples": 121,
+    "max_bone_error": 4.467367794580568e-07,
+    "max_target_error": 4.0331321686177513e-07,
+    "stance_floor_error": 3.129243850708008e-07,
+    "stance_drift": 2.394640249012142e-07,
+    "min_sole": -3.129243850708008e-07,
+    "loop_error": 0.0
+  },
+  "hurt": {
+    "samples": 121,
+    "max_bone_error": 3.9760047038095436e-07,
+    "max_target_error": 2.537576312709809e-07,
+    "stance_floor_error": 2.2351741790771484e-07,
+    "stance_drift": 1.9371509552001953e-07,
+    "min_sole": -2.2351741790771484e-07,
+    "loop_error": 0
+  },
+  "lock-door": {
+    "samples": 121,
+    "max_bone_error": 8.118250416078165e-07,
+    "max_target_error": 3.789225022956839e-05,
+    "stance_floor_error": 1.4901161193847656e-07,
+    "stance_drift": 0,
+    "min_sole": -1.4901161193847656e-07,
+    "loop_error": 0.0
+  },
+  "lock-chest": {
+    "samples": 121,
+    "max_bone_error": 8.937799487462872e-07,
+    "max_target_error": 2.615212799150968e-05,
+    "stance_floor_error": 1.4901161193847656e-08,
+    "stance_drift": 0,
+    "min_sole": -1.4901161193847656e-08,
+    "loop_error": 0.0
+  },
+  "loot": {
+    "samples": 121,
+    "max_bone_error": 1.1052332641592333e-06,
+    "max_target_error": 4.1706039612413396e-05,
+    "stance_floor_error": 1.4901161193847656e-08,
+    "stance_drift": 0,
+    "min_sole": -1.4901161193847656e-08,
+    "loop_error": 0.0
+  },
+  "death": {
+    "samples": 121,
+    "max_bone_error": 7.052685430108951e-07,
+    "max_target_error": 0,
+    "stance_floor_error": 0,
+    "stance_drift": 0,
+    "min_sole": null,
+    "loop_error": 0
+  },
+  "dead": {
+    "samples": 121,
+    "max_bone_error": 7.052685430108951e-07,
+    "max_target_error": 0,
+    "stance_floor_error": 0,
+    "stance_drift": 0,
+    "min_sole": null,
+    "loop_error": 0
+  }
+}

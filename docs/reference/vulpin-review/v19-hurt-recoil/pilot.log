@@ -1,0 +1,25 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+22:11:37 | INFO: Data are loaded, start creating Blender stuff
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+22:11:37 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+22:11:37 | INFO: glTF import finished in 0.06s
+INFO:glTFImporter:glTF import finished in 0.06s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\render_hurt.py:124: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('HurtStudio');world.use_nodes=True;scene.world=world
+00:02.828  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-00.png'
+00:03.578  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-01.png'
+00:04.359  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-02.png'
+00:05.140  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-03.png'
+00:05.937  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-04.png'
+00:06.718  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-05.png'
+00:07.515  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-06.png'
+00:08.297  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v19-hurt-recoil\masters\se\hurt-07.png'
+HURT_POSES_OK 8 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

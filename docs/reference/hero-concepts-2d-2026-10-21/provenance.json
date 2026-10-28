@@ -1,0 +1,51 @@
+{
+  "created": "2026-10-21",
+  "recovered": "2026-10-27",
+  "thread_id": "01a15ce9-67f0-77e2-a485-14b09d65f5da",
+  "thread_title": "2d isometrique",
+  "notes": "Original 2D illustrated concepts with three-quarter characters and top-down dungeon mockups. These predate the calibrated 2:1 isometric migration. No new image generation or alteration. Exact original bytes preserved.",
+  "historical_approvals": [
+    {
+      "timestamp_utc": "2026-10-21T06:05:50.110Z",
+      "subject": "Vulpin scene",
+      "user_text": "oui c'est parfait"
+    },
+    {
+      "timestamp_utc": "2026-10-21T06:14:19.757Z",
+      "subject": "Four-hero comparison sheet",
+      "user_text": "oui"
+    }
+  ],
+  "files": [
+    {
+      "file": "heroes-comparison.png",
+      "original_path": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-3cd563a6-0fce-4d6d-9cd2-ca17134589ed.png",
+      "sha256": "443618210d4783f515130713fd70f94f5e6a369734812434dc6221f746bb5637",
+      "bytes": 2345998
+    },
+    {
+      "file": "vulpin-scene.png",
+      "original_path": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-09b8b8dc-ddbd-490c-b9de-3101f241c863.png",
+      "sha256": "dc2e831a95a1a97c1060794c6c9ca77838b22359f03b3e658cf2053d902ba6b3",
+      "bytes": 1685449
+    },
+    {
+      "file": "lithide-scene.png",
+      "original_path": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-9e9f05ad-9fa6-44db-abca-8e31d61c79fe.png",
+      "sha256": "0b6006635045c9a46b1fceb10334fd681b23560d5d8d3db9773c82a5fe4decc9",
+      "bytes": 1742472
+    },
+    {
+      "file": "batrafian-scene.png",
+      "original_path": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-8f5b149b-66d9-49ff-9bae-ae28153bda73.png",
+      "sha256": "90e87813338f8d5686a0fb067ee04728c646f36b25281557eb9a67c387d1e9f9",
+      "bytes": 1745810
+    },
+    {
+      "file": "mycean-scene.png",
+      "original_path": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-ef70d8f9-2f65-4415-b334-9d414c5acf78.png",
+      "sha256": "1676d42f72de79de70b4886bf6c0e0393eac19d96ef14b37ce987727982d3bb2",
+      "bytes": 1788292
+    }
+  ]
+}

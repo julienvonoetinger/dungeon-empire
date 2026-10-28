@@ -1,0 +1,1137 @@
+{
+  "schema": 1,
+  "recordedAt": "2026-10-28T08:17:32.478Z",
+  "scope": "Current Vulpin source recipes, saved poses, native assets, reports and literal Godot resource dependencies. Intermediate masters, captures and abandoned experiments are not fully inventoried. Not a backup or an artistic validation.",
+  "source": {
+    "path": "docs/reference/vulpin-review/source/Meshy_AI_Character_output.glb",
+    "bytes": 15644004,
+    "sha256": "035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4"
+  },
+  "files": [
+    {
+      "path": "assets/dungeon/isometric-kit/atlas-256.png",
+      "bytes": 1554227,
+      "sha256": "f12e9c9551a5582bf43fed09eb27dc3599920aaef5812c9201d2e4126620ca6a"
+    },
+    {
+      "path": "assets/dungeon/isometric-kit/catalog.tres",
+      "bytes": 76097,
+      "sha256": "2b4a0f9d540f79eda9c65efb49a434b16af0bde6222f1b1cc935e2c4b25f89d0"
+    },
+    {
+      "path": "assets/dungeon/isometric-kit/chests/atlas-256.png",
+      "bytes": 107001,
+      "sha256": "930bc7090716c506a62f68ea52b16038394d6a070725c4a30384102047833495"
+    },
+    {
+      "path": "assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+      "bytes": 140335,
+      "sha256": "ba6cb398df750b417cb19bd569e087e5a9ef338b48fee88a9a3e12e5f4b085f9"
+    },
+    {
+      "path": "assets/dungeon/isometric-kit/traps/atlas-256.png",
+      "bytes": 214176,
+      "sha256": "1305bbe66a50789b85398305b25ec4effee3857974efd580fc8861857b78c46a"
+    },
+    {
+      "path": "assets/dungeon/mobile-kit/light-falloff.png",
+      "bytes": 5151,
+      "sha256": "eacd5805c933cd2843bbf454fa47b385b2de00169ad5fb901c71d2c785e1811b"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/SOURCE.txt",
+      "bytes": 969,
+      "sha256": "3653d40f0f42500929375836af37f59af67ed700667c276a5477b88f86df6eb4"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-ne.png",
+      "bytes": 214921,
+      "sha256": "2ddc5999318462fbf10c37b7f9e69539892f557cc24b1385e4a8ce10d312abfc"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-ne.png.import",
+      "bytes": 993,
+      "sha256": "d15d81c8b7ca19b6be1907cbf0952f462270cffe6498914370b6a7510111a694"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-nw.png",
+      "bytes": 198528,
+      "sha256": "ad8bf015fb4e7d5c4ec8646a38d60cb5df700092eb9c373d852df77edc692ed8"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-nw.png.import",
+      "bytes": 992,
+      "sha256": "362bd35d1ecc258e0591f0a77f8656e5baccdea736c6fbcf586a5459a1057fcf"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-se.png",
+      "bytes": 222551,
+      "sha256": "b1f2db33bdadb95ded42a6a7f49e47747369c37d1100b6f79f82d55d5a7ed32a"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-se.png.import",
+      "bytes": 992,
+      "sha256": "12c645d5004de7a74e5fad4ac4777e7c0b883f53347041dcf575b444c1843c8a"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-sw.png",
+      "bytes": 211196,
+      "sha256": "802e130569f0ff54368a276184829a3a49599d2fb455a42ae69fc2ed82d9d4cc"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/chest-lockpick-sw.png.import",
+      "bytes": 992,
+      "sha256": "1cefddae6592e8d285f3b008ea2a7b322a5589461cee0165ca8a6628119e4907"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/frames.tres",
+      "bytes": 6272,
+      "sha256": "1ea83c21041f8755c6a45d0e9e94e70ba6f59cfd60c4fe15096ed8be50dcaec2"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-lockpick/registration.json",
+      "bytes": 10362,
+      "sha256": "427227fe5120891efdaffda119f63bcd45364c76da4e8c657333ec8b2c48ca72"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/SOURCE.txt",
+      "bytes": 692,
+      "sha256": "841f496d5bce2962a754245371be97460f2cb98a90c746150af54d0291e9c350"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-ne.png",
+      "bytes": 269704,
+      "sha256": "0da2cf320f9c141b791d8b982f46545ece6b633aa6fce4d21c7b2ae177739312"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-ne.png.import",
+      "bytes": 977,
+      "sha256": "63faef623766fcdaaf0b4a812e641f01e126967e4a062efb6f4323c942d79932"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-nw.png",
+      "bytes": 260249,
+      "sha256": "232b58a26294709a8d04cdf6e4a8d3e480a109e0be0016ab9d48bde64d52fa13"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-nw.png.import",
+      "bytes": 977,
+      "sha256": "81f572369e64dc6da6b22b470244b9252a9ce83555cb822a1cf0c1575c2cba1b"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-se.png",
+      "bytes": 290838,
+      "sha256": "abbbbc69f132b9390473876191c43c2f5a49f8be82c05aa873ea455c6cb34481"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-se.png.import",
+      "bytes": 976,
+      "sha256": "9223878d440c010f712f111302b5044ba885004fab240df1f46aa54ec0a16c38"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-sw.png",
+      "bytes": 281520,
+      "sha256": "1cfd55a9a606ebccea6ebdafa3bcfa0188c199cda9d284a87942be800678f57e"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/chest-open-sw.png.import",
+      "bytes": 977,
+      "sha256": "16b5e8146c7f2dc271626f145ae59337b993efe76cf0fb9f11ee494918181fd8"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/frames.tres",
+      "bytes": 6296,
+      "sha256": "2f7d68bf84dcea97b11d28b63cb4588814a60fc285a4836331e08da732651218"
+    },
+    {
+      "path": "assets/previews/vulpin-chest-open/registration.json",
+      "bytes": 15668,
+      "sha256": "a000cee8bc9f29c980c31d06cd4d3caabe3f95856246c13641135a11be0019ba"
+    },
+    {
+      "path": "assets/previews/vulpin-death/SOURCE.txt",
+      "bytes": 1455,
+      "sha256": "8af424df17b5ee35957a785263ea1de022c2fd76af54010670f84821f9012686"
+    },
+    {
+      "path": "assets/previews/vulpin-death/atlas.png",
+      "bytes": 1435199,
+      "sha256": "f2c87cb72f5633679df827c3adeb4e47072794280682758318e472c6d85fe292"
+    },
+    {
+      "path": "assets/previews/vulpin-death/atlas.png.import",
+      "bytes": 947,
+      "sha256": "51977080846c4b36e83c049eca3bb394dd39a85d0bdee36c623ee9fbbae4b577"
+    },
+    {
+      "path": "assets/previews/vulpin-death/frames.tres",
+      "bytes": 9327,
+      "sha256": "6903a5040a95c1336ba0afa60fcc83b195f5e0469a07b6dd657571a2c9218544"
+    },
+    {
+      "path": "assets/previews/vulpin-death/registration.json",
+      "bytes": 14291,
+      "sha256": "09789c90ef0685d316454c2610d43efb367b0f64ffb80fa46074910750c515b1"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/SOURCE.txt",
+      "bytes": 1129,
+      "sha256": "139d2b5cfd6faa5fb5237c707ef8f219949ad9c3970ef0177f9ed324f755242b"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/frames.tres",
+      "bytes": 6232,
+      "sha256": "b8aee539b8b8c6f4552b6b60f4a6bf406b3fe21a21683bca96042a0bcad31839"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-ne.png",
+      "bytes": 297848,
+      "sha256": "94aac487bf680a8d44ea027c990524a2baff7aeae802a8f53e3b383e13a98f4d"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-ne.png.import",
+      "bytes": 953,
+      "sha256": "1c508a39f80ca849e9d6b87aebbd7cea45b693ee556819672a145adc48e73390"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-nw.png",
+      "bytes": 287012,
+      "sha256": "06f4b51f75ccae245d85b27940b8ad5422ad10c0bfe9d5a4af5cfba2f9132491"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-nw.png.import",
+      "bytes": 953,
+      "sha256": "2a5f4bfb38080b68881801452be0c6681a0dd9b1118c8625f726ab008a62e251"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-se.png",
+      "bytes": 326025,
+      "sha256": "bd506efb82e370f8a0a9110b739fc993de5a4762b6ccd35ad6296c3e82bbd714"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-se.png.import",
+      "bytes": 953,
+      "sha256": "8d278e2107f2e8ea42ddbcac8e9794a0601df335a93d5289baa9357371df20fe"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-sw.png",
+      "bytes": 324762,
+      "sha256": "20b3ed86c688d68ac11bfad0cdb9ed56f2be0b3c4726edb3d0de88dfe24c9ae6"
+    },
+    {
+      "path": "assets/previews/vulpin-hurt/hurt-sw.png.import",
+      "bytes": 953,
+      "sha256": "99433187c65c89d6083c1a768edacf4104c2103697c1f8ecb5c95566ff5fdd41"
+    },
+    {
+      "path": "assets/previews/vulpin-idle/SOURCE.txt",
+      "bytes": 1107,
+      "sha256": "b714583a22518a1d1c7150f487c38c97e63fa36aecfeb101213a2464129dd0b9"
+    },
+    {
+      "path": "assets/previews/vulpin-idle/frames.tres",
+      "bytes": 1463,
+      "sha256": "aeeda6310a82a028dca9578e24c80e5d486a8ce65d4e00af1b52a7d22ba4a6c2"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/SOURCE.txt",
+      "bytes": 1266,
+      "sha256": "c3498408682374ffe8895dc2dd3c2df1cda3deb4d064469ce16616380286c253"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/frames.tres",
+      "bytes": 6224,
+      "sha256": "f63cab08eed8c47eafd16fb49a09231a0f0d79460eec8da352673b53c82c5fdc"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-ne.png",
+      "bytes": 219282,
+      "sha256": "3464f5759467b4333e92dbbda440a6fd71120c1d9688a10baa6b96904177b9bb"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-ne.png.import",
+      "bytes": 969,
+      "sha256": "fcb8f683bcdd88722f3f4b9ffc41ef3c3c65ad25eaea89fc0889c56a50500e63"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-nw.png",
+      "bytes": 204676,
+      "sha256": "5b2304234b9dc49928aace4981592a899f869785417ab9dc0d4e0c0344b5fba0"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-nw.png.import",
+      "bytes": 969,
+      "sha256": "f8e249317a42e6185bee0dda38b39f7cf065cb49278793ac06ea571aa77004f2"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-se.png",
+      "bytes": 240068,
+      "sha256": "49836a611c031f96e111a041461f36e4ea61cb8384b33030b20f378b1766ad75"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-se.png.import",
+      "bytes": 969,
+      "sha256": "4e8f5f5a58ba4903800abd878d5e6d3a988e1f7d666c6ec13ac65c9433e4101d"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-sw.png",
+      "bytes": 226887,
+      "sha256": "5f79ff963860a5563a7e045937e2e1b4b18f0b3e4fba15ae95797b0a17355794"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/lockpick-sw.png.import",
+      "bytes": 968,
+      "sha256": "786509b881bf774c7d8e90677627bdb58833d82105cf954caac8f61167112d70"
+    },
+    {
+      "path": "assets/previews/vulpin-lockpick/registration.json",
+      "bytes": 9369,
+      "sha256": "24aee7c9b58c88c36c56dd2a6acc31de4e2b2372a4c3837eebfbbcd6c3674d5a"
+    },
+    {
+      "path": "assets/previews/vulpin-run/SOURCE.txt",
+      "bytes": 931,
+      "sha256": "3ccd374705add97aa5d7a681958110cb3bc8b923e9f6232b24dcdae0727d51ba"
+    },
+    {
+      "path": "assets/previews/vulpin-run/frames.tres",
+      "bytes": 6252,
+      "sha256": "e86f534f17468ce65b8a32c3115d44b37e9208cdda16d6043304242a640390db"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-ne.png",
+      "bytes": 280966,
+      "sha256": "774ff8423d67818b645a0edb128efa088d765922feab013c30be51ea60f91d53"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-ne.png.import",
+      "bytes": 948,
+      "sha256": "7ba158383cfa94871d2b9f60c2d9dc23df0b03f8aea82614dac64b66222fa450"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-nw.png",
+      "bytes": 271223,
+      "sha256": "86df7bfbc987dba9fcb7f9cee974d0e8ddfb3fa01307ab2e77c8f45a56bb6fa1"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-nw.png.import",
+      "bytes": 949,
+      "sha256": "bbf414802fabe834eff1c56fd81e96051df417f99b6719e40545e250096bfead"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-se.png",
+      "bytes": 293535,
+      "sha256": "2a45d6fab43addb96bf174db651737d03f541d808b006ca45fc0b042b7dd4c01"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-se.png.import",
+      "bytes": 948,
+      "sha256": "0a02e946eddf8928fe9bd6aa23dbb41c5faa57efe8b68d0ee7ffdf88d6f960cd"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-sw.png",
+      "bytes": 292936,
+      "sha256": "03d7df24d0c9c1528d5ebbff63525d849a151eed616c0db56a2c560db06eacb0"
+    },
+    {
+      "path": "assets/previews/vulpin-run/run-sw.png.import",
+      "bytes": 949,
+      "sha256": "825ec935cd114ec90448c829e477701a6ccaec57099147f26beca3aceaa98bea"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/SOURCE.txt",
+      "bytes": 996,
+      "sha256": "f316af6731d9725640ab81fca2704bc349fdda841660a6dadf533e23f4807f92"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/frames.tres",
+      "bytes": 6260,
+      "sha256": "3f8b718f65bc252db9dae3f0ef74624f8063cfc8f612ab869bb955bb0797ab9e"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-ne.png",
+      "bytes": 257755,
+      "sha256": "6991fcbb6666a13546f18a34a4c63f83c0c67bb978977b5fee5d263226b0dfd6"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-ne.png.import",
+      "bytes": 952,
+      "sha256": "2e4b947b6e19e238237cd0ae5d28a100c392678f834bd18a1c9717d8074fc196"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-nw.png",
+      "bytes": 249165,
+      "sha256": "b9329e55e2536d1f1cee80f0f5cff980652691fa887039518064cd05a4344daa"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-nw.png.import",
+      "bytes": 952,
+      "sha256": "0cffeb12990a998eb85b1328aa7274d4370f89d783759a6df407949b7037f706"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-se.png",
+      "bytes": 290813,
+      "sha256": "1d90f173187b8703660becb094d556c74abdbb18e0b262a311c0dd53b0cdfc43"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-se.png.import",
+      "bytes": 953,
+      "sha256": "9c21a70beebb1709448d3d085292f76899a45dc2b8e9997c10177a0814a80ae4"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-sw.png",
+      "bytes": 289500,
+      "sha256": "7049b5b99636952f9a0270811556b8765d7deae211ddb601d72828f87a106373"
+    },
+    {
+      "path": "assets/previews/vulpin-walk/walk-sw.png.import",
+      "bytes": 953,
+      "sha256": "e78075b8392218a695a7067a47fed2a610af8ccb63539ea04d5ca3e4ee06bcd8"
+    },
+    {
+      "path": "docs/production/hero-animation-pipeline.md",
+      "bytes": 18360,
+      "sha256": "9ae818cc1ff48c2448301b3452baa1c9f3bfe7b1d42f02ce4ad2f9ef6897399d"
+    },
+    {
+      "path": "docs/production/hero-animation-reproduction.md",
+      "bytes": 9562,
+      "sha256": "2841e06943cd36205783848f8a8dc5d6595626c848789d6f1fbbb83218149eb8"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/geometry.json",
+      "bytes": 2294078,
+      "sha256": "c199d7de6f8b8062c8669714c4dd28c384f0a8fb049290082c1a01dfbad1ea54"
+    },
+    {
+      "path": "docs/reference/vulpin-review/.gdignore",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "docs/reference/vulpin-review/README.md",
+      "bytes": 6295,
+      "sha256": "89d3839770e9cb0d8117456ecfe1b4d09652af989d800b22f8198ecf10e7698e"
+    },
+    {
+      "path": "docs/reference/vulpin-review/source/Meshy_AI_Character_output.glb",
+      "bytes": 15644004,
+      "sha256": "035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4"
+    },
+    {
+      "path": "docs/reference/vulpin-review/source/README.md",
+      "bytes": 1299,
+      "sha256": "4450032c5a257be9d5c73f4e32da5364c684bbc8e2cbe92f68265aa861d38d34"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v15-meshy-inspection/inspect_model.py",
+      "bytes": 6791,
+      "sha256": "307a67e9f13ab09a983b7d88d8437b5990ae50375bda172e0b17905e14838d09"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v15-meshy-inspection/inspection.json",
+      "bytes": 28264,
+      "sha256": "70ba07110ebf5c3bead5c38589605946855e8fe2f627ebc03f2bcca4c715503d"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/native-corridors/validation.json",
+      "bytes": 502,
+      "sha256": "4d706ee576e99c2855c8dba979eeb2eb1566ed9a90b07a96b14754a5231f61c6"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/poses.json",
+      "bytes": 8989,
+      "sha256": "f1fc7ecfa3c7f5a9d4bd0cc548b973d02d958b9a6687e59024e911daab355f9d"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/prepare.cjs",
+      "bytes": 5552,
+      "sha256": "50a6122d301ea01c5120121d017893876b0ebdfc922611e721474e074c04b89b"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/render_walk.py",
+      "bytes": 9696,
+      "sha256": "5155773d5880bc8323640f7f716a9caff1cb719919dda43672c28875dd2b60d0"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/saved-pose-validation.json",
+      "bytes": 475,
+      "sha256": "2d2436c1934e6a803844bc322db65fdd29ce5c24b77bce5a98aae2d055cfe319"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/validation.json",
+      "bytes": 9300,
+      "sha256": "3d5ece018f9eac2dfe23bd8e029ef5f4bdd5b654f5dbe57d281e2dee9241ba82"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/verify_saved_poses.py",
+      "bytes": 1000,
+      "sha256": "09734f8892baaf6fc1ef873e461cb6dc2ccef9277793ecf2a3686a3f737be254"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v16-meshy-walk/vulpin-walk-poses.blend",
+      "bytes": 15675274,
+      "sha256": "b9b49ea75a6c9ec6668112f27642414d9537cac5dedd59f3410bacf43d6fdaaf"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/native-corridors/validation.json",
+      "bytes": 501,
+      "sha256": "3d63a4de7323435cfd0c4dcd75d5495b2a2c9969e49973440a7866944e0a3f1f"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/poses.json",
+      "bytes": 9365,
+      "sha256": "f68a4c11749ba553842490bb7baf1dc05b942945f0664f6a643bda795242bf34"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/prepare.cjs",
+      "bytes": 6691,
+      "sha256": "3d32c2126f8a37c65dc5f9ab85d1d7efea46130cebf6c4592caef6ef020f8174"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/render_run.py",
+      "bytes": 10120,
+      "sha256": "831ddac7cb209154249af5a7e930043fadbcd998af538b8ad4669cc7bd911919"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/saved-pose-validation.json",
+      "bytes": 475,
+      "sha256": "2d2436c1934e6a803844bc322db65fdd29ce5c24b77bce5a98aae2d055cfe319"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/validation.json",
+      "bytes": 9281,
+      "sha256": "828f47ddd304b1c62c9fb6d0bbe08e0e46481fca2e044ce278d1c6427bcf3b91"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/verify_saved_poses.py",
+      "bytes": 1001,
+      "sha256": "7c5c46a620637567afc813331fc6aac4986b11ab69918e2e75ff1959f3cd8056"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v17-meshy-run/vulpin-run-poses.blend",
+      "bytes": 15675696,
+      "sha256": "b0deb4d4a05caec5ce24b578bc9093bf54050df0e7da5fd76f4303106efdccb7"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/native-scene/validation.json",
+      "bytes": 348,
+      "sha256": "302401e804ca3487ea640ee945b3b7ef024b6f8332c2a387aa6a5af078100ba0"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/poses.json",
+      "bytes": 9362,
+      "sha256": "1bb0e6379694e351748117efd42dd8e9777a3439bea264ee7e3b5e160fc623bb"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/prepare.cjs",
+      "bytes": 6860,
+      "sha256": "6be3d0cab8bb05b732c1090e040bf0f5786a67e21402745e8755311cb20c55f5"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/render_hurt.py",
+      "bytes": 11364,
+      "sha256": "76152b47e03a96c59f972395dc466f4480b7ca82039f7413688f1c5e5f2fb5a1"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/saved-pose-validation.json",
+      "bytes": 475,
+      "sha256": "2d2436c1934e6a803844bc322db65fdd29ce5c24b77bce5a98aae2d055cfe319"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/validation.json",
+      "bytes": 8462,
+      "sha256": "e9cf60ff153cbfb7a6c13803a1eb7745b574428fdbe6957d351109329dca0ae7"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/verify_saved_poses.py",
+      "bytes": 1004,
+      "sha256": "59a2cb5134864649a3af261b755fcf6d788ab70bff69e82f4b0976ef99b825da"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v19-hurt-recoil/vulpin-hurt-poses.blend",
+      "bytes": 15686290,
+      "sha256": "c87adeb712b96c3e4bb967ac59568f2321f81fa024f31ce346b0ca46a0fee41c"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/masonry-clearance.json",
+      "bytes": 2490,
+      "sha256": "2eafa870b447cb62cd426d91ee1acdfbefdcab7245e09fb77f7e636dcd604a1d"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/native-scene/validation.json",
+      "bytes": 209,
+      "sha256": "71d037b41d8e591dd77b8e0f4b3a3f609f1ae2c498d5f260d4c20bd03fdaff89"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/poses.json",
+      "bytes": 13192,
+      "sha256": "518252035812969148e676a6222d2cec6bd0ff0e8b63b61fed6554bd4ff3d998"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/prepare.cjs",
+      "bytes": 7641,
+      "sha256": "37a5a97e27ddfd5dbf26ceee771e27caf1d0e713e6af3e6377e3e502f82c42e5"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/prepare_native_preview.cjs",
+      "bytes": 662,
+      "sha256": "3d19b3eb0546380a7e6720ba291a606e5966042754d5414a88a0c045cec20802"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/render_lockpick.py",
+      "bytes": 12893,
+      "sha256": "d0479e9764a552aaabc3beb8cc3abc1c9cbed9204f8a54a32be6e1a344346cc0"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/saved-pose-validation.json",
+      "bytes": 699,
+      "sha256": "dffc067d7d14a956c3edb1423591d78777f8428608792ca5303a850e630777fb"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/validation.json",
+      "bytes": 8399,
+      "sha256": "3164ec217165654248f4b41d88735c6ba62ae9caef4236faaee3beee4d91d318"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/verify_masonry_clearance.py",
+      "bytes": 2272,
+      "sha256": "9c1f08f2175260b905f322e51d46f4690ea62326e6b5a46bc377abe66e1ae61b"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/verify_saved_poses.py",
+      "bytes": 1232,
+      "sha256": "c66c7ae96bea93bb1f8cc9db77a327a3c1ddb3added0c7a72d8144df78bf8a29"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v20-door-lockpick/vulpin-lockpick-poses.blend",
+      "bytes": 15688633,
+      "sha256": "b6542f0a462b7f91cf6854c52cc2a8959c9e710d371b25c28475ea6851b0295f"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/native-scene/validation.json",
+      "bytes": 221,
+      "sha256": "ff868c55ddef46b253cefa53714bcb9c469199c2e48d3a1665017dfbd823ff4a"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/poses.json",
+      "bytes": 18492,
+      "sha256": "4c55bc22a7a088531e52dbb1f033c8f5c9b89c39a886f927569a677bec876736"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/prepare.cjs",
+      "bytes": 7388,
+      "sha256": "58a4b67fb05169f3a2aa676e1c115518a3965b05c292d9650369d91eaaee5d8e"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/prepare_native_preview.cjs",
+      "bytes": 693,
+      "sha256": "1240de3033c2cbbe21b2d2082469ba45834a21a84fcfb733ad4a10bcb83877cc"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/previous-sprite-hashes.json",
+      "bytes": 3245,
+      "sha256": "8f62dddb6de5ec02de4d6f0b3f1e851450ebc6b7790be1ce180a04573c95a46e"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/render_chest_open.py",
+      "bytes": 11208,
+      "sha256": "ee82d9f31a184e4bbf0fcfd6ab4baa6ed7425044f8023a7b4693ddcda647bbbb"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/saved-pose-validation.json",
+      "bytes": 787,
+      "sha256": "05675a5c13785e1e492d7080978f889c794b9a68818dc0ab97427f91e88fb246"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/validation.json",
+      "bytes": 8315,
+      "sha256": "25f2112b396c15eca0e226256d7c990f5864257f1cb87d5dbfc131d78d0fb9d4"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/verify_saved_poses.py",
+      "bytes": 1577,
+      "sha256": "d3d328e3b15e0ae4f7aeb72731b68159d749875e2c7ff66452afafb8f1e25f9c"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v21-chest-open/vulpin-chest-open-poses.blend",
+      "bytes": 15684520,
+      "sha256": "8721dd70e197a45cbb549e4014813631349a23f7df89c4799034532f33fa431c"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/calibrate_chests.cjs",
+      "bytes": 1623,
+      "sha256": "5ecaca070dc19d90ccf65046184f5828cfd994428c5a09e0d652e7e1b1a03965"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/chest-clearance.json",
+      "bytes": 6491,
+      "sha256": "26030d7f0127190c1b64569b1c96bb2fa1f2d004c7b0bd54595905cf6704b1a3"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/chest-contacts.json",
+      "bytes": 1314,
+      "sha256": "cad567f59e724034d700be2cc2c11f88234ee34e03a5768ef0793bae640831bc"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/native-scene/validation.json",
+      "bytes": 239,
+      "sha256": "f0fb92fd490b217780468918d96099651510eb2c040daa25447014745cb0dfc5"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/poses.json",
+      "bytes": 13430,
+      "sha256": "b21894007e9136b38b382a124aeb9bb38af62a7e11ed41f39988891d5b4c551b"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/prepare.cjs",
+      "bytes": 8137,
+      "sha256": "7c68054b6ac6f120e8052640264c08728141130b28d5eb1f1f5b3d3742a74e0e"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/prepare_native_preview.cjs",
+      "bytes": 662,
+      "sha256": "3d19b3eb0546380a7e6720ba291a606e5966042754d5414a88a0c045cec20802"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/previous-sprite-hashes.json",
+      "bytes": 4097,
+      "sha256": "b31275aecff7ec5fd9d4917e2a06a9f7f259f267ccd7b23070e443f24783058f"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/render_chest_lockpick.py",
+      "bytes": 13123,
+      "sha256": "fcf1bebb9c5e8cebbdd64f15f8e36fb4e9ccefe5c5a6f35e442d3fc44e608fd8"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/saved-pose-validation.json",
+      "bytes": 699,
+      "sha256": "dffc067d7d14a956c3edb1423591d78777f8428608792ca5303a850e630777fb"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/validation.json",
+      "bytes": 8446,
+      "sha256": "3d83ed45d6664d3db3fdd3244ce052522ee90afef7212d68e217d4bce97853a4"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/verify_chest_clearance.py",
+      "bytes": 2023,
+      "sha256": "464e1adfa04e685dec9f290019f1068b84516d71540c4d62d08d9698feb93047"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/verify_saved_poses.py",
+      "bytes": 1238,
+      "sha256": "008e5cf485877063fd08bf6f229507e4914fa4a758ee32a225d929d1b095af4a"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v22-chest-lockpick/vulpin-chest-lockpick-poses.blend",
+      "bytes": 15688844,
+      "sha256": "25dbfebda179288c7dd3927117c37fda17077146bfc9fbdfe5b312e6a036e717"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v23-static-idle/capture.gd",
+      "bytes": 721,
+      "sha256": "80d698a39f52a8809ebf84fbfb3c508649440abde66f4d0b49a4067de3a6c49a"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/final-arm-validation.json",
+      "bytes": 227,
+      "sha256": "a77ff3c6eb61a0f4eec474c0bd5b611d24582b0fbf14e0183faaa51554f1391a"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/native-scene/validation.json",
+      "bytes": 238,
+      "sha256": "11b998d248484101b7bfe0bb92b2c7eb413eb078833f6b4f02bd5b97dce30cfe"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/poses.json",
+      "bytes": 17010,
+      "sha256": "4e54fed11fcaddb5a5a7f0ce31f732e5d8de53967b64c98c232a7fc3cf917f1c"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/prepare.cjs",
+      "bytes": 6763,
+      "sha256": "ddc1b71ec90fc6ffde599cb4606dcdd340246b581549241071561bc126e01adc"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/prepare_native_preview.cjs",
+      "bytes": 1151,
+      "sha256": "90845b582a84a7dfbf54a1a8034b19c45c27be53fafff76098b5bcd8e1ee738e"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/previous-sprite-hashes.json",
+      "bytes": 4933,
+      "sha256": "8793ce59b3e67a50e11fabac5064a3fcc11103947566c5bebc8ef87b3fe3ba66"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/render_fall.py",
+      "bytes": 13654,
+      "sha256": "8deb4afa0e95bbb36d2d36f9da046c4a0b4b3ae05043ca1daae0178b39154d68"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/saved-pose-validation.json",
+      "bytes": 823,
+      "sha256": "9249decb0ee9db0bf7b9f7021b547e4d2acb9cc1b04dea93bdc58b8091041e94"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/validation.json",
+      "bytes": 14291,
+      "sha256": "09789c90ef0685d316454c2610d43efb367b0f64ffb80fa46074910750c515b1"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/verify_saved_poses.py",
+      "bytes": 2173,
+      "sha256": "9156984ab1257d645c06777ae75f26b67f8309077e6c3d438b77dccd5ef6abbd"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v24-meshy-dead/vulpin-fall-poses.blend",
+      "bytes": 15686566,
+      "sha256": "bf3c77e4451992ee9ad4e1cfc850990539aa16d71ab85ef7f63425fc1bb4467d"
+    },
+    {
+      "path": "scenes/VulpinChestLockpick.tscn",
+      "bytes": 313,
+      "sha256": "94b049d14413c9aa6f348688bd292705e87097790ba5c4480acc6e5efae5726e"
+    },
+    {
+      "path": "scenes/VulpinChestOpen.tscn",
+      "bytes": 305,
+      "sha256": "1f7ea467debbc4e8ab25c6a71e25ab007f34269610851cdc4548e83a626923cb"
+    },
+    {
+      "path": "scenes/VulpinDeath.tscn",
+      "bytes": 298,
+      "sha256": "81d8fe8a097b21b1e6d98fc498201d1ec070aa75089b608767be4a7e8d2f82fa"
+    },
+    {
+      "path": "scenes/VulpinHurt.tscn",
+      "bytes": 294,
+      "sha256": "990ebb2d90bc2a60534fe7c73937df9dc19099e3b7064bac75f92a229e9d5125"
+    },
+    {
+      "path": "scenes/VulpinIdle.tscn",
+      "bytes": 294,
+      "sha256": "d86d4279534105333c87079f3f63288be86c2ce0bda3ffebe8d2cb43abcaab8d"
+    },
+    {
+      "path": "scenes/VulpinLockpick.tscn",
+      "bytes": 302,
+      "sha256": "abbf6514b93c22c6da13516cae6abf9b12b0d56af7e64982fb5fe248f8266bfc"
+    },
+    {
+      "path": "scenes/VulpinRun.tscn",
+      "bytes": 546,
+      "sha256": "7d37828893da09b49bc8e57845e5391100a5be30640cce3dd089dcb5379b9a17"
+    },
+    {
+      "path": "scenes/VulpinWalk.tscn",
+      "bytes": 294,
+      "sha256": "539a43fdacdfec41f6a8a5c50dbd6bf3e6f6358bd8638eaced3f00b8acd11e60"
+    },
+    {
+      "path": "scripts/door_wall_junction.gd",
+      "bytes": 3292,
+      "sha256": "6f3f90066f4550e28a493f8abc5a4e6f379087019c799c755cce398bb3cf4b2f"
+    },
+    {
+      "path": "scripts/door_wall_junction.gd.uid",
+      "bytes": 20,
+      "sha256": "eab5f52ad225413c4653b664121ca76f7e6ae9da26856b4695ae260f6429771a"
+    },
+    {
+      "path": "scripts/dungeon_floor_damage.gd",
+      "bytes": 1798,
+      "sha256": "43ce201606c35df35a6a434fe527bcd695853cd6ef3035d07afa0e7be42ce7fb"
+    },
+    {
+      "path": "scripts/dungeon_floor_damage.gd.uid",
+      "bytes": 20,
+      "sha256": "de6cfabf3fd469413a5280a9c506ff40c206e0df24c0caa3cb8be1d1a75574a2"
+    },
+    {
+      "path": "scripts/dungeon_floor_variants.gd",
+      "bytes": 772,
+      "sha256": "3ca72de0bc8981df373d439209278aacd9b69d09eaa6710060548c8fad31ca7f"
+    },
+    {
+      "path": "scripts/dungeon_floor_variants.gd.uid",
+      "bytes": 19,
+      "sha256": "b797b83d1b1b5fea7220f11c635f3eb0ed6a7df0c0de62215a47dfc39022b625"
+    },
+    {
+      "path": "scripts/dungeon_surface_details.gd",
+      "bytes": 737,
+      "sha256": "fcaa81c11540599c0bbd869dd60648a41237922394e1e5e4aee4b653626282f9"
+    },
+    {
+      "path": "scripts/dungeon_surface_details.gd.uid",
+      "bytes": 19,
+      "sha256": "b149aeb480f9f72663fa63fc7c9f91ccd9c09a3b9639a3467e49298b3f5f134c"
+    },
+    {
+      "path": "scripts/dungeon_wall_variants.gd",
+      "bytes": 2729,
+      "sha256": "669100a826464ceb66143fa88481f0bdf59d10cbcd8efa48b44ea0effad4b334"
+    },
+    {
+      "path": "scripts/dungeon_wall_variants.gd.uid",
+      "bytes": 20,
+      "sha256": "7dd5e04e8e97198da22e427843d85b0faaacaeb4a1b2a7b330aa7174ec5258dc"
+    },
+    {
+      "path": "scripts/ground_effect_mask.gd",
+      "bytes": 1441,
+      "sha256": "5539168c803a7f308bfb73cbadf3c223e840a3825fd5c2deab3281ddee90cbf9"
+    },
+    {
+      "path": "scripts/ground_effect_mask.gd.uid",
+      "bytes": 20,
+      "sha256": "55547bbbd9a869c87f17da1e81d771125dfd1c44cfefc879cb7ab146790edbd8"
+    },
+    {
+      "path": "scripts/heart_vortex_animator.gd",
+      "bytes": 1803,
+      "sha256": "8b574f35db7e762a20b022af1359de05e2167abe0e97edf52da3555c3c706882"
+    },
+    {
+      "path": "scripts/heart_vortex_animator.gd.uid",
+      "bytes": 20,
+      "sha256": "895b41a65d52bef3265744c655b925553abfbfffe6d485f88dc03ef1f87dae65"
+    },
+    {
+      "path": "scripts/mobile_dungeon_renderer.gd",
+      "bytes": 23831,
+      "sha256": "bdd4670d1783d09893d99932136fc151aa38111abbd3ff22f7e288178100658e"
+    },
+    {
+      "path": "scripts/mobile_dungeon_renderer.gd.uid",
+      "bytes": 20,
+      "sha256": "396c1aad4ba819fe5174eb103b7345a897e78a53b73b32d02d47f7696255c364"
+    },
+    {
+      "path": "scripts/mobile_kit_definition.gd",
+      "bytes": 429,
+      "sha256": "05f874650053f48611b52e8f9abec3415c72f55e9d67af750298ea891e5fd3f6"
+    },
+    {
+      "path": "scripts/mobile_kit_definition.gd.uid",
+      "bytes": 20,
+      "sha256": "d10d70c466522a6696235c11b7d03f5e51f7ff3c3b747b1d27dbc74e9f7461af"
+    },
+    {
+      "path": "scripts/vulpin_chest_lockpick_preview.gd",
+      "bytes": 6180,
+      "sha256": "1d714f21fdbe0e7d20eb50b3c249ee67f2fd618c57c94c1c3eb754971b03b06f"
+    },
+    {
+      "path": "scripts/vulpin_chest_lockpick_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "ae6106a52ef27398974b77d3c44e8f213a8e1a08e615708f5f258b297052e1e9"
+    },
+    {
+      "path": "scripts/vulpin_chest_lockpick_stage.gd",
+      "bytes": 4125,
+      "sha256": "43622e30f0bf203bec39ca3e41905c1af5a88b5b653a2717d8291a9cf2ebdac3"
+    },
+    {
+      "path": "scripts/vulpin_chest_lockpick_stage.gd.uid",
+      "bytes": 20,
+      "sha256": "1dfa3ae19ca81708c669019dfc19fd707cebefd2436b824d4c574edc92a15509"
+    },
+    {
+      "path": "scripts/vulpin_chest_open_preview.gd",
+      "bytes": 7396,
+      "sha256": "345ce3f3ac793370cec20bf9aa24f6b7beb89730b7949d6c159bfa93bbdc7845"
+    },
+    {
+      "path": "scripts/vulpin_chest_open_preview.gd.uid",
+      "bytes": 19,
+      "sha256": "b21c857868aa3a60065ba7fd54aeb19385e823b2e8082d6f87274cdade5dea75"
+    },
+    {
+      "path": "scripts/vulpin_chest_open_stage.gd",
+      "bytes": 4255,
+      "sha256": "5a361162eb2285e78d100b556e5c2c56e4a5a0bc1024a44efaa9ae45f7db1116"
+    },
+    {
+      "path": "scripts/vulpin_chest_open_stage.gd.uid",
+      "bytes": 19,
+      "sha256": "2af92f6d0484506f5ec1d042ef71d878a00b3438efc0820938f7aa72d1dec7f0"
+    },
+    {
+      "path": "scripts/vulpin_death_preview.gd",
+      "bytes": 8757,
+      "sha256": "3e15d78e69788a04b0528892c01d070c599cc6c6e475fc0c791dffb018f29f28"
+    },
+    {
+      "path": "scripts/vulpin_death_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "9b884e5cf1e5be9517e6a303754ea9adf795c9c93d5df898204dec85f1dee0a1"
+    },
+    {
+      "path": "scripts/vulpin_hurt_preview.gd",
+      "bytes": 8071,
+      "sha256": "b1249c2eb2b3ace3d2eb3d6b977df8bddf1534f92d5b44ee3c04fe106b5b48b0"
+    },
+    {
+      "path": "scripts/vulpin_hurt_preview.gd.uid",
+      "bytes": 19,
+      "sha256": "46dcba45ef5946006cc0ee7a69b64a618ce9a6cc8a5fa3017a97e7f4105f3592"
+    },
+    {
+      "path": "scripts/vulpin_idle_preview.gd",
+      "bytes": 4115,
+      "sha256": "558ac52703e1c056bb0605cd24bcd79611834dbfd3578de194b4da7bebe9d753"
+    },
+    {
+      "path": "scripts/vulpin_idle_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "d801b0a7ba8383ce7f6786beb687aa2e6c030206096b9fda9428124f73a05ca0"
+    },
+    {
+      "path": "scripts/vulpin_lockpick_preview.gd",
+      "bytes": 6857,
+      "sha256": "b0eef0c457209c4687e4fa0566a4fca890adf72bc593889632fe9e73bb5535c8"
+    },
+    {
+      "path": "scripts/vulpin_lockpick_preview.gd.uid",
+      "bytes": 19,
+      "sha256": "54cf9c980761e6a6d6922691bd66b98cb3e638646851996b7dc5f6edf3d13c09"
+    },
+    {
+      "path": "scripts/vulpin_lockpick_stage.gd",
+      "bytes": 4636,
+      "sha256": "575d822378cb02970224b738a78a5b11c4f6b7651ae8c5aca0de2cba7e28a4fc"
+    },
+    {
+      "path": "scripts/vulpin_lockpick_stage.gd.uid",
+      "bytes": 20,
+      "sha256": "aba49b46503be10c4e751ee65632578955dfa2ff0f19b7dfaad0e3d4d2e62f24"
+    },
+    {
+      "path": "scripts/vulpin_walk_corridor.gd",
+      "bytes": 3404,
+      "sha256": "d613cce0d49b5b042e06e7d36c62b962a27384cf8b6d37f0bac30f9d4cae428a"
+    },
+    {
+      "path": "scripts/vulpin_walk_corridor.gd.uid",
+      "bytes": 20,
+      "sha256": "c559186a530c6156a18253526c21c125a6cc5340c81c6ecedb29b195f8e9e05f"
+    },
+    {
+      "path": "scripts/vulpin_walk_preview.gd",
+      "bytes": 7287,
+      "sha256": "16cf509dbf9b17a903161ed8e4cce2e4c56001c3b6fbf8da19211b36423c71d1"
+    },
+    {
+      "path": "scripts/vulpin_walk_preview.gd.uid",
+      "bytes": 19,
+      "sha256": "3abb0f1ae3e447413b30f248e3d0bab52cb1d38d0b6d15a2067e81d262e23dfb"
+    },
+    {
+      "path": "shaders/door_wall_junction.gdshader",
+      "bytes": 2148,
+      "sha256": "b1128bb531d40fdcb37145820bcaf69c9114bd1fd5223d2f89d9b010afa2cb6a"
+    },
+    {
+      "path": "shaders/door_wall_junction.gdshader.uid",
+      "bytes": 20,
+      "sha256": "e91f70029fa173c9a8ee42abe7a874b53040341b9138a6e5e984f71d428c666a"
+    },
+    {
+      "path": "shaders/ground_effect_add.gdshader",
+      "bytes": 786,
+      "sha256": "ab9dfc1b791da8489bb48847c42a291395c71f61988357652d06c5f4e2cfaa87"
+    },
+    {
+      "path": "shaders/ground_effect_add.gdshader.uid",
+      "bytes": 20,
+      "sha256": "6489d1b2b6f8953b9535070a9416750402e0d7a038ab889b25bdd937cc443ac1"
+    },
+    {
+      "path": "shaders/ground_effect_mix.gdshader",
+      "bytes": 786,
+      "sha256": "3ea13d6a4c943d12bb7180278e99984ce634f74f67d348ca64af65c4e4029daa"
+    },
+    {
+      "path": "shaders/ground_effect_mix.gdshader.uid",
+      "bytes": 20,
+      "sha256": "a1c12e60b2290a2eeeb227093e3a668ea8e8ba1f6325759ec87eef2cc8655170"
+    },
+    {
+      "path": "shaders/heart_vortex.gdshader",
+      "bytes": 1643,
+      "sha256": "bfb8642d275ad40a6eb2fb3f464395f8b5fcd9fee09c0f779048af6ae114d480"
+    },
+    {
+      "path": "shaders/heart_vortex.gdshader.uid",
+      "bytes": 19,
+      "sha256": "1b9160d8ee0f875a274065ef0e9ad6a5cec70fd93fda2973d8a48be8df2c29d2"
+    },
+    {
+      "path": "tools/audit_hero_pipeline.cjs",
+      "bytes": 6448,
+      "sha256": "5c7ede35dd5fb37332d4a1c5cd80b0fe609788505c55733f86c88a81eaacd671"
+    },
+    {
+      "path": "tools/capture_vulpin_chest_lockpick_preview.gd",
+      "bytes": 4254,
+      "sha256": "d7a168190bbeb2bf8ed0da8fd7b2da471865d477a45660f26f894e3e9d8e11d1"
+    },
+    {
+      "path": "tools/capture_vulpin_chest_lockpick_preview.gd.uid",
+      "bytes": 19,
+      "sha256": "6eb7a94a0b5d3b3149d7afd90a995525e3b976363e9da5501adc158d4efdfc17"
+    },
+    {
+      "path": "tools/capture_vulpin_chest_open_preview.gd",
+      "bytes": 5100,
+      "sha256": "3cc6efcfbd162248a16e47aec9b3be3d343f1cc1bf04cd9f1733fc66d6c16a23"
+    },
+    {
+      "path": "tools/capture_vulpin_chest_open_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "b71c44b9232ce720eeafd6aedc94199ceeb1670577b49ea69a4bd8bcfef00523"
+    },
+    {
+      "path": "tools/capture_vulpin_death_preview.gd",
+      "bytes": 3933,
+      "sha256": "9192b51928b946f7bd0a9005f1d6df04c3fc535dd192ddef0c6014d492f7b603"
+    },
+    {
+      "path": "tools/capture_vulpin_death_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "acbc4492d61f8dde34cc50c64350260ed61aa827e98f3d18867c91ffde44a5a1"
+    },
+    {
+      "path": "tools/capture_vulpin_hurt_preview.gd",
+      "bytes": 4638,
+      "sha256": "ff1735016baa27f137a096f6aa27ea4a6a0d7ae01c3ad09c173aa6334eeed659"
+    },
+    {
+      "path": "tools/capture_vulpin_hurt_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "7b5a9c262c7f6def6d995fe59ff03880ab00ad65c10f210802270f19e64047c5"
+    },
+    {
+      "path": "tools/capture_vulpin_lockpick_preview.gd",
+      "bytes": 3430,
+      "sha256": "41f751dfa0a96a3138552d7ea30e1de47387911ab11360e81bd89abef1b010d1"
+    },
+    {
+      "path": "tools/capture_vulpin_lockpick_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "3eb58f4bc55022d791c655fad730282f65523a83fbfd1a816bbd6289992aa427"
+    },
+    {
+      "path": "tools/capture_vulpin_walk_preview.gd",
+      "bytes": 7533,
+      "sha256": "37e32cc0c99763d677988ea4f7ec29f7208175b09a192eda541a284801081292"
+    },
+    {
+      "path": "tools/capture_vulpin_walk_preview.gd.uid",
+      "bytes": 20,
+      "sha256": "7a97f9e13d9777999719e5a9389997956c9ad4fb82d8e4de041a372391030eee"
+    }
+  ]
+}

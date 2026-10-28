@@ -1,0 +1,15 @@
+{
+  "directions": 4,
+  "framesPerDirection": 24,
+  "clippedBorderPixels": 0,
+  "frameSize": 160,
+  "atlasSize": [
+    960,
+    640
+  ],
+  "atlasRgbaTotalBytes": 9830400,
+  "animationPages": 24,
+  "animationDurationMs": 800,
+  "preparation": "All renders uniformly resized3:1, unchanged common frame/root. Board grid and skeleton are explanatory geometry.",
+  "scope": "Review only. No production packing or memory optimization."
+}

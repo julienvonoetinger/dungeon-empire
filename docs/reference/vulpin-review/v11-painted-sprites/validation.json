@@ -1,0 +1,156 @@
+{
+  "scope": "First painted sprite review, not integrated into game; no APK built.",
+  "profiles": {
+    "reference": {
+      "density": 160,
+      "counts": {
+        "idle": 24,
+        "walk": 24,
+        "run": 24,
+        "hurt": 13,
+        "lock-door": 24,
+        "lock-chest": 24,
+        "loot": 24,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 32,
+      "frameSlots": 632,
+      "uniqueSprites": 624,
+      "reusedSlots": 8,
+      "pages": 9,
+      "pngBytes": 7510713,
+      "rgbaBytes": 32948224,
+      "untrimmedRgbaBytes": 143769600,
+      "trimmedContentBytes": 28918452,
+      "packingVerified": true,
+      "pckBytes": 7775336,
+      "previousMannequinPckBytes": 5601112,
+      "nativeChecks": 842,
+      "nativeAnchorCases": 32,
+      "nativeAlphaMaxError": 0,
+      "packOnly": true
+    },
+    "balanced": {
+      "density": 128,
+      "counts": {
+        "idle": 8,
+        "walk": 16,
+        "run": 16,
+        "hurt": 7,
+        "lock-door": 12,
+        "lock-chest": 12,
+        "loot": 12,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 32,
+      "frameSlots": 336,
+      "uniqueSprites": 328,
+      "reusedSlots": 8,
+      "pages": 3,
+      "pngBytes": 2958201,
+      "rgbaBytes": 11649024,
+      "untrimmedRgbaBytes": 48365568,
+      "trimmedContentBytes": 10037160,
+      "packingVerified": true,
+      "pckBytes": 3208744,
+      "previousMannequinPckBytes": 2438984,
+      "nativeChecks": 516,
+      "nativeAnchorCases": 32,
+      "nativeAlphaMaxError": 0,
+      "packOnly": true
+    },
+    "compact": {
+      "density": 96,
+      "counts": {
+        "idle": 6,
+        "walk": 12,
+        "run": 12,
+        "hurt": 7,
+        "lock-door": 8,
+        "lock-chest": 8,
+        "loot": 8,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 32,
+      "frameSlots": 248,
+      "uniqueSprites": 240,
+      "reusedSlots": 8,
+      "pages": 3,
+      "pngBytes": 1397841,
+      "rgbaBytes": 5103616,
+      "untrimmedRgbaBytes": 19906560,
+      "trimmedContentBytes": 4262564,
+      "packingVerified": true,
+      "pckBytes": 1537288,
+      "previousMannequinPckBytes": 1167672,
+      "nativeChecks": 428,
+      "nativeAnchorCases": 32,
+      "nativeAlphaMaxError": 0,
+      "packOnly": true
+    }
+  },
+  "timingCases": 96,
+  "sourceCount": 4,
+  "sources": [
+    {
+      "file": "source/turnaround-original.png",
+      "prompt": "source/prompt.txt",
+      "sha256": "885a4576c65b75ee74f1200981f28e034a24949a2c7daf3a162f6833bcb246d1",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    },
+    {
+      "file": "source/heads-original.png",
+      "prompt": "source/head-prompt.txt",
+      "sha256": "01dd1921fd96ef28c559a51a4f390620819f768e90b8b595648e0db729a5903f",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    },
+    {
+      "file": "source/heads-hurt-original.png",
+      "prompt": "source/hurt-head-prompt.txt",
+      "sha256": "f4229ff98cee7ea94c0507ac013bc355b6c0c5ba5facb7aeae25ee36b37a97e5",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    },
+    {
+      "file": "source/dead-original.png",
+      "prompt": "source/dead-prompt.txt",
+      "sha256": "5f62200473305b285ba405dd471e38d0d3cd6562187b5a9de69502ae15a7a5c0",
+      "generator": "Built-in ImageGen",
+      "nativeAlpha": true
+    }
+  ],
+  "references": [
+    {
+      "file": "../v3-free-hands/source/vulpin-original.png",
+      "sha256": "9a47321f907514b3f639ffd080a36d9bb831629ee3c874633dad9c126be5f3fe"
+    },
+    {
+      "file": "../v4-action-states/source/states-original.png",
+      "sha256": "95fb0f4af87e2bd8dc8d252b358003a07be032c1e1ba1c777c199c66ee01c95d"
+    }
+  ],
+  "viewer": {
+    "checks": 588,
+    "directions": 4,
+    "failures": [],
+    "profiles": 3,
+    "sizes": 6,
+    "states": 8
+  },
+  "nativeChecks": 1786,
+  "oldApkSha256": "f67a7a75416a3752243a8389e9d7e1581907b0ba45d813f28e6994bb58b09bd3",
+  "limits": [
+    "Generated paint is an adaptation, not exact calibrated source geometry.",
+    "Body uses projected paint on articulated proxy geometry; hidden surfaces use fallback colors.",
+    "Head cards preserve painted expressions; tail and some clothing transitions remain simplified.",
+    "Generated equipment may differ between views; no claim of perfect anatomical texture continuity.",
+    "Four corpse paintings are fixed image assets, not a fall sequence.",
+    "No production hero AI/state-machine integration, player-save access or physical-phone test.",
+    "Visual appearance remains subject to user feedback."
+  ]
+}

@@ -1,0 +1,26 @@
+VULPIN - REFERENCES MULTI-VUES POUR MESHY
+
+Importer les quatre PNG separement :
+  Vue principale : 01-face.png
+  Gauche / Left  : 02-profil-gauche.png (museau vers la gauche)
+  Dos / Back     : 03-dos.png
+  Droite / Right : 04-profil-droit.png (museau vers la droite)
+
+Chaque fichier : 1254 x 1254, PNG avec transparence native, moins de 1 Mo.
+Une seule figurine par image. Mains vides, bras ecartes en pose neutre.
+La pochette est sur la hanche droite du personnage ; elle est donc a gauche
+dans la vue de face, a droite dans la vue de dos, visible sur le profil droit.
+La queue est centree sur le dos, masquee par le corps dans la vue de face.
+
+Ce sont des illustrations generees avec ImageGen a partir du Vulpin original,
+pas les rendus d'un modele 3D deja construit. Le dos et les parties cachees
+sont des propositions. De petites differences de dessin subsistent ; le
+resultat de reconstruction dans Meshy reste a verifier.
+
+Les PNG sont les sources selectionnees, sans redimensionnement ni retouche
+par code. Les prompts et la provenance sont conserves dans ../brief.json.
+Ne pas importer l'apercu de comparaison comme image principale.
+
+Documentation Meshy :
+https://docs.meshy.ai/en/webapp/guides/choosing/generation-method
+https://help.meshy.ai/en/articles/9996860-how-to-use-meshy-image-to-3d

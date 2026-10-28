@@ -1,0 +1,19 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+06:56:22 | INFO: Data are loaded, start creating Blender stuff
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+06:56:22 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+INFO:glTFImporter:glTF import finished in 0.06s
+06:56:22 | INFO: glTF import finished in 0.06s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v21-chest-open\render_chest_open.py:121: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('LockpickStudio');world.use_nodes=True;scene.world=world
+Info: No new files have been packed
+Info: Saved as "vulpin-chest-open-poses.blend"
+CHEST_OPEN_POSES_OK 32 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

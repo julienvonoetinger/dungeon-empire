@@ -1,0 +1,400 @@
+{
+  "frames": [
+    {
+      "view": "se",
+      "index": 0,
+      "masterAlphaBounds": [
+        119,
+        54,
+        350,
+        430
+      ],
+      "bytes": 41949,
+      "sha256": "54587bda4d36528802c1831d41b4be44d6898695a72dc4f05acf21e80dc24fff"
+    },
+    {
+      "view": "se",
+      "index": 1,
+      "masterAlphaBounds": [
+        134,
+        90,
+        371,
+        430
+      ],
+      "bytes": 40924,
+      "sha256": "1a0fc14c5e8a359e7f7a17f47a6d9cc98b4c44f85ec611e769178614dbfad299"
+    },
+    {
+      "view": "se",
+      "index": 2,
+      "masterAlphaBounds": [
+        142,
+        126,
+        398,
+        430
+      ],
+      "bytes": 39033,
+      "sha256": "054d2d6a3895be8d4b34c3d509882a932f64e196dd0b83f219623c9ae93e065a"
+    },
+    {
+      "view": "se",
+      "index": 3,
+      "masterAlphaBounds": [
+        141,
+        118,
+        392,
+        430
+      ],
+      "bytes": 39593,
+      "sha256": "4e1ffc62a493b5f7fb70a10f82613b598fc82510545e8a838a48d61d5a1700e1"
+    },
+    {
+      "view": "se",
+      "index": 4,
+      "masterAlphaBounds": [
+        140,
+        111,
+        386,
+        430
+      ],
+      "bytes": 39827,
+      "sha256": "e3fbb8aafd6e701f70c06484f4b5bcb2bac7ea09d2856da45f2acd37c55c42df"
+    },
+    {
+      "view": "se",
+      "index": 5,
+      "masterAlphaBounds": [
+        138,
+        105,
+        380,
+        430
+      ],
+      "bytes": 40322,
+      "sha256": "a0bddfcaad6fa76992b8741bfa084b92ad8d51aabfff2f3c1f36bdb0eefc8b9f"
+    },
+    {
+      "view": "se",
+      "index": 6,
+      "masterAlphaBounds": [
+        132,
+        83,
+        367,
+        430
+      ],
+      "bytes": 41310,
+      "sha256": "ab08e7c20382838df6d0ddc2eeaa39496fe9c9eba2b083051d8dccfb49c76c7d"
+    },
+    {
+      "view": "se",
+      "index": 7,
+      "masterAlphaBounds": [
+        119,
+        60,
+        351,
+        430
+      ],
+      "bytes": 41496,
+      "sha256": "691713a6bf16055181b047822780bfe1910e383a091e9d88e700c32fb6645d22"
+    },
+    {
+      "view": "sw",
+      "index": 0,
+      "masterAlphaBounds": [
+        163,
+        54,
+        392,
+        437
+      ],
+      "bytes": 41133,
+      "sha256": "d2a879722596194f5ce9cc078c1ee22da74a644b552998806de5db0e3a31a8a1"
+    },
+    {
+      "view": "sw",
+      "index": 1,
+      "masterAlphaBounds": [
+        140,
+        91,
+        377,
+        437
+      ],
+      "bytes": 39611,
+      "sha256": "fe3a23e4f6bb8e448baff33e98b64abaddb281553fe96f4da4b8d3ee1b704e63"
+    },
+    {
+      "view": "sw",
+      "index": 2,
+      "masterAlphaBounds": [
+        112,
+        126,
+        369,
+        437
+      ],
+      "bytes": 37838,
+      "sha256": "f720b7233f91adbf8b85c55c7791379e483721667f6874883d59e485a99553f7"
+    },
+    {
+      "view": "sw",
+      "index": 3,
+      "masterAlphaBounds": [
+        119,
+        118,
+        370,
+        437
+      ],
+      "bytes": 38500,
+      "sha256": "c65ff0e70bb84b3156626c5252de471f2b03ba2b25b38dfc98d8782598ebfd69"
+    },
+    {
+      "view": "sw",
+      "index": 4,
+      "masterAlphaBounds": [
+        124,
+        111,
+        371,
+        437
+      ],
+      "bytes": 38946,
+      "sha256": "46aeddb82c485e29813dac73c71e30fae94368b0badd6e7f5aa3c5f61acb7c58"
+    },
+    {
+      "view": "sw",
+      "index": 5,
+      "masterAlphaBounds": [
+        130,
+        105,
+        373,
+        437
+      ],
+      "bytes": 39064,
+      "sha256": "d0b443f7f19c89ba1b5126255ab3b6a76ca140c13b1425145c2ff72cbf33add2"
+    },
+    {
+      "view": "sw",
+      "index": 6,
+      "masterAlphaBounds": [
+        144,
+        83,
+        379,
+        437
+      ],
+      "bytes": 40159,
+      "sha256": "92a3b8d0ee8cd321e7af455191f46bc2ec8e50531b40a7022221d7ac605f0302"
+    },
+    {
+      "view": "sw",
+      "index": 7,
+      "masterAlphaBounds": [
+        160,
+        60,
+        392,
+        437
+      ],
+      "bytes": 40678,
+      "sha256": "07b6c6116386643a621f250cc6ce6d08af510a3d51c5fe5df6da803cbd102b9a"
+    },
+    {
+      "view": "nw",
+      "index": 0,
+      "masterAlphaBounds": [
+        161,
+        41,
+        392,
+        416
+      ],
+      "bytes": 38112,
+      "sha256": "e72e20eec84c9af7a24424746957ece97e40436490513153cc55cf58431ffb70"
+    },
+    {
+      "view": "nw",
+      "index": 1,
+      "masterAlphaBounds": [
+        140,
+        38,
+        377,
+        416
+      ],
+      "bytes": 39513,
+      "sha256": "ec657bd13aecc998565add9bface7be5f396450313faa9de14e415cb98940711"
+    },
+    {
+      "view": "nw",
+      "index": 2,
+      "masterAlphaBounds": [
+        113,
+        48,
+        369,
+        415
+      ],
+      "bytes": 38287,
+      "sha256": "5855e449748cc25f507dc0c6d1303930e63eec2ccc80064a703014701a49efe9"
+    },
+    {
+      "view": "nw",
+      "index": 3,
+      "masterAlphaBounds": [
+        119,
+        46,
+        370,
+        415
+      ],
+      "bytes": 38350,
+      "sha256": "4035f2a703e3ebe3831c7d2158bf11499b49169985fbd9ff711ff08df59005f2"
+    },
+    {
+      "view": "nw",
+      "index": 4,
+      "masterAlphaBounds": [
+        125,
+        44,
+        371,
+        415
+      ],
+      "bytes": 38421,
+      "sha256": "80691eb2eb34b311972d1b53f2f393d4446e6e9b6bbe0876f7f1d3ada89e9bae"
+    },
+    {
+      "view": "nw",
+      "index": 5,
+      "masterAlphaBounds": [
+        131,
+        44,
+        373,
+        415
+      ],
+      "bytes": 38414,
+      "sha256": "1ee45f724cfee180905543a523659d665582b41f28bd043e4b349c96dd77510e"
+    },
+    {
+      "view": "nw",
+      "index": 6,
+      "masterAlphaBounds": [
+        144,
+        37,
+        379,
+        416
+      ],
+      "bytes": 39063,
+      "sha256": "bd1755bab9ee5018c531eb5a670236dfd0b7a8b5e0f391a2f974fc8d42f4b096"
+    },
+    {
+      "view": "nw",
+      "index": 7,
+      "masterAlphaBounds": [
+        160,
+        39,
+        392,
+        416
+      ],
+      "bytes": 38082,
+      "sha256": "4dbb0ec493b9aafbc4486a9ebce451e41524aa4c3b4e8ddfb38e7e241614ae4d"
+    },
+    {
+      "view": "ne",
+      "index": 0,
+      "masterAlphaBounds": [
+        119,
+        41,
+        348,
+        423
+      ],
+      "bytes": 39488,
+      "sha256": "dd851cabf5cc73ac114f8c764daf9ec334643bb235d916076e19255b3327b021"
+    },
+    {
+      "view": "ne",
+      "index": 1,
+      "masterAlphaBounds": [
+        134,
+        38,
+        372,
+        422
+      ],
+      "bytes": 40188,
+      "sha256": "bcf2fd8786f2336899c0a57c036f09b97bc160e325c0895f799ab89f183c11e3"
+    },
+    {
+      "view": "ne",
+      "index": 2,
+      "masterAlphaBounds": [
+        142,
+        48,
+        399,
+        421
+      ],
+      "bytes": 38820,
+      "sha256": "8c702d98a95ca83bfca84d3e5462a319fb06f181376d18a519c35806925aecfb"
+    },
+    {
+      "view": "ne",
+      "index": 3,
+      "masterAlphaBounds": [
+        141,
+        46,
+        392,
+        421
+      ],
+      "bytes": 39026,
+      "sha256": "6f5e72ac6c27ed88394d6959e066dd30dac72df0fbc8a3909e1a3352410d9a23"
+    },
+    {
+      "view": "ne",
+      "index": 4,
+      "masterAlphaBounds": [
+        140,
+        44,
+        387,
+        421
+      ],
+      "bytes": 39122,
+      "sha256": "5652a8f35d6da7a372f4de70a3b7fb36f2785915fc0a08f5561adacf805ca4e4"
+    },
+    {
+      "view": "ne",
+      "index": 5,
+      "masterAlphaBounds": [
+        138,
+        44,
+        380,
+        421
+      ],
+      "bytes": 39151,
+      "sha256": "defefbeb02794d9c4cd1d162cc19ad8163934877ee1ad025329547b1955c02d3"
+    },
+    {
+      "view": "ne",
+      "index": 6,
+      "masterAlphaBounds": [
+        132,
+        37,
+        368,
+        422
+      ],
+      "bytes": 39791,
+      "sha256": "4d61933dd83b60c5a3b543344e936b4286a3cb6009a9b25fd7fcb3ab7b83184e"
+    },
+    {
+      "view": "ne",
+      "index": 7,
+      "masterAlphaBounds": [
+        119,
+        39,
+        351,
+        423
+      ],
+      "bytes": 39289,
+      "sha256": "7a0640ed6a481fa4902a382ca0c09490babc05bbe456565041de1a8a139df05f"
+    }
+  ],
+  "sourceUnchanged": true,
+  "checks": [
+    "32 unique unclipped frames",
+    "One-shot 1.08 seconds, four directions",
+    "All requested wrist targets reachable without stretching",
+    "Planted feet and original GLB hash checked"
+  ],
+  "animations": [],
+  "pixelArt": false,
+  "sheetBytes": 1102311,
+  "uncompressedRGBABytes": 8388608,
+  "limits": "No facial morphs, gameplay integration, device profile or automatic self-intersection guarantee. Artistic review pending."
+}

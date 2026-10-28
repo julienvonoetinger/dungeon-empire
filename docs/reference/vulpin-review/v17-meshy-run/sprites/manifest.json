@@ -1,0 +1,46 @@
+{
+  "frameSize": [
+    256,
+    256
+  ],
+  "fps": 16,
+  "duration": 0.5,
+  "loop": true,
+  "filter": "linear",
+  "directions": {
+    "se": {
+      "sheet": "run-se.png",
+      "frames": 8,
+      "anchor": [
+        128.00010681152344,
+        195.92598342895508
+      ]
+    },
+    "sw": {
+      "sheet": "run-sw.png",
+      "frames": 8,
+      "anchor": [
+        127.99988555908203,
+        195.92598342895508
+      ]
+    },
+    "nw": {
+      "sheet": "run-nw.png",
+      "frames": 8,
+      "anchor": [
+        127.99992370605469,
+        195.9259490966797
+      ]
+    },
+    "ne": {
+      "sheet": "run-ne.png",
+      "frames": 8,
+      "anchor": [
+        128.0000762939453,
+        195.9259490966797
+      ]
+    }
+  },
+  "source": "035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4",
+  "notes": "Eight held poses from the real Meshy mesh. Review only; not integrated into the game."
+}

@@ -1,0 +1,90 @@
+{
+  "source_sha256": "035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4",
+  "pose": {
+    "bounds": [
+      [
+        -0.6765847206115723,
+        -1.0183348655700684,
+        0.0
+      ],
+      [
+        0.6765847206115723,
+        0.6183348894119263,
+        0.8966237306594849
+      ]
+    ],
+    "minimum_z": 0.0,
+    "finite": true,
+    "length_checks": [
+      {
+        "side": "R",
+        "thigh_error": 1.3481979144192024e-08,
+        "shin_error": 6.149453501969049e-09
+      },
+      {
+        "side": "L",
+        "thigh_error": 2.923802505661044e-09,
+        "shin_error": 1.8423956804625163e-09
+      }
+    ],
+    "vertices_within_2cm_of_floor": 44,
+    "armature_location": [
+      -0.26008617877960205,
+      0.4464499354362488,
+      -0.09186872839927673
+    ],
+    "resting_pose": "Asymmetric folded legs, relaxed arms, face angled down."
+  },
+  "frame_count": 1,
+  "views": {
+    "se": {
+      "anchor_px": [
+        256.0002136230469,
+        391.85196685791016
+      ],
+      "camera_vector": [
+        -1,
+        -1,
+        0.816496580927726
+      ]
+    },
+    "sw": {
+      "anchor_px": [
+        255.99977111816406,
+        391.85196685791016
+      ],
+      "camera_vector": [
+        1,
+        -1,
+        0.816496580927726
+      ]
+    },
+    "nw": {
+      "anchor_px": [
+        255.99984741210938,
+        391.8518981933594
+      ],
+      "camera_vector": [
+        1,
+        1,
+        0.816496580927726
+      ]
+    },
+    "ne": {
+      "anchor_px": [
+        256.0001525878906,
+        391.8518981933594
+      ],
+      "camera_vector": [
+        -1,
+        1,
+        0.816496580927726
+      ]
+    }
+  },
+  "camera_scale": 2.35,
+  "canvas": 512,
+  "hero_scale": 0.85,
+  "material_policy": "Original GLB mesh and paint unchanged.",
+  "limits": "No facial animation or automatic self-collision proof. New pose awaits artistic feedback."
+}

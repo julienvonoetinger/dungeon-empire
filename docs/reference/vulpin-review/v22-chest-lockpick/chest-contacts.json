@@ -1,0 +1,74 @@
+{
+  "height": 0.15,
+  "views": {
+    "nw": {
+      "local": [
+        12.11044765695928,
+        -16.644123519123525
+      ],
+      "grid": [
+        0.10098595187558299,
+        0.006373079555588607
+      ],
+      "inferred": false
+    },
+    "se": {
+      "local": [
+        -12.11044765695928,
+        -30.38607954231349
+      ],
+      "grid": [
+        -0.10098595187558299,
+        -0.006373079555588607
+      ],
+      "inferred": true
+    },
+    "ne": {
+      "local": [
+        -14.760070743916486,
+        -16.268526852685255
+      ],
+      "grid": [
+        -0.001042661671288997,
+        0.11427039101555855
+      ],
+      "inferred": false
+    },
+    "sw": {
+      "local": [
+        14.760070743916486,
+        -30.76167620875176
+      ],
+      "grid": [
+        0.001042661671288997,
+        -0.11427039101555855
+      ],
+      "inferred": true
+    }
+  },
+  "measurements": {
+    "nw": {
+      "id": "prop-chest-east",
+      "pixel": [
+        79.5,
+        54
+      ],
+      "regionSize": [
+        129,
+        91
+      ]
+    },
+    "ne": {
+      "id": "prop-chest",
+      "pixel": [
+        52,
+        41
+      ],
+      "regionSize": [
+        114,
+        78
+      ]
+    }
+  },
+  "notes": "Visible painted keyholes measured; hidden backs inferred by opposite grid offset. Not reconstructed3D."
+}

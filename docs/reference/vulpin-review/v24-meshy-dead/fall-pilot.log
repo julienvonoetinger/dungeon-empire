@@ -1,0 +1,19 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+08:33:11 | INFO: Data are loaded, start creating Blender stuff
+08:33:11 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+08:33:11 | INFO: glTF import finished in 0.06s
+INFO:glTFImporter:glTF import finished in 0.06s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\render_fall.py:180: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('DeadStudio');world.use_nodes=True;scene.world=world
+00:04.125  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-09.png'
+00:05.328  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-09.png'
+FALL_POSES_OK [(0, 0.4218329191207886, {'head': 0.6252629160881042, 'body': 0.47033965587615967, 'knees': 0.13036955893039703, 'hands': 0.338228702545166}), (1, 0.356234073638916, {'head': 0.5785451531410217, 'body': 0.4087226390838623, 'knees': 0.09583845734596252, 'hands': 0.27171340584754944}), (2, 0.29091718792915344, {'head': 0.5281767249107361, 'body': 0.3302111327648163, 'knees': 0.06493175774812698, 'hands': 0.2216106653213501}), (3, 0.2468455731868744, {'head': 0.4893883168697357, 'body': 0.28245049715042114, 'knees': 0.024460121989250183, 'hands': 0.19888243079185486}), (4, 0.23917420208454132, {'head': 0.45438873767852783, 'body': 0.25188693404197693, 'knees': 0.0, 'hands': 0.22015492618083954}), (5, 0.2544708847999573, {'head': 0.35675790905952454, 'body': 0.21516990661621094, 'knees': 0.0, 'hands': 0.24126285314559937}), (6, 0.2534816861152649, {'head': 0.23731373250484467, 'body': 0.13666142523288727, 'knees': 0.0, 'hands': 0.17026983201503754}), (7, 0.25660979747772217, {'head': 0.1351383924484253, 'body': 0.0711212158203125, 'knees': 0.04022549092769623, 'hands': 0.0941305160522461}), (8, 0.261234313249588, {'head': 0.07297694683074951, 'body': 0.04592323303222656, 'knees': 0.07336917519569397, 'hands': 0.04400742053985596}), (9, 0.2601815164089203, {'head': 0.013511121273040771, 'body': 0.03312557935714722, 'knees': 0.08761779963970184, 'hands': 0.02851969003677368})]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

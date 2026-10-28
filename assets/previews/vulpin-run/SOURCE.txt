@@ -1,0 +1,15 @@
+Preview only: scenes/VulpinRun.tscn
+
+Eight new whole-mesh running poses in four isometric directions.
+Source: unchanged user Meshy_AI_Character_output.glb, original materials.
+Review and packed Blender source: docs/reference/vulpin-review/v17-meshy-run/.
+Four 2048x256 PNG sheets, 256x256 per frame, 16 FPS (0.5 second cycle).
+Same camera and ground anchor as the walking scene; no image-part puppet.
+Longer stride, forward lean, bent elbows, raised recovery leg, two flight poses.
+Travel: 2 model units/s, derived from .125 units per planted sample at 16 FPS.
+
+Open VulpinRun.tscn and press F6. Two corridors cover SE/NW and SW/NE.
+Pause, one-pose step, restart and 0.5x/1x/1.5x/2x controls share one clock.
+Running is about 2.05 times the current normal walking travel speed.
+No model is loaded at runtime. No gameplay hero, save or APK changes.
+Visual trial: sampled sole checks do not guarantee natural motion or no clipping.

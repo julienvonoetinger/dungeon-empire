@@ -1,0 +1,39 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+22:00:01 | INFO: Data are loaded, start creating Blender stuff
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+22:00:01 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:glTF import finished in 0.07s
+22:00:01 | INFO: glTF import finished in 0.07s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\render_hurt.py:116: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('HurtStudio');world.use_nodes=True;scene.world=world
+00:03.172  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\se\hurt-00.png'
+00:04.031  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\se\hurt-01.png'
+00:04.922  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\se\hurt-02.png'
+00:05.766  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\se\hurt-03.png'
+00:06.656  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\se\hurt-04.png'
+00:07.547  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\sw\hurt-00.png'
+00:08.484  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\sw\hurt-01.png'
+00:09.359  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\sw\hurt-02.png'
+00:10.297  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\sw\hurt-03.png'
+00:11.172  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\sw\hurt-04.png'
+00:12.094  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\nw\hurt-00.png'
+00:13.031  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\nw\hurt-01.png'
+00:13.922  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\nw\hurt-02.png'
+00:14.797  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\nw\hurt-03.png'
+00:15.656  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\nw\hurt-04.png'
+00:16.547  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\ne\hurt-00.png'
+00:17.375  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\ne\hurt-01.png'
+00:18.250  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\ne\hurt-02.png'
+00:19.094  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\ne\hurt-03.png'
+00:19.984  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v18-meshy-hurt\masters\ne\hurt-04.png'
+Info: No new files have been packed
+Info: Saved as "vulpin-hurt-poses.blend"
+HURT_POSES_OK 20 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

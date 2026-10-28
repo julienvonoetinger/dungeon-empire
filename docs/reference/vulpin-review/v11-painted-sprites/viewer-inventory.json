@@ -1,0 +1,104 @@
+{
+  "stage": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\artifacts\\vulpin-painted-viewer-BMhzKt",
+  "package": "org.dungeonempire.vulpinreview",
+  "mainScene": "res://preview/preview.tscn",
+  "scope": "Native viewer only. No APK requested or built for this correction.",
+  "sourceFiles": [
+    {
+      "file": "scripts/wireframe_cell_study.gd",
+      "sha256": "575894b3db81c9635a1ba6f6b443e7666cc8665c5e63825cdfdcd97603f657ae"
+    },
+    {
+      "file": "scripts/mobile_dungeon_renderer.gd",
+      "sha256": "bdd4670d1783d09893d99932136fc151aa38111abbd3ff22f7e288178100658e"
+    },
+    {
+      "file": "assets/dungeon/isometric-kit/catalog.tres",
+      "sha256": "2b4a0f9d540f79eda9c65efb49a434b16af0bde6222f1b1cc935e2c4b25f89d0"
+    },
+    {
+      "file": "scripts/mobile_kit_definition.gd",
+      "sha256": "05f874650053f48611b52e8f9abec3415c72f55e9d67af750298ea891e5fd3f6"
+    },
+    {
+      "file": "assets/dungeon/isometric-kit/atlas-256.png",
+      "sha256": "f12e9c9551a5582bf43fed09eb27dc3599920aaef5812c9201d2e4126620ca6a"
+    },
+    {
+      "file": "assets/dungeon/isometric-kit/chests/atlas-256.png",
+      "sha256": "930bc7090716c506a62f68ea52b16038394d6a070725c4a30384102047833495"
+    },
+    {
+      "file": "assets/dungeon/isometric-kit/traps/atlas-256.png",
+      "sha256": "1305bbe66a50789b85398305b25ec4effee3857974efd580fc8861857b78c46a"
+    },
+    {
+      "file": "assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+      "sha256": "ba6cb398df750b417cb19bd569e087e5a9ef338b48fee88a9a3e12e5f4b085f9"
+    },
+    {
+      "file": "assets/dungeon/mobile-kit/light-falloff.png",
+      "sha256": "eacd5805c933cd2843bbf454fa47b385b2de00169ad5fb901c71d2c785e1811b"
+    },
+    {
+      "file": "scripts/dungeon_surface_details.gd",
+      "sha256": "fcaa81c11540599c0bbd869dd60648a41237922394e1e5e4aee4b653626282f9"
+    },
+    {
+      "file": "scripts/ground_effect_mask.gd",
+      "sha256": "5539168c803a7f308bfb73cbadf3c223e840a3825fd5c2deab3281ddee90cbf9"
+    },
+    {
+      "file": "shaders/ground_effect_mix.gdshader",
+      "sha256": "3ea13d6a4c943d12bb7180278e99984ce634f74f67d348ca64af65c4e4029daa"
+    },
+    {
+      "file": "shaders/ground_effect_add.gdshader",
+      "sha256": "ab9dfc1b791da8489bb48847c42a291395c71f61988357652d06c5f4e2cfaa87"
+    },
+    {
+      "file": "scripts/dungeon_wall_variants.gd",
+      "sha256": "669100a826464ceb66143fa88481f0bdf59d10cbcd8efa48b44ea0effad4b334"
+    },
+    {
+      "file": "scripts/dungeon_floor_variants.gd",
+      "sha256": "3ca72de0bc8981df373d439209278aacd9b69d09eaa6710060548c8fad31ca7f"
+    },
+    {
+      "file": "scripts/dungeon_floor_damage.gd",
+      "sha256": "43ce201606c35df35a6a434fe527bcd695853cd6ef3035d07afa0e7be42ce7fb"
+    },
+    {
+      "file": "scripts/heart_vortex_animator.gd",
+      "sha256": "8b574f35db7e762a20b022af1359de05e2167abe0e97edf52da3555c3c706882"
+    },
+    {
+      "file": "shaders/heart_vortex.gdshader",
+      "sha256": "bfb8642d275ad40a6eb2fb3f464395f8b5fcd9fee09c0f779048af6ae114d480"
+    },
+    {
+      "file": "scripts/door_wall_junction.gd",
+      "sha256": "6f3f90066f4550e28a493f8abc5a4e6f379087019c799c755cce398bb3cf4b2f"
+    },
+    {
+      "file": "shaders/door_wall_junction.gdshader",
+      "sha256": "b1128bb531d40fdcb37145820bcaf69c9114bd1fd5223d2f89d9b010afa2cb6a"
+    },
+    {
+      "file": "scripts/wireframe_cell_layout.gd",
+      "sha256": "e8291c8d66eeb1c05d3444aaa5a90d7018911ab3d05de4625b2d9fe3e695ffdd"
+    },
+    {
+      "file": "assets/layouts/study_5x5.tres",
+      "sha256": "48029f632ae1732a7f6b764d0d43e39d636d24aa57ccc66c0991f25ba861cf5b"
+    },
+    {
+      "file": "scripts/dungeon_layout.gd",
+      "sha256": "51110f5ba005c94297b69ead791751d430ca2520259af7286fdc3fba3352a27c"
+    },
+    {
+      "file": "assets/ui/master/eye.png",
+      "sha256": "907156f21aaebd843aa3ce220867ea12e6024f86ef8f712256795f7f2127143a"
+    }
+  ]
+}

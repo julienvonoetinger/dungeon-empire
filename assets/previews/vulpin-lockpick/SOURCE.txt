@@ -1,0 +1,23 @@
+Preview only: scenes/VulpinLockpick.tscn (F6).
+
+Eight whole-mesh held poses, four directions, from the user's unchanged
+Meshy_AI_Character_output.glb and original paint. Two small 3D steel lockpicks
+were added to the authoring scene and rendered with the character.
+No runtime skeleton, image-card puppet, synthesized intermediate frame or
+mirrored direction. Same camera, lighting, 256px canvas and scale as walk/run.
+
+Source/masters/packed Blender/validation:
+docs/reference/vulpin-review/v20-door-lockpick/
+
+Four 2048x256 PNG sheets, 32 unique frames. Eight fps / one-second loop.
+The source pick tip is stationary; registration.json projects it through each
+actual Blender camera. Native scene aligns that tip to the existing painted
+door lock (height .275 cell), with the same .85 actor scale as the gait scenes.
+
+Pause/step and 0.5x..2x. Distance offset (in cells), Recaler, contact guides,
+and translucent door option are inspection controls only. At zero offset,
+the tool tip and lock registration should coincide throughout the loop.
+Actual native wall/door ordering remains enabled in normal mode.
+
+No gameplay unlocking, success/opening transition, save access or APK build.
+Visual proposal. No new facial expression; naturalness still needs user review.

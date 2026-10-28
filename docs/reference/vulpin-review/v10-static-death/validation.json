@@ -1,0 +1,70 @@
+{
+  "scope": "Static-death untextured prototype, 8 states / 4 directions. No APK or gameplay integration.",
+  "profiles": {
+    "reference": {
+      "animationResourceBytes": 132489,
+      "checks": 837,
+      "failures": [],
+      "importedTextureBytes": 5459222,
+      "nativeAlphaMaxError": 0,
+      "nativeAnchorCases": 32,
+      "pckBytes": 5601112,
+      "profile": "reference",
+      "scope": "Isolated native desktop import/playback and dependency-complete resource pack. No APK, final paint or mobile profiling.",
+      "decodedBytes": 31375360,
+      "packOnly": true,
+      "previousPckBytes": 7023480,
+      "savedBytes": 1422368,
+      "savedPercent": 20.251613160427596
+    },
+    "balanced": {
+      "animationResourceBytes": 71554,
+      "checks": 516,
+      "failures": [],
+      "importedTextureBytes": 2363788,
+      "nativeAlphaMaxError": 0,
+      "nativeAnchorCases": 32,
+      "pckBytes": 2438984,
+      "profile": "balanced",
+      "scope": "Isolated native desktop import/playback and dependency-complete resource pack. No APK, final paint or mobile profiling.",
+      "decodedBytes": 10813440,
+      "packOnly": true,
+      "previousPckBytes": 2956312,
+      "savedBytes": 517328,
+      "savedPercent": 17.499100230286924
+    },
+    "compact": {
+      "animationResourceBytes": 53479,
+      "checks": 423,
+      "failures": [],
+      "importedTextureBytes": 1111684,
+      "nativeAlphaMaxError": 0,
+      "nativeAnchorCases": 32,
+      "pckBytes": 1167672,
+      "profile": "compact",
+      "scope": "Isolated native desktop import/playback and dependency-complete resource pack. No APK, final paint or mobile profiling.",
+      "decodedBytes": 4866048,
+      "packOnly": true,
+      "previousPckBytes": 1418296,
+      "savedBytes": 250624,
+      "savedPercent": 17.67078240367314
+    }
+  },
+  "retainedFramesByteIdentical": 1216,
+  "staticSources": 4,
+  "viewer": {
+    "checks": 588,
+    "directions": 4,
+    "failures": [],
+    "profiles": 3,
+    "sizes": 6,
+    "states": 8
+  },
+  "nativeChecks": 1776,
+  "oldApkSha256": "f67a7a75416a3752243a8389e9d7e1581907b0ba45d813f28e6994bb58b09bd3",
+  "limits": [
+    "No new physical-phone test",
+    "No final painted hero or gameplay state-machine integration",
+    "Previous reviews and APK remain historical"
+  ]
+}

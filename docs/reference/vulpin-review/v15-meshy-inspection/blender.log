@@ -1,0 +1,11 @@
+20:40:06 | INFO: Data are loaded, start creating Blender stuff
+20:40:06 | INFO: Blender create Mesh node output_unwrapped
+20:40:06 | INFO: glTF import finished in 0.07s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v15-meshy-inspection\inspect_model.py:96: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+00:03.406  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v15-meshy-inspection\front.png'
+00:04.500  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v15-meshy-inspection\isometric.png'
+INSPECTION_OK {"armatures": 1, "meshes": 1, "actions": [], "bounds": {"min": [-0.594295, -0.686279, 0.0], "max": [0.594295, 0.686279, 1.7], "size": [1.18859, 1.372557, 1.7]}, "source_unchanged": true}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

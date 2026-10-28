@@ -1,0 +1,15 @@
+{
+	"actors": 4,
+	"checks": [
+		"four native animations",
+		"autoplay",
+		"pause",
+		"step and wrap",
+		"slow speed",
+		"synchronized frames",
+		"three viewport sizes"
+	],
+	"failures": [],
+	"poses_per_direction": 8,
+	"scene": "res://scenes/VulpinWalk.tscn"
+}

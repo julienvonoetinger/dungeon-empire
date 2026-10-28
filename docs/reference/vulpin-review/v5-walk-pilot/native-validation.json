@@ -1,0 +1,32 @@
+{
+	"captures": 8,
+	"crop": [
+		352,
+		184,
+		384,
+		256
+	],
+	"loops": 2,
+	"note": "Actual AnimatedSprite2D atlas playback in isolated native fixture; no foot-slip oracle or gameplay integration.",
+	"paused_frame_stable": true,
+	"save_written": false,
+	"sequence": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		0,
+		1
+	]
+}

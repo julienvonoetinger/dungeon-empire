@@ -1,0 +1,27 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+22:24:06 | INFO: Data are loaded, start creating Blender stuff
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+22:24:06 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+22:24:06 | INFO: glTF import finished in 0.07s
+INFO:glTFImporter:glTF import finished in 0.07s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\render_lockpick.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  metal.use_nodes=True
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\render_lockpick.py:146: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('LockpickStudio');world.use_nodes=True;scene.world=world
+00:02.875  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-00.png'
+00:04.360  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-01.png'
+00:05.875  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-02.png'
+00:07.375  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-03.png'
+00:08.891  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-04.png'
+00:10.406  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-05.png'
+00:11.938  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-06.png'
+00:13.469  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v20-door-lockpick\masters\se\lockpick-07.png'
+LOCKPICK_POSES_OK 8 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

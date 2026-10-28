@@ -1,0 +1,68 @@
+{
+  "canvas": 224,
+  "anchor": [
+    112,
+    180
+  ],
+  "nominalDensity": 160,
+  "modelToCell": 0.4,
+  "directions": {
+    "se": 0,
+    "sw": -90,
+    "nw": 180,
+    "ne": 90
+  },
+  "clips": {
+    "idle": {
+      "seconds": 1.6,
+      "source": 24,
+      "loop": true,
+      "label": "Attente"
+    },
+    "walk": {
+      "seconds": 0.8,
+      "source": 48,
+      "loop": true,
+      "label": "Marche",
+      "stride": 0.44
+    },
+    "run": {
+      "seconds": 0.36,
+      "source": 48,
+      "loop": true,
+      "label": "Course",
+      "stride": 0.8
+    },
+    "hurt": {
+      "seconds": 0.4,
+      "source": 13,
+      "loop": false,
+      "label": "Dégâts"
+    },
+    "lock-door": {
+      "seconds": 0.8,
+      "source": 24,
+      "loop": true,
+      "label": "Crochetage porte"
+    },
+    "lock-chest": {
+      "seconds": 0.8,
+      "source": 24,
+      "loop": true,
+      "label": "Crochetage coffre"
+    },
+    "loot": {
+      "seconds": 1.2,
+      "source": 24,
+      "loop": true,
+      "label": "Ramassage"
+    },
+    "dead": {
+      "seconds": 1,
+      "source": 1,
+      "loop": false,
+      "label": "Mort"
+    }
+  },
+  "scope": "Eight states; death is one static sprite per direction. No fall sequence."
+}

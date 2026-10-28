@@ -1,0 +1,27 @@
+20:56:12 | INFO: Data are loaded, start creating Blender stuff
+20:56:12 | INFO: Blender create Mesh node output_unwrapped
+20:56:12 | INFO: glTF import finished in 0.09s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\render_walk.py:109: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('WalkStudio');world.use_nodes=True;scene.world=world
+00:03.359  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-00.png'
+00:04.203  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-01.png'
+00:05.109  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-02.png'
+00:05.953  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-03.png'
+00:06.828  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-04.png'
+00:07.687  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-05.png'
+00:08.578  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-06.png'
+00:09.453  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\nw\walk-07.png'
+00:10.343  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-00.png'
+00:11.218  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-01.png'
+00:12.109  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-02.png'
+00:13.000  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-03.png'
+00:13.875  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-04.png'
+00:14.734  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-05.png'
+00:15.625  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-06.png'
+00:16.515  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\ne\walk-07.png'
+Info: No new files have been packed
+Info: Saved as "vulpin-walk-poses.blend"
+WALK_POSES_OK 16 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

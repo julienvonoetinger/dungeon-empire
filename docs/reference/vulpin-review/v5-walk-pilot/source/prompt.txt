@@ -1,0 +1,17 @@
+Create one production-oriented 8-frame WALK CYCLE sprite sheet from the attached Vulpin character reference. Exactly 8 complete full-body sprites in a precise FOUR COLUMNS by TWO ROWS grid, ordered left to right then top to bottom. Wide canvas, each equal cell near square. Genuine transparent alpha, no background, text, labels, grids, shadows or props.
+
+CHARACTER IDENTITY LOCK: same compact orange fox thief, same black oval eyes/cream muzzle/large ears, olive green hood and short tunic, brown diagonal strap, brown waist belt with simple gold buckle, ONE small brown hip pouch, brown gloved empty hands/leather bracers/boots, orange tail with cream tip. Preserve the reference proportions, clothing construction, palette, crisp thick outlines and illustrated mobile game shading. No weapons, blades, scabbards, lockpicks or coins. Do not add facial markings. Same character anatomy and outfit in all frames.
+
+CAMERA LOCK: fixed orthographic 3/4 isometric camera, facing southeast (screen down-right), identical orientation to the reference. No turning, mirroring or camera rotation. Light always from upper left. Walk IN PLACE, root remains at the SAME point within each cell. Same body scale and head size, equal padding, invisible common ground plane and stable pelvis x-coordinate. Do NOT independently enlarge or recenter individual poses. Keep the head silhouette/face extremely consistent with only a subtle natural vertical bob. All ears, tail, hands and soles contained in their cell with 8% margins.
+
+ANIMATION: one complete, smoothly looping, unarmed cautious WALK gait, eight distinct evenly spaced phases. Not a run, no hop, no static pose repetitions. Arms swing subtly opposite the legs with relaxed empty hands, tail follows with restrained sway. Near leg means leg closest to camera; far leg means the other.
+1 top-left: CONTACT A: near boot extended forward toward down-right touching the ground, far leg extended back toward up-left. Opposite arm forward.
+2: DOWN A: weight settles onto near planted leg, knee slightly bent; far heel lifts and far leg starts swinging forward.
+3: PASS A: near leg supports pelvis; far knee passes forward under pelvis, far foot visibly lifted. Arms pass near sides.
+4: UP A: near heel lifts behind, far leg extends forward to next contact, slight body rise.
+5 bottom-left: CONTACT B: far boot forward touching down, near leg extended backward; arms now opposite phase from frame1.
+6: DOWN B: weight settles onto far planted leg, near heel lifts and near leg swings forward.
+7: PASS B: far leg supports pelvis; near knee passes forward under pelvis with boot lifted.
+8: UP B: far heel lifts behind, near leg extends forward to wrap naturally into frame1. Do not repeat frame1 as frame8.
+
+Feet must alternate, planted feet travel backward relative to the pelvis through each support phase; swinging feet lift and travel forward. Keep ground perspective consistent: forward/back travel follows the down-right/up-left isometric axis, not a horizontal side-view. No skating. One boot contacts ground at all phases. Small gentle smile and alert eyes unchanged. Actual sequential walk poses with clean clear silhouettes readable when reduced to ~100px tall. Prioritize temporal consistency over extra detail.

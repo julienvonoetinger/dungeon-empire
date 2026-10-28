@@ -1,0 +1,63 @@
+{
+  "images": [
+    {
+      "name": "01-face.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 839557,
+      "transparentPixels": 1054233,
+      "boundsAlpha8": [
+        247,
+        72,
+        1006,
+        1186
+      ],
+      "sha256": "cc34de4c49ec8e94022ebf4609fc4c1d834caa8a5ad79d719bef0bc3a617570b"
+    },
+    {
+      "name": "02-profil-gauche.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 697040,
+      "transparentPixels": 1119400,
+      "boundsAlpha8": [
+        272,
+        87,
+        1109,
+        1179
+      ],
+      "sha256": "46484f26386ae76f7af94e5051a8dcff566ab0ef556697a573b34ee081301eee"
+    },
+    {
+      "name": "03-dos.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 759330,
+      "transparentPixels": 1054304,
+      "boundsAlpha8": [
+        241,
+        71,
+        1012,
+        1187
+      ],
+      "sha256": "6f5ad2337f013290a5209dcf8d8fd229bd9aa5c5d8c26da6e4c5c2dc567428a0"
+    },
+    {
+      "name": "04-profil-droit.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 695912,
+      "transparentPixels": 1122795,
+      "boundsAlpha8": [
+        160,
+        87,
+        987,
+        1182
+      ],
+      "sha256": "6c1289d0068f198ce980640d5f7d7aee86ca894af4876afd4a3923cab137baf1"
+    }
+  ],
+  "export": "Byte-identical selected generated sources; no art edits or distortion in preparation.",
+  "inspection": "All four views inspected visually; front tail and rear heels corrected via ImageGen.",
+  "limits": "Independent AI illustrations, not renders of one calibrated 3D mesh. Back and hidden surfaces are proposed. Meshy output not tested."
+}

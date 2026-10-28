@@ -1,0 +1,28 @@
+{
+  "status": "Untextured rig prototype, not approved silhouette or production actor",
+  "frames": 24,
+  "fps": 30,
+  "cycleSeconds": 0.8,
+  "strideModel": 0.44,
+  "modelToCell": 0.4,
+  "strideCells": 0.17600000000000002,
+  "frameSize": 160,
+  "renderSize": 480,
+  "root": [
+    80,
+    140
+  ],
+  "directions": {
+    "se": 0,
+    "sw": -90,
+    "nw": 180,
+    "ne": 90
+  },
+  "rig": "vulpin-mannequin.blend",
+  "camera": "Exactly shared 2:1 ground projection; coordinate swap x/y in Blender",
+  "gait": "60% stance, 40% swing, fixed two-bone IK; flat soles, no heel/toe roll yet",
+  "colors": {
+    "L": "cyan",
+    "R": "copper"
+  }
+}

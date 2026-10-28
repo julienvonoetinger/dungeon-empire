@@ -1,0 +1,15 @@
+Edit the attached 8-frame Vulpin walk sheet to correct its gait. Keep a FOUR COLUMNS by TWO ROWS sheet of eight whole sprites on transparent background, same cell size and consistent character scale. The second attachment is the canonical face/outfit reference. Preserve unarmed empty gloved hands, same green hood, orange fox, black oval eyes, leather gear, ONE pouch, tail.
+
+Critical corrections:
+- ALL EIGHT FRAMES must have the exact same head/muzzle/hood proportions and southeast 3/4 orientation as the TOP-LEFT sprite. The bottom row currently turns more side-on: remove this rotation. Keep head and torso facing fixed, only limbs and a very small body bob move. Same eyes, same mouth, same cloth folds, same buckle and pouch placement in every cell. No changes of outfit.
+- The second half of the walk MUST be the OPPOSITE LEG phase, not another stride of the same leg.
+- The NEAR leg is the leg on the pouch side, closer to the camera (starting at the LEFT side of the pelvis on screen). The FAR leg starts on the RIGHT side of the pelvis.
+- In frame1 the FAR boot is forward down-right and NEAR boot back up-left.
+- Frame2 weight settles on FAR leg while NEAR leg swings forward.
+- Frame3 FAR leg supports body, NEAR knee passes it moving forward with raised boot.
+- Frame4 NEAR leg is forward in air about to land, FAR heel back/up about to push off.
+- Frame5 must show NEAR leg (pouch-side leg) clearly stretched FORWARD and DOWN-RIGHT, with FAR leg stretched BACK up-left. Make both thigh-to-boot connections obvious. This is the exact reverse of frame1, not a copy.
+- Frame6 weight settles on NEAR leg while FAR leg swings forward.
+- Frame7 NEAR leg supports body, FAR knee passes forward with raised boot.
+- Frame8 FAR leg forward in air about to land, NEAR heel back/up, leading smoothly back to frame1.
+Arms swing in opposition to their corresponding leg, low and relaxed, not held stiffly at chest height. Tail subtly counterbalances but retains shape and markings. No cloned poses, no turn, no mirror, no hop, no running, no skating. Keep a common root and scale in each cell, all body parts within own cell. Transparent native alpha, no labels/grid/shadow/props. Prioritize believable alternating walk timing and temporal consistency.

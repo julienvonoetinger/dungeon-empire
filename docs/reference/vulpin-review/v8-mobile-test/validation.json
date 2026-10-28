@@ -1,0 +1,32 @@
+{
+  "apk": "vulpin-animations-0.1.apk",
+  "bytes": 70812210,
+  "sha256": "f67a7a75416a3752243a8389e9d7e1581907b0ba45d813f28e6994bb58b09bd3",
+  "package": "org.dungeonempire.vulpinreview",
+  "versionCode": 1,
+  "version": "vulpin-0.1",
+  "minSdk": 24,
+  "targetSdk": 36,
+  "orientation": "fullUser",
+  "architectures": [
+    "arm64-v8a",
+    "armeabi-v7a"
+  ],
+  "signatureVerified": true,
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "packedNativeChecks": {
+    "checks": 578,
+    "directions": 4,
+    "failures": [],
+    "profiles": 3,
+    "sizes": 6,
+    "states": 9
+  },
+  "phoneTested": false,
+  "savesUsed": false,
+  "sourceBase": "75c32124813377720f1b925221344d234f27ccf9",
+  "sourceWorkingTree": true
+}

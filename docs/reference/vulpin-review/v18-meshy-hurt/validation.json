@@ -1,0 +1,257 @@
+{
+  "frames": [
+    {
+      "view": "se",
+      "index": 0,
+      "masterAlphaBounds": [
+        119,
+        45,
+        346,
+        428
+      ],
+      "bytes": 42878,
+      "sha256": "bfce25779394dba2afd83b5f000c3be0c388bbf2050617f7e30fa64b12ef9a02"
+    },
+    {
+      "view": "se",
+      "index": 1,
+      "masterAlphaBounds": [
+        105,
+        33,
+        346,
+        428
+      ],
+      "bytes": 44725,
+      "sha256": "5be50239cb389d61a58e2d0ec40b3456a5f549eb646b02bcbedf3a99e6527157"
+    },
+    {
+      "view": "se",
+      "index": 2,
+      "masterAlphaBounds": [
+        131,
+        124,
+        373,
+        428
+      ],
+      "bytes": 39163,
+      "sha256": "af573c7837ce9fb16d4e88a4835854dfe51ca11c85f189cd1d348cfad8c33859"
+    },
+    {
+      "view": "se",
+      "index": 3,
+      "masterAlphaBounds": [
+        127,
+        82,
+        357,
+        428
+      ],
+      "bytes": 40680,
+      "sha256": "c169a5b08000fa8e7df212b77c3ec2d0455a28fcc53a45612984635b8c2647bc"
+    },
+    {
+      "view": "se",
+      "index": 4,
+      "masterAlphaBounds": [
+        119,
+        52,
+        347,
+        428
+      ],
+      "bytes": 42376,
+      "sha256": "3c9caa6eeee92633849b4090f675c86c365e2eab0e53f6a062b83d8434831b25"
+    },
+    {
+      "view": "sw",
+      "index": 0,
+      "masterAlphaBounds": [
+        169,
+        45,
+        392,
+        435
+      ],
+      "bytes": 42220,
+      "sha256": "8d82419b8bafe70a8e5a75621e011990743c098a976e58ba48328f55c1ab60a5"
+    },
+    {
+      "view": "sw",
+      "index": 1,
+      "masterAlphaBounds": [
+        170,
+        32,
+        432,
+        435
+      ],
+      "bytes": 45248,
+      "sha256": "214804ea317af0b531d3445be48d539ca3bd94ce880250eb521478c877299ffb"
+    },
+    {
+      "view": "sw",
+      "index": 2,
+      "masterAlphaBounds": [
+        134,
+        107,
+        405,
+        435
+      ],
+      "bytes": 39795,
+      "sha256": "ddf631eddcc4b598b49e99092ae48466b5a40c29c3196179fb76b82b546c0a7d"
+    },
+    {
+      "view": "sw",
+      "index": 3,
+      "masterAlphaBounds": [
+        152,
+        77,
+        397,
+        435
+      ],
+      "bytes": 40338,
+      "sha256": "b3d01778fe89d97cf05b0671dbbf115ab6d135f4e2d476b6707bb5d675c61500"
+    },
+    {
+      "view": "sw",
+      "index": 4,
+      "masterAlphaBounds": [
+        164,
+        52,
+        392,
+        435
+      ],
+      "bytes": 41369,
+      "sha256": "48fc5d08e2d497997601f3db56152fcbc637aa260a1e03985bb6aab84a748115"
+    },
+    {
+      "view": "nw",
+      "index": 0,
+      "masterAlphaBounds": [
+        165,
+        48,
+        392,
+        414
+      ],
+      "bytes": 38755,
+      "sha256": "5b4117fadf5d810e1728ebb5483d76e8f168c47110149bb3d8a91b8c23eaf8ef"
+    },
+    {
+      "view": "nw",
+      "index": 1,
+      "masterAlphaBounds": [
+        165,
+        98,
+        406,
+        425
+      ],
+      "bytes": 37531,
+      "sha256": "1b18d93146d659111fd80b4b2ae904f5892c4fb00d8602255547c658e8c63561"
+    },
+    {
+      "view": "nw",
+      "index": 2,
+      "masterAlphaBounds": [
+        138,
+        58,
+        380,
+        414
+      ],
+      "bytes": 37590,
+      "sha256": "18569e140bde73c8fb9382087e91c6ba3372526431581acb6b86b2e06ec3baa2"
+    },
+    {
+      "view": "nw",
+      "index": 3,
+      "masterAlphaBounds": [
+        154,
+        47,
+        384,
+        414
+      ],
+      "bytes": 38387,
+      "sha256": "7feff8a1e2f9aa02ae711b2bee08187e35b1c185a9b4fc48c9c695b2b52202b5"
+    },
+    {
+      "view": "nw",
+      "index": 4,
+      "masterAlphaBounds": [
+        164,
+        44,
+        392,
+        414
+      ],
+      "bytes": 38568,
+      "sha256": "33e051f169e19ced2a10916d0cbdb434efb520aedec5deeadfcedbef160a9f60"
+    },
+    {
+      "view": "ne",
+      "index": 0,
+      "masterAlphaBounds": [
+        119,
+        48,
+        342,
+        421
+      ],
+      "bytes": 39904,
+      "sha256": "c2d7144a0fcda9239662f542c46c5451cfec6fe4c31e23ed2cf027e92c528992"
+    },
+    {
+      "view": "ne",
+      "index": 1,
+      "masterAlphaBounds": [
+        79,
+        89,
+        340,
+        420
+      ],
+      "bytes": 39120,
+      "sha256": "ec484f079414b3302a4804d1e2975a34e50035cd940042d4b15dfc09364fde51"
+    },
+    {
+      "view": "ne",
+      "index": 2,
+      "masterAlphaBounds": [
+        106,
+        60,
+        377,
+        420
+      ],
+      "bytes": 39375,
+      "sha256": "880a789515f680c68a4e8d084fe509af1586dcc5079cd3e553aebc683bae4676"
+    },
+    {
+      "view": "ne",
+      "index": 3,
+      "masterAlphaBounds": [
+        114,
+        47,
+        359,
+        420
+      ],
+      "bytes": 39547,
+      "sha256": "63aad8633f5d75480b11cedfe954cd028f717aef9817c5923f38be11990827cb"
+    },
+    {
+      "view": "ne",
+      "index": 4,
+      "masterAlphaBounds": [
+        119,
+        44,
+        347,
+        420
+      ],
+      "bytes": 39752,
+      "sha256": "dbf05ab7277cc1c1f6e6fdc16ba9518e4b9d096c8d9f5668cf9cad33e691dd1a"
+    }
+  ],
+  "sourceUnchanged": true,
+  "checks": [
+    "20 unique nonempty unclipped RGBA frames",
+    "Five fixed whole-mesh poses, four directions",
+    "One-shot runtime clip: 480 ms, ends on neutral",
+    "Feet targets stay fixed; sampled soles remain grounded",
+    "Original GLB and materials unchanged"
+  ],
+  "animations": [],
+  "pixelArt": false,
+  "sheetBytes": 771174,
+  "uncompressedRGBABytes": 5242880,
+  "limits": "No facial morphs, gameplay integration, device profile or automatic self-intersection guarantee. Artistic review pending."
+}

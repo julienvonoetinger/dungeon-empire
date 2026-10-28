@@ -1,5 +1,615 @@
 # Repository instructions
 
+## Reusable hero animation documentation — 2026-10-28
+
+- Start new hero animation work with docs/production/hero-animation-pipeline.md
+  and hero-animation-reproduction.md. Current action sources, timings and
+  superseded experiments are indexed in docs/reference/vulpin-review/README.md.
+  These consolidate camera/anchor/rig/contact/packing/validation lessons;
+  per-action scripts and JSON remain the numeric source of truth.
+- Original Meshy GLB is archived byte-identically under vulpin-review/source,
+  SHA035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4.
+  Current inspection/render recipes resolve this copy, not Downloads. The
+  parent .gdignore keeps it out of Godot imports. Do not overwrite this input.
+- tools/audit_hero_pipeline.cjs verifies the preservation manifest read-only;
+  --record refreshes it only after intentional changes have been validated.
+  It checks source existence/hashes and guide links, not artistic correctness.
+  A local inventory is not a remote backup; include these sources and the
+  manifest in authorized commits/pushes. No APK or animation-art change in this audit.
+- For another hero, remap actual rig semantics and ground masks, recalibrate
+  size/tool contacts, and review a walk pilot before multiplying renders.
+  Never assume Meshy Bone_NNN names or Vulpin anatomy transfer automatically.
+
+## Meshy Vulpin knee-first death preview — 2026-10-28
+
+- User explicitly supersedes the old no-fall decision: knees first, then a
+  forward fall with extended arms. Subsequent feedback rejects a push-up pose
+  and requests the torso lowered and head turned sideways. v24-meshy-dead
+  renders10 whole-mesh held poses in4 views, unchanged Meshy GLB/paint.
+  First side-lying render_dead/render_side_pilot scripts are superseded pilots;
+  render_fall.py is the current source. Eyes remain open: no facial rig.
+- Chest bends independently of pelvis; knees receive weight before the head
+  lowers. Final hands advanced from .184/.185 to .261/.263 model units ahead
+  of shoulders, elbow angles171.45degrees. Reviewer/user push-up finding fixed
+  and saved-pose arm check fails old art/passes new. Head turns78degrees sideways.
+  Body/hand/head sampled floor clearances are approximate, not a physical
+  contact or self-collision simulation; naturalness still needs visual feedback.
+- User then selects the former2x as the new normal: timing is now550ms
+  (previously1.1s), all rate controls relative to that base. Timing updated in
+  source metadata/generator, resources and WebPs; atlas pixels unchanged.
+- Ten held poses,550ms non-loop, then a persistent static corpse. Four
+  dead-* clips share final fall frames. One trimmed atlas1024x1315:1,435,199PNG
+  bytes /5,386,240RGBA bytes.384px virtual canvases retain original pixel density
+  through increased camera canvas/scale; lower camera target requires new
+  ground_anchor metadata. Do not apply the old standing numeric offset.
+- scenes/VulpinDeath.tscn presents4 native floor views, pause/step/replay,
+  .5x–2x and optional repeat (off by default). Native import/capture exit0,
+  empty stderr,128 checks/0failures,12captures at3sizes. Packed Blender replays
+  all10 bounds exactly;40 unclipped unique frames, source hash and24 previous
+  sheets unchanged. New source/native/slow WebPs retained in v24. Preview only:
+  no gameplay, player save, main scene, APK, commit or push changes.
+
+## Vulpin static idle state — 2026-10-28
+
+- User requests idle as a single fixed image, with no animation. New
+  assets/previews/vulpin-idle/frames.tres has one non-loop frame per direction,
+  referencing the neutral region of each existing v19 hurt sheet (also the
+  final hurt frame). No new PNG, repaint, Blender render or moving idle pose.
+- Resource metadata retains the shared ground anchor and .85 hero scale.
+  Idle and hurt share Texture2D assets; loading idle alone still loads the
+  four complete hurt sheets (8 MiB RGBA), not four separate small images.
+- scenes/VulpinIdle.tscn uses four static Sprite2D views on existing paving,
+  without animation controls or a clock. Native import and capture exit0,
+  empty stderr; desktop, short landscape and portrait captures inspected in
+  v23-static-idle. Production hero state machine unchanged. No APK/commit/push.
+
+## Vulpin locked chest lockpicking — 2026-10-28
+
+- User requests the separate chest lockpick action. v22-chest-lockpick renders
+  eight whole-mesh crouched poses in4 directions from unchanged Meshy GLB/paint,
+  with two small3D tools. Lower fixed stance, low hands and small wrist search;
+  8fps/1second loop. Same256px camera/anchor/.85 scale.32 unique unclipped
+  frames;4 sheets847,196PNG bytes/8MiB RGBA. Source hash unchanged.
+- VulpinChestLockpick.tscn shows four native chest/floor stages with pause,
+  step, restart, .5x–2x, guides and ghost chest. Exactly one CLOSED chest and
+  matching shadow throughout attempts; no automatic unlock/open transition.
+  Door lockpick and unlocked chest interaction remain separate and unchanged.
+- Painted east/south keyhole centres measured in prepared textures; hidden
+  rear contacts inferred through opposite grid offsets. Native projection
+  uses projection_y.z=-.6123724357, matching the30degree Blender camera.
+  Source tip reach increased from-.88 to-1.0Y for this visual registration.
+- Replaced inappropriate infinite-plane guard with triangle separation below
+  each chest's actual catalogue height.32 conservative bounds checks pass,
+  min .0068831case clearance. Painted chest has no reconstructed3D geometry:
+  this is a proxy check, not exact horn/lid collision proof or art approval.
+- Native import/capture exit0, empty stderr,394 checks/0 failures,21 captures
+  across4 sizes. Boards, normal/ghost contact and short/portrait inspected.
+  Saved8pose replay has0 bounds/tool-tip error;20 prior sprite sheets unchanged.
+  Fresh independent review found no important issue. No gameplay, save, APK,
+  commit or push. Native animation: v22-chest-lockpick/native-loop.webp.
+
+## Unlocked chest state correction — 2026-10-28
+
+- User corrects v21: a non-locked chest is ALREADY AJAR. Never use the closed
+  locked painting to simulate its opening. A locked chest requires a separate
+  lockpicking action first; this action has not yet been authored for chests.
+- VulpinChestOpen stage now contains only the appropriate prop-chest-open
+  directional sprite and matching open shadow, throughout all8 poses, replay,
+  step wrap and repeat. The Vulpin's existing gesture/32 sprites are unchanged.
+  There is no access-state switch and no animated chest lid in this review.
+  This supersedes the closed/open switch described in the original v21 entry.
+- Regression check first failed96 times with the old two-state scene; final
+  native run exit0/empty stderr,315 checks/0 failures.15 captures and animated
+  preview regenerated; initial/grip/lift views inspected. Source metadata and
+  preparation no longer expose an open-frame transition. No gameplay, save,
+  APK, commit or push changes.
+
+## Vulpin unlocked chest opening — 2026-10-28
+
+- User requests the hero opening an unlocked chest. v21-chest-open renders
+  eight held poses in four views from the unchanged Meshy GLB and paint:
+  ready, bend, grip, start lift, lift, hold, release, recover. Empty hands;
+  no lockpick, looting, fall or facial changes. Same256px camera/anchor/.85
+  scale. One-shot1.08s; four sheets1,102,311PNG bytes/8MiB RGBA.
+- scenes/VulpinChestOpen.tscn presents four native floor/chest stages with
+  pause, step, replay, optional repeat, .5x–2x, guides and ghost chest. Existing
+  closed/open paintings switch at pose4; final state stays open until replay.
+  No intermediate chest lid art or continuous lid animation is claimed.
+- Initial lift was too high for the painted lid; lowered hands while keeping
+  a crouch. Pose0/7 knee bend fixed clamped ankle targets. Grounding/reach,
+  32 unique unclipped frames, source hash and eight saved pose replay checked.
+  Conservative container proxy has no interior mesh vertices; not proof of
+  exact contact/collision with the painted lid, horns or hand surfaces.
+- Native import/capture exit0, empty stderr,247 checks/0 failures. Fifteen
+  captures across4 sizes include normal/ghost grip and opening. Boards,
+  open/closed views, short and portrait inspected; fresh review found no
+  important issue. Sixteen prior walk/run/hurt/lockpick sheets unchanged.
+  Motion remains an artistic proposal. No gameplay/save change, APK, commit
+  or push. Native preview: v21-chest-open/native-preview.webp.
+
+## Vulpin lockpick loop and four-door positioning scene — 2026-10-27
+
+- User requests attempting to pick a door, then a scene with doors in four
+  directions to test placement. v20-door-lockpick renders8 whole-mesh held
+  poses from unchanged Meshy GLB/paint, with two small3D lockpick props. Fixed
+  feet, crouched lean, small wrist search;8fps/1second loop, four directions.
+  Same256px canvas/camera/anchor/.85 scale. Four sheets890,913PNG bytes/8MiB
+  RGBA.32 unique unclipped frames; source hash and saved8-pose replay checked.
+- VulpinLockpick.tscn reuses native dungeon renderer/accepted doors and solid
+  ordering. Four3-cell corridor cards; pause/step/.5x..2x, distance offset,
+  Recaler, optional lock/feet/tool guides and ghost door. Default offset0;
+  source tip projected by actual cameras is aligned to painted lock z=.275.
+  Ghost mode is inspection only; normal mode keeps masonry occlusion.
+- Focused independent review caught head/crown penetration despite leaf-plane
+  contact passing. Source tool reach/setback increased from-.86 to-1.06Y;
+  final mesh triangle separation against actual low-jamb/upper-crown planes
+  passes16 checks (minimum .0094485case at zero offset). Red/green evidence
+  retained. Saved tool tip fixed on all8 poses. Intentional distance controls
+  can move away from this calibrated position.
+- Final Godot import/capture exit0/empty stderr/0failures,21 native views:
+  8normal/8ghost, guide/offset,4sizes. Overview/ghost/short/portrait inspected.
+  Twelve old gait/hurt sheet hashes unchanged. No further important review
+  finding. Hot reload, phone profile and naturalness not proven; no facial
+  animation, gameplay unlocking, player saves, APK, commit or push.
+
+## Vulpin damage motion revised after sneeze-like recoil — 2026-10-27
+
+- User rejects v18's abrupt movement and supplies a backward-braced pose.
+  V18 flipped torso -16 to +16 degrees after60ms, and head -14 to +28.
+  V19-hurt-recoil replaces this with eight explicit held whole-mesh poses:
+  backward recoil only, -25degree peak, raised hands, staggered fixed feet,
+ 120ms peak hold and progressive recovery. Head/torso adjacent pitch changes
+  are at most9degrees. No facial rig/morphs: eyes and mouth still differ from
+  the reference. New body motion is a proposal, not artistic approval.
+- Four2048x256 sheets,32 unique256px frames:1,235,647PNG bytes/8MiB RGBA.
+  Runtime order1..7,0 lasts720ms, loop=false; neutral pixels reused. Original
+  GLB/materials, walk/run sheet hashes, camera and anchor unchanged. Saved
+  Blender contains8 CONSTANT poses, replayed with zero bounds error.
+- VulpinHurt scene now uses eight stages. Native capture/import exit0, empty
+  stderr,0 failures across one-shot end, pause/step/retrigger, rates, repeat,
+  live clock and3 sizes. Seven captures; peak/recovery/short/portrait and full
+  pose board inspected. Export checks source hash,32 unclipped unique frames,
+  fixed ankle targets, sampled grounded soles and backward pitch continuity.
+  These do not prove anatomical correctness or naturalness. V18 retained as
+  rejected history. No gameplay integration, player saves, APK, commit/push.
+
+## Meshy Vulpin damage reaction and review scene — 2026-10-27
+
+- User requests taking-damage animation. v18-meshy-hurt renders five new held
+  whole-mesh poses in four directions from the unchanged Meshy GLB/materials.
+  Brief recoil, contraction with bent knees/raised hands, recovery, then neutral.
+  Feet targets remain fixed; no cell knockback, fall or death animation. Same
+  isometric camera/anchor as walk/run. No facial morphs are available in the rig.
+- Four1280x256 sheets,20 unique256px frames:771,174PNG bytes/5MiB RGBA.
+  SpriteFrames one-shot order1,2,3,4,0 lasts480ms and reuses neutral pixels at
+  the end; loop=false. Packed vulpin-hurt-poses.blend keeps5 CONSTANT poses.
+  First subtle pilot is retained separately; final pose board inspected.
+- scenes/VulpinHurt.tscn presents four views on existing paving. F6 plays with
+  optional repetition/rest gap; Space/Subir un coup retriggers, pause/step and
+ 0.5x..2x available. Editor shows neutral. Preview only, no gameplay damage or
+  player save instantiated. Walk/run scripts, frames and scenes untouched.
+- Export checks20 unique unclipped frames, grounded sampled soles/fixed ankle
+  targets and source hash. Reloaded Blender reproduces5 poses with zero bounds
+  error. Native import/capture exit0, empty stderr,0 failures: one-shot ending,
+  pause, step/wrap, retrigger, rates, repeat gap, live clock and3 viewport sizes.
+  Endpoint comparison tolerates float resource-duration rounding (7ns observed).
+  Six native captures inspected in v18/native-scene. No naturalness/collision
+  guarantee, phone validation, APK, commit or push; visual feedback remains due.
+
+## Meshy Vulpin running sprites and corridor scene — 2026-10-27
+
+- User requests running and its own scene. v17-meshy-run renders eight new held
+  full-mesh poses in four directions from the unchanged Meshy GLB/materials.
+  Forward lean10degrees, bent arms, longer stride, raised recovery foot and two
+  flight samples per cycle. Same30degree camera, scale and anchor as v16 walking.
+  Packed vulpin-run-poses.blend retains CONSTANT keys; no runtime3D skeleton.
+- Four2048x256 sheets (32 frames256px) in assets/previews/vulpin-run:1,138,660
+  PNG bytes,8MiB RGBA.16fps/.5s cycle; model travel2units/s, about2.05x current
+  normal walking. scenes/VulpinRun.tscn offers two corridor round trips and the
+  same pause/step/restart/0.5x..2x controls. Preview scripts accept gait settings;
+  VulpinWalk defaults remain15fps effective with unchanged walk PNGs.
+- Original GLB hash verified; finite geometry, alpha bounds, distinct frames,
+  sampled support/flight clearance and saved pose replay (8/0 error) checked.
+  Full board/front/back and native scene views inspected. Native capture tool
+  accepts --run, checks defaults/rate/pause/step/reversals/four directions and
+  three sizes; both walk and run exit0/0 failures/empty stderr. Import exit0.
+  Evidence: v17/native-corridors, validation.json, saved-pose-validation.json.
+- This is a review scene, not a gameplay hero replacement. Naturalness and
+  self-intersection are not guaranteed by sampled checks; visual feedback still
+  required. No player saves, game rules, main scene, APK, commit or push changed.
+
+## Vulpin walking preview changed to two corridors — 2026-10-27
+
+- User replaces the four stationary views with two corridors and back-and-forth
+  travel. VulpinWalk.tscn now shows two three-cell corridors along the native
+  grid axes: SE/NW and SW/NE. User then selects the former1.5x as the new normal:
+  15 poses/s and a reversal about every3.81s. Other rates are relative to this base.
+  Existing v16 sheets unchanged. New preview-only vulpin_walk_corridor.gd
+  reuses native floor/wall rendering and physical solid ordering for the actor.
+- One clock drives travel and eight held frames; rate follows Blender's planted
+  foot stride and original orthographic camera. Pause/step/restart/0.5x/1x/1.5x/2x
+  controls. Instant direction swap at ends; no new turning animation. Two cards
+  side by side in landscape, stacked in portrait. Editor static, F6 autoplay.
+- Native capture harness checks live motion, pause, stepping, rate, both ends,
+  repeated reversals, all four directions, centreline and unambiguous foreground
+  wall ordering. Six captures/three sizes inspected. Capture/import exit0,
+  empty stderr,0 failures; v16/native-corridors preserves native-scene history.
+  Sorting check excludes diagonally disjoint bounds, not a pixel-depth oracle.
+  No claim of perfect foot locking or artistic approval. No gameplay/save/main
+  scene changes, artwork generation, APK, commit or push.
+
+## Native four-direction Vulpin walking scene — 2026-10-27
+
+- User requests a scene showing the four movements: context is four directions
+  of the v16 walking trial. scenes/VulpinWalk.tscn presents four synchronized
+  AnimatedSprite2D views on existing floor-b1 paving, in a responsive2x2 grid.
+  Eight frames each; Play/Pause, next pose and0.5x/1x/1.5x controls. Space/right
+  shortcuts. Editor tool shows static pose; F6 plays. No game/save instantiated.
+- Four sheets copied byte-identically to assets/previews/vulpin-walk, imported
+  natively with shared SpriteFrames resource. No artwork or GLB modification.
+  Floor texture is resolved through current catalogue, not a frozen atlas rect.
+- tools/capture_vulpin_walk_preview.gd checks four animations, autoplay, pause,
+  step/wrap, speed and synchronized frame selection; native captures1280x720,
+ 844x390,720x960 inspected. Capture exit0,0 failures, empty stderr. Evidence in
+  v16/native-scene. HTML/browser not needed. No main scene/export preset change,
+  gameplay integration, APK, commit or push; prior unrelated edits preserved.
+
+## Meshy Vulpin eight held walking poses rendered — 2026-10-27
+
+- User approves fixed 3D poses rather than authoring a smooth Blender animation,
+  then requests a walking-sprite trial. Isolated v16-meshy-walk renders the real
+  user-supplied GLB, unchanged mesh/paint, with eight explicitly selected poses
+  and four directions. No old image-card puppet, generated in-between art or
+  runtime rig. Original GLB SHA unchanged. Hand/leg bones mapped from rest data;
+  two-segment pose solving, alternating supports, small body bob/tail sway.
+- Fixed 30degree orthographic camera gives2:1 ground projection; camera scale,
+  root anchor and screen-relative studio lighting shared. Masters512px;32 PNGs
+ 256px and four2048x256 sprite sheets.10fps/.8s proposed loop. Sheets1,087,233
+  PNG bytes /8MiB RGBA, no claimed final production memory optimization.
+- Eight poses stored as CONSTANT keys in packed vulpin-walk-poses.blend. Reload
+  verification reproduces all eight mesh bounds with zero error. Ground checks
+  use rest-identified boot vertices: one support atz0, swing sole raised, finite
+  geometry.32 unique-per-direction frames, alpha bounds and WebP timing checked.
+  Contact sheet/front/rear details visually inspected; not proof of no clipping
+  or of a natural gait. Artistic approval remains pending.
+- index.html offers pause/step/rate; four-view animated WebP, pose board, sprites
+  ZIP and source Blender retained. HTML syntax/local links checked without
+  browser automation. No game integration, gameplay/save changes, native Godot
+  run, phone validation, APK, commit or push. This is a visual trial only.
+
+## User Meshy GLB imported and inspected — 2026-10-27
+
+- User supplies C:/Users/A/Downloads/Meshy_AI_Character_output.glb and asks
+  whether it is usable. Read-only inspection confirms glTF2 binary,15,644,004
+  bytes, one character mesh/10,321triangles/13,590 exported vertices, UVs and
+ 57-bone SmartRigArmature with weights on every character vertex. Embedded
+  textures:2048 color,2048 normal,4096 metallic/roughness. No animation clips.
+- Blender5.2.1 imports successfully. A reversible5degree Bone_021 probe moves
+ 4,844 vertices and restores with zero error: confirms connection only, not
+  gait/articulation quality. Bone_019..015 is a rearward/upward tail chain by
+  rest positions. Generic bone names still need semantic mapping for animation.
+- v15-meshy-inspection retains inspection script, JSON/log and front/isometric
+  static transparent renders; visually inspected. Camera excludes the importer's
+  hidden Icosphere bone-display helper. Source SHA verified unchanged. No model
+  editing, animation creation, production integration, APK, commit or push.
+
+## Vulpin four-view Meshy references prepared — 2026-10-27
+
+- User will use Meshy to generate a real 3D character and asks for reference
+  views. v14-meshy-turnaround supplies front/left/back/right PNGs, one figure
+  per image, neutral A pose, level orthographic-looking views, native alpha.
+  Based on approved v3 free-hands art, not v12 body pieces. No weapon.
+- Built-in ImageGen made four views plus two corrections: tail hidden in front,
+  clean rear heels. Right-hip pouch stays on the appropriate side; centered tail
+  curls upward behind body. Back/hidden surfaces are proposed interpretations.
+  These are independent illustrations, not calibrated renders of one 3D mesh;
+  minor shape differences remain. No claim of tested Meshy reconstruction.
+- meshy/ contains four1254px PNGs copied byte-identically from selected sources,
+  each under1MB, native transparency checked; apercu.png visually inspected.
+  Exact prompts, source originals and alpha/hash report retained. ZIP bundles
+  only import PNGs and instructions. No model generation, external Meshy upload,
+  game/runtime change, player-save access, APK, commit or push.
+
+## Vulpin layered paint rejected; whole-frame approach under review — 2026-10-27
+
+- User rejects v12 feet, joint overlaps and clipping, then explicitly requests
+  whole-character sprite animation preserving the original illustration quality.
+  V12 technical checks are not visual approval. Do not reuse its layered body
+  as an accepted solution. Overlapping shin/boot paint and rigid bone cards are
+  concrete causes; v3 free-hands and v4 action originals remain style references.
+- Isolated v13-whole-sprites contains pose-only guides and a complete painted
+  walk-0 source. The opposite-step attempt repeated essentially the same pose;
+  it is retained as walk-4-rejected-same-step.png, not a usable cycle. No complete
+  animation, atlas, native validation or production integration exists for v13.
+- User proposes evaluating GenielabsOpenSource/spine-animation-ai. Documentation
+  and code reviewed only: separated art, 2D skeleton, generic motion presets,
+  optional Gemini separation. It is not whole-frame image generation. No tool
+  installation, external image upload or adoption is authorized by that question.
+  Repo declares PolyForm Noncommercial; commercial terms and separate Spine
+  licensing need consideration before adoption. No new APK, commit or push.
+
+## Vulpin body paint matched to head treatment — 2026-10-27
+
+- User rejects v11's soft body versus crisp head. Cause: body turnaround
+  projected onto proxy meshes with flat-color visibility blending, while the
+  head retained its independent painted image. This supersedes v11 body art.
+- New isolated v12-body-paint uses12 native-alpha painted body pieces per view,
+  uniformly fitted to the existing rig and rendered as bone-attached cards.
+  ImageGen sources/prompts retained: four sheets plus three targeted revisions
+  for joint colors and wrong-facing boot/torso pieces. Source originals intact.
+  Heads/expressions unchanged; four v11 corpse images reused byte-identically.
+  No fall.8states/4views; all96 profile/clip timings match v11, including run.
+- Tail is a single painted piece attached to tail.0, not the old3segment proxy;
+  its outline/motion and joint overlaps remain artistic review points. Sheets
+  approximate projected geometry; this is not exact3D texture reconstruction.
+  No fallback color blending on the new body. Production hero stays untouched.
+- Balanced320 unique images/336slots,3pages; PCK3,162,088 bytes vs3,208,744,
+  RGBA11,419,648 bytes. Native1762 checks and viewer588 checks pass/empty stderr;
+  96 native alpha/anchor cases0error, all three packs load independently.
+ 12 profile/direction corpse comparisons byte-identical, previous source hashes
+  and historical APK verified unchanged. Comparisons at equal resolution,
+  all-facing state sheets and native dungeon views inspected. No device test,
+  player-save access, production integration, new APK, commit or push.
+
+## First painted Vulpin sprites generated — 2026-10-27
+
+- User asks to generate sprites from the approved fox designs. Isolated
+  v11-painted-sprites retains v10's eight states/four directions and v9's
+  .36s/.320cell run. No fall; four separately generated fixed corpse images.
+  Four native-alpha ImageGen sheets: body turnaround, detached heads, hurt
+  expressions and corpses. Originals/prompts/references and hashes retained.
+- Offline Blender projects directional body paint onto the articulated proxy;
+  head cards attached to the head bone preserve the facial drawing. Hidden
+  body surfaces use fallback colors. Tail/clothing remain simplified and
+  generated equipment is not guaranteed anatomically consistent across views.
+  This is a first painted review, not exact source geometry or art approval.
+  No 3D renderer is needed at runtime. Packed blend stores SE neutral rig;
+  paint_rig.py regenerates actions, not a baked eight-action animation timeline.
+- Balanced328 unique images/336 slots,32 clips,3pages. PCK3,208,744 bytes;
+  RGBA11,649,024 bytes. CompactPCK1,537,288; reference7,775,336. Atlas packing
+  preserves prepared pixels. Native1786 checks and viewer588 checks pass;
+  96 native alpha/anchor cases0error, all three packs load independently.
+  Motion metadata matches v10 in96 clip/profile cases. Sources and APK intact.
+- Animated boards, four-direction state sheets, run phases and native desktop
+  dungeon captures inspected. First painted appearance still needs feedback.
+  No production hero/AI integration, player saves, physical-phone profiling,
+  browser automation, new APK, commit or push. Current review: v11 index.html.
+
+## Vulpin death simplified to four static sprites — 2026-10-27
+
+- User approves removing the fall entirely and keeping one dead pose per
+  orientation. This supersedes v9's fall sequence. v10-static-death retains
+  four v9 final renders byte-identically; no new rig/render/paint generation.
+  Eight states/four directions,32 clips. Death is a non-loop single-frame
+  holder. Course .36s/.320cell and damage reaction remain unchanged.
+- Regenerated all three atlas profiles without fall images; selector removes
+  Chute and says "1 sprite fixe par vue" for Mort. Immediate hurt-to-dead
+  selection and final holds verified in the isolated no-save native viewer.
+  Balanced PCK2,438,984 bytes (v9:2,956,312; -17.5%),3pages instead of4,
+  RGBA10,813,440 bytes (v9:13,320,192).4static source images, not4animated clips.
+- Native1776 checks and viewer588 checks pass/empty stderr;96 alpha/anchor
+  cases have0 error. Three independent pack-only loads verify32clips. All
+  retained image/timing comparisons are recorded by validate.cjs. Native
+  four-facing dead pose inspected. No production hero integration, rules,
+  player saves, new APK, commit or push. No new physical phone validation.
+  Prior reviews and APK remain historical; the next explicit APK request
+  should use this simplified set, not the v8/v9 fall sequence.
+
+## Vulpin run and collapse revised after Android feedback — 2026-10-27
+
+- User rejects v8's slow run and rigid tree-like fall/death. New isolated
+  v9-motion-correction changes only run/fall/corpse on the actual Blender rig.
+  Run cycle .60→.36s, stride .256→.320 cell, demonstration speed ×2.0833;
+  16 balanced run images retained, stronger flight/lean and bent-arm swing.
+- Fall keeps1.5s but hips sink before side collapse. Separate knee, spine,
+  arm, head and tail curves produce an asymmetric folded resting pose. Whole
+  rig rotation stays zero; ground correction translates the entire hierarchy
+  including IK targets, fixing a reproduced penetration during IK blending.
+  Dead reuses the exact final fall image. Balanced fall13→19 images per view.
+- 121 fall samples: worst floor error ~6e-8 model units, early hip drop.120;
+  fixed limbs/contacts/loops checked for all states. 628 unrelated source PNGs
+  byte-identical to v7. Prior v7/v8 sources and published APK unchanged.
+- Native2091 checks plus590 viewer checks,0 failures/empty stderr.108 native
+  alpha/anchor cases have0 error; three packs reload independently. Balanced
+  PCK2,956,312 bytes (was2,766,328), RGBA13,320,192 (was12,255,232),4pages.
+  Timed before/after WebPs, four-facing corpse and native captures inspected;
+  index.html and validation.json retain evidence. No browser automation.
+- Viewer now reads per-clip stride metadata; actual cycle displacement checked.
+  No production hero/game speed integration, saves, new APK, commit or push.
+  No new phone validation, soft-body/self-collision simulation or final paint.
+  This revised motion remains a visual proposal, not automatic user approval.
+
+## Explicitly requested Vulpin Android test — 2026-10-27
+
+- User asks for an APK to inspect the animations live. v8-mobile-test builds
+  a dedicated no-save app, org.dungeonempire.vulpinreview, "Vulpin — animations",
+  separate from the installed game. Uses the actual static dungeon renderer,
+  nine mannequin states/four views and three v7 profiles; default128/16.
+- Native selectors, pause/replay/half speed/detail zoom and drag panning;
+  portrait dock/landscape panel, 48-unit targets, safe-area/DPI adaptation.
+  Short/narrow layouts corrected after two overflow failures. 578 final native
+  checks pass at six sizes incl568x320 and320x568; real viewport touch included.
+  Review travel follows rig stride and resets after four cycles. No gameplay
+  integration, final painting or game save access.
+- Fresh staging copies only renderer dependencies and review resources;
+  production project/preset unchanged. Debug APK AndroidAPI24+, target36,
+  ARM32+64, fullUser orientation13, versionCode1. Signaturev2/v3 verified.
+  Exact final APK resources extracted into a separate pack;578 checks/0 failures
+  again, empty stderr. No physical phone/DPI/sensor/performance verification.
+- Public prerelease vulpin-animations-0.1 on existing repository, with APK and
+  checksum. Download publication continues the user's earlier remote-download
+  request. SHA256 f67a7a75416a3752243a8389e9d7e1581907b0ba45d813f28e6994bb58b09bd3.
+  APK approximately70.8MB includes engine for both ABIs, dungeon and all3profiles;
+  not the single-hero budget. Tag names base75c3212, uncommitted review sources
+  included in binary and disclosed. No source commit/push. Future APK builds
+  still require another explicit user request.
+
+## Complete Vulpin mannequin animation budget — 2026-10-27
+
+- User authorizes the complete animation/size study before multiplying heroes.
+  Isolated v7-complete-budget extends the real v6 Blender rig with hand IK and
+  nine states in four views: idle/walk/run/hurt/door pick/chest pick/loot/fall/dead.
+  Empty hands outside tiny lockpicks; corpse reuses last fall image. Untextured
+  proxy only, not approval of final silhouette, motion or painted production art.
+- 121 rig samples per state verify constant limb lengths, contacts, targets and
+  loop endpoints. Initial chest target was out of reach; corrected forward lean
+  and reachable hand positions. Renders use shared isometric projection and
+  overscan for prone poses. Trimmed atlas pixels are copied losslessly with2px
+  margins; per-frame AtlasTexture margins retain a common ground anchor.
+- Three complete lossless Godot resource packs, with independently reduced
+  counts/resolution, reloaded in an empty project without source PNGs. Decimal
+  bytes: reference160/24 walk-run:6,523,624 PCK /34,668,544 RGBA; balanced128/16:
+  2,766,328 /12,255,232; compact96/12:1,445,032 /5,570,560. Balanced368 unique
+  images,388 slots,4 pages; idle8,hurt7,pick/loot12,fall13,dead1 per direction.
+  128/16 is a proposed compromise, not user-approved final settings.
+- Native1999 checks/0 failures:108 alpha/anchor comparisons have0 error;
+  durations, loops, pause and non-loop final holds checked. Three clean pack
+  reloads verify decoded allocation. Missing importer metadata was caught by
+  isolated reload and fixed by retaining .import mappings. Atlas pack size is
+  not APK size, and RGBA excludes CPU copies, engine and other assets.
+- Native49-frame dungeon fixture loads balanced pack and shows walk/run/pick/
+  fall at existing camera scale; output saved to absolute paths because mounted
+  res:// becomes packed. Empty stderr, no save. Demonstration travel follows
+  rig stride; real gameplay speed remains unchanged and unsynchronized.
+- Full/slow-cadence/resolution comparisons, all4 orientation boards, .blend,
+  source scripts, packs and budget.json retained. Final paint may change disk
+  compression; ten-hero totals are explicit linear mannequin estimates, not
+  production predictions. Phone profiling, cloth/face, final hand/lock fitting
+  and gameplay integration remain. HTML not browser-automated. No production
+  art/rules/save changes, APK, commit or push; existing door badge edits kept.
+
+## Articulated Vulpin mannequin walk review — 2026-10-27
+
+- User approves proceeding with an untextured articulated mannequin after v5's
+  inconsistent generated gait. v6-articulated-mannequin is an isolated prototype:
+  real Blender armature, fixed limbs, two foot IK chains and knee poles, FK arms,
+  head and3tail bones. Cyan/amber identify sides. No weapons or new ImageGen art.
+- Blender connector was offline. Installed5.2.1 runs in a separate background
+  factory-startup process; live user's scene not touched. Editable .blend and
+  reproducible scripts retained. Four rotations use one model/action; coordinate
+  swap matches native2:1 projection. Character silhouette remains simplified and
+  unapproved; no painted or production hero integration is implied.
+- Walk24frames/.8s, .44model-unit stride; modelToCell .4 gives .176cell/cycle.
+ 60% stance and40% swing; exact subframe boundary keys preserve foot locking.
+ 241 evaluated samples over2cycles: bone length error4.46e-7, stance drift2.53e-7,
+  target error3.52e-7model units; loop0 and projection<.00006px. Flat soles, no
+  heel-toe roll or hand IK yet. Geometry checks are not approval of the motion.
+- Native Godot fixture:4directions,49captures, projected stance drift.000159px;
+  exit0/empty stderr/no save. Native images, four views and actual-bone overlay
+  inspected. Animated WebPs plus slow view delivered; HTML is a local review
+  index, not browser-automated. Blender emits only a use_nodes deprecation.
+- Review frames160px, fixedroot(80,140),96sprites/no border clipping, four
+ 960x640 atlases. This is unoptimized review packing, not a runtime budget change.
+  Reproducible raw frames/captures ignored; selected media retained. No production
+  file, gameplay speed, save, APK, commit or push change. Native movement uses
+  rig stride for this fixture only; gait/simulation speed must be reconciled later.
+
+## Vulpin state poses accepted; walk pilot remains provisional — 2026-10-27
+
+- User answers "Ok" to v4 damage, door/chest lockpick and final dead poses.
+  Those key poses are accepted; not approval of uncreated animations. Freeze
+  v4 source95fb0f4af87e2bd8dc8d252b358003a07be032c1e1ba1c777c199c66ee01c95d.
+- v5-walk-pilot produces a single-direction8-frame test using ImageGen. Initial
+  and refined sheets retain inconsistent leg phases; a third guided painting
+  improves presentation but still does not follow the geometric poses exactly.
+  Torso/stance consistency needs work. Do NOT call this a production-ready walk,
+  approve its gait, or multiply it into other directions without resolving this.
+- Original sheets/prompts and code-native XYZ gait guide kept. Connected alpha
+  silhouettes crop to common160px frames, same uniform scale, visually estimated
+  ground roots. No warp, mirror, limb repaint or automatic pose deformation.
+ 640x320 atlas136316PNG bytes/800KiB RGBA; loop8frames/100ms,98362WebP bytes.
+- Isolated native AnimatedSprite2D runs2cycles and pauses correctly,8GPU captures
+  plus landscape; exit0/empty stderr/no save. Native captures and atlas inspected;
+  no foot-slip oracle, world-speed calibration, phone or full gameplay test.
+  CUA local-file browser automation was policy-blocked; no bypass attempted.
+  HTML control page not browser-validated. Native animated WebP is the deliverable.
+  No production hero/rules/art changes, APK, commit or push. Door badge work kept.
+
+## Vulpin damage, lockpicking and death key poses — 2026-10-27
+
+- User adds required states: taking damage, picking doors/chests, and death.
+  Isolated ImageGen sheet in vulpin-review/v4-action-states proposes flinch,
+  standing door lockpick, crouched chest lockpick, and final prone death pose.
+  Same unarmed olive-hood fox; thin locksmith tools only while lockpicking.
+- Original sheet and prompt retained, SHA95fb0f4af87e2bd8dc8d252b358003a07be032c1e1ba1c777c199c66ee01c95d.
+  Four native-alpha silhouettes framed separately; common uniform reduction,
+ 160px review canvases, no repaint/warp. Labeled board and small views inspected.
+  These are key poses in one direction, not animation frames registered to a
+  shared foot anchor. Hand/lock alignment and other views remain pending.
+- Existing lockpicking3.0333333s and dying1.5s plus persistent corpse confirmed
+  in raid_director. Proposed hurt presentation must not add simulation knockback
+  or delay. No runtime/simulation/save changes, native capture, APK, commit/push.
+  Static artwork awaits feedback; v3 remains the unarmed identity reference.
+
+## Vulpin carries no weapon — 2026-10-27
+
+- User explicitly corrects the hero concept: Vulpin steals and does not attack
+  the heart, so both hands must be empty. This supersedes the two daggers in
+  the recovered October21 approved sheet. Retain olive hood, orange/cream fox,
+  compact proportions and loot pouch; no combat stance in locomotion poses.
+- ImageGen edits the isolated v2 proposal into vulpin-review/v3-free-hands.
+  Original and exact prompt retained. Uniform128px preparation at the prior
+  scale, native alpha, expanded crop by1–2px; no hand-painted pixel fixes or
+  nonuniform warping. Source1306x1205, prepared20582bytes/64KiB RGBA.
+- Three isolated native captures1280x720/844x390/390x844 inspected, exit0 and
+  empty stderr, no save written. Boot anchor is visually estimated. Review
+  index explains proposed four-direction walk/run cycles; no animation or
+  runtime hero integration yet. Current exploration/flee speed remains equal.
+  No rule, production art, APK, commit or push changes. V2 with daggers is history.
+
+## Approved illustrated 2D hero concepts recovered — 2026-10-27
+
+- User recalls earlier 2D hero mockups. Found in the beginning of this chat on
+  2026-10-21: Vulpin accepted with "oui c'est parfait" at06:05:50UTC, four-hero
+  sheet accepted at06:14:19UTC. Original generated PNGs copied byte-identically
+  to docs/reference/hero-concepts-2d-2026-10-21/ with provenance and .gdignore.
+- Sheet: compact green-hooded orange Vulpin/two daggers, living-stone Lithide
+  shield/hammer, frog Batrafian bow/quiver, mushroom Mycean staff. This newer
+  accepted illustrated direction supersedes the old main-branch low-poly
+  "not chibi" proportions for the 2D heroes. Do not mistake old main concepts
+  for the latest approved reference again. Recovered scenes predate calibrated
+  2:1 migration: identity approved, directional animation/registration pending.
+- The recent vulpin-review/v1 remains an unapproved new proposal. No new image
+  generation, gameplay changes or APK in this recovery step.
+
+## Vulpin hero first visual proposal — 2026-10-27
+
+- User asks to create the Vulpin. ImageGen uses the original Neris mockup and
+  current dungeon as references: orange fox thief, green hood, satchel, dagger.
+  One three-quarter pose only; not approved, animated or integrated. Review:
+  docs/reference/vulpin-review/v1/index.html. Original and exact prompt retained.
+- Uniform prepared128x128 PNG is21209bytes/64KiB RGBA. Native source alpha
+  preserved within alpha8-bounded crop plus8px margin; no warp or repaint.
+- Isolated capture.gd reuses actual dungeon geometry/order/camera, showing the
+  hero at84px/45px in1280x720,844x390,390x844. All three inspected, exit0/empty
+  stderr. Boot midpoint is visually estimated; no calibrated 3D/animation claim.
+  No runtime art/logic change, save write, APK, commit or push. Door badge work
+  remains intact. Facing/animation work should use the user's visual feedback.
+
+## APK builds require an explicit request — 2026-10-27
+
+- User explicitly requests no APK build unless they ask for one. Do not treat
+  previous upload/build authorizations as permission to create subsequent APKs.
+  Native validation and implementation may continue without Android packaging.
+
+## Door status uses the shared world ring — 2026-10-27
+
+- User requests door status like chests/traps. One badge per closed/open arch,
+  above its prepared silhouette, same32 screen units and z10/input transparency.
+  Door icon and continuous copper resistance ring use live hp/DOOR_MAX_HP.
+  Regular lock/magic seal retained while closed; green open padlock for unlocked,
+  red cross for broken. No floating text/ground diamond. Selection sheet gives
+  remaining PV or Déverrouillée/Brisée instead of ambiguous0PV for an open door.
+- Reuses world_badge, existing art and native draw primitives. Chest/trap
+  behavior, frame rendering, rules, saves and camera unchanged. Badges update on
+  normal frame signals, so partial damage does not require rebuilding the scene.
+- verify_door_badges.gd baseline12checks/5fail, final87/0: default/half/zero HP,
+  unlocked/broken/repaired/removed, placement above arch, portrait size, precise
+  selection wording and other badge regressions. Native portrait/landscape
+  inspected; verify_open_doors40/0 and verify_master_mobile0. Empty stderr.
+  Focused read-only review found no actionable defect. Isolated save path only.
+  No APK build/upload, commit/push or physical phone validation.
+
 ## Open doors keep their stone frame — 2026-10-27
 
 - User reports unlocked doors disappearing. View now emits door specials for

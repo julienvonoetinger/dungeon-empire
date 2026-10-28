@@ -132,7 +132,9 @@ func refresh() -> void:
 		glyph.texture = UI.icon("chest" if tile == Types.Tile.VAULT else "gem" if tile == Types.Tile.CORE else "door" if session.sim._is_door_tile(tile) else "pick")
 		detail.text = "Case %d, %d" % [p.x + 1, p.y + 1]
 		if tile == Types.Tile.VAULT: detail.text = "%d / %d or" % [session.sim.vault_gold.get(p, 0), Types.VAULT_CAPACITY]
-		elif session.sim._is_door_tile(tile): detail.text = "%d / %d PV" % [session.sim.door_hp.get(p, Types.DOOR_MAX_HP), Types.DOOR_MAX_HP]
+		elif session.sim._is_door_tile(tile):
+			var hp:=int(session.sim.door_hp.get(p,Types.DOOR_MAX_HP))
+			detail.text="%d / %d PV" % [hp,Types.DOOR_MAX_HP] if hp>0 else "Déverrouillée" if session.sim.door_opened.get(p,false) else "Brisée · À réparer"
 		elif Types.is_trap_tile(tile): detail.text = "%d / %d charges" % [session.sim.trap_charges.get(p, 0), Types.trap_max_charges(tile)]
 	confirm.visible = placing
 	var repair_action:=session.check_action(p,Types.Tool.REPAIR)

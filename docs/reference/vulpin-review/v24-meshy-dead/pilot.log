@@ -1,0 +1,19 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+07:59:20 | INFO: Data are loaded, start creating Blender stuff
+07:59:20 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+07:59:20 | INFO: glTF import finished in 0.07s
+INFO:glTFImporter:glTF import finished in 0.07s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\render_dead.py:111: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('DeadStudio');world.use_nodes=True;scene.world=world
+00:02.609  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\dead-se.png'
+00:03.328  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\dead-nw.png'
+DEAD_POSE_OK {"bounds": [[-0.6765847206115723, -1.0183348655700684, 0.0], [0.6765847206115723, 0.6183348894119263, 0.8966237306594849]], "minimum_z": 0.0, "finite": true, "length_checks": [{"side": "R", "thigh_error": 1.3481979144192024e-08, "shin_error": 6.149453501969049e-09}, {"side": "L", "thigh_error": 2.923802505661044e-09, "shin_error": 1.8423956804625163e-09}], "vertices_within_2cm_of_floor": 44, "armature_location": [-0.26008617877960205, 0.4464499354362488, -0.09186872839927673], "resting_pose": "Asymmetric folded legs, relaxed arms, face angled down."}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

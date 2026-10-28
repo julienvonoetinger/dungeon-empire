@@ -1,0 +1,7 @@
+const fs=require('fs'),path=require('path'),sharp=require('sharp');const dir=__dirname,poses=JSON.parse(fs.readFileSync(path.join(dir,'guides/poses.json')));
+(async()=>{for(const p of poses){let s='<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 224 224"><rect width="224" height="224" fill="#f2f3f5"/>';const line=(a,b,c,w)=>`<path d="M${a} L${b}" stroke="${c}" stroke-width="${w}" fill="none" stroke-linecap="round"/>`;
+ for(const side of ['R','L'])for(const bone of ['thigh','shin','foot','upper_arm','forearm','hand']){const b=p.bones[bone+'.'+side];s+=line(b.head,b.tail,side==='L'?'#ce7b43':'#526f9c',bone==='foot'?5:4);}
+ for(const bone of ['pelvis','chest','head','tail.0','tail.1','tail.2']){const b=p.bones[bone];s+=line(b.head,b.tail,'#596473',5)}
+ const h=p.bones.head.tail;s+=`<ellipse cx="${h[0]}" cy="${h[1]-9}" rx="25" ry="23" fill="#c2cad5" fill-opacity=".8" stroke="#596473"/><path d="M${h[0]+18},${h[1]-5} l13,5 -13,4" fill="#596473"/>`;
+ s+='<text x="8" y="16" font-size="8" font-family="Arial" fill="#28364b">Pose guide only · whole character painting</text>';
+ s+=`<text x="8" y="214" font-size="8" font-family="Arial" fill="#28364b">Frame ${p.frame+1}/8 · orange: near limbs / blue: far limbs</text></svg>`;await sharp(Buffer.from(s)).png().toFile(path.join(dir,'guides',`walk-${p.frame}.png`));}console.log('Eight pose-only references. No painted sprite deformation.');})();

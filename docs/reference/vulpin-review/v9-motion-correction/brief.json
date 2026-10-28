@@ -1,0 +1,7 @@
+{
+ "request":"Run too slow; fall and corpse rejected as rigid and unnatural after phone test.",
+ "scope":"Revise run, fall and final dead pose on the actual mannequin, in four views. Preserve other state images and prior APK/reviews. No APK until explicitly requested again.",
+ "run":{"oldSeconds":0.6,"newSeconds":0.36,"oldStrideModel":0.64,"newStrideModel":0.80,"speedMultiplier":2.0833333333,"framesBalanced":16},
+ "fall":"1.5-second loss of support, knee collapse, shoulder/hand contact and delayed head/tail settling. Asymmetric folded corpse. Visual feedback still required.",
+ "checks":["Foot contacts and fixed limb lengths","Distinct staggered joint curves versus former rigid rotation","No ground penetration and no clipped silhouette","Exact final fall/dead identity","Unrelated state images unchanged","Native playback and revised viewer without Android export"]
+}

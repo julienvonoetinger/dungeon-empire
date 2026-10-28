@@ -1,0 +1,18 @@
+Static idle state: one held image per direction (se, sw, nw, ne).
+Open scenes/VulpinIdle.tscn and press F6 to inspect all four views.
+
+frames.tres references the neutral region (0, 0, 256, 256) of the four existing
+vulpin-hurt sheets. These are the same pixels as the final hurt frame, rendered
+from the unchanged Meshy GLB in v19-hurt-recoil. No new or modified artwork.
+No breathing, tail motion, playback loop, or runtime 3D rig.
+
+SpriteFrames is kept for compatibility with the other action resources, but
+each direction contains exactly one frame. Select the direction and leave
+AnimatedSprite2D stopped on frame 0, or use its texture with Sprite2D.
+Ground anchor and hero scale are stored as resource metadata, matching the
+other Meshy previews: Vector2(128, 195.92598), scale 0.85.
+
+Zero additional PNG/decoded texture allocation when the hurt sheets are loaded:
+Godot shares those same Texture2D resources. Loading idle alone still loads the
+four entire hurt sheets (8 MiB uncompressed RGBA), not four isolated small PNGs.
+This is a preview resource; the production hero state machine is unchanged.

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vulpin — mains libres</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0c1019;color:#e7e5f0;font:16px/1.55 system-ui,sans-serif}main{max-width:1280px;margin:auto;padding:24px}h1,h2{line-height:1.2}h1{font-size:30px}h2{font-size:22px;margin-top:32px}p{max-width:850px}a{color:#d3b2ff}figure{margin:16px 0;padding:16px;background:#151d2a;border:1px solid #344052;border-radius:12px}img{display:block;max-width:100%;height:auto;margin:auto}figcaption{color:#b8c0ce;margin-top:12px}.sprite{max-height:420px}.pair{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}.pair figure{margin:0}.portrait{max-height:844px}code{color:#d3b2ff}@media(max-width:700px){main{padding:16px}.pair{grid-template-columns:1fr}}
+</style><main>
+<h1>Vulpin — mains libres</h1>
+<p>Le voleur conserve sa capuche olive, sa sacoche et sa silhouette compacte. Ses deux mains sont vides et sa posture exprime l’exploration. Les dagues de la référence historique ont été retirées à la demande du joueur.</p>
+<figure><img class="sprite" src="vulpin-detail.png" alt="Vulpin à capuche verte, sans arme, les mains libres"><figcaption>Proposition statique corrigée — pas encore intégrée au personnage jouable.</figcaption></figure>
+<h2>À l’échelle du donjon</h2>
+<p>Captures du moteur Godot dans une scène de présentation isolée, avec la caméra et le tri de profondeur du jeu. Le point de contact des bottes est estimé visuellement ; il reste à stabiliser sur chaque pose d’animation.</p>
+<figure><img src="landscape-1280.png" alt="Vulpin dans le donjon, paysage 1280 par 720"><figcaption>Paysage 1280 × 720.</figcaption></figure>
+<div class="pair"><figure><img src="mobile-844.png" alt="Vulpin à taille mobile en paysage"><figcaption>Paysage 844 × 390.</figcaption></figure><figure><img class="portrait" src="portrait-390.png" alt="Vulpin à taille mobile en portrait"><figcaption>Portrait 390 × 844.</figcaption></figure></div>
+<h2>Marche et course : proposition de production</h2>
+<p>Préparer quatre orientations, correspondant aux quatre déplacements sur la grille. Pour chacune, créer un cycle de marche et un cycle de course distincts de six à huit images : bras libres, foulée plus ample en course et queue en contrepoids. Commencer par une seule boucle dans une direction pour vérifier la continuité du dessin.</p>
+<p>Dans Godot, les images pourront être regroupées dans un atlas et jouées avec <code>AnimatedSprite2D</code>. Le pied d’appui, l’échelle et les proportions devront rester cohérents entre les images. La phase du cycle suivra la distance parcourue ; les arrêts, la pause et la vitesse ×2 suivront l’horloge du jeu. <a href="https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html">Documentation Godot</a>.</p>
+<p>Actuellement, exploration et fuite utilisent la même vitesse de déplacement. Une course réellement plus rapide serait un changement de règle distinct. Aucun cycle animé ni changement de comportement n’a été ajouté à ce stade.</p>
+<h2>Fichiers et vérification</h2>
+<p><a href="vulpin-128.png">Sprite 128 × 128</a> · <a href="source/vulpin-original.png">Image originale</a> · <a href="source/prompt.txt">Prompt ImageGen</a> · <a href="asset.json">Préparation</a> · <a href="native-captures.json">Captures natives</a>.</p>
+<p>Génération avec l’outil ImageGen intégré ; transparence native conservée, recadrage et réduction uniforme uniquement. PNG préparé : 20 582 octets, 64 Kio en RGBA. Les trois captures ont été inspectées ; exécution terminée avec code 0 et sans erreur. Aucun fichier de sauvegarde, sprite de production, APK, commit ou push créé.</p>
+</main></html>

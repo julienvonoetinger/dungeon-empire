@@ -1,0 +1,7 @@
+{
+  "decision": "User approves removing the fall animation and keeping one static dead pose per direction.",
+  "states": ["idle", "walk", "run", "hurt", "lock-door", "lock-chest", "loot", "dead"],
+  "death": "Four static sprites total. Direct transition from hurt to dead; no intermediate fall sequence.",
+  "sources": "The four v9 final corpse renders are retained byte-identically in source/. All other frames are prepared from unchanged v9 raw renders.",
+  "scope": "Isolated untextured prototype and native viewer. No gameplay integration, new art, APK, save access, commit or push. Historical reviews retained."
+}

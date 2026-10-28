@@ -1,0 +1,81 @@
+{
+  "profiles": {
+    "reference": {
+      "density": 160,
+      "counts": {
+        "idle": 24,
+        "walk": 24,
+        "run": 24,
+        "hurt": 13,
+        "lock-door": 24,
+        "lock-chest": 24,
+        "loot": 24,
+        "death": 25,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 36,
+      "frameSlots": 732,
+      "uniqueSprites": 704,
+      "reusedSlots": 28,
+      "pages": 9,
+      "pngBytes": 6524039,
+      "rgbaBytes": 34668544,
+      "untrimmedRgbaBytes": 162201600,
+      "trimmedContentBytes": 30685808,
+      "packingVerified": true
+    },
+    "balanced": {
+      "density": 128,
+      "counts": {
+        "idle": 8,
+        "walk": 16,
+        "run": 16,
+        "hurt": 7,
+        "lock-door": 12,
+        "lock-chest": 12,
+        "loot": 12,
+        "death": 13,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 36,
+      "frameSlots": 388,
+      "uniqueSprites": 368,
+      "reusedSlots": 20,
+      "pages": 4,
+      "pngBytes": 2756416,
+      "rgbaBytes": 12255232,
+      "untrimmedRgbaBytes": 54263808,
+      "trimmedContentBytes": 10555092,
+      "packingVerified": true
+    },
+    "compact": {
+      "density": 96,
+      "counts": {
+        "idle": 6,
+        "walk": 12,
+        "run": 12,
+        "hurt": 7,
+        "lock-door": 8,
+        "lock-chest": 8,
+        "loot": 8,
+        "death": 13,
+        "dead": 1
+      },
+      "directions": 4,
+      "animationClips": 36,
+      "frameSlots": 300,
+      "uniqueSprites": 280,
+      "reusedSlots": 20,
+      "pages": 3,
+      "pngBytes": 1402750,
+      "rgbaBytes": 5570560,
+      "untrimmedRgbaBytes": 23224320,
+      "trimmedContentBytes": 4672576,
+      "packingVerified": true
+    }
+  },
+  "borderClips": 0,
+  "note": "PNG and raw RGBA only. Godot import and PCK measurements are separate. Same display size in each profile."
+}

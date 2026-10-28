@@ -40,3 +40,41 @@
 /scripts/mobile_dungeon_renderer.gd -text
 /assets/dungeon/isometric-kit/*.json -text
 /assets/dungeon/isometric-kit/*.tres -text
+
+# Vulpin source archive and preservation manifest use exact byte hashes.
+/docs/reference/vulpin-review/** -text
+/docs/reference/hero-concepts-2d-2026-10-21/** -text
+/docs/production/hero-animation-*.md -text
+/assets/previews/** -text
+/scenes/Vulpin*.tscn -text
+/scripts/vulpin*.gd* -text
+/tools/audit_hero_pipeline.cjs -text
+/tools/capture_vulpin*.gd* -text
+
+# Exact-byte dependencies of the hero preservation manifest.
+/scripts/door_wall_junction.gd -text
+/scripts/door_wall_junction.gd.uid -text
+/scripts/dungeon_floor_damage.gd -text
+/scripts/dungeon_floor_damage.gd.uid -text
+/scripts/dungeon_floor_variants.gd -text
+/scripts/dungeon_floor_variants.gd.uid -text
+/scripts/dungeon_surface_details.gd -text
+/scripts/dungeon_surface_details.gd.uid -text
+/scripts/dungeon_wall_variants.gd -text
+/scripts/dungeon_wall_variants.gd.uid -text
+/scripts/ground_effect_mask.gd -text
+/scripts/ground_effect_mask.gd.uid -text
+/scripts/heart_vortex_animator.gd -text
+/scripts/heart_vortex_animator.gd.uid -text
+/scripts/mobile_dungeon_renderer.gd -text
+/scripts/mobile_dungeon_renderer.gd.uid -text
+/scripts/mobile_kit_definition.gd -text
+/scripts/mobile_kit_definition.gd.uid -text
+/shaders/door_wall_junction.gdshader -text
+/shaders/door_wall_junction.gdshader.uid -text
+/shaders/ground_effect_add.gdshader -text
+/shaders/ground_effect_add.gdshader.uid -text
+/shaders/ground_effect_mix.gdshader -text
+/shaders/ground_effect_mix.gdshader.uid -text
+/shaders/heart_vortex.gdshader -text
+/shaders/heart_vortex.gdshader.uid -text

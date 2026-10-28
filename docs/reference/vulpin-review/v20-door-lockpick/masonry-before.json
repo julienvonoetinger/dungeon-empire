@@ -1,0 +1,102 @@
+{
+  "checks": [
+    {
+      "pose": 0,
+      "tier": "lower",
+      "clearance_cells": -0.08391860978672727,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 0,
+      "tier": "upper",
+      "clearance_cells": -0.07139046035614016,
+      "front": 0.64
+    },
+    {
+      "pose": 1,
+      "tier": "lower",
+      "clearance_cells": -0.08473215336544537,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 1,
+      "tier": "upper",
+      "clearance_cells": -0.07489367053470741,
+      "front": 0.64
+    },
+    {
+      "pose": 2,
+      "tier": "lower",
+      "clearance_cells": -0.08912537406030974,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 2,
+      "tier": "upper",
+      "clearance_cells": -0.07836306817987138,
+      "front": 0.64
+    },
+    {
+      "pose": 3,
+      "tier": "lower",
+      "clearance_cells": -0.09185879267587904,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 3,
+      "tier": "upper",
+      "clearance_cells": -0.08186508927926572,
+      "front": 0.64
+    },
+    {
+      "pose": 4,
+      "tier": "lower",
+      "clearance_cells": -0.08810057074854305,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 4,
+      "tier": "upper",
+      "clearance_cells": -0.07839380130310891,
+      "front": 0.64
+    },
+    {
+      "pose": 5,
+      "tier": "lower",
+      "clearance_cells": -0.08391860978672727,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 5,
+      "tier": "upper",
+      "clearance_cells": -0.07492132424777931,
+      "front": 0.64
+    },
+    {
+      "pose": 6,
+      "tier": "lower",
+      "clearance_cells": -0.08391860978672727,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 6,
+      "tier": "upper",
+      "clearance_cells": -0.07139046035614016,
+      "front": 0.64
+    },
+    {
+      "pose": 7,
+      "tier": "lower",
+      "clearance_cells": -0.08391860978672727,
+      "front": 0.6666666666666666
+    },
+    {
+      "pose": 7,
+      "tier": "upper",
+      "clearance_cells": -0.06783136345644747,
+      "front": 0.64
+    }
+  ],
+  "method": "Conservative mesh/door separation, with the low jamb and upper crown tiers.\n\nEvery triangle touching a tier must be entirely outside its frontmost plane.\nThis proves separation even for triangle interiors; the four view rotations\npreserve it. Lockpicks intentionally reach the leaf and are excluded.\n",
+  "before": true
+}

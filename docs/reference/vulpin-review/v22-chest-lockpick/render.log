@@ -1,0 +1,53 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+07:31:16 | INFO: Data are loaded, start creating Blender stuff
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+07:31:16 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+INFO:glTFImporter:glTF import finished in 0.06s
+07:31:16 | INFO: glTF import finished in 0.06s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\render_chest_lockpick.py:72: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  metal.use_nodes=True
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\render_chest_lockpick.py:150: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('ChestLockpickStudio');world.use_nodes=True;scene.world=world
+00:02.859  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-00.png'
+00:03.593  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-01.png'
+00:04.375  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-02.png'
+00:05.156  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-03.png'
+00:05.937  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-04.png'
+00:06.734  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-05.png'
+00:07.500  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-06.png'
+00:08.296  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\se\chest-lockpick-07.png'
+00:09.109  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-00.png'
+00:09.921  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-01.png'
+00:10.703  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-02.png'
+00:11.546  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-03.png'
+00:12.343  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-04.png'
+00:13.171  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-05.png'
+00:14.000  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-06.png'
+00:14.812  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\sw\chest-lockpick-07.png'
+00:15.656  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-00.png'
+00:16.484  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-01.png'
+00:17.296  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-02.png'
+00:18.140  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-03.png'
+00:18.953  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-04.png'
+00:19.781  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-05.png'
+00:20.640  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-06.png'
+00:21.453  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\nw\chest-lockpick-07.png'
+00:22.281  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-00.png'
+00:23.140  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-01.png'
+00:23.984  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-02.png'
+00:24.828  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-03.png'
+00:25.671  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-04.png'
+00:26.515  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-05.png'
+00:27.390  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-06.png'
+00:28.234  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\masters\ne\chest-lockpick-07.png'
+Info: No new files have been packed
+Info: Saved as "vulpin-chest-lockpick-poses.blend"
+CHEST_LOCKPICK_POSES_OK 32 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

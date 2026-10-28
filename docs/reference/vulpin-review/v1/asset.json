@@ -1,0 +1,40 @@
+{
+  "status": "First visual proposal; not integrated or approved",
+  "tool": "Built-in ImageGen",
+  "source": "source/vulpin-original.png",
+  "source_sha256": "9b4b52dae1b0fe87cb8a70f892fb1927429d0940ad4ef3381cd6ea57e94656e0",
+  "prompt": "source/prompt.txt",
+  "source_size": [
+    1365,
+    1152
+  ],
+  "crop": {
+    "left": 228,
+    "top": 94,
+    "width": 933,
+    "height": 957
+  },
+  "sprite": "vulpin-128.png",
+  "sprite_size": [
+    128,
+    128
+  ],
+  "sprite_bytes": 21209,
+  "rgba_bytes": 65536,
+  "anchor": [
+    65.99477533960294,
+    111.69070010449322
+  ],
+  "sourceAnchor": [
+    715,
+    980
+  ],
+  "scale": 0.11703239289446186,
+  "visible_height": 112,
+  "native_alpha": true,
+  "preparation": "Uniform resize and transparent framing only; no repaint, warp or mirroring",
+  "reference_images": [
+    "C:/Users/A/AppData/Local/Temp/codex-clipboard-6aa07da3-9508-42b3-b349-9c4153c33891.png",
+    "artifacts/door-badges/damaged-landscape.png"
+  ]
+}

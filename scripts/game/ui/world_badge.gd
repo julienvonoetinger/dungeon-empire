@@ -1,5 +1,5 @@
 extends Control
-## The v1 mobile vault/trap ring, adapted to the isometric solid groups.
+## Shared mobile vault/trap/door ring, adapted to the isometric solid groups.
 ## Read-only: selecting the actual cell still opens exact amounts and repairs.
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 var amount := -1
@@ -10,6 +10,7 @@ var color := Color("e9b94f")
 var protection_tier := 0
 var protected := false
 var segmented := false
+var door_status := ""
 var _icon: Texture2D
 
 func _init() -> void:
@@ -31,6 +32,11 @@ func set_amount(value: int, maximum: int, tier := 0, intact := false) -> void:
 	protection_tier=tier; protected=intact
 	queue_redraw()
 
+func set_door_status(value: String) -> void:
+	if door_status==value: return
+	door_status=value
+	queue_redraw()
+
 func _draw() -> void:
 	var center := Vector2(21,21)
 	draw_circle(center,21,Color("0b1012"))
@@ -44,7 +50,17 @@ func _draw() -> void:
 	if _icon:
 		var fitted := _icon.get_size()*(27.0/maxf(_icon.get_width(),_icon.get_height()))
 		draw_texture_rect(_icon,Rect2(center-fitted/2,fitted),false,Color.WHITE if amount>0 else Color("8a8a8a"))
-	if protection_tier>0:
+	if door_status in ["open","broken"]:
+		draw_circle(Vector2(34,33),8,Color("0b1012"))
+		if door_status=="open":
+			var ink:=Color("80c7b2")
+			draw_arc(Vector2(37,31),4,PI,TAU,12,ink,2,true)
+			draw_rect(Rect2(29,31,10,7),ink,false,2)
+		else:
+			var ink:=Color("dc7682")
+			draw_line(Vector2(30,29),Vector2(38,37),ink,2,true)
+			draw_line(Vector2(38,29),Vector2(30,37),ink,2,true)
+	elif protection_tier>0:
 		var seal := Color("ca85ef") if protection_tier==2 else Color("e9b94f")
 		if not protected: seal=Color("8a8a8a")
 		draw_circle(Vector2(34,33),8,Color("0b1012"))

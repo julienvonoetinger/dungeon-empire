@@ -100,6 +100,13 @@ ont été retirés. Les props isolés et la planche des escaliers restent nus.
 
 ## Où sont les sprites ?
 
+Pour créer les prochains héros, suivre le
+[guide de production des animations depuis un modèle 3D](docs/production/hero-animation-pipeline.md).
+Il regroupe les recettes actuelles du Vulpin, les commandes, les réglages et
+les problèmes déjà résolus. L'[index Vulpin](docs/reference/vulpin-review/README.md)
+distingue les sources actuelles des essais abandonnés. Les huit scènes de revue
+restent séparées des héros provisoires du jeu.
+
 | Dossier | Contenu |
 | --- | --- |
 | `assets/dungeon/isometric-kit/` | Atlas et catalogue peints actifs |

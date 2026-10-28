@@ -1,0 +1,82 @@
+{
+  "status": "Key poses only, not animated or runtime integrated",
+  "tool": "Built-in ImageGen",
+  "source": "source/states-original.png",
+  "prompt": "source/prompt.txt",
+  "source_size": [
+    1306,
+    1205
+  ],
+  "source_sha256": "95fb0f4af87e2bd8dc8d252b358003a07be032c1e1ba1c777c199c66ee01c95d",
+  "preparation": "Connected silhouettes bounded at alpha8, padding8; original alpha preserved; one uniform scale for all four small views. Frames centered for review, not registered for animation.",
+  "entries": [
+    {
+      "name": "hurt",
+      "label": "Dégâts",
+      "crop": {
+        "left": 93,
+        "top": 51,
+        "width": 511,
+        "height": 591
+      },
+      "scale": 0.18563922942206654,
+      "frame": [
+        160,
+        160
+      ],
+      "sprite": "hurt.png",
+      "detail": "hurt-detail.png"
+    },
+    {
+      "name": "lockpick-door",
+      "label": "Crochetage · porte",
+      "crop": {
+        "left": 652,
+        "top": 57,
+        "width": 509,
+        "height": 587
+      },
+      "scale": 0.18563922942206654,
+      "frame": [
+        160,
+        160
+      ],
+      "sprite": "lockpick-door.png",
+      "detail": "lockpick-door-detail.png"
+    },
+    {
+      "name": "lockpick-chest",
+      "label": "Crochetage · coffre",
+      "crop": {
+        "left": 54,
+        "top": 675,
+        "width": 551,
+        "height": 456
+      },
+      "scale": 0.18563922942206654,
+      "frame": [
+        160,
+        160
+      ],
+      "sprite": "lockpick-chest.png",
+      "detail": "lockpick-chest-detail.png"
+    },
+    {
+      "name": "dead",
+      "label": "Mort · pose finale",
+      "crop": {
+        "left": 610,
+        "top": 827,
+        "width": 685,
+        "height": 277
+      },
+      "scale": 0.18563922942206654,
+      "frame": [
+        160,
+        160
+      ],
+      "sprite": "dead.png",
+      "detail": "dead-detail.png"
+    }
+  ]
+}

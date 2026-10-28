@@ -1,0 +1,24 @@
+VULPIN - PREMIER ESSAI DE MARCHE DEPUIS LE MODELE MESHY
+
+32 sprites : 8 poses fixes x 4 orientations isometriques.
+Rendus du vrai maillage 3D avec ses textures ; aucune piece d'illustration
+superposee. Generation des poses dans Blender, puis export en PNG transparents.
+
+Utilisation :
+- walk-se.png : sud-est, face vers le bas-droite de l'ecran.
+- walk-sw.png : sud-ouest, face vers le bas-gauche de l'ecran.
+- walk-nw.png : nord-ouest, de dos vers le haut-gauche de l'ecran.
+- walk-ne.png : nord-est, de dos vers le haut-droite de l'ecran.
+- Chaque planche contient 8 images de 256 x 256, de gauche a droite.
+- Cadence proposee : 10 images/seconde ; boucle de 0,8 seconde.
+- Les sous-dossiers contiennent les 32 PNG individuels.
+- manifest.json conserve les dimensions et le point d'ancrage au sol.
+- Garder la meme taille et le meme ancrage pour toutes les images.
+
+Les masters de 512 x 512 et le fichier Blender avec huit poses maintenues
+sont conserves dans le dossier de revue. Aucun APK n'a ete genere ; ces
+sprites ne sont pas encore integres au jeu.
+
+Les controles techniques verifient les fichiers, l'ancrage et le contact
+de points des semelles. Le naturel de la marche et la qualite du rig
+restent a juger visuellement : ce lot est une proposition.

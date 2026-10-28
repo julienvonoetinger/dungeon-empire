@@ -1,0 +1,13 @@
+{
+  "request": "Approved complete Vulpin animation and size study before multiplying heroes.",
+  "scope": "Isolated untextured mannequin extension, not painted or production-ready hero. Complete required motion vocabulary in four isometric views; measured lossless Godot import/resource pack. No APK, gameplay changes, player save, commit or push.",
+  "states": ["idle", "walk", "run", "hurt", "lock-door", "lock-chest", "death", "dead"],
+  "profiles": {"reference":160,"balanced":128,"compact":96},
+  "tasks": [
+    "Extend existing actual armature with hand targets and all motion clips; validate geometry, contacts and loop endpoints.",
+    "Render common temporal source samples; prepare variable frame-count profiles with stable root after alpha trimming and padded atlas packing.",
+    "Import three isolated Godot resource sets; measure PNG, imported storage, RGBA allocation and actual PCK bytes; verify load/play/pause/endpoints.",
+    "Deliver four-direction state previews, cadence/resolution comparison at equal display size, native evidence and measured budget with painting/device limits."
+  ],
+  "decisions": ["Review-only spike continues in the existing review directory; no production integration or new dependency.", "Dead reuses the last death image in every direction.", "Hand tools are tiny lockpicks visible only during lockpicking; locomotion remains unarmed.", "New motions are proposals, not artistically approved. Existing v4 accepted paintings are retained as identity/action references.", "Lossless import is the measured baseline; do not infer APK size or final painted compression from mannequin measurements."]
+}

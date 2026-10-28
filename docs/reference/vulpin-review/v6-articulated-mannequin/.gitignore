@@ -1,0 +1,6 @@
+# Reproducible intermediate renders/captures; selected previews and atlases kept.
+renders/*/
+frames/
+native/frame-*.png
+*.blend1
+__pycache__/

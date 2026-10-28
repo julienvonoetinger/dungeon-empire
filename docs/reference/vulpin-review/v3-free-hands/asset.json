@@ -1,0 +1,41 @@
+{
+  "status": "User-requested empty hands; static proposal, not yet approved or integrated",
+  "tool": "Built-in ImageGen",
+  "source": "source/vulpin-original.png",
+  "source_sha256": "9a47321f907514b3f639ffd080a36d9bb831629ee3c874633dad9c126be5f3fe",
+  "prompt": "source/prompt.txt",
+  "source_size": [
+    1306,
+    1205
+  ],
+  "crop": {
+    "left": 163,
+    "top": 156,
+    "width": 988,
+    "height": 933
+  },
+  "sprite": "vulpin-128.png",
+  "sprite_size": [
+    128,
+    128
+  ],
+  "sprite_bytes": 20582,
+  "rgba_bytes": 65536,
+  "anchor": [
+    68.93617021276596,
+    113.01418439716312
+  ],
+  "sourceAnchor": [
+    700,
+    1055
+  ],
+  "scale": 0.11347517730496454,
+  "visible_height": 106,
+  "native_alpha": true,
+  "preparation": "Uniform resize and transparent framing only; no repaint, warp or mirroring",
+  "reference_images": [
+    "docs/reference/hero-concepts-2d-2026-10-21/heroes-comparison.png",
+    "docs/reference/hero-concepts-2d-2026-10-21/vulpin-scene.png",
+    "docs/reference/vulpin-review/v2-approved-design/source/vulpin-original.png"
+  ]
+}

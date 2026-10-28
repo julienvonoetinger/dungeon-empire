@@ -1,0 +1,38 @@
+[
+	{
+		"hero_ground_screen": [
+			544.0,
+			349.949951171875
+		],
+		"label": "landscape-1280",
+		"size": [
+			1280,
+			720
+		],
+		"sprite_visible_height_px": 79.4999936819077
+	},
+	{
+		"hero_ground_screen": [
+			369.99486374855,
+			189.556230504313
+		],
+		"label": "mobile-844",
+		"size": [
+			844,
+			390
+		],
+		"sprite_visible_height_px": 43.0624981572229
+	},
+	{
+		"hero_ground_screen": [
+			195.000018596649,
+			438.250301510325
+		],
+		"label": "portrait-390",
+		"size": [
+			390,
+			844
+		],
+		"sprite_visible_height_px": 43.0632973630219
+	}
+]

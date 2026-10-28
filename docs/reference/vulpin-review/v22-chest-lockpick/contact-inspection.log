@@ -1,0 +1,83 @@
+00:01.282  blend            | Read blend: "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v22-chest-lockpick\vulpin-chest-lockpick-poses.blend"
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+[
+  {
+    "pose": 0,
+    "crossing_z_range": [
+      0.9248242378234863,
+      0.9839670062065125
+    ],
+    "below_chest_top_min_y": -0.905432403087616,
+    "chest_tier_triangle_clearance_model": 0.04613602161407471
+  },
+  {
+    "pose": 1,
+    "crossing_z_range": [
+      0.915856122970581,
+      0.976729154586792
+    ],
+    "below_chest_top_min_y": -0.9112290740013123,
+    "chest_tier_triangle_clearance_model": 0.04341226816177368
+  },
+  {
+    "pose": 2,
+    "crossing_z_range": [
+      0.9075937867164612,
+      0.9810479879379272
+    ],
+    "below_chest_top_min_y": -0.916946291923523,
+    "chest_tier_triangle_clearance_model": 0.04075884819030762
+  },
+  {
+    "pose": 3,
+    "crossing_z_range": [
+      0.9001786708831787,
+      0.9738133549690247
+    ],
+    "below_chest_top_min_y": -0.9227364659309387,
+    "chest_tier_triangle_clearance_model": 0.03781437873840332
+  },
+  {
+    "pose": 4,
+    "crossing_z_range": [
+      0.9075921773910522,
+      0.9810463190078735
+    ],
+    "below_chest_top_min_y": -0.9170166254043579,
+    "chest_tier_triangle_clearance_model": 0.040694236755371094
+  },
+  {
+    "pose": 5,
+    "crossing_z_range": [
+      0.9158543944358826,
+      0.9767276048660278
+    ],
+    "below_chest_top_min_y": -0.9112920165061951,
+    "chest_tier_triangle_clearance_model": 0.043354034423828125
+  },
+  {
+    "pose": 6,
+    "crossing_z_range": [
+      0.9248242378234863,
+      0.9839670062065125
+    ],
+    "below_chest_top_min_y": -0.905432403087616,
+    "chest_tier_triangle_clearance_model": 0.04613602161407471
+  },
+  {
+    "pose": 7,
+    "crossing_z_range": [
+      0.9320268034934998,
+      0.9827430844306946
+    ],
+    "below_chest_top_min_y": -0.8995065689086914,
+    "chest_tier_triangle_clearance_model": 0.048977017402648926
+  }
+]
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

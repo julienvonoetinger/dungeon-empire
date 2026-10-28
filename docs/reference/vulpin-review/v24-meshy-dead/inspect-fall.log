@@ -1,0 +1,17 @@
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+08:33:17 | INFO: Data are loaded, start creating Blender stuff
+08:33:17 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+INFO:glTFImporter:glTF import finished in 0.07s
+08:33:17 | INFO: glTF import finished in 0.07s
+LOWEST [('Bone_014', 0.0), ('Bone_009', 0.006997734308242798), ('Bone_017', 0.007772564888000488), ('Bone_018', 0.012467533349990845), ('Bone_021', 0.013511121273040771), ('Bone_038', 0.01743409037590027), ('Bone_056', 0.01867896318435669), ('Bone_055', 0.020038098096847534), ('Bone_037', 0.02307310700416565), ('Bone_029', 0.02851969003677368), ('Bone_054', 0.030044972896575928), ('Bone_036', 0.03025960922241211), ('Bone_024', 0.0329098105430603), ('Bone_004', 0.03312557935714722)]
+R angle 171.44597171508073 fwd 0.2613964080810547 wrist [-0.2908284068107605, -0.9222928881645203, 0.11522478610277176]
+L angle 171.44601269621577 fwd 0.2626227140426636 wrist [0.2918262481689453, -0.9235191941261292, 0.11417409032583237]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

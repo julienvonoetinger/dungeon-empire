@@ -1,0 +1,62 @@
+{
+  "frameSize": [
+    256,
+    256
+  ],
+  "uniquePoses": 8,
+  "fps": 10,
+  "order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "durationsMs": [
+    120,
+    140,
+    100,
+    100,
+    120,
+    180,
+    140,
+    180
+  ],
+  "duration": 1.08,
+  "loop": false,
+  "filter": "linear",
+  "directions": {
+    "se": {
+      "sheet": "chest-open-se.png",
+      "anchor": [
+        128.00010681152344,
+        195.92598342895508
+      ]
+    },
+    "sw": {
+      "sheet": "chest-open-sw.png",
+      "anchor": [
+        127.99988555908203,
+        195.92598342895508
+      ]
+    },
+    "nw": {
+      "sheet": "chest-open-nw.png",
+      "anchor": [
+        127.99992370605469,
+        195.9259490966797
+      ]
+    },
+    "ne": {
+      "sheet": "chest-open-ne.png",
+      "anchor": [
+        128.0000762939453,
+        195.9259490966797
+      ]
+    }
+  },
+  "source": "035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4"
+}

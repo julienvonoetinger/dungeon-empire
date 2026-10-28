@@ -169,14 +169,15 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 	for node in nodes:
 		node.reparent(_last_group)
 		if node is Sprite2D: node.z_index = 0
-	if main and entry.get("decoration", {}).has("chest_state"):
-		# The ring moves with the prepared solid, so foreground ordering stays intact.
+	var is_door_arch: bool = str(part.id).begins_with("door-") and str(part.id).ends_with("-arch")
+	if main and (entry.get("decoration", {}).has("chest_state") or is_door_arch):
+		# One ring per object, anchored above its complete prepared silhouette.
 		var caption := Marker.new()
-		caption.kind = "chest"
-		caption.position = grid_to_local(part.at)
+		caption.kind = "door" if is_door_arch else "chest"
+		caption.position = grid_to_local(Vector2(part.at)+(Vector2(.5,.5) if is_door_arch else Vector2.ZERO))
 		_last_group.add_child(caption)
 		caption.badge_anchor_y = part.rect.position.y - caption.position.y
-		_markers.append({"cell":Vector2i(Vector2(part.at).floor()),"kind":"chest","node":caption})
+		_markers.append({"cell":Vector2i(Vector2(part.at).floor()),"kind":caption.kind,"node":caption})
 
 func _proxy(at: Vector2, height: float, node: Node2D) -> Dictionary:
 	return {"at":at,"min":Vector3(at.x-.14,at.y-.14,0),"max":Vector3(at.x+.14,at.y+.14,height),
@@ -243,6 +244,11 @@ func _update_markers() -> void:
 				var charges := int(sim.trap_charges.get(p, maximum))
 				item.node.badge.set_amount(charges,maximum)
 				item.node.active = charges > 0
+			"door":
+				var hp:=int(sim.door_hp.get(p,Types.DOOR_MAX_HP))
+				var tier:=2 if sim.grid[p.y][p.x]==Types.Tile.MAGIC_DOOR else 1
+				item.node.badge.set_amount(hp,Types.DOOR_MAX_HP,tier,hp>0)
+				item.node.badge.set_door_status("closed" if hp>0 else "open" if sim.door_opened.get(p,false) else "broken")
 			"corpse": text_value = "Corps"
 			"loot": text_value = "Butin"
 		item.node.refresh(text_value)

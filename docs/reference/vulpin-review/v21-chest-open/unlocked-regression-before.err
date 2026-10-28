@@ -1,0 +1,744 @@
+ERROR: One unlocked chest painting: se pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: Ajar chest remains visible: se pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: No locked chest artwork: se pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: One unlocked chest painting: sw pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: Ajar chest remains visible: sw pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: No locked chest artwork: sw pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: One unlocked chest painting: nw pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: Ajar chest remains visible: nw pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: No locked chest artwork: nw pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: One unlocked chest painting: ne pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: Ajar chest remains visible: ne pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: No locked chest artwork: ne pose 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+ERROR: One unlocked chest painting: se pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: se pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: se pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: sw pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: sw pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: sw pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: nw pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: nw pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: nw pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: ne pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: ne pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: ne pose 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: se pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: se pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: se pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: sw pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: sw pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: sw pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: nw pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: nw pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: nw pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: ne pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: ne pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: ne pose 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: se pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: se pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: se pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: sw pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: sw pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: sw pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: nw pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: nw pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: nw pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: ne pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: ne pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: ne pose 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: se pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: se pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: se pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: sw pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: sw pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: sw pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: nw pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: nw pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: nw pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: ne pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: ne pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: ne pose 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: se pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: se pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: se pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: sw pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: sw pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: sw pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: nw pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: nw pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: nw pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: ne pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: ne pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: ne pose 5
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: se pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: se pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: se pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: sw pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: sw pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: sw pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: nw pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: nw pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: nw pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: ne pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: ne pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: ne pose 6
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: se pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: se pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: se pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: sw pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: sw pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: sw pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: nw pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: nw pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: nw pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: One unlocked chest painting: ne pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:27)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: No locked chest artwork: ne pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:29)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)
+ERROR: Ajar chest remains visible: ne pose 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tools/capture_vulpin_chest_open_preview.gd:14)
+       [1] check_unlocked_chest (res://tools/capture_vulpin_chest_open_preview.gd:30)
+       [2] capture (res://tools/capture_vulpin_chest_open_preview.gd:52)
+       [3] shot (res://tools/capture_vulpin_chest_open_preview.gd:34)
+       [4] settle (res://tools/capture_vulpin_chest_open_preview.gd:18)

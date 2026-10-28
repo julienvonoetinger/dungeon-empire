@@ -1,0 +1,10 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vulpin · Mort statique</title>
+<style>body{margin:0;background:#0d1420;color:#ece7f5;font:17px/1.6 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:28px 20px 60px}h1{font-size:30px}p{max-width:850px}img{width:100%;height:auto;border:1px solid #39475c;border-radius:10px}a{color:#cdb4ff}.note{padding:16px;background:#202337;border-left:3px solid #af86d4}td,th{padding:10px 18px;border-bottom:1px solid #39475c;text-align:left}table{border-collapse:collapse}small{color:#bcc6d6}</style>
+<main><h1>Vulpin — une pose fixe pour la mort</h1>
+<p>La séquence de chute est supprimée. Après la réaction aux dégâts, le personnage peut passer directement à son sprite au sol : <b>une image par orientation, quatre au total</b>. Les quatre poses existantes sont conservées sans retouche.</p>
+<img src="native-viewer-dead-0.png" alt="Quatre sprites statiques de mort dans le visualiseur Godot">
+<p>Le visualiseur propose maintenant huit états : attente, marche, course, dégâts, crochetage de porte, crochetage de coffre, ramassage et mort. La course accélérée et les autres actions restent identiques à la version précédente.</p>
+<table><tr><th>Profil 128 px</th><th>Avec chute</th><th>Mort statique</th></tr><tr><td>Paquet du héros</td><td>2,96 Mo</td><td>2,44 Mo (−17,5 %)</td></tr><tr><td>Pages d’atlas</td><td>4</td><td>3</td></tr><tr><td>Pixels RGBA des atlas</td><td>13,32 Mo</td><td>10,81 Mo</td></tr></table>
+<p><small>Mo décimaux. Paquet des ressources du mannequin, hors moteur Android et décors. Les futures textures peintes pourront modifier la compression.</small></p>
+<p class="note">Prototype local vérifié dans Godot. Le visualiseur permet le passage immédiat de « Dégâts » à « Mort » ; la logique du jeu n’est pas encore reliée à ce mannequin. Aucun nouvel APK construit. Les anciennes versions sont conservées pour référence.</p>
+<p><a href="validation.json">Résultats de vérification</a> · <a href="native-viewer-hurt-20.png">État dégâts</a> · <a href="native-viewer-run-9.png">Course conservée</a></p></main></html>

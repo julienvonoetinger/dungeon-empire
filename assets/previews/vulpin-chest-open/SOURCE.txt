@@ -1,0 +1,9 @@
+Source: docs/reference/vulpin-review/v21-chest-open/render_chest_open.py
+User Meshy GLB SHA256: 035f4d448e60fefd99b5eb9c8a7f2ddd55405802dcc060018d0c9595d848e2b4
+Eight fixed whole-mesh poses, four orthographic isometric directions.
+Original model and materials; no tools. 256px frames, same camera/anchor as walk.
+One-shot 1.08 seconds; 1,102,311 PNG bytes, 8 MiB uncompressed RGBA.
+Inspection scene only. Use only the unlocked/ajar chest painting throughout.
+No locked-to-unlocked transition, including replay and repetition.
+Locked chests require a separate preceding lockpicking action, not implemented here.
+Contact and container proxies do not reconstruct the illustrated chest geometry.

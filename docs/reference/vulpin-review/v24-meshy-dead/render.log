@@ -1,0 +1,59 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+INFO:glTFImporter:Data are loaded, start creating Blender stuff
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+08:33:49 | INFO: Data are loaded, start creating Blender stuff
+08:33:49 | INFO: Blender create Mesh node output_unwrapped
+INFO:glTFImporter:Blender create Mesh node output_unwrapped
+INFO:glTFImporter:glTF import finished in 0.07s
+08:33:50 | INFO: glTF import finished in 0.07s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\render_fall.py:180: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('DeadStudio');world.use_nodes=True;scene.world=world
+00:04.218  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-00.png'
+00:05.437  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-01.png'
+00:06.671  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-02.png'
+00:07.921  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-03.png'
+00:09.203  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-04.png'
+00:10.515  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-05.png'
+00:11.843  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-06.png'
+00:13.171  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-07.png'
+00:14.531  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-08.png'
+00:15.890  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\se\fall-09.png'
+00:17.328  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-00.png'
+00:18.734  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-01.png'
+00:20.140  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-02.png'
+00:21.515  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-03.png'
+00:22.921  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-04.png'
+00:24.312  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-05.png'
+00:25.718  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-06.png'
+00:27.156  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-07.png'
+00:28.609  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-08.png'
+00:30.046  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\sw\fall-09.png'
+00:31.453  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-00.png'
+00:32.890  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-01.png'
+00:34.281  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-02.png'
+00:35.687  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-03.png'
+00:37.109  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-04.png'
+00:38.562  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-05.png'
+00:40.000  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-06.png'
+00:41.437  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-07.png'
+00:42.890  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-08.png'
+00:44.296  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\nw\fall-09.png'
+00:45.750  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-00.png'
+00:47.203  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-01.png'
+00:48.609  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-02.png'
+00:50.062  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-03.png'
+00:51.515  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-04.png'
+00:52.953  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-05.png'
+00:54.375  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-06.png'
+00:55.812  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-07.png'
+00:57.218  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-08.png'
+00:58.656  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\masters\ne\fall-09.png'
+Info: No new files have been packed
+Info: Saved as "vulpin-fall-poses.blend"
+FALL_POSES_OK [(0, 0.4218329191207886, {'head': 0.6252629160881042, 'body': 0.47033965587615967, 'knees': 0.13036955893039703, 'hands': 0.24215851724147797}), (1, 0.356234073638916, {'head': 0.5785451531410217, 'body': 0.4087226390838623, 'knees': 0.09583845734596252, 'hands': 0.1688591092824936}), (2, 0.29091718792915344, {'head': 0.5281767249107361, 'body': 0.3302111327648163, 'knees': 0.06493175774812698, 'hands': 0.1165194883942604}), (3, 0.2468455731868744, {'head': 0.4893883168697357, 'body': 0.28245049715042114, 'knees': 0.024460121989250183, 'hands': 0.09674514830112457}), (4, 0.23917420208454132, {'head': 0.45438873767852783, 'body': 0.25188693404197693, 'knees': 0.0, 'hands': 0.12583471834659576}), (5, 0.2544708847999573, {'head': 0.35675790905952454, 'body': 0.21516990661621094, 'knees': 0.0, 'hands': 0.22694435715675354}), (6, 0.2534816861152649, {'head': 0.23731373250484467, 'body': 0.13666142523288727, 'knees': 0.0, 'hands': 0.15834717452526093}), (7, 0.25660979747772217, {'head': 0.1351383924484253, 'body': 0.0711212158203125, 'knees': 0.04022549092769623, 'hands': 0.08275529742240906}), (8, 0.261234313249588, {'head': 0.07297694683074951, 'body': 0.04592323303222656, 'knees': 0.07336917519569397, 'hands': 0.032865703105926514}), (9, 0.2601815164089203, {'head': 0.013511121273040771, 'body': 0.03312557935714722, 'knees': 0.08761779963970184, 'hands': 0.01743409037590027})]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

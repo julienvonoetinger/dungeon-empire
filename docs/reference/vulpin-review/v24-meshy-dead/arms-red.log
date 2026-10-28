@@ -1,0 +1,16 @@
+00:01.281  blend            | Read blend: "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\vulpin-fall-poses.blend"
+Traceback (most recent call last):
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+  File "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v24-meshy-dead\verify_saved_poses.py", line 29, in <module>
+    assert forward>.26,('hands beside head rather than forward',side,forward)
+           ^^^^^^^^^^^
+AssertionError: ('hands beside head rather than forward', 'R', 0.18379461765289307)
+
+Error: script failed, file: 'C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/vulpin-review/v24-meshy-dead/verify_saved_poses.py', exiting.
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

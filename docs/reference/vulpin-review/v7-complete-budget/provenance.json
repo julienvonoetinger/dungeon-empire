@@ -1,0 +1,16 @@
+{
+  "source": "v6-articulated-mannequin/vulpin-mannequin.blend",
+  "sourceSha256": "ED63160A3A52373004A5129BC44572721157A800D057926C54C62EFEF4A5ED83",
+  "outputSha256": "61925534E1E23EEA9561EDEC5E05866ED9F63EEFB7CD00C6877331AF1FBB0723",
+  "scope": "Untextured rig study; no ImageGen or approved painting modified",
+  "blender": "5.2.1 LTS",
+  "godot": "4.7.2",
+  "rebuild": [
+    "build_clips.py in factory-startup background Blender",
+    "prepare.cjs with Node and Sharp",
+    "Copy verify.gd into each generated projects/profile; import with Godot --editor --headless --import",
+    "Run verify.gd natively; run check_pack.gd in separate empty project for each PCK",
+    "Run capture_dungeon.gd in real project with isolated save path",
+    "review.cjs then publish_review.cjs with Node and Sharp"
+  ]
+}

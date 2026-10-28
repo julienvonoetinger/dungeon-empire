@@ -1,0 +1,9 @@
+renders/
+frames/
+projects/*/.godot/
+projects/*/assets/*.import
+native/frame-*.png
+*.blend1
+__pycache__/
+pack-check/.godot/
+iterations/

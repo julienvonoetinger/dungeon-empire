@@ -1,0 +1,278 @@
+{
+  "status": "One-direction walk pilot, not approved or runtime integrated",
+  "source": "source/walk-guided.png",
+  "source_sha256": "9209587dc185cf5db461fef67ead8b564419b9bc5ea05b9384cb812479c7a8c6",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "tool": "Built-in ImageGen",
+  "prompt": "source/guided-prompt.txt",
+  "atlas": "walk-atlas.png",
+  "atlasSize": [
+    640,
+    320
+  ],
+  "frameSize": 160,
+  "root": [
+    80,
+    134
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/walk-0.png",
+      "sourceCell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "crop": {
+        "left": 56,
+        "top": 14,
+        "width": 346,
+        "height": 421
+      },
+      "sourceRoot": [
+        294.372,
+        410.25600000000003
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        19,
+        33,
+        88,
+        107
+      ]
+    },
+    {
+      "index": 1,
+      "file": "frames/walk-1.png",
+      "sourceCell": [
+        444,
+        0,
+        443,
+        444
+      ],
+      "crop": {
+        "left": 479,
+        "top": 14,
+        "width": 344,
+        "height": 424
+      },
+      "sourceRoot": [
+        720.432,
+        410.25600000000003
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        18,
+        33,
+        88,
+        108
+      ]
+    },
+    {
+      "index": 2,
+      "file": "frames/walk-2.png",
+      "sourceCell": [
+        887,
+        0,
+        444,
+        444
+      ],
+      "crop": {
+        "left": 913,
+        "top": 14,
+        "width": 338,
+        "height": 424
+      },
+      "sourceRoot": [
+        1147.184,
+        410.25600000000003
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        20,
+        33,
+        86,
+        108
+      ]
+    },
+    {
+      "index": 3,
+      "file": "frames/walk-3.png",
+      "sourceCell": [
+        1331,
+        0,
+        443,
+        444
+      ],
+      "crop": {
+        "left": 1347,
+        "top": 14,
+        "width": 348,
+        "height": 421
+      },
+      "sourceRoot": [
+        1598.5720000000001,
+        410.25600000000003
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        16,
+        33,
+        89,
+        107
+      ]
+    },
+    {
+      "index": 4,
+      "file": "frames/walk-4.png",
+      "sourceCell": [
+        0,
+        444,
+        444,
+        443
+      ],
+      "crop": {
+        "left": 56,
+        "top": 442,
+        "width": 354,
+        "height": 432
+      },
+      "sourceRoot": [
+        312.57599999999996,
+        853.332
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        15,
+        29,
+        90,
+        110
+      ]
+    },
+    {
+      "index": 5,
+      "file": "frames/walk-5.png",
+      "sourceCell": [
+        444,
+        444,
+        443,
+        443
+      ],
+      "crop": {
+        "left": 480,
+        "top": 441,
+        "width": 348,
+        "height": 431
+      },
+      "sourceRoot": [
+        734.608,
+        853.332
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        15,
+        29,
+        89,
+        110
+      ]
+    },
+    {
+      "index": 6,
+      "file": "frames/walk-6.png",
+      "sourceCell": [
+        887,
+        444,
+        444,
+        443
+      ],
+      "crop": {
+        "left": 917,
+        "top": 440,
+        "width": 349,
+        "height": 428
+      },
+      "sourceRoot": [
+        1169.384,
+        853.332
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        16,
+        29,
+        89,
+        109
+      ]
+    },
+    {
+      "index": 7,
+      "file": "frames/walk-7.png",
+      "sourceCell": [
+        1331,
+        444,
+        443,
+        443
+      ],
+      "crop": {
+        "left": 1350,
+        "top": 439,
+        "width": 351,
+        "height": 414
+      },
+      "sourceRoot": [
+        1606.989,
+        853.332
+      ],
+      "root": [
+        80,
+        134
+      ],
+      "scale": 0.255,
+      "artBounds": [
+        14,
+        28,
+        90,
+        106
+      ]
+    }
+  ],
+  "cycleSeconds": 0.8,
+  "registration": "Visually estimated ground roots; translation and common uniform resize only. Not calibrated foot-contact motion.",
+  "limitations": [
+    "Generated gait does not exactly follow the guide; leg alternation and torso consistency still need art refinement.",
+    "No world-distance/stance-foot calibration or production animation integration."
+  ],
+  "rgbaBytes": 819200
+}

@@ -1,0 +1,13 @@
+20:51:12 | INFO: Data are loaded, start creating Blender stuff
+20:51:12 | INFO: Blender create Mesh node output_unwrapped
+20:51:12 | INFO: glTF import finished in 0.07s
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\render_walk.py:109: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('WalkStudio');world.use_nodes=True;scene.world=world
+00:02.906  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\se\walk-00.png'
+00:03.718  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\se\walk-02.png'
+00:04.531  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\se\walk-04.png'
+00:05.328  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\vulpin-review\v16-meshy-walk\masters\se\walk-06.png'
+WALK_POSES_OK 4 True
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

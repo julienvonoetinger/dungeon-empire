@@ -1,0 +1,20 @@
+Preview only: scenes/VulpinWalk.tscn
+
+Four PNG sheets copied unchanged from:
+docs/reference/vulpin-review/v16-meshy-walk/sprites/
+
+8 held poses per direction, 256 x 256 per frame, authored at 10 FPS.
+Normal preview playback is now 15 FPS (the former 1.5x), with matching travel.
+Original model: user-supplied Meshy_AI_Character_output.glb.
+Sprite production and packed Blender source remain in the v16 review folder.
+No 3D model is required by this scene.
+
+Open VulpinWalk.tscn in Godot and press F6.
+Two native three-cell corridors show SE/NW and SW/NE round trips.
+Translation and the eight rendered poses share a single playback clock.
+The initial travel rate follows the planted-foot stride of the Blender poses.
+Space: pause/resume. Right arrow: pause and advance one pose.
+Buttons expose pause, stepping (including travel), restart and 0.5x/1x/1.5x/2x speed.
+These multipliers are relative to the new normal speed.
+
+These sprites are a visual trial and are not assigned to gameplay heroes.
