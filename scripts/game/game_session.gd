@@ -8,6 +8,8 @@ const Types = preload("res://scripts/game/game_types.gd")
 const Save = preload("res://scripts/game/gameplay_save.gd")
 const SAVE_PATH := "user://isometric_run_v1.save"
 var save_path := SAVE_PATH
+## Set before entering the tree for isolated simulations; no disk reads or writes.
+var persistence_enabled := true
 const FIELDS := ["grid", "gold", "vault_gold", "vault_locks", "vault_opened", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over"]
 var sim := DungeonSim.new()
 var raid := RaidDirector.new()
@@ -29,10 +31,10 @@ var _build_history: Array[Dictionary] = []
 
 func _ready() -> void:
 	# Explicit manual-review slot; never touches the player's current dungeon.
-	if OS.get_cmdline_user_args().has("--forge-review"):
+	if persistence_enabled and OS.get_cmdline_user_args().has("--forge-review"):
 		save_path = "user://forge_review_v1.save"
 		get_window().title = "Forge · Vérification"
-	elif OS.get_cmdline_user_args().has("--review-session"):
+	elif persistence_enabled and OS.get_cmdline_user_args().has("--review-session"):
 		save_path = "user://isometric_review_v1.save"
 		get_window().title = "Dungeon Empire · Vérification"
 	sim.raid = raid
@@ -40,10 +42,10 @@ func _ready() -> void:
 	raid.solid_core = true
 	raid.raid_finished.connect(_raid_finished)
 	sim.new_map()
-	var data := Save.read_save(save_path)
+	var data := Save.read_save(save_path) if persistence_enabled else {}
 	if not data.is_empty() and Save.apply(data, sim, raid, progression):
 		notice = "Donjon retrouvé. La préparation reprend."
-	elif FileAccess.file_exists(save_path) or FileAccess.file_exists(save_path + ".bak"):
+	elif persistence_enabled and (FileAccess.file_exists(save_path) or FileAccess.file_exists(save_path + ".bak")):
 		save_blocked = true
 		save_error = "Sauvegarde illisible : elle est conservée. Recommencer pour créer une nouvelle partie."
 	else:
@@ -65,6 +67,10 @@ func ready_for_raid() -> bool:
 	return sim._has_required_storage() and not sim.game_over and not save_blocked
 
 func _process(delta: float) -> void:
+	advance_simulation(delta)
+
+## Shared by normal frame processing and fixed-step, UI-free scenario runners.
+func advance_simulation(delta: float) -> void:
 	if not paused and not confirmation_open and not result_open and not save_blocked and not sim.game_over:
 		if raid.raid_active:
 			# Fixed substeps preserve the existing step/timer bounds at 2x.
@@ -300,7 +306,11 @@ func restart(prepared: bool) -> void:
 
 func _save() -> bool:
 	if save_blocked: return false
-	var ok := Save.write_save(save_path, Save.capture(sim, raid, progression))
+	# Capture reconciles assigned vault balances in normal play. Keep that rule
+	# even when the simulation has no persistence; only disk I/O is bypassed.
+	var data := Save.capture(sim, raid, progression)
+	if not persistence_enabled: return true
+	var ok := Save.write_save(save_path, data)
 	save_error = "" if ok else "Échec de sauvegarde : votre dernier fichier est conservé."
 	return ok
 

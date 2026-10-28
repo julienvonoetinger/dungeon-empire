@@ -1,0 +1,19 @@
+{
+  "version":1,
+  "name":"Complete raid, immutable map and return to preparation",
+  "initial":"prepared",
+  "seed":42,
+  "steps":[
+    {"action":"start_raid"},
+    {"action":"checkpoint","label":"Spawned hero"},
+    {"action":"build","tool":"DIG","cell":[4,7],"expect":"rejected"},
+    {"action":"build","tool":"REPAIR","cell":[5,8],"expect":"rejected"},
+    {"action":"wait","probe":"raid","field":"active","op":"eq","value":false,"timeout":240},
+    {"action":"assert","probe":"session","field":"result_open","op":"eq","value":true},
+    {"action":"assert","probe":"hero","field":"present","op":"eq","value":false},
+    {"action":"assert","probe":"raid","field":"result.raid_id","op":"eq","value":1},
+    {"action":"assert","probe":"progression","field":"last_raid_id","op":"eq","value":1},
+    {"action":"continue"},
+    {"action":"assert","probe":"session","field":"editable","op":"eq","value":true}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version":1,
+  "name":"Vault transfer and lock upgrade",
+  "initial":"prepared",
+  "seed":1,
+  "steps":[
+    {"action":"assert","probe":"vault:7:7","field":"gold","op":"eq","value":95},
+    {"action":"transfer","cell":[7,7],"destination":[9,9],"amount":25},
+    {"action":"assert","probe":"vault:7:7","field":"gold","op":"eq","value":70},
+    {"action":"assert","probe":"vault:9:9","field":"gold","op":"eq","value":25},
+    {"action":"assert","probe":"economy","field":"gold","op":"eq","value":245},
+    {"action":"pause","value":true},
+    {"action":"transfer","cell":[7,7],"destination":[9,9],"amount":25,"expect":"rejected"},
+    {"action":"pause","value":false},
+    {"action":"build","tool":"STORE_LOCKED","cell":[9,7]},
+    {"action":"assert","probe":"vault:9:7","field":"protected","op":"eq","value":true},
+    {"action":"assert","probe":"vault:9:7","field":"lock_tier","op":"eq","value":1},
+    {"action":"assert","probe":"economy","field":"gold","op":"eq","value":205}
+  ]
+}

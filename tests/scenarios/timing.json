@@ -1,0 +1,20 @@
+{
+  "version":1,
+  "name":"Countdown, pause and automatic raid start",
+  "initial":"prepared",
+  "seed":7,
+  "steps":[
+    {"action":"build","tool":"STORE","cell":[7,9]},
+    {"action":"pause","value":true},
+    {"action":"advance","seconds":1},
+    {"action":"assert","probe":"raid","field":"timer","op":"eq","value":25},
+    {"action":"pause","value":false},
+    {"action":"advance","seconds":1},
+    {"action":"assert","probe":"raid","field":"timer","op":"gte","value":23.99},
+    {"action":"assert","probe":"raid","field":"timer","op":"lte","value":24.01},
+    {"action":"wait","probe":"raid","field":"active","op":"eq","value":true,"timeout":25},
+    {"action":"pause","value":true},
+    {"action":"advance","seconds":2},
+    {"action":"assert","probe":"raid","field":"elapsed","op":"eq","value":0}
+  ]
+}

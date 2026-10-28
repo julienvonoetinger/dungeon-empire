@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "name": "Construction, costs, rejection and undo",
+  "initial": "empty",
+  "seed": 1,
+  "steps": [
+    {"action":"build","tool":"DIG","cell":[8,8]},
+    {"action":"build","tool":"DIG","cell":[6,8]},
+    {"action":"assert","probe":"economy","field":"gold","op":"eq","value":315},
+    {"action":"build","tool":"BUILD_DOOR","cell":[6,8]},
+    {"action":"assert","probe":"door:6:8","field":"status","op":"eq","value":"locked"},
+    {"action":"assert","probe":"economy","field":"gold","op":"eq","value":275},
+    {"action":"build","tool":"BUILD_DOOR","cell":[7,8],"expect":"rejected"},
+    {"action":"build","tool":"TRAP_VOID","cell":[7,8],"expect":"rejected"},
+    {"action":"assert","probe":"economy","field":"gold","op":"eq","value":275},
+    {"action":"undo"},
+    {"action":"assert","probe":"door:6:8","op":"exists","value":false},
+    {"action":"assert","probe":"economy","field":"gold","op":"eq","value":315},
+    {"action":"build","tool":"TRAP_SPIKE","cell":[6,8]},
+    {"action":"assert","probe":"trap:6:8","field":"charges","op":"eq","value":3},
+    {"action":"checkpoint","label":"Built trap replaces floor through gameplay commands"},
+    {"action":"start_raid","expect":"rejected"}
+  ]
+}

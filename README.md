@@ -70,6 +70,18 @@ L'intégration et ses limites sont décrites dans
 La sauvegarde `user://isometric_run_v1.save` ne remplace pas celle de l'ancien jeu.
 Le démarrage principal défini localement dans `project.godot` est conservé.
 
+## Simuler sans interface
+
+Les sondes permettent de construire et simuler des raids sans lancer la scène
+graphique, puis de vérifier portes, pièges, coffres, héros et économie :
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/run-probes.ps1
+```
+
+Rapport : `artifacts/probes/report.json`. Aucune sauvegarde du joueur n'est lue
+ou écrite. [Scénarios, commandes et limites](docs/testing/probes.md).
+
 ## Ouvrir les scènes
 
 Ouvrir `project.godot` dans Godot.

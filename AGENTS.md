@@ -1,5 +1,29 @@
 # Repository instructions
 
+## Headless gameplay probes and scenarios — 2026-10-28
+
+- User requests simulations/tests through probes without UI. `scripts/testing`
+  provides passive state snapshots with stable IDs and per-tick invariants;
+  ScenarioRunner drives the actual game_session commands and shared
+  advance_simulation at fixed .05s. No renderer, scene UI or player-save I/O.
+  persistence_enabled defaults true in normal game; disable BEFORE tree entry
+  for tests. Keep Save.capture balance reconciliation even with disk disabled.
+- `tools/run-probes.ps1` runs five JSON recipes under tests/scenarios; reports
+  in artifacts/probes, exit0 success/1 observed failure/2 invalid input or engine
+  error. Checks stderr because Godot can return0 after a script error. Retain
+  native process handle, correct Windows trailing-backslash quoting and protect
+  scenario inputs from report overwrite. `docs/testing/probes.md` is the guide.
+- Seeded runs are sequential/synchronous; global RNG is reset. Parallel runs
+  require separate processes. Reproduction requires same code/settings/engine;
+  seed21 recipe specifically tests Vulpin unlock/trap/theft/repair. Generic
+  raid-cycle supports varied seeds/classes. Timeout240s accounts for existing
+  Stubborn Vulpin morale (~195s after failed lockpick); no AI behavior changed.
+- Validation:63 native checks,14 CLI checks,5 recipes and40 raids across all
+  four hero classes pass; headless import exit0/empty stderr. Independent review
+  findings fixed and reproduced by tests. Queries do not repair observations.
+  Logical/grid checks do not prove sprite occlusion/art/HUD correctness; old F3
+  overlay not restored. No APK, player-save access, commit or push.
+
 ## Door passage uses independent jamb supports — 2026-10-28
 
 - User reports Vulpin clipped by open doorway. Old two horizontal sprite layers

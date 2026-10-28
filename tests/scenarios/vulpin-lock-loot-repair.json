@@ -1,0 +1,23 @@
+{
+  "version":1,
+  "name":"Vulpin lockpick, trap, theft and repairs (seed 21)",
+  "initial":"prepared",
+  "seed":21,
+  "steps":[
+    {"action":"start_raid"},
+    {"action":"assert","probe":"hero","field":"kind","op":"eq","value":"thief"},
+    {"action":"wait","probe":"door:5:8","field":"status","op":"eq","value":"open","timeout":20},
+    {"action":"assert","probe":"door:5:8","field":"blocking","op":"eq","value":false},
+    {"action":"checkpoint","label":"Door opened by actual lockpick"},
+    {"action":"wait","probe":"trap:6:8","field":"charges","op":"lt","value":3,"timeout":10},
+    {"action":"wait","probe":"raid","field":"active","op":"eq","value":false,"timeout":240},
+    {"action":"assert","probe":"core","field":"hp","op":"eq","value":100},
+    {"action":"assert","probe":"raid","field":"stats.stolen","op":"gt","value":0},
+    {"action":"continue"},
+    {"action":"build","tool":"REPAIR","cell":[5,8]},
+    {"action":"assert","probe":"door:5:8","field":"status","op":"eq","value":"locked"},
+    {"action":"build","tool":"REPAIR","cell":[6,8]},
+    {"action":"assert","probe":"trap:6:8","field":"charges","op":"eq","value":3},
+    {"action":"assert","probe":"economy","field":"gold","op":"eq","value":115}
+  ]
+}
