@@ -1,0 +1,12 @@
+{
+	"center_poses": 16,
+	"checks": 311,
+	"directions": 4,
+	"failures": [
+		"se: independently sortable jambs",
+		"sw: independently sortable jambs",
+		"nw: independently sortable jambs",
+		"ne: independently sortable jambs"
+	],
+	"positions": 49
+}

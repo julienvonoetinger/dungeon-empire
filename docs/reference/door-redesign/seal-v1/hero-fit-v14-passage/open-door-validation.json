@@ -1,0 +1,75 @@
+{
+	"checks": 84,
+	"failures": [],
+	"states": [
+		{
+			"contacts": 8,
+			"parts": [
+				"door-north-jamb-right",
+				"door-north-panel",
+				"door-north-leaf",
+				"door-north-arch",
+				"door-west-jamb-right",
+				"door-west-panel",
+				"door-west-leaf",
+				"door-west-arch"
+			],
+			"state": "closed"
+		},
+		{
+			"contacts": 8,
+			"parts": [
+				"door-north-open-jamb-right",
+				"door-north-open-leaf",
+				"door-north-open-arch",
+				"door-west-open-jamb-right",
+				"door-west-open-leaf",
+				"door-west-open-arch"
+			],
+			"state": "unlocked"
+		},
+		{
+			"contacts": 8,
+			"parts": [
+				"door-north-open-jamb-right",
+				"door-north-open-leaf",
+				"door-north-open-arch",
+				"door-west-open-jamb-right",
+				"door-west-open-leaf",
+				"door-west-open-arch"
+			],
+			"state": "reloaded"
+		},
+		{
+			"contacts": 8,
+			"parts": [
+				"door-north-open-jamb-right",
+				"door-north-open-leaf",
+				"door-north-open-arch",
+				"door-west-open-jamb-right",
+				"door-west-open-leaf",
+				"door-west-open-arch"
+			],
+			"state": "forced"
+		},
+		{
+			"contacts": 8,
+			"parts": [
+				"door-north-jamb-right",
+				"door-north-panel",
+				"door-north-leaf",
+				"door-north-arch",
+				"door-west-jamb-right",
+				"door-west-panel",
+				"door-west-leaf",
+				"door-west-arch"
+			],
+			"state": "repaired"
+		},
+		{
+			"contacts": 0,
+			"parts": [],
+			"state": "removed"
+		}
+	]
+}

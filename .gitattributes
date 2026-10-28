@@ -78,3 +78,35 @@
 /shaders/ground_effect_mix.gdshader.uid -text
 /shaders/heart_vortex.gdshader -text
 /shaders/heart_vortex.gdshader.uid -text
+
+# Door/hero reproduction and shared atlas recipe retain exact source hashes.
+/tools/capture_door_passage.gd -text
+/tools/capture_door_passage.gd.uid -text
+/tools/integrated_compact_door_stage.gd -text
+/tools/integrated_compact_door_stage.gd.uid -text
+/tools/isometric_seal_door.cjs -text
+/tools/isometric_seal_texture.cjs -text
+/tools/verify_compact_door_passage.py -text
+/tools/verify_door_passage_parts.cjs -text
+/docs/reference/entrance-stairs-open-south-wireframe.json -text
+/assets/dungeon/shared-materials/catalog.json -text
+/tools/isometric_kit_geometry.cjs -text
+/tools/wireframe_geometry.cjs -text
+/tools/isometric_paint_geometry.cjs -text
+/tools/isometric_stone_paint.cjs -text
+/tools/painted_material_renderer.cjs -text
+/tools/stone_edge_finish.cjs -text
+/assets/dungeon/shared-materials/stone-finish.json -text
+/tools/isometric_approved_heart_light.cjs -text
+/tools/isometric_wall_variants.cjs -text
+/tools/isometric_wall_palette.cjs -text
+/tools/isometric_floor_variants.cjs -text
+/tools/isometric_floor_damage.cjs -text
+/tools/isometric_ritual_props.cjs -text
+/tools/isometric_treasure_chest.cjs -text
+/docs/reference/treasure-chest-review/v2/selection.json -text
+/tools/chest_direction_sources.json -text
+/docs/reference/treasure-chest-review/v4-directions/generation-complete.json -text
+/tools/isometric_painted_traps.cjs -text
+/tools/isometric_trap_registration.cjs -text
+/tools/isometric_trap_receiver.cjs -text

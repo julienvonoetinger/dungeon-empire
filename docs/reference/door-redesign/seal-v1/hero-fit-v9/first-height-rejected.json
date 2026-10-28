@@ -1,0 +1,142 @@
+{
+  "method": "All evaluated mesh vertices projected onto transverse XZ opening; translational sweep through leaf plane, no auto self-collision or interaction claim.",
+  "samples": [
+    {
+      "action": "v16-meshy-walk",
+      "pose": 0,
+      "old_outside": 3329,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v16-meshy-walk",
+      "pose": 1,
+      "old_outside": 3285,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v16-meshy-walk",
+      "pose": 2,
+      "old_outside": 3341,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v16-meshy-walk",
+      "pose": 3,
+      "old_outside": 3355,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v16-meshy-walk",
+      "pose": 4,
+      "old_outside": 3329,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v16-meshy-walk",
+      "pose": 5,
+      "old_outside": 3285,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v16-meshy-walk",
+      "pose": 6,
+      "old_outside": 3344,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v16-meshy-walk",
+      "pose": 7,
+      "old_outside": 3364,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 0,
+      "old_outside": 3198,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 1,
+      "old_outside": 3093,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 2,
+      "old_outside": 3579,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 3,
+      "old_outside": 4234,
+      "new_outside": 62,
+      "failure_bounds": [
+        [
+          0.27943598158181127,
+          0.7235025684356848
+        ],
+        [
+          0.8476192949782518,
+          0.9053843953263359
+        ]
+      ]
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 4,
+      "old_outside": 3188,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 5,
+      "old_outside": 3088,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 6,
+      "old_outside": 3579,
+      "new_outside": 0,
+      "failure_bounds": null
+    },
+    {
+      "action": "v17-meshy-run",
+      "pose": 7,
+      "old_outside": 4232,
+      "new_outside": 62,
+      "failure_bounds": [
+        [
+          0.27947685236722786,
+          0.7235489425234273
+        ],
+        [
+          0.8473158663647,
+          0.9051135291885953
+        ]
+      ]
+    },
+    {
+      "action": "v19-hurt-recoil",
+      "pose": 0,
+      "old_outside": 3327,
+      "new_outside": 0,
+      "failure_bounds": null
+    }
+  ]
+}

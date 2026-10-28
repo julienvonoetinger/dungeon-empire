@@ -1,0 +1,113 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "source": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
+  "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
+  "mapping": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/mapping.json",
+  "fit": {
+    "uniformScale": 1,
+    "translation": [
+      0,
+      -0.40000000000009095
+    ]
+  },
+  "palette": {
+    "source": {
+      "count": 24392,
+      "luma": [
+        11.1616,
+        73.61999999999999,
+        82.54780000000001,
+        90.4114,
+        133.19879999999998,
+        195.1684
+      ],
+      "rgb": [
+        67,
+        84,
+        114
+      ]
+    },
+    "targets": {
+      "top": {
+        "count": 10860,
+        "luma": [
+          27.8370125,
+          55.31082644017725,
+          62.5426,
+          66.348175,
+          75.7046,
+          85.39992914201183
+        ],
+        "rgb": [
+          51,
+          63,
+          91.875
+        ]
+      },
+      "north": {
+        "count": 4025,
+        "luma": [
+          20.526600000000002,
+          37.9107375,
+          39.5975125,
+          41.560649999999995,
+          58.61992633136094,
+          74.64823104125735
+        ],
+        "rgb": [
+          28.8125,
+          40,
+          67.1875
+        ]
+      },
+      "west": {
+        "count": 24477,
+        "luma": [
+          22.740833554083885,
+          30.931224999999998,
+          32.38015,
+          34.16035,
+          42.0919125,
+          49.3162625
+        ],
+        "rgb": [
+          21,
+          33,
+          59.1875
+        ]
+      }
+    }
+  },
+  "hardware": {
+    "lockHeight": 0.32,
+    "sourceLock": [
+      512,
+      1138
+    ],
+    "sourceHingeCenters": [
+      [
+        269,
+        860
+      ],
+      [
+        269,
+        1237
+      ]
+    ],
+    "hingeRegions": [
+      [
+        245,
+        780,
+        50,
+        160
+      ],
+      [
+        245,
+        1155,
+        50,
+        165
+      ]
+    ]
+  },
+  "process": "Immutable original RGBA; uniform UV registration on approved XYZ. Existing wall grades on painted masonry fronts; shared stone material on sides/tops. Hinge steel kept in its two annotated receiver regions. Source glow is outside the XYZ silhouette and never exported."
+}

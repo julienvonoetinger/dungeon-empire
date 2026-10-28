@@ -1,0 +1,57 @@
+{
+  "nonDoor": 143,
+  "results": [
+    {
+      "direction": "south",
+      "open": false,
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "south",
+      "open": true,
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "east",
+      "open": false,
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "east",
+      "open": true,
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "north",
+      "open": false,
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "north",
+      "open": true,
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "west",
+      "open": false,
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "west",
+      "open": true,
+      "alpha": 0,
+      "color": 0.984313725490196
+    }
+  ],
+  "rgba": 13631488,
+  "rgbaDelta": 1048576,
+  "png": 2094094,
+  "pngDelta": 78355
+}

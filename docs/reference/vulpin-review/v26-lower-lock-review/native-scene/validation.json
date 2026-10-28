@@ -1,0 +1,14 @@
+{
+	"checks": [
+		"native door scenes",
+		"32 tool/lock projections",
+		"pause/step/loop",
+		"speed",
+		"distance",
+		"guides/ghost",
+		"four viewport sizes"
+	],
+	"directions": 4,
+	"failures": [],
+	"poses": 8
+}

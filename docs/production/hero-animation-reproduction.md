@@ -44,7 +44,7 @@ Choisir une ligne de ce tableau. `prepare.cjs` est propre à chaque dossier.
 | `v16-meshy-walk` | `render_walk.py` | `vulpin-walk-poses.blend` | Copier ensuite les quatre feuilles dans `assets/previews/vulpin-walk`; conserver le `frames.tres` existant |
 | `v17-meshy-run` | `render_run.py` | `vulpin-run-poses.blend` | Aucun |
 | `v19-hurt-recoil` | `render_hurt.py` | `vulpin-hurt-poses.blend` | Aucun ; la région neutre est aussi utilisée par le repos |
-| `v20-door-lockpick` | `render_lockpick.py` | `vulpin-lockpick-poses.blend` | `verify_masonry_clearance.py` |
+| `v26-lower-lock-review` | `render_lockpick.py` | `vulpin-lockpick-poses.blend` | `tools/verify_compact_door_passage.py` depuis la racine |
 | `v21-chest-open` | `render_chest_open.py` | `vulpin-chest-open-poses.blend` | Aucun ; garder le coffre entrouvert dans le stage |
 | `v22-chest-lockpick` | `render_chest_lockpick.py` | `vulpin-chest-lockpick-poses.blend` | `calibrate_chests.cjs`, puis `verify_chest_clearance.py` |
 | `v24-meshy-dead` | **`render_fall.py`** | `vulpin-fall-poses.blend` | Les 24 anciennes feuilles natives doivent encore correspondre à `previous-sprite-hashes.json` |
@@ -65,8 +65,11 @@ if ($LASTEXITCODE -ne 0) { throw 'Collision avec les limites du coffre' }
 if ($LASTEXITCODE -ne 0) { throw 'Échec de préparation des sprites' }
 ```
 
-Pour la porte, remplacer la calibration de coffre par
-`verify_masonry_clearance.py` après le rendu/rechargement. Pour les autres
+Pour la porte v26, remplacer la calibration de coffre par
+`tools/verify_compact_door_passage.py` depuis la racine après le rendu/rechargement.
+`prepare.cjs` prépare seulement les fichiers locaux ; ajouter `--install`
+pour copier les quatre feuilles, `frames.tres` et `registration.json` vers
+les assets actifs. Pour les autres
 actions, garder rendu → relecture → préparation. Pour v16 uniquement,
 après `prepare.cjs` :
 
@@ -80,8 +83,8 @@ Le repos n'a pas de script de rendu : sa ressource pointe vers les régions
 neutres des feuilles de dégâts. La dernière pose de chute sert déjà aux clips
 `dead-*`, sans nouveaux PNG.
 
-Les options de rendu vont après `--` : v16/v17/v19/v20/v22 proposent
-`--pilot` pour SE et `--back-only` pour les vues arrière ; v19/v20/v22 ont aussi
+Les options de rendu vont après `--` : v16/v17/v19/v26/v22 proposent
+`--pilot` pour SE et `--back-only` pour les vues arrière ; v19/v26/v22 ont aussi
 `--peak-only`. v21 propose `--pilot`, `--ends-only` et `--no-render`.
 v24 `--pilot` rend SE/NW aux poses 3,6,9, et `--final-only` la pose 9.
 Les modes partiels écrivent dans les mêmes dossiers : ne pas préparer un atlas
@@ -122,7 +125,7 @@ Les captures ont besoin du renderer ; ne pas leur ajouter `--headless`.
 | Marche | `tools/capture_vulpin_walk_preview.gd` | v16 `native-corridors/` |
 | Course | même script, ajouter `-- --run` aux arguments | v17 `native-corridors/` |
 | Dégâts | `tools/capture_vulpin_hurt_preview.gd` | v19 `native-scene/` |
-| Porte | `tools/capture_vulpin_lockpick_preview.gd` | v20 `native-scene/` |
+| Porte | `tools/capture_vulpin_lockpick_preview.gd` | v26 `native-scene/` |
 | Coffre déverrouillé | `tools/capture_vulpin_chest_open_preview.gd` | v21 `native-scene/` |
 | Coffre verrouillé | `tools/capture_vulpin_chest_lockpick_preview.gd` | v22 `native-scene/` |
 | Repos | `docs/reference/vulpin-review/v23-static-idle/capture.gd` | v23, trois PNG ; pas de JSON de tests |

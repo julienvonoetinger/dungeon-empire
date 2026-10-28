@@ -1,0 +1,51 @@
+{
+  "rise": 0.55,
+  "oldOpeningHeight": 0.513,
+  "openingHeight": 1.0630000000000002,
+  "standingHeroHeight": 0.8526849551899858,
+  "apexHeightMinusStandingHeroHeight": 0.2103150448100144,
+  "wallHeight": 0.3133333333333333,
+  "smoothLeafPlanes": 2,
+  "originalJunctionsUnchanged": true,
+  "guide": {
+    "mapping": {
+      "size": [
+        1024,
+        1536
+      ],
+      "scale": 820,
+      "xOrigin": 512,
+      "xCentre": 0.5,
+      "zOrigin": 1400
+    }
+  },
+  "hardware": {
+    "lock": {
+      "x": 0.5,
+      "z": 0.275,
+      "pixel": [
+        512,
+        1174.5
+      ]
+    },
+    "hinges": [
+      {
+        "x": 0.255,
+        "z": 0.24,
+        "pixel": [
+          311.1,
+          1203.2
+        ]
+      },
+      {
+        "x": 0.255,
+        "z": 0.7,
+        "pixel": [
+          311.1,
+          826
+        ]
+      }
+    ],
+    "textureOnly": true
+  }
+}

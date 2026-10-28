@@ -1,0 +1,35 @@
+{
+  "unchangedRegions": 151,
+  "unchangedHeroFiles": 37,
+  "results": [
+    {
+      "direction": "south",
+      "changed": 10256,
+      "unchangedOutsideLeaf": 42771
+    },
+    {
+      "direction": "east",
+      "changed": 10169,
+      "unchangedOutsideLeaf": 42771
+    },
+    {
+      "direction": "north",
+      "changed": 10260,
+      "unchangedOutsideLeaf": 42973
+    },
+    {
+      "direction": "west",
+      "changed": 10211,
+      "unchangedOutsideLeaf": 43242
+    }
+  ],
+  "keyhole": [
+    1,
+    0,
+    0,
+    253
+  ],
+  "rgba": 13631488,
+  "png": 2107174,
+  "pngDelta": 13080
+}

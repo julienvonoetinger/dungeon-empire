@@ -1,0 +1,1178 @@
+[
+  {
+    "scale": 0.75,
+    "width_factor": 1,
+    "opening_height": 0.8755833333333334,
+    "outer_height": 1.1620833333333334,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 125
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 108
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 129
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 135
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 123
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 108
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 129
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 136
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 0,
+        "outside": 70
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 1,
+        "outside": 50
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 152
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 224
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 4,
+        "outside": 68
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 5,
+        "outside": 53
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 152
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 224
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 115
+      }
+    ]
+  },
+  {
+    "scale": 0.75,
+    "width_factor": 1.1,
+    "opening_height": 0.8755833333333334,
+    "outer_height": 1.1620833333333334,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 93
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 63
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 95
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 102
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 92
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 66
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 95
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 106
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 0,
+        "outside": 43
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 1,
+        "outside": 18
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 130
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 193
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 4,
+        "outside": 40
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 5,
+        "outside": 18
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 126
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 193
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 91
+      }
+    ]
+  },
+  {
+    "scale": 0.75,
+    "width_factor": 1.2,
+    "opening_height": 0.8755833333333334,
+    "outer_height": 1.1620833333333334,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 59
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 50
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 61
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 66
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 59
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 50
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 62
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 66
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 0,
+        "outside": 13
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 99
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 179
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 4,
+        "outside": 5
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 99
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 179
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 57
+      }
+    ]
+  },
+  {
+    "scale": 0.75,
+    "width_factor": 1.3,
+    "opening_height": 0.8755833333333334,
+    "outer_height": 1.1620833333333334,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 47
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 37
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 52
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 56
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 45
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 37
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 52
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 56
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 71
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 165
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 71
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 165
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 43
+      }
+    ]
+  },
+  {
+    "scale": 0.78,
+    "width_factor": 1,
+    "opening_height": 0.8980733333333335,
+    "outer_height": 1.1960333333333335,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 81
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 62
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 89
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 94
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 81
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 62
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 89
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 94
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 0,
+        "outside": 39
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 1,
+        "outside": 11
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 122
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 179
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 4,
+        "outside": 36
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 5,
+        "outside": 12
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 122
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 179
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 74
+      }
+    ]
+  },
+  {
+    "scale": 0.78,
+    "width_factor": 1.1,
+    "opening_height": 0.8980733333333335,
+    "outer_height": 1.1960333333333335,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 54
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 37
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 54
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 56
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 51
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 37
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 54
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 56
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 77
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 155
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 73
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 154
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 51
+      }
+    ]
+  },
+  {
+    "scale": 0.78,
+    "width_factor": 1.2,
+    "opening_height": 0.8980733333333335,
+    "outer_height": 1.1960333333333335,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 28
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 1
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 30
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 32
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 25
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 1
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 30
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 40
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 57
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 141
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 57
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 139
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 25
+      }
+    ]
+  },
+  {
+    "scale": 0.78,
+    "width_factor": 1.3,
+    "opening_height": 0.8980733333333335,
+    "outer_height": 1.1960333333333335,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 1
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 9
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 24
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 10
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 25
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 38
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 118
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 38
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 118
+      }
+    ]
+  },
+  {
+    "scale": 0.8,
+    "width_factor": 1,
+    "opening_height": 0.9130666666666669,
+    "outer_height": 1.2186666666666668,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 54
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 48
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 59
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 62
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 54
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 48
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 59
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 62
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 0,
+        "outside": 5
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 85
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 157
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 4,
+        "outside": 2
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 85
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 157
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 54
+      }
+    ]
+  },
+  {
+    "scale": 0.8,
+    "width_factor": 1.1,
+    "opening_height": 0.9130666666666669,
+    "outer_height": 1.2186666666666668,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 28
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 3
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 28
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 36
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 27
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 5
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 29
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 37
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 54
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 132
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 53
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 132
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 24
+      }
+    ]
+  },
+  {
+    "scale": 0.8,
+    "width_factor": 1.2,
+    "opening_height": 0.9130666666666669,
+    "outer_height": 1.2186666666666668,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 30
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 102
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 30
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 99
+      }
+    ]
+  },
+  {
+    "scale": 0.8,
+    "width_factor": 1.3,
+    "opening_height": 0.9130666666666669,
+    "outer_height": 1.2186666666666668,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 7
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 72
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 6
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 71
+      }
+    ]
+  },
+  {
+    "scale": 0.82,
+    "width_factor": 1,
+    "opening_height": 0.9280600000000001,
+    "outer_height": 1.2413,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 38
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 1,
+        "outside": 17
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 39
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 48
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 37
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 5,
+        "outside": 18
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 44
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 50
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 66
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 135
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 66
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 135
+      },
+      {
+        "action": "v19-hurt-recoil",
+        "pose": 0,
+        "outside": 32
+      }
+    ]
+  },
+  {
+    "scale": 0.82,
+    "width_factor": 1.1,
+    "opening_height": 0.9280600000000001,
+    "outer_height": 1.2413,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 1
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 5
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 32
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 99
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 30
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 99
+      }
+    ]
+  },
+  {
+    "scale": 0.82,
+    "width_factor": 1.2,
+    "opening_height": 0.9280600000000001,
+    "outer_height": 1.2413,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 68
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 68
+      }
+    ]
+  },
+  {
+    "scale": 0.82,
+    "width_factor": 1.3,
+    "opening_height": 0.9280600000000001,
+    "outer_height": 1.2413,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 55
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 55
+      }
+    ]
+  },
+  {
+    "scale": 0.84,
+    "width_factor": 1,
+    "opening_height": 0.9430533333333335,
+    "outer_height": 1.2639333333333334,
+    "failed": [
+      {
+        "action": "v16-meshy-walk",
+        "pose": 0,
+        "outside": 6
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 2,
+        "outside": 15
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 3,
+        "outside": 17
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 4,
+        "outside": 3
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 6,
+        "outside": 15
+      },
+      {
+        "action": "v16-meshy-walk",
+        "pose": 7,
+        "outside": 25
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 43
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 108
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 42
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 106
+      }
+    ]
+  },
+  {
+    "scale": 0.84,
+    "width_factor": 1.1,
+    "opening_height": 0.9430533333333335,
+    "outer_height": 1.2639333333333334,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 70
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 69
+      }
+    ]
+  },
+  {
+    "scale": 0.84,
+    "width_factor": 1.2,
+    "opening_height": 0.9430533333333335,
+    "outer_height": 1.2639333333333334,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 49
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 49
+      }
+    ]
+  },
+  {
+    "scale": 0.84,
+    "width_factor": 1.3,
+    "opening_height": 0.9430533333333335,
+    "outer_height": 1.2639333333333334,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 27
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 27
+      }
+    ]
+  },
+  {
+    "scale": 0.86,
+    "width_factor": 1,
+    "opening_height": 0.9580466666666669,
+    "outer_height": 1.2865666666666669,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 14
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 77
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 12
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 77
+      }
+    ]
+  },
+  {
+    "scale": 0.86,
+    "width_factor": 1.1,
+    "opening_height": 0.9580466666666669,
+    "outer_height": 1.2865666666666669,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 48
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 48
+      }
+    ]
+  },
+  {
+    "scale": 0.86,
+    "width_factor": 1.2,
+    "opening_height": 0.9580466666666669,
+    "outer_height": 1.2865666666666669,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 15
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 14
+      }
+    ]
+  },
+  {
+    "scale": 0.86,
+    "width_factor": 1.3,
+    "opening_height": 0.9580466666666669,
+    "outer_height": 1.2865666666666669,
+    "failed": []
+  }
+]

@@ -1,0 +1,334 @@
+{
+  "results": [
+    {
+      "direction": "south",
+      "open": false,
+      "parts": [
+        {
+          "id": "door-south-leaf",
+          "bounds": {
+            "min": [
+              -0.08333333333333333,
+              0.3333333333333333,
+              0
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666666,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-south-arch",
+          "bounds": {
+            "min": [
+              -0.08333333333333333,
+              0.3333333333333333,
+              0.3133333333333333
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666666,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "south",
+      "open": true,
+      "parts": [
+        {
+          "id": "door-south-open-leaf",
+          "bounds": {
+            "min": [
+              -0.08333333333333333,
+              0.3333333333333333,
+              0
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666666,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-south-open-arch",
+          "bounds": {
+            "min": [
+              -0.08333333333333333,
+              0.3333333333333333,
+              0.3133333333333333
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666666,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "east",
+      "open": false,
+      "parts": [
+        {
+          "id": "door-east-leaf",
+          "bounds": {
+            "min": [
+              0.3333333333333333,
+              -0.08333333333333326,
+              0
+            ],
+            "max": [
+              0.6666666666666666,
+              1.0833333333333333,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-east-arch",
+          "bounds": {
+            "min": [
+              0.3333333333333333,
+              -0.08333333333333326,
+              0.3133333333333333
+            ],
+            "max": [
+              0.6666666666666666,
+              1.0833333333333333,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "east",
+      "open": true,
+      "parts": [
+        {
+          "id": "door-east-open-leaf",
+          "bounds": {
+            "min": [
+              0.3333333333333333,
+              -0.08333333333333326,
+              0
+            ],
+            "max": [
+              0.6666666666666666,
+              1.0833333333333333,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-east-open-arch",
+          "bounds": {
+            "min": [
+              0.3333333333333333,
+              -0.08333333333333326,
+              0.3133333333333333
+            ],
+            "max": [
+              0.6666666666666666,
+              1.0833333333333333,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "north",
+      "open": false,
+      "parts": [
+        {
+          "id": "door-north-leaf",
+          "bounds": {
+            "min": [
+              -0.08333333333333326,
+              0.33333333333333337,
+              0
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666667,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-north-arch",
+          "bounds": {
+            "min": [
+              -0.08333333333333326,
+              0.33333333333333337,
+              0.3133333333333333
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666667,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "north",
+      "open": true,
+      "parts": [
+        {
+          "id": "door-north-open-leaf",
+          "bounds": {
+            "min": [
+              -0.08333333333333326,
+              0.33333333333333337,
+              0
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666667,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-north-open-arch",
+          "bounds": {
+            "min": [
+              -0.08333333333333326,
+              0.33333333333333337,
+              0.3133333333333333
+            ],
+            "max": [
+              1.0833333333333333,
+              0.6666666666666667,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "west",
+      "open": false,
+      "parts": [
+        {
+          "id": "door-west-leaf",
+          "bounds": {
+            "min": [
+              0.33333333333333337,
+              -0.08333333333333333,
+              0
+            ],
+            "max": [
+              0.6666666666666667,
+              1.0833333333333333,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-west-arch",
+          "bounds": {
+            "min": [
+              0.33333333333333337,
+              -0.08333333333333333,
+              0.3133333333333333
+            ],
+            "max": [
+              0.6666666666666667,
+              1.0833333333333333,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    },
+    {
+      "direction": "west",
+      "open": true,
+      "parts": [
+        {
+          "id": "door-west-open-leaf",
+          "bounds": {
+            "min": [
+              0.33333333333333337,
+              -0.08333333333333333,
+              0
+            ],
+            "max": [
+              0.6666666666666667,
+              1.0833333333333333,
+              0.31333333333333335
+            ]
+          }
+        },
+        {
+          "id": "door-west-open-arch",
+          "bounds": {
+            "min": [
+              0.33333333333333337,
+              -0.08333333333333333,
+              0.3133333333333333
+            ],
+            "max": [
+              0.6666666666666667,
+              1.0833333333333333,
+              1.16
+            ]
+          }
+        }
+      ],
+      "alpha": 0,
+      "color": 0.984313725490196
+    }
+  ],
+  "errors": [
+    "door-south-leaf: panel and stone share one sort support",
+    "door-south-leaf: one low support spans both sides of the passage",
+    "door-south-arch: panel and stone share one sort support",
+    "door-south-arch: one low support spans both sides of the passage",
+    "door-south-open-leaf: one low support spans both sides of the passage",
+    "door-south-open-arch: one low support spans both sides of the passage",
+    "door-east-leaf: panel and stone share one sort support",
+    "door-east-leaf: one low support spans both sides of the passage",
+    "door-east-arch: panel and stone share one sort support",
+    "door-east-arch: one low support spans both sides of the passage",
+    "door-east-open-leaf: one low support spans both sides of the passage",
+    "door-east-open-arch: one low support spans both sides of the passage",
+    "door-north-leaf: panel and stone share one sort support",
+    "door-north-leaf: one low support spans both sides of the passage",
+    "door-north-arch: panel and stone share one sort support",
+    "door-north-arch: one low support spans both sides of the passage",
+    "door-north-open-leaf: one low support spans both sides of the passage",
+    "door-north-open-arch: one low support spans both sides of the passage",
+    "door-west-leaf: panel and stone share one sort support",
+    "door-west-leaf: one low support spans both sides of the passage",
+    "door-west-arch: panel and stone share one sort support",
+    "door-west-arch: one low support spans both sides of the passage",
+    "door-west-open-leaf: one low support spans both sides of the passage",
+    "door-west-open-arch: one low support spans both sides of the passage"
+  ]
+}

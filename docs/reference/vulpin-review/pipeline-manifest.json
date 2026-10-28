@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "recordedAt": "2026-10-28T08:17:32.478Z",
+  "recordedAt": "2026-10-28T12:13:53.010Z",
   "scope": "Current Vulpin source recipes, saved poses, native assets, reports and literal Godot resource dependencies. Intermediate masters, captures and abandoned experiments are not fully inventoried. Not a backup or an artistic validation.",
   "source": {
     "path": "docs/reference/vulpin-review/source/Meshy_AI_Character_output.glb",
@@ -10,13 +10,13 @@
   "files": [
     {
       "path": "assets/dungeon/isometric-kit/atlas-256.png",
-      "bytes": 1554227,
-      "sha256": "f12e9c9551a5582bf43fed09eb27dc3599920aaef5812c9201d2e4126620ca6a"
+      "bytes": 1403599,
+      "sha256": "2deb1f177495b75b63b9fcca36d02ad622c3a217ca0eb1dc59e1fd289fb8d92f"
     },
     {
       "path": "assets/dungeon/isometric-kit/catalog.tres",
-      "bytes": 76097,
-      "sha256": "2b4a0f9d540f79eda9c65efb49a434b16af0bde6222f1b1cc935e2c4b25f89d0"
+      "bytes": 82731,
+      "sha256": "6a27b26aac0acfc89cbf8a7d68db7d4f819d095c6c1c367e9efe0383c5a0d035"
     },
     {
       "path": "assets/dungeon/isometric-kit/chests/atlas-256.png",
@@ -25,8 +25,8 @@
     },
     {
       "path": "assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-      "bytes": 140335,
-      "sha256": "ba6cb398df750b417cb19bd569e087e5a9ef338b48fee88a9a3e12e5f4b085f9"
+      "bytes": 371809,
+      "sha256": "e2cb90d2914656bfe68e08da1c1ec4bb4b03169a487c96dc2c3359df091e5fad"
     },
     {
       "path": "assets/dungeon/isometric-kit/traps/atlas-256.png",
@@ -235,8 +235,8 @@
     },
     {
       "path": "assets/previews/vulpin-lockpick/SOURCE.txt",
-      "bytes": 1266,
-      "sha256": "c3498408682374ffe8895dc2dd3c2df1cda3deb4d064469ce16616380286c253"
+      "bytes": 1626,
+      "sha256": "1131ffad7f295ff06b8827e11e39a0194eb7350facd2e9877328f26d967711d5"
     },
     {
       "path": "assets/previews/vulpin-lockpick/frames.tres",
@@ -245,8 +245,8 @@
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-ne.png",
-      "bytes": 219282,
-      "sha256": "3464f5759467b4333e92dbbda440a6fd71120c1d9688a10baa6b96904177b9bb"
+      "bytes": 217378,
+      "sha256": "c01be899cb238f67fa96b58226f1ffa286253f063bd006a463a628a12f1bb1ab"
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-ne.png.import",
@@ -255,8 +255,8 @@
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-nw.png",
-      "bytes": 204676,
-      "sha256": "5b2304234b9dc49928aace4981592a899f869785417ab9dc0d4e0c0344b5fba0"
+      "bytes": 204643,
+      "sha256": "65eae02acd9bb9999d5bb5524cf7b92ff5125bff1ec5234dfbfa99baa6fb57d9"
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-nw.png.import",
@@ -265,8 +265,8 @@
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-se.png",
-      "bytes": 240068,
-      "sha256": "49836a611c031f96e111a041461f36e4ea61cb8384b33030b20f378b1766ad75"
+      "bytes": 243151,
+      "sha256": "ec48fc34922a7db026c0856e95712f1481e6e49ca105c18e119cb186898d3a69"
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-se.png.import",
@@ -275,8 +275,8 @@
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-sw.png",
-      "bytes": 226887,
-      "sha256": "5f79ff963860a5563a7e045937e2e1b4b18f0b3e4fba15ae95797b0a17355794"
+      "bytes": 228934,
+      "sha256": "a1c9621e6c9b49d506f7ce7b29e7fa61b93e124679cb855e8f4fa8cc07b9359b"
     },
     {
       "path": "assets/previews/vulpin-lockpick/lockpick-sw.png.import",
@@ -285,8 +285,8 @@
     },
     {
       "path": "assets/previews/vulpin-lockpick/registration.json",
-      "bytes": 9369,
-      "sha256": "24aee7c9b58c88c36c56dd2a6acc31de4e2b2372a4c3837eebfbbcd6c3674d5a"
+      "bytes": 9393,
+      "sha256": "79ec04747ea39310d54ff4f860258ad8f4ac0fb6e7e1382d61cd476059ddbedd"
     },
     {
       "path": "assets/previews/vulpin-run/SOURCE.txt",
@@ -390,13 +390,73 @@
     },
     {
       "path": "docs/production/hero-animation-pipeline.md",
-      "bytes": 18360,
-      "sha256": "9ae818cc1ff48c2448301b3452baa1c9f3bfe7b1d42f02ce4ad2f9ef6897399d"
+      "bytes": 19472,
+      "sha256": "b74e119259b2c2fb033a990c845d7e1924705ba902398651879188b7d1ca1434"
     },
     {
       "path": "docs/production/hero-animation-reproduction.md",
-      "bytes": 9562,
-      "sha256": "2841e06943cd36205783848f8a8dc5d6595626c848789d6f1fbbb83218149eb8"
+      "bytes": 9791,
+      "sha256": "7e04cd962ad9e07dbb6096de8798398a5acc1a514189ce2e61167e763dc89f24"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v11-compact/geometry.json",
+      "bytes": 2560446,
+      "sha256": "f2edabeeba3638902e5bdf5d7448a564f93e4555d9768b263004009d7a84fbf6"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v11-compact/passage-validation.json",
+      "bytes": 23883,
+      "sha256": "3db64966ba67c2d45638b88f4cebd72098a2bbcfbb02dd233bcf6fc74b3fce81"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
+      "bytes": 2560446,
+      "sha256": "f2edabeeba3638902e5bdf5d7448a564f93e4555d9768b263004009d7a84fbf6"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/preparation.json",
+      "bytes": 2288,
+      "sha256": "2306ccf49cd2815b2187f5dc0544650cb48d844542ac28dea93c0191dcbcb416"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/selection.json",
+      "bytes": 1847,
+      "sha256": "8f2877322abc9de9a911e6b92133dc5cd24b154385f460022c5d4dd8dcb9a8e8"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
+      "bytes": 1914481,
+      "sha256": "20875c1c024d5d1be2ed8d59fbe6f8fc84717cf6aa2ce693b3bd97f5c67606c3"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+      "bytes": 2657,
+      "sha256": "6fe0c134d9b2ba855dbcd3cc2bc5a74b548fb890b7b604e7749fe7c533e7ad7b"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
+      "bytes": 1812563,
+      "sha256": "69ea5cbba8a81d40ec8e0058b42e3a5c5faf83b6df8a6f06c5429479568e0c46"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/unified-frame-prompt.txt",
+      "bytes": 1994,
+      "sha256": "9c59ec1440f1b987d578ee1dd347931d410380dff2b2594c7ff03aa121982a67"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v14-passage/README.md",
+      "bytes": 5077,
+      "sha256": "2847643e9f373ab31cb119144d4c1bc495d561dbb21cfb553ebdef5114bd5177"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v14-passage/after/validation.json",
+      "bytes": 92,
+      "sha256": "b0a0f2513acbaf69f0a9b215a3b3c9708591d295ab99be319140d1c25888ecbb"
+    },
+    {
+      "path": "docs/reference/door-redesign/seal-v1/hero-fit-v14-passage/open-door-validation.json",
+      "bytes": 1375,
+      "sha256": "c67cb59f522a33d06fb358552eda6840b6fdbaa0d355a7b058a32e5e1ccfad65"
     },
     {
       "path": "docs/reference/door-redesign/seal-v1/wireframe-v6-clean-leaf/geometry.json",
@@ -410,8 +470,8 @@
     },
     {
       "path": "docs/reference/vulpin-review/README.md",
-      "bytes": 6295,
-      "sha256": "89d3839770e9cb0d8117456ecfe1b4d09652af989d800b22f8198ecf10e7698e"
+      "bytes": 6437,
+      "sha256": "9260b2e76b6f3a40ce65a6349a398d7ee100e03d660ce3e346b9b3dfa3c789a3"
     },
     {
       "path": "docs/reference/vulpin-review/source/Meshy_AI_Character_output.glb",
@@ -552,61 +612,6 @@
       "path": "docs/reference/vulpin-review/v19-hurt-recoil/vulpin-hurt-poses.blend",
       "bytes": 15686290,
       "sha256": "c87adeb712b96c3e4bb967ac59568f2321f81fa024f31ce346b0ca46a0fee41c"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/masonry-clearance.json",
-      "bytes": 2490,
-      "sha256": "2eafa870b447cb62cd426d91ee1acdfbefdcab7245e09fb77f7e636dcd604a1d"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/native-scene/validation.json",
-      "bytes": 209,
-      "sha256": "71d037b41d8e591dd77b8e0f4b3a3f609f1ae2c498d5f260d4c20bd03fdaff89"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/poses.json",
-      "bytes": 13192,
-      "sha256": "518252035812969148e676a6222d2cec6bd0ff0e8b63b61fed6554bd4ff3d998"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/prepare.cjs",
-      "bytes": 7641,
-      "sha256": "37a5a97e27ddfd5dbf26ceee771e27caf1d0e713e6af3e6377e3e502f82c42e5"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/prepare_native_preview.cjs",
-      "bytes": 662,
-      "sha256": "3d19b3eb0546380a7e6720ba291a606e5966042754d5414a88a0c045cec20802"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/render_lockpick.py",
-      "bytes": 12893,
-      "sha256": "d0479e9764a552aaabc3beb8cc3abc1c9cbed9204f8a54a32be6e1a344346cc0"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/saved-pose-validation.json",
-      "bytes": 699,
-      "sha256": "dffc067d7d14a956c3edb1423591d78777f8428608792ca5303a850e630777fb"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/validation.json",
-      "bytes": 8399,
-      "sha256": "3164ec217165654248f4b41d88735c6ba62ae9caef4236faaee3beee4d91d318"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/verify_masonry_clearance.py",
-      "bytes": 2272,
-      "sha256": "9c1f08f2175260b905f322e51d46f4690ea62326e6b5a46bc377abe66e1ae61b"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/verify_saved_poses.py",
-      "bytes": 1232,
-      "sha256": "c66c7ae96bea93bb1f8cc9db77a327a3c1ddb3added0c7a72d8144df78bf8a29"
-    },
-    {
-      "path": "docs/reference/vulpin-review/v20-door-lockpick/vulpin-lockpick-poses.blend",
-      "bytes": 15688633,
-      "sha256": "b6542f0a462b7f91cf6854c52cc2a8959c9e710d371b25c28475ea6851b0295f"
     },
     {
       "path": "docs/reference/vulpin-review/v21-chest-open/native-scene/validation.json",
@@ -787,6 +792,46 @@
       "path": "docs/reference/vulpin-review/v24-meshy-dead/vulpin-fall-poses.blend",
       "bytes": 15686566,
       "sha256": "bf3c77e4451992ee9ad4e1cfc850990539aa16d71ab85ef7f63425fc1bb4467d"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/native-scene/validation.json",
+      "bytes": 209,
+      "sha256": "71d037b41d8e591dd77b8e0f4b3a3f609f1ae2c498d5f260d4c20bd03fdaff89"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/poses.json",
+      "bytes": 13254,
+      "sha256": "f1fe0d37ae55c40a448a205fb256967e4fb123fcf4423b4d0ef75670e0a68eed"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/prepare.cjs",
+      "bytes": 7931,
+      "sha256": "11fcd33eea4f812312939ffadd0675f8080e40da086bd71c0ac02b53c37ea243"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/render_lockpick.py",
+      "bytes": 13073,
+      "sha256": "b61fd210740c43cc00723a08817fbd4f39071124535aa1ff454a0771c3ae52f3"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/saved-pose-validation.json",
+      "bytes": 699,
+      "sha256": "dffc067d7d14a956c3edb1423591d78777f8428608792ca5303a850e630777fb"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/validation.json",
+      "bytes": 8399,
+      "sha256": "85544a5b1d9ab5109f35d478ac45e269df8079a671d3be579c0f888fe49667f2"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/verify_saved_poses.py",
+      "bytes": 1232,
+      "sha256": "c66c7ae96bea93bb1f8cc9db77a327a3c1ddb3added0c7a72d8144df78bf8a29"
+    },
+    {
+      "path": "docs/reference/vulpin-review/v26-lower-lock-review/vulpin-lockpick-poses.blend",
+      "bytes": 15688753,
+      "sha256": "c9dd2fae7d7060daa2e631e0f75cd12c8e984d79c4719b90d4897dcca2241f9e"
     },
     {
       "path": "scenes/VulpinChestLockpick.tscn",
@@ -1000,8 +1045,8 @@
     },
     {
       "path": "scripts/vulpin_lockpick_stage.gd",
-      "bytes": 4636,
-      "sha256": "575d822378cb02970224b738a78a5b11c4f6b7651ae8c5aca0de2cba7e28a4fc"
+      "bytes": 4773,
+      "sha256": "f8e954e9588381d2bc13766034654c41db43ae4d188579ab372304079d59ffe9"
     },
     {
       "path": "scripts/vulpin_lockpick_stage.gd.uid",
@@ -1070,8 +1115,18 @@
     },
     {
       "path": "tools/audit_hero_pipeline.cjs",
-      "bytes": 6448,
-      "sha256": "5c7ede35dd5fb37332d4a1c5cd80b0fe609788505c55733f86c88a81eaacd671"
+      "bytes": 7687,
+      "sha256": "d7ead57cad16658a08e35fee241af18178e0a54c87dcee84495d0abe43992e90"
+    },
+    {
+      "path": "tools/capture_door_passage.gd",
+      "bytes": 4011,
+      "sha256": "f9dce90b4171ca30f06afc23a52d3cf86996e1272d41b5e3ac99686b2f0c258f"
+    },
+    {
+      "path": "tools/capture_door_passage.gd.uid",
+      "bytes": 19,
+      "sha256": "72a4e8b1cc572d9c83b36d41f708d08eb4169f5872d34290a644ef0adec6b835"
     },
     {
       "path": "tools/capture_vulpin_chest_lockpick_preview.gd",
@@ -1115,8 +1170,8 @@
     },
     {
       "path": "tools/capture_vulpin_lockpick_preview.gd",
-      "bytes": 3430,
-      "sha256": "41f751dfa0a96a3138552d7ea30e1de47387911ab11360e81bd89abef1b010d1"
+      "bytes": 3565,
+      "sha256": "14a5d123f99459dadf0198f643bef10886326be3cbcea2dfa6df1109f464bf64"
     },
     {
       "path": "tools/capture_vulpin_lockpick_preview.gd.uid",
@@ -1132,6 +1187,36 @@
       "path": "tools/capture_vulpin_walk_preview.gd.uid",
       "bytes": 20,
       "sha256": "7a97f9e13d9777999719e5a9389997956c9ad4fb82d8e4de041a372391030eee"
+    },
+    {
+      "path": "tools/integrated_compact_door_stage.gd",
+      "bytes": 2441,
+      "sha256": "cc0917dc42314c49d9183969e280c8a3af6e005cbe7cf4e1a8f1cd4871de8806"
+    },
+    {
+      "path": "tools/integrated_compact_door_stage.gd.uid",
+      "bytes": 20,
+      "sha256": "802c81af6045c9c4a2230927b339fa5b3ef20949dcb37792f04143dc65c70d60"
+    },
+    {
+      "path": "tools/isometric_seal_door.cjs",
+      "bytes": 5463,
+      "sha256": "fab51e9a096ed96ad4acafc68eb83a4f8134bd313c8bf7e49d8d6a3efde575a4"
+    },
+    {
+      "path": "tools/isometric_seal_texture.cjs",
+      "bytes": 4921,
+      "sha256": "bae6e6ed0f26e368b97aa2d335e1d3e474e7e08af5ce68805fd4fa43a7323ad5"
+    },
+    {
+      "path": "tools/verify_compact_door_passage.py",
+      "bytes": 5959,
+      "sha256": "b9e6408385b70444ad65983652b2bd8df8d3f1c9503684394166c59bba8f07c5"
+    },
+    {
+      "path": "tools/verify_door_passage_parts.cjs",
+      "bytes": 2776,
+      "sha256": "d3e3162243a478f6eebe3cc295ab6be81caa442760129edbad3faa3bc3a9caac"
     }
   ]
 }

@@ -53,8 +53,13 @@ func _capture() -> void:
 	viewport.size = Vector2i(640, 520)
 	for cell: Vector2i in dungeon.door_cells:
 		var direction: String = dungeon.door_cells[cell]
-		camera.position = dungeon.grid_to_local(Vector2(cell) + Vector2(.5, .5)) + Vector2(0, -40)
-		camera.zoom = Vector2.ONE * 2.0
+		var frame := Rect2()
+		for layer in ["leaf", "arch"]:
+			var entry: Dictionary = dungeon._definition.entries["door-" + direction + "-" + layer]
+			var part := Rect2(dungeon.grid_to_local(Vector2(cell)) + Vector2(entry.offset[0],entry.offset[1]),Vector2(entry.size[0],entry.size[1]))
+			frame = part if frame == Rect2() else frame.merge(part)
+		camera.position = frame.get_center()
+		camera.zoom = Vector2.ONE * minf(560.0/frame.size.x,440.0/frame.size.y)
 		camera.force_update_scroll()
 		await _save("door-" + direction + "-detail", dungeon)
 		if direction == "south" and "--contact-diagnostic" in OS.get_cmdline_user_args():

@@ -1,0 +1,169 @@
+[
+  {
+    "shoulder": 0.8,
+    "apex": 0.92,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 2,
+        "outside": 8
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 69
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 6,
+        "outside": 7
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 69
+      }
+    ]
+  },
+  {
+    "shoulder": 0.8,
+    "apex": 0.94,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 57
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 57
+      }
+    ]
+  },
+  {
+    "shoulder": 0.8,
+    "apex": 0.96,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 40
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 40
+      }
+    ]
+  },
+  {
+    "shoulder": 0.8,
+    "apex": 0.98,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 14
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 14
+      }
+    ]
+  },
+  {
+    "shoulder": 0.84,
+    "apex": 0.92,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 46
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 46
+      }
+    ]
+  },
+  {
+    "shoulder": 0.84,
+    "apex": 0.94,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 26
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 26
+      }
+    ]
+  },
+  {
+    "shoulder": 0.84,
+    "apex": 0.96,
+    "failed": []
+  },
+  {
+    "shoulder": 0.84,
+    "apex": 0.98,
+    "failed": []
+  },
+  {
+    "shoulder": 0.88,
+    "apex": 0.92,
+    "failed": [
+      {
+        "action": "v17-meshy-run",
+        "pose": 3,
+        "outside": 9
+      },
+      {
+        "action": "v17-meshy-run",
+        "pose": 7,
+        "outside": 8
+      }
+    ]
+  },
+  {
+    "shoulder": 0.88,
+    "apex": 0.94,
+    "failed": []
+  },
+  {
+    "shoulder": 0.88,
+    "apex": 0.96,
+    "failed": []
+  },
+  {
+    "shoulder": 0.88,
+    "apex": 0.98,
+    "failed": []
+  },
+  {
+    "shoulder": 0.9,
+    "apex": 0.92,
+    "failed": []
+  },
+  {
+    "shoulder": 0.9,
+    "apex": 0.94,
+    "failed": []
+  },
+  {
+    "shoulder": 0.9,
+    "apex": 0.96,
+    "failed": []
+  },
+  {
+    "shoulder": 0.9,
+    "apex": 0.98,
+    "failed": []
+  }
+]

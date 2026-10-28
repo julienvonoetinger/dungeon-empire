@@ -228,10 +228,24 @@ position_héros = inverse_projection(cible_dans_le_donjon − offset_outil)
 
 Lire les contacts, limites et orientations dans les `registration.json`,
 les scripts de stage et le catalogue natif. La porte utilise une serrure à
-Z=0.275 case. La cible source est `(0,−1.06,0.275/k)` : l'ancien −0.86 alignait
-l'outil mais faisait pénétrer la tête dans la couronne. Le contrôle de
-maçonnerie est séparé en jambages bas et couronne haute et porte sur les
-triangles du maillage, pas seulement la main.
+Z=0.32 case (v26, porte compacte v11/v12). La cible source est
+`(0,−1.06,0.32/k)` : l'ancien −0.86 alignait l'outil mais faisait pénétrer la
+tête dans la couronne. La tentative à Z=.49 masquait les mains sous la tête.
+V26 garde les pieds et la caméra, avance les poignets de .10 unité et les
+écarte de .035. Le contrôle actuel découpe les triangles du personnage selon
+les boîtes XZ de chaque face de maçonnerie, puis vérifie leur séparation en Y.
+Ne pas utiliser un plan infini de couronne : il couvre artificiellement
+l'ouverture. Une projection XZ entièrement disjointe est un succès sans
+distance minimale de contact, pas une distance infinie mesurée.
+Voir [le contrôle de passage et de maçonnerie](../../tools/verify_compact_door_passage.py)
+et [la sélection intégrée](../reference/door-redesign/seal-v1/hero-fit-v12-integrated/selection.json).
+
+La vérification géométrique de l’ouverture ne suffit pas à garantir la superposition
+des sprites pendant la traversée. Depuis v14, les deux montants, la couronne et
+le battant fermé sont des supports de tri indépendants. Conserver ce découpage
+pour les prochains héros ; comparer leur passage complet, pas seulement une pose
+centrée. Voir [la preuve de traversée](../reference/door-redesign/seal-v1/hero-fit-v14-passage/README.md)
+et `tools/capture_door_passage.gd` (quatre directions et 49 positions).
 
 Le coffre verrouillé a une cible à Z=0.15 case et une pointe source
 `(0,−1.0,0.15/k)`. Les centres de serrure visibles sont mesurés dans les

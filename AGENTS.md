@@ -1,5 +1,105 @@
 # Repository instructions
 
+## Door passage uses independent jamb supports — 2026-10-28
+
+- User reports Vulpin clipped by open doorway. Old two horizontal sprite layers
+  each merged both jambs; one depth support cannot surround an actor. v14 keeps
+  exact v11/v12 geometry and v13 paint, but partitions final pixels into left jamb
+  (legacy -leaf), crown above .92 (-arch), right jamb and closed-only panel.
+  companions/door_part metadata uses existing shared renderer expansion. Do not
+  regress to a single hollow arch bounding box; geometric clearance is not a
+  proof of correct sprite occlusion.
+- Pre-fix24 partition failures and four native jamb failures retained. Current
+  partition preserves full paint/alpha with no seam. Native49positions×4views,
+  16center walk/run poses:863checks0failures. Game opening/cached actor insertion
+  84checks, badges87, lockpick32contacts/four sizes pass, empty stderr. Independent
+  focused review found no actionable defect. Arbitrary-layout pixel depth and
+  continuous 3D collisions are not proven.
+- 171 kit entries;143 non-door sprites/metadata and37 hero resources unchanged.
+  PNG2096585bytes (10589less thanv13),13MiB RGBA unchanged. v14 index shows native
+  before/after traversal with slider. No art regeneration, APK, player saves,
+  commit or push. V12/v13 capture pages are historical.
+
+## Menacing door leaf and unified hinge lattice — 2026-10-28
+
+- User rejects plain v12 wood, then requests fusing hinges and iron cross into
+  a # framework. v13-malefic-leaf uses ImageGen for two connected crossbars,
+  pointed uprights and a violet seal. Black keyhole stays at source512,1138 /
+  worldZ.32. New appearance is a proposal awaiting user feedback.
+- Shared projector reads a separate leafPainting only on leaf* faces. Exact
+  approved v11/v12 geometry, UV fit, masonry and hinge barrels remain frozen;
+  no new geometry or Vulpin poses. Active game/scenes use the refreshed atlas.
+- 159 IDs/all metadata unchanged;151 regions including8 open-frame parts are
+  pixel-identical. Four silhouettes and masonry away from leaf filtering are
+  unchanged;37 hero resource hashes unchanged. PNG+13080bytes;13MiB RGBA same.
+  Native import/capture exit0, empty stderr,32 contacts/4views/64 passage poses
+  with0 failures. v13 index retains before/after and native review. No phone
+  validation, opening animation, player save, APK, commit or push.
+
+## Approved compact door integrated — 2026-10-28
+
+- User validates v11 (“oui ça à l'air beaucoup mieux”), continuing the earlier
+  request to integrate in game/scenes. v12 freezes exact v11 XYZ: height1.16,
+  opening .96/.63, slim posts retain exterior/depth and original wall contacts.
+  ImageGen face retains dark joints, plum wood, two hinges and black keyhole.
+  Source contact (512,1138), uniform UV scale1/translation(0,-.4), lock Z=.32.
+  The smooth receiver remains independent of painted hardware. Open removes
+  only the wood; all four rotations use the same shared catalogue.
+- V26 lower-lock whole poses are now active in VulpinLockpick. Same model,
+  paint, feet, camera and .85 scale; wrists advance/flare, rather than raising
+  hidden hands as rejected v25 did. Four sheets894106 PNG bytes /8MiB RGBA.
+  prepare.cjs --install updates active sprites; default preserves local review.
+- 159 kit entries;143 non-door regions and metadata byte-identical. Closed/open
+  doors share the historical open-doors atlas page; total12->13MiB RGBA and
+  PNG2015739->2094094 bytes, avoiding doubled architecture texture memory.
+  Trap receiver export uses existing atomic file writer after Windows file-lock
+  failure; trap pixels unchanged.
+- Native import, four-door contacts, gameplay7 states, open doors40 checks,
+  badges87 checks and lockpick32 projections/four sizes pass with empty stderr.
+  v12/index.html links native images and validation. Sources, frozen guides,
+  prompts, measurements and v26 replay retained. Full hero gameplay integration,
+  continuous collision, swinging hinges and physical-phone profiling not claimed.
+  No player saves, APK, commit or push.
+
+## Compact door revision awaits wireframe approval — 2026-10-28
+
+- User rejected v9/v10 height, v25 high lock/hidden arms and oversized posts.
+  First compact trial also moved columns off their wall alignment; rejected.
+  Current hero-fit-v11-compact keeps the exterior post face/depth and exact low
+  junctions, thins toward passage, lowers total height 1.445 to 1.16, opening
+  .96 high/.63 wide. Blank leaf; future lock .32 between hinges .16/.64.
+- V26-lower-lock-review lowers wrists and advances them; unchanged Meshy paint,
+  camera and feet. 32 whole sprites, eight held poses; local review only.
+  Saved replay zero error; 17 meshes pass opening; eight picking meshes are
+  XZ-disjoint from masonry face boxes. Native captures zero failures.
+- User explicitly asks to see and validate the wireframe BEFORE further work.
+  Open v11/index.html. Do not interpret test passes as approval. V10 production
+  asset trial and v25 active sprites reverted; old assets preserved. Two default
+  resource getters in the lockpick stage support isolated review overrides.
+  No additional texture generation/integration before user validates. No APK.
+
+## Door height review must precede painting — 2026-10-28
+
+- User reports Vulpin lockpick scene door too small, missing readable lock and
+  hinges; explicitly reiterates wireframe FIRST for approval. Isolated
+  door-redesign/seal-v1/hero-fit-v9 is a proposal, not accepted production art.
+- Raises upper arch .55 case, extends posts with three courses. Opening
+  .513 -> 1.063 versus unchanged .852685 standing hero height/.85 native scale.
+  Original low wall junctions/XY footprint remain exact. Blank leaf front/back
+  plus perimeter only. Gold hinge/keyhole marks are future texture placements;
+  keyhole retains existing tool contact at Z=.275. No hinge swing is simulated.
+- First +.47 attempt failed two running meshes; retained as rejected evidence.
+  Final Blender verification checks 17 complete held walk/run/idle meshes
+  against the convex opening, with old profile as failing baseline. Width
+  unchanged with tiny lateral margin; eight lockpick poses are checked against
+  actual masonry front planes separately, after clipping body triangles to
+  each face's XZ bounds (avoids treating the empty opening as a solid tier).
+  Native four-view review preserves scale, contacts and normal solid ordering.
+- Exploratory paint was generated before wireframe-first steering, archived
+  source/paint-trial-not-integrated.png. It is not approved or used; do not
+  integrate it automatically. Current accepted v6/v7 door and kit unchanged.
+  README preserves reproduction and limits. No gameplay/save/APK/commit/push.
+
 ## Reusable hero animation documentation — 2026-10-28
 
 - Start new hero animation work with docs/production/hero-animation-pipeline.md

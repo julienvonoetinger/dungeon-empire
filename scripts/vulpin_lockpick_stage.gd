@@ -35,9 +35,15 @@ var _anchor := Vector2.ZERO
 var _tool_offset := Vector2.ZERO
 var _normal := Vector2.ZERO
 
+func _lockpick_frames() -> SpriteFrames:
+	return FRAMES
+
+func _lockpick_registration() -> Dictionary:
+	return JSON.parse_string(FileAccess.get_file_as_string("res://assets/previews/vulpin-lockpick/registration.json"))
+
 func build(direction: String) -> void:
 	facing = direction
-	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/previews/vulpin-lockpick/registration.json"))
+	var data := _lockpick_registration()
 	_registration = data.directions[facing]
 	_anchor = Vector2(_registration.anchor[0], _registration.anchor[1])
 	_tool_offset = (Vector2(_registration.lock[0], _registration.lock[1]) - _anchor) * HERO_SCALE
@@ -57,7 +63,7 @@ func build(direction: String) -> void:
 	_world.add_child(_contact)
 	actor = AnimatedSprite2D.new()
 	actor.name = "Vulpin"
-	actor.sprite_frames = FRAMES
+	actor.sprite_frames = _lockpick_frames()
 	actor.animation = StringName(facing)
 	actor.centered = false
 	actor.offset = -_anchor

@@ -2,6 +2,7 @@
 // Paint whole crossing stones before cropping; do not overlay a stone collar.
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const P=require('./isometric_paint_geometry.cjs'),Stone=require('./isometric_stone_paint.cjs');
+const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const OUT='docs/reference/trap-review/v12-approved-square';
 const selection=JSON.parse(fs.readFileSync(path.join(P.ROOT,OUT,'selection.json')));
 for(const [file,hash]of Object.entries(selection.hashes))if(P.hash(file)!==hash)throw Error('Approved trap wireframe changed: '+file);
@@ -44,11 +45,11 @@ async function preparedReceiver(floor){
  }
  const png=await sharp(fresh,{raw:{width:floor.frame[2],height:floor.frame[3],channels:4}}).png().toBuffer();
  const dir=path.join(P.ROOT,OUT);fs.mkdirSync(dir,{recursive:true});
- fs.writeFileSync(path.join(dir,'receiver.png'),png);
- fs.writeFileSync(path.join(dir,'receiver-geometry.json'),JSON.stringify({camera:P.camera,planeZ:0,opening:geometry.opening,completeStones:stones,approvedGeometry:selection.review+'/geometry.json'},null,2)+'\n');
+ writeGeneratedFile(path.join(dir,'receiver.png'),png);
+ writeGeneratedFile(path.join(dir,'receiver-geometry.json'),JSON.stringify({camera:P.camera,planeZ:0,opening:geometry.opening,completeStones:stones,approvedGeometry:selection.review+'/geometry.json'},null,2)+'\n');
  const guide=`<svg xmlns="http://www.w3.org/2000/svg" width="${floor.frame[2]}" height="${floor.frame[3]}" viewBox="${floor.frame.join(' ')}">${Stone.ink(edges)}</svg>`;
- fs.writeFileSync(path.join(dir,'receiver-wireframe.svg'),guide);
- fs.writeFileSync(path.join(dir,'receiver-wireframe.png'),await sharp(Buffer.from(guide)).png().toBuffer());
+ writeGeneratedFile(path.join(dir,'receiver-wireframe.svg'),guide);
+ writeGeneratedFile(path.join(dir,'receiver-wireframe.png'),await sharp(Buffer.from(guide)).png().toBuffer());
  return {...floor,png};
 }
 module.exports={preparedReceiver,stones,rectangles,polygons,OPEN,FAR,SPAN,referenceFiles};

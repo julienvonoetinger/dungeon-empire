@@ -58,16 +58,16 @@ func _capture() -> void:
 	var world: SubViewport = game.get_node("PlayArea/World")
 	world.size = Vector2i(640,520)
 	var camera: Camera2D = game.get_node("PlayArea/World/Camera2D")
-	camera.zoom = Vector2.ONE*2
+	camera.zoom = Vector2.ONE*1.15
 	for p in [Vector2i(8,10),Vector2i(10,8)]:
-		camera.position = view.grid_to_local(Vector2(p)+Vector2(.5,.5))+Vector2(0,-40)
+		camera.position = view.grid_to_local(Vector2(p)+Vector2(.5,.5))+Vector2(0,-110)
 		camera.force_update_scroll()
 		await process_frame
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		if world.get_texture().get_image().save_png(OUT + "game-" + ("north" if p.x==8 else "west") + ".png") != OK: failed = true
 	# Keep both sides of the actor/door depth transition as visual evidence.
-	camera.position = view.grid_to_local(Vector2(8.5,10.5)) + Vector2(0,-40)
+	camera.position = view.grid_to_local(Vector2(8.5,10.5)) + Vector2(0,-110)
 	camera.force_update_scroll()
 	for side in [0, 1]:
 		# Sample close to the door using the actual movement interpolation, so

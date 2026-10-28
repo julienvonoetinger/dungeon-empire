@@ -58,7 +58,9 @@ async function main() {
   const ritualProps=await RitualProps.preparedRitualProps();
   for(const item of ritualProps){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
   // Keep the near-full architecture page unchanged; gameplay props get a small page.
-  const atlas=await B.pack(items,256,ASSETS,false);
+  // Taller closed doors share the existing door page with their open frames,
+  // instead of doubling the nearly full architecture page.
+  const atlas=await B.pack(items.filter(item=>!item.id.startsWith('door-')),256,ASSETS,false);
   const treasureChest=await TreasureChest.preparedTreasureChest();
   for(const item of treasureChest){items.push(item);write(`${OUT}/sprites/${item.id}.png`,item.png);}
   const chestPath=`res://${ASSETS}/chests/atlas-256.png`;
@@ -76,9 +78,8 @@ async function main() {
   atlas.sourceBytes+=trapAtlas.sourceBytes;
   atlas.uncompressedRGBABytes+=trapAtlas.uncompressedRGBABytes;
   for(const [id,entry] of Object.entries(trapAtlas.regions))atlas.regions[id]={...entry,atlas_path:trapPath};
-  // Open doors retain the exact stone frame. A separate small page preserves
-  // the three existing pages and avoids doubling the near-full architecture.
-  const openDoors=[];
+  // Keep the historical page path stable; it now packs both door states.
+  const openDoors=items.filter(item=>item.id.startsWith('door-'));
   for(const d of ['north','east','south','west'])for(const item of await SealDoor.doors(d,true)){
     openDoors.push(item);items.push(item);await prepare(item,item);
   }
@@ -102,6 +103,8 @@ async function main() {
     if(item.decoration)atlas.regions[item.id].decoration=item.decoration;
     if(item.vortex)atlas.regions[item.id].vortex=item.vortex;
     if(item.wallJunction)atlas.regions[item.id].wall_junction=item.wallJunction;
+    if(item.companions)atlas.regions[item.id].companions=item.companions;
+    if(item.doorPart)atlas.regions[item.id].door_part=item.doorPart;
     if(item.trap)atlas.regions[item.id].trap=item.trap;
   }
   const manifest={id:'isometric-painted-v1',appearance:'shared dungeon stone and accepted clean-leaf Sceau interdit; jambs aligned to wall courses',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
@@ -129,7 +132,7 @@ async function main() {
   for(const entry of Object.values(materialCatalog.entries))if(entry.file)sourceFiles.push(path.posix.normalize('assets/dungeon/shared-materials/'+entry.file));
   json(`${OUT}/recipe.json`,{...manifest,generator:'tools/export_isometric_painted_kit.cjs',geometry:GEOMETRY,sourceHashes:Object.fromEntries([...new Set(sourceFiles)].map(p=>[p,P.hash(p)])),
     items:items.map(({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,png})=>({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,bytes:png.length})),
-    notes:['Historical approved sources and wireframe snapshots remain unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','The four doors use accepted v6 geometry and v7 painting: smooth interchangeable leaf, 1/3..2/3 jamb contacts, generated fronts with the reviewed wall palette and shared stone sides/tops. Final pixels are split at wall height for existing segmented depth ordering.']});
+    notes:['Historical approved sources and wireframe snapshots remain unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','The four doors use approved compact v11 geometry and v12 painting: smooth interchangeable leaf, 1/3..2/3 jamb contacts, visible lower lock and hinges, generated fronts with the reviewed wall palette and shared stone sides/tops. Final pixels use independent left/right jamb, crown and closed-panel supports for actor passage, with companions consumed by the shared renderer.']});
   console.log(JSON.stringify({sprites:items.length,atlas:[atlas.width,atlas.height],pngBytes:atlas.sourceBytes,rgbaBytes:atlas.uncompressedRGBABytes}));
 }
 main().catch(e=>{console.error(e.stack);process.exitCode=1;});

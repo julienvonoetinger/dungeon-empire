@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-28",
+  "userApproval": "2026-10-28: oui ça à l'air beaucoup mieux (v11); earlier game and scene integration request",
+  "status": "approved-geometry-integrated-paint",
+  "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
+  "preparation": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/preparation.json",
+  "mapping": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/mapping.json",
+  "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
+  "files": {
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json": "f2edabeeba3638902e5bdf5d7448a564f93e4555d9768b263004009d7a84fbf6",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/face-guide-magenta.png": "325b3900cd26b08caea92a8397ab85ea1f1292e241351eae6ac3e75b2aae8212",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/mapping.json": "a7875a3476f884bba7642bfd3ee5b06ce24c3f190383a0fee276771d97b7384c",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/preparation.json": "2306ccf49cd2815b2187f5dc0544650cb48d844542ac28dea93c0191dcbcb416",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png": "20875c1c024d5d1be2ed8d59fbe6f8fc84717cf6aa2ce693b3bd97f5c67606c3",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/prompt.txt": "0aa78bd3a886dfac93306c94e106e0250416206dbeb46f56c5c993aff69d84b5",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/lock-correction-prompt.txt": "ed6f6d6872cd913bbb24e86d31d3b2665fda45de6d08245c728d1bd44ffb324d",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/alignment-prompt.txt": "c8e9cc5a6469ed3b9d25844f4f2504a07c296a7340eb1fb93c733122ad2b3056"
+  }
+}

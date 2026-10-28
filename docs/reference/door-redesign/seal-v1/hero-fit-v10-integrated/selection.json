@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-28",
+  "userApproval": "ok intégre ça au jeu et aux scène; serrure entre les deux gonds verticalement",
+  "status": "approved-geometry-integrated-paint",
+  "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/geometry.json",
+  "preparation": "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/preparation.json",
+  "mapping": "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/mapping.json",
+  "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/source/face-mid-lock.png",
+  "files": {
+    "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/geometry.json": "3247c6116cd8daf0c284a3b6fed357dade5caff796a1942facb53f17973d0a71",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/face-guide-magenta.png": "cee1cf52cbcd9bc3ef816027ef6d60379cd257310b530c88c36eed6974c593d9",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/mapping.json": "a7875a3476f884bba7642bfd3ee5b06ce24c3f190383a0fee276771d97b7384c",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/preparation.json": "8a0fad40a7dccc4cb108a8790a180e01ac2ee8ee852ac18ecd33a492929d0a52",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/source/face-mid-lock.png": "628c9093d3f17cac72fbc8ed6e529b4d9b1cdc7d6bd44aac3429fbbfe026200d",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/source/prompt.txt": "a3fbd67647b6a98d685224759b0ee806cd845e3eed7f3088feade6a73a90c196",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v10-integrated/source/mid-height-lock-prompt.txt": "2c957b73d9a0d8a54b7b6b56958695d44141c15748029f25d69d588a2edf2d24"
+  }
+}

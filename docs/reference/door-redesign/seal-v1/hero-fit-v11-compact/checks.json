@@ -1,0 +1,54 @@
+{
+  "oldTotalHeight": 1.445,
+  "totalHeight": 1.16,
+  "heightReductionPercent": 19.723183391003474,
+  "openingHeight": 0.96,
+  "openingWidth": 0.63,
+  "standingHeroHeight": 0.85268495519,
+  "postWidthAboveWallBefore": 0.25333333333333335,
+  "postWidthAboveWall": 0.18333333333333335,
+  "exteriorPostFaceUnchanged": true,
+  "masonryDepthUnchanged": true,
+  "lowJunctionsUnchanged": true,
+  "guide": {
+    "mapping": {
+      "size": [
+        1024,
+        1536
+      ],
+      "scale": 820,
+      "xOrigin": 512,
+      "xCentre": 0.5,
+      "zOrigin": 1400
+    }
+  },
+  "hardware": {
+    "lock": {
+      "x": 0.5,
+      "z": 0.32,
+      "pixel": [
+        512,
+        1137.6
+      ]
+    },
+    "hinges": [
+      {
+        "x": 0.185,
+        "z": 0.16,
+        "pixel": [
+          253.7,
+          1268.8
+        ]
+      },
+      {
+        "x": 0.185,
+        "z": 0.64,
+        "pixel": [
+          253.7,
+          875.2
+        ]
+      }
+    ],
+    "textureOnly": true
+  }
+}

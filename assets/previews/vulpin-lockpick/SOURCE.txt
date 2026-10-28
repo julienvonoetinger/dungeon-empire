@@ -7,12 +7,17 @@ No runtime skeleton, image-card puppet, synthesized intermediate frame or
 mirrored direction. Same camera, lighting, 256px canvas and scale as walk/run.
 
 Source/masters/packed Blender/validation:
-docs/reference/vulpin-review/v20-door-lockpick/
+docs/reference/vulpin-review/v26-lower-lock-review/
 
 Four 2048x256 PNG sheets, 32 unique frames. Eight fps / one-second loop.
 The source pick tip is stationary; registration.json projects it through each
 actual Blender camera. Native scene aligns that tip to the existing painted
-door lock (height .275 cell), with the same .85 actor scale as the gait scenes.
+door lock (height .32 cell), with the same .85 actor scale as the gait scenes.
+V26 lowers the rejected .49 target and moves hands forward/outward so the
+large head no longer covers them in the front views. Geometry is the approved
+compact v11 door; the integrated painting and selection live in
+docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/.
+Run prepare.cjs --install to update these active assets from the saved poses.
 
 Pause/step and 0.5x..2x. Distance offset (in cells), Recaler, contact guides,
 and translucent door option are inspection controls only. At zero offset,

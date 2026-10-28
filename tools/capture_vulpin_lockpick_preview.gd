@@ -1,6 +1,6 @@
 extends SceneTree
 const SCENE_PATH := "res://scenes/VulpinLockpick.tscn"
-const OUT := "res://docs/reference/vulpin-review/v20-door-lockpick/native-scene/"
+var OUT := "res://docs/reference/vulpin-review/v26-lower-lock-review/native-scene/"
 var failures: Array[String] = []
 
 func _initialize() -> void:
@@ -20,6 +20,8 @@ func shot(name: String) -> void:
 	check(root.get_texture().get_image().save_png(OUT + name + ".png") == OK, "Capture " + name)
 
 func capture() -> void:
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--output="): OUT = arg.trim_prefix("--output=").trim_suffix("/") + "/"
 	if not ResourceLoader.exists(SCENE_PATH):
 		push_error("Missing four-door lockpick review scene")
 		quit(1)

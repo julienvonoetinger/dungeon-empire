@@ -19,7 +19,11 @@ func check(ok: bool, message: String) -> void:
 func inspect(view: Node2D, state: String, open_frame: bool, removed := false) -> void:
 	var doors: Array = view.solid_groups.filter(func(p): return str(p.id).begins_with("door-"))
 	var segments: Array = view.solid_groups.filter(func(p): return p.has("wall_segment"))
-	check(doors.size() == (0 if removed else 4), state + ": stone frames must remain on both doors")
+	check(doors.size() == (0 if removed else 6 if open_frame else 8), state + ": independent jambs/crowns and closed panels on both doors")
+	for cell in [Vector2i(8,6),Vector2i(10,8)]:
+		var roles: Array = doors.filter(func(p): return Vector2i(p.at)==cell).map(func(p): return view._definition.entries[p.id].get("door_part", ""))
+		check(roles.count("jamb-left")==int(not removed) and roles.count("jamb-right")==int(not removed) and roles.count("crown")==int(not removed), state+": complete frame per door")
+		check(roles.count("panel")==int(not removed and not open_frame),state+": panel exists only while closed")
 	check(segments.size() == (0 if removed else 8), state + ": wall contacts must match the frames")
 	for p in doors:
 		check(str(p.id).contains("-open-") == open_frame, state + ": wrong leaf state " + str(p.id))
@@ -70,6 +74,16 @@ func run() -> void:
 	game.raid.hero={"pos":Vector2i(8,6),"name":"Neris","kind":"thief","level":1,"hp":100,"max_hp":100}
 	view.rebuild()
 	for gate in cells:
+		game.raid.hero.pos=gate
+		game.raid.hero.erase("move_from")
+		game.raid.hero.erase("step_started_at")
+		view._update_markers()
+		var jambs: Array=view.solid_groups.filter(func(p): return Vector2i(p.at)==gate and str(p.id).begins_with("door-") and str(view._definition.entries[p.id].get("door_part", "")).begins_with("jamb"))
+		jambs.sort_custom(func(a,b): return a.depth<b.depth)
+		check(jambs.size()==2,"Gameplay retains two independent jamb supports")
+		if jambs.size()==2:
+			check(jambs[0].node.get_index()<view._actor.get_index(),"Gameplay cached order: far jamb behind actor")
+			check(view._actor.get_index()<jambs[1].node.get_index(),"Gameplay cached order: near jamb in front of actor")
 		var axis:=Vector2i.DOWN if gate.x==8 else Vector2i.RIGHT
 		for step in [0,1]:
 			for progress in [.25,.5,.75]:
