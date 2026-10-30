@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Menu radial — pierre et corruption</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0c1019;color:#e5deef;font:16px/1.55 system-ui,sans-serif}main{max-width:1328px;margin:auto;padding:28px 24px}h1{margin:0 0 8px;font-size:28px}p{max-width:960px;color:#bcb2cb}nav{display:flex;gap:12px;margin:22px 0 14px;flex-wrap:wrap}button{font:inherit;color:#e5deef;background:#1a2236;border:1px solid #5a536e;border-radius:8px;padding:12px 20px;min-height:48px;cursor:pointer}button[aria-pressed=true]{background:#342343;border-color:#c091ea}button:focus-visible{outline:3px solid #e4bdff;outline-offset:3px}img{width:100%;height:auto;display:block;border:1px solid #353448;border-radius:8px}img[hidden]{display:none}.note{font-size:14px}a{color:#c8a3ed}@media(max-width:600px){main{padding:20px 12px}h1{font-size:24px}}
+</style>
+<main>
+<h1>Menu radial : pierre sculptée et corruption violette</h1>
+<p>Une proposition pour rapprocher le menu de l’en-tête : des faces en pierre bleutée, des joints creusés, des bords biseautés et quelques fissures violettes. « Close » reste au centre, les prix dans leur bande extérieure.</p>
+<nav aria-label="Comparer les visuels"><button aria-pressed="true" data-image="proposal">Proposition</button><button aria-pressed="false" data-image="before">Menu actuel</button></nav>
+<img id="proposal" src="proposal.png" width="1672" height="941" alt="Proposition peinte du menu radial en pierre sombre assorti à la barre supérieure">
+<img id="before" src="before.png" width="1280" height="720" alt="Capture native du menu radial actuel avec Close au centre" hidden>
+<p class="note">Maquette visuelle générée avec ImageGen, non intégrée au jeu. Le gabarit tactile actuel reste la référence pour l’intégration ; les chiffres resteront droits et les prix seront ceux du jeu. <a href="proposal.png">Ouvrir l’image</a> · <a href="prompt.txt">Consigne de génération</a></p>
+</main>
+<script>
+for(const button of document.querySelectorAll('button'))button.addEventListener('click',()=>{for(const other of document.querySelectorAll('button'))other.setAttribute('aria-pressed',String(other===button));for(const id of ['before','proposal'])document.getElementById(id).hidden=id!==button.dataset.image;});
+</script>
+</html>

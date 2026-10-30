@@ -1,9 +1,14 @@
 extends RefCounted
 
 const GOLD := Color("d9b45c")
-const INK := Color("1a1119")
-const TEXT := Color("e8dcc8")
+const INK := Color("101524")
+const TEXT := Color("e7dfef")
 const MUTED := Color("beb1c7")
+const ACCENT := Color("bd8aef")
+const STONE_PANEL = preload("res://assets/ui/master/stone-menu/panel.png")
+const STONE_BUTTON = preload("res://assets/ui/master/stone-menu/button.png")
+const STONE_ROUND = preload("res://assets/ui/master/stone-menu/round.png")
+const STONE_FACE = preload("res://assets/ui/master/stone-menu/face.png")
 const ASSETS := "res://assets/ui/black-gold/"
 const PAINTED := {"pick":"dig","hammer":"dig","spike":"spikes","door":"door","chest":"chest","locked":"locked","gem":"heart","void":"crystal"}
 const ICON_REGIONS = preload("res://assets/ui/forge/icon_regions.gd")
@@ -11,10 +16,10 @@ static var _icons: Dictionary = {}
 
 static func surface(file: String, margin: float = 12.0) -> StyleBoxTexture:
 	var style := StyleBoxTexture.new()
-	style.texture = preload("res://assets/ui/forge/stone.png")
-	style.modulate_color = Color("d1b0ec") if file in ["selected","gold"] else Color.WHITE
+	style.texture = STONE_PANEL
+	style.modulate_color = Color(1.35,.65,1.15) if file in ["selected","gold"] else Color.WHITE
 	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
-		style.set_texture_margin(side, 11)
+		style.set_texture_margin(side, 12)
 		style.set_expand_margin(side, 0)
 		style.set_content_margin(side, margin)
 	style.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
@@ -27,12 +32,16 @@ static func flat(color: Color, radius: int = 5) -> StyleBoxFlat:
 	style.set_corner_radius_all(radius)
 	return style
 
-static func command_surface(selected: bool=false, margin: float=10) -> StyleBoxFlat:
-	var style:=flat(Color("392340") if selected else INK,6)
-	style.corner_detail=1
-	style.border_color=Color("ba87d6") if selected else Color("91849a")
-	style.set_border_width_all(2)
-	style.set_content_margin_all(margin)
+static func command_surface(selected: bool=false, margin: float=10) -> StyleBoxTexture:
+	var style:=surface("selected" if selected else "button",margin)
+	style.texture=STONE_BUTTON
+	return style
+
+static func round_surface(selected: bool=false) -> StyleBoxTexture:
+	var style:=StyleBoxTexture.new()
+	style.texture=STONE_ROUND
+	style.modulate_color=Color(1.35,.65,1.15) if selected else Color.WHITE
+	style.set_content_margin_all(0)
 	return style
 
 static func slim_scrollbar(scroll: ScrollContainer) -> void:
@@ -57,7 +66,7 @@ static func create() -> Theme:
 	for state in ["normal", "hover", "pressed"]:
 		theme.set_stylebox(state, "Button", command_surface(state == "pressed", 10))
 	var disabled := command_surface(false,10)
-	disabled.bg_color=Color("1d1920"); disabled.border_color=Color("514957")
+	disabled.modulate_color=Color(.48,.48,.55)
 	theme.set_stylebox("disabled", "Button", disabled)
 	var focus := flat(Color.TRANSPARENT, 10)
 	focus.border_color = Color("d2a4ff")
@@ -76,6 +85,7 @@ static func create() -> Theme:
 
 static func icon(name: String) -> Texture2D:
 	if _icons.has(name): return _icons[name]
+	if name in ["cross","pause"]: return load("res://assets/ui/master/stone-menu/"+name+".svg")
 	if name in ["spike","snare","void"]:
 		_icons[name]=load("res://assets/ui/master/trap-"+name+".png")
 		return _icons[name]
@@ -121,9 +131,11 @@ static func button(parent: Node, text: String, action: Callable, glyph: String =
 static func tile(parent: Node, glyph: String, text: String, action: Callable) -> Button:
 	var item := button(parent, "", action)
 	for state in ["normal","hover","pressed"]:
-		var circle:=command_surface(state=="pressed",0)
-		circle.set_corner_radius_all(28); circle.corner_detail=12
+		var circle:=round_surface(state=="pressed")
 		item.add_theme_stylebox_override(state,circle)
+	var disabled:=round_surface()
+	disabled.modulate_color=Color(.48,.48,.55)
+	item.add_theme_stylebox_override("disabled",disabled)
 	item.custom_minimum_size = Vector2(56, 58)
 	item.tooltip_text = text
 	var box := VBoxContainer.new()

@@ -82,7 +82,7 @@ func _ready() -> void:
 	radial_shield.gui_input.connect(func(event):
 		if event is InputEventMouseButton and event.pressed: _close_radial())
 	radial=Radial.new(); radial.session=session; radial_shield.add_child(radial)
-	radial.tool_chosen.connect(_radial_tool); radial.catalogue_requested.connect(_open_catalog); radial.closed.connect(_close_radial)
+	radial.tool_chosen.connect(_radial_tool); radial.closed.connect(_close_radial)
 	radial_shield.hide()
 	catalog=Catalog.new(); root.add_child(catalog)
 	catalog.tool_chosen.connect(_choose_tool); catalog.closed.connect(_close_catalog)
@@ -333,15 +333,15 @@ func _build_modal() -> void:
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_theme_constant_override("separation", 10)
 	modal_scroll.add_child(box)
-	modal_title = UI.label(box, "", 24, UI.GOLD)
+	modal_title = UI.label(box, "", 24, UI.TEXT)
 	modal_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	modal_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	result_stats=HBoxContainer.new(); box.add_child(result_stats)
 	for caption in ["defeated","dropped loot","Core"]:
 		var card:=_panel(result_stats); card.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-		card.add_theme_stylebox_override("panel",UI.command_surface(false,8))
+		card.add_theme_stylebox_override("panel",UI.surface("panel",8))
 		var content:=VBoxContainer.new(); card.add_child(content)
-		var value:=UI.label(content,"0",22,UI.GOLD); value.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		var value:=UI.label(content,"0",22,UI.TEXT); value.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		var label:=UI.label(content,caption,11); label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		result_values.append(value)
 	result_stats.hide()

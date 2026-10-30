@@ -1,14 +1,16 @@
 extends SceneTree
 const GAME=preload("res://scenes/game/DungeonGame.tscn")
 const TYPES=preload("res://scripts/game/game_types.gd")
-const OUT="res://docs/reference/interface-review/v10-master-mobile/"
+var output="res://artifacts/master-mobile-review/"
 var records: Array=[]
 func _initialize() -> void: call_deferred("run")
 func settle() -> void:
 	for frame in 8: await process_frame
 func run() -> void:
-	DirAccess.make_dir_recursive_absolute(OUT+"captures")
-	var game=GAME.instantiate(); game.save_path=OUT+"never-created.save"
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--output="): output=argument.trim_prefix("--output=").trim_suffix("/")+"/"
+	DirAccess.make_dir_recursive_absolute(output+"captures")
+	var game=GAME.instantiate(); game.persistence_enabled=false
 	root.add_child(game); game.set_process(false); await process_frame
 	var hud=game.get_node("HUD")
 	game.sim.new_map()
@@ -23,16 +25,16 @@ func run() -> void:
 	game.changed.emit(true)
 	for extent in [Vector2i(844,390),Vector2i(740,360),Vector2i(667,375),Vector2i(568,320),Vector2i(390,844),Vector2i(320,568),Vector2i(1280,720)]:
 		root.size=extent; await settle(); game.get_node("Input").center_core(); await settle()
-		for state in ["idle","radial","radial-unlocked","catalog","catalog-unlocked","placing","access","selection","transfer","menu","raid","result","welcome","reset","defeat","blocked"]:
+		for state in ["idle","radial","radial-unlocked","catalog","catalog-unlocked","catalog-doors","catalog-terrain","catalog-treasures","placing","access","selection","transfer","menu","raid","result","welcome","reset","defeat","blocked"]:
 			hud._close_radial(false); hud._catalog_open=false; hud._reset_pending=false
 			game.selected=Vector2i(-1,-1); game.tool=TYPES.Tool.NONE; game.preview={}
 			game.paused=false; game.result_open=false; game.sim.game_over=false; game.save_blocked=false; game.confirmation_open=false
 			game.save_error=""
 			game.raid.raid_active=false; game.notice="Building"; hud._welcome=state=="welcome"
-			game.progression.xp=280 if state.ends_with("unlocked") else 0
+			game.progression.xp=280 if state.ends_with("unlocked") or state in ["catalog-doors","catalog-terrain","catalog-treasures"] else 0
 			game.get_node("PlayArea/World/Dungeon").access_visible=state=="access"
 			game.sim.grid[7][7]=TYPES.Tile.FLOOR if state=="welcome" else TYPES.Tile.CORE
-			if state.begins_with("catalog"): hud._catalog_open=true; hud.catalog._choose_category(2)
+			if state.begins_with("catalog"): hud._catalog_open=true; hud.catalog._choose_category({"catalog-doors":1,"catalog-terrain":0,"catalog-treasures":3}.get(state,2))
 			if state=="placing": game.tool=TYPES.Tool.TRAP_SPIKE
 			if state in ["selection","transfer"]: game.selected=Vector2i(9,9)
 			if state=="menu": game.paused=true
@@ -50,10 +52,10 @@ func run() -> void:
 			if state=="transfer": hud.selection._open_transfer()
 			await settle()
 			await RenderingServer.frame_post_draw
-			root.get_texture().get_image().save_png(OUT+"captures/%d-%s.png" % [extent.x,state])
+			root.get_texture().get_image().save_png(output+"captures/%d-%s.png" % [extent.x,state])
 			var controls: Array=[]; describe(hud.root,controls)
 			records.append({"size":[extent.x,extent.y],"state":state,"world":str(hud._world_rect),"controls":controls})
-	var file=FileAccess.open(OUT+"native-layout.json",FileAccess.WRITE); file.store_string(JSON.stringify(records,"\t")); file.close()
+	var file=FileAccess.open(output+"native-layout.json",FileAccess.WRITE); file.store_string(JSON.stringify(records,"\t")); file.close()
 	game.queue_free(); await process_frame
 	print("Captured ",records.size()," native states. No player save accessed."); quit()
 func describe(node: Node, records_out: Array) -> void:

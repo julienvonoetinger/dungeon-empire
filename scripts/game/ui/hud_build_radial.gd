@@ -2,7 +2,6 @@ extends Control
 ## Joint sectors keep fixed family directions at each screen size. World input is
 ## captured by HUD while open; the opening release cannot also activate a wedge.
 signal tool_chosen(tool: int)
-signal catalogue_requested(category: int)
 signal closed
 const UI=preload("res://scripts/game/ui/hud_theme.gd")
 const Catalog=preload("res://scripts/game/ui/hud_catalog.gd")
@@ -21,10 +20,9 @@ var category:=0
 var choices: Array=[]
 var family_valid: Array[bool]=[]
 var caption: Label
-var all_button: Button
-var all_icon: TextureRect
-var all_label: Label
-var cancel_button: Button
+var close_button: Button
+var close_icon: TextureRect
+var close_label: Label
 var _down:=false
 var _press:=Vector2.ZERO
 var _hover:=-1
@@ -41,29 +39,24 @@ func _ready() -> void:
 	caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
-	all_button=RoundButton.new(); add_child(all_button)
-	all_button.custom_minimum_size=Vector2(48,48)
-	all_button.mouse_filter=MOUSE_FILTER_STOP
-	all_button.pressed.connect(func(): catalogue_requested.emit(category))
-	var contents:=VBoxContainer.new(); all_button.add_child(contents)
+	close_button=RoundButton.new(); add_child(close_button)
+	close_button.custom_minimum_size=Vector2(48,48)
+	close_button.mouse_filter=MOUSE_FILTER_STOP
+	close_button.pressed.connect(func(): closed.emit())
+	var contents:=VBoxContainer.new(); close_button.add_child(contents)
 	contents.mouse_filter=MOUSE_FILTER_IGNORE
 	contents.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 	contents.offset_left=4; contents.offset_right=-4
 	contents.offset_top=4; contents.offset_bottom=-4
 	contents.alignment=BoxContainer.ALIGNMENT_CENTER
 	contents.add_theme_constant_override("separation",2)
-	all_icon=UI.picture(contents,"catalog",20)
-	all_icon.size_flags_horizontal=SIZE_SHRINK_CENTER
-	all_label=UI.label(contents,"All",13)
-	all_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	all_button.tooltip_text="All items in this category"
+	close_icon=UI.picture(contents,"cross",20)
+	close_icon.size_flags_horizontal=SIZE_SHRINK_CENTER
+	close_label=UI.label(contents,"Close",13)
+	close_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	close_button.tooltip_text="Close build menu"
 	for state in ["normal","hover","pressed"]:
-		var circle:=UI.command_surface(state=="pressed",0)
-		circle.set_corner_radius_all(40); circle.corner_detail=16
-		all_button.add_theme_stylebox_override(state,circle)
-	cancel_button=UI.button(self,"Close",func(): closed.emit())
-	cancel_button.custom_minimum_size=Vector2(86,48)
-	cancel_button.size=Vector2(86,48)
+		close_button.add_theme_stylebox_override(state,UI.round_surface(state=="pressed"))
 	mouse_exited.connect(func():
 		if not _down: _set_hover(-1))
 	fit_available(Vector2(760,620))
@@ -106,14 +99,13 @@ func fit_available(area: Vector2) -> void:
 	var ring_width:=radius*2+PAD*2
 	custom_minimum_size=Vector2(ring_width+SIDE_HELP,ring_height) if sideways else Vector2(ring_width,ring_height+FOOTER)
 	size=custom_minimum_size
-	all_button.position=menu_center()-Vector2.ONE*centre_radius
-	all_button.size=Vector2.ONE*centre_radius*2
-	all_label.add_theme_font_size_override("font_size",13 if centre_radius>=30 else 11)
-	all_icon.custom_minimum_size=Vector2.ONE*(20 if centre_radius>=30 else 16)
-	caption.position=Vector2(ring_width+8,ring_height/2-48) if sideways else Vector2(8,ring_height+4)
-	caption.size=Vector2(SIDE_HELP-16,64) if sideways else Vector2(ring_width-114,48)
+	close_button.position=menu_center()-Vector2.ONE*centre_radius
+	close_button.size=Vector2.ONE*centre_radius*2
+	close_label.add_theme_font_size_override("font_size",13 if centre_radius>=30 else 11)
+	close_icon.custom_minimum_size=Vector2.ONE*(20 if centre_radius>=30 else 16)
+	caption.position=Vector2(ring_width+8,ring_height/2-32) if sideways else Vector2(8,ring_height+4)
+	caption.size=Vector2(SIDE_HELP-16,64) if sideways else Vector2(ring_width-16,48)
 	caption.add_theme_font_size_override("font_size",14)
-	cancel_button.position=Vector2(ring_width+(SIDE_HELP-86)/2,ring_height/2+24) if sideways else Vector2(ring_width-94,ring_height+4)
 	queue_redraw()
 
 func menu_center() -> Vector2:
@@ -130,7 +122,7 @@ func _choose_family(index: int) -> void:
 		if item[4]==index and session.progression.allows(item[0]):
 			choices.append(item)
 			# More than five wedges would drop below 48 units at this radius.
-			# The full family remains available through All.
+			# The full family remains available through the HUD Catalog button.
 			if choices.size()==5: break
 	_set_hover(-1)
 	queue_redraw()
@@ -151,11 +143,35 @@ func _sector(a: float,b: float,inside: float,outside: float) -> PackedVector2Arr
 	for i in range(24,-1,-1): points.append(menu_center()+Vector2.from_angle(lerpf(a,b,i/24.0))*inside)
 	return points
 
-func _paint_sector(a: float,b: float,inside: float,outside: float,fill: Color,border: Color) -> void:
-	var polygon:=_sector(a,b,inside,outside)
-	draw_colored_polygon(polygon,fill)
-	polygon.append(polygon[0])
-	draw_polyline(polygon,border,1.5,true)
+func _paint_sector(a: float,b: float,inside: float,outside: float,selected: bool=false,enabled: bool=true,price: bool=false) -> void:
+	# Map the painted stone disc to actual sector geometry, so unlocked action
+	# counts and short-screen radii never depend on a fixed mockup image.
+	var boundary:=_sector(a,b,inside,outside)
+	draw_colored_polygon(boundary,Color("080e1a"))
+	var gap:=1.5/maxf(inside,1)
+	var face:=_sector(a+gap,b-gap,inside+1.5,outside-1.5)
+	var uv:=PackedVector2Array()
+	for point in face: uv.append((point-menu_center())/(outside*2)+Vector2(.5,.5))
+	var tint:=Color.WHITE if enabled else Color(.6,.6,.68)
+	draw_polygon(face,PackedColorArray([tint]),uv,UI.STONE_FACE)
+	# Confine the painted bevel to a narrow rim: scaling the whole disc into
+	# every sector would make its border intrude behind the action icons.
+	var rim:=_sector(a+gap,b-gap,outside-5,outside-1.5)
+	var rim_uv:=PackedVector2Array()
+	for point in rim:
+		var delta:=point-menu_center()
+		var source_radius:=.41 if delta.length()<outside-3 else .495
+		rim_uv.append(Vector2(.5,.5)+delta.normalized()*source_radius)
+	draw_polygon(rim,PackedColorArray([tint]),rim_uv,UI.STONE_ROUND)
+	if selected: draw_colored_polygon(face,Color(.5,.16,.72,.32))
+	var edge:=face.duplicate(); edge.append(edge[0])
+	draw_polyline(edge,UI.ACCENT if selected else Color("526d91") if enabled else Color("354157"),1.2,true)
+	boundary.append(boundary[0]); draw_polyline(boundary,Color("090d18"),1.5,true)
+	if price:
+		var socket:=_sector(a+gap*2,b-gap*2,inside+4,outside-4)
+		draw_colored_polygon(socket,Color("45305f") if selected else Color("0c1120"))
+		socket.append(socket[0])
+		draw_polyline(socket,UI.ACCENT if selected else Color("35445c"),1.0,true)
 
 func _paint_icon(glyph: String,at: Vector2,extent: float,valid: bool) -> void:
 	var texture:=UI.icon(glyph)
@@ -175,7 +191,7 @@ func _draw() -> void:
 	var font:=get_theme_default_font()
 	for index in 4:
 		var a: float=-PI+index*PI/2
-		_paint_sector(a,a+PI/2,centre_radius,inner,Color("56316b") if index==category else Color("211b29"),Color("ba87d6") if index==category else Color("71647d"))
+		_paint_sector(a,a+PI/2,centre_radius,inner,index==category)
 		var at:=menu_center()+Vector2.from_angle(a+PI/4)*(centre_radius+inner)/2
 		_paint_icon(Catalog.GROUP_ICONS[index],at,36,family_valid[index])
 	var count:=choices.size()
@@ -186,9 +202,8 @@ func _draw() -> void:
 		var a: float=-PI+PI*index/maxi(count,1)
 		var b: float=-PI+PI*(index+1)/maxi(count,1)
 		var active:=_hover==index and valid
-		var edge:=Color("d7c8b4") if valid else Color("655664")
-		_paint_sector(a,b,inner,radius-price_width,Color("62313e") if active else UI.INK,edge)
-		_paint_sector(a,b,radius-price_width,radius,UI.GOLD if active else Color("100e19"),UI.GOLD if active else edge)
+		_paint_sector(a,b,inner,radius-price_width,active,valid)
+		_paint_sector(a,b,radius-price_width,radius,active,valid,true)
 		var at:=choice_point(index)
 		# Fit the complete icon inside the action area, including its corners.
 		var extent:=48.0
@@ -205,7 +220,7 @@ func _draw() -> void:
 		var font_size:=16 if price_width>=24 else 14
 		var tw:=font.get_string_size(cost,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x
 		var baseline:=(font.get_ascent(font_size)-font.get_descent(font_size))/2
-		draw_string(font,choice_point(index,true)+Vector2(-tw/2,baseline),cost,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,UI.INK if active else (UI.GOLD if valid else Color("a798af")))
+		draw_string(font,choice_point(index,true)+Vector2(-tw/2,baseline),cost,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,Color("fff2ff") if active else (UI.TEXT if valid else Color("a798af")))
 
 func _choice_at(point: Vector2) -> int:
 	var p:=point-menu_center()

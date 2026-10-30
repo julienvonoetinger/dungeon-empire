@@ -1,0 +1,85 @@
+{
+  "method": "alpha bounding crop, uniform contain resize; no painting",
+  "assets": {
+    "panel": {
+      "source": "docs/reference/interface-review/v19-stone-menus/source/panel.png",
+      "sha256": "cf1d77b7908174ec38e0812a32677174b0d67891de80483aec9033119cee09c3",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "crop": {
+        "left": 27,
+        "top": 43,
+        "width": 1201,
+        "height": 1167
+      },
+      "size": [
+        128,
+        128
+      ],
+      "pngBytes": 34984,
+      "rgbaBytes": 65536
+    },
+    "round": {
+      "source": "docs/reference/interface-review/v19-stone-menus/source/round.png",
+      "sha256": "123aabedaddef181348cc5eb89427c35f77a81f0da4abcf8a76c997bac1bc74e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "crop": {
+        "left": 51,
+        "top": 50,
+        "width": 1152,
+        "height": 1151
+      },
+      "size": [
+        384,
+        384
+      ],
+      "pngBytes": 267523,
+      "rgbaBytes": 589824
+    },
+    "face": {
+      "source": "docs/reference/interface-review/v19-stone-menus/source/panel.png",
+      "sha256": "cf1d77b7908174ec38e0812a32677174b0d67891de80483aec9033119cee09c3",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "crop": {
+        "left": 313,
+        "top": 313,
+        "width": 627,
+        "height": 627
+      },
+      "size": [
+        128,
+        128
+      ],
+      "pngBytes": 25116,
+      "rgbaBytes": 65536
+    },
+    "button": {
+      "source": "docs/reference/interface-review/v19-stone-menus/source/button.png",
+      "sha256": "a437020ab4247709d620968da8d2714642b4e1502b7e9bf241618de409ead0c1",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "crop": {
+        "left": 20,
+        "top": 127,
+        "width": 2133,
+        "height": 474
+      },
+      "size": [
+        256,
+        64
+      ],
+      "pngBytes": 32236,
+      "rgbaBytes": 65536
+    }
+  }
+}

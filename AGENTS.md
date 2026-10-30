@@ -1,5 +1,36 @@
 # Repository instructions
 
+## Shared painted stone menus — 2026-10-30
+
+- User approves v18 radial direction and requests matching menus. v19 integrates
+  shared slate/violet painted surfaces in radial, catalog, selection/transfer,
+  pause/results, placement notices and utility buttons. Keep English copy,
+  native icons/live prices, existing padding/geometry and central Close.
+- Three ImageGen native-alpha sources/prompts retained. prepare_stone_ui.cjs
+  makes4 cropped/uniformly reduced PNGs:359859bytes,0.75MiB RGBA. No painting
+  by script. Horizontal button art avoids stretching square facets into grain.
+  docs/.gdignore excludes source/review assets from export; runtime art shared.
+- Variable radial sectors use quiet stone faces and narrow painted rims;
+  inset price sockets turn violet. Before11 pixel failures, after1594 checks
+  pass. Native mobile interactions, rotation227 and header health32 pass;
+  import/fixtures exit0 with empty stderr. No player saves or APK.
+- capture_master_mobile now disables persistence before tree entry, accepts
+  --output and defaults to ignored artifacts.133 states/7sizes have no clipped
+  nonwrapping labels; small portrait/landscape menus inspected. Review found no
+  actionable regression. Native before/after: interface-review/v19-stone-menus.
+  No physical-phone profiling, commit or push.
+
+## Radial centre closes the menu — 2026-10-30
+
+- User requests Close at the centre instead of All. Keep the circular hit
+  area, replace the catalog icon with the existing cross, remove the external
+  close button and centre the caption in its freed space. The full catalog
+  remains available from the regular HUD button after closing the radial.
+- Existing native fixture now verifies centre mouse/touch dismissal, cleared
+  selection and no purchase/tool activation. Before2 failures, after1594
+  checks/0 failures across11 sizes; empty stderr. Small portrait and landscape
+  captures inspected in artifacts/radial-review. No APK, commit or push.
+
 ## English player-facing language — 2026-10-30
 
 - User requests English instead of French. Runtime HUD, catalog, radial,

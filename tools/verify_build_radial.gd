@@ -69,7 +69,7 @@ func run() -> void:
 			var rect: Rect2=radial.get_global_rect()
 			check(hud._safe.grow(.1).encloses(rect),"Radial stays within safe area: %s %s" % [extent,target])
 			check(rect.position.y>=hud.header.position.y+hud.header.size.y-.1,"Radial keeps clear of the header: "+str(extent))
-			check(Rect2(Vector2.ZERO,radial.size).encloses(radial.cancel_button.get_rect()),"Close button is not clipped: "+str(extent))
+			check(Rect2(Vector2.ZERO,radial.size).encloses(radial.close_button.get_rect()),"Close button is not clipped: "+str(extent))
 			check(radial.inner-radial.centre_radius>=48 and radial.radius-radial.inner>=48,"Touch sectors retain 48-unit radial depth")
 			var view: Node2D=game.get_node("PlayArea/World/Dungeon")
 			var cell_screen: Vector2=(view.get_global_transform_with_canvas()*view.grid_to_local(Vector2(target)+Vector2(.5,.5)))/hud.scale.x
@@ -96,7 +96,7 @@ func run() -> void:
 				var pixels:=root.get_texture().get_image()
 				sample*=Vector2(pixels.get_size())/root.get_visible_rect().size
 				var color:=pixels.get_pixelv(Vector2i(sample))
-				check(absf(color.r-0.85)<.03 and absf(color.g-.71)<.03,"The pressed price band is visibly highlighted: "+str(extent))
+				check(color.b>color.r and color.r>color.g*1.25 and color.b>.3,"The pressed price socket is visibly violet: "+str(extent))
 				radial.cancel_pointer()
 				shapes.append({"viewport":str(extent),"radius":radial.radius,"menu":str(radial.size)})
 			hud.handle_back()
@@ -119,7 +119,7 @@ func run() -> void:
 	for index in 4:
 		var corner: Vector2=hud.radial.menu_center()+directions[index]*(hud.radial.centre_radius-5)
 		await click(hud.radial,corner,hud)
-		check(hud.radial.visible and not hud.catalog.visible and hud.radial.category==index,"Round Tout hit area must not steal family corner "+str(index))
+		check(hud.radial.visible and not hud.catalog.visible and hud.radial.category==index,"Round centre hit area must not steal family corner "+str(index))
 		if hud.catalog.visible:
 			hud._close_catalog(); hud.world_tapped(Vector2i(7,8)); await settle()
 	hud.radial._choose_family(2)
@@ -157,9 +157,19 @@ func run() -> void:
 	game.cancel_selection()
 	hud.world_tapped(Vector2i(8,7)); await settle()
 	hud.radial._choose_family(3)
-	await click(hud.radial,hud.radial.all_button.get_rect().get_center(),hud)
-	check(hud.catalog.visible and hud.catalog.category==3,"The centred Tout control opens the current family")
-	hud._close_catalog()
+	before=game.sim.gold
+	await click(hud.radial,hud.radial.menu_center(),hud)
+	check(not hud.radial.visible and not hud.catalog.visible and not game.catalog_open and game.selected==Vector2i(-1,-1),"Centre click dismisses construction and clears the selection")
+	if hud.catalog.visible: hud._close_catalog()
+	if hud.radial.visible: hud._close_radial()
+	hud.world_tapped(Vector2i(8,7)); await settle()
+	touch=InputEventScreenTouch.new(); touch.index=0; touch.pressed=true
+	touch.position=(hud.radial.position+hud.radial.menu_center())*hud.scale.x
+	root.push_input(touch,true); await process_frame
+	touch=touch.duplicate(); touch.pressed=false
+	root.push_input(touch,true); await settle()
+	check(not hud.radial.visible and not hud.catalog.visible and not game.catalog_open and game.selected==Vector2i(-1,-1),"Centre touch dismisses construction and clears the selection")
+	check(game.sim.gold==before and game.sim.grid[7][8]==TYPES.Tile.FLOOR and game.tool==TYPES.Tool.NONE,"Closing at the selected tile cannot build or arm a tool")
 	game.queue_free(); await process_frame
 	var report = FileAccess.open(OUT+"report.json",FileAccess.WRITE)
 	report.store_string(JSON.stringify({"checks":checks,"failures":failures,"layouts":shapes,"captures":captures},"\t")); report.close()

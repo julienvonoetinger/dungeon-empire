@@ -19,4 +19,4 @@ async function trapIcons() {
   }
 }
 // C supersedes the old iron band/round medallion. Do not restore v10/v11 art.
-Promise.all([require('./prepare_header_c.cjs').prepareHeaderC(),require('./prepare_header_icons.cjs').prepareHeaderIcons(),trapIcons()]).catch(e=>{console.error(e);process.exitCode=1;});
+Promise.all([require('./prepare_header_c.cjs').prepareHeaderC(),require('./prepare_header_icons.cjs').prepareHeaderIcons(),require('./prepare_stone_ui.cjs').prepareStoneUI(),trapIcons()]).catch(e=>{console.error(e);process.exitCode=1;});
