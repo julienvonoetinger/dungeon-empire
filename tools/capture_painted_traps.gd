@@ -92,6 +92,7 @@ func _run() -> void:
 	game.raid.hero = {} # Dedicated actor captures follow; keep state plates clear.
 	for expected in ["triggered", "spent", "ready"]:
 		if expected == "spent":
+			game.raid.raid_active = false
 			game.raid.elapsed_seconds = 20
 			view._advance_trap_effects(5)
 		if expected == "ready":
@@ -157,12 +158,17 @@ func _run() -> void:
 	# Do not only call the clock helper: verify the live node advances it.
 	game.raid.raid_active = true
 	game.sim.trap_charges[positions[0]] = 1
+	game.raid.hero = {"pos":positions[0],"kind":"ranger","name":"Review","level":1,"hp":100,"max_hp":100,"triggered_traps":{positions[0]:true}}
 	view._on_trap_activated(positions[0],kinds[0])
 	check(view.is_processing(), "Activation did not start the presentation clock")
 	await create_timer(.9).timeout
-	check(view._trap_state(positions[0],kinds[0]) == "ready", "Live trap clock failed to expire")
+	check(view._trap_state(positions[0],kinds[0]) == "triggered", "Live VFX clock re-armed an already used trap")
+	game.raid.raid_active = false
+	game.raid.hero = {}
+	view._update_markers()
+	check(view._trap_state(positions[0],kinds[0]) == "ready", "Trap with charges did not re-arm after raid")
 	view.set_process(false)
-	records.append({"state":"live-frame-clock-expiry","passed":true})
+	records.append({"state":"live-clock-keeps-raid-use-until-end","passed":true})
 	view._on_trap_activated(positions[0],kinds[0])
 	for p in positions: game.sim.grid[p.y][p.x] = Types.Tile.FLOOR
 	view.rebuild()

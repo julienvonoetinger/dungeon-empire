@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Menu radial — taille et prix</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0c1019;color:#e8dcc8;font:16px/1.55 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:32px 24px}h1{font-size:28px;margin:0 0 12px}h2{font-size:19px;margin:0 0 12px}p{max-width:880px;color:#c9bdd2}section{margin-top:28px;padding:20px;background:#161420;border:1px solid #514259;border-radius:12px}img{max-width:100%;height:auto;display:block;border-radius:6px}a{color:#cba5ef}.grid{display:grid;grid-template-columns:1fr 390px;gap:24px}.grid section{min-width:0}.note{font-size:14px;color:#ab9db7} @media(max-width:800px){.grid{grid-template-columns:1fr}main{padding:20px 14px}section{padding:12px}}
+</style>
+<main>
+<h1>Menu radial : plus lisible, prix dans leur anneau</h1>
+<p>Captures du jeu dans Godot. Le menu passe de 252 à 352 unités de diamètre lorsque l’espace le permet. Chaque action conserve son icône dans le secteur principal ; son prix est centré dans la bande extérieure. Cette bande devient dorée sous le doigt ou au survol et permet aussi de choisir l’action.</p>
+<p>Les quatre familles gardent leur place, « Tout » ouvre le catalogue de la famille et les montants restent ceux du jeu. Sur les petits paysages, les indications passent à droite avant de réduire le diamètre.</p>
+<section><h2>Paysage — appui sur Pointes</h2><img src="captures/landscape.png" width="844" height="390" alt="Menu agrandi, coût de 35 dans la bande extérieure surlignée"></section>
+<div class="grid">
+<div>
+<section><h2>Petit paysage — 480 × 320</h2><img src="captures/compact.png" width="480" height="320" alt="Anneaux et commandes contenus dans un petit écran paysage"></section>
+<section><h2>Vue d’ensemble — 1280 × 720</h2><img src="captures/desktop.png" width="1280" height="720" alt="Menu dans le donjon, sans survol"></section>
+</div>
+<section><h2>Portrait — 390 × 844</h2><img src="captures/portrait.png" width="390" height="844" alt="Bande des prix et menu radial en portrait"></section>
+</div>
+<p class="note">11 formats vérifiés, 1 589 contrôles du radial sans échec, interactions mobiles et rotation vérifiées. Toucher direct, achat unique, annulation, glissé et coins du bouton central testés. Ces captures et événements natifs ne remplacent pas un essai sur téléphone physique. Aucun APK créé.</p>
+</main>
+</html>

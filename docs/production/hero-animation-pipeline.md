@@ -6,10 +6,11 @@ personnage → sprites 2D → scènes de contrôle dans Godot**. Cette méthode 
 le même modèle et la même peinture dans toutes les images, sans assembler des
 morceaux d'illustration pendant le jeu.
 
-Les scènes du Vulpin restent des scènes de présentation. Le remplacement des
-héros provisoires dans la simulation, les transitions pilotées par les règles
-et les performances sur téléphone restent à traiter. Un test technique réussi
-ne constitue pas une validation artistique du mouvement.
+Les scènes du Vulpin restent disponibles pour inspecter les poses. Leurs sprites
+sont maintenant aussi utilisés dans les raids jouables par
+`scripts/game/vulpin_actor.gd` (intégration du 28 octobre). Les performances sur
+téléphone et le verrouillage précis des pieds pendant les déplacements restent
+à vérifier. Un test technique réussi ne constitue pas une validation artistique.
 
 ## Points de départ
 
@@ -18,6 +19,7 @@ ne constitue pas une validation artistique du mouvement.
 - [Original Meshy et provenance](../reference/vulpin-review/source/README.md).
 - [Inventaire vérifiable des fichiers indispensables](../reference/vulpin-review/pipeline-manifest.json).
 - [Décisions et historique détaillé](../../AGENTS.md).
+- [Branchement aux états du raid](vulpin-gameplay.md).
 
 Pour un nouveau héros, lire les étapes ci-dessous, puis partir de la recette de
 l'action correspondante dans l'index. Les scripts actuels sont des recettes

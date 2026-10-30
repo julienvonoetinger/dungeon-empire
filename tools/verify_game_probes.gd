@@ -91,6 +91,15 @@ func test_scenarios() -> void:
 	check(script != null and script.can_instantiate(), "scenario runner compiles")
 	if script == null or not script.can_instantiate(): return
 	var runner = script.new()
+	for comparison in [
+		{"value":[3.0,8.0],"op":"eq","ok":true},
+		{"value":[3.0,7.0],"op":"eq","ok":false},
+		{"value":["3",8.0],"op":"eq","ok":false},
+		{"value":[true,8.0],"op":"eq","ok":false},
+		{"value":[3.0,8.0,0.0],"op":"ne","ok":true}]:
+		var numeric_arrays := {"name":"JSON coordinates","initial":"prepared","steps":[{"action":"start_raid"},
+			{"action":"assert","probe":"hero","field":"pos","op":comparison.op,"value":comparison.value}]}
+		check(runner.run(numeric_arrays,root).ok==comparison.ok,"Probe compares JSON coordinates without coercing other types: "+str(comparison))
 	var scenario := {"name":"raid regression", "initial":"prepared", "seed":42, "steps":[
 		{"action":"assert","probe":"economy","field":"gold","op":"eq","value":245},
 		{"action":"start_raid"},

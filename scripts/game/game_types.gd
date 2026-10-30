@@ -37,6 +37,8 @@ const DAMAGE_SNARE := 16
 const TURN_TIME := 0.48
 const SNARE_HOLD_TIME := 3.0
 const TRAP_JUMP_TIME := 1.0
+# Approved Vulpin recoil clip: recover on the struck tile before moving again.
+const VULPIN_HURT_HOLD := .72
 # Matches the 76-frame / 30 FPS Axe Spin Attack clip used by the Lithide paladin.
 const CORE_STRIKE_HOLD := 76.0 / 30.0
 # Matches the 181-frame / 30 FPS Collect Object clip used by the Vulpin thief.
@@ -59,6 +61,13 @@ const TRAITS := {
 
 static func is_trap_tile(t: int) -> bool:
 	return t == Tile.SPIKE or t == Tile.SNARE or t == Tile.VOID
+
+static func fixed_tool_cost(tool:int) -> int:
+	# Only unconditional prices can signal poverty at catalogue selection.
+	# DIG may clear for free; repair and vault upgrades depend on the structure.
+	# Those are checked on the actual cell by report_rejected_action instead.
+	return {Tool.TRAP_SPIKE:COST_SPIKE,Tool.TRAP_SNARE:COST_SNARE,
+		Tool.TRAP_VOID:COST_VOID,Tool.BUILD_DOOR:COST_DOOR,Tool.BUILD_MAGIC_DOOR:COST_MAGIC_DOOR}.get(tool,0)
 
 static func trap_max_charges(t: int) -> int:
 	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES

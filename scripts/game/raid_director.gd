@@ -79,6 +79,8 @@ func _start_raid() -> void:
 		"display": "%s, %s (%s)" % [Roster.display_name(profile), profile.class_name, profile.trait],
 		"kind": profile.kind,
 		"pos": entrance,
+		"entering": true,
+		"enter_t": TURN_TIME,
 		"hp": profile.stats.max_hp,
 		"carried_gold": _starting_gold(profile.kind),
 		"stolen_gold": 0,
@@ -252,6 +254,12 @@ func _update_hero(delta: float) -> void:
 		return
 	if raid_active:
 		elapsed_seconds += delta
+	if bool(hero.get("entering", false)):
+		hero["enter_t"] = maxf(0.0, float(hero["enter_t"]) - delta)
+		if float(hero["enter_t"]) <= 0.00001:
+			hero.erase("entering")
+			hero.erase("enter_t")
+		return
 	if bool(hero.get("exiting", false)):
 		hero["exit_t"] = maxf(0.0, float(hero["exit_t"]) - delta)
 		if float(hero["exit_t"]) <= 0.00001:
@@ -374,6 +382,9 @@ func _update_hero(delta: float) -> void:
 	var next := _choose_next_step(hero)
 	if next == pos:
 		_begin_retreat("%s stops exploring and heads for the entrance." % hero["display"])
+		if int(sim.grid[pos.y][pos.x]) == Tile.ENTRANCE:
+			_hero_escapes()
+			return
 		next = _route_step(hero, _known_targets(hero, Tile.ENTRANCE))
 		if next == pos:
 			# A legal, immutable raid map always retains the route used to enter.
@@ -622,7 +633,11 @@ func _trigger_trap(p: Vector2i, tile: int) -> void:
 		_morale_event("snare", -8.0)
 		hero["move_cd"] = GameTypes.SNARE_HOLD_TIME
 		hero["trap_sprung_at"] = p
-	# Presentation only: charge consumption and gameplay effects are unchanged.
+	if tile != Tile.VOID and String(hero["kind"]) == "thief" and int(hero["hp"]) > 0:
+		# Hit reaction and travel share the simulation clock. A longer snare hold
+		# already includes recovery; do not add the recoil duration on top of it.
+		hero["hurt_started_at"] = elapsed_seconds
+		hero["move_cd"] = maxf(float(hero.get("move_cd",0)),GameTypes.VULPIN_HURT_HOLD)
 	trap_activated.emit(p, tile)
 
 
@@ -886,6 +901,8 @@ func _kill_hero() -> void:
 	sim.corpses.append({
 		"pos": death_pos,
 		"name": hero["name"],
+		"kind": hero.get("kind", ""),
+		"facing": hero.get("facing", Vector2i.RIGHT),
 		"fear": 18.0
 	})
 	var carried := int(hero["carried_gold"])
@@ -997,17 +1014,17 @@ func _choose_next_step(h: Dictionary) -> Vector2i:
 		var step := _route_step(h, known_goals)
 		if step != start:
 			return step
-		if String(h["kind"]) == "thief" and target_tile == Tile.VAULT and known_goals.is_empty():
-			# With no treasure and no unexplored frontier left, the thief has no
-			# reason to remain in the dungeon.
-			if _frontier_cells(h).is_empty():
-				h["fleeing"] = true
-				return _route_step(h, _known_targets(h, Tile.ENTRANCE))
 
 	# 2. Nothing spotted: walk towards the closest edge of the known world.
 	var explore := _route_step(h, _frontier_cells(h))
 	if explore != start:
 		return explore
+	# A remembered goal/frontier may lie beyond a door this thief has abandoned.
+	# Both route searches failed: revisiting the entrance cannot discover a way
+	# through that lock. Retreat only after checking for a reachable alternative.
+	if String(h["kind"]) == "thief":
+		h["fleeing"] = true
+		return _route_step(h, _known_targets(h, Tile.ENTRANCE))
 
 	# 3. Everything reachable is mapped: go back over the least trodden ground.
 	var revisit := _route_step(h, _least_visited_cells(h))

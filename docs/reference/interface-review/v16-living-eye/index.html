@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dungeon Empire — l’œil vivant</title>
+<style>
+:root{color-scheme:dark;font:16px/1.55 system-ui;background:#101622;color:#e2deeb}body{max-width:1200px;margin:auto;padding:24px}h1{font-size:1.8rem}h2{font-size:1.25rem}p{max-width:850px;color:#bec4d3}a{color:#cc9af3}.states{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}figure{margin:0;border:1px solid #354054;background:#131b2a;border-radius:10px;padding:16px}figcaption{margin-top:10px}figure img{display:block;width:100%;height:auto}.states img{max-width:311px;margin:auto}.states small{display:block;color:#b9bed0}button{font:inherit;background:#332140;color:#eee;border:1px solid #a787b7;border-radius:6px;padding:10px 18px;cursor:pointer}code{color:#d6b8ee}.game{max-width:100%;height:auto}.phones{display:flex;gap:16px;flex-wrap:wrap}.phones img{max-width:320px}header{margin-bottom:24px}@media(max-width:600px){body{padding:14px}}
+</style>
+<header><h1>L’œil du maître prend vie</h1>
+<p>Le regard suit le doigt pendant la construction et le héros pendant le raid. Les runes gardent leur rôle : chacune représente 10 % de vie du cœur. La pierre et le bandeau restent immobiles.</p>
+<p>Ces animations sont des captures du rendu Godot. Pour tester le suivi librement, ouvrir <a href="../../../../scenes/MasterEyePreview.tscn"><code>MasterEyePreview.tscn</code></a> dans Godot et lancer la scène avec F6. Le jeu utilise déjà ce comportement.</p>
+<button id="toggle" type="button" aria-pressed="false">Figer les aperçus</button></header>
+<div class="states">
+<figure><img src="veille.webp" data-state="veille" alt="L’œil violet cligne lentement"><figcaption><b>Veille</b><small>Regard souple, clignement lent toutes les 6 à 10 secondes.</small></figcaption></figure>
+<figure><img src="observe.webp" data-state="observe" alt="L’œil regarde vers la case choisie"><figcaption><b>Observe</b><small>Suit la case choisie et le doigt dans les menus. Petit cillement après la pose.</small></figcaption></figure>
+<figure><img src="traque.webp" data-state="traque" alt="L’œil mi-clos suit une cible de gauche à droite"><figcaption><b>Traque</b><small>Suit la position visible du héros, même après un déplacement de caméra.</small></figcaption></figure>
+<figure><img src="jubile.webp" data-state="jubile" alt="L’iris devient ambré et la pupille se dilate"><figcaption><b>Jubile</b><small>Un héros meurt : iris ambré, pupille dilatée et une pulsation de lumière.</small></figcaption></figure>
+<figure><img src="blesse.webp" data-state="blesse" alt="L’œil rouge se plisse"><figcaption><b>Blessé</b><small>Le cœur perd des PV : iris rouge, plissement et bref tremblement intérieur.</small></figcaption></figure>
+<figure><img src="fauche.webp" data-state="fauche" alt="L’œil terni regarde vers l’or"><figcaption><b>Fauché</b><small>Tentative trop chère : regard vers l’or, iris terni et petite pupille.</small></figcaption></figure>
+<figure><img src="colere.webp" data-state="colere" alt="L’œil magenta se contracte"><figcaption><b>Colère</b><small>Un héros vole de l’or : iris magenta, pupille contractée et frémissement.</small></figcaption></figure>
+</div>
+<h2>Dans le jeu</h2><p>Captures natives après déplacement de caméra. Le héros actuel est celui de la simulation ; aucun nouveau comportement de héros n’est ajouté.</p>
+<img class="game" src="native/game-1280x720.png" alt="L’œil en situation de raid dans le jeu">
+<h2>Scène de contrôle mobile</h2><div class="phones"><img class="game" src="native/review-390x844.png" alt="Sélecteur des états en portrait"><img class="game" src="native/review-320x568.png" alt="Sélecteur sur écran étroit"></div>
+<p>Vérification native sur ordinateur en cinq dimensions, dont portrait et paysage court. Pas encore testé sur un téléphone physique. Les animations de cette page sont des médias de revue, pas des sprites ajoutés au jeu.</p>
+<script>
+const toggle=document.getElementById('toggle');let paused=false;
+toggle.addEventListener('click',()=>{paused=!paused;toggle.setAttribute('aria-pressed',String(paused));toggle.textContent=paused?'Rejouer les aperçus':'Figer les aperçus';document.querySelectorAll('[data-state]').forEach(img=>{img.src=paused?'native/'+img.dataset.state+'-eye.png':img.dataset.state+'.webp'});});
+</script></html>

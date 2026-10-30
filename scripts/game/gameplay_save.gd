@@ -199,6 +199,14 @@ static func _valid(data: Dictionary) -> bool:
 			return false
 		for record in data[field]:
 			var keys := ["pos", "gold", "taken"] if field == "loot_bags" else ["pos", "name", "fear"]
+			# Optional presentation metadata; existing three-field corpses still load.
+			if field == "corpses" and record is Dictionary:
+				if record.has("kind"):
+					keys.append("kind")
+					if record.kind not in ["thief","paladin","ranger","mage",""]: return false
+				if record.has("facing"):
+					keys.append("facing")
+					if record.facing not in [Vector2i.UP,Vector2i.RIGHT,Vector2i.DOWN,Vector2i.LEFT]: return false
 			if not _keys(record, keys) or not _coord(record.pos):
 				return false
 			if field == "loot_bags":

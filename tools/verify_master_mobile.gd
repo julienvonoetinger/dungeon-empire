@@ -66,9 +66,9 @@ func run() -> void:
 			hud.handle_back()
 	# A release after cancellation cannot activate the selected wedge.
 	hud.world_tapped(Vector2i(8,6))
-	var press:=InputEventMouseButton.new(); press.button_index=MOUSE_BUTTON_LEFT; press.pressed=true; press.position=Vector2(130,30)
+	var press:=InputEventMouseButton.new(); press.button_index=MOUSE_BUTTON_LEFT; press.pressed=true; press.position=hud.radial.choice_point(0)
 	hud.radial._gui_input(press); hud.cancel_pointer()
-	var release:=InputEventMouseButton.new(); release.button_index=MOUSE_BUTTON_LEFT; release.position=Vector2(130,30)
+	var release:=InputEventMouseButton.new(); release.button_index=MOUSE_BUTTON_LEFT; release.position=hud.radial.choice_point(0)
 	hud.radial._gui_input(release)
 	check(game.sim.gold==before-70 and hud.radial.visible,"Canceled radial release cannot purchase")
 	var touch_input=game.get_node("Input")
@@ -101,7 +101,7 @@ func run() -> void:
 	for i in 3: await process_frame
 	check(hud.radial.visible and hud.radial.cell==target,"Projected cell tap opens the correct radial")
 	check(game.sim.gold==before-70,"Opening release cannot buy a radial item")
-	var wedge: Vector2=(hud.radial.position+Vector2(130,30))*hud.scale.x
+	var wedge: Vector2=(hud.radial.position+hud.radial.choice_point(0))*hud.scale.x
 	press.position=wedge; root.push_input(press,true); release.position=wedge; root.push_input(release,true)
 	for i in 3: await process_frame
 	check(game.sim.grid[8][8]==TYPES.Tile.SPIKE and game.sim.gold==before-105,"Real radial wedge click buys once")

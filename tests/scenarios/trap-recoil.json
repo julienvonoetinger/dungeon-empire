@@ -1,0 +1,26 @@
+{
+  "version":1,
+  "name":"Vulpin stays on spikes throughout the damage reaction",
+  "initial":"prepared",
+  "seed":21,
+  "steps":[
+    {"action":"start_raid"},
+    {"action":"wait","probe":"trap:6:8","field":"charges","op":"eq","value":2,"timeout":30},
+    {"action":"assert","probe":"hero","field":"hurt_started_at","op":"exists","value":true},
+    {"action":"assert","probe":"hero","field":"pos","op":"eq","value":[6,8]},
+    {"action":"checkpoint","label":"Hit after arriving on the spikes"},
+    {"action":"pause","value":true},
+    {"action":"advance","seconds":1},
+    {"action":"assert","probe":"hero","field":"move_cd","op":"gte","value":0.70},
+    {"action":"pause","value":false},
+    {"action":"advance","seconds":0.70},
+    {"action":"assert","probe":"hero","field":"pos","op":"eq","value":[6,8]},
+    {"action":"assert","probe":"trap:6:8","field":"charges","op":"eq","value":2},
+    {"action":"checkpoint","label":"Still on the trap until recoil finishes"},
+    {"action":"advance","seconds":0.10},
+    {"action":"assert","probe":"hero","field":"pos","op":"ne","value":[6,8]},
+    {"action":"wait","probe":"raid","field":"active","op":"eq","value":false,"timeout":120},
+    {"action":"assert","probe":"trap:6:8","field":"charges","op":"eq","value":2},
+    {"action":"checkpoint","label":"Raid completes without triggering the same trap twice"}
+  ]
+}

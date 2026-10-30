@@ -208,7 +208,8 @@ func _condition(item: Dictionary) -> Dictionary:
 	elif item.op in ["eq","ne"]:
 		# JSON parses numbers as floats; do not coerce strings or booleans.
 		var compatible := typeof(actual) == typeof(item.value) or (_number(actual) and _number(item.value))
-		result.ok = compatible and (actual == item.value if item.op == "eq" else actual != item.value)
+		var same := _equal_value(actual,item.value)
+		result.ok = compatible and (same if item.op == "eq" else not same)
 	elif not _number(actual): result["error"] = "Ordered comparison requires a numeric probe"
 	else:
 		match item.op:
@@ -217,6 +218,21 @@ func _condition(item: Dictionary) -> Dictionary:
 			"gt": result.ok = actual > item.value
 			"gte": result.ok = actual >= item.value
 	return result
+
+func _equal_value(left: Variant, right: Variant) -> bool:
+	if _number(left) and _number(right): return left == right
+	if typeof(left) != typeof(right): return false
+	if left is Array:
+		if left.size() != right.size(): return false
+		for i in left.size():
+			if not _equal_value(left[i],right[i]): return false
+		return true
+	if left is Dictionary:
+		if left.size() != right.size(): return false
+		for key in left:
+			if not right.has(key) or not _equal_value(left[key],right[key]): return false
+		return true
+	return left == right
 
 func _checkpoint(label: String) -> void:
 	_report.checkpoints.append({"label":label,"tick":_report.ticks,"probes":Probes.snapshot(_game)})

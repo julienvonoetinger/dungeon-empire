@@ -1,6 +1,8 @@
 extends "res://scripts/mobile_dungeon_renderer.gd"
 
 const Marker = preload("res://scripts/game/game_marker.gd")
+const VulpinActor = preload("res://scripts/game/vulpin_actor.gd")
+const Stairs = preload("res://scripts/game/stair_traversal.gd")
 const Types = preload("res://scripts/game/game_types.gd")
 const ChestOrientation = preload("res://scripts/game/chest_orientation.gd")
 # Stair suffixes name the low, open side, not the wall behind the top step.
@@ -77,6 +79,10 @@ func _advance_trap_effects(delta: float) -> void:
 	if expired: _update_markers()
 
 func rebuild() -> void:
+	# Opening a door/chest rebuilds architecture; keep the presentation clock and
+	# contact position of the same hero instead of restarting its animation.
+	var retained: Node2D = _actor if is_instance_valid(_actor) else null
+	if retained: retained.get_parent().remove_child(retained)
 	solid_groups.clear()
 	_markers.clear()
 	_trap_visuals.clear()
@@ -125,7 +131,14 @@ func rebuild() -> void:
 			_add_marker("trap", p, Color("dc7682") if tile == Types.Tile.SPIKE else Color("9b85df"), false)
 			var marker: Node2D = _markers.back().node
 			marker.badge.configure("spike" if tile==Types.Tile.SPIKE else "snare" if tile==Types.Tile.SNARE else "void",Color("c66b50"),true)
-	for corpse in sim.corpses: _add_marker("corpse", corpse.pos, Color("aa7187"), false)
+	for corpse in sim.corpses:
+		if corpse.get("kind", "") == "thief":
+			var body := VulpinActor.new()
+			body.z_index = 1
+			_world.add_child(body)
+			body.set_corpse(Vector2(corpse.pos)+Vector2(.5,.5),VulpinActor.direction(corpse.get("facing",Vector2i.RIGHT)),self)
+			solid_groups.append(body.support())
+		else: _add_marker("corpse", corpse.pos, Color("aa7187"), false)
 	for bag in sim.loot_bags:
 		if bag.gold > 0: _add_marker("loot", bag.pos, Color("f4c55b"), false)
 	# Sort architecture + static gameplay proxies only when the map changes.
@@ -133,10 +146,16 @@ func rebuild() -> void:
 	solid_groups = ordered
 	for part in ordered: _world.move_child(part.node, -1)
 	if session.raid.raid_active:
-		_actor = Marker.new()
-		_actor.kind = "hero"
+		var vulpin: bool = session.raid.hero.get("kind", "") == "thief"
+		if retained and (retained is VulpinActor) == vulpin:
+			_actor = retained
+			retained = null
+		else:
+			_actor = VulpinActor.new() if vulpin else Marker.new()
+			if not vulpin: _actor.kind = "hero"
 		_actor.z_index = 1
 		_world.add_child(_actor)
+	if retained: retained.queue_free()
 	_update_markers()
 	# Same layer as floors, after their container; solids retain layer 1.
 	move_child(_floor_guide,-1)
@@ -179,9 +198,9 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 		caption.badge_anchor_y = part.rect.position.y - caption.position.y
 		_markers.append({"cell":Vector2i(Vector2(part.at).floor()),"kind":caption.kind,"node":caption})
 
-func _proxy(at: Vector2, height: float, node: Node2D) -> Dictionary:
-	return {"at":at,"min":Vector3(at.x-.14,at.y-.14,0),"max":Vector3(at.x+.14,at.y+.14,height),
-		"rect":Rect2(grid_to_local(at)-Vector2(90,130),Vector2(180,155)),"depth":(at.x+at.y)*.6123724356957945,"node":node}
+func _proxy(at: Vector2, height: float, node: Node2D, elevation := 0.0) -> Dictionary:
+	return {"at":at,"min":Vector3(at.x-.14,at.y-.14,elevation),"max":Vector3(at.x+.14,at.y+.14,height+elevation),
+		"rect":Rect2(grid_to_local(at,elevation)-Vector2(90,130),Vector2(180,155)),"depth":(at.x+at.y)*.6123724356957945,"node":node}
 
 func _add_marker(kind: String, cell: Vector2i, color: Color, solid: bool) -> void:
 	var marker := Marker.new()
@@ -212,6 +231,11 @@ func _prune_trap_triggers() -> void:
 			_trap_triggers.erase(p)
 
 func _trap_state(cell: Vector2i, tile: int) -> String:
+	# A consumed use stays visible for the whole raid, exactly like the guard
+	# in RaidDirector._trigger_trap. The short effect clock only covers VFX and
+	# the final hit shown on the results screen; it must not re-arm the artwork.
+	var raid := session.raid
+	if raid.raid_active and raid.hero.get("triggered_traps", {}).has(cell): return "triggered"
 	if _trap_triggers.has(cell): return "triggered"
 	return "ready" if int(session.sim.trap_charges.get(cell,Types.trap_max_charges(tile))) > 0 else "spent"
 
@@ -257,6 +281,17 @@ func _update_markers() -> void:
 	if hero.is_empty():
 		_actor.hide()
 		return
+	# Fixtures and the next raid can change class without rebuilding the map.
+	if (_actor is VulpinActor) != (hero.get("kind", "") == "thief"):
+		rebuild()
+		return
+	_actor.show()
+	if _actor is VulpinActor:
+		_actor.sync(hero, session.raid, self)
+		_actor_at = _actor.grid_position
+		# Pose bounds change even while feet remain still (picking, hurt, death).
+		_order_actor(_actor.support())
+		return
 	var at := Vector2(hero.pos) + Vector2(.5,.5)
 	if hero.has("move_from") and hero.has("step_started_at"):
 		var progress := clampf((session.raid.elapsed_seconds-float(hero.step_started_at))/Types.TURN_TIME,0,1)
@@ -266,15 +301,18 @@ func _update_markers() -> void:
 		at = (Vector2(hero.jump_from)+Vector2(.5,.5)).lerp(Vector2(hero.pos)+Vector2(.5,.5),progress)
 		_actor.jump_height = sin(progress*PI)*40
 	else: _actor.jump_height = 0
-	if hero.get("exiting",false):
-		at = Vector2(hero.pos)+Vector2(.5,.5)-Vector2(sim._wall_entrance_face(hero.pos))*(1-float(hero.exit_t)/Types.TURN_TIME)*.4
+	var stairs := Stairs.sample(sim,hero,at)
+	at = stairs.at
 	var colors := {"thief":Color("edb25f"),"paladin":Color("b7c9e7"),"ranger":Color("80c7a9"),"mage":Color("b98be9")}
 	_actor.tint = colors.get(hero.kind,Color.WHITE)
-	_actor.position = grid_to_local(at)
+	_actor.position = grid_to_local(at,stairs.elevation)
+	_actor.modulate.a = stairs.opacity
 	_actor.refresh("%s · N%d" % [hero.name,hero.level],float(hero.hp)/maxf(1,float(hero.get("max_hp",hero.hp))))
 	if not at.is_equal_approx(_actor_at):
 		_actor_at = at
-		_order_actor(_proxy(at,.65,_actor))
+		var support := _proxy(at,.65,_actor,stairs.elevation)
+		support.stair = stairs.stair
+		_order_actor(support)
 
 func _order_actor(actor: Dictionary) -> void:
 	# Insert into cached static order, honoring physical support constraints.
@@ -285,6 +323,11 @@ func _order_actor(actor: Dictionary) -> void:
 		var other := solid_groups[i]
 		if other.depth < actor.depth: fallback = i+1
 		if not other.rect.intersects(actor.rect): continue
+		# The merged stair volume contains all five heights. It is supporting
+		# ground, not a solid wall in front of a hero on one of its lower treads.
+		if String(other.get("id","")).begins_with("stair-") and actor.get("stair",Vector2i(-1,-1)) == Vector2i(other.at):
+			lower = maxi(lower,i+1)
+			continue
 		var before := _behind(other,actor)
 		var after := _behind(actor,other)
 		if before and not after: lower = maxi(lower,i+1)

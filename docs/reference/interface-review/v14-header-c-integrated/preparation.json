@@ -1,0 +1,51 @@
+{
+  "source": "docs/reference/interface-review/v14-header-c-integrated/source/header-c.png",
+  "sha256": "45efa5e8fc21c906ae7e140197d02aabc645b05e60fd0e03b4b72e42d4a64c79",
+  "sourceEyeCenter": [
+    1084,
+    340
+  ],
+  "runeRadius": 105,
+  "outputHeight": 192,
+  "pieces": {
+    "left": {
+      "crop": [
+        20,
+        173,
+        860,
+        342
+      ],
+      "size": [
+        483,
+        192
+      ],
+      "bytes": 149096
+    },
+    "center": {
+      "crop": [
+        880,
+        173,
+        410,
+        342
+      ],
+      "size": [
+        230,
+        192
+      ],
+      "bytes": 114385
+    },
+    "right": {
+      "crop": [
+        1290,
+        173,
+        860,
+        342
+      ],
+      "size": [
+        483,
+        192
+      ],
+      "bytes": 152121
+    }
+  }
+}

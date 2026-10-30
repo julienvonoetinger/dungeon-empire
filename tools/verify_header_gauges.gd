@@ -37,21 +37,21 @@ func run() -> void:
 				var transform: Transform2D = socket.get_global_transform_with_canvas()
 				allowed.append((transform * Rect2(Vector2.ZERO, socket.size)).grow(3 * scale_factor))
 			var leaked := 0
-			var gold_pixels := 0
+			var fill_pixels := 0
 			for y in frame.get_height():
 				for x in frame.get_width():
 					var pixel := frame.get_pixel(x, y)
-					if pixel.a > .5 and pixel.r > .5 and pixel.g > .4 and pixel.b < pixel.g * .8:
-						gold_pixels += 1
+					if pixel.a > .5 and pixel.r > .5 and pixel.b > .6 and pixel.b > pixel.g * 1.5:
+						fill_pixels += 1
 					if pixel.a > .1 and not allowed[0].has_point(Vector2(x,y)) and not allowed[1].has_point(Vector2(x,y)):
 						leaked += 1
 			if leaked > 0:
 				failures.append("scale=%s fill=%d: %d pixels outside gauge rails" % [scale_factor, value, leaked])
-			if (value == 0 and gold_pixels > 0) or (value >= 54 and gold_pixels == 0):
-				failures.append("scale=%s fill=%d: unexpected gold fill (%d pixels)" % [scale_factor, value, gold_pixels])
+			if (value == 0 and fill_pixels > 0) or (value >= 54 and fill_pixels == 0):
+				failures.append("scale=%s fill=%d: unexpected violet fill (%d pixels)" % [scale_factor, value, fill_pixels])
 			if leaked > 0 or value == 54:
 				frame.save_png(out + "%s-%d.png" % [scale_factor, value])
-			records.append({"scale":scale_factor,"fill":value,"leaked_pixels":leaked,"gold_pixels":gold_pixels})
+			records.append({"scale":scale_factor,"fill":value,"leaked_pixels":leaked,"fill_pixels":fill_pixels})
 	FileAccess.open(out + "results.json", FileAccess.WRITE).store_string(JSON.stringify(records, "\t"))
 	for failure in failures: push_error(failure)
 	print("Header gauge containment: ", records.size(), " cases; ", failures.size(), " failures")

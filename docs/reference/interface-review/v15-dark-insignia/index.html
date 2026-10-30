@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dungeon Empire — signes du maître du donjon</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#0b111c;color:#dfe4ee}body{max-width:1280px;margin:auto;padding:24px}h1{font-size:1.7rem}h2{font-size:1.2rem;margin-top:32px}p{color:#bac5d8;max-width:960px}a{color:#d4a1ff}img{display:block;max-width:100%;height:auto}figure{margin:0 0 16px;background:#121c2a;border:1px solid #2e3b52;border-radius:12px;overflow:hidden}figcaption{padding:12px 16px;color:#c1cbdc}.row{display:flex;align-items:start;flex-wrap:wrap;gap:24px}.phones figure{max-width:390px}.header{padding:16px;display:flex;justify-content:center}.icons figure{padding:18px;min-width:180px;display:flex;flex-direction:column;align-items:center}.icons img{width:64px;height:64px}.icons .small{width:26px;height:26px;margin:12px}details{margin-top:32px}@media(max-width:620px){body{padding:14px}}
+</style>
+<h1>Des signes de maître du donjon</h1>
+<p>Chiffres ivoire froid plus épais, sablier de pierre corrompue, crâne de danger pendant le raid et pièces patinées. Les formes du bandeau C, ses dix runes et ses jauges violettes sont conservées.</p>
+<figure class="header"><img src="native/header-1280x720.png" width="760" height="96" alt="Nouveau bandeau aux chiffres clairs et aux icônes peintes"></figure>
+<h2>Comparer le traitement</h2>
+<figure><figcaption>Précédent · chiffres dorés et pictogrammes plats</figcaption><div class="header"><img src="../v14-header-c-integrated/native/header-1280x720.png" width="760" height="96" alt="Bandeau précédent"></div></figure>
+<figure><figcaption>Nouvelle version · chiffres plus robustes et matériaux du donjon</figcaption><div class="header"><img src="native/header-1280x720.png" width="760" height="96" alt="Bandeau actuel"></div></figure>
+<figure><figcaption>Pendant un raid</figcaption><div class="header"><img src="native/header-raid.png" width="760" height="96" alt="Crâne de pierre indiquant un raid actif"></div></figure>
+<h2>Icônes à 64 puis 26 pixels</h2>
+<div class="row icons">
+<figure><img src="../../../../assets/ui/master/dark-icons/hourglass.png" alt="Sablier corrompu"><img class="small" src="../../../../assets/ui/master/dark-icons/hourglass.png" alt="Sablier à taille de jeu"><figcaption>Compte à rebours</figcaption></figure>
+<figure><img src="../../../../assets/ui/master/dark-icons/raid.png" alt="Crâne de pierre"><img class="small" src="../../../../assets/ui/master/dark-icons/raid.png" alt="Crâne à taille de jeu"><figcaption>Raid en cours</figcaption></figure>
+<figure><img src="../../../../assets/ui/master/dark-icons/coins.png" alt="Pièces anciennes"><img class="small" src="../../../../assets/ui/master/dark-icons/coins.png" alt="Pièces à taille de jeu"><figcaption>Or du donjon</figcaption></figure>
+</div>
+<h2>Dans le jeu</h2>
+<figure><img src="native/game-1280x720.png" width="1280" height="720" alt="Vue du donjon avec le bandeau modifié"><figcaption>Capture Godot · 1280 × 720</figcaption></figure>
+<div class="row phones"><figure><img src="native/game-390x844.png" width="390" height="844" alt="Rendu portrait"><figcaption>390 × 844</figcaption></figure><figure><img src="native/game-320x568.png" width="320" height="568" alt="Rendu portrait étroit"><figcaption>320 × 568</figcaption></figure></div>
+<figure><img src="native/game-568x299.png" width="568" height="299" alt="Rendu petit paysage"><figcaption>568 × 299</figcaption></figure>
+<details><summary>Fabrication et vérification</summary><p>Trois icônes peintes avec ImageGen, préparées en PNG de 64 pixels : 25 ko au total. Les chiffres restent du texte natif. Police Grenze, en gras et avec des chiffres alignés de largeur fixe. 856 contrôles natifs passent ; cinq formats capturés. Pas de nouveau test sur téléphone ni d’APK.</p><p><a href="README.md">Sources, prompts et préparation</a> · <a href="native/checks.json">Contrôles</a> · <a href="preparation.json">Budget des ressources</a></p></details>
+</html>

@@ -1,0 +1,86 @@
+{
+	"captures": [
+		"desktop",
+		"1280x720-traps",
+		"1280x720-price",
+		"844x390-traps",
+		"844x390-price",
+		"740x360-traps",
+		"740x360-price",
+		"667x375-traps",
+		"667x375-price",
+		"568x320-traps",
+		"568x320-price",
+		"568x299-traps",
+		"568x299-price",
+		"390x844-traps",
+		"390x844-price",
+		"320x568-traps",
+		"320x568-price",
+		"390x390-traps",
+		"390x390-price",
+		"480x320-traps",
+		"480x320-price",
+		"512x320-traps",
+		"512x320-price"
+	],
+	"checks": 1589,
+	"failures": [],
+	"layouts": [
+		{
+			"menu": "(360.0, 328.0)",
+			"radius": 176.0,
+			"viewport": "(1280, 720)"
+		},
+		{
+			"menu": "(528.0, 272.0)",
+			"radius": 176.0,
+			"viewport": "(844, 390)"
+		},
+		{
+			"menu": "(512.0, 260.0)",
+			"radius": 168.0,
+			"viewport": "(740, 360)"
+		},
+		{
+			"menu": "(528.0, 272.0)",
+			"radius": 176.0,
+			"viewport": "(667, 375)"
+		},
+		{
+			"menu": "(474.0, 231.5)",
+			"radius": 149.0,
+			"viewport": "(568, 320)"
+		},
+		{
+			"menu": "(438.0, 211.0)",
+			"radius": 131.0,
+			"viewport": "(568, 299)"
+		},
+		{
+			"menu": "(360.0, 328.0)",
+			"radius": 176.0,
+			"viewport": "(390, 844)"
+		},
+		{
+			"menu": "(304.0, 286.0)",
+			"radius": 148.0,
+			"viewport": "(320, 568)"
+		},
+		{
+			"menu": "(308.0, 289.0)",
+			"radius": 150.0,
+			"viewport": "(390, 390)"
+		},
+		{
+			"menu": "(464.0, 224.0)",
+			"radius": 144.0,
+			"viewport": "(480, 320)"
+		},
+		{
+			"menu": "(474.0, 231.5)",
+			"radius": 149.0,
+			"viewport": "(512, 320)"
+		}
+	]
+}

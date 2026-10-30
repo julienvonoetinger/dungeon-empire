@@ -53,14 +53,22 @@ Les rapports doivent rester hors du dossier des scénarios et hors de `user://`.
 | --- | --- |
 | `construction.json` | Ancrage, creusement, coûts, porte, refus d'emplacement/niveau, annulation et pointes |
 | `raid-cycle.json` | Raid autonome complet, édition interdite, bilan et retour en préparation |
+| `stair-traversal.json` | Graine 21 : descente avant exploration, pause, retour à l'escalier et remontée complète avant disparition |
+| `trap-recoil.json` | Graine 21 : arrêt sur les pointes pendant les dégâts, pause, reprise après récupération et une seule activation |
 | `timing.json` | Compte à rebours, pause et démarrage automatique |
 | `treasury.json` | Transfert entre coffres, conservation de l'or et coût du verrou |
 | `vulpin-lock-loot-repair.json` | Graine 21 : crochetage réel, déclenchement des pointes, vol sans attaque du cœur, réparation |
 
-La dernière recette dépend intentionnellement de sa graine. Pour explorer
-d'autres graines/classes, utiliser `raid-cycle.json`, dont les assertions sont
-générales. Le délai de 240 s tient compte des Vulpins obstinés qui peuvent faire
-de nombreux allers-retours après un échec de crochetage avant de repartir.
+Les recettes de crochetage et d'escalier dépendent intentionnellement de leur
+graine. Pour explorer d'autres graines/classes, utiliser `raid-cycle.json`, dont
+les assertions sont générales. Le délai de 240 s est une borne de simulation ;
+un Vulpin sans route accessible doit maintenant repartir directement.
+
+Les comparaisons `eq` / `ne` acceptent les nombres JSON dans les tableaux et
+objets : `[3.0,8.0]` correspond à la position entière `[3,8]`. Une chaîne ou un
+booléen ne sont jamais convertis en nombre. Les champs `hero.entering`,
+`hero.enter_t`, `hero.exit_arrival_t`, `hero.exiting` et `hero.exit_t` existent
+seulement pendant leur phase ; utiliser `exists` pour attendre son apparition.
 
 ## Écrire un scénario
 

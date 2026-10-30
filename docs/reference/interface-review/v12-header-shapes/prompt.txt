@@ -1,0 +1,18 @@
+Create ONE polished visual comparison board for Dungeon Empire, a stylized evil dungeon-master mobile game. This is a SHAPE study of an existing HUD, not a redesign of the game or a finished runtime asset.
+
+References:
+1. header.png: existing HUD band to redesign. Preserve the dark blue/slate stone interior material and restrained purple corruption accents.
+2. eye.png: existing violet eye identity. Retain the clear black round pupil, radial violet iris, and readable magical eye; redesign the OUTER housing as masonry integrated into the band.
+3. 844-idle.png: style reference for the dungeon's chunky beveled blue blocks and dark mortar seams ONLY. Ignore the obsolete yellow vertical debug artifacts, text, bottom controls and UI proportions in that capture.
+
+Board: dark neutral navy background, three widely separated horizontal rows, each a different complete header proposal of the SAME compact overall footprint, aligned at equal scale. Label each row only A, B, C in a small unobtrusive label OUTSIDE the header. Wide landscape board, crisp edges, clean presentation, no explanatory paragraphs, no arrows, no device mockups. Each header should stay long and low, preserving lots of screen space for the dungeon. Each eye housing is only about 1.2 times the band height, not a giant centerpiece.
+
+Shared content within every header, kept identically positioned and comfortably padded: left group has small caption 'RAID' and a simple small adventurer silhouette beside '01:14'; right group has a small gold coin stack beside '225'. Central eye. Two thin progress fills are recessed into actual small stone grooves beneath the left and right numeric groups, entirely within the silhouettes. '100 %' is carved in a short shallow stone lip attached directly below the eye, not a separate floating badge. Broad quiet fields behind numbers; only restrained pale gold on text/fills. No metal top/bottom rails, no riveted machine frame, no gold ornamental frame, no Gothic castle ornament, no hanging crystal fringe, no spikes extending down into the play area. Purple details stay sparse.
+
+A — unified carved lintel: one continuous dark masonry silhouette made from a few broad beveled blocks with deep dark joints. Clean clipped/chamfered ends, subtly stepped upper and lower edge near center. Eye housed in a shallow compact octagonal stone socket interlocked into the same lintel, with broad facets like dungeon pillars. Most restrained, coherent, readable option.
+
+B — stone eyebrows: two low stone wings gently slope upward to meet the eye's integrated angular stone housing. The central eye feels embedded in an ominous carved stone face without adding an actual face, teeth or flesh. The contour is shallow and strongly readable, left/right groups remain horizontal and roomy. Slightly irregular hand-hewn bevels, controlled symmetry.
+
+C — three interlocking slabs: left and right broad trapezoidal stone slabs fitted into a short central polygonal keystone around the eye, small visible dark seams show they belong to the same structure. Distinct stepped outline and lighter visual footprint, no floating separated panels, no background line connecting disparate cards.
+
+Match the reference DUNGEON rendering: clean painterly game sprites, simple planar blue stone highlights, broad facets, very dark separating joints, restrained wear; not photorealistic and not tiny filigree. Preserve the existing blue/violet palette. Make A, B, C noticeably different silhouettes while maintaining equal height, information hierarchy and sufficient mobile padding.

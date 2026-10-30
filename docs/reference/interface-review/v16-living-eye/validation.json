@@ -1,0 +1,59 @@
+{
+  "missingLinks": [],
+  "media": [
+    {
+      "name": "veille",
+      "pages": 20,
+      "expected": 20,
+      "uniqueFrames": 20
+    },
+    {
+      "name": "observe",
+      "pages": 20,
+      "expected": 20,
+      "uniqueFrames": 20
+    },
+    {
+      "name": "traque",
+      "pages": 60,
+      "expected": 60,
+      "uniqueFrames": 60
+    },
+    {
+      "name": "jubile",
+      "pages": 20,
+      "expected": 20,
+      "uniqueFrames": 20
+    },
+    {
+      "name": "blesse",
+      "pages": 20,
+      "expected": 20,
+      "uniqueFrames": 20
+    },
+    {
+      "name": "fauche",
+      "pages": 20,
+      "expected": 20,
+      "uniqueFrames": 20
+    },
+    {
+      "name": "colere",
+      "pages": 20,
+      "expected": 20,
+      "uniqueFrames": 20
+    }
+  ],
+  "behavior": {
+    "checks": 29,
+    "failures": []
+  },
+  "pixels": {
+    "checks": 10,
+    "failures": []
+  },
+  "world": {
+    "checks": 34,
+    "failures": []
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "method": "alpha crop + uniform resize; no paint or color edits",
+  "records": [
+    {
+      "name": "hourglass",
+      "sha256": "bed7e26da96aef6660acea3deb42cf202383f77920453e54a5ade7a0f56dbc42",
+      "crop": {
+        "left": 187,
+        "top": 70,
+        "width": 881,
+        "height": 1125
+      },
+      "output": [
+        64,
+        64
+      ],
+      "pngBytes": 8815
+    },
+    {
+      "name": "raid",
+      "sha256": "05258a71cff728cb2ca29bfb76433f9e4be3c78447e6ea5dac69a2360bb0305f",
+      "crop": {
+        "left": 103,
+        "top": 86,
+        "width": 1049,
+        "height": 1089
+      },
+      "output": [
+        64,
+        64
+      ],
+      "pngBytes": 9030
+    },
+    {
+      "name": "coins",
+      "sha256": "b0272b6e92cfb68cdc828a2c9015df02f13dd50a6b9be30c3e489954dc447860",
+      "crop": {
+        "left": 103,
+        "top": 280,
+        "width": 1088,
+        "height": 741
+      },
+      "output": [
+        64,
+        64
+      ],
+      "pngBytes": 7186
+    }
+  ],
+  "rgbaBytes": 49152,
+  "font": {
+    "source": "https://github.com/google/fonts/tree/main/ofl/grenze",
+    "bytes": 139860,
+    "sha256": "04afa4836bcd41e1ff9867a0dc27d628d31ddec618ec67715c526ebc3cae92f4",
+    "license": "SIL OFL 1.1; Grenze-OFL.txt"
+  }
+}

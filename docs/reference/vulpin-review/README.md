@@ -5,7 +5,8 @@
 et les [commandes de reproduction](../../production/hero-animation-reproduction.md).
 L'[original Meshy](source/README.md) est archivé avec les recettes. Le
 [manifeste](pipeline-manifest.json) permet de détecter une source manquante ou
-modifiée. Ces scènes ne remplacent pas encore les héros de la simulation.
+modifiée. Depuis le 28 octobre, ces mêmes sprites sont aussi utilisés dans les
+[raids jouables](../../production/vulpin-gameplay.md), sans duplication des images.
 
 ## Recettes à reprendre
 

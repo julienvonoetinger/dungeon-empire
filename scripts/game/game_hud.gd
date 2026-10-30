@@ -136,11 +136,12 @@ func _position_radial(pan: bool) -> void:
 	var header_height:=header.size.y
 	var area:=Rect2(_safe.position+Vector2(8,header_height),_safe.size-Vector2(16,header_height+4))
 	radial.fit_available(area.size)
-	var origin: Vector2=(screen-Vector2(130,130)).clamp(area.position,area.end-radial.size)
+	var radial_center: Vector2=radial.menu_center()
+	var origin: Vector2=(screen-radial_center).clamp(area.position,area.end-radial.size)
 	radial.position=origin
 	if pan:
 		var camera: Camera2D=session.get_node("PlayArea/World/Camera2D")
-		camera.position-=(origin+Vector2(130,130)-screen)*scale.x/camera.zoom.x
+		camera.position-=(origin+radial_center-screen)*scale.x/camera.zoom.x
 		camera.force_update_scroll()
 
 func _stop_placing() -> void:
@@ -188,7 +189,25 @@ func blocks_pointer(point: Vector2) -> bool:
 		if control.visible and control.get_global_rect().has_point(logical): return true
 	return false
 
+func _update_eye_target() -> void:
+	header.world_target=Vector2.INF
+	var view=session.get_node("PlayArea/World/Dungeon")
+	var local:=Vector2.INF
+	if session.raid.raid_active and not session.raid.hero.is_empty():
+		# The renderer owns interpolation, jumps and exit offsets. Reuse its
+		# actual actor anchor rather than following cell centers in discrete hops.
+		if is_instance_valid(view._actor) and view._actor.visible:
+			local=view._actor.position
+	elif session.selected.x>=0:
+		local=view.grid_to_local(Vector2(session.selected)+Vector2(.5,.5))
+	if not local.is_finite(): return
+	var play:SubViewportContainer=session.get_node("PlayArea")
+	var world:SubViewport=session.get_node("PlayArea/World")
+	var in_world:Vector2=view.get_global_transform_with_canvas()*local
+	header.world_target=play.get_global_transform_with_canvas()*(in_world*play.size/Vector2(world.size))
+
 func _tick() -> void:
+	_update_eye_target()
 	var dt:=get_process_delta_time(); header.refresh(session,dt); _elapsed+=dt
 	if _elapsed<.1: return
 	_elapsed=0; _refresh_live()
@@ -218,6 +237,7 @@ func _refresh(_structure: bool) -> void:
 
 func _refresh_live() -> void:
 	if not is_instance_valid(header): return
+	_update_eye_target()
 	header.refresh(session)
 	var armed:=session.tool!=Types.Tool.NONE
 	var message:=""

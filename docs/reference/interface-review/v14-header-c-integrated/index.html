@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dungeon Empire — bandeau C intégré</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#0b111c;color:#dfe4ee}body{max-width:1280px;margin:auto;padding:24px}h1{font-size:1.7rem}h2{font-size:1.2rem;margin-top:32px}p{color:#bac5d8;max-width:900px}a{color:#d4a1ff}img{display:block;max-width:100%;height:auto}figure{margin:0;background:#121c2a;border:1px solid #2e3b52;border-radius:12px;overflow:hidden}figcaption{padding:12px 16px;color:#c1cbdc}.grid{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}.phones{display:flex;align-items:start;flex-wrap:wrap;gap:24px}.phones figure{max-width:390px}.header{padding:16px;display:flex;justify-content:center}details{margin-top:32px}@media(max-width:620px){body{padding:14px}.grid{grid-template-columns:1fr}.grid img{max-width:300px;margin:auto}}
+</style>
+<h1>Bandeau C · intégré dans le jeu</h1>
+<p><a href="../v15-dark-insignia/index.html">Voir la version suivante : chiffres clairs et icônes peintes du maître du donjon.</a></p>
+<p>La pierre bleutée, la silhouette angulaire et les dix runes sont conservées. Une rune correspond à une tranche de 10 % de vie du cœur, en commençant en haut puis dans le sens des aiguilles d’une montre. L’œil conserve ses proportions lorsque les ailes se resserrent en portrait.</p>
+<figure class="header"><img src="native/header-1280x720.png" width="760" height="96" alt="Bandeau natif avec six runes allumées à 60 %"></figure>
+<p>Les titres ont été retirés : un sablier accompagne le compte à rebours et le tas de pièces indique l’or. Les valeurs sont centrées entre la fissure supérieure et la rainure des jauges, désormais violettes. Pendant un raid, les épées croisées remplacent le sablier :</p>
+<figure class="header"><img src="native/header-raid.png" width="760" height="96" alt="Timer de raid avec des épées croisées"></figure>
+<h2>Rendu dans le jeu</h2>
+<figure><img src="native/game-1280x720.png" width="1280" height="720" alt="Donjon et nouveau bandeau C en paysage"><figcaption>Capture Godot · 1280 × 720 · cœur à 60 %</figcaption></figure>
+<h2>Portrait et petit paysage</h2>
+<div class="phones"><figure><img src="native/game-390x844.png" width="390" height="844" alt="Jeu en portrait à 390 pixels de large"><figcaption>390 × 844</figcaption></figure><figure><img src="native/game-320x568.png" width="320" height="568" alt="Jeu en portrait étroit"><figcaption>320 × 568</figcaption></figure></div>
+<figure style="margin-top:16px"><img src="native/game-568x299.png" width="568" height="299" alt="Jeu sur petit paysage"><figcaption>568 × 299 · bandeau limité à 84 unités de haut</figcaption></figure>
+<h2>Les runes suivent la vie réelle</h2>
+<div class="grid"><figure><img src="native/runes-100.png" alt="Dix runes allumées"><figcaption>100 % · dix runes</figcaption></figure><figure><img src="native/runes-60.png" alt="Six runes allumées"><figcaption>60 % · six runes</figcaption></figure><figure><img src="native/runes-0.png" alt="Toutes les runes éteintes"><figcaption>0 % · aucune rune</figcaption></figure></div>
+<p>Ces agrandissements proviennent du moteur. Le panneau de pierre et la pupille restent indépendants de l’extinction des runes. Le pourcentage est affiché par le jeu sur la lèvre de pierre.</p>
+<details><summary>Validation et fabrication</summary><p>Après retrait des titres : 856 contrôles ciblés et captures actualisées, aucun échec. L’intégration C avait également passé 40 cas de confinement des jauges, 227 contrôles de rotation, les tests d’interaction mobile et une revue de code indépendante. Captures sur ordinateur ; pas de nouvelle validation sur téléphone ni d’APK.</p><p><a href="README.md">Notes et reproduction</a> · <a href="native/checks.json">Contrôles ciblés</a> · <a href="preparation.json">Découpes et budget</a> · <a href="../v13-header-c-runes/proposal.png">Design approuvé</a></p></details>
+</html>

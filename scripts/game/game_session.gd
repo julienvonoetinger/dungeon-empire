@@ -4,6 +4,8 @@ extends Node
 ## Rules restored from v1.0.0; this controller owns phases and player commands.
 signal changed(structure: bool)
 signal frame_updated
+## Optional presentation feedback; no consumer is required by simulations.
+signal presentation_event(kind: String)
 const Types = preload("res://scripts/game/game_types.gd")
 const Save = preload("res://scripts/game/gameplay_save.gd")
 const SAVE_PATH := "user://isometric_run_v1.save"
@@ -99,6 +101,7 @@ func choose_tool(value: int) -> void:
 	tool = value
 	selected = Vector2i(-1, -1)
 	preview = {}
+	if progression.allows(value) and Types.fixed_tool_cost(value)>sim.gold: presentation_event.emit("fauche")
 	changed.emit(false)
 
 func select_cell(cell: Vector2i) -> void:
@@ -117,6 +120,7 @@ func activate_cell(cell: Vector2i) -> void:
 	var action := check_action(cell)
 	if not action.get("valid",false):
 		notice = str(action.get("reason","Pose impossible."))
+		report_rejected_action(cell)
 		changed.emit(false)
 		return
 	selected = cell
@@ -184,11 +188,25 @@ func _apply(target: DungeonSim, cell: Vector2i, requested_tool: int = -1) -> voi
 	target.selected_tool = action_tool
 	target._build_at(cell)
 
+func report_rejected_action(cell:Vector2i,requested_tool:int=-1) -> void:
+	# An explicit failed attempt only. Try the same command on an isolated,
+	# funded copy; this distinguishes money from geometry, level or full health.
+	var action_tool:=tool if requested_tool<0 else requested_tool
+	if not can_edit() or not sim._inside(cell) or not progression.allows(action_tool): return
+	var copy:=DungeonSim.new()
+	for field in FIELDS:
+		var value=sim.get(field)
+		copy.set(field,value.duplicate(true) if value is Array or value is Dictionary else value)
+	copy.gold=1000000
+	_apply(copy,cell,action_tool)
+	if 1000000-copy.gold>sim.gold: presentation_event.emit("fauche")
+
 func confirm_action() -> void:
 	if selected.x < 0 or not can_edit(): return
 	preview = check_action(selected)
 	if not preview.valid:
 		notice = str(preview.reason)
+		report_rejected_action(selected)
 		changed.emit(false)
 		return
 	if sim._has_core():
@@ -197,6 +215,7 @@ func confirm_action() -> void:
 	_apply(sim, selected)
 	sim._storage_state()
 	notice = "Action effectuée."
+	presentation_event.emit("placed")
 	_after_edit()
 
 func _after_edit() -> void:
@@ -302,6 +321,7 @@ func restart(prepared: bool) -> void:
 		notice = "Choisissez une case pour ancrer le cœur."
 	_visual_state = _structure_hash()
 	_save()
+	presentation_event.emit("reset")
 	changed.emit(true)
 
 func _save() -> bool:

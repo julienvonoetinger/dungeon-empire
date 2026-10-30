@@ -1,5 +1,228 @@
 # Repository instructions
 
+## Commit validation for accumulated UI and Vulpin work — 2026-10-30
+
+- User requests commit/push of current work. Fresh import and all7 headless
+  scenarios pass; probe API68, Vulpin367/retreat12/recoil39/stairs1787/traps160,
+  header856/health32/gauges40/radial1589/eye29/eye-world34/rotation227 and mobile
+  interaction checks pass with empty stderr. No APK or player-save access.
+- Run graphical fixture processes sequentially on Windows: simultaneous
+  windows triggered the normal focus-loss pause during the radial pixel check
+  (667x375 screenshot showed the pause panel). Serial rerun passed unchanged.
+  Logs are in ignored artifacts/commit-validation; no runtime workaround added.
+
+## Vulpin remains still throughout trap recoil — 2026-10-28
+
+- User sees damage pose travelling off a trap. Passive probes reproduce four
+  failures: spikes resume after17ms at1x/33ms at2x while the clip lasts720ms.
+- Surviving thief hits record hurt_started_at in RaidDirector and clamp move_cd
+  to at least GameTypes.VULPIN_HURT_HOLD=.72. Native actor uses that timestamp,
+  including fresh reconstruction and the first2x substep, plus shared duration.
+  Snare's3s includes recoil rather than adding it. Lethal/void/spent/repeated
+  traps bypass the new hold; existing death/charge/once-per-raid rules preserved.
+- verify_vulpin_trap_reaction:29 headless probe checks,39 native checks pass;
+  tests/scenarios/trap-recoil.json observes fixed tile, pause, resumed motion
+  and full raid. All7 probe recipes,367 Vulpin and160 trap checks pass/empty
+  stderr. Native hit/recovery captures inspected; focused review no finding.
+- Documentation updated. No new art, player-save access, APK, commit or push;
+  no physical-phone validation.
+
+## Vulpin follows staircase height on entry and exit — 2026-10-28
+
+- User sees hero flicker through stairs. Actor formerly stayed at z0 and could
+  sort behind the merged treads. stair_traversal.gd samples the actual five-step
+  geometry in four mouth orientations, smooths only risers, raises root/support/
+  contact shadow and explicitly sorts supporting treads behind the actor.
+- Raid starts with entering/enter_t for TURN_TIME before exploration. Existing
+  exit_arrival_t/exiting/exit_t preserve full return/ascent before removal. Fade
+  confined by distance to .1064 case near the top. Whole-character art unchanged.
+- Review reproduced adjacent-door failed-pick retreat snap (~89.6 native px):
+  preserve the held contact as ascent start, keep fade near top on longer path.
+  Four red failures then green. Native full fixture1787 checks/0 failures;
+  gameplay367/retreat12 and six headless probe scenarios pass, empty stderr.
+- stair-traversal.json observes timed phases/position/pause/complete departure.
+  Probe equality now compares nested JSON numeric values without confusing int
+  coordinates with floats; strict string/bool distinctions retained, API68pass.
+  No unresolved focused review finding. Not independent foot IK/new climbing
+  sprites or phone validation. No player saves, APK, commit or push.
+
+## Heart percentage fits the carved header lip — 2026-10-28
+
+- User reports100% outside its painted area. Header-wide label checks missed
+  the issue: actual glyph ink began above the lip. Layout now uses the interior
+  of the prepared230x192 centre slice (x76,y166,w78,h18), font12/10 for96/84-high
+  headers, with a one-unit optical correction at96. Remove only health outline/
+  shadow; keep full percentage, font family, stone and rune artwork unchanged.
+- No-save GPU verify_header_health:16 overflowing cases reproduced, then32checks
+  pass for100/60/9/0 at four sizes. Bounds use actual rendered alpha, not just the
+  Label rectangle.856 existing header and1589 radial checks pass/empty stderr.
+  v17 review captures refreshed. No phone test, APK, commit or push.
+
+## Build radial restores the approved size and outer price strip — 2026-10-28
+
+- User reports tiny radial and costs unlike mobile-v2 PDF. Preferred diameter
+  252→352 units; fixed family directions, aspect-preserved larger icons, separate
+  24-unit outer price band (20 on shortest screens),16/14pt prices. Valid hovered
+  or pressed cost band turns gold and shares the action's hit region. Real game
+  costs retained; no invented PDF traps/prices. Tout has centred catalogue icon.
+- Fit evaluates footer/side-help at each radius; native480×320 regression caught
+  by review is fixed. HUD pan uses dynamic menu_center. RoundButton._has_point
+  excludes its square corners from family sectors; four viewport failures were
+  reproduced then fixed. Direct ScreenTouch/Drag now works; synthetic mouse is
+  ignored, out-and-back drag cannot purchase. Cancel/rotation/multitouch preserved.
+- No-save verify_build_radial:1589 checks/0failures,11sizes, native viewport touch
+  purchase, live price agreement, outer-rim pixels, four world corners/camera fit.
+  Master mobile fixture and227rotation checks pass; stderr empty. Focused review
+  findings resolved. Native captures in interface-review/v17-radial-prices.
+  No player saves, runtime artwork, APK, commit or push; physical phone untested.
+
+## Vulpin stops revisiting an unreachable locked route — 2026-10-28
+
+- User sees repeated stairs/door trips for over30s. Passive probes reproduce
+  after a failed pick:35s active,65state changes, fleeing=false. Not an animation
+  reversal. _choose_next_step tested whether goals/frontiers existed, not whether
+  any route to them survived avoided_doors, then fell back to revisiting cells.
+- A thief now retreats after both goal and frontier path searches fail. Reachable
+  alternate paths are tried first; authorised lockpick retries remain intact.
+  Already at the entrance, the no-route branch invokes normal timed departure
+  instead of aborting the raid. Other classes keep their revisit behaviour.
+- New no-save tools/verify_vulpin_retreat.gd:12checks, red5failures→green0,
+  actual failed pick, level3retries, success/theft, alternative frontier/treasure
+  route, and already-at-entrance case. Single failed-door raid now ends at5.067s
+  (includes3.033s attempt); two attempts at8.1s. Snapshots in artifacts/vulpin-retreat.
+- Five probe recipes and20seeded complete raids pass; native Vulpin367checks
+  still pass/empty stderr. Focused independent review found no important issue.
+  No player-save access, artwork/animation edits, APK, commit or push.
+
+## Vulpin sprites connected to actual raids — 2026-10-28
+
+- User still sees the orange Rusk pawn after Vulpin-only filtering. Rusk is a
+  thief name; filter was correct but gameplay unconditionally created Marker.
+  isometric_game_view now uses vulpin_actor for thief, reusing all approved
+  whole-mesh SpriteFrames directly. No image edits/duplication or new art.
+- Idle/walk15fps/run16fps/hurt720ms/door and chest picking/collect/death550ms
+  follow real raid state/time, including pause/2x. Actor retained across door/
+  chest rebuilds; original .85 scale and anchors. Contact calibration and pose
+  bounds packed by prepare_vulpin_gameplay.gd into native registration.tres;
+  exports require no reference docs/JSON. No AI, speed, action timer changes.
+- Corpses retain optional kind/facing and show final fox pose; save validator
+  accepts old three-field corpses. Missing historical class keeps old marker.
+  All fixtures persistence_enabled=false before tree entry; no player saves.
+- Fresh review reproduced legal adjacent chests putting feet into rock. Final
+  fallback constrains the pose envelope to the chest's walkable cell when no
+  accessible front exists; hands/lock remain approximate in that dense case.
+  Red3failures to green, actual raid reproduction now stays in VAULT cell.
+- verify_vulpin_gameplay:367checks/0failures, real seed21 raid visits six states,
+  all four facings, every walk/run center-arch pose, contacts, pause/rate, rebuild,
+  save compatibility, corpse and mobile rotation. Native captures inspected.
+  Five probe recipes, trap160/open-door84/eye-world34/probeAPI63 pass; import
+  clean. Eye/open-door headless attempts timed out awaiting GPU, graphical
+  reruns passed. No further important review finding. Hurt/death bounds remain
+  approximate; perfect foot locking, arbitrary collision and phone performance
+  unproven. No APK, commit or push. See docs/production/vulpin-gameplay.md.
+
+## Temporarily restrict raids to the Vulpin — 2026-10-28
+
+- User requests Vulpin-only raids until other hero sprites are ready. Enable
+  the existing testing/vulpin_only=true in project.godot. RaidDirector already
+  applies it to recruits and HeroRoster to returning profiles; keep saved
+  non-Vulpin profiles intact. Set false later to restore all four classes.
+- Existing5probe scenarios pass;10complete raids (seeds1–10) all spawn thief,
+  confirmed from probes. Reports artifacts/vulpin-only. No new gameplay logic,
+  player-save access, APK, commit or push. Restart a running game to reload setting.
+
+## Used traps stay visually triggered through the raid — 2026-10-28
+
+- User reports spikes returning to ready despite once-per-raid activation.
+  Cause: visual state depended only on the short VFX clock (.65s for spikes),
+  while RaidDirector already retained hero.triggered_traps and blocked reuse.
+  _trap_state now reads that same authoritative ledger while raid_active.
+  Applies to spike/snare/void, including zero charges; no gameplay rule change.
+- Keep bounded presentation cache for final lethal hit/results. Expiring it or
+  rebuilding the renderer cannot re-arm a trap during the raid. Next raid uses
+  the fresh hero ledger: remaining charges => ready; no charges => spent.
+- verify_trap_raid_state.gd:160native checks,0failures, empty stderr; real trap
+  activation,30s expiry, layer IDs, cache loss/rebuild, pause, repeat activation,
+  next preparation/raid and reset. Native spike/snare/void captures inspected.
+  Existing painted-trap harness11records and5headless gameplay recipes pass.
+  Evidence artifacts/trap-raid-state. No player-save access, APK, commit/push.
+
+## Living header eye and seven contextual states — 2026-10-28
+
+- User accepts v15 insignia and requests missing eye tracking/variants. v16-living-eye
+  implements PDF page14: veille/observe/traque/jubile/blessé/fauché/colère on current
+  C art, with smooth pointer/touch or actual rendered-hero tracking. Existing ten
+  clockwise HP runes and stone remain fixed. Inner pupil/lids/tint/pulse/shudder
+  are shader effects, no new runtime PNGs. Current radial iris stays an eye.
+- master_eye_behavior.gd owns deterministic cosmetic clock,6–10s blink, finite
+  prioritized reactions. Does not use gameplay RNG. Pause/focus loss freeze;
+  results let kill reaction finish. Reset clears old snapshots/events. Zero HP
+  settles closed. Headless game still works without any presentation consumer.
+- Header observes input passively. Touch wins over emulated mouse, multitouch
+  cancels, rotation/focus/app pause clear stale touch. HUD converts interpolated
+  actor anchor through world viewport/container to header coordinates; selected
+  cell and recent pointer drive Observe. No zoom, camera-follow or gameplay edit.
+- Optional session presentation_event reports successful pose/poor attempts.
+  Only fixed-cost catalogue tools can signal on selection; free DIG clearing,
+  repairs and discounted vault upgrades require actual-cell affordability.
+  Funded dry run distinguishes money from invalid geometry/level/full health.
+  Raid HP/stolen/killed counters trigger real reactions, even immediate results.
+  No trap-disarm mechanic exists; ordinary trap activation is NOT anger.
+- MasterEyePreview.tscn is isolated/no-save, seven modes/replay/pause/HP selector,
+  live pointer and moving tracking target. v16 index contains native recordings.
+  Review WebPs are not runtime assets. Production font/icons/header sizes retained.
+- Native29behavior+10pixel/input+34world checks pass,856existing header checks,
+  227rotation checks/mobile interaction fixture and5headless recipes pass, empty
+  stderr. Five sizes including320portrait/568short inspected. Independent review
+  caught contextual-price false positives and rotation stale-touch; red/green
+  regression cases retained. No phone profiling/art approval, APK, commit/push.
+
+## Header numerals and insignia darkened — 2026-10-28
+
+- User still finds text/icons too heroic. v15-dark-insignia runtime uses bold
+  pale-lavender Grenze numbers, painted slate/violet hourglass and raid skull,
+  worn gold coins. No titles. C masonry/ten runes/violet gauges unchanged.
+  New art is a visual iteration, not automatic user approval. Header-only;
+  world coin badges and other HUD glyphs stay as they were.
+- Built-in ImageGen3native-alpha originals/prompts retained. Uniform64px PNGs
+  total25031bytes/49152RGBA; no repaint. prepare_header_icons.cjs stores crop/
+  SHA and copies unmodified Grenze variable font+OFL license. Main UI preparer
+  delegates to it. Google Fonts upstream/license URLs recorded in v15 README.
+- Font700 uses lining/tabular numbers. Optical offset -11% replaces Cinzel+9%
+  because tall line metrics otherwise put digits below the icons/onto rails.
+  Existing856native checks pass;5game sizes+raid header inspected, exit0/empty
+  stderr. V14 captures retained; current capture/check scripts write v15.
+  No phone validation, player saves, APK, commit or push.
+
+## Approved C stone header and ten HP runes — 2026-10-28
+
+- Follow-up removes redundant OR and awkward PROCHAINES PROIES titles. Keep
+  only coin/value and hourglass/timer, crossed swords during active raids.
+  Rows vertically recentered, phase descriptions remain in tooltip in ordinary
+  French. Focused checks adapted to the removed labels:856pass/empty stderr;
+  five native sizes and raid-header capture refreshed. No APK/commit/push.
+  Vertical placement now follows painted fissure/groove bounds y84..230 of the
+  342px crop, plus a small Cinzel digit-ink correction; do not use arbitrary
+  whole-header centering that puts numbers above the center of the stone face.
+  Both progress fills are now violet #b66af2 at user request; keep their clipped,
+  borderless geometry. Gauge pixel verifier uses violet detection,40cases pass.
+- User selects C, restores ten heart-health runes, then approves. v14-header-c-
+  integrated replaces the runtime header with two stone wings and one fixed-
+  aspect angular eye housing. Existing96/84height budget retained. Native text,
+  icons and clipped borderless gauges; percent sits on carved lip, no extra box.
+- ImageGen native-alpha source/prompt/hash retained. prepare_header_c.cjs makes
+  adjacent cuts and uniform192px-height reduction:415602PNG bytes/918528RGBA.
+  prepare_master_ui now delegates to it; never restore v10/v11 art as current.
+  Old eye remains Android launcher source. No manual pixel paint or new APK.
+- Source-calibrated shader:ten clockwise sectors from12o'clock,ceil(HP/10).
+  Dim only rune annulus; preserve housing/pupil/lip. Apply vertex tint once,
+  not fragment COLOR times texture (that squares/darkens the artwork).
+- Native1144checks,40gaugecases,227rotationchecks and mobile interactions pass;
+  exit0/empty stderr. Five gameplay sizes incl320portrait/568short inspected.
+  Captures disable persistence and explicitly refresh after resize because
+  session processing is paused. Independent review found no important defect.
+  No phone/DPI validation, player-save access, APK, commit or push.
+
 ## Headless gameplay probes and scenarios — 2026-10-28
 
 - User requests simulations/tests through probes without UI. `scripts/testing`

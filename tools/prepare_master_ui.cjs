@@ -2,18 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 const root = path.resolve(__dirname, '..');
-const source = path.join(root, 'docs/reference/interface-review/v10-master-mobile/source');
 const out = path.join(root, 'assets/ui/master');
-async function prepare(name,width) {
-  const input=path.join(name==='eye' ? path.join(root,'docs/reference/interface-review/v11-header-alignment/source') : source,name+'.png');
-  const {data,info}=await sharp(input).ensureAlpha().raw().toBuffer({resolveWithObject:true});
-  let left=info.width,top=info.height,right=0,bottom=0;
-  for(let y=0;y<info.height;y++)for(let x=0;x<info.width;x++) {
-    if(data[(y*info.width+x)*4+3]>8){left=Math.min(left,x);top=Math.min(top,y);right=Math.max(right,x);bottom=Math.max(bottom,y);}
-  }
-  left=Math.max(0,left-3);top=Math.max(0,top-3);right=Math.min(info.width-1,right+3);bottom=Math.min(info.height-1,bottom+3);
-  await sharp(input).extract({left,top,width:right-left+1,height:bottom-top+1}).resize({width}).png().toFile(path.join(out,name+'.png'));
-}
 fs.mkdirSync(out,{recursive:true});
 async function trapIcons() {
   const catalog=fs.readFileSync(path.join(root,'assets/dungeon/isometric-kit/catalog.tres'),'utf8');
@@ -29,4 +18,5 @@ async function trapIcons() {
     await sharp(composed).extract({left:37,top:1,width:130,height:100}).resize({width:96}).png().toFile(path.join(out,`trap-${name}.png`));
   }
 }
-Promise.all([prepare('header',1024),prepare('eye',192),trapIcons()]).catch(e=>{console.error(e);process.exitCode=1;});
+// C supersedes the old iron band/round medallion. Do not restore v10/v11 art.
+Promise.all([require('./prepare_header_c.cjs').prepareHeaderC(),require('./prepare_header_icons.cjs').prepareHeaderIcons(),trapIcons()]).catch(e=>{console.error(e);process.exitCode=1;});
