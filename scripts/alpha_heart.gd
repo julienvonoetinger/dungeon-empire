@@ -2,7 +2,7 @@
 extends "res://scripts/mobile_dungeon_renderer.gd"
 ## Standalone scene for the same prepared heart support used by dungeon layouts.
 
-@export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable:
+@export_tool_button("Refresh preview", "Reload") var refresh_action: Callable:
 	get:
 		return Callable(self, "refresh_preview")
 

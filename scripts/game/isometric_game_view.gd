@@ -273,8 +273,8 @@ func _update_markers() -> void:
 				var tier:=2 if sim.grid[p.y][p.x]==Types.Tile.MAGIC_DOOR else 1
 				item.node.badge.set_amount(hp,Types.DOOR_MAX_HP,tier,hp>0)
 				item.node.badge.set_door_status("closed" if hp>0 else "open" if sim.door_opened.get(p,false) else "broken")
-			"corpse": text_value = "Corps"
-			"loot": text_value = "Butin"
+			"corpse": text_value = "Corpse"
+			"loot": text_value = "Loot"
 		item.node.refresh(text_value)
 	if not is_instance_valid(_actor): return
 	var hero := session.raid.hero
@@ -307,7 +307,7 @@ func _update_markers() -> void:
 	_actor.tint = colors.get(hero.kind,Color.WHITE)
 	_actor.position = grid_to_local(at,stairs.elevation)
 	_actor.modulate.a = stairs.opacity
-	_actor.refresh("%s · N%d" % [hero.name,hero.level],float(hero.hp)/maxf(1,float(hero.get("max_hp",hero.hp))))
+	_actor.refresh("%s · Lv. %d" % [hero.name,hero.level],float(hero.hp)/maxf(1,float(hero.get("max_hp",hero.hp))))
 	if not at.is_equal_approx(_actor_at):
 		_actor_at = at
 		var support := _proxy(at,.65,_actor,stairs.elevation)

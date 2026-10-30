@@ -24,7 +24,7 @@ func _capture() -> void:
 		for x in range(5,10): game.sim.grid[y][x]=TYPES.Tile.FLOOR
 	game.sim.grid[7][7]=TYPES.Tile.CORE
 	game.sim.gold=245; game.sim.core_hp=16 if spacing else 58
-	game.notice="Donjon retrouvé. La préparation reprend."
+	game.notice="Dungeon restored. Preparation resumes."
 	game.save_error=""; game.save_blocked=false; hud._welcome=false
 	game.changed.emit(true)
 	game.get_node("Input").center_core()

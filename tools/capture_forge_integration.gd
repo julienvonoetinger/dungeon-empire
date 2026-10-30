@@ -23,7 +23,7 @@ func _capture() -> void:
 		game.sim.grid[p.y][p.x]=TYPES.Tile.VAULT
 		game.sim.vault_gold[p]=100
 	game.sim.gold=300
-	game.notice="Aménagement"; game.save_error=""; game.save_blocked=false; hud._welcome=false
+	game.notice="Building"; game.save_error=""; game.save_blocked=false; hud._welcome=false
 	game.changed.emit(true)
 	game.get_node("Input").center_core()
 	for extent in [Vector2i(844,390),Vector2i(740,360),Vector2i(1280,720),Vector2i(390,844),Vector2i(320,568)]:
@@ -38,7 +38,7 @@ func _capture() -> void:
 			game.result_open=state=="result-paused" or state=="defeat-paused"
 			game.sim.game_over=state=="defeat-paused"
 			game.save_blocked=state=="save-blocked-paused"
-			game.save_error="Sauvegarde illisible : le fichier est conservé." if game.save_blocked else ""
+			game.save_error="The save could not be read. The file has been kept." if game.save_blocked else ""
 			game.confirmation_open=state=="reset"
 			hud._reset_pending=state=="reset"
 			hud._observe=state=="observe"

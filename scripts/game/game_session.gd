@@ -35,10 +35,10 @@ func _ready() -> void:
 	# Explicit manual-review slot; never touches the player's current dungeon.
 	if persistence_enabled and OS.get_cmdline_user_args().has("--forge-review"):
 		save_path = "user://forge_review_v1.save"
-		get_window().title = "Forge · Vérification"
+		get_window().title = "Forge · Review"
 	elif persistence_enabled and OS.get_cmdline_user_args().has("--review-session"):
 		save_path = "user://isometric_review_v1.save"
-		get_window().title = "Dungeon Empire · Vérification"
+		get_window().title = "Dungeon Empire · Review"
 	sim.raid = raid
 	raid.sim = sim
 	raid.solid_core = true
@@ -46,21 +46,21 @@ func _ready() -> void:
 	sim.new_map()
 	var data := Save.read_save(save_path) if persistence_enabled else {}
 	if not data.is_empty() and Save.apply(data, sim, raid, progression):
-		notice = "Donjon retrouvé. La préparation reprend."
+		notice = "Dungeon restored. Preparation resumes."
 	elif persistence_enabled and (FileAccess.file_exists(save_path) or FileAccess.file_exists(save_path + ".bak")):
 		save_blocked = true
-		save_error = "Sauvegarde illisible : elle est conservée. Recommencer pour créer une nouvelle partie."
+		save_error = "The save could not be read. It has been kept. Start a new dungeon to play again."
 	else:
-		notice = "Placez le cœur, ou essayez le donjon préparé."
+		notice = "Place the Core, or try the demo dungeon."
 	_visual_state = _structure_hash()
 	changed.emit(true)
 
 func phase() -> String:
-	if sim.game_over: return "Défaite"
-	if result_open: return "Bilan"
+	if sim.game_over: return "Defeat"
+	if result_open: return "Results"
 	if raid.raid_active: return "Raid"
-	if not sim._has_core(): return "Ancrage du cœur"
-	return "Préparation"
+	if not sim._has_core(): return "Core placement"
+	return "Preparation"
 
 func can_edit() -> bool:
 	return not paused and not confirmation_open and not result_open and not raid.raid_active and not sim.game_over and not save_blocked
@@ -119,7 +119,7 @@ func activate_cell(cell: Vector2i) -> void:
 		return
 	var action := check_action(cell)
 	if not action.get("valid",false):
-		notice = str(action.get("reason","Pose impossible."))
+		notice = str(action.get("reason","Cannot place here."))
 		report_rejected_action(cell)
 		changed.emit(false)
 		return
@@ -148,7 +148,7 @@ func undo_build() -> void:
 	for field in FIELDS: sim.set(field,state[field])
 	raid.kingdom_knowledge = state.knowledge
 	raid.raid_timer = state.timer
-	notice = "Dernière construction annulée."
+	notice = "Last build undone."
 	_after_edit()
 
 func cancel_selection() -> void:
@@ -158,10 +158,10 @@ func cancel_selection() -> void:
 	changed.emit(false)
 
 func check_action(cell: Vector2i, requested_tool: int = -1) -> Dictionary:
-	if not can_edit() or not sim._inside(cell): return {"valid": false, "reason": "Action indisponible", "cost": 0}
+	if not can_edit() or not sim._inside(cell): return {"valid": false, "reason": "Action unavailable", "cost": 0}
 	var action_tool := tool if requested_tool < 0 else requested_tool
 	if sim._has_core() and not progression.allows(action_tool):
-		return {"valid": false, "reason": "Niveau du cœur requis : %d" % progression.required_level(action_tool), "cost": 0}
+		return {"valid": false, "reason": "Core level %d required" % progression.required_level(action_tool), "cost": 0}
 	var copy := DungeonSim.new()
 	for field in FIELDS:
 		var value = sim.get(field)
@@ -183,7 +183,7 @@ func _apply(target: DungeonSim, cell: Vector2i, requested_tool: int = -1) -> voi
 		else: target.repair_vault(cell)
 		return
 	if target.grid[cell.y][cell.x] == Types.Tile.ROCK and action_tool != Types.Tool.DIG:
-		target.message = "Creusez cette case avant de bâtir."
+		target.message = "Dig this tile before building."
 		return
 	target.selected_tool = action_tool
 	target._build_at(cell)
@@ -214,7 +214,7 @@ func confirm_action() -> void:
 		if _build_history.size() > 32: _build_history.pop_front()
 	_apply(sim, selected)
 	sim._storage_state()
-	notice = "Action effectuée."
+	notice = "Action complete."
 	presentation_event.emit("placed")
 	_after_edit()
 
@@ -235,7 +235,7 @@ func collect_selected() -> void:
 			bag.gold -= amount
 			total += amount
 	sim.loot_bags = sim.loot_bags.filter(func(bag): return bag.gold > 0)
-	notice = "%d or récupéré (limité par les coffres)." % total
+	notice = "%d gold collected (limited by chest capacity)." % total
 	_after_edit()
 
 func absorb_selected() -> void:
@@ -246,7 +246,7 @@ func absorb_selected() -> void:
 			sim.corpses.erase(corpse)
 			sim.core_hp = mini(Types.CORE_MAX, sim.core_hp + 2)
 			raid.invalidate_kingdom_knowledge(selected)
-			notice = "Corps absorbé : +2 PV au cœur."
+			notice = "Corpse absorbed: +2 Core HP."
 			_after_edit()
 			return
 
@@ -254,20 +254,20 @@ func transfer_selected(destination: Vector2i, amount: int) -> void:
 	if not can_edit() or selected.x < 0: return
 	_build_history.clear()
 	var moved := sim.transfer_gold(selected, destination, amount)
-	notice = "%d or transféré." % moved
+	notice = "%d gold transferred." % moved
 	_save()
 	changed.emit(false)
 
 func start_raid() -> void:
 	if not can_edit() or not ready_for_raid(): return
 	if not _save():
-		notice = "Le raid attend une sauvegarde de préparation valide."
+		notice = "Save the prepared dungeon before starting the raid."
 		changed.emit(false)
 		return
 	_build_history.clear()
 	cancel_selection()
 	raid._start_raid()
-	notice = "Le visiteur explore seul. Observez le raid."
+	notice = "The hero explores on their own. Watch the raid."
 	changed.emit(true)
 
 func _raid_finished(_result: Dictionary) -> void:
@@ -275,7 +275,7 @@ func _raid_finished(_result: Dictionary) -> void:
 	result_open = true
 	selected = Vector2i(-1, -1)
 	tool = Types.Tool.NONE
-	notice = "Raid terminé. Consultez le bilan."
+	notice = "Raid complete. Review the results."
 	_save()
 	changed.emit(true)
 
@@ -284,7 +284,7 @@ func continue_preparation() -> void:
 	result_open = false
 	paused = false
 	raid.raid_timer = Types.RAID_DELAY
-	notice = "Réparez vos défenses et préparez le prochain raid."
+	notice = "Repair your defenses and prepare for the next raid."
 	changed.emit(false)
 
 func set_paused(value: bool) -> void:
@@ -314,11 +314,11 @@ func restart(prepared: bool) -> void:
 		sim._place(Vector2i(5, 8), Types.Tile.DOOR, Types.COST_DOOR)
 		sim._place(Vector2i(6, 8), Types.Tile.SPIKE, Types.COST_SPIKE)
 		sim._storage_state()
-		notice = "Donjon d’essai : 245 or, une porte et des pointes. Lancez le raid."
+		notice = "Demo dungeon: 245 gold, a door and a spike trap. Start the raid."
 		# Inspection keeps the preparation countdown stopped for the first look.
 		selected = Vector2i(8, 8)
 	else:
-		notice = "Choisissez une case pour ancrer le cœur."
+		notice = "Choose a tile to anchor the Core."
 	_visual_state = _structure_hash()
 	_save()
 	presentation_event.emit("reset")
@@ -331,7 +331,7 @@ func _save() -> bool:
 	var data := Save.capture(sim, raid, progression)
 	if not persistence_enabled: return true
 	var ok := Save.write_save(save_path, data)
-	save_error = "" if ok else "Échec de sauvegarde : votre dernier fichier est conservé."
+	save_error = "" if ok else "Could not save: your previous save has been kept."
 	return ok
 
 func _notification(what: int) -> void:

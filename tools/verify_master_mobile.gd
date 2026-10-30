@@ -117,9 +117,9 @@ func run() -> void:
 	game.save_path="res://artifacts/nonexistent-master-ui-directory/failure.save"
 	game.choose_tool(TYPES.Tool.TRAP_SPIKE); game.activate_cell(Vector2i(8,7))
 	check(not game.save_error.is_empty(),"Unwritable review path must exercise the save-failure branch")
-	check(hud.pose_bar.visible and hud.pose_label.text.contains("sauvegarde"),"Failed save must be visible after placement")
+	check(hud.pose_bar.visible and hud.pose_label.text.contains("save"),"Failed save must be visible after placement")
 	hud._open_menu()
-	check(hud.modal_text.text.contains("sauvegarde"),"Pause must retain the save failure notice")
+	check(hud.modal_text.text.contains("save"),"Pause must retain the save failure notice")
 	game.save_path=old_path; game.save_error=""; hud.handle_back(); game.cancel_selection()
 	# 2x advances the same simulation in two bounded steps, pause advances none.
 	game.sim.grid[7][9]=TYPES.Tile.ENTRANCE
@@ -130,15 +130,15 @@ func run() -> void:
 	game._process(.05)
 	check(is_equal_approx(game.raid.elapsed_seconds-elapsed,.1),"2x advances two bounded simulation steps")
 	hud._refresh_live()
-	check(hud.hint.text=="Raid en cours · Glissez pour explorer","Raid instructions must describe observation, not construction")
+	check(hud.hint.text=="Raid in progress · Drag to explore","Raid instructions must describe observation, not construction")
 	hud._toggle_path()
-	check(hud.hint.text.contains("Accès possibles"),"Access overlay retains its own explanation during a raid")
+	check(hud.hint.text.contains("Paths from the entrance"),"Access overlay retains its own explanation during a raid")
 	hud._toggle_path()
-	check(hud.hint.text.begins_with("Raid en cours"),"Closing access overlay restores the raid instruction")
+	check(hud.hint.text.begins_with("Raid in progress"),"Closing access overlay restores the raid instruction")
 	game.paused=true; elapsed=game.raid.elapsed_seconds; game._process(.05)
 	check(game.raid.elapsed_seconds==elapsed,"Pause freezes speed controls' simulation")
 	game.raid.raid_active=false; game.paused=false; hud._refresh_live()
-	check(hud.hint.text.contains("bâtir"),"Preparation restores the construction instruction after a raid")
+	check(hud.hint.text.contains("build"),"Preparation restores the construction instruction after a raid")
 	game.queue_free(); await process_frame
 	print("Master mobile checks: ",failures.size()," failures")
 	quit(0 if failures.is_empty() else 1)

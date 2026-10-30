@@ -5,8 +5,8 @@ const FRAMES: SpriteFrames = preload("res://assets/previews/vulpin-hurt/frames.t
 const KIT: Resource = preload("res://assets/dungeon/isometric-kit/catalog.tres")
 const CONTACT: Texture2D = preload("res://assets/dungeon/mobile-kit/light-falloff.png")
 const DIRECTIONS := [&"se", &"sw", &"nw", &"ne"]
-const TITLES := ["Sud-est", "Sud-ouest", "Nord-ouest", "Nord-est"]
-const PHASES := ["Impact", "Recul", "Recul accentué", "Appui arrière", "Retour", "Redressement", "Équilibre", "Au repos"]
+const TITLES := ["Southeast", "Southwest", "Northwest", "Northeast"]
+const PHASES := ["Impact", "Recoil", "Full recoil", "Brace", "Return", "Recover", "Balance", "Idle"]
 const ANCHOR := Vector2(128.0, 195.92598)
 const REPEAT_GAP := .8
 
@@ -51,7 +51,7 @@ func _build_preview() -> void:
 	column.add_theme_constant_override("separation", 10)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "Vulpin · réaction aux dégâts"
+	title.text = "Vulpin · hit reaction"
 	title.add_theme_font_size_override("font_size", 24)
 	title.add_theme_color_override("font_color", Color("e6d0fa"))
 	column.add_child(title)
@@ -68,24 +68,24 @@ func _build_preview() -> void:
 	toolbar.add_theme_constant_override("h_separation", 8)
 	toolbar.add_theme_constant_override("v_separation", 6)
 	column.add_child(toolbar)
-	var trigger := _button("Subir un coup")
+	var trigger := _button("Take a hit")
 	trigger.pressed.connect(trigger_hit)
 	toolbar.add_child(trigger)
 	_pause_button = _button("Pause")
 	_pause_button.pressed.connect(func() -> void: set_playing(not _playing))
 	toolbar.add_child(_pause_button)
-	var step := _button("Pose suivante")
+	var step := _button("Next frame")
 	step.pressed.connect(next_pose)
 	toolbar.add_child(step)
 	_speed_select = OptionButton.new()
 	_speed_select.custom_minimum_size = Vector2(156, 48)
-	for caption in ["Ralenti · 0,5×", "Normal · 1×", "Rapide · 1,5×", "Double · 2×"]:
+	for caption in ["Slow · 0.5×", "Normal · 1×", "Fast · 1.5×", "Double · 2×"]:
 		_speed_select.add_item(caption)
 	_speed_select.select(1)
 	_speed_select.item_selected.connect(set_speed_index)
 	toolbar.add_child(_speed_select)
 	_repeat_button = CheckButton.new()
-	_repeat_button.text = "Répéter"
+	_repeat_button.text = "Repeat"
 	_repeat_button.custom_minimum_size = Vector2(128, 48)
 	_repeat_button.button_pressed = repeat_enabled
 	_repeat_button.toggled.connect(set_repeat_enabled)
@@ -185,7 +185,7 @@ func trigger_hit() -> void:
 
 func set_playing(value: bool) -> void:
 	_playing = value
-	_pause_button.text = "Pause" if value else "Lire"
+	_pause_button.text = "Pause" if value else "Play"
 
 func set_speed_index(index: int) -> void:
 	playback_speed = [0.5, 1.0, 1.5, 2.0][clampi(index, 0, 3)]

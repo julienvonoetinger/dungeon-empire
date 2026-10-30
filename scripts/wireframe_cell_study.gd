@@ -72,7 +72,7 @@ const GRID = preload("res://scripts/wireframe_cell_layout.gd")
 	set(value):
 		torch_lights_enabled = value
 		_request_rebuild()
-@export_tool_button("Actualiser le rendu", "Reload") var refresh_action: Callable:
+@export_tool_button("Refresh preview", "Reload") var refresh_action: Callable:
 	get:
 		return Callable(self, "refresh_preview")
 

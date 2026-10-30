@@ -19,7 +19,7 @@ func run() -> void:
 		game.sim.grid[p.y][p.x]=TYPES.Tile.VAULT; game.sim.vault_gold[p]=75
 	game.sim.grid[7][9]=TYPES.Tile.ENTRANCE
 	game.sim.grid[5][7]=TYPES.Tile.SPIKE; game.sim.trap_charges[Vector2i(7,5)]=2
-	game.sim.gold=225; game.raid.raid_timer=24; game.notice="Aménagement"; hud._welcome=false
+	game.sim.gold=225; game.raid.raid_timer=24; game.notice="Building"; hud._welcome=false
 	game.changed.emit(true)
 	for extent in [Vector2i(844,390),Vector2i(740,360),Vector2i(667,375),Vector2i(568,320),Vector2i(390,844),Vector2i(320,568),Vector2i(1280,720)]:
 		root.size=extent; await settle(); game.get_node("Input").center_core(); await settle()
@@ -28,7 +28,7 @@ func run() -> void:
 			game.selected=Vector2i(-1,-1); game.tool=TYPES.Tool.NONE; game.preview={}
 			game.paused=false; game.result_open=false; game.sim.game_over=false; game.save_blocked=false; game.confirmation_open=false
 			game.save_error=""
-			game.raid.raid_active=false; game.notice="Aménagement"; hud._welcome=state=="welcome"
+			game.raid.raid_active=false; game.notice="Building"; hud._welcome=state=="welcome"
 			game.progression.xp=280 if state.ends_with("unlocked") else 0
 			game.get_node("PlayArea/World/Dungeon").access_visible=state=="access"
 			game.sim.grid[7][7]=TYPES.Tile.FLOOR if state=="welcome" else TYPES.Tile.CORE
@@ -41,7 +41,7 @@ func run() -> void:
 			if state=="result": game.result_open=true; game.raid.last_result={"killed":1,"hero_name":"Neris","escaped":0,"stolen":0}; game.last_reward={"xp":25}
 			if state=="reset": game.paused=true; game.confirmation_open=true; hud._reset_pending=true
 			if state=="defeat": game.sim.game_over=true; game.sim.core_hp=0
-			if state=="blocked": game.save_blocked=true; game.save_error="Sauvegarde illisible : le fichier est conservé."
+			if state=="blocked": game.save_blocked=true; game.save_error="The save could not be read. The file has been kept."
 			hud._last_gold=game.sim.gold; hud._last_hp=game.sim.core_hp
 			for child in hud.root.get_children():
 				if child.has_meta("transient_feedback"): child.queue_free()

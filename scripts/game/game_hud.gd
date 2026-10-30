@@ -6,8 +6,7 @@ const Selection=preload("res://scripts/game/ui/hud_selection.gd")
 const Header=preload("res://scripts/game/ui/hud_master_header.gd")
 const Radial=preload("res://scripts/game/ui/hud_build_radial.gd")
 const Types=preload("res://scripts/game/game_types.gd")
-const Notices=preload("res://scripts/game/ui/hud_notices.gd")
-const DEFAULT_NOTICES:=["","Action effectuée.","Aménagement","Donjon retrouvé. La préparation reprend."]
+const DEFAULT_NOTICES:=["","Action complete.","Building","Dungeon restored. Preparation resumes."]
 var session: IsometricGameSession
 var root: Control
 var header: Control
@@ -56,9 +55,9 @@ func _ready() -> void:
 	header=Header.new(); root.add_child(header); header.menu_requested.connect(_open_menu)
 	utilities=HBoxContainer.new(); root.add_child(utilities)
 	utilities.add_theme_constant_override("separation",8)
-	catalog_button=UI.tile(utilities,"catalog","Catalogue",func(): _open_catalog(catalog.category))
-	path_button=UI.tile(utilities,"path","Accès",_toggle_path); path_button.toggle_mode=true
-	undo_button=UI.tile(utilities,"undo","Annuler",session.undo_build)
+	catalog_button=UI.tile(utilities,"catalog","Catalog",func(): _open_catalog(catalog.category))
+	path_button=UI.tile(utilities,"path","Paths",_toggle_path); path_button.toggle_mode=true
+	undo_button=UI.tile(utilities,"undo","Undo",session.undo_build)
 	pause_button=UI.tile(utilities,"pause","Pause",_open_menu)
 	for button in [catalog_button,path_button,undo_button,pause_button]: button.custom_minimum_size=Vector2(58,54)
 	speeds=HBoxContainer.new(); root.add_child(speeds)
@@ -71,7 +70,7 @@ func _ready() -> void:
 	pose_label=UI.label(pose_box,"",13); pose_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	pose_label.size_flags_vertical=Control.SIZE_SHRINK_CENTER
 	pose_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	stop_button=UI.button(pose_box,"Arrêter",_stop_placing,"cross")
+	stop_button=UI.button(pose_box,"Stop",_stop_placing,"cross")
 	stop_button.add_theme_font_size_override("font_size",12); stop_button.add_theme_constant_override("icon_max_width",16)
 	stop_button.custom_minimum_size=Vector2(94,48)
 	# Wrapped text/container minima settle after a viewport or width change.
@@ -93,7 +92,7 @@ func _ready() -> void:
 	selection=Selection.new(); selection.session=session; root.add_child(selection)
 	selection.dismissed.connect(session.cancel_selection); selection.layout_changed.connect(_queue_layout)
 	_build_modal()
-	modal_raid=UI.button(modal_scroll.get_child(0),"Lancer le raid",_launch_raid,"",true)
+	modal_raid=UI.button(modal_scroll.get_child(0),"Start raid",_launch_raid,"",true)
 	modal_raid.get_parent().move_child(modal_raid,modal_resume.get_index()+1)
 	modal_scroll.get_child(0).minimum_size_changed.connect(_queue_layout)
 	session.changed.connect(_refresh); session.frame_updated.connect(_tick)
@@ -241,24 +240,24 @@ func _refresh_live() -> void:
 	header.refresh(session)
 	var armed:=session.tool!=Types.Tool.NONE
 	var message:=""
-	if not session.sim._has_core(): message="Touchez une case pour ancrer le cœur."
+	if not session.sim._has_core(): message="Tap a tile to anchor the Core."
 	elif armed:
 		var item:=Catalog.definition(session.tool)
-		message="%s · %s\nTouchez les cases pour poser." % [item[1],item[2]]
-	if not session.notice in DEFAULT_NOTICES: message=Notices.french(session.notice)
+		message="%s · %s\nTap tiles to place." % [item[1],item[2]]
+	if not session.notice in DEFAULT_NOTICES: message=session.notice
 	if not session.save_error.is_empty(): message=session.save_error
 	pose_label.text=message; stop_button.visible=armed
 	pose_bar.visible=not shade.visible and not catalog.visible and not selection.visible and not radial.visible and not session.raid.raid_active and (armed or not message.is_empty())
-	if session.sim.gold<_last_gold and not session.raid.raid_active and not shade.visible: _float_notice("−%d or" % (_last_gold-session.sim.gold),Color("e1bf72"))
+	if session.sim.gold<_last_gold and not session.raid.raid_active and not shade.visible: _float_notice("−%d gold" % (_last_gold-session.sim.gold),Color("e1bf72"))
 	if session.sim.core_hp<_last_hp and not shade.visible: _float_notice("−%d %%" % (_last_hp-session.sim.core_hp),Color("e78392"))
 	_last_gold=session.sim.gold; _last_hp=session.sim.core_hp
 	hint.visible=not shade.visible and not pose_bar.visible and not catalog.visible and not selection.visible and not radial.visible
 	if session.get_node("PlayArea/World/Dungeon").access_visible:
-		hint.text="Accès possibles depuis l’entrée · le héros choisit son trajet."
+		hint.text="Paths from the entrance · the hero chooses a route."
 	elif session.raid.raid_active:
-		hint.text="Raid en cours · Glissez pour explorer"
+		hint.text="Raid in progress · Drag to explore"
 	else:
-		hint.text="Touchez une case pour bâtir · Glissez pour explorer"
+		hint.text="Tap a tile to build · Drag to explore"
 
 func _float_notice(text: String, color: Color) -> void:
 	var label:=UI.label(root,text,19,color)
@@ -338,7 +337,7 @@ func _build_modal() -> void:
 	modal_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	modal_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	result_stats=HBoxContainer.new(); box.add_child(result_stats)
-	for caption in ["vaincus","butin au sol","cœur"]:
+	for caption in ["defeated","dropped loot","Core"]:
 		var card:=_panel(result_stats); card.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		card.add_theme_stylebox_override("panel",UI.command_surface(false,8))
 		var content:=VBoxContainer.new(); card.add_child(content)
@@ -348,46 +347,46 @@ func _build_modal() -> void:
 	result_stats.hide()
 	modal_text = UI.label(box, "", 16)
 	modal_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	modal_resume = UI.button(box, "Reprendre", _resume, "", true)
-	modal_new = UI.button(box, "Nouveau donjon…", func(): _request_reset(false))
-	modal_demo = UI.button(box, "Donjon d’essai…", func(): _request_reset(true))
+	modal_resume = UI.button(box, "Resume", _resume, "", true)
+	modal_new = UI.button(box, "New dungeon…", func(): _request_reset(false))
+	modal_demo = UI.button(box, "Demo dungeon…", func(): _request_reset(true))
 	shade.hide()
 
 
 func _refresh_modal() -> void:
 	modal_resume.show(); modal_new.show(); modal_demo.show()
 	result_stats.hide()
-	modal_new.text = "Nouveau donjon…"
-	modal_demo.text = "Donjon d’essai…"
+	modal_new.text = "New dungeon…"
+	modal_demo.text = "Demo dungeon…"
 	if _reset_pending:
-		modal_title.text = "REMPLACER CE DONJON ?"
-		modal_text.text = "Le plan, l’or et les visiteurs seront réinitialisés. L’expérience du cœur est conservée."
-		modal_resume.text = "Confirmer le remplacement"
-		modal_new.text = "Annuler"
+		modal_title.text = "REPLACE THIS DUNGEON?"
+		modal_text.text = "The layout, gold and visitors will be reset. Core experience is kept."
+		modal_resume.text = "Confirm replacement"
+		modal_new.text = "Cancel"
 		modal_demo.hide()
 	elif session.save_blocked:
-		modal_title.text = "SAUVEGARDE ILLISIBLE"
+		modal_title.text = "UNREADABLE SAVE"
 		modal_text.text = session.save_error
 		modal_resume.hide()
 	elif session.result_open or session.sim.game_over:
 		var result: Dictionary = session.raid.last_result
-		modal_title.text = "LE CŒUR EST TOMBÉ" if session.sim.game_over else "FESTIN" if result.get("killed",0)>0 else "RAID TERMINÉ"
+		modal_title.text = "THE CORE HAS FALLEN" if session.sim.game_over else "FEAST" if result.get("killed",0)>0 else "RAID COMPLETE"
 		result_stats.show()
 		result_values[0].text=str(result.get("killed",0))
 		result_values[1].text=str(session.sim._unsecured_loot_total())
 		result_values[2].text="%d %%" % session.sim.core_hp
-		modal_text.text = "%s · %d sorti\n%d or volé · +%d XP\n%d défense(s) à réparer" % [result.get("hero_name", ""),result.get("escaped",0),result.get("stolen",0),session.last_reward.get("xp",0),session.sim._damaged_structure_count()]
-		modal_resume.text = "RETOUR AU DONJON"
+		modal_text.text = "%s · %d escaped\n%d gold stolen · +%d XP\nDefenses to repair: %d" % [result.get("hero_name", ""),result.get("escaped",0),result.get("stolen",0),session.last_reward.get("xp",0),session.sim._damaged_structure_count()]
+		modal_resume.text = "BACK TO DUNGEON"
 		modal_resume.visible = not session.sim.game_over
 	elif session.paused:
-		modal_title.text = "VOTRE DOMAINE"
-		modal_text.text = "Cœur · Niveau %d" % session.progression.level()
-		if session.raid.raid_active and not session.raid.hero.is_empty(): modal_text.text+="\nProie : %s" % session.raid.hero.get("name","Visiteur")
-		modal_resume.text = "REPRENDRE"
+		modal_title.text = "YOUR DOMAIN"
+		modal_text.text = "Core · Level %d" % session.progression.level()
+		if session.raid.raid_active and not session.raid.hero.is_empty(): modal_text.text+="\nIntruder: %s" % session.raid.hero.get("name","Visitor")
+		modal_resume.text = "RESUME"
 	else:
-		modal_title.text = "VOTRE DONJON"
-		modal_text.text = "Ancrez le cœur, creusez votre domaine et tendez vos pièges."
-		modal_resume.text = "PLACER MON CŒUR"
+		modal_title.text = "YOUR DUNGEON"
+		modal_text.text = "Anchor the Core, dig out your domain and set your traps."
+		modal_resume.text = "PLACE MY CORE"
 		modal_new.hide()
 
 func _request_reset(prepared: bool) -> void:

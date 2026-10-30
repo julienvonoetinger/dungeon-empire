@@ -90,7 +90,7 @@ func _place_core(origin: Vector2i) -> bool:
 		for dx in range(CORE_W):
 			grid[origin.y + dy][origin.x + dx] = Tile.CORE
 	repair_core_access()
-	message = "Le coeur s'eveille. Son passage peripherique est gratuit. Creusez depuis cette salle."
+	message = "The Core awakens. Its surrounding passage is free. Dig out from this room."
 	return true
 
 
@@ -215,9 +215,9 @@ func repair_entrance_placement() -> Dictionary:
 				queue.append(next)
 	if destination.x >= 0:
 		grid[destination.y][destination.x] = Tile.ENTRANCE
-		message = "Entree replacee contre une paroi."
+		message = "Entrance repositioned against a wall."
 	else:
-		message = "Ancienne entree retiree : placez gratuitement une entree contre une paroi."
+		message = "Old entrance removed: place a new entrance against a wall for free."
 	return {"from": old, "to": destination}
 
 # Entrances connect through their mouth, never through their stone backing.
@@ -448,16 +448,16 @@ func build_vault(p: Vector2i, tier: int) -> bool:
 	if game_over or (raid != null and raid.raid_active) or tier < 0 or tier > 2 or not _inside(p):
 		return false
 	if not _can_place_tile(p, Tile.VAULT):
-		message = "Placez le coffre sur une case excavee."
+		message = "Place the chest on an excavated tile."
 		return false
 	var existing := int(grid[p.y][p.x]) == Tile.VAULT
 	var previous := int(vault_locks.get(p, 0)) if existing else 0
 	if existing and tier <= previous:
-		message = "Ce coffre possede deja cette protection ou une protection superieure."
+		message = "This chest already has this protection or better."
 		return false
 	var cost: int = GameTypes.VAULT_PROTECTION_COSTS[tier] - GameTypes.VAULT_PROTECTION_COSTS[previous]
 	if gold < cost:
-		message = "Or insuffisant : %d requis." % cost
+		message = "Not enough gold: %d required." % cost
 		return false
 	_storage_state()
 	if not existing:
@@ -469,7 +469,7 @@ func build_vault(p: Vector2i, tier: int) -> bool:
 	vault_opened.erase(p)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(p)
-	message = "Coffre ameliore." if existing else "Coffre installe."
+	message = "Chest upgraded." if existing else "Chest placed."
 	return true
 
 func repair_vault(p: Vector2i) -> bool:
@@ -478,22 +478,22 @@ func repair_vault(p: Vector2i) -> bool:
 	if int(grid[p.y][p.x]) != Tile.VAULT or int(vault_locks.get(p, 0)) <= 0 or vault_protected(p):
 		return false
 	if gold < GameTypes.COST_REPAIR_VAULT:
-		message = "Or insuffisant : %d requis." % GameTypes.COST_REPAIR_VAULT
+		message = "Not enough gold: %d required." % GameTypes.COST_REPAIR_VAULT
 		return false
 	gold -= GameTypes.COST_REPAIR_VAULT
 	vault_opened.erase(p)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(p)
-	message = "Protection du coffre restauree."
+	message = "Chest protection restored."
 	return true
 
 func dig_failure_reason(gp: Vector2i) -> String:
 	if not _inside(gp) or int(grid[gp.y][gp.x]) != Tile.ROCK:
-		return "Cette case n'est pas un rocher."
+		return "This tile is not rock."
 	for direction in DIRS:
 		var neighbour := gp + direction
 		if _inside(neighbour) and int(grid[neighbour.y][neighbour.x]) == Tile.ENTRANCE:
-			return "Ce rocher soutient l'entree."
+			return "This rock supports the entrance."
 	if not _has_open_neighbour(gp):
 		return "You must dig from an existing passage."
 	if gold < COST_DIG:
@@ -514,13 +514,13 @@ func _try_dig(gp: Vector2i) -> void:
 
 func _place_entrance(p: Vector2i) -> void:
 	if _is_core_access(p):
-		message = "Le passage autour du coeur doit rester libre : placez l'entree plus loin."
+		message = "Keep the passage around the Core clear: place the entrance farther away."
 		return
 	if _has_entrance():
 		message = "The entrance stair is already set. It cannot be moved."
 		return
 	if not _inside(p) or int(grid[p.y][p.x]) != Tile.FLOOR or _wall_entrance_face(p) == Vector2i.ZERO:
-		message = "Placez l'entree contre une paroi, avec un passage libre devant."
+		message = "Place the entrance against a wall, with a clear passage in front."
 		return
 	grid[p.y][p.x] = Tile.ENTRANCE
 	if raid != null:
@@ -537,7 +537,7 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 		message = "Dig this passage first."
 		return
 	if not _can_place_tile(p, tile):
-		message = "Le passage autour du coeur doit rester libre." if _is_core_access(p) else "A door must sit in a gap between two walls."
+		message = "Keep the passage around the Core clear." if _is_core_access(p) else "A door must sit in a gap between two walls."
 		return
 	if current == tile:
 		if not _is_door_tile(tile) or int(door_hp.get(p, DOOR_MAX_HP)) > 0:

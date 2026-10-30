@@ -3,9 +3,9 @@ extends Control
 ## One-shot interaction with an unlocked chest. No lockpicking or state change.
 const STAGE = preload("res://scripts/vulpin_chest_open_stage.gd")
 const DIRECTIONS := ["se", "sw", "nw", "ne"]
-const TITLES := ["Sud-est", "Sud-ouest", "Nord-ouest", "Nord-est"]
+const TITLES := ["Southeast", "Southwest", "Northwest", "Northeast"]
 const FRAMES: SpriteFrames = preload("res://assets/previews/vulpin-chest-open/frames.tres")
-const PHASES := ["Prêt", "Se penche", "Saisit", "Amorce", "Soulève", "Maintient", "Relâche", "Se redresse"]
+const PHASES := ["Ready", "Bend", "Grip", "Start lifting", "Lift", "Hold", "Release", "Recover"]
 const REPEAT_GAP := .8
 var duration := 0.0
 var active := true
@@ -45,7 +45,7 @@ func _build_preview() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "Vulpin · coffre non verrouillé"
+	title.text = "Vulpin · unlocked chest"
 	title.add_theme_font_size_override("font_size", 24)
 	title.add_theme_color_override("font_color", Color("e6d0fa"))
 	column.add_child(title)
@@ -63,30 +63,30 @@ func _build_preview() -> void:
 	_pause_button = _button("Pause")
 	_pause_button.pressed.connect(func() -> void: set_playing(not _playing))
 	toolbar.add_child(_pause_button)
-	var next := _button("Pose suivante")
+	var next := _button("Next frame")
 	next.pressed.connect(next_pose)
 	toolbar.add_child(next)
 	_speed_select = OptionButton.new()
 	_speed_select.custom_minimum_size = Vector2(146,48)
-	for caption in ["Ralenti · 0,5×", "Normal · 1×", "Rapide · 1,5×", "Double · 2×"]: _speed_select.add_item(caption)
+	for caption in ["Slow · 0.5×", "Normal · 1×", "Fast · 1.5×", "Double · 2×"]: _speed_select.add_item(caption)
 	_speed_select.select(1)
 	_speed_select.item_selected.connect(set_speed_index)
 	toolbar.add_child(_speed_select)
 	_ghost = CheckButton.new()
-	_ghost.text = "Coffre atténué"
+	_ghost.text = "Ghost chest"
 	_ghost.custom_minimum_size.y = 48
 	_ghost.toggled.connect(set_ghost)
 	toolbar.add_child(_ghost)
 	_guides = CheckButton.new()
-	_guides.text = "Repères"
+	_guides.text = "Guides"
 	_guides.custom_minimum_size.y = 48
 	_guides.toggled.connect(set_guides)
 	toolbar.add_child(_guides)
-	var replay := _button("Rejouer")
+	var replay := _button("Replay")
 	replay.pressed.connect(replay_opening)
 	toolbar.add_child(replay)
 	_repeat = CheckButton.new()
-	_repeat.text = "Répéter"
+	_repeat.text = "Repeat"
 	_repeat.custom_minimum_size.y = 48
 	_repeat.button_pressed = repeat_enabled
 	_repeat.toggled.connect(set_repeat_enabled)
@@ -171,7 +171,7 @@ func set_repeat_enabled(value: bool) -> void:
 
 func set_playing(value: bool) -> void:
 	_playing = value
-	_pause_button.text = "Pause" if value else "Lire"
+	_pause_button.text = "Pause" if value else "Play"
 
 func set_speed_index(index: int) -> void:
 	playback_speed = [0.5,1.0,1.5,2.0][clampi(index,0,3)]

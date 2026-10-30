@@ -5,7 +5,6 @@ signal layout_changed
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 const Catalog = preload("res://scripts/game/ui/hud_catalog.gd")
 const Types = preload("res://scripts/game/game_types.gd")
-const Notices = preload("res://scripts/game/ui/hud_notices.gd")
 var session: IsometricGameSession
 var title: Label
 var detail: Label
@@ -64,19 +63,19 @@ func _ready() -> void:
 	detail = UI.label(words, "", 14, UI.MUTED)
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var close := UI.button(top, "", _close, "cross")
-	close.tooltip_text = "Annuler / fermer"
+	close.tooltip_text = "Cancel / close"
 	close.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	close.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	confirm = UI.button(header, "CONFIRMER", func(): session.confirm_action(), "", true)
-	transfer = UI.button(header, "Transférer l’or", _open_transfer, "arrow")
-	repair = UI.button(header,"Réparer",func():
+	confirm = UI.button(header, "CONFIRM", func(): session.confirm_action(), "", true)
+	transfer = UI.button(header, "Transfer gold", _open_transfer, "arrow")
+	repair = UI.button(header,"Repair",func():
 		var cell:=session.selected
 		session.choose_tool(Types.Tool.REPAIR)
 		session.select_cell(cell),"hammer")
 	actions = HFlowContainer.new()
 	content.add_child(actions)
-	collect = UI.button(actions, "Ramasser le butin", func(): session.collect_selected(), "coin", true)
-	absorb = UI.button(actions, "Absorber · +2 PV", func(): session.absorb_selected(), "gem")
+	collect = UI.button(actions, "Collect loot", func(): session.collect_selected(), "coin", true)
+	absorb = UI.button(actions, "Absorb · +2 HP", func(): session.absorb_selected(), "gem")
 	for button in [collect,absorb]:
 		button.add_theme_font_size_override("font_size",13)
 		button.add_theme_constant_override("icon_max_width",22)
@@ -95,7 +94,7 @@ func _ready() -> void:
 	amount_label = UI.label(amount_row, "", 18, UI.GOLD)
 	amount_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	amount_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	maximum = UI.button(amount_row, "Tout", func(): _set_amount(_limit))
+	maximum = UI.button(amount_row, "All", func(): _set_amount(_limit))
 	maximum.custom_minimum_size.x = 72
 	# Equal steps in a grid: no single button wraps alone onto a new line.
 	steps = GridContainer.new()
@@ -108,7 +107,7 @@ func _ready() -> void:
 	more_one = UI.button(steps, "+1", func(): _set_amount(_amount + 1))
 	more = UI.button(steps, "+25", func(): _set_amount(_amount + 25))
 	for step in [less, less_one, more_one, more]: step.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	send = UI.button(transfers, "TRANSFÉRER", _send, "", true)
+	send = UI.button(transfers, "TRANSFER", _send, "", true)
 	transfers.hide()
 
 func refresh() -> void:
@@ -123,25 +122,25 @@ func refresh() -> void:
 		var item := Catalog.definition(session.tool)
 		title.text = item[1]
 		glyph.texture = UI.icon(item[3])
-		detail.text = "Touchez pour poser · %s" % item[2]
+		detail.text = "Tap to place · %s" % item[2]
 		if not session.preview.is_empty():
-			detail.text = "%d or · %s" % [session.preview.get("cost", 0), "Prêt à confirmer" if session.preview.get("valid", false) else Notices.french(str(session.preview.get("reason", "Pose impossible")))]
+			detail.text = "%d gold · %s" % [session.preview.get("cost", 0), "Ready to confirm" if session.preview.get("valid", false) else str(session.preview.get("reason", "Cannot place here"))]
 	else:
-		var names := ["Roche", "Sol", "Entrée", "Cœur", "Coffre", "Pointes", "Entrave", "Porte", "Néant", "Porte magique"]
+		var names := ["Rock", "Floor", "Entrance", "Core", "Chest", "Spikes", "Snare", "Door", "Void", "Arcane door"]
 		title.text = names[tile]
 		glyph.texture = UI.icon("chest" if tile == Types.Tile.VAULT else "gem" if tile == Types.Tile.CORE else "door" if session.sim._is_door_tile(tile) else "pick")
-		detail.text = "Case %d, %d" % [p.x + 1, p.y + 1]
-		if tile == Types.Tile.VAULT: detail.text = "%d / %d or" % [session.sim.vault_gold.get(p, 0), Types.VAULT_CAPACITY]
+		detail.text = "Tile %d, %d" % [p.x + 1, p.y + 1]
+		if tile == Types.Tile.VAULT: detail.text = "%d / %d gold" % [session.sim.vault_gold.get(p, 0), Types.VAULT_CAPACITY]
 		elif session.sim._is_door_tile(tile):
 			var hp:=int(session.sim.door_hp.get(p,Types.DOOR_MAX_HP))
-			detail.text="%d / %d PV" % [hp,Types.DOOR_MAX_HP] if hp>0 else "Déverrouillée" if session.sim.door_opened.get(p,false) else "Brisée · À réparer"
+			detail.text="%d / %d HP" % [hp,Types.DOOR_MAX_HP] if hp>0 else "Unlocked" if session.sim.door_opened.get(p,false) else "Broken · Needs repair"
 		elif Types.is_trap_tile(tile): detail.text = "%d / %d charges" % [session.sim.trap_charges.get(p, 0), Types.trap_max_charges(tile)]
 	confirm.visible = placing
 	var repair_action:=session.check_action(p,Types.Tool.REPAIR)
 	repair.visible=not placing and (Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
 	repair.disabled=not repair_action.get("valid",false)
-	repair.text="Réparer · %d or" % repair_action.get("cost",0)
-	repair.tooltip_text=Notices.french(str(repair_action.get("reason","")))
+	repair.text="Repair · %d gold" % repair_action.get("cost",0)
+	repair.tooltip_text=str(repair_action.get("reason",""))
 	confirm.disabled = not session.can_edit() or not session.preview.get("valid", false)
 	collect.visible = p.x >= 0 and session.sim.loot_bags.any(func(b): return b.pos == p and b.gold > 0)
 	absorb.visible = p.x >= 0 and session.sim.corpses.any(func(c): return c.pos == p)
@@ -177,10 +176,10 @@ func _refresh_transfer() -> void:
 		var source_gold := int(session.sim.vault_gold.get(session.selected, 0))
 		var target_gold := int(session.sim.vault_gold.get(_destination, 0))
 		_limit = maxi(0, mini(source_gold, Types.VAULT_CAPACITY - target_gold))
-		target_label.text = "Vers coffre %d · %d / %d or\nCase %d, %d" % [_destinations.find(_destination) + 1, target_gold, Types.VAULT_CAPACITY, _destination.x + 1, _destination.y + 1]
-	else: target_label.text = "Construisez un autre coffre pour transférer."
+		target_label.text = "To chest %d · %d / %d gold\nTile %d, %d" % [_destinations.find(_destination) + 1, target_gold, Types.VAULT_CAPACITY, _destination.x + 1, _destination.y + 1]
+	else: target_label.text = "Build another chest to transfer gold."
 	_amount = clampi(_amount, 0, _limit)
-	amount_label.text = "%d or" % _amount
+	amount_label.text = "%d gold" % _amount
 	previous.disabled = _destinations.size() < 2
 	next.disabled = previous.disabled
 	less.disabled = _amount <= 0

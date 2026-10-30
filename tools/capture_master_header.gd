@@ -22,7 +22,7 @@ func run() -> void:
 		game.sim.grid[p.y][p.x]=TYPES.Tile.VAULT; game.sim.vault_gold[p]=75
 	game.sim.grid[7][9]=TYPES.Tile.ENTRANCE
 	game.sim.grid[5][7]=TYPES.Tile.SPIKE; game.sim.trap_charges[Vector2i(7,5)]=2
-	game.notice="Aménagement"
+	game.notice="Building"
 	for extent in [Vector2i(1280,720),Vector2i(844,390),Vector2i(568,299),Vector2i(390,844),Vector2i(320,568)]:
 		root.size=extent; await settle(); game.get_node("Input").center_core(); await settle()
 		for state in ["idle","raid","access","after-raid","large-gold","pause"]:

@@ -38,7 +38,7 @@ func _capture() -> void:
 	game.sim.grid[9][7]=TYPES.Tile.SNARE; game.sim.trap_charges[Vector2i(7,9)]=0
 	game.sim.grid[7][9]=TYPES.Tile.ENTRANCE
 	game.raid.raid_timer=74
-	game.notice="Aménagement"; game.save_error=""; game.save_blocked=false; hud._welcome=false
+	game.notice="Building"; game.save_error=""; game.save_blocked=false; hud._welcome=false
 	game.changed.emit(true)
 	game.get_node("Input").center_core()
 	var extents := [Vector2i(844,390),Vector2i(740,360),Vector2i(1280,720),Vector2i(390,844),Vector2i(320,568)]
@@ -51,7 +51,7 @@ func _capture() -> void:
 		# scale-before: identical layout and size, previous 0.75 world zoom only.
 		if second_pass: states=["tools","scale-before","catalog","doors","placing","placing-long","notice","selection","transfer-loot","menu","observe","raid","welcome"]
 		for state in states:
-			game.notice=("Not enough gold (35 required)." if second_pass else "Pas assez d’or pour cette construction.") if state=="notice" else "Aménagement"
+			game.notice=("Not enough gold (35 required)." if second_pass else "Not enough gold to build this.") if state=="notice" else "Building"
 			hud._welcome=state=="welcome"
 			if state=="welcome": game.sim.grid[7][7]=TYPES.Tile.FLOOR
 			elif game.sim.grid[7][7]!=TYPES.Tile.CORE: game.sim.grid[7][7]=TYPES.Tile.CORE; game.changed.emit(true)
@@ -64,7 +64,7 @@ func _capture() -> void:
 			game.result_open=state=="result-paused" or state=="defeat-paused"
 			game.sim.game_over=state=="defeat-paused"
 			game.save_blocked=state=="save-blocked-paused"
-			game.save_error="Sauvegarde illisible : le fichier est conservé." if game.save_blocked else ""
+			game.save_error="The save could not be read. The file has been kept." if game.save_blocked else ""
 			game.confirmation_open=state=="reset"
 			hud._reset_pending=state=="reset"
 			hud._observe=state=="observe"

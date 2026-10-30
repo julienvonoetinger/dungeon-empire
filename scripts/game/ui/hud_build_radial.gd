@@ -54,14 +54,14 @@ func _ready() -> void:
 	contents.add_theme_constant_override("separation",2)
 	all_icon=UI.picture(contents,"catalog",20)
 	all_icon.size_flags_horizontal=SIZE_SHRINK_CENTER
-	all_label=UI.label(contents,"Tout",13)
+	all_label=UI.label(contents,"All",13)
 	all_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	all_button.tooltip_text="Tous les objets de cette famille"
+	all_button.tooltip_text="All items in this category"
 	for state in ["normal","hover","pressed"]:
 		var circle:=UI.command_surface(state=="pressed",0)
 		circle.set_corner_radius_all(40); circle.corner_detail=16
 		all_button.add_theme_stylebox_override(state,circle)
-	cancel_button=UI.button(self,"Fermer",func(): closed.emit())
+	cancel_button=UI.button(self,"Close",func(): closed.emit())
 	cancel_button.custom_minimum_size=Vector2(86,48)
 	cancel_button.size=Vector2(86,48)
 	mouse_exited.connect(func():
@@ -130,19 +130,19 @@ func _choose_family(index: int) -> void:
 		if item[4]==index and session.progression.allows(item[0]):
 			choices.append(item)
 			# More than five wedges would drop below 48 units at this radius.
-			# The full family remains available through Tout.
+			# The full family remains available through All.
 			if choices.size()==5: break
 	_set_hover(-1)
 	queue_redraw()
 
 func _set_hover(index: int) -> void:
 	_hover=index
-	caption.text=Catalog.GROUPS[category]+" · choisir un objet"
+	caption.text=Catalog.GROUPS[category]+" · choose an item"
 	if index>=0:
 		var item: Array=choices[index]
 		var action:=session.check_action(cell,item[0])
 		var cost:=_price(item,action)
-		caption.text=item[1]+" · "+("Gratuit" if cost=="0" else ("Selon dégâts" if cost=="—" else cost+" or"))
+		caption.text=item[1]+" · "+("Free" if cost=="0" else ("Varies" if cost=="—" else cost+" gold"))
 	queue_redraw()
 
 func _sector(a: float,b: float,inside: float,outside: float) -> PackedVector2Array:
@@ -168,7 +168,7 @@ func _icon_size(glyph: String,extent: float) -> Vector2:
 
 func _price(item: Array,action: Dictionary) -> String:
 	if action.get("valid",false): return str(action.get("cost",0))
-	return item[2].replace(" or","").replace("Gratuit","0").replace("Selon dégâts","—")
+	return item[2].replace(" gold","").replace("Free","0").replace("Varies","—")
 
 func _draw() -> void:
 	if not is_instance_valid(caption): return
@@ -242,7 +242,7 @@ func _release_pointer(point: Vector2) -> void:
 			var action:=session.check_action(cell,choices[index][0])
 			if action.get("valid",false): tool_chosen.emit(choices[index][0])
 			else:
-				caption.text=str(action.get("reason","Pose impossible"))
+				caption.text=str(action.get("reason","Cannot place here"))
 				session.report_rejected_action(cell,choices[index][0])
 
 func _gui_input(event: InputEvent) -> void:

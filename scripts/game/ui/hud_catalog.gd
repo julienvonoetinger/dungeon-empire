@@ -4,20 +4,20 @@ signal tool_chosen(tool: int)
 signal closed
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 const Types = preload("res://scripts/game/game_types.gd")
-const GROUPS := ["Terrain", "Portes", "Pièges", "Trésors"]
+const GROUPS := ["Terrain", "Doors", "Traps", "Treasures"]
 const GROUP_ICONS := ["pick", "door", "spike", "chest"]
 const TOOLS := [
-	[Types.Tool.DIG, "Creuser", "5 or", "pick", 0],
-	[Types.Tool.BUILD_ENTRANCE, "Entrée", "Gratuit", "door", 0],
-	[Types.Tool.REPAIR, "Réparer", "Selon dégâts", "hammer", 0],
-	[Types.Tool.TRAP_SPIKE, "Pointes", "35 or", "spike", 2],
-	[Types.Tool.BUILD_DOOR, "Porte", "40 or", "door", 1],
-	[Types.Tool.TRAP_SNARE, "Entrave", "30 or", "snare", 2],
-	[Types.Tool.TRAP_VOID, "Néant", "45 or", "void", 2],
-	[Types.Tool.BUILD_MAGIC_DOOR, "Porte magique", "80 or", "door", 1],
-	[Types.Tool.STORE, "Coffre", "Gratuit", "chest", 3],
-	[Types.Tool.STORE_LOCKED, "Verrouillé", "40 or", "locked", 3],
-	[Types.Tool.STORE_MAGIC, "Scellé", "80 or", "chest", 3],
+	[Types.Tool.DIG, "Dig", "5 gold", "pick", 0],
+	[Types.Tool.BUILD_ENTRANCE, "Entrance", "Free", "door", 0],
+	[Types.Tool.REPAIR, "Repair", "Varies", "hammer", 0],
+	[Types.Tool.TRAP_SPIKE, "Spikes", "35 gold", "spike", 2],
+	[Types.Tool.BUILD_DOOR, "Door", "40 gold", "door", 1],
+	[Types.Tool.TRAP_SNARE, "Snare", "30 gold", "snare", 2],
+	[Types.Tool.TRAP_VOID, "Void", "45 gold", "void", 2],
+	[Types.Tool.BUILD_MAGIC_DOOR, "Arcane door", "80 gold", "door", 1],
+	[Types.Tool.STORE, "Chest", "Free", "chest", 3],
+	[Types.Tool.STORE_LOCKED, "Locked", "40 gold", "locked", 3],
+	[Types.Tool.STORE_MAGIC, "Sealed", "80 gold", "chest", 3],
 ]
 var category := 1
 var cards: Array[Dictionary] = []
@@ -37,7 +37,7 @@ func _ready() -> void:
 	heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var close := UI.button(header, "✕", func(): closed.emit())
-	close.tooltip_text = "Fermer le catalogue"
+	close.tooltip_text = "Close catalog"
 	count_label=UI.label(box,"",12,UI.MUTED)
 	tabs=HBoxContainer.new(); box.add_child(tabs)
 	tabs.add_theme_constant_override("separation",4)
@@ -109,14 +109,14 @@ func _choose_category(index: int) -> void:
 			if card.category==index:
 				total+=1
 				if not card.lock.visible: unlocked+=1
-		count_label.text="%d / %d débloqués · touchez pour armer" % [unlocked,total]
+		count_label.text="%d / %d unlocked · tap to select" % [unlocked,total]
 
 func refresh(session: IsometricGameSession) -> void:
 	for card in cards:
 		var unlocked: bool = session.progression.allows(card.id)
 		card.button.disabled = not session.can_edit() or not session.sim._has_core() or not unlocked
 		card.contents.modulate = Color.WHITE if not card.button.disabled else Color("9f9e9c")
-		card.lock.text = "Niv. %d" % session.progression.required_level(card.id) if not unlocked else ""
+		card.lock.text = "Lv. %d" % session.progression.required_level(card.id) if not unlocked else ""
 		card.lock.visible = not unlocked
 		card.button.set_pressed_no_signal(session.tool == card.id)
 	_choose_category(category)
@@ -124,4 +124,4 @@ func refresh(session: IsometricGameSession) -> void:
 static func definition(tool: int) -> Array:
 	for item in TOOLS:
 		if item[0] == tool: return item
-	return [Types.Tool.NONE, "Cœur", "Gratuit", "gem", 0]
+	return [Types.Tool.NONE, "Core", "Free", "gem", 0]

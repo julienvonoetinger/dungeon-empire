@@ -18,7 +18,7 @@ static func level_for_xp(xp: int) -> int:
 	return level
 
 static func display_name(hero: Dictionary) -> String:
-	var stored := str(hero.get("name", "Heros"))
+	var stored := str(hero.get("name", "Hero"))
 	var id := int(hero.get("id", 0))
 	for personal_name in NAMES.get(str(hero.get("kind", "")), []):
 		if stored == "%s %d" % [personal_name, id]:

@@ -4,16 +4,16 @@ extends "res://scripts/mobile_dungeon_renderer.gd"
 signal rebuilt
 
 const KINDS := ["spike", "snare", "void"]
-const NAMES := ["Pointes", "Entrave", "Néant"]
+const NAMES := ["Spikes", "Snare", "Void"]
 const STATES := ["ready", "triggered", "spent"]
-const TITLES := ["PRÊT", "DÉCLENCHÉ", "ÉPUISÉ"]
+const TITLES := ["READY", "TRIGGERED", "SPENT"]
 const NOTES := [
-	["Pointes rétractées", "Pointes sorties", "Mécanisme au repos"],
-	["Mâchoires ouvertes", "Mâchoires refermées", "Énergie éteinte"],
-	["Sceau chargé", "Faille ouverte", "Sceau éteint"],
+	["Spikes retracted", "Spikes raised", "Mechanism inactive"],
+	["Jaws open", "Jaws closed", "Energy depleted"],
+	["Seal charged", "Rift open", "Seal depleted"],
 ]
 
-@export_tool_button("Actualiser les pièges", "Reload") var refresh_action: Callable:
+@export_tool_button("Refresh traps", "Reload") var refresh_action: Callable:
 	get:
 		return Callable(self, "refresh_preview")
 
@@ -51,7 +51,7 @@ func _build_annotations() -> void:
 	add_child(_annotations)
 	_font=ThemeDB.fallback_font.duplicate() as FontFile
 	_font.multichannel_signed_distance_field=true
-	_caption("PIÈGES DU DONJON",Rect2(0,-130,1024,44),32,Color("dfc5f3"))
+	_caption("DUNGEON TRAPS",Rect2(0,-130,1024,44),32,Color("dfc5f3"))
 	for column in STATES.size():
 		var at:=grid_to_local(Vector2(2*column,-2*column))
 		_caption(TITLES[column],Rect2(at+Vector2(-170,-50),Vector2(340,32)),24,Color("d9b45c"))
@@ -61,7 +61,7 @@ func _build_annotations() -> void:
 		for column in STATES.size():
 			var at:=grid_to_local(Vector2(2*column+2*row,-2*column+2*row))
 			_caption(NOTES[row][column],Rect2(at+Vector2(-190,154),Vector2(380,30)),20,Color("b8b2c8"))
-	_caption("États figés pour comparaison · Glisser pour déplacer la vue",Rect2(-150,720,1324,30),18,Color("9994aa"))
+	_caption("Fixed states for comparison · Drag to pan",Rect2(-150,720,1324,30),18,Color("9994aa"))
 	_frame=_frame.merge(Rect2(-340,-140,1570,900))
 
 func _caption(text: String, rect: Rect2, font_size: int, color: Color) -> void:

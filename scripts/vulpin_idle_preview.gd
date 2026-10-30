@@ -5,7 +5,7 @@ const FRAMES: SpriteFrames = preload("res://assets/previews/vulpin-idle/frames.t
 const KIT: Resource = preload("res://assets/dungeon/isometric-kit/catalog.tres")
 const CONTACT: Texture2D = preload("res://assets/dungeon/mobile-kit/light-falloff.png")
 const DIRECTIONS := [&"se", &"sw", &"nw", &"ne"]
-const TITLES := ["Sud-est", "Sud-ouest", "Nord-ouest", "Nord-est"]
+const TITLES := ["Southeast", "Southwest", "Northwest", "Northeast"]
 
 func _ready() -> void:
 	var background := ColorRect.new()
@@ -22,7 +22,7 @@ func _ready() -> void:
 	column.add_theme_constant_override("separation", 10)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "Vulpin · au repos"
+	title.text = "Vulpin · idle"
 	title.add_theme_font_size_override("font_size", 24)
 	title.add_theme_color_override("font_color", Color("e6d0fa"))
 	column.add_child(title)
@@ -35,7 +35,7 @@ func _ready() -> void:
 	for index in DIRECTIONS.size():
 		_add_direction(grid, index)
 	var caption := Label.new()
-	caption.text = "Une image fixe par direction"
+	caption.text = "One still image per direction"
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	caption.add_theme_color_override("font_color", Color("b8c2d4"))
 	column.add_child(caption)

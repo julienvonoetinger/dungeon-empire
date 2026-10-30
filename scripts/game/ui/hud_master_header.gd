@@ -79,7 +79,7 @@ func _ready() -> void:
 	time_socket=_gauge_socket(); gold_socket=_gauge_socket()
 	time_bar=_inset_bar(time_socket); gold_bar=_inset_bar(gold_socket)
 	eye_button=Button.new(); add_child(eye_button)
-	eye_button.flat=true; eye_button.tooltip_text="Le maître du donjon · Pause / domaine"
+	eye_button.flat=true; eye_button.tooltip_text="Dungeon master · Pause / domain"
 	for state in ["normal","hover","pressed"]: eye_button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	eye_button.pressed.connect(func(): menu_requested.emit())
 	resized.connect(_layout)
@@ -196,11 +196,15 @@ func _layout() -> void:
 	var extent:=eye.texture.get_width()*art_scale
 	band.position=Vector2.ZERO; band.size=size
 	var wing_width:=(w-extent)/2.0
+	# Control origins snap to pixels independently of the scaled wing widths.
+	# Let each wing extend one layout pixel under the central slice (drawn last)
+	# so fractional joins cannot expose a vertical slit of the world behind it.
+	var join_overlap:=1.0
 	for wing in [left_wing,right_wing]:
 		wing.scale=Vector2.ONE*art_scale
-		wing.size=Vector2(wing_width/art_scale,192)
+		wing.size=Vector2((wing_width+join_overlap)/art_scale,192)
 	left_wing.position=Vector2.ZERO
-	right_wing.position=Vector2(wing_width+extent,0)
+	right_wing.position=Vector2(wing_width+extent-join_overlap,0)
 	eye.position=Vector2(wing_width,0); eye.size=Vector2(extent,size.y)
 	eye_button.position=eye.position; eye_button.size=eye.size
 	var padding:=12.0 if w<400 else 18.0
@@ -236,25 +240,25 @@ func refresh(session: IsometricGameSession, delta: float=0) -> void:
 	var building:=session.catalog_open or session.tool!=Types.Tool.NONE or session.selected.x>=0
 	var ready:=session.ready_for_raid()
 	var seconds:=int(session.raid.elapsed_seconds) if raid else ceili(session.raid.raid_timer)
-	phase_description="Raid en cours" if raid else "Prochain raid"
+	phase_description="Raid in progress" if raid else "Next raid"
 	if stopped: phase_description="Pause"
-	elif building and not raid: phase_description="Construction · compte à rebours suspendu"
+	elif building and not raid: phase_description="Building · countdown paused"
 	if not raid and not ready:
-		phase_description="Cœur requis" if not session.sim._has_core() else "Entrée requise" if not session.sim._has_entrance() else "Stockage requis"
-	if session.result_open: phase_description="Raid terminé"
-	if session.sim.game_over: phase_description="Cœur détruit"
+		phase_description="Core required" if not session.sim._has_core() else "Entrance required" if not session.sim._has_entrance() else "Storage required"
+	if session.result_open: phase_description="Raid complete"
+	if session.sim.game_over: phase_description="Core destroyed"
 	timer_icon.texture=RAID_ICON if raid else COUNTDOWN_ICON
 	timer_icon.modulate=Color(.65,.65,.65) if stopped or building else Color.WHITE
 	timer.text="%02d:%02d" % [seconds/60,seconds%60] if raid or ready else "—:—"
 	gold.text=str(session.sim.gold)
 	health.text="%d %%" % session.sim.core_hp
-	health.tooltip_text="Vie du cœur · "+health.text
+	health.tooltip_text="Core health · "+health.text
 	time_bar.value=100*clampf(session.raid.raid_timer/Types.RAID_DELAY,0,1) if not raid else 100
 	time_bar.modulate=Color(.65,.65,.65) if stopped or building else Color.WHITE
 	var capacity:=session.sim._vault_positions().size()*Types.VAULT_CAPACITY
 	gold_bar.value=100*clampf(float(session.sim.gold)/maxi(capacity,1),0,1)
-	gold_bar.tooltip_text="Or disponible / capacité de stockage"
+	gold_bar.tooltip_text="Available gold / storage capacity"
 	_refresh_eye(session,delta)
 	eye_material.set_shader_parameter("life",float(session.sim.core_hp)/100)
-	tooltip_text=phase_description+" · "+timer.text+" · "+str(session.sim.gold)+" or"
+	tooltip_text=phase_description+" · "+timer.text+" · "+str(session.sim.gold)+" gold"
 	if timer.text!=old_timer or gold.text!=old_gold: _layout()

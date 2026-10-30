@@ -1,5 +1,39 @@
 # Repository instructions
 
+## English player-facing language — 2026-10-30
+
+- User requests English instead of French. Runtime HUD, catalog, radial,
+  selection/transfer/repair, notices/errors, raid results, hero/world labels
+  and native preview scenes now use English. Keep Core, Vulpin, Snare, Void,
+  Arcane door, gold, HP and Lv. terminology consistent. Internal eye state IDs,
+  gameplay constants and save schema are unchanged. Historical review pages
+  and production documentation retain their original language.
+- Removed the French display adapter; simulator/session notices are English
+  at their source and saves do not persist those messages. Radial fallback
+  prices now parse gold/Free/Varies; three regression cases cover rejected
+  priced/free/variable actions. Updated active capture fixtures and assertions.
+- All7 headless scenarios pass. Native radial1592, rotation227, door badges87,
+  header856, health32, joins40 and mobile interactions pass/empty stderr.
+  Captured95 native UI states at5 sizes with no clipped nonwrapping labels;
+  small portrait catalog/transfer and short landscape menu inspected. Evidence
+  in artifacts/english-ui. No player saves, APK, commit or push.
+- Updated only the8 translated preview entries in the hero preservation
+  manifest. Its2 documentation hash mismatches already exist in HEAD and
+  are recorded in artifacts/english-ui/preservation-audit.json; art/source
+  hashes are unchanged.
+
+## Header stone joins no longer expose a vertical slit — 2026-10-30
+
+- User sees a vertical line beside the eye. Native transparent-background
+  captures reproduce10 failures across20 size/scale combinations: the source
+  stone is opaque, but independently snapped Control origins expose a pixel
+  between the scaled wing and center. Both wings now extend1 layout unit under
+  the central slice; eye aspect, artwork, labels, gauges and outer width stay.
+- tools/verify_header_seams.gd checks both joins:40 pass after the fix. Existing
+  header856/health32/gauges40 checks pass with empty stderr. Five native sizes
+  captured; desktop, portrait and short landscape inspected. Evidence in
+  artifacts/header-seams. No player saves, new art, APK, commit or push.
+
 ## Commit validation for accumulated UI and Vulpin work — 2026-10-30
 
 - User requests commit/push of current work. Fresh import and all7 headless

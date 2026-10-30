@@ -4,12 +4,12 @@ extends Control
 const CORRIDOR = preload("res://scripts/vulpin_walk_corridor.gd")
 # Normal speed is the former 1.5x: 15 held poses/s, with matching root travel.
 const BASE_WALK_RATE := 1.5
-const TITLES := ["Sud-est ↔ Nord-ouest", "Sud-ouest ↔ Nord-est"]
-const FACING := {&"se": "Sud-est", &"sw": "Sud-ouest", &"nw": "Nord-ouest", &"ne": "Nord-est"}
+const TITLES := ["Southeast ↔ Northwest", "Southwest ↔ Northeast"]
+const FACING := {&"se": "Southeast", &"sw": "Southwest", &"nw": "Northwest", &"ne": "Northeast"}
 
 # Both gait scenes share layout and playback, but have their own rendered poses
 # and stride. Defaults preserve the approved normal walking speed.
-@export var preview_title := "Vulpin · marche en couloir"
+@export var preview_title := "Vulpin · corridor walk"
 @export var animation_frames: SpriteFrames = preload("res://assets/previews/vulpin-walk/frames.tres")
 @export_range(1.0, 60.0) var pose_fps := 10.0
 @export_range(.01, 10.0) var model_travel_units_per_second := .65
@@ -68,16 +68,16 @@ func _build_preview() -> void:
 	_pause_button = _button("Pause")
 	_pause_button.pressed.connect(func() -> void: set_playing(not _playing))
 	toolbar.add_child(_pause_button)
-	var next_button := _button("Pose suivante")
+	var next_button := _button("Next frame")
 	next_button.pressed.connect(next_pose)
 	toolbar.add_child(next_button)
-	var restart_button := _button("Recommencer")
+	var restart_button := _button("Restart")
 	restart_button.pressed.connect(func() -> void: set_walk_time(0.0))
 	toolbar.add_child(restart_button)
 	_speed_select = OptionButton.new()
 	_speed_select.name = "PlaybackSpeed"
 	_speed_select.custom_minimum_size = Vector2(156, 48)
-	for caption in ["Ralenti · 0,5×", "Normal · 1×", "Rapide · 1,5×", "Double · 2×"]:
+	for caption in ["Slow · 0.5×", "Normal · 1×", "Fast · 1.5×", "Double · 2×"]:
 		_speed_select.add_item(caption)
 	_speed_select.select(1)
 	_speed_select.item_selected.connect(set_speed_index)
@@ -151,7 +151,7 @@ func _fit_stage(stage: Control, corridor: Node2D) -> void:
 func set_playing(value: bool) -> void:
 	_playing = value
 	if is_instance_valid(_pause_button):
-		_pause_button.text = "Pause" if value else "Lire"
+		_pause_button.text = "Pause" if value else "Play"
 
 func next_pose() -> void:
 	set_playing(false)
@@ -161,7 +161,7 @@ func set_walk_time(seconds: float) -> void:
 	walk_time = maxf(seconds, 0.0)
 	for index in corridors.size():
 		corridors[index].set_walk_time(walk_time)
-		_direction_labels[index].text = ("Aller · " if corridors[index].outbound else "Retour · ") + FACING[actors[index].animation]
+		_direction_labels[index].text = ("Outbound · " if corridors[index].outbound else "Inbound · ") + FACING[actors[index].animation]
 	if is_instance_valid(_frame_label):
 		_frame_label.text = "Pose %d / %d" % [actors[0].frame + 1, animation_frames.get_frame_count(actors[0].animation)]
 

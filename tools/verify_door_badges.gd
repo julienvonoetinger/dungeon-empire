@@ -59,7 +59,7 @@ func run() -> void:
 	state(view,.5,"closed")
 	check(markers(view).map(func(item): return item.node.get_instance_id())==original_nodes,"Damage updates without rebuilding markers")
 	game.select_cell(cells[0])
-	check(game.get_node("HUD").selection.detail.text=="30 / 60 PV","Selection retains exact remaining resistance")
+	check(game.get_node("HUD").selection.detail.text=="30 / 60 HP","Selection retains exact remaining resistance")
 	game.cancel_selection()
 	await snapshot("damaged-landscape")
 	root.size=Vector2i(390,844)
@@ -73,12 +73,12 @@ func run() -> void:
 	for p in cells: game.sim.door_hp[p]=0; game.sim.door_opened[p]=true
 	game.changed.emit(true); state(view,0.0,"open"); await snapshot("opened-landscape")
 	game.select_cell(cells[0])
-	check(game.get_node("HUD").selection.detail.text=="Déverrouillée","Selection identifies unlocked door")
+	check(game.get_node("HUD").selection.detail.text=="Unlocked","Selection identifies unlocked door")
 	game.cancel_selection()
 	game.sim.door_opened.clear(); game.changed.emit(true)
 	state(view,0.0,"broken"); await snapshot("broken-landscape")
 	game.select_cell(cells[0])
-	check(game.get_node("HUD").selection.detail.text=="Brisée · À réparer","Selection identifies broken door")
+	check(game.get_node("HUD").selection.detail.text=="Broken · Needs repair","Selection identifies broken door")
 	game.cancel_selection()
 	game.sim.gold=100
 	for p in cells: check(game.sim.repair_door(p),"Repair succeeds")

@@ -33,7 +33,7 @@ func _capture() -> void:
 			game.preview = {}
 			game.sim.grid[8][8] = Types.Tile.ROCK if state == "accueil" else Types.Tile.CORE
 			game.save_blocked = state == "sauvegarde-illisible"
-			game.save_error = "Sauvegarde illisible : elle est conservée. Recommencer pour créer une nouvelle partie." if game.save_blocked else ""
+			game.save_error = "The save could not be read. It has been kept. Start a new dungeon to play again." if game.save_blocked else ""
 			game.raid.raid_active = state == "raid"
 			game.raid.hero = {"name": "Neris", "class_name": "Vulpin", "level": 1, "hp": 80, "max_hp": 100} if state == "raid" else {}
 			hud._welcome = state == "accueil"
@@ -49,7 +49,7 @@ func _capture() -> void:
 				game.tool = Types.Tool.TRAP_SPIKE
 				game.selected = Vector2i(7, 8)
 				game.preview = {"valid": true, "cost": 35}
-				if state == "pose-refusee": game.preview = {"valid": false, "cost": 0, "reason": "Creusez cette case avant de bâtir."}
+				if state == "pose-refusee": game.preview = {"valid": false, "cost": 0, "reason": "Dig this tile before building."}
 			if state == "coffre" or state.begins_with("transfert"): game.selected = Vector2i(7, 7)
 			if state == "transfert-butin-corps":
 				game.sim.loot_bags = [{"pos": Vector2i(7, 7), "gold": 10}]

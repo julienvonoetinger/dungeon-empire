@@ -3,7 +3,7 @@ extends Control
 ## Four directional door contact tests. No simulation or player save.
 const STAGE = preload("res://scripts/vulpin_lockpick_stage.gd")
 const DIRECTIONS := ["se", "sw", "nw", "ne"]
-const TITLES := ["Sud-est", "Sud-ouest", "Nord-ouest", "Nord-est"]
+const TITLES := ["Southeast", "Southwest", "Northwest", "Northeast"]
 const FPS := 8.0
 var stages: Array[Node2D] = []
 var animation_time := 0.0
@@ -35,7 +35,7 @@ func _build_preview() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "Vulpin · crochetage de porte"
+	title.text = "Vulpin · door lockpicking"
 	title.add_theme_font_size_override("font_size", 24)
 	title.add_theme_color_override("font_color", Color("e6d0fa"))
 	column.add_child(title)
@@ -53,27 +53,27 @@ func _build_preview() -> void:
 	_pause_button = _button("Pause")
 	_pause_button.pressed.connect(func() -> void: set_playing(not _playing))
 	toolbar.add_child(_pause_button)
-	var next := _button("Pose suivante")
+	var next := _button("Next frame")
 	next.pressed.connect(next_pose)
 	toolbar.add_child(next)
 	_speed_select = OptionButton.new()
 	_speed_select.custom_minimum_size = Vector2(146,48)
-	for caption in ["Ralenti · 0,5×", "Normal · 1×", "Rapide · 1,5×", "Double · 2×"]: _speed_select.add_item(caption)
+	for caption in ["Slow · 0.5×", "Normal · 1×", "Fast · 1.5×", "Double · 2×"]: _speed_select.add_item(caption)
 	_speed_select.select(1)
 	_speed_select.item_selected.connect(set_speed_index)
 	toolbar.add_child(_speed_select)
 	_ghost = CheckButton.new()
-	_ghost.text = "Porte atténuée"
+	_ghost.text = "Ghost door"
 	_ghost.custom_minimum_size.y = 48
 	_ghost.toggled.connect(set_ghost)
 	toolbar.add_child(_ghost)
 	_guides = CheckButton.new()
-	_guides.text = "Repères"
+	_guides.text = "Guides"
 	_guides.custom_minimum_size.y = 48
 	_guides.toggled.connect(set_guides)
 	toolbar.add_child(_guides)
 	var distance_label := Label.new()
-	distance_label.text = "Écart :"
+	distance_label.text = "Offset:"
 	distance_label.custom_minimum_size.y = 48
 	distance_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	toolbar.add_child(distance_label)
@@ -83,10 +83,10 @@ func _build_preview() -> void:
 	_distance.step = .01
 	_distance.value = 0
 	_distance.custom_minimum_size = Vector2(120,48)
-	_distance.tooltip_text = "Décalage par rapport au contact calibré, en case. 0 = crochet sur la serrure."
+	_distance.tooltip_text = "Offset from the calibrated contact, in tiles. 0 = pick at the keyhole."
 	_distance.value_changed.connect(set_distance)
 	toolbar.add_child(_distance)
-	var reset := _button("Recaler")
+	var reset := _button("Reset offset")
 	reset.pressed.connect(func() -> void: set_distance(0))
 	toolbar.add_child(reset)
 	_frame_label = Label.new()
@@ -146,7 +146,7 @@ func seek_time(seconds: float) -> void:
 	animation_time = maxf(0, seconds)
 	var frame := floori(animation_time * FPS + .00001) % 8
 	for stage in stages: stage.set_pose(frame)
-	if is_instance_valid(_frame_label): _frame_label.text = "Pose %d / 8" % (frame + 1)
+	if is_instance_valid(_frame_label): _frame_label.text = "Frame %d / 8" % (frame + 1)
 
 func next_pose() -> void:
 	set_playing(false)
@@ -154,7 +154,7 @@ func next_pose() -> void:
 
 func set_playing(value: bool) -> void:
 	_playing = value
-	_pause_button.text = "Pause" if value else "Lire"
+	_pause_button.text = "Pause" if value else "Play"
 
 func set_speed_index(index: int) -> void:
 	playback_speed = [0.5,1.0,1.5,2.0][clampi(index,0,3)]

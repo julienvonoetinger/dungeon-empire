@@ -215,7 +215,7 @@ func sync(hero: Dictionary, raid: RaidDirector, view: Node) -> void:
 	sprite.modulate.a = clampf(float(hero.get("portal_t",1))/raid.portal_hold,0,1) if hero.get("void_absorbing",false) else 1.0
 	shadow.modulate.a = sprite.modulate.a*.5
 	health = clampf(float(hero.hp)/maxf(1,float(hero.get("max_hp",hero.hp))),0,1)
-	label.text = "%s · N%d" % [hero.get("name","Vulpin"),hero.get("level",1)]
+	label.text = "%s · Lv. %d" % [hero.get("name","Vulpin"),hero.get("level",1)]
 	label.visible = next_state != "death"
 	label.position.y = -177-jump
 	_update_shadow()

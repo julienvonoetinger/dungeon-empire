@@ -5,7 +5,6 @@ extends SceneTree
 ## isometric_run_v1.save is hashed before and after and never opened for writing.
 const GAME = preload("res://scenes/game/DungeonGame.tscn")
 const TYPES = preload("res://scripts/game/game_types.gd")
-const NOTICES = preload("res://scripts/game/ui/hud_notices.gd")
 const OUT := "res://docs/reference/interface-review/design-pass-2/interaction/"
 const REVIEW_SAVE := "user://forge_ux_review_v2.save"
 const PLAYER_SAVE := "user://isometric_run_v1.save"
@@ -76,7 +75,7 @@ func _scenario(extent: Vector2i) -> void:
 	_check(tag+" pose répétée 2, outil conservé",game.sim.grid[6][8]==TYPES.Tile.SPIKE and game.tool==TYPES.Tool.TRAP_SPIKE,"")
 	game.sim.gold=0; game.changed.emit(false)
 	await _tap_cell(Vector2i(6,8))
-	_check(tag+" refus affiché dans la barre",game.sim.grid[8][6]==TYPES.Tile.FLOOR and hud.pose_bar.visible and hud.pose_label.text==NOTICES.french(game.notice) and not game.notice.is_empty(),hud.pose_label.text)
+	_check(tag+" refus affiché dans la barre",game.sim.grid[8][6]==TYPES.Tile.FLOOR and hud.pose_bar.visible and hud.pose_label.text==game.notice and not game.notice.is_empty(),hud.pose_label.text)
 	await _shot(tag,"3-refus")
 	game.sim.gold=200; game.changed.emit(false)
 	await _tap_control(hud.stop_button)

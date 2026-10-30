@@ -104,6 +104,11 @@ func run() -> void:
 	root.size=Vector2i(844,390); await settle()
 	hud.world_tapped(Vector2i(7,8)); await settle()
 	# Invalid actions are still inspectable but cannot spend or close the menu.
+	# Unavailable actions use catalog copy instead of a transaction cost. Keep
+	# the compact numeric/free/variable price strip when the UI language changes.
+	check(hud.radial._price(hud.radial.Catalog.definition(TYPES.Tool.TRAP_SPIKE),{"valid":false})=="35","Unavailable spikes still show their numeric price")
+	check(hud.radial._price(hud.radial.Catalog.definition(TYPES.Tool.BUILD_ENTRANCE),{"valid":false})=="0","Unavailable free entrance keeps the zero price")
+	check(hud.radial._price(hud.radial.Catalog.definition(TYPES.Tool.REPAIR),{"valid":false})=="—","Unavailable repairs retain the variable-price marker")
 	hud.radial._choose_family(0)
 	await click(hud.radial,hud.radial.choice_point(0,true),hud)
 	check(game.sim.gold==before and hud.radial.visible,"An invalid price-band click cannot buy")

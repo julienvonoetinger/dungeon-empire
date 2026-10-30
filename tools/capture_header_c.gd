@@ -12,7 +12,7 @@ func run() -> void:
 	game.restart(true)
 	var hud=game.get_node("HUD"); hud._welcome=false
 	game.raid.raid_timer=74; game.sim.core_hp=60
-	game.selected=Vector2i(-1,-1); game.notice="Aménagement"
+	game.selected=Vector2i(-1,-1); game.notice="Building"
 	hud._last_hp=60; game.changed.emit(true)
 	for extent in [Vector2i(1280,720),Vector2i(844,390),Vector2i(568,299),Vector2i(390,844),Vector2i(320,568)]:
 		root.size=extent; await settle(); game.get_node("Input").center_core(); await settle()

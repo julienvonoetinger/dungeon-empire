@@ -4,7 +4,7 @@ const Header=preload("res://scripts/game/ui/hud_master_header.gd")
 const Session=preload("res://scripts/game/game_session.gd")
 const UI=preload("res://scripts/game/ui/hud_theme.gd")
 const MODES=["veille","observe","traque","jubile","blesse","fauche","colere"]
-const NAMES=["Veille","Observe","Traque","Jubile","Blessé","Fauché","Colère"]
+const NAMES=["Idle","Observe","Hunt","Glee","Hurt","Broke","Anger"]
 var header:Control
 var session:IsometricGameSession
 var detail:TextureRect
@@ -31,7 +31,7 @@ func _ready() -> void:
 	detail.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; detail.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	detail.mouse_filter=MOUSE_FILTER_IGNORE
 	status=UI.label(self,"",18); status.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	hint=UI.label(self,"Glissez le doigt ou la souris · En traque, l’œil suit la cible mobile.",13)
+	hint=UI.label(self,"Move your finger or mouse · In Hunt mode, the eye follows the moving target.",13)
 	hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; hint.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	target=UI.label(self,"◆",24,Color("e3b884")); target.mouse_filter=MOUSE_FILTER_IGNORE
 	controls=VBoxContainer.new(); add_child(controls)
@@ -39,11 +39,11 @@ func _ready() -> void:
 	options=OptionButton.new(); row.add_child(options); options.custom_minimum_size=Vector2(140,48)
 	for label in NAMES: options.add_item(label)
 	options.item_selected.connect(select_mode)
-	UI.button(row,"Rejouer",func(): select_mode(choice)).custom_minimum_size=Vector2(90,48)
-	pause=UI.button(row,"Pause",func(): session.paused=not session.paused; pause.text="Reprendre" if session.paused else "Pause")
+	UI.button(row,"Replay",func(): select_mode(choice)).custom_minimum_size=Vector2(90,48)
+	pause=UI.button(row,"Pause",func(): session.paused=not session.paused; pause.text="Resume" if session.paused else "Pause")
 	pause.custom_minimum_size=Vector2(96,48)
 	var health_row:=HBoxContainer.new(); controls.add_child(health_row)
-	var label:=UI.label(health_row,"Vie du cœur",14); label.size_flags_horizontal=SIZE_EXPAND_FILL
+	var label:=UI.label(health_row,"Core health",14); label.size_flags_horizontal=SIZE_EXPAND_FILL
 	hp=OptionButton.new(); health_row.add_child(hp); hp.custom_minimum_size=Vector2(140,48)
 	for value in [100,60,20,0]: hp.add_item(str(value)+" %",value)
 	hp.item_selected.connect(func(index): session.sim.core_hp=hp.get_item_id(index); header.behavior.reset(); header.refresh(session))
@@ -79,4 +79,4 @@ func _process(delta:float) -> void:
 	target.visible=choice==2
 	header.world_target=target.position+target.size/2 if choice==2 else Vector2(size.x*.24,size.y*.55)
 	header.refresh(session,delta)
-	status.text=NAMES[MODES.find(header.behavior.mode)]+" · détail agrandi"
+	status.text=NAMES[MODES.find(header.behavior.mode)]+" · close-up"

@@ -2,7 +2,7 @@ extends SceneTree
 const STAGE = preload("res://tools/integrated_compact_door_stage.gd")
 var OUT := "res://docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/native-sizing/"
 const FACINGS := ["se", "sw", "nw", "ne"]
-const LABELS := ["Sud-est", "Sud-ouest", "Nord-ouest", "Nord-est"]
+const LABELS := ["Southeast", "Southwest", "Northwest", "Northeast"]
 var stages: Array = []
 var containers: Array[Control] = []
 var title: Label
