@@ -39,13 +39,22 @@ func run() -> void:
 	check(p.rooms.size() == 4,"Four directions")
 	check(p.repeat_enabled,"Core attack repeats for inspection")
 	var origins: Array[Vector2] = []
+	var approach_axes := {&"se":Vector2.LEFT,&"sw":Vector2.UP,&"nw":Vector2.RIGHT,&"ne":Vector2.DOWN}
+	var first_distance: float = p.rooms[0].hero_grid.length()
 	for room in p.rooms:
 		origins.append(room.actor.position)
+		var outward: Vector2 = approach_axes[room.facing]
+		check(absf(room.hero_grid.cross(outward)) < .001,"Paladin faces Core centre without lateral offset: " + str(room.facing))
+		check(room.hero_grid.dot(outward) > .56,"Paladin stands on the incoming side: " + str(room.facing))
+		check(absf(room.hero_grid.length()-first_distance) < .001,"Equal approach distance in all directions: " + str(room.facing))
 		check(room.core_sprite.texture == room.DEFINITION.get("textures")["heart"],"Actual production core texture")
 		check(room.core_sprite.scale == Vector2.ONE,"Core keeps its native scale")
 		check(room.actor.scale.is_equal_approx(Vector2.ONE*.9404255319148935),"Paladin keeps approved scale")
 		check(room.actor.sprite_frames == p.animation_frames,"Existing attack sprites reused")
-		check(room.contact_error() < .01,"Hammer contact registered on cap")
+		check(room.contact_error() < .01,"Hammer contact remains on cap surface")
+		var hand_side := Vector2(outward.y,-outward.x)
+		var contact: Vector2 = room.local_to_grid(room.actor.position+room.hammer_offset,.255)
+		check(contact.dot(outward) >= .21 and contact.dot(outward) <= .38 and contact.dot(hand_side) >= .21 and contact.dot(hand_side) <= .38,"Impact on real near-side cap, not empty space: " + str(room.facing))
 		var effects := 0
 		for child in room._world.get_children():
 			if child.get_meta("self_light",false): effects += 1

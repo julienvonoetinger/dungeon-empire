@@ -1,5 +1,21 @@
 # Repository instructions
 
+## Paladin faces the Core centre when striking — 2026-11-01
+
+- User rejects the side-offset attack. Prior cap-centre calibration picked the
+  opposite corner, moving the body laterally. Core preview now keeps each root
+  on its incoming centre axis, at the same ~.722-case distance from the Core.
+  Distance uses ground-projected hammer reach, excluding apparent height.
+- Right-hand contact lands within the correct near-side cap's .17-square top
+  at z.255 (approved migration geometry), rather than forcing its exact centre.
+  Native supports/depth, foot shadows, frozen roots and all art/scales stay.
+- New alignment/distance checks reproduce7failures;224native checks now pass
+  with empty stderr, including independent cap bounds and three display sizes.
+  Native captures inspected; independent review clear;281attack regression
+  checks pass. Current v8-core-attack review refreshed. Logs in
+  artifacts/paladin-core-centered. Still visual2D contact, not continuous3D
+  physics or phone profiling. No gameplay, save, APK, commit or push.
+
 ## Commit validation for the Paladin sprite pipeline — 2026-11-01
 
 - User requests commit/push of accumulated Paladin sources, equipment fitting,

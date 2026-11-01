@@ -42,8 +42,8 @@ func _fit_stage(stage: Control, group: Node2D) -> void:
 func seek_action(seconds: float) -> void:
 	super.seek_action(seconds)
 	for room in rooms:
-		# Base reaction previews put the feet at zero. Here each actor approaches
-		# a different cap, so its contact shadow must follow that fixed root.
+		# Base reaction previews put the feet at zero. Here each actor faces the
+		# Core from a different side, so its shadow follows that fixed root.
 		room.contact_shadow.position = room.actor.position
 		room.set_pose(room.actor.frame,action_time >= impact_time and action_time < impact_time+.065)
 

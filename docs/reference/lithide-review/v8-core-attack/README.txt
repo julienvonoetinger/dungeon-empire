@@ -11,10 +11,15 @@ Réutilisation des SpriteFrames v7 sans nouveau rendu/image/sprite, échelle
 de production, avec son shader vortex, ses deux effets de sol et sa taille
 native. Quatre petites plateformes utilisent le même rendu de sol du jeu.
 
-La scène calibre en2D le point de frappe enregistré du marteau sur chacun des
-quatre chapiteaux du socle : centres(±.295,±.295), hauteur.255, issus de la
-géométrie figée migration-v1. L'origine du paladin est calculée une seule fois
-et reste fixe. Le tri des objets réutilise les supports du rendu isométrique.
+Correction après retour utilisateur : le corps du paladin fait maintenant face
+au centre du cœur, au milieu de chaque côté. L'ancien alignement du marteau sur
+le chapiteau opposé décalait le corps latéralement. La portée projetée au sol
+détermine la même distance d'approche (~.722case) dans les quatre directions ;
+elle ne dépend pas de la hauteur apparente du marteau. L'origine reste fixe.
+Le marteau droit vise le chapiteau du côté de la main : centres(±.295,±.295),
+dessus carré.17 à hauteur.255, issus de la géométrie figée migration-v1. Le
+contact peut toucher toute cette surface, sans exiger son centre exact. Le tri
+des objets réutilise les supports du rendu isométrique.
 Ceci vérifie l'alignement visuel des sprites ; ce n'est pas une nouvelle
 validation physique continue des modèles3D ni une application de dégâts réels.
 
@@ -25,12 +30,16 @@ Le temps du vortex suit pause et vitesse, sans redémarrer entre deux attaques.
 L'impact donne un bref éclat au cœur. Ghost core agit uniquement sur son alpha.
 Aucune sauvegarde joueur, règles de raid, héros autorisés, textures ou APK modifiés.
 
-Vérifications natives :208contrôles de scène passent ;281contrôles de l'attaque
-précédente et354des dégâts/mort passent après la refactorisation. Stderr vide.
+Vérifications natives :224contrôles de scène passent après7échecs reproduisant
+le décalage et les distances inégales. Nouveaux contrôles : corps sur l'axe du
+cœur, bon côté d'approche, distance égale et impact dans le vrai chapiteau.
+Les281contrôles de l'attaque précédente passent également. Stderr vide.
 Contrôle des quatre directions, ressources originales, échelles, contact2D,
 positions stables, pieds hors du socle, tri avant/arrière, ombre/lueur, pause,
 vitesses, transparence et3formats1280x720/844x390/720x960. Captures inspectées,
-revue indépendante sans anomalie restante. Pas de profilage physique mobile.
+revue indépendante sans anomalie actionnable.
+Logs de cette correction dans artifacts/paladin-core-centered ; les captures
+actuelles restent dans artifacts/paladin-core-attack. Pas de profilage mobile.
 
 Reproduction depuis la racine du dépôt, commandes successives :
   godot --headless --path . --editor --import

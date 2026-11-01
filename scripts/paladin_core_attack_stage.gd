@@ -4,6 +4,7 @@ extends "res://scripts/mobile_dungeon_renderer.gd"
 const NORMALS := {&"se": Vector2.LEFT, &"sw": Vector2.UP, &"nw": Vector2.RIGHT, &"ne": Vector2.DOWN}
 # Corner-cap geometry from the core's approved migration-v1 source.
 const CAP_CENTER := .295
+const CAP_HALF_SIZE := .085
 const CAP_HEIGHT := .255
 var actor: AnimatedSprite2D
 var contact_shadow: Sprite2D
@@ -25,14 +26,19 @@ func build(direction: StringName, frames: SpriteFrames, registration: Dictionary
 	render_plan({"cells":cells,"openings":openings,"hearts":PackedVector2Array([Vector2.ZERO]),"floor_variants":true},{},false)
 	var normal: Vector2 = NORMALS[facing]
 	var tangent := Vector2(-normal.y,normal.x)
-	var cap := (normal + tangent) * CAP_CENTER
+	# The right-hand hammer reaches the cap beside the forward body axis.
+	# Align the body with the Core centre instead of pulling it sideways to
+	# make the hammer hit the exact centre of the opposite corner cap.
+	var cap := (normal - tangent) * CAP_CENTER
 	strike_point = grid_to_local(cap,CAP_HEIGHT)
 	var view: Dictionary = registration.views[facing]
 	hammer_offset = Vector2(view.impact[0],view.impact[1])
-	# Calibrate the 2D contact against the real stone cap. Both art scales stay
-	# unchanged, and the actor's ground root is fixed throughout the entire blow.
-	var root_position := strike_point - hammer_offset
-	hero_grid = local_to_grid(root_position)
+	# Ground-projected reach excludes height, keeping the same approach distance
+	# in all four views. The recorded contact still lands within the cap's top.
+	var ground_offset := local_to_grid(Vector2(view.ground[0],view.ground[1]))
+	var reach := -ground_offset.dot(normal)
+	hero_grid = normal * (CAP_CENTER + reach)
+	var root_position := grid_to_local(hero_grid)
 	contact_shadow = Sprite2D.new()
 	contact_shadow.name = "FootContact"
 	contact_shadow.texture = load(LIGHT_FALLOFF_PATH)
@@ -86,7 +92,11 @@ func set_pose(frame: int, impact: bool) -> void:
 	core_sprite.modulate = Color(1.18,1.08,1.18) if impact else Color.WHITE
 
 func contact_error() -> float:
-	return (actor.position + hammer_offset).distance_to(strike_point)
+	# Contact may be anywhere on the actual cap, not only at its centre.
+	var impact := actor.position + hammer_offset
+	var cap := local_to_grid(strike_point,CAP_HEIGHT)
+	var closest := local_to_grid(impact,CAP_HEIGHT).clamp(cap-Vector2.ONE*CAP_HALF_SIZE,cap+Vector2.ONE*CAP_HALF_SIZE)
+	return impact.distance_to(grid_to_local(closest,CAP_HEIGHT))
 
 func footprint() -> Rect2:
 	return Rect2(hero_grid-Vector2.ONE*.16,Vector2.ONE*.32)
