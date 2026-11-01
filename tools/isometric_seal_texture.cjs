@@ -2,7 +2,7 @@
 // Shared UV registration keeps tools and hardware at the accepted positions.
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const P=require('./isometric_paint_geometry.cjs'),M=require('./seal_masonry_finish.cjs'),Palette=require('./isometric_wall_palette.cjs');
-const BASE='docs/reference/door-redesign/seal-v1',SELECTION=BASE+'/hero-fit-v13-malefic-leaf/selection.json';
+const BASE='docs/reference/door-redesign/seal-v1',SELECTION=BASE+'/hero-fit-v15-iron-crystals/selection.json';
 const read=p=>JSON.parse(fs.readFileSync(path.join(P.ROOT,p)));
 const selection=read(SELECTION);
 for(const [p,h]of Object.entries(selection.files))if(P.hash(p)!==h)throw Error('Accepted door input changed: '+p);
@@ -35,8 +35,9 @@ function sample(image,x,y){
  for(const [u,v,w]of [[0,0,(1-dx)*(1-dy)],[1,0,dx*(1-dy)],[0,1,(1-dx)*dy],[1,1,dx*dy]]){const k=(Math.min(Y+v,info.height-1)*info.width+Math.min(X+u,info.width-1))*4,a=data[k+3]/255;c[3]+=a*w;for(let n=0;n<3;n++)c[n]+=data[k+n]*a*w;}
  if(c[3])for(let n=0;n<3;n++)c[n]/=c[3];return c;
 }
-async function render(d,m,frame){
- const source=await image(),leafSource=await leafImage(),maps=await M.prepare(m),r=P.raster(m,frame,4),raw=Buffer.alloc(r.width*r.height*4);
+async function render(d,m,frame,leafPainting=null){
+ // Optional review paint leaves the selected production material untouched.
+ const source=await image(),leafSource=leafPainting?await sharp(path.join(P.ROOT,leafPainting)).ensureAlpha().raw().toBuffer({resolveWithObject:true}):await leafImage(),maps=await M.prepare(m),r=P.raster(m,frame,4),raw=Buffer.alloc(r.width*r.height*4);
  const fit=preparation.fit,palette=preparation.palette,inv=inverses[d];
  const uv=p=>[(mapping.xOrigin+(p[0]-mapping.xCentre)*mapping.scale-fit.translation[0])/fit.uniformScale,(mapping.zOrigin-p[2]*mapping.scale-fit.translation[1])/fit.uniformScale];
  const faceSample=(p,isLeaf)=>sample(isLeaf?leafSource:source,...uv(p));
@@ -57,4 +58,4 @@ async function render(d,m,frame){
  const png=await sharp(raw,{raw:{width:r.width,height:r.height,channels:4}}).resize(frame[2],frame[3]).png().toBuffer();
  return {png,mesh:r};
 }
-module.exports={geometry,render,referenceFiles,span:modelSource.span,report:{geometry:selection.geometry,painting:selection.painting,leafPainting:selection.leafPainting,approval:SELECTION,fit:preparation.fit,hardware:preparation.hardware,stone:'unchanged v12 fronts and shared B sides/tops',leaf:'smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact'}};
+module.exports={geometry,render,referenceFiles,span:modelSource.span,report:{geometry:selection.geometry,painting:selection.painting,leafPainting:selection.leafPainting,approval:SELECTION,fit:preparation.fit,hardware:preparation.hardware,stone:'unchanged v12 fronts and shared B sides/tops',leaf:'approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged'}};

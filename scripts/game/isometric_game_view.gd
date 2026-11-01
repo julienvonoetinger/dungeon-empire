@@ -5,6 +5,7 @@ const VulpinActor = preload("res://scripts/game/vulpin_actor.gd")
 const Stairs = preload("res://scripts/game/stair_traversal.gd")
 const Types = preload("res://scripts/game/game_types.gd")
 const ChestOrientation = preload("res://scripts/game/chest_orientation.gd")
+const UI = preload("res://scripts/game/ui/hud_theme.gd")
 # Stair suffixes name the low, open side, not the wall behind the top step.
 const ENTRANCE_OPEN_SIDES := {
 	Vector2i.UP: "north", Vector2i.RIGHT: "east",
@@ -30,6 +31,13 @@ var access_visible := false:
 		if is_instance_valid(_floor_guide): _floor_guide.queue_redraw()
 var _valid_cells: Array[Vector2i] = []
 var _floor_guide: Node2D
+var dig_cells: Array[Vector2i] = []
+var assisted_dig_cells: Dictionary = {}
+var dig_guides_visible := false:
+	set(value):
+		if dig_guides_visible == value: return
+		dig_guides_visible = value
+		if is_instance_valid(_floor_guide): _floor_guide.queue_redraw()
 
 func _ready() -> void:
 	session = owner as IsometricGameSession
@@ -47,6 +55,14 @@ func _ready() -> void:
 
 func _on_change(structure: bool) -> void:
 	if structure: rebuild()
+	dig_cells.clear()
+	# Cache the affordable frontier on state changes, never dry-run 256 complete
+	# transactions per frame. The simulator owns adjacency/support/cost rules.
+	if session.can_edit() and session.sim._has_core():
+		for y in Types.ROWS:
+			for x in Types.COLS:
+				var cell := Vector2i(x,y)
+				if session.sim.dig_failure_reason(cell).is_empty(): dig_cells.append(cell)
 	_valid_cells.clear()
 	if session.can_edit() and session.sim._has_core() and session.tool!=Types.Tool.NONE:
 		for y in Types.ROWS:
@@ -145,6 +161,15 @@ func rebuild() -> void:
 	var ordered := super._ordered_parts(solid_groups.duplicate())
 	solid_groups = ordered
 	for part in ordered: _world.move_child(part.node, -1)
+	# Static sprite bounds cheaply reject distant objects during pointer/guide
+	# queries. Union actual child rectangles so ornaments are not clipped.
+	var inverse:=get_global_transform().affine_inverse()
+	for part in solid_groups:
+		var bounds:=Rect2()
+		for sprite in part.node.find_children("*","Sprite2D",true,false):
+			var rect: Rect2=(inverse*sprite.get_global_transform())*sprite.get_rect()
+			bounds=bounds.merge(rect) if bounds.has_area() else rect
+		part["pick_bounds"]=bounds
 	if session.raid.raid_active:
 		var vulpin: bool = session.raid.hero.get("kind", "") == "thief"
 		if retained and (retained is VulpinActor) == vulpin:
@@ -339,6 +364,38 @@ func _order_actor(actor: Dictionary) -> void:
 func pick_cell(local_point: Vector2) -> Vector2i:
 	return Vector2i(local_to_grid(local_point).floor())
 
+func solid_covers_point(local_point: Vector2) -> bool:
+	var world_point := to_global(local_point)
+	# Status rings keep their mobile screen size, so they can overlap rock
+	# outside their object's floor cell. They must not become paid dig targets.
+	for item in _markers:
+		var badge: Control = item.node.badge
+		if not is_instance_valid(badge) or not badge.is_visible_in_tree(): continue
+		var badge_point := badge.get_global_transform().affine_inverse()*world_point
+		if badge_point.distance_to(badge.size*.5) <= badge.size.x*.5: return true
+		var has_seal: bool = badge.door_status in ["open","broken"] or badge.protection_tier > 0
+		if has_seal and badge_point.distance_to(Vector2(34,33)) <= 8: return true
+	for part in solid_groups:
+		if part.has("pick_bounds") and not part.pick_bounds.has_point(local_point): continue
+		# Junction shaders retain only a physical segment of a full wall image.
+		# Reject the clipped-away part before consulting the source alpha.
+		if part.has("wall_segment"):
+			var ground := local_to_grid(local_point)
+			var origin := Vector3(ground.x,ground.y,0)
+			var direction: Vector3 = _definition.get("view_direction")
+			var entry: Vector3 = (part.min-origin)/direction
+			var exit_hit: Vector3 = (part.max-origin)/direction
+			if maxf(entry.x,maxf(entry.y,entry.z)) > minf(exit_hit.x,minf(exit_hit.y,exit_hit.z)): continue
+		if _opaque_at(part.node, world_point): return true
+	return false
+
+func _opaque_at(node: Node2D, world_point: Vector2) -> bool:
+	if not node.is_visible_in_tree(): return false
+	if node is Sprite2D and node.is_pixel_opaque(node.to_local(world_point)): return true
+	for child in node.get_children():
+		if child is Node2D and _opaque_at(child,world_point): return true
+	return false
+
 func _diamond(cell: Vector2i) -> PackedVector2Array:
 	var points := PackedVector2Array()
 	for offset in [Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN,Vector2.ZERO]:
@@ -352,6 +409,8 @@ func _draw() -> void:
 			for x in Types.COLS: draw_polyline(_diamond(Vector2i(x,y)),Color(.4,.45,.65,.22),1,true)
 
 func _draw_ground_guide() -> void:
+	# The shared controller draws excavation volumes. This layer still draws
+	# valid placement cells and the Paths overlay.
 	if session.can_edit():
 		for cell in _valid_cells: _floor_guide.draw_polyline(_diamond(cell),Color(.74,.50,.85,.42),1.5,true)
 	if access_visible:

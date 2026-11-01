@@ -1,0 +1,101 @@
+{
+  "status": "review-generated-runtime-unchanged",
+  "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+  "sourceHash": "af9d5a393146698d4e7ec2b6e6f743598a5c4196d167002b3cf836bcf19d1a66",
+  "generator": "built-in ImageGen",
+  "keyhole": [
+    1,
+    1,
+    0,
+    253
+  ],
+  "geometryUnchanged": true,
+  "framesAndSupportsUnchanged": true,
+  "stonePartsPixelIdentical": [
+    {
+      "id": "door-south-leaf",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 393,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-south-arch",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 344,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-south-jamb-right",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 674,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-north-leaf",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 644,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-north-arch",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 348,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-north-jamb-right",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 418,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-east-leaf",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 533,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-east-arch",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 320,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-east-jamb-right",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 617,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-west-leaf",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 631,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-west-arch",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 322,
+      "filterFringePixels": 3
+    },
+    {
+      "id": "door-west-jamb-right",
+      "stonePixelIdenticalOutsidePanelFringe": true,
+      "sharedPanelPixels": 534,
+      "filterFringePixels": 3
+    }
+  ],
+  "production": {
+    "assets/dungeon/isometric-kit/atlas-256.png": "2deb1f177495b75b63b9fcca36d02ad622c3a217ca0eb1dc59e1fd289fb8d92f",
+    "assets/dungeon/isometric-kit/atlas-256.png.import": "b235f775eebd90a845e06116c92cd5fc00cf38bc71a171aaa0711172a6ef0bf9",
+    "assets/dungeon/isometric-kit/catalog.json": "6b0f91e260714e3f1350017c63894748080a57732502a3fa2f82da07e4ce2e94",
+    "assets/dungeon/isometric-kit/catalog.tres": "6a27b26aac0acfc89cbf8a7d68db7d4f819d095c6c1c367e9efe0383c5a0d035",
+    "assets/dungeon/isometric-kit/chests/atlas-256.png": "930bc7090716c506a62f68ea52b16038394d6a070725c4a30384102047833495",
+    "assets/dungeon/isometric-kit/chests/atlas-256.png.import": "3ab7a05417255f30c800a3ffdaf5e4f94cba63efd6487b0ef832758e5533b900",
+    "assets/dungeon/isometric-kit/open-doors/atlas-256.png": "9cb729dd13f508b338cfdbd2ae08abd84e93a3cbfe38f3421765084196eff277",
+    "assets/dungeon/isometric-kit/open-doors/atlas-256.png.import": "673ea5cae1027cad267e50e8b95aebd370f911dbb109765ed5e736c10f41545b",
+    "assets/dungeon/isometric-kit/traps/atlas-256.png": "1305bbe66a50789b85398305b25ec4effee3857974efd580fc8861857b78c46a",
+    "assets/dungeon/isometric-kit/traps/atlas-256.png.import": "b2ec1eed0f72452381379c3b64f5d5fc32ed8703ae94ae1a6000f9482c67507b"
+  },
+  "limits": "This review generator does not install or test gameplay. Installation and native validation are recorded separately in selection.json, integration.json and README.md. Crystal relief is painted onto the existing smooth leaf receiver."
+}

@@ -1,0 +1,42 @@
+{
+	"checks": 14,
+	"failures": [],
+	"samples": [
+		{
+			"inspected": 121,
+			"size": "(1280, 720)",
+			"stage": "initial",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 45,
+			"size": "(844, 390)",
+			"stage": "initial",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 31,
+			"size": "(390, 844)",
+			"stage": "initial",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 61,
+			"size": "(1280, 720)",
+			"stage": "expanded",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 45,
+			"size": "(844, 390)",
+			"stage": "expanded",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 29,
+			"size": "(390, 844)",
+			"stage": "expanded",
+			"wrong_pixels": 0
+		}
+	]
+}

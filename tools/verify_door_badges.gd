@@ -41,6 +41,7 @@ func snapshot(name: String) -> void:
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(out)
 	var game=GAME.instantiate(); game.save_path=out+"never-created.save"
+	game.persistence_enabled=false
 	root.add_child(game); game.set_process(false); await process_frame
 	game.sim.new_map()
 	for i in range(5,12): game.sim.grid[8][i]=TYPES.Tile.FLOOR; game.sim.grid[i][8]=TYPES.Tile.FLOOR

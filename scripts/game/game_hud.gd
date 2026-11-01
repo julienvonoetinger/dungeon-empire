@@ -5,10 +5,12 @@ const Catalog=preload("res://scripts/game/ui/hud_catalog.gd")
 const Selection=preload("res://scripts/game/ui/hud_selection.gd")
 const Header=preload("res://scripts/game/ui/hud_master_header.gd")
 const Radial=preload("res://scripts/game/ui/hud_build_radial.gd")
+const DigTargets=preload("res://scripts/game/ui/hud_dig_blocks.gd")
 const Types=preload("res://scripts/game/game_types.gd")
 const DEFAULT_NOTICES:=["","Action complete.","Building","Dungeon restored. Preparation resumes."]
 var session: IsometricGameSession
 var root: Control
+var dig_targets: Control
 var header: Control
 var utilities: HBoxContainer
 var undo_button: Button
@@ -52,6 +54,7 @@ func _ready() -> void:
 	session=get_parent() as IsometricGameSession
 	root=Control.new(); root.name="MasterHUD"; root.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	root.theme=UI.create(); add_child(root)
+	dig_targets=DigTargets.new(); dig_targets.hud=self; root.add_child(dig_targets)
 	header=Header.new(); root.add_child(header); header.menu_requested.connect(_open_menu)
 	utilities=HBoxContainer.new(); root.add_child(utilities)
 	utilities.add_theme_constant_override("separation",8)
@@ -78,6 +81,7 @@ func _ready() -> void:
 	pose_bar.minimum_size_changed.connect(_queue_layout)
 	hint=UI.label(root,"",12,UI.MUTED); hint.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	hint.minimum_size_changed.connect(_queue_layout)
 	radial_shield=Control.new(); root.add_child(radial_shield); radial_shield.mouse_filter=Control.MOUSE_FILTER_STOP
 	radial_shield.gui_input.connect(func(event):
 		if event is InputEventMouseButton and event.pressed: _close_radial())
@@ -103,13 +107,19 @@ func _panel(parent: Node) -> PanelContainer:
 	var panel:=PanelContainer.new(); panel.mouse_filter=Control.MOUSE_FILTER_STOP
 	parent.add_child(panel); return panel
 
-func world_tapped(cell: Vector2i) -> void:
+func world_tapped(cell: Vector2i, world_point: Vector2 = Vector2.INF) -> void:
 	if not session.can_edit() or not session.sim._inside(cell) or shade.visible: return
 	if radial.visible: _close_radial(); return
 	if _catalog_open: _close_catalog(); return
+	if selection.visible and selection.removal_pending: session.cancel_selection(); return
 	if session.selected.x>=0 and session.tool==Types.Tool.NONE: session.cancel_selection()
 	if session.tool!=Types.Tool.NONE or not session.sim._has_core(): session.activate_cell(cell); return
 	var tile: int=session.sim.grid[cell.y][cell.x]
+	if tile == Types.Tile.ROCK:
+		# The inverse floor projection may land behind a tall door or wall.
+		# Only a visible patch of rock is an excavation target.
+		if world_point.is_finite() and session.get_node("PlayArea/World/Dungeon").solid_covers_point(world_point): return
+		session.dig_cell(cell); return
 	if tile not in [Types.Tile.ROCK,Types.Tile.FLOOR] or session.sim.loot_bags.any(func(b): return b.pos==cell and b.gold>0) or session.sim.corpses.any(func(c): return c.pos==cell):
 		session.select_cell(cell); return
 	session.selected=cell; session.preview={}
@@ -221,6 +231,7 @@ func _refresh(_structure: bool) -> void:
 	var editable:=session.can_edit() and not shade.visible
 	catalog.visible=_catalog_open and editable; catalog.refresh(session)
 	selection.visible=editable and not catalog.visible and not radial.visible and session.selected.x>=0
+	session.get_node("PlayArea/World/Dungeon").dig_guides_visible=editable and not session.catalog_open and session.selected.x<0 and session.tool==Types.Tool.NONE
 	if selection.visible: selection.refresh()
 	utilities.visible=not shade.visible and not catalog.visible and not selection.visible and not radial.visible
 	catalog_button.visible=not session.raid.raid_active; undo_button.visible=not session.raid.raid_active
@@ -257,7 +268,7 @@ func _refresh_live() -> void:
 	elif session.raid.raid_active:
 		hint.text="Raid in progress · Drag to explore"
 	else:
-		hint.text="Tap a tile to build · Drag to explore"
+		hint.text="Tap a marked block to dig · %d gold\nFloor: build · Drag to explore" % Types.COST_DIG
 
 func _float_notice(text: String, color: Color) -> void:
 	var label:=UI.label(root,text,19,color)
@@ -269,6 +280,7 @@ func _float_notice(text: String, color: Color) -> void:
 	tween.chain().tween_callback(label.queue_free)
 
 func cancel_pointer() -> void:
+	dig_targets.cancel_press()
 	# Drop pending presses without changing selected toggles or disabled actions.
 	radial.cancel_pointer()
 	for button: BaseButton in root.find_children("*","BaseButton",true,false):
@@ -300,11 +312,11 @@ func _layout() -> void:
 	var pose_width:=minf(_safe.size.x-20,390) if mode=="portrait" else minf(_safe.size.x-utilities.size.x-30,390)
 	pose_bar.position=Vector2(_safe.get_center().x-pose_width/2,_safe.end.y-utilities.size.y-90) if mode=="portrait" else Vector2(_safe.position.x+10,_safe.end.y-80)
 	pose_bar.size=Vector2(pose_width,70)
-	hint.position=Vector2(_safe.position.x+8,_safe.end.y-utilities.size.y-50); hint.size=Vector2(_safe.size.x-16,32)
+	var hint_rect:=Rect2(Vector2(_safe.position.x+8,_safe.end.y-utilities.size.y-50),Vector2(_safe.size.x-16,32))
 	if mode=="landscape":
 		var speed_space:=speeds.size.x+12 if speeds.visible else 0.0
-		hint.position=Vector2(_safe.position.x+10+speed_space,_safe.end.y-48)
-		hint.size=Vector2(_safe.size.x-utilities.size.x-speed_space-30,32)
+		hint_rect=Rect2(Vector2(_safe.position.x+10+speed_space,_safe.end.y-48),Vector2(_safe.size.x-utilities.size.x-speed_space-30,32))
+	hint.position=hint_rect.position; hint.size=hint_rect.size
 	var sheet_width:=minf(_safe.size.x-16,386)
 	var sheet_height:=minf(_safe.size.y-112,520) if mode=="landscape" else minf(_safe.size.y*.60,_safe.size.y-112)
 	catalog.fit_width(sheet_width)

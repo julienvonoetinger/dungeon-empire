@@ -1,6 +1,6 @@
 {
   "id": "isometric-painted-v1",
-  "appearance": "shared dungeon stone and accepted clean-leaf Sceau interdit; jambs aligned to wall courses",
+  "appearance": "shared dungeon stone and approved v15 blackened metal/crystal doors; jambs aligned to wall courses",
   "density": 256,
   "worldPixelsPerCell": 256,
   "sourceDiamond": [
@@ -46,7 +46,7 @@
     "density": 256,
     "width": 1024,
     "height": 2048,
-    "sourceBytes": 2096585,
+    "sourceBytes": 2094278,
     "uncompressedRGBABytes": 13631488,
     "regions": {
       "heart-self-glow": {
@@ -6334,7 +6334,7 @@
         "path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "width": 512,
         "height": 1024,
-        "sourceBytes": 371809,
+        "sourceBytes": 369502,
         "uncompressedRGBABytes": 2097152
       }
     ]
@@ -6458,7 +6458,7 @@
     "docs/reference/mobile-heart-review/ritual-v3/source/a.png": "c05bfe3218c1ae045218bff300d5c5d5589b4611043ab7ce168acc60399e2bc7",
     "docs/reference/pillar-cap-review/source/carved-top.png": "f8610535c3246f4b4105a7821dab71c3f865d59276e9fe35753b87725556d422",
     "assets/dungeon/shared-materials/catalog.json": "b268b5c2285d28f6bda6546569f9908235109f1c9df97530772b78ea59a01493",
-    "tools/export_isometric_painted_kit.cjs": "17fac4e764b983e7afd77cb12ef91e293374fc0dbf782d55f1300b2a0ad02948",
+    "tools/export_isometric_painted_kit.cjs": "4fe2acaa5cd4af8dfa6a51125ceaa9cf25fb78352a59a2e709b986391fb6fee1",
     "tools/isometric_kit_geometry.cjs": "07f06243b28a15c6f5cd71c6f10598de0649f500a6d7da7a1d04375e3f72cf7a",
     "tools/wireframe_geometry.cjs": "d10b26dc9bad08d59879b3780d3c21a44ef8448f29abb7f06fb9e543a75fe9d7",
     "tools/isometric_paint_geometry.cjs": "67d0e81b610342b1fff36c8aa3ee834503e92317e987ec5dbf2f53c55245ca0b",
@@ -6517,10 +6517,10 @@
     "docs/reference/treasure-chest-review/v4-directions/source/closed-west.png": "2cd7d8e32f8d4f51118fc2ef782d8154cca00b92b26f7d4998a879ba2ddb3b8b",
     "docs/reference/treasure-chest-review/v4-directions/source/open-west.png": "86d2cab713fb07467117d055eb828464f51146b0dfd11e4e0a978b61931ed6ba",
     "docs/reference/treasure-chest-review/v4-directions/generation-complete.json": "47d4fb63b8cbbbb5120235d7faaf13bdec3ba5eb84b853cab62c174503925c6d",
-    "tools/isometric_seal_door.cjs": "fab51e9a096ed96ad4acafc68eb83a4f8134bd313c8bf7e49d8d6a3efde575a4",
-    "tools/isometric_seal_texture.cjs": "bae6e6ed0f26e368b97aa2d335e1d3e474e7e08af5ce68805fd4fa43a7323ad5",
+    "tools/isometric_seal_door.cjs": "dec46c32dcb216e68a3c6aed822e814cddfb5463e98b509bf69b67fa7c9134b1",
+    "tools/isometric_seal_texture.cjs": "cebd119d3262398ac74655417577388443c75821746876a684a970d269fe7e99",
     "tools/seal_masonry_finish.cjs": "e4ec0646718478d719048ad2759e6dac6c099b198f840e8549cc4c3ac6fb755e",
-    "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json": "6fe0c134d9b2ba855dbcd3cc2bc5a74b548fb890b7b604e7749fe7c533e7ad7b",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json": "28ffd30bb802fae1af331600c32a2a858580c982104935e52aba50b016978890",
     "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json": "f2edabeeba3638902e5bdf5d7448a564f93e4555d9768b263004009d7a84fbf6",
     "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/face-guide-magenta.png": "325b3900cd26b08caea92a8397ab85ea1f1292e241351eae6ac3e75b2aae8212",
     "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/mapping.json": "a7875a3476f884bba7642bfd3ee5b06ce24c3f190383a0fee276771d97b7384c",
@@ -6533,6 +6533,8 @@
     "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/prompt.txt": "2f95a04a55d15a5a1e812782d72606f65ab1c75712820851f9008b1e51cca171",
     "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/unified-frame-prompt.txt": "9c59ec1440f1b987d578ee1dd347931d410380dff2b2594c7ff03aa121982a67",
     "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/cross-separate-hinges.png": "a6b9b10c3cdae2c1d6fec14bfb1b9850ba66c3ec79327039ba6df26e83bc625b",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png": "af9d5a393146698d4e7ec2b6e6f743598a5c4196d167002b3cf836bcf19d1a66",
+    "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/prompt.txt": "77645abea6592af044282d3b976bf23a63dab0dc651da0a6400a7b80517db9ed",
     "tools/isometric_painted_traps.cjs": "c79b3c0c13d4451f92a6c954ebd6e9ff57da13ed3e0c1f0cbfbe40580ed297f3",
     "docs/reference/trap-review/v7-integrated-paint/selection.json": "080300543666c47c85dd26a0055d0d9711ac9288a6e3c7712bf59cd6b982bcfc",
     "tools/isometric_trap_registration.cjs": "6980d961d5c803800766aa8910bd02d9269648344c09af563607bc7f8ec7c351",
@@ -11834,8 +11836,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -11875,7 +11877,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -11899,7 +11901,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 16389
+      "bytes": 16177
     },
     {
       "id": "door-north-arch",
@@ -11924,8 +11926,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -11965,7 +11967,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -11989,7 +11991,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 18391
+      "bytes": 18317
     },
     {
       "id": "door-north-jamb-right",
@@ -12014,8 +12016,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12055,7 +12057,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12079,7 +12081,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 13867
+      "bytes": 13712
     },
     {
       "id": "door-north-panel",
@@ -12104,8 +12106,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12145,7 +12147,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12169,7 +12171,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 27942
+      "bytes": 27108
     },
     {
       "id": "door-east-leaf",
@@ -12194,8 +12196,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12235,7 +12237,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12259,7 +12261,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 12577
+      "bytes": 12472
     },
     {
       "id": "door-east-arch",
@@ -12284,8 +12286,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12325,7 +12327,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12349,7 +12351,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 17955
+      "bytes": 17882
     },
     {
       "id": "door-east-jamb-right",
@@ -12374,8 +12376,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12415,7 +12417,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12439,7 +12441,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 16993
+      "bytes": 16824
     },
     {
       "id": "door-east-panel",
@@ -12464,8 +12466,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12505,7 +12507,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12529,7 +12531,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 25272
+      "bytes": 24875
     },
     {
       "id": "door-south-leaf",
@@ -12554,8 +12556,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12595,7 +12597,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12619,7 +12621,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 14091
+      "bytes": 14004
     },
     {
       "id": "door-south-arch",
@@ -12644,8 +12646,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12685,7 +12687,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12709,7 +12711,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 17910
+      "bytes": 17824
     },
     {
       "id": "door-south-jamb-right",
@@ -12734,8 +12736,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12775,7 +12777,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12799,7 +12801,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 16061
+      "bytes": 16036
     },
     {
       "id": "door-south-panel",
@@ -12824,8 +12826,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12865,7 +12867,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12889,7 +12891,7 @@
         "overlap": 2144,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 28454
+      "bytes": 27877
     },
     {
       "id": "door-west-leaf",
@@ -12914,8 +12916,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -12955,7 +12957,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -12979,7 +12981,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 16544
+      "bytes": 16549
     },
     {
       "id": "door-west-arch",
@@ -13004,8 +13006,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -13045,7 +13047,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -13069,7 +13071,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 18159
+      "bytes": 18089
     },
     {
       "id": "door-west-jamb-right",
@@ -13094,8 +13096,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -13135,7 +13137,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -13159,7 +13161,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 13238
+      "bytes": 13160
     },
     {
       "id": "door-west-panel",
@@ -13184,8 +13186,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -13225,7 +13227,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "closed",
         "projection": {
           "x": [
@@ -13249,7 +13251,7 @@
         "overlap": 2155,
         "sourceAlpha": "original generated RGBA retained; prepared alpha comes from accepted XYZ"
       },
-      "bytes": 25735
+      "bytes": 25511
     },
     {
       "id": "wall-h-0-a1",
@@ -23362,8 +23364,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -23403,7 +23405,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -23452,8 +23454,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -23493,7 +23495,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -23542,8 +23544,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -23583,7 +23585,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -23632,8 +23634,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -23673,7 +23675,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -23722,8 +23724,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -23763,7 +23765,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -23812,8 +23814,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -23853,7 +23855,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -23902,8 +23904,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -23943,7 +23945,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -23992,8 +23994,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -24033,7 +24035,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -24082,8 +24084,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -24123,7 +24125,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -24172,8 +24174,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -24213,7 +24215,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -24262,8 +24264,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -24303,7 +24305,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -24352,8 +24354,8 @@
       "report": {
         "geometry": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/geometry.json",
         "painting": "docs/reference/door-redesign/seal-v1/hero-fit-v12-integrated/source/face-source.png",
-        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/source/face-source.png",
-        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v13-malefic-leaf/selection.json",
+        "leafPainting": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+        "approval": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
         "fit": {
           "uniformScale": 1,
           "translation": [
@@ -24393,7 +24395,7 @@
           ]
         },
         "stone": "unchanged v12 fronts and shared B sides/tops",
-        "leaf": "smooth interchangeable receiver; unified two-hinge iron lattice and violet seal; keyhole at unchanged contact",
+        "leaf": "approved v15 blackened metal plates, two-hinge iron lattice and violet crystal cluster; smooth receiver and keyhole contact unchanged",
         "doorState": "open-frame",
         "projection": {
           "x": [
@@ -24424,6 +24426,6 @@
     "Historical approved sources and wireframe snapshots remain unchanged.",
     "The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.",
     "Flame uses one screen scale with physical cup occlusion.",
-    "The four doors use approved compact v11 geometry and v12 painting: smooth interchangeable leaf, 1/3..2/3 jamb contacts, visible lower lock and hinges, generated fronts with the reviewed wall palette and shared stone sides/tops. Final pixels use independent left/right jamb, crown and closed-panel supports for actor passage, with companions consumed by the shared renderer."
+    "The four doors use approved compact v11 geometry, v12 masonry and v15 blackened metal/crystal leaf: smooth interchangeable receiver, 1/3..2/3 jamb contacts, visible lower lock and hinges. Final pixels use independent left/right jamb, crown and closed-panel supports for actor passage, with companions consumed by the shared renderer."
   ]
 }

@@ -14,6 +14,8 @@ var collect: Button
 var absorb: Button
 var transfer: Button
 var repair: Button
+var remove: Button
+var removal_pending := false
 var transfers: VBoxContainer
 var target_label: Label
 var amount_label: Label
@@ -37,6 +39,8 @@ var _limit := 0
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	visibility_changed.connect(func():
+		if not visible: removal_pending = false)
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
@@ -66,12 +70,16 @@ func _ready() -> void:
 	close.tooltip_text = "Cancel / close"
 	close.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	close.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	confirm = UI.button(header, "CONFIRM", func(): session.confirm_action(), "", true)
+	confirm = UI.button(header, "CONFIRM", _confirm, "", true)
 	transfer = UI.button(header, "Transfer gold", _open_transfer, "arrow")
 	repair = UI.button(header,"Repair",func():
 		var cell:=session.selected
 		session.choose_tool(Types.Tool.REPAIR)
 		session.select_cell(cell),"hammer")
+	remove = UI.button(header,"Remove",func():
+		removal_pending = true
+		_transfer_open = false
+		refresh(),"cross")
 	actions = HFlowContainer.new()
 	content.add_child(actions)
 	collect = UI.button(actions, "Collect loot", func(): session.collect_selected(), "coin", true)
@@ -115,6 +123,7 @@ func refresh() -> void:
 	var placing := session.tool != Types.Tool.NONE or not session.sim._has_core()
 	if p != _source:
 		_source = p
+		removal_pending = false
 		_transfer_open = false
 		_destination = Vector2i(-1, -1)
 	var tile: int = session.sim.grid[p.y][p.x] if p.x >= 0 else Types.Tile.ROCK
@@ -135,24 +144,34 @@ func refresh() -> void:
 			var hp:=int(session.sim.door_hp.get(p,Types.DOOR_MAX_HP))
 			detail.text="%d / %d HP" % [hp,Types.DOOR_MAX_HP] if hp>0 else "Unlocked" if session.sim.door_opened.get(p,false) else "Broken · Needs repair"
 		elif Types.is_trap_tile(tile): detail.text = "%d / %d charges" % [session.sim.trap_charges.get(p, 0), Types.trap_max_charges(tile)]
-	confirm.visible = placing
+	if removal_pending:
+		title.text = "Remove structure"
+		detail.text = "Return this tile to floor? No refund."
+	confirm.visible = placing or removal_pending
 	var repair_action:=session.check_action(p,Types.Tool.REPAIR)
-	repair.visible=not placing and (Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
+	repair.visible=not placing and not removal_pending and (Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
 	repair.disabled=not repair_action.get("valid",false)
 	repair.text="Repair · %d gold" % repair_action.get("cost",0)
 	repair.tooltip_text=str(repair_action.get("reason",""))
+	remove.visible=not placing and not removal_pending and (Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
+	remove.disabled=not session.can_edit()
 	confirm.disabled = not session.can_edit() or not session.preview.get("valid", false)
+	if removal_pending: confirm.disabled = not session.check_action(p,Types.Tool.DIG).get("valid",false)
 	collect.visible = p.x >= 0 and session.sim.loot_bags.any(func(b): return b.pos == p and b.gold > 0)
 	absorb.visible = p.x >= 0 and session.sim.corpses.any(func(c): return c.pos == p)
 	collect.disabled = not session.can_edit()
 	absorb.disabled = not session.can_edit()
-	actions.visible = collect.visible or absorb.visible
-	var vault := not placing and p.x >= 0 and tile == Types.Tile.VAULT
+	actions.visible = not removal_pending and (collect.visible or absorb.visible)
+	var vault := not placing and not removal_pending and p.x >= 0 and tile == Types.Tile.VAULT
 	if not vault: _transfer_open = false
 	transfer.visible = vault and not _transfer_open
 	transfers.visible = vault and _transfer_open
 	if transfers.visible: _refresh_transfer()
 	layout_changed.emit()
+
+func _confirm() -> void:
+	# Contextual removal never arms a world tool, even before confirmation.
+	session.confirm_action(Types.Tool.DIG if removal_pending else -1)
 
 func _open_transfer() -> void:
 	_transfer_open = true
@@ -160,7 +179,10 @@ func _open_transfer() -> void:
 	refresh()
 
 func _close() -> void:
-	if _transfer_open:
+	if removal_pending:
+		removal_pending = false
+		refresh()
+	elif _transfer_open:
 		_transfer_open = false
 		refresh()
 	else: dismissed.emit()

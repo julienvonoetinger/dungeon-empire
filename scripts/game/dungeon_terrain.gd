@@ -9,6 +9,7 @@ var _occupancy: Array[Vector2i] = []
 var _built := false
 var rebuild_count := 0
 var geometry: Dictionary = {}
+var cut_margin := Geometry.MARGIN
 
 func _ready() -> void:
 	session = owner as IsometricGameSession
@@ -29,11 +30,19 @@ func _changed(structure: bool) -> void:
 	_built = true
 	rebuild_count += 1
 	for child in get_children(): remove_child(child); child.queue_free()
-	geometry = Geometry.build(cells)
+	geometry = _make_geometry(cells)
+	_add_surfaces()
+
+func _make_geometry(cells: Array[Vector2i]) -> Dictionary:
+	return Geometry.build(cells,cut_margin)
+
+func _add_surfaces() -> void:
 	var bounds: Rect2 = Geometry.EXTENT
 	_add_surface([PackedVector2Array([bounds.position,Vector2(bounds.end.x,bounds.position.y),bounds.end,Vector2(bounds.position.x,bounds.end.y)])],0,1,"RawGround")
-	_add_surface(geometry.top,HEIGHT,0,"RockTop")
 	_add_faces()
+	# The top is the highest opaque surface. It must cover lower cut faces
+	# projected behind foreground rock, especially at concave contour steps.
+	_add_surface(geometry.top,HEIGHT,0,"RockTop")
 
 func _material(surface: int) -> ShaderMaterial:
 	var material := ShaderMaterial.new()

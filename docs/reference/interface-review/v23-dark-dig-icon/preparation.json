@@ -1,0 +1,20 @@
+{
+  "tool": "Built-in ImageGen",
+  "method": "alpha crop + uniform resize, no paint edits",
+  "source": "source/dig.png",
+  "prompt": "source/dig.prompt.txt",
+  "sha256": "876a6e6323b14403a0009203de5ea05cd364f450fb21f4d5a77142a7019b2188",
+  "crop": {
+    "left": 155,
+    "top": 81,
+    "width": 1045,
+    "height": 1091
+  },
+  "output": "assets/ui/master/dark-icons/dig.png",
+  "size": [
+    64,
+    64
+  ],
+  "pngBytes": 7072,
+  "rgbaBytes": 16384
+}

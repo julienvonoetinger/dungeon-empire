@@ -1,0 +1,27 @@
+{
+	"checks": 7,
+	"failures": [],
+	"samples": [
+		{
+			"examples": [],
+			"intercepted": 0,
+			"masonry_samples": 636,
+			"size": "(1280, 720)",
+			"stained": 0
+		},
+		{
+			"examples": [],
+			"intercepted": 0,
+			"masonry_samples": 185,
+			"size": "(844, 390)",
+			"stained": 0
+		},
+		{
+			"examples": [],
+			"intercepted": 0,
+			"masonry_samples": 156,
+			"size": "(390, 844)",
+			"stained": 0
+		}
+	]
+}

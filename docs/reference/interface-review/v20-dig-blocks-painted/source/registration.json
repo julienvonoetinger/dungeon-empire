@@ -1,0 +1,8 @@
+{
+  "description": "Paint landmarks only. The approved world geometry remains unchanged. Coordinates in the original 1254px canvases; clockwise top a,b,c,d, bottom visible e,f,g.",
+  "variants": [
+    {"name":"stone-a", "vertices":{"a":[626,216],"b":[1143,488],"c":[626,765],"d":[110,488],"e":[1143,732],"f":[626,1029],"g":[110,732]}},
+    {"name":"stone-b", "vertices":{"a":[626,216],"b":[1143,490],"c":[626,765],"d":[110,490],"e":[1143,733],"f":[626,1030],"g":[110,733]}},
+    {"name":"corrupted", "vertices":{"a":[626,216],"b":[1144,488],"c":[626,765],"d":[110,488],"e":[1144,733],"f":[626,1029],"g":[110,733]}}
+  ]
+}

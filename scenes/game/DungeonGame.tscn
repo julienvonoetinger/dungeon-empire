@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/game/isometric_game_view.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/game/game_input.gd" id="3"]
 [ext_resource type="Script" path="res://scripts/game/game_hud.gd" id="4"]
-[ext_resource type="Script" path="res://scripts/game/dungeon_terrain.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/excavation_terrain.gd" id="5"]
 
 [node name="DungeonGame" type="Node"]
 script = ExtResource("1")

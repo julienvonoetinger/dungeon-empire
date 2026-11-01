@@ -1,0 +1,364 @@
+{
+	"checks": 7,
+	"failures": [
+		"Excavation volumes leave masonry pixels intact at (1280, 720): 2169 tinted samples",
+		"Excavation volumes leave masonry pixels intact at (844, 390): 693 tinted samples",
+		"Excavation volumes leave masonry pixels intact at (390, 844): 490 tinted samples"
+	],
+	"samples": [
+		{
+			"examples": [
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1036, 459)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1038, 459)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1040, 459)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1032, 461)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1034, 461)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1036, 461)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1038, 461)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1040, 461)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1042, 461)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1028, 463)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1030, 463)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(1032, 463)"
+				}
+			],
+			"intercepted": 0,
+			"masonry_samples": 5166,
+			"size": "(1280, 720)",
+			"stained": 2169
+		},
+		{
+			"examples": [
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(636, 249)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(638, 249)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-h-2",
+						"pillar",
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(622, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-h-2",
+						"pillar",
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(624, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-h-2",
+						"pillar",
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(626, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(628, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(630, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(632, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(634, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(636, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(638, 251)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"pillar"
+					],
+					"picked": false,
+					"pixel": "(640, 251)"
+				}
+			],
+			"intercepted": 0,
+			"masonry_samples": 1663,
+			"size": "(844, 390)",
+			"stained": 693
+		},
+		{
+			"examples": [
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(389, 486)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(385, 488)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(387, 488)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(389, 488)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(381, 490)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(383, 490)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(385, 490)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(387, 490)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(389, 490)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(377, 492)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(379, 492)"
+				},
+				{
+					"cell": "(10, 7)",
+					"changed": true,
+					"ids": [
+						"wall-v-1-a1"
+					],
+					"picked": false,
+					"pixel": "(381, 492)"
+				}
+			],
+			"intercepted": 0,
+			"masonry_samples": 1287,
+			"size": "(390, 844)",
+			"stained": 490
+		}
+	]
+}

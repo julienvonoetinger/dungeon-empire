@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dungeon Empire · Espacement des cubes</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#0b111c;color:#e3e5ef}*{box-sizing:border-box}body{max-width:1344px;margin:auto;padding:24px}h1{font-size:26px;margin:0 0 8px}p{color:#afb8ce;max-width:1000px}nav{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 16px}button{font:inherit;color:#e8ddf7;background:#253149;border:1px solid #67738e;border-radius:10px;padding:12px 20px;min-height:48px;cursor:pointer}button[aria-pressed=true]{border-color:#bc8ced;background:#3f3057}label{display:flex;align-items:center;gap:10px;padding:12px;cursor:pointer}input{width:20px;height:20px;accent-color:#bd86ed}.stage{background:#111a29;border:1px solid #354257;border-radius:12px;padding:8px;text-align:center}.stage img{max-width:100%;height:auto;vertical-align:middle}.stage img.portrait{max-height:844px}a{color:#cda1f4}details{margin-top:28px;padding:16px;border:1px solid #354257;border-radius:12px}code{overflow-wrap:anywhere}.detail{display:block;width:min(100%,600px);margin:20px auto;border:1px solid #354257;border-radius:12px}
+</style>
+<h1>Les cubes gardent leur espacement aux angles</h1>
+<p>Le recul est maintenant partagé par les cubes d’une même rangée ou colonne. Un cube situé dans un angle ne se décale plus latéralement dans son voisin. Leurs dimensions restent identiques et le dégagement autour du donjon reste de 1,20 case.</p>
+<nav aria-label="Comparaison"><button data-size="1280x720" aria-pressed="true">Bureau</button><button data-size="844x390" aria-pressed="false">Mobile paysage</button><button data-size="390x844" aria-pressed="false">Mobile portrait</button><label><input id="before" type="checkbox">Avant la correction</label></nav>
+<div class="stage"><img id="capture" src="native/1280x720.png" width="1280" height="720" alt="Les rangées de cubes gardent leur espacement"></div>
+<p id="caption">Capture Godot · 1280 × 720 · Après correction</p>
+<h2>Détail du côté signalé</h2>
+<svg class="detail" viewBox="105 250 370 220" role="img" aria-label="Détail des cubes le long du couloir"><image id="detail-image" href="native/1280x720.png" width="1280" height="720"/></svg>
+<p>La comparaison ci-dessus change aussi ce détail. <a href="native/after-dig.png">Voir après un creusement</a> · <a href="native/pressed.png">Voir l’appui</a>.</p>
+<details><summary>Validation et reproduction</summary>
+<p>Le contrôle reproduisait deux intersections de 0,04 case entre les cubes voisins du couloir : <a href="native/before-report.json">rapport avant correction</a>. Le placement commun supprime ces intersections sans réduire les volumes ni changer la grille logique.</p>
+<p><a href="native/spacing-report.json">Contrôle géométrique</a> : toutes les paires de cubes du donjon d’essai, puis 24 creusements réellement effectués et leurs 24 annulations, avec la graine 241025. Aucun volume ne se pénètre dans ces états. <a href="native/interaction-report.json">337 vérifications natives</a> conservent les dimensions historiques, les appuis sur le dessus et les côtés, le prix, le déplacement de caméra, le terrain et l’annulation. <a href="native/clearance-report.json">7 contrôles visuels</a> confirment que les pixels opaques de maçonnerie ne sont pas recouverts dans trois formats. Les occultations normales de la projection isométrique restent possibles ; elles ne sont pas des intersections de volumes.</p>
+<p>Scène isolée <a href="../../../../scenes/DigBlocksPreview.tscn">DigBlocksPreview.tscn</a>, sans sauvegardes joueur. Reproduction : <code>godot --headless --path . --script res://tools/verify_dig_block_spacing.gd</code>, puis les outils natifs <code>verify_dig_clearance.gd</code> et <code>capture_dig_blocks.gd</code>. Le jeu principal conserve sa présentation actuelle. Ces tests ne couvrent pas toutes les cartes possibles ; pas de validation sur téléphone physique.</p>
+</details>
+<script>
+let size='1280x720';const capture=document.querySelector('#capture'),before=document.querySelector('#before');
+function show(){const [w,h]=size.split('x'),folder=before.checked?'../v24-wider-clearance/native/':'native/';capture.src=folder+size+'.png';capture.width=w;capture.height=h;capture.classList.toggle('portrait',+h>+w);document.querySelector('#detail-image').setAttribute('href',folder+'1280x720.png');document.querySelector('#caption').textContent='Capture Godot · '+w+' × '+h+' · '+(before.checked?'Avant correction':'Après correction');}
+document.querySelectorAll('button[data-size]').forEach(button=>button.addEventListener('click',()=>{size=button.dataset.size;document.querySelectorAll('button[data-size]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));show();}));before.addEventListener('change',show);
+</script></html>

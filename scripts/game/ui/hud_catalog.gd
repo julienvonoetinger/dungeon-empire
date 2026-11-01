@@ -7,7 +7,6 @@ const Types = preload("res://scripts/game/game_types.gd")
 const GROUPS := ["Terrain", "Doors", "Traps", "Treasures"]
 const GROUP_ICONS := ["pick", "door", "spike", "chest"]
 const TOOLS := [
-	[Types.Tool.DIG, "Dig", "5 gold", "pick", 0],
 	[Types.Tool.BUILD_ENTRANCE, "Entrance", "Free", "door", 0],
 	[Types.Tool.REPAIR, "Repair", "Varies", "hammer", 0],
 	[Types.Tool.TRAP_SPIKE, "Spikes", "35 gold", "spike", 2],
@@ -122,6 +121,8 @@ func refresh(session: IsometricGameSession) -> void:
 	_choose_category(category)
 
 static func definition(tool: int) -> Array:
+	# Legacy/probe commands can still use Dig; it is no longer a menu item.
+	if tool == Types.Tool.DIG: return [tool, "Dig", "%d gold" % Types.COST_DIG, "pick", 0]
 	for item in TOOLS:
 		if item[0] == tool: return item
 	return [Types.Tool.NONE, "Core", "Free", "gem", 0]

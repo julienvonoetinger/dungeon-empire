@@ -21,8 +21,8 @@ function pieces(m,d) {
  });
 }
 function alphaBounds(data,w,h,threshold=128){let x0=w,y0=h,x1=0,y1=0;for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(data[(y*w+x)*4+3]>threshold){x0=Math.min(x0,x);y0=Math.min(y0,y);x1=Math.max(x1,x);y1=Math.max(y1,y);}return [x0,y0,x1-x0+1,y1-y0+1];}
-async function paint(d,open=false){
-  const m=geometry(d,open),f=frame(m.faces),{png,mesh}=await Texture.render(d,m,f);
+async function paint(d,open=false,leafPainting=null){
+  const m=geometry(d,open),f=frame(m.faces),{png,mesh}=await Texture.render(d,m,f,leafPainting);
   const rgba=await sharp(png).ensureAlpha().raw().toBuffer();
   const parts=pieces(m,d),buffers=parts.map(()=>Buffer.alloc(rgba.length)),owners=new Int8Array(f[2]*f[3]).fill(-1);
   for(let y=0;y<f[3];y++)for(let x=0;x<f[2];x++){

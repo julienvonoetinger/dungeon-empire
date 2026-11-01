@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dungeon Empire · Dégagement extérieur élargi</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#0b111c;color:#e3e5ef}*{box-sizing:border-box}body{max-width:1344px;margin:auto;padding:24px}h1{font-size:26px;margin:0 0 8px}p{color:#afb8ce;max-width:1000px}nav{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 16px}button{font:inherit;color:#e8ddf7;background:#253149;border:1px solid #67738e;border-radius:10px;padding:12px 20px;min-height:48px;cursor:pointer}button[aria-pressed=true]{border-color:#bc8ced;background:#3f3057}label{display:flex;align-items:center;gap:10px;padding:12px;cursor:pointer}input{width:20px;height:20px;accent-color:#bd86ed}.stage{background:#111a29;border:1px solid #354257;border-radius:12px;padding:8px;text-align:center}.stage img{max-width:100%;height:auto;vertical-align:middle}.stage img.portrait{max-height:844px}a{color:#cda1f4}details{margin-top:28px;padding:16px;border:1px solid #354257;border-radius:12px}code{overflow-wrap:anywhere}footer{margin-top:24px;color:#9da8bd;font-size:14px}
+</style>
+<h1>Plus d’espace autour des murs, mêmes cubes</h1>
+<p>Le découpage de la roche passe de 0,90 à 1,20 case autour du donjon. Les cubes reculent avec le bord extérieur de ce dégagement : leur largeur, leur profondeur et leur hauteur restent identiques à la version précédente. L’icône sombre est conservée.</p>
+<nav aria-label="Format de capture"><button data-size="1280x720" aria-pressed="true">Bureau</button><button data-size="844x390" aria-pressed="false">Mobile paysage</button><button data-size="390x844" aria-pressed="false">Mobile portrait</button><label><input id="before" type="checkbox">Comparer avec l’ancien dégagement</label></nav>
+<div class="stage"><img id="capture" src="native/1280x720.png" width="1280" height="720" alt="Le dégagement élargi sépare les cubes de creusement des murs"></div>
+<p id="caption">Capture Godot · 1280 × 720 · Dégagement élargi</p>
+<p>Un appui sur un cube creuse toujours la case correspondante pour 5 pièces. Les murs et les indicateurs de statut ne deviennent pas des cibles de creusement. <a href="native/after-dig.png">Voir après un creusement</a> · <a href="native/pressed.png">Voir l’appui</a>.</p>
+<details><summary>Scène et validation</summary>
+<p>Proposition isolée dans <a href="../../../../scenes/DigBlocksPreview.tscn">DigBlocksPreview.tscn</a>, sans lecture ni écriture des sauvegardes du joueur. L’élargissement n’est pas encore appliqué à la scène de jeu principale.</p>
+<p>La roche est réellement découpée plus loin : ce n’est pas une ombre ajoutée. Le déplacement du repère est calculé à partir de l’élargissement et de ses voisines excavées ; son identifiant de case reste inchangé. La grille du donjon, les dimensions des murs et la caméra restent identiques. Aucune nouvelle texture.</p>
+<p><a href="native/interaction-report.json">337 contrôles natifs réussis</a> : dimensions comparées au code historique, translation sans déformation, hauteur, terrain, appui sur le dessus et sur une face, coût unique, déplacement de caméra et annulation. <a href="native/clearance-report.json">7 contrôles de recouvrement réussis</a> : comparaison des pixels opaques de maçonnerie avec et sans guides, et protection des appuis, dans trois formats. Le même contrôle de pixels échoue sur <a href="native/before-report.json">l’ancien placement</a>. Les franges transparentes des sprites sont exclues de la comparaison.</p>
+<p>Reproduction : <code>godot --path . --script res://tools/verify_dig_clearance.gd</code>, puis <code>godot --path . --script res://tools/capture_dig_blocks.gd</code>. Captures Godot inspectées en bureau, paysage et portrait. Les tests couvrent le donjon d’essai, son extension par un creusement et l’annulation ; pas toutes les configurations possibles, ni de téléphone physique.</p>
+</details>
+<footer>Proposition visuelle · 30 octobre 2026</footer>
+<script>
+let size='1280x720';const capture=document.querySelector('#capture'),before=document.querySelector('#before');
+function show(){const [w,h]=size.split('x');capture.src=(before.checked?'../v23-dark-dig-icon/native/':'native/')+size+'.png';capture.width=w;capture.height=h;capture.classList.toggle('portrait',+h>+w);capture.alt='Capture Godot · '+size+(before.checked?' · Ancien dégagement':' · Dégagement élargi');document.querySelector('#caption').textContent='Capture Godot · '+w+' × '+h+' · '+(before.checked?'Ancien dégagement':'Dégagement élargi');}
+document.querySelectorAll('button[data-size]').forEach(button=>button.addEventListener('click',()=>{size=button.dataset.size;document.querySelectorAll('button[data-size]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));show();}));before.addEventListener('change',show);
+</script></html>

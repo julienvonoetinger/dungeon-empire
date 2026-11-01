@@ -1,5 +1,5 @@
 extends SceneTree
-## Uses its own never-existing slot; transactions write only to ignored artifacts.
+## Native interactions without reading or writing any player saves.
 const GAME = preload("res://scenes/game/DungeonGame.tscn")
 const TYPES = preload("res://scripts/game/game_types.gd")
 var failures: Array[String] = []
@@ -8,6 +8,7 @@ func check(ok: bool, message: String) -> void:
 	if not ok: failures.append(message); push_error(message)
 func run() -> void:
 	var game = GAME.instantiate()
+	game.persistence_enabled=false
 	game.save_path="res://artifacts/master-ui-never-player.save"
 	root.add_child(game); game.set_process(false)
 	await process_frame
@@ -44,8 +45,8 @@ func run() -> void:
 	game.set_paused(false)
 	hud._open_catalog(2)
 	check(game.catalog_open,"Catalogue suspends preparation timer")
-	hud._choose_tool(TYPES.Tool.DIG)
-	check(not game.catalog_open and game.tool==TYPES.Tool.DIG,"Catalogue arms without purchase")
+	hud._choose_tool(TYPES.Tool.TRAP_SPIKE)
+	check(not game.catalog_open and game.tool==TYPES.Tool.TRAP_SPIKE,"Catalogue arms without purchase")
 	check(game.sim.gold==before-70,"Catalogue navigation is free")
 	hud._stop_placing()
 	# An occupied cell opens its existing sheet; opening Pause does not discard it.
@@ -59,6 +60,7 @@ func run() -> void:
 		root.size=extent
 		for i in 8: await process_frame
 		for cell in [Vector2i(0,0),Vector2i(15,0),Vector2i(0,15),Vector2i(15,15)]:
+			game.sim.grid[cell.y][cell.x]=TYPES.Tile.FLOOR
 			hud.world_tapped(cell)
 			var rect: Rect2=hud.radial.get_global_rect()
 			check(hud._safe.encloses(rect),"Radial clipped at "+str(extent)+" "+str(cell))
@@ -115,11 +117,13 @@ func run() -> void:
 	# Failed disk writes must stay visible, even while armed or in the pause menu.
 	var old_path: String=game.save_path
 	game.save_path="res://artifacts/nonexistent-master-ui-directory/failure.save"
+	game.persistence_enabled=true # Exercise only this deliberate artifact-path failure.
 	game.choose_tool(TYPES.Tool.TRAP_SPIKE); game.activate_cell(Vector2i(8,7))
 	check(not game.save_error.is_empty(),"Unwritable review path must exercise the save-failure branch")
 	check(hud.pose_bar.visible and hud.pose_label.text.contains("save"),"Failed save must be visible after placement")
 	hud._open_menu()
 	check(hud.modal_text.text.contains("save"),"Pause must retain the save failure notice")
+	game.persistence_enabled=false
 	game.save_path=old_path; game.save_error=""; hud.handle_back(); game.cancel_selection()
 	# 2x advances the same simulation in two bounded steps, pause advances none.
 	game.sim.grid[7][9]=TYPES.Tile.ENTRANCE

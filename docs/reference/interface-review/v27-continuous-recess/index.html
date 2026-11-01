@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dungeon Empire · Renfoncement continu</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#0b111c;color:#e3e5ef}*{box-sizing:border-box}body{max-width:1344px;margin:auto;padding:24px}h1{font-size:28px;margin:0 0 8px}h2{font-size:21px}p{color:#b5bfd1;max-width:1000px}nav{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 16px}button,select{font:inherit;color:#eee4f8;background:#253149;border:1px solid #67738e;border-radius:10px;padding:12px 18px;min-height:48px;cursor:pointer}button[aria-pressed=true]{border-color:#bc8ced;background:#3f3057}label{display:flex;align-items:center;gap:10px;padding:8px;cursor:pointer}input{width:20px;height:20px;accent-color:#bd86ed}.stage{background:#111a29;border:1px solid #354257;border-radius:12px;padding:8px;text-align:center}.stage img{max-width:100%;height:auto;vertical-align:middle}.stage img.portrait{max-height:844px}a{color:#cda1f4}details{margin-top:28px;padding:16px;border:1px solid #354257;border-radius:12px}summary{cursor:pointer}code{overflow-wrap:anywhere}.detail{display:block;width:min(100%,800px);margin:20px auto;border:1px solid #354257;border-radius:12px}img{max-width:100%;height:auto}
+</style>
+<h1>Un renfoncement continu autour du donjon</h1>
+<p>La roche descend maintenant vers le pied des murs par un raccord incliné. Le contour suit l’union des cases creusées, avec des angles extérieurs adoucis et des retours continus dans les coins rentrants. Il s’agit d’un relief réel : la texture suit sa surface.</p>
+<p>Les cubes conservent leur base de 0,74 × 0,74 case, la hauteur des murs et leur placement commun par rangée. Le bord extérieur reste à 1,35 case. Cette proposition est dans <strong>DigBlocksPreview</strong>.</p>
+<nav aria-label="Comparaison du renfoncement">
+<button data-size="1280x720" aria-pressed="true">Bureau</button><button data-size="844x390" aria-pressed="false">Mobile paysage</button><button data-size="390x844" aria-pressed="false">Mobile portrait</button>
+<label>Situation <select id="stage"><option value="expanded">Après creusement du couloir</option><option value="initial">Donjon initial</option></select></label>
+<label><input id="before" type="checkbox">Ancien décroché vertical</label>
+</nav>
+<div class="stage"><img id="capture" src="native/expanded-1280x720.png" width="1280" height="720" alt="Raccord continu autour du couloir agrandi, sans pans verticaux isolés"></div>
+<p id="caption">Capture Godot · 1280 × 720 · Raccord continu</p>
+<h2>Le raccord à gauche du couloir</h2>
+<svg class="detail" viewBox="0 120 450 430" role="img" aria-label="Détail du renfoncement autour du couloir"><image id="detail-image" href="native/expanded-1280x720.png" width="1280" height="720"/></svg>
+<p>Les contrôles changent aussi le détail. La vue portrait est déplacée vers ce bord du donjon pour inspecter le même raccord.</p>
+<details><summary>Voir le relief sans texture</summary>
+<p>Capture de la même géométrie dans Godot, avec des couleurs simples et la grille. La roche extérieure est à la hauteur des murs ; le fond du dégagement est au niveau du sol. La bande inclinée relie les deux sans faces verticales indépendantes.</p>
+<img src="native/geometry.png" width="1280" height="720" loading="lazy" alt="Vue de la géométrie réelle du renfoncement, sans texture de pierre">
+</details>
+<details><summary>Validation et limites</summary>
+<p>Le problème comportait aussi un défaut d’ordre de dessin : des faces basses recouvraient la roche supérieure. Le rendu partagé dessine désormais le dessus opaque en dernier. <a href="native/occlusion-before-report.json">Reproduction avant correction</a> : quatre cas avec des pixels incorrects, et deux vues portrait sans échantillons exploitables. Après déplacement de la caméra portrait, les six vues sont couvertes : <a href="native/occlusion-report.json">14 contrôles passent</a>. Le comparatif « ancien décroché » conserve cette correction d’occultation pour isoler le changement de relief.</p>
+<p><a href="native/geometry-report.json">48 contrôles de géométrie</a> couvrent une case, un angle rentrant, deux zones séparées, un îlot de roche, la carte vide et le donjon avant/après le creusement réel de la case (4,9). Hauteurs bornées, couverture complète, absence de triangles retournés dans la projection et annulation exacte. La maquette courante contient 1 177 sommets et 2 192 triangles ; la géométrie se reconstruit uniquement quand l’occupation du sol change.</p>
+<p><a href="native/interaction-report.json">337 contrôles d’interaction</a>, <a href="native/spacing-report.json">12 974 contrôles de taille/espacement</a> (24 creusements puis 24 annulations) et <a href="native/clearance-report.json">7 contrôles de maçonnerie</a> passent. Sorties d’erreur vides. Captures natives inspectées en bureau, paysage court et portrait.</p>
+<p>Reproduction : <code>godot --path . --script res://tools/verify_continuous_recess.gd</code>, puis <code>verify_terrain_recess.gd</code>, <code>verify_dig_clearance.gd</code> et <code>capture_dig_blocks.gd</code>. Le contrôle des volumes s’exécute sans interface avec <code>godot --headless --path . --script res://tools/verify_dig_block_spacing.gd</code>.</p>
+<p>Aucune nouvelle image de texture ; les peintures existantes sont réutilisées. Le jeu principal conserve son renfoncement et sa marge actuels, avec seulement la correction d’occultation partagée. Aucun accès aux sauvegardes joueur, APK, commit ou push. Toutes les cartes possibles et les performances sur téléphone physique restent à valider. 31 octobre 2026.</p>
+</details>
+<script>
+let size='1280x720';const capture=document.querySelector('#capture'),before=document.querySelector('#before'),stage=document.querySelector('#stage');
+function show(){const [w,h]=size.split('x'),folder=before.checked?'native/before/':'native/',src=folder+stage.value+'-';capture.src=src+size+'.png';capture.width=+w;capture.height=+h;capture.classList.toggle('portrait',+h>+w);document.querySelector('#detail-image').setAttribute('href',src+'1280x720.png');document.querySelector('#caption').textContent='Capture Godot · '+w+' × '+h+' · '+(before.checked?'Ancien décroché vertical':'Raccord continu');}
+document.querySelectorAll('button[data-size]').forEach(button=>button.addEventListener('click',()=>{size=button.dataset.size;document.querySelectorAll('button[data-size]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));show();}));before.addEventListener('change',show);stage.addEventListener('change',show);
+</script>
+</html>

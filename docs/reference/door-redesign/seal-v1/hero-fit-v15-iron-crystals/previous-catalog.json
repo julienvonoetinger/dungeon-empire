@@ -1,0 +1,430 @@
+{
+  "door-south-leaf": {
+    "file": "parts/previous-door-south-leaf.png",
+    "offset": [
+      -101,
+      -111
+    ],
+    "size": [
+      63,
+      170
+    ],
+    "bounds": {
+      "min": [
+        -0.08333333333333333,
+        0.3333333333333333,
+        0
+      ],
+      "max": [
+        0.2752365714285715,
+        0.6666666666666666,
+        0.92
+      ]
+    },
+    "door_part": "jamb-left",
+    "companions": [
+      "door-south-jamb-right",
+      "door-south-panel"
+    ],
+    "wall_junction": {
+      "axis": "v",
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    }
+  },
+  "door-south-arch": {
+    "file": "parts/previous-door-south-arch.png",
+    "offset": [
+      -86,
+      -151
+    ],
+    "size": [
+      173,
+      116
+    ],
+    "bounds": {
+      "min": [
+        -0.022232394423524895,
+        0.36,
+        0.92
+      ],
+      "max": [
+        1.022232394423525,
+        0.64,
+        1.16
+      ]
+    },
+    "door_part": "crown"
+  },
+  "door-south-jamb-right": {
+    "file": "parts/previous-door-south-jamb-right.png",
+    "offset": [
+      13,
+      -64
+    ],
+    "size": [
+      88,
+      181
+    ],
+    "bounds": {
+      "min": [
+        0.7247634285714286,
+        0.3333333333333333,
+        0
+      ],
+      "max": [
+        1.0833333333333333,
+        0.6666666666666666,
+        0.92
+      ]
+    },
+    "door_part": "jamb-right"
+  },
+  "door-south-panel": {
+    "file": "parts/previous-door-south-panel.png",
+    "offset": [
+      -49,
+      -94
+    ],
+    "size": [
+      83,
+      177
+    ],
+    "bounds": {
+      "min": [
+        0.185,
+        0.475,
+        0
+      ],
+      "max": [
+        0.815,
+        0.525,
+        0.9600000000000001
+      ]
+    },
+    "door_part": "panel"
+  },
+  "door-north-leaf": {
+    "file": "parts/previous-door-north-leaf.png",
+    "offset": [
+      13,
+      -64
+    ],
+    "size": [
+      88,
+      181
+    ],
+    "bounds": {
+      "min": [
+        0.7247634285714285,
+        0.33333333333333337,
+        0
+      ],
+      "max": [
+        1.0833333333333333,
+        0.6666666666666667,
+        0.92
+      ]
+    },
+    "door_part": "jamb-left",
+    "companions": [
+      "door-north-jamb-right",
+      "door-north-panel"
+    ],
+    "wall_junction": {
+      "axis": "v",
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    }
+  },
+  "door-north-arch": {
+    "file": "parts/previous-door-north-arch.png",
+    "offset": [
+      -86,
+      -152
+    ],
+    "size": [
+      173,
+      117
+    ],
+    "bounds": {
+      "min": [
+        -0.022232394423524874,
+        0.36,
+        0.92
+      ],
+      "max": [
+        1.022232394423525,
+        0.64,
+        1.16
+      ]
+    },
+    "door_part": "crown"
+  },
+  "door-north-jamb-right": {
+    "file": "parts/previous-door-north-jamb-right.png",
+    "offset": [
+      -101,
+      -111
+    ],
+    "size": [
+      63,
+      170
+    ],
+    "bounds": {
+      "min": [
+        -0.08333333333333326,
+        0.33333333333333337,
+        0
+      ],
+      "max": [
+        0.2752365714285714,
+        0.6666666666666667,
+        0.92
+      ]
+    },
+    "door_part": "jamb-right"
+  },
+  "door-north-panel": {
+    "file": "parts/previous-door-north-panel.png",
+    "offset": [
+      -49,
+      -94
+    ],
+    "size": [
+      83,
+      177
+    ],
+    "bounds": {
+      "min": [
+        0.18500000000000005,
+        0.475,
+        0
+      ],
+      "max": [
+        0.815,
+        0.525,
+        0.9600000000000001
+      ]
+    },
+    "door_part": "panel"
+  },
+  "door-east-leaf": {
+    "file": "parts/previous-door-east-leaf.png",
+    "offset": [
+      37,
+      -111
+    ],
+    "size": [
+      64,
+      170
+    ],
+    "bounds": {
+      "min": [
+        0.3333333333333333,
+        -0.08333333333333326,
+        0
+      ],
+      "max": [
+        0.6666666666666666,
+        0.2752365714285714,
+        0.92
+      ]
+    },
+    "door_part": "jamb-left",
+    "companions": [
+      "door-east-jamb-right",
+      "door-east-panel"
+    ],
+    "wall_junction": {
+      "axis": "h",
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    }
+  },
+  "door-east-arch": {
+    "file": "parts/previous-door-east-arch.png",
+    "offset": [
+      -87,
+      -151
+    ],
+    "size": [
+      173,
+      116
+    ],
+    "bounds": {
+      "min": [
+        0.36,
+        -0.022232394423524874,
+        0.92
+      ],
+      "max": [
+        0.64,
+        1.022232394423525,
+        1.16
+      ]
+    },
+    "door_part": "crown"
+  },
+  "door-east-jamb-right": {
+    "file": "parts/previous-door-east-jamb-right.png",
+    "offset": [
+      -101,
+      -65
+    ],
+    "size": [
+      89,
+      182
+    ],
+    "bounds": {
+      "min": [
+        0.3333333333333333,
+        0.7247634285714285,
+        0
+      ],
+      "max": [
+        0.6666666666666666,
+        1.0833333333333333,
+        0.92
+      ]
+    },
+    "door_part": "jamb-right"
+  },
+  "door-east-panel": {
+    "file": "parts/previous-door-east-panel.png",
+    "offset": [
+      -34,
+      -94
+    ],
+    "size": [
+      83,
+      177
+    ],
+    "bounds": {
+      "min": [
+        0.475,
+        0.18500000000000005,
+        0
+      ],
+      "max": [
+        0.525,
+        0.815,
+        0.9600000000000001
+      ]
+    },
+    "door_part": "panel"
+  },
+  "door-west-leaf": {
+    "file": "parts/previous-door-west-leaf.png",
+    "offset": [
+      -101,
+      -65
+    ],
+    "size": [
+      89,
+      182
+    ],
+    "bounds": {
+      "min": [
+        0.33333333333333337,
+        0.7247634285714286,
+        0
+      ],
+      "max": [
+        0.6666666666666667,
+        1.0833333333333333,
+        0.92
+      ]
+    },
+    "door_part": "jamb-left",
+    "companions": [
+      "door-west-jamb-right",
+      "door-west-panel"
+    ],
+    "wall_junction": {
+      "axis": "h",
+      "span": [
+        0.3333333333333333,
+        0.6666666666666666
+      ]
+    }
+  },
+  "door-west-arch": {
+    "file": "parts/previous-door-west-arch.png",
+    "offset": [
+      -87,
+      -152
+    ],
+    "size": [
+      173,
+      117
+    ],
+    "bounds": {
+      "min": [
+        0.36,
+        -0.022232394423524895,
+        0.92
+      ],
+      "max": [
+        0.64,
+        1.022232394423525,
+        1.16
+      ]
+    },
+    "door_part": "crown"
+  },
+  "door-west-jamb-right": {
+    "file": "parts/previous-door-west-jamb-right.png",
+    "offset": [
+      37,
+      -111
+    ],
+    "size": [
+      65,
+      170
+    ],
+    "bounds": {
+      "min": [
+        0.33333333333333337,
+        -0.08333333333333333,
+        0
+      ],
+      "max": [
+        0.6666666666666667,
+        0.2752365714285715,
+        0.92
+      ]
+    },
+    "door_part": "jamb-right"
+  },
+  "door-west-panel": {
+    "file": "parts/previous-door-west-panel.png",
+    "offset": [
+      -34,
+      -94
+    ],
+    "size": [
+      83,
+      177
+    ],
+    "bounds": {
+      "min": [
+        0.475,
+        0.185,
+        0
+      ],
+      "max": [
+        0.525,
+        0.815,
+        0.9600000000000001
+      ]
+    },
+    "door_part": "panel"
+  }
+}

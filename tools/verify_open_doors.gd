@@ -42,6 +42,7 @@ func snapshot(game: Node, view: Node2D, state: String) -> void:
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(out)
 	var game = GAME.instantiate(); game.save_path = out+"never-created.save"
+	game.persistence_enabled=false
 	root.add_child(game); game.set_process(false); await process_frame
 	game.get_node("HUD").hide()
 	game.get_node("PlayArea").stretch = false

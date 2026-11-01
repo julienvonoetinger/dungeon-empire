@@ -64,6 +64,9 @@ func run() -> void:
 	for extent in [Vector2i(1280,720),Vector2i(844,390),Vector2i(740,360),Vector2i(667,375),Vector2i(568,320),Vector2i(568,299),Vector2i(390,844),Vector2i(320,568),Vector2i(390,390),Vector2i(480,320),Vector2i(512,320)]:
 		root.size=extent; await settle()
 		for target in [Vector2i(0,0),Vector2i(15,0),Vector2i(0,15),Vector2i(15,15),Vector2i(7,8)]:
+			# Radial belongs to floor now; preserve corner-fit coverage using
+			# isolated floor fixtures rather than opening it on undiggable rock.
+			game.sim.grid[target.y][target.x]=TYPES.Tile.FLOOR
 			hud.world_tapped(target); await settle()
 			var radial=hud.radial
 			var rect: Rect2=radial.get_global_rect()

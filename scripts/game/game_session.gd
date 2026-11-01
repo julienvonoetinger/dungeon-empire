@@ -132,6 +132,18 @@ func activate_cell(cell: Vector2i) -> void:
 		return
 	confirm_action()
 
+## One-shot excavation from the world. Keep the usual validation, undo and
+## save transaction, without arming a tool that could remove an occupied tile.
+func dig_cell(cell: Vector2i) -> void:
+	if not can_edit() or catalog_open or tool != Types.Tool.NONE or not sim._has_core(): return
+	if not sim._inside(cell) or sim.grid[cell.y][cell.x] != Types.Tile.ROCK: return
+	selected = cell
+	confirm_action(Types.Tool.DIG)
+	# A rejected direct tap must not leave a confirmation sheet on the rock.
+	if selected.x >= 0:
+		selected = Vector2i(-1,-1); preview = {}
+		changed.emit(false)
+
 func can_undo() -> bool:
 	return can_edit() and not _build_history.is_empty()
 
@@ -201,18 +213,18 @@ func report_rejected_action(cell:Vector2i,requested_tool:int=-1) -> void:
 	_apply(copy,cell,action_tool)
 	if 1000000-copy.gold>sim.gold: presentation_event.emit("fauche")
 
-func confirm_action() -> void:
+func confirm_action(requested_tool: int = -1) -> void:
 	if selected.x < 0 or not can_edit(): return
-	preview = check_action(selected)
+	preview = check_action(selected, requested_tool)
 	if not preview.valid:
 		notice = str(preview.reason)
-		report_rejected_action(selected)
+		report_rejected_action(selected, requested_tool)
 		changed.emit(false)
 		return
 	if sim._has_core():
 		_build_history.append(_build_snapshot())
 		if _build_history.size() > 32: _build_history.pop_front()
-	_apply(sim, selected)
+	_apply(sim, selected, requested_tool)
 	sim._storage_state()
 	notice = "Action complete."
 	presentation_event.emit("placed")

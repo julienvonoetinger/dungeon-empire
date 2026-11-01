@@ -1,0 +1,112 @@
+{
+	"checks": 61,
+	"failures": [
+		"initial: visible cube faces do not paint over upper rock at (10, 7)",
+		"initial: visible cube faces do not paint over upper rock at (10, 8)",
+		"initial: visible cube faces do not paint over upper rock at (4, 9)",
+		"initial: visible cube faces do not paint over upper rock at (5, 9)",
+		"initial: visible cube faces do not paint over upper rock at (10, 9)",
+		"initial: visible cube faces do not paint over upper rock at (7, 10)",
+		"initial: visible cube faces do not paint over upper rock at (8, 10)",
+		"initial: visible cube faces do not paint over upper rock at (9, 10)",
+		"expanded: visible cube faces do not paint over upper rock at (10, 7)",
+		"expanded: visible cube faces do not paint over upper rock at (10, 8)",
+		"expanded: visible cube faces do not paint over upper rock at (10, 9)",
+		"expanded: visible cube faces do not paint over upper rock at (4, 10)",
+		"expanded: visible cube faces do not paint over upper rock at (7, 10)",
+		"expanded: visible cube faces do not paint over upper rock at (8, 10)",
+		"expanded: visible cube faces do not paint over upper rock at (9, 10)"
+	],
+	"intersections": [
+		{
+			"cell": "(10, 7)",
+			"physical_area": 0.0,
+			"projected_area": 0.324356079101563,
+			"stage": "initial"
+		},
+		{
+			"cell": "(10, 8)",
+			"physical_area": 0.0,
+			"projected_area": 0.324352264404297,
+			"stage": "initial"
+		},
+		{
+			"cell": "(4, 9)",
+			"physical_area": 0.0,
+			"projected_area": 0.324346542358398,
+			"stage": "initial"
+		},
+		{
+			"cell": "(5, 9)",
+			"physical_area": 0.0,
+			"projected_area": 0.293914794921875,
+			"stage": "initial"
+		},
+		{
+			"cell": "(10, 9)",
+			"physical_area": 0.0,
+			"projected_area": 0.327255249023438,
+			"stage": "initial"
+		},
+		{
+			"cell": "(7, 10)",
+			"physical_area": 0.0,
+			"projected_area": 0.324356079101563,
+			"stage": "initial"
+		},
+		{
+			"cell": "(8, 10)",
+			"physical_area": 0.0,
+			"projected_area": 0.324344635009766,
+			"stage": "initial"
+		},
+		{
+			"cell": "(9, 10)",
+			"physical_area": 0.0,
+			"projected_area": 0.327247619628906,
+			"stage": "initial"
+		},
+		{
+			"cell": "(10, 7)",
+			"physical_area": 0.0,
+			"projected_area": 0.324356079101563,
+			"stage": "expanded"
+		},
+		{
+			"cell": "(10, 8)",
+			"physical_area": 0.0,
+			"projected_area": 0.324352264404297,
+			"stage": "expanded"
+		},
+		{
+			"cell": "(10, 9)",
+			"physical_area": 0.0,
+			"projected_area": 0.327255249023438,
+			"stage": "expanded"
+		},
+		{
+			"cell": "(4, 10)",
+			"physical_area": 0.0,
+			"projected_area": 0.327245712280273,
+			"stage": "expanded"
+		},
+		{
+			"cell": "(7, 10)",
+			"physical_area": 0.0,
+			"projected_area": 0.324356079101563,
+			"stage": "expanded"
+		},
+		{
+			"cell": "(8, 10)",
+			"physical_area": 0.0,
+			"projected_area": 0.324344635009766,
+			"stage": "expanded"
+		},
+		{
+			"cell": "(9, 10)",
+			"physical_area": 0.0,
+			"projected_area": 0.327247619628906,
+			"stage": "expanded"
+		}
+	]
+}

@@ -1,0 +1,50 @@
+{
+	"checks": 2,
+	"failures": [],
+	"samples": [
+		{
+			"inspected": 0,
+			"size": "(1280, 720)",
+			"stage": "initial",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 0,
+			"size": "(844, 390)",
+			"stage": "initial",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 0,
+			"size": "(390, 844)",
+			"stage": "initial",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 0,
+			"size": "(1280, 720)",
+			"stage": "expanded",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 0,
+			"size": "(844, 390)",
+			"stage": "expanded",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 0,
+			"size": "(390, 844)",
+			"stage": "expanded",
+			"wrong_pixels": 0
+		}
+	],
+	"skipped_no_overlap": [
+		"initial(1280, 720)",
+		"initial(844, 390)",
+		"initial(390, 844)",
+		"expanded(1280, 720)",
+		"expanded(844, 390)",
+		"expanded(390, 844)"
+	]
+}

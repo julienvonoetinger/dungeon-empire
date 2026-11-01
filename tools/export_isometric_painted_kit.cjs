@@ -107,7 +107,7 @@ async function main() {
     if(item.doorPart)atlas.regions[item.id].door_part=item.doorPart;
     if(item.trap)atlas.regions[item.id].trap=item.trap;
   }
-  const manifest={id:'isometric-painted-v1',appearance:'shared dungeon stone and accepted clean-leaf Sceau interdit; jambs aligned to wall courses',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
+  const manifest={id:'isometric-painted-v1',appearance:'shared dungeon stone and approved v15 blackened metal/crystal doors; jambs aligned to wall courses',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
   manifest.wallVariants=wallVariants.filter(v=>!v.wallVariant.ornament).map(v=>v.id);
   manifest.optionalWallOrnaments=wallVariants.filter(v=>v.wallVariant.ornament).map(v=>v.id);
   manifest.floorVariants=floorVariants.map(v=>v.id);
@@ -132,7 +132,7 @@ async function main() {
   for(const entry of Object.values(materialCatalog.entries))if(entry.file)sourceFiles.push(path.posix.normalize('assets/dungeon/shared-materials/'+entry.file));
   json(`${OUT}/recipe.json`,{...manifest,generator:'tools/export_isometric_painted_kit.cjs',geometry:GEOMETRY,sourceHashes:Object.fromEntries([...new Set(sourceFiles)].map(p=>[p,P.hash(p)])),
     items:items.map(({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,png})=>({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,bytes:png.length})),
-    notes:['Historical approved sources and wireframe snapshots remain unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','The four doors use approved compact v11 geometry and v12 painting: smooth interchangeable leaf, 1/3..2/3 jamb contacts, visible lower lock and hinges, generated fronts with the reviewed wall palette and shared stone sides/tops. Final pixels use independent left/right jamb, crown and closed-panel supports for actor passage, with companions consumed by the shared renderer.']});
+    notes:['Historical approved sources and wireframe snapshots remain unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','The four doors use approved compact v11 geometry, v12 masonry and v15 blackened metal/crystal leaf: smooth interchangeable receiver, 1/3..2/3 jamb contacts, visible lower lock and hinges. Final pixels use independent left/right jamb, crown and closed-panel supports for actor passage, with companions consumed by the shared renderer.']});
   console.log(JSON.stringify({sprites:items.length,atlas:[atlas.width,atlas.height],pngBytes:atlas.sourceBytes,rgbaBytes:atlas.uncompressedRGBABytes}));
 }
 main().catch(e=>{console.error(e.stack);process.exitCode=1;});

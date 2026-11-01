@@ -10,6 +10,8 @@ var before := false
 func _initialize() -> void:
 	before = "--before" in OS.get_cmdline_user_args()
 	if before: out = out.replace("/after/", "/before/")
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--output="): out=arg.trim_prefix("--output=").trim_suffix("/")+"/"
 	call_deferred("run")
 
 func check(ok: bool, message: String) -> void:

@@ -15,12 +15,12 @@ static func _hash_at(p: Vector2) -> float:
 	var value := sin(p.x * 127.1 + p.y * 311.7 + 17.3) * 43758.5453
 	return value - floor(value)
 
-static func build(cells: Array[Vector2i]) -> Dictionary:
+static func build(cells: Array[Vector2i], margin: float = MARGIN) -> Dictionary:
 	var rects: Array[Rect2] = []
 	var xv: Array = []
 	var yv: Array = []
 	for cell in cells:
-		var r := Rect2(Vector2(cell) - Vector2.ONE * MARGIN, Vector2.ONE * (1 + 2 * MARGIN))
+		var r := Rect2(Vector2(cell) - Vector2.ONE * margin, Vector2.ONE * (1 + 2 * margin))
 		rects.append(r)
 		xv.append_array([r.position.x, r.end.x]); yv.append_array([r.position.y, r.end.y])
 	var xs := _unique(xv)

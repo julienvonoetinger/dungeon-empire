@@ -1,0 +1,49 @@
+{
+	"checks": 14,
+	"failures": [
+		"Upper rock occludes lower cut faces at initial(1280, 720): 118 wrong pixels",
+		"Upper rock occludes lower cut faces at initial(844, 390): 45 wrong pixels",
+		"Fixture samples a cut-face/upper-rock projection overlap at initial(390, 844)",
+		"Upper rock occludes lower cut faces at expanded(1280, 720): 58 wrong pixels",
+		"Upper rock occludes lower cut faces at expanded(844, 390): 45 wrong pixels",
+		"Fixture samples a cut-face/upper-rock projection overlap at expanded(390, 844)"
+	],
+	"samples": [
+		{
+			"inspected": 121,
+			"size": "(1280, 720)",
+			"stage": "initial",
+			"wrong_pixels": 118
+		},
+		{
+			"inspected": 45,
+			"size": "(844, 390)",
+			"stage": "initial",
+			"wrong_pixels": 45
+		},
+		{
+			"inspected": 0,
+			"size": "(390, 844)",
+			"stage": "initial",
+			"wrong_pixels": 0
+		},
+		{
+			"inspected": 61,
+			"size": "(1280, 720)",
+			"stage": "expanded",
+			"wrong_pixels": 58
+		},
+		{
+			"inspected": 45,
+			"size": "(844, 390)",
+			"stage": "expanded",
+			"wrong_pixels": 45
+		},
+		{
+			"inspected": 0,
+			"size": "(390, 844)",
+			"stage": "expanded",
+			"wrong_pixels": 0
+		}
+	]
+}

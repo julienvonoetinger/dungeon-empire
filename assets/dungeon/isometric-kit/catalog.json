@@ -1,6 +1,6 @@
 {
   "id": "isometric-painted-v1",
-  "appearance": "shared dungeon stone and accepted clean-leaf Sceau interdit; jambs aligned to wall courses",
+  "appearance": "shared dungeon stone and approved v15 blackened metal/crystal doors; jambs aligned to wall courses",
   "density": 256,
   "worldPixelsPerCell": 256,
   "sourceDiamond": [
@@ -46,7 +46,7 @@
     "density": 256,
     "width": 1024,
     "height": 2048,
-    "sourceBytes": 2096585,
+    "sourceBytes": 2094278,
     "uncompressedRGBABytes": 13631488,
     "regions": {
       "heart-self-glow": {
@@ -6334,7 +6334,7 @@
         "path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "width": 512,
         "height": 1024,
-        "sourceBytes": 371809,
+        "sourceBytes": 369502,
         "uncompressedRGBABytes": 2097152
       }
     ]

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dungeon Empire · Creusé dans la roche</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#0b111c;color:#e4e7ef}*{box-sizing:border-box}body{max-width:1344px;margin:auto;padding:24px}h1{font-size:28px;margin:0 0 8px}h2{font-size:21px}p{color:#b6c0d4;max-width:1020px}nav{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 16px}button,select{font:inherit;color:#eee4f8;background:#253149;border:1px solid #67738e;border-radius:10px;padding:12px 18px;min-height:48px;cursor:pointer}button[aria-pressed=true]{border-color:#bc8ced;background:#3f3057}label{display:flex;align-items:center;gap:10px;padding:8px;cursor:pointer}input{width:20px;height:20px;accent-color:#bd86ed}.stage{background:#111a29;border:1px solid #354257;border-radius:12px;padding:8px;text-align:center}img{max-width:100%;height:auto;vertical-align:middle}.portrait{max-height:844px}a{color:#cda1f4}details{margin-top:24px;padding:16px;border:1px solid #354257;border-radius:12px}summary{cursor:pointer}code{overflow-wrap:anywhere}.detail{display:block;width:min(100%,800px);margin:20px auto;border:1px solid #354257;border-radius:12px}
+</style>
+<style>[hidden]{display:none!important}</style>
+<h1>Le donjon en contrebas de la roche</h1>
+<p>La pente diffuse est remplacée par une coupe franche : un plateau de roche à la hauteur des murs, sa tranche verticale et un fond plat au niveau des dalles. Cette séparation rend l’excavation visible autour des constructions.</p>
+<p>Le bord de la coupe et la paroi partagent exactement le même contour. La largeur du dégagement reste de 1,35 case ; les cubes, leurs icônes et leur placement sont conservés. Version active dans <strong>DigBlocksPreview</strong>.</p>
+<nav aria-label="Comparer les reliefs">
+<button data-size="1280x720" aria-pressed="true">Bureau</button><button data-size="844x390" aria-pressed="false">Mobile paysage</button><button data-size="390x844" aria-pressed="false">Mobile portrait</button>
+<label>Situation <select id="stage"><option value="initial">Donjon initial</option><option value="expanded">Couloir agrandi</option></select></label>
+<label id="comparison"><input id="before" type="checkbox">Pente précédente</label>
+</nav>
+<div class="stage"><img id="capture" src="native/initial-1280x720.png" width="1280" height="720" alt="Donjon creusé en contrebas du terrain extérieur avec une paroi rocheuse visible"></div>
+<p id="caption">Capture Godot · 1280 × 720 · Coupe franche</p>
+<h2>Détail de la paroi rocheuse</h2>
+<svg class="detail" viewBox="0 78 440 310" role="img" aria-label="Coupe rocheuse derrière l’escalier"><image id="detail-image" href="native/initial-1280x720.png" width="1280" height="720"/></svg>
+<details><summary>Voir la coupe sans texture</summary>
+<p>Cette capture utilise la vraie géométrie de la scène. Le gris clair représente la roche supérieure, le gris intermédiaire sa tranche et le bleu sombre le fond excavé. Le terrain extérieur ne dépasse pas les murs.</p>
+<img src="native/geometry.png" width="1280" height="720" loading="lazy" alt="Coupe native du terrain en trois niveaux de couleur">
+</details>
+<details><summary>Validation et reproduction</summary>
+<p><a href="native/cut-report.json">30 contrôles</a> : hauteur des parois, continuité des jonctions, bord partagé avec la roche supérieure, cases dégagées, creusement réel et annulation exacte. Cas isolé, angle rentrant, zones séparées, îlot de roche, carte vide et donjon d’essai. Le test initial échouait sur l’absence de coupe verticale dans la version en pente.</p>
+<p><a href="native/occlusion-report.json">14 contrôles visuels</a> vérifient que les faces basses ne passent pas par-dessus la roche supérieure. La caméra portrait est déplacée vers une zone d’occultation réellement identifiée ; les arrondis créent moins de recouvrements que l’ancien contour en marches. Échantillonnage de chaque pixel dans ces petites zones, hors franges de filtrage.</p>
+<p><a href="native/interaction-report.json">337 contrôles d’interaction</a>, <a href="native/spacing-report.json">12 974 contrôles de cubes et transactions</a> (24 creusements puis 24 annulations), et <a href="native/clearance-report.json">7 contrôles de maçonnerie</a> passent. Sorties d’erreur vides ; captures bureau, paysage et portrait inspectées. Ces vérifications ne valident pas toutes les cartes possibles ni les performances sur téléphone physique.</p>
+<p>Reproduction : <code>godot --path . --script res://tools/verify_excavated_recess.gd</code> et <code>godot --path . --script res://tools/verify_terrain_recess.gd -- --cut</code>. Ajouter <code>--topology</code> pour la capture sans texture. Les autres fixtures sont <code>capture_dig_blocks.gd</code>, <code>verify_dig_clearance.gd</code> et <code>verify_dig_block_spacing.gd</code> (headless).</p>
+<p>Les anciennes peintures sont réutilisées ; aucun nouveau sprite. La géométrie se reconstruit lors d’un changement d’occupation, pas à chaque image. La version en pente reste reproductible avec <code>sloped_recess=true</code> dans sa fixture historique. Aucun accès aux sauvegardes joueur, APK, commit ou push. Nouveau relief limité à l’aperçu ; jeu principal inchangé durant cette itération. 31 octobre 2026.</p>
+</details>
+<script>
+let size='1280x720';const capture=document.querySelector('#capture'),before=document.querySelector('#before'),stage=document.querySelector('#stage');
+function show(){const [w,h]=size.split('x');if(size!=='1280x720')before.checked=false;document.querySelector('#comparison').hidden=size!=='1280x720';const folder=before.checked?'../v27-continuous-recess/native/':'native/',src=folder+stage.value+'-';capture.src=src+size+'.png';capture.width=+w;capture.height=+h;capture.classList.toggle('portrait',+h>+w);document.querySelector('#detail-image').setAttribute('href',src+'1280x720.png');document.querySelector('#caption').textContent='Capture Godot · '+w+' × '+h+' · '+(before.checked?'Pente précédente':'Coupe franche');}
+document.querySelectorAll('button[data-size]').forEach(button=>button.addEventListener('click',()=>{size=button.dataset.size;document.querySelectorAll('button[data-size]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));show();}));before.addEventListener('change',show);stage.addEventListener('change',show);
+</script></html>

@@ -1,5 +1,351 @@
 # Repository instructions
 
+## Commit validation for excavation and crystal doors — 2026-11-01
+
+- User requests commit/push of accumulated excavation and approved door work.
+  Fresh Godot import and all7 headless probe scenarios pass. Native excavation
+  game62/direct dig308/radial1836/rotation227/open doors84/door badges87 pass,
+  all final stderr logs empty. Crystal atlas verification361 passes with the
+  pre-install baseline; unaffected regions, hero assets and memory preserved.
+- Native fixtures run serially and disable persistence before tree entry.
+  Evidence: artifacts/commit-2026-11-01 and crystal-door-integration/report.json.
+  No APK or player-save access; physical-phone performance remains unvalidated.
+
+## Approved crystal door installed in the shared game kit — 2026-11-01
+
+- User approves v15 installation. Its selection.json now drives the shared
+  isometric_seal_texture/exporter: blackened metal and violet crystals replace
+  the red wooden leaf in game and kit-based scenes. Source painting is unchanged.
+  Preserve v11 compact geometry, v12 masonry, v14 independent jamb/crown/panel
+  supports, lock contact, 2px opaque seams and 3px filter allowance.
+- verify_crystal_door_integration records the pre-install kit and reproduces16
+  paint mismatches, then passes361 checks. All155 other regions (including12
+  open-frame parts),171 sprite metadata entries and37 hero files are unchanged.
+  Atlas RGBA stays13MiB; kit PNGs shrink2307bytes. No new geometry or poses.
+- Fresh import/native opening84/badges87/passage863/Vulpin367 pass, empty stderr.
+  Production capture checks32 picking contacts/64 passage poses in4 directions;
+  closed/picking/open passage captures inspected. Tests disable persistence.
+  Focused review found only an obsolete review status, corrected: preparing the
+  comparison explicitly pins old v13 paint and reports runtime-unchanged instead
+  of asserting not-installed. Historical pre-install evidence is retained.
+- Reproduction and integration report: hero-fit-v15-iron-crystals README.md and
+  integration.json. Logs: artifacts/crystal-door-integration. No player saves,
+  physical-phone validation, APK, commit or push.
+
+## Door proposal in blackened metal and violet crystals — 2026-10-31
+
+- User finds the world door inconsistent with the interface, then chooses
+  metal, stone and crystals. hero-fit-v15-iron-crystals is an isolated visual
+  proposal, not installed or approved for production. ImageGen native source
+  and exact prompt retained; dark metal plates replace red wood and a crystal
+  cluster occupies the central seal. Actual masonry still uses the kit stone.
+- Shared texture render/door paint accept an optional leafPainting override;
+  default production selection remains v13. prepare_crystal_door_review writes
+  only review PNGs/catalogue. Four model/frame/support comparisons pass; stone
+  pixels outside shared panel/filter fringes remain identical. Preserve existing
+  2px opaque seam overlap and 3px filtering allowance. Lock contact512,1138 stays
+  black RGBA(1,1,0,253). Active kit hashes unchanged.
+- Native isolated captures: before/proposal corridor, detail, four directions
+  and one held picking pose, inspected; exit0/empty stderr. No game session,
+  saves, new geometry, full traversal retest, phone validation, APK, commit/push.
+  Crystals are painted relief on the existing smooth leaf. Review source and
+  reproduction: docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals.
+
+## Approved excavation presentation integrated into the game — 2026-10-31
+
+- User explicitly requests updating the actual game. DungeonGame now uses
+  scripts/game/excavation_terrain.gd and HUD hud_dig_blocks.gd. Preserve approved
+  v29 geometry: uniform .74 cubes, wall height, shared offsets, dark pick,
+  1.35 placement reference, .04 cut gap and projected foreground setback.
+  Reuse imported art/shader; no new painting. DigBlocksPreview shares these
+  production implementations; its adapter retains historical terrain profiles.
+- Only old flat dig diamonds were removed. Paths and valid-placement guides
+  remain. HUD owns contextual hints and mode visibility. Guard initial HUD
+  refresh before renderer definition/world exist. Preserve 5-gold transactions,
+  Undo, pan, pause, raids, English copy and normal production persistence.
+- Native review reproduced two integration defects: initial wrapped hint held
+  a stale1043.75-unit minimum height; empty cube refresh reordered the hero.
+  Refit hint on minimum-size changes using one final rectangle, and do not
+  reorder masonry when no cube needs insertion. Both regressions now pass.
+- verify_excavation_game:62checks/0failures, actual main scene, cold startup,
+  exact preview/production geometry match, five sizes, top/side touch, drag,
+  cancel/rotation, Undo, modes, no funds, full raid/results/preparation and
+  node/order preservation. Captures inspected in artifacts/excavation-game.
+- Fresh native cube337/fit2109/spacing12974/masonry7/direct-dig308/rotation227/
+  radial1836 and mobile interaction checks pass, seven probe recipes pass,
+  import clean; all final stderr logs empty. Independent review has no remaining
+  actionable finding. Fixtures disable persistence before entry; only the
+  mobile save-error test temporarily attempts its deliberate invalid artifact
+  path. No player saves, APK, commit or push. Phone performance and all possible
+  dungeon layouts remain unvalidated.
+
+## Terrain clearance includes projected cube faces — 2026-10-31
+
+- User sees the left cubes painted over the recess rim. Exact polygon checks
+  reproduce15failures in demo/expanded corridor: physical footprints are clear,
+  but projected side faces overlap upper rock. Prior centre-only checks missed
+  this. Do not resize or move cubes to fix it.
+- Preview cut sweeps each occupied cell towards the camera by the ground-plane
+  projection of wall height (~.38375 per axis), then applies the rounded margin.
+  A .04case edge gap handles tiny sampled-curve contacts found after expansion.
+  Keep cut_margin1.35 as the unchanged guide placement reference; physical cut
+  uses1.39 plus the directional sweep. All cube geometry/layout/icons unchanged.
+  Shape derives only from excavated cells, never money or visible action nodes.
+- verify_dig_recess_fit checks exact intersections of full cube faces against
+  upper rock:2109checks pass after24actual digs/24undos and budget independence.
+  First sweep fixed the demo but left116 tiny corner failures in the expanded
+  layouts; the edge gap fixes those. Native cut30/interaction337/masonry7 and
+  spacing12974 checks pass/empty stderr; three sizes inspected.
+- Legacy occlusion14checks still pass. --cut can now have no stable overlaps;
+  its fixture explicitly records skipped_no_overlap rather than counting empty
+  pixel comparisons as passes. v29-cube-recess-fit preserves before/after and
+  reports. Preview only, no main-game change/new art/player saves/APK/commit/push.
+  Tested layouts are not exhaustive; physical-phone profiling remains undone.
+
+## Excavated rock section replaces the diffuse slope — 2026-10-31
+
+- User rejects v27's impression of a dungeon placed on stone. The broad .80case
+  transition blurred the height cue. Active DigBlocksPreview now has a flat
+  lower floor and a full-height rock cross-section at the1.35case contour.
+  Exterior rock stays at wall height; all cube geometry/offsets/icons unchanged.
+- excavated_recess_geometry clips sampled distance triangles at the exterior
+  margin. The resulting boundary is shared by top polygons and cut-face quads,
+  with closed joins around concave/convex corners and rock islands. Upper rock
+  draws after lower faces. Existing painting reused on the distinct section;
+  no new textures. Geometry rebuilds only after cell occupancy changes.
+- verify_excavated_recess: initial2 missing-section failures, then30checks pass
+  on five geometric layouts plus demo, actual(4,9)dig and exact Undo. Native
+  occlusion fixture gains --cut:14checks pass at three sizes. Portrait focuses
+  an actual overlap found in desktop; dense pixel sampling is needed for the
+  smaller curved-edge overlaps. Interaction337, spacing12974(24digs+24undos),
+  masonry7 pass/empty stderr. Native three sizes and geometry capture inspected.
+- v28-excavated-rock preserves comparison/reports/source. v27 is superseded:
+  its48check fixture explicitly sets sloped_recess=true and still passes.
+  continuous_recess=false retains the pre-v27 geometry for legacy regression.
+  No main-game changes in this iteration, player-save access, APK, commit/push.
+  Visual proposal only; all-map and physical-phone performance unproven.
+
+## Continuous exterior recess in the excavation preview — 2026-10-31
+
+- User identifies both floating dark strips and a recess contour that follows
+  walls poorly. Native captures reproduce a shared paint-order defect: lower
+  CutFaces can cover foreground RockTop. Draw the opaque upper surface last.
+  Four landscape cases had wrong pixels; initial portrait crops had no overlap
+  samples. Panning that fixture toward the ridge supplies coverage at all three
+  sizes: verify_terrain_recess now passes14checks with empty stderr.
+- DigBlocksPreview now uses one continuous height field, based on distance to
+  the union of excavated cells. Floor clearance extends .55case, then a .80case
+  sloped band reaches wall height at the unchanged1.35case outer edge. A .25case
+  mesh follows concave/convex corners without independent vertical strips.
+  Existing stone textures blend by real vertex height; no new painted asset.
+  Keep uniform .74x.74 cubes, wall height and shared row/column offsets unchanged.
+- Native verify_continuous_recess48checks cover empty/single/concave/separate/
+  rock-island layouts, demo, real(4,9)dig and Undo: bounded/continuous heights,
+  complete coverage and no projected triangle foldovers. Demo1177vertices/
+  2192triangles; rebuild only after occupancy changes. Existing interaction337,
+  spacing12974(24digs+24undos) and masonry7 checks pass, empty stderr. Three sizes
+  and expanded corridor inspected. No phone performance/all-map guarantee.
+- v27-continuous-recess preserves native comparison, geometric view and reports.
+  continuous_recess=false exists for the legacy rendering regression fixture.
+  Main-game geometry/margin remain unchanged; only shared paint-order correction
+  applies there. Preview proposal only, no player saves/APK/commit/push.
+
+## Excavation cubes have one full-size square footprint — 2026-10-31
+
+- User notices unequal sizes. Native measurements confirm the old neighbour
+  insets still cut .15 off wall-adjacent faces: demo has10 cubes .74x.59,
+  3 cubes .59x.74 and2 corners .59x.59. Earlier preservation checks retained
+  these different dimensions; equal sizes were not being asserted.
+- dig_rock_target now uses the same .74x.74 base everywhere and unchanged
+  native wall height .313333. Remove conditional face shortening; keep the
+  shared row/column placement. Preview terrain cutout1.20->1.35 supplies the
+  extra .15 for restored faces, preserving the wall-to-guide gap. No art change.
+- verify_dig_block_spacing adds actual volume/projected-top equality:2050
+  red failures become12974checks/0failures over demo,24 actual seeded digs and
+  24undos, including pairwise volume separation. Native capture337 and opaque
+  masonry7 checks pass/empty stderr; desktop/landscape/portrait inspected.
+  Fixture no longer uses the unequal v23 dimensions as its expected sizes.
+- Review v26-uniform-cubes preserves before/after and numerical reports;
+  historical v25 capture/preview source frozen. Still isolated DigBlocksPreview,
+  not main-game integration. Not all layouts/physical-phone performance proven.
+  No player saves, APK, commit or push.
+
+## Excavation cubes share row and column offsets — 2026-10-30
+
+- User reports cubes intersecting in v24. Per-cell retreat moved the corner
+  cubes toward their unchanged neighbours: native geometry reproduces two
+  .04-case footprint overlaps at(5,7)/(6,7) and(5,9)/(6,9). New dig_target_layout
+  computes a shared X offset per contiguous row and Y offset per column, based
+  on their exterior normals. Opposing normals cancel. Cubes retain the exact
+  v23 dimensions/height and v24's1.20-case terrain clearance; no new art.
+- configure receives the shared translation; rendering/supports/picking use
+  it consistently. Proposal stays in DigBlocksPreview, no main-game replacement.
+  v25-cube-spacing has native comparison and magnified corridor detail.
+- verify_dig_block_spacing: initial2failures ->10924checks/0failures across
+  every pair in demo,24 actual seeded digs and24 undos, checking transactions
+  and restored state. Native interaction337 and masonry7 checks pass, empty
+  stderr. Translation test uses .001 world-pixel absolute tolerance because a
+  diagonal shift has a zero screen component and float32 rounding is nonzero.
+  Three sizes inspected. This proves no physical cube intersections in tested
+  layouts, not absence of normal projected occlusion or all possible maps.
+  No player saves, APK, physical-phone validation, commit or push.
+
+## Wider excavation clearance, original cube sizes — 2026-10-30
+
+- User reports cubes covering exterior walls, then explicitly rejects shrinking
+  them: enlarge the surrounding space instead. The small-cube trial is superseded.
+  DigBlocksPreview now widens the actual terrain cutout .90->1.20 cases. Each
+  guide translates .30 case toward the exterior per adjacent excavated side,
+  with opposing directions cancelling; original v23 dimensions/height/icon stay.
+  Logical dig_cell remains authoritative even though the visual guide moves.
+  Physical supports/depth move with the drawing. Main-game .90 remains unchanged.
+- Preview picking reuses solid_covers_point before considering a guide, including
+  status seals. Native captures in interface-review/v24-wider-clearance. V23
+  target/capture source retained. No new raster art or player-save access.
+- verify_dig_clearance compares opaque masonry with guides hidden/shown in three
+  sizes: original placement has2169/693/490 stained samples; revised7checks pass.
+  Translucent/filtered sprite fringes excluded. capture_dig_blocks337checks pass,
+  including exact v23 volume dimensions, uniform face translation, real top/side
+  touches, cost, pan, expanded terrain/Undo. Both exit0/empty stderr. Three sizes
+  and post-dig captures inspected. Demo/one expansion covered, not every layout
+  or physical-phone ergonomics. Preview proposal only; no APK, commit or push.
+
+## Dark excavation icon matches the master header — 2026-10-30
+
+- User finds v22 pick too heroic. v23-dark-dig-icon uses ImageGen painting
+  guided by existing slate/violet hourglass and raid insignia: a short dark
+  mining pick splitting one violet-cracked stone. Original native alpha/prompt
+  retained. prepare_dig_icon.cjs crops and uniformly reduces to64px, no repaint:
+  assets/ui/master/dark-icons/dig.png,7072PNG bytes/16KiB RGBA.
+- Only DigBlocksPreview's cube marker uses this proposed icon. Existing shared
+  UI pick and production gameplay remain as before. All cube dimensions,
+  icon placement, native picking, price, and original .90-case clearance stay.
+  Historical v22 target/capture source saved with its review page.
+- Native import and capture_dig_blocks:247checks/0failures, empty stderr;
+  desktop/short landscape/portrait inspected. Reports artifacts/dig-dark-icon,
+  review docs/reference/interface-review/v23-dark-dig-icon/index.html.
+  No physical-phone validation, APK, player saves, commit or push.
+
+## Excavation cubes retain the top pick icon — 2026-10-30
+
+- User wants v21 flat marked squares changed into cubes with the same icon.
+  v22-excavation-cubes keeps the continuous terrain and marks each excavation
+  volume with top + two translucent side faces, vertical edges and lower rim.
+  Top remains at wall height; bottom is floor z0. No added rock props, raised
+  extra layer, new texture or new icon. Source terrain/painting stays unchanged.
+- Follow-up flags the lost perimeter space: v21 had narrowed only the preview
+  from .90 to .23 case. Remove that override: both game and preview now keep
+  the original .90-case physical cutout and its original floor/face tones.
+  Transparent cubes are action guides
+  over logical rock cells; they must not refill the visual clearance with props.
+- Visible sides join the original polygon hit region. Native depth ordering,
+  badge blocking, press/release, pan, exact5gold purchase and Undo are retained.
+  DigBlocksPreview remains isolated/no-save; main-game visuals unchanged.
+- capture_dig_blocks now writes artifacts/dig-cubes:247checks/0failures, empty
+  stderr, native top and side touch transactions, desktop/landscape/portrait,
+  drag, affordability, terrain removal/restoration and no-save guard. Captures
+  inspected. V21 flat target/capture source archived with its historical page.
+  No physical-phone validation, APK, commit or push. Review v22 index.html.
+
+## Connected excavation terrain and explicit action marks — 2026-10-30
+
+- User rejects v20 as detached rocks and unclear excavation affordances.
+  v21-connected-excavation replaces isolated painted props in DigBlocksPreview
+  with continuous bedrock at native wall height, .23-case clearance, and top
+  marks carrying a violet contour plus existing pick icon. No exposed outer
+  cube flanks. Marks follow affordability; physical terrain never depends on
+  money, raid/preparation, or guide visibility. Touch remains direct5gold/Undo.
+- Main game untouched visually. terrain_geometry.build has an optional margin
+  defaulting to the original .90; dungeon_terrain forwards its default .90.
+  Preview swaps the terrain script before tree entry, overrides margin and
+  uses ImageGen512px bedrock + existing quiet stone in a world-space material.
+  Texture boundary crossfades avoid image seams. Source/prompt/SHA retained;
+  new PNG396754bytes /1MiB RGBA. Old v20 captures and adapter source preserved.
+- Native capture_dig_blocks now writes artifacts/dig-terrain:152checks pass,
+  plus308existing direct-dig checks; empty stderr. Desktop, short landscape,
+  portrait, press and post-dig inspected. No player saves, physical-phone
+  validation, APK, commit or push. Art/interaction proposal remains isolated.
+  Review: docs/reference/interface-review/v21-connected-excavation/index.html.
+
+## Approved excavation volume receives stone painting — 2026-10-30
+
+- User approves block shape and requests dungeon-style finish. v20-dig-blocks-
+  painted keeps the exact .74 footprint/.13 inset and native wall height.
+  Three ImageGen native-alpha originals and prompts are retained in source;
+  registration.json maps each painting onto the existing three planar faces.
+  No geometry, picking, camera or gameplay RNG change. Slate tint matches walls;
+  two ordinary fracture patterns and one restrained violet vein, cosmetic only.
+- tools/prepare_dig_block_art.cjs generates three256px PNGs plus shared face UVs:
+  143840 PNG bytes /768KiB RGBA. Sources stay excluded by docs/.gdignore. Runtime
+  draw uses shared painting resources; thin violet outline appears only on press.
+  Original wireframe captures preserved alongside painted native captures.
+- DigBlocksPreview remains isolated/no-save, not a main-game replacement yet.
+  Native capture_dig_blocks:58 checks/0failures, empty stderr; desktop, short
+  landscape and portrait inspected. Touch/pan/Undo and wall-height checks pass.
+  Preparation/import succeed; no physical-phone profiling, APK, commit or push.
+  Review: docs/reference/interface-review/v20-dig-blocks-painted/index.html.
+
+## Diggable block wireframe proposal — 2026-10-30
+
+- User rejects floating pick badges and suggests blocks at wall height.
+  DigBlocksPreview.tscn is an isolated no-save geometry proposal, not yet the
+  main-game replacement or approved painting. Active HUD remains unchanged.
+- Each legal rock cell gets one .74-case square block with .13 inset, avoiding
+  masonry/pillar volume. Height comes from wall-h-0 bounds: .3133333333 case,
+  checked against wall-v-0. Three flat faces/edges, no new texture or icon.
+  Native support sorting places the blocks amongst real walls/doors/props.
+- Preview swaps only its floating-target adapter. Top and exposed side faces
+  use reverse paint-order polygon/alpha picking and the existing one-shot dig,
+  5gold, Undo and pan pipeline. No new gameplay rules, no player-save access.
+  capture_dig_blocks produces desktop/landscape/portrait views under ignored
+  artifacts/dig-blocks; native captures inspected. Wireframe needs user feedback
+  before texture work/main integration. No APK, commit or push.
+
+## Accessible excavation targets around obscuring walls — 2026-10-30
+
+- User approves floating pick buttons for hard-to-tap rock. hud_dig_targets
+  keeps ordinary clear cells as direct taps; insufficient/occluded48-unit discs
+  receive40-unit painted stone buttons with48-unit circular hit areas, at least
+  52units apart. Leaders end on exposed rock belonging to that exact cell.
+  Placement avoids HUD/status badges/solids/floor, within104units of the anchor;
+  offscreen or unsafely crowded candidates keep only their ground guide.
+- Layer ignores GUI input: GameInput owns press identity and release validation,
+  preserving pan from a button, cancel, multitouch, rotation and synthetic-mouse
+  handling. Layout briefly hides assistance during panning and caches stationary
+  state; source guides stay. Modes/funds/Undo still use direct-dig rules.
+- Review reproduced84 perimeter interceptions plus2 stuck-pressed cases, then
+  fixed full footprint checks and centralized world-pointer cancellation. Empty
+  leader searches never point into concealed masonry. Actual static Sprite2D
+  rectangle unions accelerate alpha queries; measured layout4–7ms on desktop
+  versus26–46ms before. This does not establish physical-phone performance.
+- verify_dig_targets:1309native checks/0failures across5sizes, gestures, safe
+  footprints, spacing, leaders, modes and prices; previous direct-dig308,
+  mobile interactions, rotation227 and radial1836 pass with empty stderr.
+  Reviewed captures/reports: artifacts/dig-targets. Focused review has no
+  remaining actionable finding. No new art, player saves, APK, commit or push.
+
+## Direct excavation on highlighted rock — 2026-10-30
+
+- User requests visible diggable cells and removing Dig from menus. Preparation
+  shows inset violet diamonds with the existing pick icon on affordable legal
+  rock. A released tap digs once for5gold; floor still opens construction.
+  Cache uses DungeonSim.dig_failure_reason on state changes, preserving entrance
+  supports/adjacency. Guides draw below solids; hidden for raids, modal/catalog,
+  object selection and other armed tools. No new art or per-frame dry-run loop.
+- dig_cell uses the normal validated transaction/Undo/save reconciliation through
+  confirm_action(requested_tool), without arming DIG. Legacy DIG remains usable
+  by probes. Since it also cleared structures, occupied objects now offer Remove
+  with local pending confirmation; outside taps only cancel it, never arm a tool.
+- Native review reproduced paid excavation through door art and enlarged status
+  rings. Pointer passes its world position; visible solid alpha/badge geometry
+  blocks such taps, including clipped door-wall supports. Drag/cancel/multitouch/
+  rotation preserve no-purchase semantics. No change to camera/raid rules.
+- verify_direct_dig covers308 checks, including real viewport gestures, cost,
+  frontier/Undo, modes, protected rock, removal/cancel, door and badge occlusion.
+  Radial1836, mobile interactions, rotation227 and7 probe recipes pass; logs and
+  inspected captures in artifacts/direct-dig. Tests disable persistence before
+  tree entry. No physical-phone validation, APK, new textures, commit or push.
+
 ## Shared painted stone menus — 2026-10-30
 
 - User approves v18 radial direction and requests matching menus. v19 integrates

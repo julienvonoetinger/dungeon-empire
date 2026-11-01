@@ -1,0 +1,62 @@
+{
+	"checks": 48,
+	"failures": [],
+	"layouts": [
+		{
+			"folded_triangles": 0,
+			"layout": "empty",
+			"minimum_projected_triangle_area": 511.999755859375,
+			"slope_vertices": 0,
+			"triangles": 656,
+			"vertices": 377
+		},
+		{
+			"folded_triangles": 0,
+			"layout": "single",
+			"minimum_projected_triangle_area": 164.666015625,
+			"slope_vertices": 132,
+			"triangles": 656,
+			"vertices": 377
+		},
+		{
+			"folded_triangles": 0,
+			"layout": "concave",
+			"minimum_projected_triangle_area": 164.666015625,
+			"slope_vertices": 177,
+			"triangles": 976,
+			"vertices": 545
+		},
+		{
+			"folded_triangles": 0,
+			"layout": "separate",
+			"minimum_projected_triangle_area": 164.666015625,
+			"slope_vertices": 264,
+			"triangles": 2320,
+			"vertices": 1241
+		},
+		{
+			"folded_triangles": 0,
+			"layout": "rock-island",
+			"minimum_projected_triangle_area": 164.666015625,
+			"slope_vertices": 756,
+			"triangles": 5008,
+			"vertices": 2617
+		},
+		{
+			"folded_triangles": 0,
+			"layout": "demo",
+			"minimum_projected_triangle_area": 164.666015625,
+			"slope_vertices": 318,
+			"triangles": 2192,
+			"vertices": 1177
+		},
+		{
+			"folded_triangles": 0,
+			"layout": "expanded-corridor",
+			"minimum_projected_triangle_area": 164.6650390625,
+			"slope_vertices": 332,
+			"triangles": 2192,
+			"vertices": 1177
+		}
+	]
+}

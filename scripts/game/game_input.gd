@@ -9,6 +9,7 @@ var _pointer := -2
 var _start := Vector2.ZERO
 var _last := Vector2.ZERO
 var _dragged := false
+var _dig_target := Vector2i(-1,-1)
 var _touches := {}
 var _last_core := Vector2i(-1,-1)
 var _previous_quit_on_back := true
@@ -48,7 +49,7 @@ func _window_resized() -> void:
 	# Discard the gesture, but retain the armed tool, open menu and camera centre.
 	if _pointer >= 0 or not _touches.is_empty():
 		_suppress_mouse_until = Time.get_ticks_msec() + 500
-	_pointer = -2
+	_cancel_world_pointer()
 	_touches.clear()
 	_dragged = false
 	_cancel_palette()
@@ -62,7 +63,7 @@ func center_core() -> void:
 	camera.position = view.grid_to_local(point)
 
 func _changed(_structure: bool) -> void:
-	if session.paused or session.result_open: _pointer = -2
+	if session.paused or session.result_open or (_dig_target.x>=0 and not session.can_edit()): _cancel_world_pointer()
 	var core := session.sim._core_origin()
 	if core != _last_core:
 		_last_core = core
@@ -73,7 +74,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		_suppress_mouse_until = Time.get_ticks_msec() + 500
 		if event.canceled:
-			_pointer=-2
+			_cancel_world_pointer()
 			_touches.erase(event.index)
 			_cancel_palette()
 			session.get_node("HUD").cancel_pointer()
@@ -81,7 +82,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			_touches[event.index] = true
 			if _touches.size() > 1:
-				_pointer = -2
+				_cancel_world_pointer()
 				_cancel_palette()
 				session.get_node("HUD").cancel_pointer()
 		else:
@@ -91,7 +92,14 @@ func _input(event: InputEvent) -> void:
 		if _pointer == -1: call_deferred("_cancel_if_released", -1)
 
 func _cancel_if_released(pointer: int) -> void:
-	if _pointer == pointer: _pointer = -2
+	if _pointer == pointer: _cancel_world_pointer()
+
+func _cancel_world_pointer() -> void:
+	_pointer=-2
+	_dig_target=Vector2i(-1,-1)
+	if not is_instance_valid(session): return
+	var hud=session.get_node("HUD")
+	if is_instance_valid(hud.dig_targets): hud.dig_targets.cancel_press()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
@@ -100,7 +108,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if session.paused or session.result_open or session.confirmation_open or session.save_blocked: return
 	if (event is InputEventScreenTouch or event is InputEventMouseButton) and session.get_node("HUD").blocks_pointer(event.position):
-		if not event.pressed: _pointer = -2
+		if not event.pressed: _cancel_world_pointer()
 		return
 	if event is InputEventScreenTouch:
 		if event.pressed and _touches.size() == 1: _begin(event.index,event.position)
@@ -121,10 +129,14 @@ func _begin(pointer: int, point: Vector2) -> void:
 	_start = point
 	_last = point
 	_dragged = false
+	var hud=session.get_node("HUD")
+	_dig_target=hud.dig_targets.hit_cell(point/hud.scale.x)
+	hud.dig_targets.press(_dig_target)
 
 func _move(point: Vector2) -> void:
 	if point.distance_to(_start) >= _threshold(): _dragged = true
 	if _dragged:
+		session.get_node("HUD").dig_targets.cancel_press()
 		camera.position -= (point-_last)/camera.zoom.x
 		var grid_point: Vector2 = view.local_to_grid(camera.position)
 		grid_point = grid_point.clamp(Vector2(-1,-1),Vector2(17,17))
@@ -134,10 +146,15 @@ func _move(point: Vector2) -> void:
 func _finish(point: Vector2) -> void:
 	if point.distance_to(_start) >= _threshold(): _dragged = true
 	if not _dragged and not session.get_node("HUD").blocks_pointer(point):
-		var local_point: Vector2 = point - session.get_node("PlayArea").position
-		var world_point: Vector2 = view.get_global_transform_with_canvas().affine_inverse() * local_point
-		session.get_node("HUD").world_tapped(view.pick_cell(world_point))
-	_pointer = -2
+		var hud=session.get_node("HUD")
+		var released_target: Vector2i=hud.dig_targets.hit_cell(point/hud.scale.x)
+		if _dig_target.x>=0:
+			if released_target==_dig_target: session.dig_cell(_dig_target)
+		elif released_target.x<0:
+			var local_point: Vector2 = point - session.get_node("PlayArea").position
+			var world_point: Vector2 = view.get_global_transform_with_canvas().affine_inverse() * local_point
+			hud.world_tapped(view.pick_cell(world_point),world_point)
+	_cancel_world_pointer()
 
 func _threshold() -> float:
 	return DRAG_THRESHOLD * session.get_node("HUD").scale.x
@@ -186,7 +203,7 @@ func _cancel_palette() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
-		_pointer = -2
+		_cancel_world_pointer()
 		_touches.clear()
 		_cancel_palette()
 		if is_instance_valid(session): session.get_node("HUD").cancel_pointer()

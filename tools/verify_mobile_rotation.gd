@@ -34,6 +34,7 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(out)
 	check(ProjectSettings.get_setting("display/window/handheld/orientation", 0) == DisplayServer.SCREEN_SENSOR, "Project must enable automatic portrait and landscape")
 	var game = GAME.instantiate()
+	game.persistence_enabled=false
 	game.save_path = out + "never-created.save"
 	root.add_child(game); game.set_process(false)
 	await settle()
