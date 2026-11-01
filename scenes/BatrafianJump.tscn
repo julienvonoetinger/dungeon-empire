@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/batrafian_jump_preview.gd" id="1"]
+[ext_resource type="SpriteFrames" path="res://assets/previews/batrafian-jump/frames.tres" id="2"]
+
+[node name="BatrafianJump" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+animation_frames = ExtResource("2")
+preview_title = "Batrafian · trap jump"
+phases = PackedStringArray("Ready", "Gather", "Crouch", "Push off", "Rise", "Tuck", "Apex", "Descend", "Reach", "Land", "Absorb", "Ready")
+frame_anchor = Vector2(128, 189.39453939444144)
+replay_caption = "Jump"

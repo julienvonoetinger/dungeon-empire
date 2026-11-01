@@ -1,0 +1,143 @@
+{
+  "status": "prepared-not-reconstructed",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "id": "front",
+      "source": "source/front.png",
+      "file": "meshy/character/01-front.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1041833,
+      "sha256": "c2ded6889984c4c9ea2ae7e952d4e1e705ba2cca2e7d8b3c1bf40803ce546fda",
+      "nativeAlpha": true,
+      "transparentPixels": 1007974,
+      "solidBounds": [
+        90,
+        57,
+        1162,
+        1200
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "left",
+      "source": "source/left.png",
+      "file": "meshy/character/02-left.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 537648,
+      "sha256": "0b33e3ced0400fa3ababdfe5cd4c46427fbdfee2e568b79ddeb40523b53c11ae",
+      "nativeAlpha": true,
+      "transparentPixels": 1275701,
+      "solidBounds": [
+        356,
+        55,
+        809,
+        1207
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "back",
+      "source": "source/back.png",
+      "file": "meshy/character/03-back.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 892664,
+      "sha256": "098be64644dca9f939e207107121529496b5ec05e2283d57d6ca5dabf6d350d1",
+      "nativeAlpha": true,
+      "transparentPixels": 1054977,
+      "solidBounds": [
+        92,
+        57,
+        1162,
+        1189
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "right",
+      "source": "source/right.png",
+      "file": "meshy/character/04-right.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 535601,
+      "sha256": "df36802646339f51b19a41ead93b31aac2d1e3b46ee9ebf312b72dd98e3419fa",
+      "nativeAlpha": true,
+      "transparentPixels": 1285959,
+      "solidBounds": [
+        452,
+        53,
+        890,
+        1204
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "bow",
+      "source": "source/bow.png",
+      "file": "meshy/equipment/bow.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 319150,
+      "sha256": "2519884b9c15e7b0a6e11b42340d59e19799a7b10d1223ec1fede849816980e1",
+      "nativeAlpha": true,
+      "transparentPixels": 1438656,
+      "solidBounds": [
+        387,
+        65,
+        918,
+        1194
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "quiver",
+      "source": "source/quiver.png",
+      "file": "meshy/equipment/quiver.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 605339,
+      "sha256": "068ca29003801c2ab02565d8422ba9ce221871597fdcc12bce5bd9f837a8f04c",
+      "nativeAlpha": true,
+      "transparentPixels": 1259768,
+      "solidBounds": [
+        382,
+        89,
+        870,
+        1156
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "arrow",
+      "source": "source/arrow.png",
+      "file": "meshy/equipment/arrow.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 181185,
+      "sha256": "72c5401af45ed7659596d50d5a1d431cb8348a5f773e67f651e40a95d7337f18",
+      "nativeAlpha": true,
+      "transparentPixels": 1502796,
+      "solidBounds": [
+        547,
+        48,
+        708,
+        1205
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    }
+  ],
+  "characterTopSpreadPixels": 4,
+  "characterSoleSpreadPixels": 18,
+  "totalPngBytes": 4113420,
+  "limits": "Illustrations, not calibrated mesh views. Meshy reconstruction, rigging and animation untested. Originals copied without pixel edits."
+}

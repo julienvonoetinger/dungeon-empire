@@ -1,0 +1,73 @@
+{
+  "attachments": {
+    "bow_output_unwrapped": {
+      "bone": "Bone_023",
+      "source_grip": [
+        -0.248,
+        0.0,
+        -0.015
+      ],
+      "target": [
+        0.581664,
+        -0.296227,
+        0.841289
+      ],
+      "uniform_scale": 0.6569107404451239,
+      "requested_height": 1.25
+    },
+    "quiver_output_unwrapped": {
+      "bone": "Bone_003",
+      "source_grip": [
+        0.0,
+        0.0,
+        -0.2
+      ],
+      "target": [
+        -0.14,
+        0.515,
+        0.91
+      ],
+      "uniform_scale": 0.48383086506547424,
+      "requested_height": 0.92
+    }
+  },
+  "arrow_length": 0.79,
+  "arrow_scale": 0.4153987969294214,
+  "views": [
+    "front",
+    "se",
+    "sw",
+    "back",
+    "nw",
+    "ne"
+  ],
+  "hands": {
+    "L": {
+      "wrist": "Bone_023",
+      "head": [
+        0.49,
+        -0.2,
+        0.82
+      ],
+      "elbow": [
+        0.434111,
+        -0.009752,
+        0.933939
+      ]
+    },
+    "R": {
+      "wrist": "Bone_019",
+      "head": [
+        -0.4,
+        -0.06,
+        0.66
+      ],
+      "elbow": [
+        -0.39755,
+        0.059082,
+        0.855227
+      ]
+    }
+  },
+  "limits": "Static review only. No independent finger bones, no deformable bow/string setup, no full animation collision validation."
+}

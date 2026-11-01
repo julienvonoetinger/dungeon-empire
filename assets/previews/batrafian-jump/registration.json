@@ -1,0 +1,43 @@
+{
+  "anchor": [
+    128,
+    189.39453939444144
+  ],
+  "frame_size": 256,
+  "hero_scale": 0.9404255319148935,
+  "ortho_scale": 2.6,
+  "durations_ms": [
+    60,
+    70,
+    70,
+    60,
+    80,
+    90,
+    90,
+    80,
+    70,
+    70,
+    100,
+    160
+  ],
+  "phases": [
+    "Ready",
+    "Gather",
+    "Crouch",
+    "Push off",
+    "Rise",
+    "Tuck",
+    "Apex",
+    "Descend",
+    "Reach",
+    "Land",
+    "Absorb",
+    "Ready"
+  ],
+  "loop": false,
+  "launch_time": 0.2,
+  "land_time": 0.67,
+  "apex_height": 0.55,
+  "altitude_baked": false,
+  "travel_cells": 2
+}

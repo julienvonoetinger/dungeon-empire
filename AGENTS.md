@@ -1,5 +1,206 @@
 # Repository instructions
 
+## Commit validation for the Batrafian sprite pipeline — 2026-11-01
+
+- User requests commit/push of accumulated Meshy references, immutable GLBs,
+  corrected equipment, walk/run/jump/forward-death/bow-attack sprites and five
+  isolated native scenes. Fresh import passes;1849native checks pass (gaits708,
+  jump363,death303,attack475), all stderr logs empty. All7headless probe scenarios
+  pass. Evidence: artifacts/commit-batrafian. No player saves or APK.
+- Keep original references, packed pose scenes, render/packing scripts and
+  review recipes. Batrafian source/review bytes are preserved by .gitattributes
+  and excluded from game exports by docs/.gdignore. Existing local ignores
+  exclude intermediate inspection files/backups. No raid integration added.
+
+## Batrafian ranged bow attack — 2026-11-01
+
+- User requests bow attack toward Core at range. v7-bow-attack starts from
+  unchanged v3 equipped source:12held poses/four true iso views,1150ms. Extract,
+  carry, nock/draw, aim, release, recover. Feet fixed, torso twists; neck keeps
+  aim. Original materials/UV/weights, no repaint or 2D body assembly/mirroring.
+- Copied bow mesh has Basis/Draw, deforming its existing string with actual
+  nock measured at local z.11. No second string. Forearm roll follows wrist.
+  Curved bow lift avoids head/body crossings; bounded quiver strap translation
+  keeps original attachment rotation/scale. Early IK reach failure resolved by
+  carrying arrow in poses2–3 and nocking only4–6; no fake early string contact.
+-44unique320px body sprites in4atlas1920x640,12time slots plus4cropped original
+  arrow sprites. Last pose aliases first. Total1,510,998PNG bytes/18.75MiB atlas
+  RGBA. Ortho3.25/scale.940425532 keeps gait resolution. Source/review excluded.
+- BatrafianCoreAttack.tscn:4actual Core/floor stages, two-cell range. Body arrow
+  disappears at690ms as projectile starts at exact rendered nock; unchanged
+  projected axis reaches vortex interior with tip at950ms. One clock, pause,
+  seek/step/Repeat/0.5x–2x, threshold-crossing release/impact counts. No shared
+  preview or gameplay edits. Native475checks pass/3sizes, empty stderr/import0.
+- Independent choreography source6failures→8pass. Packed-source12pose reload
+  checks grip/nock/held-arrow handoff, ground/cameras,0nonhand equipment/body
+  edge crossings, immutable4GLB/source hashes and12packed images. Captures and
+  boards inspected. Recipe: v7-bow-attack/README.txt. Native animated reviews
+  preserve captured timelines even when WebP merges identical frames.
+- Fresh independent review: no actionable finding,475native checks/empty stderr,
+ 294asset/hash/repack/timeline checks. Base geometry/UV/weights/materials/images/
+  rest skeleton compared unchanged against v3; leg/attachment bounds and fresh
+ 8choreography/12saved-pose checks pass. Evidence artifacts/batrafian-attack/review.
+- Isolated scene only, no raid damage/rules/integration, player saves, phone
+  validation, APK, commit/push. Not a full self-collision/contained-volume proof.
+
+## Batrafian forward fall and death — 2026-11-01
+
+- User requests death animation. v6-death starts from unchanged v3 equipped
+  Meshy model:10whole-mesh held poses/four real iso views,650ms, no mirroring or
+  repaint. Knees buckle, kneel, reach/catch, chest settles with extended elbows
+  and turned head. Final corpse holds; no rigid sideways fall or automatic idle.
+- Bow drops by frame4 and remains fixed on floor. Quiver stays parented to003,
+  with gradual local strap sway(-.12,+.055,0) from frame6; unchanged rotation/scale.
+  This resolves shoulder/head crossings in the four last initial pilot poses.
+  Rest gear and earlier animations unchanged. Arrow hidden; painted eyes remain
+  open because the supplied rig has no eyelids. No mesh/weight/texture changes.
+-640px masters uniformly reduced to320px at ortho3.25/targetZ.46; ground anchor
+ (160,199.224289), native scale.940425532 preserves gait pixels per model unit.
+ 4atlas1600x640:1,470,407PNG bytes/15.625MiB RGBA.40unique held sprites, nonlooping.
+- Independent choreography: standing source9failures then12checks pass. Packed
+  blend reload verifies10poses, floor, all4camera bounds, settled bow, bounded
+  quiver sway,0equipment/body and prop/prop edge crossings,4GLB/source hashes,
+ 12packed images. Source/review excluded by docs/.gdignore.
+- BatrafianDeath.tscn reuses unchanged action preview controls with actual kit
+  floor:4directions, replay/pause/step/0.5x–2x/Repeat. Native303checks pass on
+ 3sizes, all40sprite ink bounds/controls fit, final corpse holds. Import/native
+  exit0/empty stderr; boards and captures inspected. Recipe v6-death/README.txt.
+- Independent review found no actionable implementation issue;40master/reduction
+  hashes,4byte-identical atlas repacks,WebP timings/source hashes verified;
+  fresh packed-source/choreography checks pass. Shared preview stays unchanged.
+- Isolated preview, no raid integration/player saves/APK/commit/push. No full
+  self-collision/contained-volume proof or physical-phone performance validation.
+
+## Batrafian jump over a trap — 2026-11-01
+
+- User requests jump animation. v5-jump reuses corrected v3 equipped Meshy:
+ 12whole-mesh held poses/four real iso views, identical rest endpoints, original
+  bow/forearm roll/quiver transforms preserved. Arrow hidden. No new painting.
+- Wind-up→push→tuck→reach→land→absorb. One-second clip, matching existing ranger
+  jump duration; preview moves2cells only during.20–.67s. Parabolic root height
+  .55model unit is UNBAKED and applied once outside sprites; shadow stays on floor.
+  Local frog soles/long toes are registered, knees flex outward(±1.2,-1,0), wrists
+  rise during crouch to keep bow clear. Shared256px gait registration retained.
+- Independent packed-source reload:12poses, finite geometry, sole contacts,
+  unchanged relative attachments, body/prop rest endpoints,0nonhand bow/body and
+ 0quiver/body edge crossings;4GLB/equipped source hashes and12packed images pass.
+ 48masters become44unique regions in4atlas1536x512:1,556,616PNG bytes/12MiB RGBA.
+- BatrafianJump.tscn uses four actual kit floor/spike stages and shared action
+  controls, no shared-script changes. Native fixture red missing scene→363checks
+  pass, import/native exit0/empty stderr. Pause/step/x2, trajectory/shadow, final
+  rest/replay/Repeat and3sizes checked; pose boards/native captures inspected.
+- WebP10ms boundaries were clamped by decoder and stretched review timing;
+  review now samples at20ms,1800ms normal/2800ms slow including800ms rest. Native
+  variable durations remain exact. Recipe in v5-jump/README.txt; docs excluded.
+- Independent review: no important finding;48master/sprite hashes,4byte-identical
+  atlas repacks, source hashes and decoded WebP timings verified.
+- Isolated preview, no raid integration/player saves/APK/commit/push. No full
+  self-collision/contained-volume proof or physical-phone performance validation.
+
+## Batrafian whole-mesh walk and run — 2026-11-01
+
+- User requests walking/running. v4-locomotion starts from the corrected v3
+  equipped blend: raised bow handle, forearm roll and quiver orientation retained.
+  Original4GLBs/materials unchanged; spare arrow hidden. Preserve forearm axial
+  roll when solving arms because the palm shares Bone_024 weights. Left chain
+  025→024→023, right021→020→019; quiver003, bow023. No mirrored/assembled art.
+- Eight held poses/gait,4actual isometric views,512px masters→256px sprites.
+  Walk15fps/1.125model units/s; run16fps/1.76,6deg lean and2airborne poses.
+  Frog soles include long toes. Knee pole(±.5,-1,0) resolves tunic/quiver crossings
+  in3pilot run poses without moving attachments; lowering feet alone did not.
+- Packed blend reloaded:16poses,12support intervals,0nonhand bow/body or quiver/
+  body edge crossings, no floor penetration,12packed images,4source hashes and
+  equipped-source hash unchanged. Max support-travel error.000519model unit.
+- BatrafianWalk/Run.tscn reuse unchanged corridor scripts:2paths/four directions,
+  pause/step/x2. Native fixture red2missing scenes→708checks/0failures, import and
+  native stderr empty. Desktop/short-landscape/portrait captures and pose boards
+  inspected.8atlases total2,141,227PNG bytes/16MiB RGBA,8MiB per gait. Source/review
+  excluded by docs/.gdignore. Reproduction and limits in v4-locomotion/README.txt.
+  Independent review: no important finding;64master hashes and8repacked atlases
+  match, both WebP durations checked. Shared Vulpin/Paladin scripts unchanged.
+- Isolated previews, no raid integration/save access/APK/commit/push. No physical
+  phone profiling or complete self-collision/contained-volume proof. Artistic
+  approval remains with the user.
+
+## Batrafian bow raised to centre the grip — 2026-11-01
+
+- User finds the hand too high on the handle and requests raising the bow.
+  v3 changes only its source anchor Z -.015→-.080: +.04270 world-unit rise.
+  Hand/body poses, bow yaw/scale, quiver and arrow stay unchanged. Prior script,
+  fit metadata and native close-up/full capture retained as before-bow-centering*.
+- Six renders/three details refreshed; saved-scene, source integrity, orientation
+  and static nonhand clearance checks rerun. Same static-only limitations;
+  no runtime/animation changes, APK, commit or push.
+
+## Batrafian quiver and bow-hand orientation corrected — 2026-11-01
+
+- User rejects v2 quiver and hand direction. v3-equipment-orientation keeps
+  source GLBs/materials and accessory sizes, retains v2 as rejected comparison.
+  Quiver was edge-on (-90deg axial rotation): now180deg, broad front outward,
+ 24deg toward right shoulder/12deg backward; reference(-.14,.435,.91).
+- Left wrist basis now maps thumb upward and palm inward; forearm024 also rolls
+  to the palm plane because imported palm vertices share forearm weights. Wrist-
+  only rotation visibly twisted the webbing. Preserve-volume armature deformation
+  and40deg grouped finger curl reduce that twist. Elbow/wrist positions unchanged.
+  Bow yaw60deg keeps its string beside the forearm; rigid attachment023 unchanged.
+- Before/after reload checks reproduce both orientation errors in v2 and pass v3.
+  Final static surface-edge crossings:0bow/nonhand and0quiver/body. Source hashes,
+ 12packed images and both attachment move/restore tests pass. Six full renders
+  and three close-ups inspected. Before/after page and reproducible scripts saved.
+- This corrects static orientation, not a per-finger rig or validated shooting
+  animation. Bow/string remain rigid. No gameplay, save, APK, commit or push.
+
+## Batrafian Meshy sources and static equipment review — 2026-11-01
+
+- User supplies Batrafian, bow, quiver and arrow GLBs. Archive immutable copies
+  under docs/reference/batrafian-review/source with paths, sizes and SHA256.
+  Background Blender5.2.1 renders v2-meshy-inspection; live connector unavailable.
+  Original meshes/materials retained; all review/source files excluded by docs/.gdignore.
+- Body has26 bones,13176vertices/10350triangles, no unweighted vertices or clips.
+  All25 weighted nonroot bones deform and restore. Left arm025→024→023, right
+  021→020→019, torso003. Distal hand022/018 groups fingers; no individual finger rig.
+- Proposed static pose: bow on left wrist023, quiver on torso003, independent
+  arrow hidden for rest. Uniform sizes1.25/.92/.79 against body height1.70.
+  Original quiver surface crossed torso122times; turn attachment loops toward
+  body and adjust spacing. Saved final checks show0 bow/nonhand and0 quiver/body
+  surface-edge crossings, both attachments follow8deg probes and restore.
+- Packed blend reload passes with12images and unchanged four source hashes.
+  Six complete native renders inspected, four iso30deg plus front/back. Shared
+  framing uses maximum absolute projected extent to retain asymmetric equipment;
+  min/max width alone clipped a pilot direction and was corrected.
+- Hand grip is provisional; fine fingers, bow/string flexion and animated-pose
+  clearance remain undone. This is a static review, not runtime integration or
+  approved animations. No player saves, APK, commit/push; browser page untested.
+
+## Standalone Batrafian arrow reference — 2026-11-01
+
+- User requests an arrow alongside the Meshy body/bow/quiver pack. Added one
+  complete steel-tipped wooden arrow with cream fletching and a forked nock,
+  matching the approved quiver. Generate it separately from the character.
+- Native ImageGen alpha/source/prompt retained; preparation copies bytes without
+  repainting. Slender-object validation checks full length and unclipped bounds.
+  Seven PNGs total4,113,420bytes; updated ZIP3,735,866bytes. Original six images
+  unchanged. No Meshy reconstruction, runtime changes, APK, commit or push.
+
+## Batrafian ranger references for Meshy — 2026-11-01
+
+- User chooses the frog ranger next and requests Meshy views. v1-meshy-turnaround
+  under docs/reference/batrafian-review reuses the approved four-hero concept:
+  front/left/back/right in A pose, empty hands, bare frog feet, green scarf and
+  one right-hip pouch. Bow and filled quiver are separate object references.
+  Do not upload accessories as additional views of the body.
+- Built-in ImageGen, native alpha. Exact prompts, original output paths and
+  initial rejected versions retained. Corrected left torso/hand toward true
+  profile and rear pouch to remove duplicated front clasp. Rear design is an
+  interpretation; views are independent illustrations, not calibrated mesh renders.
+- prepare.cjs copies source bytes and validates alpha, no solid-edge clipping,
+  common1254px canvas, hashes and file sizes. Six PNGs3,932,235bytes; ZIP3,598,359
+  bytes. Body top spread4px/sole spread18px recorded, not hidden by deformation.
+  PNGs inspected; Meshy reconstruction/rig and review-page browser rendering
+  untested. Official multi-view guidance checked; README explains separate imports.
+- No model upload, rigging, animation, runtime asset changes, APK, commit/push.
+  docs/.gdignore excludes references from exports; .gitattributes preserves bytes.
+
 ## Paladin faces the Core centre when striking — 2026-11-01
 
 - User rejects the side-offset attack. Prior cap-centre calibration picked the

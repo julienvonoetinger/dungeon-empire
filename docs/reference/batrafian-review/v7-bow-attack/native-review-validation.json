@@ -1,0 +1,207 @@
+{
+  "source": "Godot verify_batrafian_attack.gd",
+  "sources": [
+    {
+      "file": "motion-00.png",
+      "time_ms": 0,
+      "sha256": "e5389d602468e0570acc4d85392ce6d8cf341104017b9dff7bcd43a996da0a5d"
+    },
+    {
+      "file": "motion-01.png",
+      "time_ms": 40,
+      "sha256": "e5389d602468e0570acc4d85392ce6d8cf341104017b9dff7bcd43a996da0a5d"
+    },
+    {
+      "file": "motion-02.png",
+      "time_ms": 80,
+      "sha256": "e5389d602468e0570acc4d85392ce6d8cf341104017b9dff7bcd43a996da0a5d"
+    },
+    {
+      "file": "motion-03.png",
+      "time_ms": 120,
+      "sha256": "538f9d8433efece22b88f6be4c270092cf2a7e23a01d52c0ca3242fdbc523acf"
+    },
+    {
+      "file": "motion-04.png",
+      "time_ms": 160,
+      "sha256": "538f9d8433efece22b88f6be4c270092cf2a7e23a01d52c0ca3242fdbc523acf"
+    },
+    {
+      "file": "motion-05.png",
+      "time_ms": 200,
+      "sha256": "538f9d8433efece22b88f6be4c270092cf2a7e23a01d52c0ca3242fdbc523acf"
+    },
+    {
+      "file": "motion-06.png",
+      "time_ms": 240,
+      "sha256": "7a6f9a61d1b2f581ad9c0dcd0cfb5b26a75619ad27d4bc97f209385545315642"
+    },
+    {
+      "file": "motion-07.png",
+      "time_ms": 280,
+      "sha256": "7a6f9a61d1b2f581ad9c0dcd0cfb5b26a75619ad27d4bc97f209385545315642"
+    },
+    {
+      "file": "motion-08.png",
+      "time_ms": 320,
+      "sha256": "05b102371caa22ed40b8874ba28658ce66492b73efe00c642b17b2dd941f59fd"
+    },
+    {
+      "file": "motion-09.png",
+      "time_ms": 360,
+      "sha256": "05b102371caa22ed40b8874ba28658ce66492b73efe00c642b17b2dd941f59fd"
+    },
+    {
+      "file": "motion-10.png",
+      "time_ms": 400,
+      "sha256": "7e80da12b106f3ca512099100e5c064b96b907509e477768a1d5d7a566f7f7e2"
+    },
+    {
+      "file": "motion-11.png",
+      "time_ms": 440,
+      "sha256": "7e80da12b106f3ca512099100e5c064b96b907509e477768a1d5d7a566f7f7e2"
+    },
+    {
+      "file": "motion-12.png",
+      "time_ms": 480,
+      "sha256": "7e80da12b106f3ca512099100e5c064b96b907509e477768a1d5d7a566f7f7e2"
+    },
+    {
+      "file": "motion-13.png",
+      "time_ms": 520,
+      "sha256": "439190a4d93afe1a5b5bcabafc1fe2220b3913ae23088a57663258c31e9bb402"
+    },
+    {
+      "file": "motion-14.png",
+      "time_ms": 560,
+      "sha256": "439190a4d93afe1a5b5bcabafc1fe2220b3913ae23088a57663258c31e9bb402"
+    },
+    {
+      "file": "motion-15.png",
+      "time_ms": 600,
+      "sha256": "9bdf6de8b9b63550caab6ca0aec2217c9c890ebd56676771beedc961468b74ee"
+    },
+    {
+      "file": "motion-16.png",
+      "time_ms": 640,
+      "sha256": "9bdf6de8b9b63550caab6ca0aec2217c9c890ebd56676771beedc961468b74ee"
+    },
+    {
+      "file": "motion-17.png",
+      "time_ms": 680,
+      "sha256": "9bdf6de8b9b63550caab6ca0aec2217c9c890ebd56676771beedc961468b74ee"
+    },
+    {
+      "file": "motion-18.png",
+      "time_ms": 720,
+      "sha256": "18df59158c11eb7d38dff39439146e54a0bc1938437bfdd3810680b902127e0a"
+    },
+    {
+      "file": "motion-19.png",
+      "time_ms": 760,
+      "sha256": "7cef663b57341cec1485abb0355f49ff102e261105b918f94d35fc79487c70d7"
+    },
+    {
+      "file": "motion-20.png",
+      "time_ms": 800,
+      "sha256": "5b9f4ee99a627f0c0357a1a24fb2f1e87b3950e6a64d9b18c8f9abdbc220306a"
+    },
+    {
+      "file": "motion-21.png",
+      "time_ms": 840,
+      "sha256": "300c33035c7e5c9ad98a71735ef95ccc939f29f269b6f13b6ace2c1fd9c043e8"
+    },
+    {
+      "file": "motion-22.png",
+      "time_ms": 880,
+      "sha256": "32680475eb64e6f7340675f3c2d12c4f8eb50ee91622b26c749de19fbce8f1de"
+    },
+    {
+      "file": "motion-23.png",
+      "time_ms": 920,
+      "sha256": "7368d389d61346f607f5aece07a3d773d071040739c49cdb98ed3669d0ee44ba"
+    },
+    {
+      "file": "motion-24.png",
+      "time_ms": 960,
+      "sha256": "0c47f1ecc193080e32f5e8a32239219a9f3550f281ea9af3df3208744104ee5d"
+    },
+    {
+      "file": "motion-25.png",
+      "time_ms": 1000,
+      "sha256": "0c47f1ecc193080e32f5e8a32239219a9f3550f281ea9af3df3208744104ee5d"
+    },
+    {
+      "file": "motion-26.png",
+      "time_ms": 1040,
+      "sha256": "e5389d602468e0570acc4d85392ce6d8cf341104017b9dff7bcd43a996da0a5d"
+    },
+    {
+      "file": "motion-27.png",
+      "time_ms": 1080,
+      "sha256": "e5389d602468e0570acc4d85392ce6d8cf341104017b9dff7bcd43a996da0a5d"
+    },
+    {
+      "file": "motion-28.png",
+      "time_ms": 1120,
+      "sha256": "e5389d602468e0570acc4d85392ce6d8cf341104017b9dff7bcd43a996da0a5d"
+    },
+    {
+      "file": "motion-29.png",
+      "time_ms": 1150,
+      "sha256": "e5389d602468e0570acc4d85392ce6d8cf341104017b9dff7bcd43a996da0a5d"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "core-attack.webp",
+      "source_samples": 30,
+      "frames": 15,
+      "duration_ms": 1950,
+      "delay": [
+        120,
+        120,
+        80,
+        80,
+        120,
+        80,
+        120,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        80,
+        910
+      ],
+      "bytes": 462510,
+      "sha256": "f27b6df52b63e10df8e2a72f882ceefc860c6ea579a37183c858a7adc2219976"
+    },
+    {
+      "file": "core-attack-slow.webp",
+      "source_samples": 30,
+      "frames": 15,
+      "duration_ms": 3100,
+      "delay": [
+        240,
+        240,
+        160,
+        160,
+        240,
+        160,
+        240,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        160,
+        1020
+      ],
+      "bytes": 462510,
+      "sha256": "de84e43dfe2f5573419817acbd2d6773b7150de1648f8f77d5bde904171e43be"
+    }
+  ]
+}

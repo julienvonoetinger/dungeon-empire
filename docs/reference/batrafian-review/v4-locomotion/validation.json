@@ -1,0 +1,755 @@
+{
+  "gaits": {
+    "walk": {
+      "frames": [
+        {
+          "view": "se",
+          "index": 0,
+          "sha256": "94b23b08cb1ab97fc7ed65e7c5e51f72cea9233e8b4cefc917f5a4a4db480e14",
+          "alphaBounds": [
+            94,
+            67,
+            347,
+            395
+          ]
+        },
+        {
+          "view": "se",
+          "index": 1,
+          "sha256": "7ffeadec01066a326fe3dcec4a9bcc0155b6d9b3d6fe5528f7896df69e537f4e",
+          "alphaBounds": [
+            93,
+            69,
+            348,
+            385
+          ]
+        },
+        {
+          "view": "se",
+          "index": 2,
+          "sha256": "7bd3ee6c08c75c55fdd01cc74f3eb2e451360dd0f8993b549bf235d33b3b8c7f",
+          "alphaBounds": [
+            90,
+            68,
+            349,
+            385
+          ]
+        },
+        {
+          "view": "se",
+          "index": 3,
+          "sha256": "e52589e18e65ad01ade540a2049f4afa703ec12f9a4e8f9c8e44a4d0b85660a1",
+          "alphaBounds": [
+            88,
+            66,
+            351,
+            398
+          ]
+        },
+        {
+          "view": "se",
+          "index": 4,
+          "sha256": "c667b2426acb6197d898f4b397762d4e59a80d0021b2fa619f4bc5b50c0cc98d",
+          "alphaBounds": [
+            87,
+            69,
+            350,
+            416
+          ]
+        },
+        {
+          "view": "se",
+          "index": 5,
+          "sha256": "24a876d3ba71c9077c42a825a325251ca88c6041c9963fca3b47e0f1f3495282",
+          "alphaBounds": [
+            88,
+            71,
+            350,
+            411
+          ]
+        },
+        {
+          "view": "se",
+          "index": 6,
+          "sha256": "7c9042eba1d861968024078e638e0e8beab7af3f7375ee31b63206493f7cbb3d",
+          "alphaBounds": [
+            90,
+            68,
+            349,
+            405
+          ]
+        },
+        {
+          "view": "se",
+          "index": 7,
+          "sha256": "dd6833f599c6c6d26a5d92d0581aed7132eeb0cedc90f4ab2b057da3cfaf32b4",
+          "alphaBounds": [
+            93,
+            65,
+            348,
+            400
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 0,
+          "sha256": "19b74dd87e1c00ca9cb28434bab23665c7999d096483dd6e928165109fa6943b",
+          "alphaBounds": [
+            198,
+            67,
+            387,
+            416
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 1,
+          "sha256": "6b258b93c2e68b283f1f4be357e4808798ff03d8d750bc44dd87b39f46c1dac9",
+          "alphaBounds": [
+            199,
+            68,
+            385,
+            411
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 2,
+          "sha256": "15e68b119ee8d09f63b94fdafb21c22f82b80ea03dfabf720bdf0ee714cc0181",
+          "alphaBounds": [
+            194,
+            66,
+            380,
+            406
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 3,
+          "sha256": "f85807081ee8afa63b625f3a2b32b67cddfec40ef9f875f0b3a249c2a0faf08f",
+          "alphaBounds": [
+            181,
+            63,
+            375,
+            400
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 4,
+          "sha256": "18553011137cbb61c0f705d6527c3fd54b3828b17fb2b9f3ed5045b0bf1e6a12",
+          "alphaBounds": [
+            174,
+            65,
+            373,
+            395
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 5,
+          "sha256": "fada36b69ff9a4ff31d83161dc16e540bc50a0160f5d021eff04b9041f700390",
+          "alphaBounds": [
+            184,
+            67,
+            375,
+            386
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 6,
+          "sha256": "008c0cfda4011c23b968d5d9162fca5550c8ea01a0aac9037ba641ccfd671ac3",
+          "alphaBounds": [
+            194,
+            66,
+            380,
+            385
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 7,
+          "sha256": "7fca46baa003a0ed64d1c2658c8c394eafa4dbc2321627debe65e8345879040b",
+          "alphaBounds": [
+            200,
+            64,
+            385,
+            398
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 0,
+          "sha256": "94cc32a352fe3071de2fa9f577c20b29590d886b8d79cd302507b9141069a0d4",
+          "alphaBounds": [
+            164,
+            90,
+            417,
+            411
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 1,
+          "sha256": "cd4da82271f7c3ff69d477b916c5d4026e037f0fc35bc6b738bdf75f160a3dba",
+          "alphaBounds": [
+            163,
+            91,
+            418,
+            414
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 2,
+          "sha256": "25821e079e1997c4c90679ae4e1482903a79fb61b44b63539bf565293b885d64",
+          "alphaBounds": [
+            162,
+            88,
+            421,
+            419
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 3,
+          "sha256": "5eedb6ddd1f03ac46f67cc000335844d7de86dc1222b5da41eec59b577d09e41",
+          "alphaBounds": [
+            160,
+            85,
+            423,
+            424
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 4,
+          "sha256": "02f97aeb6eef0194ef0f16d31212a037d5aecb5d7eace06dbae439dabcce98de",
+          "alphaBounds": [
+            161,
+            87,
+            423,
+            428
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 5,
+          "sha256": "a160d9bac14350ad1b842e0d75302dd51acfad11cf2a177751ccd2be5773dc72",
+          "alphaBounds": [
+            161,
+            89,
+            423,
+            404
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 6,
+          "sha256": "e1c13bcde1b1e6c750e84239c0bd95b50ab95e3f0ccccb31929b14247a355525",
+          "alphaBounds": [
+            162,
+            88,
+            421,
+            400
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 7,
+          "sha256": "ee509c1f284e425b3536301cbbc40a7d6ac01417bda7d06c0262b42d8ad48e2a",
+          "alphaBounds": [
+            163,
+            87,
+            418,
+            403
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 0,
+          "sha256": "aadfe7019e2c39c554514152b60abbdc60d14b020411bef3a7938b34b33f946e",
+          "alphaBounds": [
+            124,
+            87,
+            313,
+            428
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 1,
+          "sha256": "244b2590c7ec4539bc27a76bcec7468de9c784ecbf3d65d5c17a2b037ac9e1c8",
+          "alphaBounds": [
+            126,
+            89,
+            312,
+            404
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 2,
+          "sha256": "ed89e831b51eb619ecde9b0c5bf0af22f828a8abb726ecdecc44881e68315eb1",
+          "alphaBounds": [
+            131,
+            87,
+            317,
+            397
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 3,
+          "sha256": "e0d17c0aaaae0558fbe1782bf6fe11dbed97e03a3077d7b48dae8b39cbe16225",
+          "alphaBounds": [
+            136,
+            84,
+            330,
+            403
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 4,
+          "sha256": "33d04ef07265c26bcbc706fa36e5e001d8f4920e1aa119c29f55e060a73b9b55",
+          "alphaBounds": [
+            138,
+            88,
+            337,
+            411
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 5,
+          "sha256": "86e819aec352aaeeb04f999db37a3d28843cce615e78f6bf3c755e1a2320c379",
+          "alphaBounds": [
+            136,
+            91,
+            327,
+            415
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 6,
+          "sha256": "0b6bc266068c6ae4d5a32019859d89dbdfac4a8d754624f3b04b972ca8626bba",
+          "alphaBounds": [
+            131,
+            89,
+            317,
+            419
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 7,
+          "sha256": "e82c5645acec14daefffc4ddefc7f128c1ca0bb50dc93b134bb7911c805c2a0d",
+          "alphaBounds": [
+            126,
+            85,
+            312,
+            424
+          ]
+        }
+      ],
+      "registration": {
+        "anchor": [
+          128,
+          189.39453939444144
+        ],
+        "frame_size": 256,
+        "hero_scale": 0.9404255319148935,
+        "ortho_scale": 2.6,
+        "half_extent": 0.23,
+        "actor_name": "Batrafian",
+        "fps": 15,
+        "model_speed": 1.125
+      },
+      "sheetBytes": 1071218,
+      "rgbaBytes": 8388608,
+      "loopMilliseconds": 533
+    },
+    "run": {
+      "frames": [
+        {
+          "view": "se",
+          "index": 0,
+          "sha256": "b6cfec90275ec0f5d23bff19d69f92b3b825938f03cd8112120687424e78b19b",
+          "alphaBounds": [
+            100,
+            72,
+            350,
+            384
+          ]
+        },
+        {
+          "view": "se",
+          "index": 1,
+          "sha256": "d99673657691105fbb2b354f7e68b7baf65651cedb52a9e547bb5aca3662d6c6",
+          "alphaBounds": [
+            99,
+            76,
+            350,
+            378
+          ]
+        },
+        {
+          "view": "se",
+          "index": 2,
+          "sha256": "2e4b4c035c6bdd8b6d0376fb4a48722c0cf42ff28799ad9d1f5d692322ae532d",
+          "alphaBounds": [
+            96,
+            73,
+            352,
+            394
+          ]
+        },
+        {
+          "view": "se",
+          "index": 3,
+          "sha256": "ed2bee2bb652ed46763a7890717e9f7d39e54139c3d1d76a4ba3cdec1cb10658",
+          "alphaBounds": [
+            93,
+            66,
+            352,
+            405
+          ]
+        },
+        {
+          "view": "se",
+          "index": 4,
+          "sha256": "0930a8b9248a4bd299e500aa670229c82281d658a7225836696a3564a32c58ef",
+          "alphaBounds": [
+            92,
+            75,
+            351,
+            419
+          ]
+        },
+        {
+          "view": "se",
+          "index": 5,
+          "sha256": "8c7dd005e3eca12702f65a5931cdd9ad6dcc9447d6118e10d52abac7d10f4993",
+          "alphaBounds": [
+            93,
+            78,
+            351,
+            414
+          ]
+        },
+        {
+          "view": "se",
+          "index": 6,
+          "sha256": "90cf6f9a84c66d2654facbda09c3cff7d44c78bb84c95ad65132a8458f69b7d7",
+          "alphaBounds": [
+            96,
+            73,
+            352,
+            406
+          ]
+        },
+        {
+          "view": "se",
+          "index": 7,
+          "sha256": "ce54528979800a41fd506197e5946039825b1b84a0cfbd363815c4fd7e8911d5",
+          "alphaBounds": [
+            99,
+            64,
+            350,
+            378
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 0,
+          "sha256": "833516ea9623993a8f59491d8cb6ca8e3bfcd3bd4117c21e70411990f470d55d",
+          "alphaBounds": [
+            197,
+            64,
+            396,
+            420
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 1,
+          "sha256": "52bba18c583c7d01aa20ce2930b0cd50256f07e79d7a7ebe7b3207e050224894",
+          "alphaBounds": [
+            199,
+            68,
+            392,
+            414
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 2,
+          "sha256": "b6364875cd9d452af8b582249b5b1c96b2d5695ae63568fb95a6e6a71a687a68",
+          "alphaBounds": [
+            175,
+            63,
+            384,
+            406
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 3,
+          "sha256": "ec8792dcf3097a099c260ea606201cfa2aca9b5b359a357b82f3785c93d3ef1d",
+          "alphaBounds": [
+            163,
+            55,
+            376,
+            378
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 4,
+          "sha256": "b6c17f0296cde3cab35ac6a4b588098463ea5e3cfbde715b632d44985d73e0a8",
+          "alphaBounds": [
+            163,
+            63,
+            373,
+            384
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 5,
+          "sha256": "2d76918dd058963b0cb442467f858e44efd9a5f2f10e5ef0aedfc4ad0f87cc42",
+          "alphaBounds": [
+            178,
+            67,
+            376,
+            378
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 6,
+          "sha256": "0277cb907bbe7fd278ee135822bef84056c1213d5a8e915c87ee3e75d83bfaa1",
+          "alphaBounds": [
+            193,
+            63,
+            384,
+            394
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 7,
+          "sha256": "ff9795f6fbc6121b1ddd4cd42023df1f56733a868a9995f3cbd4f8eca0fb11b1",
+          "alphaBounds": [
+            200,
+            56,
+            392,
+            406
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 0,
+          "sha256": "134c4c0f805536e01d359b3e3282cfd49bb1094cb594f43c98d1fa1c08663707",
+          "alphaBounds": [
+            161,
+            87,
+            411,
+            407
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 1,
+          "sha256": "028a5d40494ac0a6ad57dad38fbfd6d8ea371c5e48e2d643249b5acd9a7b24ec",
+          "alphaBounds": [
+            161,
+            90,
+            412,
+            412
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 2,
+          "sha256": "458d73edeacda69c27e3af0d10c4e8131995c4532bf859e791cf867c534af314",
+          "alphaBounds": [
+            159,
+            85,
+            415,
+            415
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 3,
+          "sha256": "aa97b7476e1873a6d6e1d5cee2186e8d3ef97573806c911f429182c99e20fb18",
+          "alphaBounds": [
+            159,
+            76,
+            418,
+            405
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 4,
+          "sha256": "07b7e8157d192c988cedf36209c739b35c98817a1bc63be05c91d815591dbbd0",
+          "alphaBounds": [
+            160,
+            84,
+            419,
+            396
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 5,
+          "sha256": "9aed50ce87c98f84d6f02727b86d4a534c0e1c6af6ff39700e6b11d0ce6076b4",
+          "alphaBounds": [
+            160,
+            88,
+            418,
+            400
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 6,
+          "sha256": "9e43376fd5be6e6433325d181d1f74621f3f30812fb9c943a2e64dcdac2aa56a",
+          "alphaBounds": [
+            159,
+            85,
+            415,
+            402
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 7,
+          "sha256": "6b7d58393114ea32273fb077acadcc0aef5f48e13685098647817061e9c6e40e",
+          "alphaBounds": [
+            161,
+            78,
+            412,
+            398
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 0,
+          "sha256": "97c96f62de0b8df61a5d3eff13adac3c91f752de3b6b66aae4358ba552c91f81",
+          "alphaBounds": [
+            115,
+            84,
+            314,
+            396
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 1,
+          "sha256": "dd5b6c1c2a459e4e949bd51bc8abc3b374dc6a3370148331d3085138040d4b71",
+          "alphaBounds": [
+            119,
+            88,
+            312,
+            387
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 2,
+          "sha256": "e7405927c7a0bab3a6fc3992761aa0a26a934a8351778aa4da1ab4ab37b511fc",
+          "alphaBounds": [
+            127,
+            85,
+            336,
+            391
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 3,
+          "sha256": "fa33955b75b485d49afb762cbc519e983806bce317c79a25df695ef656b4284d",
+          "alphaBounds": [
+            135,
+            78,
+            349,
+            395
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 4,
+          "sha256": "dca5e3e4d49916621f67fce185c1525854aa46174c4b618f4c33811af545a391",
+          "alphaBounds": [
+            138,
+            87,
+            349,
+            405
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 5,
+          "sha256": "2dd460f3a239097f14a13b4ae6fdbfa8faa44b9309c0fb0ad1b3e014d697d380",
+          "alphaBounds": [
+            135,
+            90,
+            333,
+            412
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 6,
+          "sha256": "dec0e56e0207f5400f6a7c3f5bf957cb3195a6afe1e556aea891fc01cc3a76f2",
+          "alphaBounds": [
+            127,
+            85,
+            318,
+            415
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 7,
+          "sha256": "efc23aae14219642b3074d95a3cb2bf26a51920e79ab29e15721906612af9d64",
+          "alphaBounds": [
+            119,
+            76,
+            311,
+            405
+          ]
+        }
+      ],
+      "registration": {
+        "anchor": [
+          128,
+          189.39453939444144
+        ],
+        "frame_size": 256,
+        "hero_scale": 0.9404255319148935,
+        "ortho_scale": 2.6,
+        "half_extent": 0.23,
+        "actor_name": "Batrafian",
+        "fps": 16,
+        "model_speed": 1.76
+      },
+      "sheetBytes": 1070009,
+      "rgbaBytes": 8388608,
+      "loopMilliseconds": 500
+    }
+  },
+  "sourceScene": "a2419039483e27725d0aca2be35c69cfbb98038b36575dcfe6226c2a96d0220c",
+  "checks": [
+    "64 distinct whole-mesh frames, native alpha and no clipped bounds",
+    "Fixed scale and matching directional anchors",
+    "Walk15fps/run16fps, eight frames per loop",
+    "Source art unchanged; only uniform reduction/atlas packing"
+  ]
+}

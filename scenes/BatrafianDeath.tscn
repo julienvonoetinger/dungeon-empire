@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/paladin_action_preview.gd" id="1"]
+[ext_resource type="SpriteFrames" path="res://assets/previews/batrafian-death/frames.tres" id="2"]
+
+[node name="BatrafianDeath" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+animation_frames = ExtResource("2")
+preview_title = "Batrafian · fall and death"
+phases = PackedStringArray("Standing", "Buckle", "Lowering", "Knees down", "Kneeling", "Reach", "Falling", "Catch", "Settle", "Dead")
+frame_anchor = Vector2(160, 199.22428905755982)
+is_death = true
+stage_bounds = Rect2(-190, -195, 380, 315)

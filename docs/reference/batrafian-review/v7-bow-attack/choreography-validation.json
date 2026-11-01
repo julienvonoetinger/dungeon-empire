@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "check": "bow held ahead of chest",
+      "passed": true
+    },
+    {
+      "check": "drawing hand pulls behind bow hand",
+      "passed": true
+    },
+    {
+      "check": "hands aim on a shared firing level",
+      "passed": true
+    },
+    {
+      "check": "arrow nocked before release",
+      "passed": true
+    },
+    {
+      "check": "string visibly drawn",
+      "passed": true
+    },
+    {
+      "check": "bow arm extends toward target",
+      "passed": true
+    },
+    {
+      "check": "nocked arrow removed at projectile handoff",
+      "passed": true
+    },
+    {
+      "check": "string returns on release",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Batrafian — tir à l’arc</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0e1521;color:#e0e5ef;font:16px/1.55 system-ui,sans-serif}
+main{max-width:1200px;margin:auto;padding:28px 20px}h1{color:#e2c5f6;margin:0 0 10px;font-size:29px}h2{font-size:21px;margin-top:32px}
+p{max-width:880px;color:#bac5d7}a{color:#d7b5ff}img{max-width:100%;height:auto;border:1px solid #39465c;border-radius:8px;background:#202836}
+.modes{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}button{min-height:48px;padding:10px 20px;color:#f4eafa;border:1px solid #7f62a4;border-radius:8px;background:#31213f;cursor:pointer}button[aria-pressed=true]{background:#63427e}
+.detail{max-width:704px}.facts{display:flex;gap:24px;flex-wrap:wrap;color:#dfc0f4}.note{border-left:3px solid #9366c2;padding-left:16px}code{color:#ebdfbe}
+</style><main>
+<h1>Batrafian · tir à l’arc sur le cœur</h1>
+<p>La flèche sort du carquois, rejoint la corde, puis part vers le vortex. Le Batrafian reste à distance ; le cœur réagit à l’arrivée de la pointe.</p>
+<div class="facts"><span>4 directions réelles</span><span>12 poses · 1,15 seconde</span><span>Modèle et textures Meshy conservés</span></div>
+<div class="modes"><button aria-pressed="true" data-speed="normal">Vitesse normale</button><button aria-pressed="false" data-speed="slow">Ralenti ×0,5</button></div>
+<img id="native" src="core-attack.webp" width="1024" height="576" alt="Quatre vues Godot du Batrafian tirant à l’arc sur le cœur à distance">
+<p>Capture de la scène native. Lâcher à 690ms, vol de 260ms, impact à 950ms. Une pause de 800ms sépare les répétitions de cet aperçu.</p>
+<h2>Le geste en détail</h2>
+<img id="poses" class="detail" src="attack-poses.webp" width="704" height="704" alt="Le geste complet, avec corde tendue et retour au repos, dans les quatre directions">
+<h2>Visée et poses</h2>
+<p>La flèche reste dans la main pendant l’alignement, puis s’encoche lorsque la main peut atteindre la corde. La corde peinte du modèle est déformée avec l’arc, sans ajouter de seconde corde.</p>
+<a href="attack-board.png"><img src="attack-board.png" width="1968" height="760" alt="Les douze poses dans les quatre directions"></a>
+<h2>Tester dans Godot</h2>
+<p>Ouvrir <a href="../../../../scenes/BatrafianCoreAttack.tscn">BatrafianCoreAttack.tscn</a>, puis lancer la scène avec F6. Commandes : Shoot, Pause, Next frame, vitesse de ×0,5 à ×2 et Repeat.</p>
+<p class="note">Scène de validation autonome : le tir n’est pas encore connecté aux raids. Les effets d’impact ne modifient pas la simulation. Aucun APK ni sauvegarde joueur.</p>
+<p>475 contrôles natifs réussis sur trois tailles de fenêtre. Sources, réglages, étapes et limites : <a href="README.txt">recette de reproduction</a>. <a href="batrafian-attack-poses.blend">Modèle Blender avec les poses</a>.</p>
+</main><script>
+for(const button of document.querySelectorAll('[data-speed]'))button.addEventListener('click',()=>{
+ const slow=button.dataset.speed==='slow';
+ document.getElementById('native').src=slow?'core-attack-slow.webp':'core-attack.webp';
+ document.getElementById('poses').src=slow?'attack-poses-slow.webp':'attack-poses.webp';
+ for(const b of document.querySelectorAll('[data-speed]'))b.setAttribute('aria-pressed',String(b===button));
+});
+</script></html>

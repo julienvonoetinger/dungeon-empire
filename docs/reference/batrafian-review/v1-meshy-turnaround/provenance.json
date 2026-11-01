@@ -1,0 +1,71 @@
+{
+  "created": "2026-11-01",
+  "tool": "built-in image_gen",
+  "purpose": "Batrafian ranger references for user-operated Meshy reconstruction; no model generation, rig or game changes",
+  "identityReference": "docs/reference/hero-concepts-2d-2026-10-21/heroes-comparison.png",
+  "sceneReference": "docs/reference/hero-concepts-2d-2026-10-21/batrafian-scene.png",
+  "choices": {
+    "pose": "A pose, empty hands, barefoot frog anatomy",
+    "camera": "Front, left profile, back, right profile",
+    "equipment": "Bow, filled quiver and one complete arrow as separate model references; harness stays on character",
+    "arrowPrompt": "source/arrow-prompt.txt",
+    "asymmetry": "One pouch at character right hip",
+    "rearDesign": "Proposed continuation of clothing with plain rear pouch and frog heels"
+  },
+  "sourceFiles": [
+    {
+      "file": "arrow.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-d265fa2e-92f5-4bab-bf3f-21cecd15a60a.png"
+    },
+    {
+      "file": "front.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-1d2758ab-10bd-4085-bb37-5bd007ddf445.png"
+    },
+    {
+      "file": "left-initial.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-054eea7e-0fc6-4009-96fa-aa94932ab0c6.png"
+    },
+    {
+      "file": "bow.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-7be25684-dff7-4284-a62e-f45ae86edce3.png"
+    },
+    {
+      "file": "left.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-cfeacd93-50b0-4e32-834e-021b7d65af7b.png"
+    },
+    {
+      "file": "quiver.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-a035d2ef-46f1-48c3-8de9-49847dbe8fd6.png"
+    },
+    {
+      "file": "back-initial.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-94158548-1cf2-49a7-82c6-aba92a924d34.png"
+    },
+    {
+      "file": "right.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-ef264cd1-b5bd-4d38-8e46-d2bd45c816c4.png"
+    },
+    {
+      "file": "back.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-95c6bc13-3a07-4bcd-9028-6b84573ebc51.png"
+    }
+  ],
+  "selected": {
+    "front": "front.png",
+    "left": "left.png",
+    "back": "back.png",
+    "right": "right.png",
+    "bow": "bow.png",
+    "quiver": "quiver.png",
+    "arrow": "arrow.png"
+  },
+  "corrections": [
+    "Left torso and hand made more strictly side-on",
+    "Rear pouch corrected to show back panel, not repeated front clasp"
+  ],
+  "officialGuidance": [
+    "https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view",
+    "https://help.meshy.ai/en/articles/16102789-meshy-multi-view-best-practices-angles-and-images"
+  ],
+  "limits": "Independent illustrated views, not calibrated renders of an existing mesh. Small anatomy/paint differences remain. Meshy reconstruction and rigging untested."
+}

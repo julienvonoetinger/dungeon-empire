@@ -1,0 +1,89 @@
+{
+  "poses": [
+    {
+      "frame": 1,
+      "phase": "Standing",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 2,
+      "phase": "Buckle",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 3,
+      "phase": "Lowering",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 4,
+      "phase": "Knees down",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 5,
+      "phase": "Kneeling",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 6,
+      "phase": "Reach",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 7,
+      "phase": "Falling",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 8,
+      "phase": "Catch",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 9,
+      "phase": "Settle",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    },
+    {
+      "frame": 10,
+      "phase": "Dead",
+      "replay_error": 0.0,
+      "ground_ok": true,
+      "nonhand_crossings": 0,
+      "four_view_fit": true
+    }
+  ],
+  "bow_landed_frame": 4,
+  "quiver_attached": true,
+  "packed_images": 12,
+  "sources_unchanged": true,
+  "limits": "Held poses and mesh-edge crossings; not exhaustive self/contained-volume collision, interpolation or phone performance."
+}

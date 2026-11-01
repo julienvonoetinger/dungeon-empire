@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Batrafian — chute et mort</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0e1521;color:#eee7f5;font:16px/1.55 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:28px}h1{font-size:28px;color:#dfc8f5}h2{font-size:20px}p{max-width:90ch;color:#c6cbd4}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:20px}article{background:#202836;border:1px solid #475367;border-radius:12px;padding:18px}img{display:block;width:100%;height:auto;border-radius:8px}a{color:#d4a9f4}.sheet{overflow:auto}.sheet img{min-width:1300px}small{color:#b9becb}nav{display:flex;flex-wrap:wrap;gap:20px}
+</style><main>
+<h1>Batrafian — chute et mort</h1>
+<p>Les genoux cèdent, l’arc tombe, puis les bras amortissent la chute vers l’avant. Le torse reste au sol, avec la tête tournée. Dix poses entières, quatre directions isométriques ; aucune reconstruction du corps en 2D.</p>
+<nav><a href="../../../../scenes/BatrafianDeath.tscn">Scène Godot · F6</a><a href="README.txt">Recette et validation</a><a href="death-poses.png">Planche complète</a></nav>
+<div class="grid">
+<article><h2>Vitesse normale · 650 ms</h2><img src="death-preview.webp" alt="Chute du Batrafian dans les quatre directions"><small>La revue répète après une pause. Dans Godot, le corps reste au sol jusqu’à une relance explicite.</small></article>
+<article><h2>Ralenti · 0,5×</h2><img src="death-slow.webp" alt="Même chute au ralenti"></article>
+</div>
+<h2>Pose finale</h2><div style="max-width:704px"><img src="final-pose.png" alt="Les quatre poses au sol"></div>
+<h2>Les dix poses</h2><div class="sheet"><img src="death-poses.png" alt="Planche des quarante sprites"></div>
+<p>Scène isolée : Replay fall, Pause, Next frame, vitesses et Repeat. 303 contrôles Godot réussis sur trois tailles d’écran. Quatre atlas : environ 1,47 Mo de PNG. Les yeux restent ceux du modèle fourni, sans paupières articulées. Pas encore intégré aux raids ; aucun APK généré.</p>
+</main></html>

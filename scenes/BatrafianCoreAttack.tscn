@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/batrafian_attack_preview.gd" id="1"]
+[ext_resource type="SpriteFrames" path="res://assets/previews/batrafian-attack/frames.tres" id="2"]
+
+[node name="BatrafianCoreAttack" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+animation_frames = ExtResource("2")
+preview_title = "Batrafian · ranged Core attack"
+phases = PackedStringArray("Guard", "Reach", "Ready arrow", "Align", "Nock and draw", "Aim", "Hold", "Release", "Follow-through", "Recover", "Lower", "Guard")
+frame_anchor = Vector2(160.00005722045898, 226.51079177856445)
+replay_caption = "Shoot"

@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "bones": 26,
+  "weighted_vertices": 13176,
+  "packed_images": 12,
+  "attachments": [
+    {
+      "name": "bow_output_unwrapped",
+      "bone": "Bone_023",
+      "relative_error": 1.043081283569336e-07,
+      "restore_error": 0.0
+    },
+    {
+      "name": "quiver_output_unwrapped",
+      "bone": "Bone_003",
+      "relative_error": 1.6391277313232422e-07,
+      "restore_error": 0.0
+    }
+  ],
+  "source_hashes_match": true,
+  "arrow_independent": true,
+  "static_clearance": {
+    "bow": {
+      "surface_crossings_outside_holding_hand": 0
+    },
+    "quiver": {
+      "surface_crossings_outside_holding_hand": 0
+    }
+  },
+  "views": [
+    "front",
+    "se",
+    "sw",
+    "back",
+    "nw",
+    "ne"
+  ],
+  "limits": "Static edge/triangle crossings only, excludes intended bow hand contact and does not test contained volumes or all future poses. Grouped finger curl is provisional; bow/string are rigid."
+}

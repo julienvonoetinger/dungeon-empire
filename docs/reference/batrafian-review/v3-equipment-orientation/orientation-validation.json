@@ -1,0 +1,51 @@
+{
+  "before": {
+    "thumb_axis": [
+      -0.7633866667747498,
+      -0.6459417343139648,
+      1.6275393477371836e-07
+    ],
+    "palm_axis": [
+      4.58669489944441e-07,
+      -2.0069310835424403e-07,
+      -1.0
+    ],
+    "quiver_front_axis": [
+      -0.913546085357666,
+      9.239484910494866e-08,
+      -0.406735360622406
+    ],
+    "quiver_up_axis": [
+      -0.4067366421222687,
+      1.0702401596063282e-06,
+      0.9135454893112183
+    ],
+    "hand_upright": false,
+    "quiver_broad_front_outward": false
+  },
+  "after": {
+    "thumb_axis": [
+      -1.7675597518973518e-07,
+      -6.854535854472488e-07,
+      1.0
+    ],
+    "palm_axis": [
+      -1.0,
+      -8.177021300070919e-07,
+      -2.980351254677771e-08
+    ],
+    "quiver_front_axis": [
+      6.08266134349833e-07,
+      0.9781478047370911,
+      -0.20791064202785492
+    ],
+    "quiver_up_axis": [
+      -0.40673699975013733,
+      0.18993757665157318,
+      0.8935819864273071
+    ],
+    "hand_upright": true,
+    "quiver_broad_front_outward": true
+  },
+  "limits": "Orientation only, supplemented by separate saved-scene clearance checks and native close-up inspection."
+}

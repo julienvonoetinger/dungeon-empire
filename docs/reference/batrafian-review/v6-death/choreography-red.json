@@ -1,0 +1,64 @@
+{
+  "source": "docs\\reference\\batrafian-review\\v3-equipment-orientation\\batrafian-equipped-review.blend",
+  "checks": [
+    {
+      "check": "pelvis lowers before collapse",
+      "passed": false
+    },
+    {
+      "check": "knees receive weight first",
+      "passed": false
+    },
+    {
+      "check": "torso lies forward, not on its side",
+      "passed": false
+    },
+    {
+      "check": "chest rests near the floor",
+      "passed": false
+    },
+    {
+      "check": "turned head rests near the floor",
+      "passed": false
+    },
+    {
+      "check": "R elbow extended, not a push-up",
+      "passed": false
+    },
+    {
+      "check": "R hand reaches forward",
+      "passed": false
+    },
+    {
+      "check": "R wrist on floor",
+      "passed": false
+    },
+    {
+      "check": "L elbow extended, not a push-up",
+      "passed": true
+    },
+    {
+      "check": "L hand reaches forward",
+      "passed": true
+    },
+    {
+      "check": "L wrist on floor",
+      "passed": false
+    },
+    {
+      "check": "no body below floor",
+      "passed": true
+    }
+  ],
+  "failures": [
+    "pelvis lowers before collapse",
+    "knees receive weight first",
+    "torso lies forward, not on its side",
+    "chest rests near the floor",
+    "turned head rests near the floor",
+    "R elbow extended, not a push-up",
+    "R hand reaches forward",
+    "R wrist on floor",
+    "L wrist on floor"
+  ]
+}

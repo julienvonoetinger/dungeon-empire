@@ -1,0 +1,104 @@
+{
+  "poses": [
+    {
+      "frame": 1,
+      "phase": "Ready",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 2,
+      "phase": "Gather",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 3,
+      "phase": "Crouch",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 4,
+      "phase": "Push off",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 5,
+      "phase": "Rise",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 6,
+      "phase": "Tuck",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 7,
+      "phase": "Apex",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 8,
+      "phase": "Descend",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 9,
+      "phase": "Reach",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 10,
+      "phase": "Land",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 11,
+      "phase": "Absorb",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    },
+    {
+      "frame": 12,
+      "phase": "Ready",
+      "replay_error": 0.0,
+      "soles_ok": true,
+      "attachments_ok": true,
+      "nonhand_crossings": 0
+    }
+  ],
+  "identical_rest_endpoints": true,
+  "packed_images": 12,
+  "sources_unchanged": true,
+  "limits": "Held poses and mesh-edge crossings only; not exhaustive self/contained-volume collision, interpolation or phone performance."
+}

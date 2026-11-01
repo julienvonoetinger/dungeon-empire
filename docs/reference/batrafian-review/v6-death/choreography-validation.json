@@ -1,0 +1,54 @@
+{
+  "source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\batrafian-review\\v6-death\\batrafian-death-poses.blend",
+  "checks": [
+    {
+      "check": "pelvis lowers before collapse",
+      "passed": true
+    },
+    {
+      "check": "knees receive weight first",
+      "passed": true
+    },
+    {
+      "check": "torso lies forward, not on its side",
+      "passed": true
+    },
+    {
+      "check": "chest rests near the floor",
+      "passed": true
+    },
+    {
+      "check": "turned head rests near the floor",
+      "passed": true
+    },
+    {
+      "check": "R elbow extended, not a push-up",
+      "passed": true
+    },
+    {
+      "check": "R hand reaches forward",
+      "passed": true
+    },
+    {
+      "check": "R wrist on floor",
+      "passed": true
+    },
+    {
+      "check": "L elbow extended, not a push-up",
+      "passed": true
+    },
+    {
+      "check": "L hand reaches forward",
+      "passed": true
+    },
+    {
+      "check": "L wrist on floor",
+      "passed": true
+    },
+    {
+      "check": "no body below floor",
+      "passed": true
+    }
+  ],
+  "failures": []
+}
