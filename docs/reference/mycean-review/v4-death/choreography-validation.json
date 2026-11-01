@@ -1,0 +1,66 @@
+{
+  "source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\mycean-review\\v4-death\\mycean-death-poses.blend",
+  "checks": [
+    {
+      "check": "pelvis does not jump back up during fall",
+      "passed": true
+    },
+    {
+      "check": "short-legged pelvis lowers before torso lands",
+      "passed": true
+    },
+    {
+      "check": "knees receive weight first",
+      "passed": true
+    },
+    {
+      "check": "torso lies forward, not on its side",
+      "passed": true
+    },
+    {
+      "check": "chest rests near floor",
+      "passed": true
+    },
+    {
+      "check": "R elbow extends, not a push-up",
+      "passed": true
+    },
+    {
+      "check": "R hand reaches forward",
+      "passed": true
+    },
+    {
+      "check": "R wrist rests near floor",
+      "passed": true
+    },
+    {
+      "check": "L elbow extends, not a push-up",
+      "passed": true
+    },
+    {
+      "check": "L hand reaches forward",
+      "passed": true
+    },
+    {
+      "check": "L wrist rests near floor",
+      "passed": true
+    },
+    {
+      "check": "body stays above floor",
+      "passed": true
+    }
+  ],
+  "pelvis_heights": [
+    0.4017578661441803,
+    0.35004404187202454,
+    0.2900272309780121,
+    0.2926269769668579,
+    0.2806439995765686,
+    0.27188342809677124,
+    0.2764754295349121,
+    0.28203916549682617,
+    0.27686306834220886,
+    0.27136993408203125
+  ],
+  "failures": []
+}

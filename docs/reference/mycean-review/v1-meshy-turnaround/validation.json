@@ -1,0 +1,150 @@
+{
+  "status": "prepared-not-reconstructed",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "id": "front",
+      "file": "meshy/character/01-front.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1243794,
+      "sha256": "bcc08e637c716963e31675b0fa09ff83ce7ef44cf1a8cadce1cb63264f9fa147",
+      "nativeAlpha": true,
+      "transparentPixels": 945045,
+      "solidBounds": [
+        170,
+        81,
+        1085,
+        1189
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "left",
+      "file": "meshy/character/02-left.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 850508,
+      "sha256": "11378862b6cbc118abd571bcc2646072cc9bba84ceeedd68edcdc63003eaf903",
+      "nativeAlpha": true,
+      "transparentPixels": 1118211,
+      "solidBounds": [
+        181,
+        71,
+        1079,
+        1189
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "back",
+      "file": "meshy/character/03-back.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1217272,
+      "sha256": "f1222708faa84e4e4aa40a34b6ecf5b932ad8433696dc077f06f2b7b3d6fa93a",
+      "nativeAlpha": true,
+      "transparentPixels": 925421,
+      "solidBounds": [
+        139,
+        67,
+        1105,
+        1199
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "right",
+      "file": "meshy/character/04-right.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 862863,
+      "sha256": "4e0bd6e37943347f86365ad9cd0a3e7d52eedba78be04a9d93fb322fa4a0a743",
+      "nativeAlpha": true,
+      "transparentPixels": 1121276,
+      "solidBounds": [
+        181,
+        75,
+        1074,
+        1190
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    },
+    {
+      "id": "staff",
+      "file": "meshy/equipment/staff.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 317036,
+      "sha256": "fd64eaab0d10c845c1d6143804f0df9044a185119c1cf3c31c50c4b992612b77",
+      "nativeAlpha": true,
+      "transparentPixels": 1451249,
+      "solidBounds": [
+        487,
+        67,
+        813,
+        1202
+      ],
+      "byteIdenticalToSource": true,
+      "noClippedSolidPixels": true
+    }
+  ],
+  "characterTopSpreadPixels": 14,
+  "characterSoleSpreadPixels": 10,
+  "totalPngBytes": 4491473,
+  "sources": [
+    {
+      "id": "front",
+      "file": "source/front.png",
+      "sha256": "bcc08e637c716963e31675b0fa09ff83ce7ef44cf1a8cadce1cb63264f9fa147",
+      "selected": true
+    },
+    {
+      "id": "leftInitial",
+      "file": "source/left-initial.png",
+      "sha256": "c3729546d4c4245c0082f7c24ca1bc25f24a48d38a5bb03c8d66db31dfbe1c7a",
+      "selected": false
+    },
+    {
+      "id": "left",
+      "file": "source/left.png",
+      "sha256": "11378862b6cbc118abd571bcc2646072cc9bba84ceeedd68edcdc63003eaf903",
+      "selected": true
+    },
+    {
+      "id": "staffInitial",
+      "file": "source/staff-initial.png",
+      "sha256": "a5cdf25cfe3878e872eef402659545aa46075e59ab24d51d831740039ec5205b",
+      "selected": false
+    },
+    {
+      "id": "backInitial",
+      "file": "source/back-initial.png",
+      "sha256": "6ef9503a3d1215b5d666068d622ebae249d41c636c76403d795cd4a5096e1a26",
+      "selected": false
+    },
+    {
+      "id": "right",
+      "file": "source/right.png",
+      "sha256": "4e0bd6e37943347f86365ad9cd0a3e7d52eedba78be04a9d93fb322fa4a0a743",
+      "selected": true
+    },
+    {
+      "id": "back",
+      "file": "source/back.png",
+      "sha256": "f1222708faa84e4e4aa40a34b6ecf5b932ad8433696dc077f06f2b7b3d6fa93a",
+      "selected": true
+    },
+    {
+      "id": "staff",
+      "file": "source/staff.png",
+      "sha256": "fd64eaab0d10c845c1d6143804f0df9044a185119c1cf3c31c50c4b992612b77",
+      "selected": true
+    }
+  ],
+  "limits": "Illustrations, not calibrated mesh views. Meshy reconstruction, rigging and animation untested. Native outputs copied without pixel edits."
+}

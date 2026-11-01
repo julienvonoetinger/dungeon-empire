@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "bones": 35,
+  "weighted_body_vertices": 15429,
+  "packed_images": 6,
+  "reweighted_grip_vertices": 410,
+  "crossings_without_contact_constraint": 421,
+  "crossings_with_constraint": 0,
+  "full_body_triangles_tested": 248904,
+  "nearest_hand_to_staff": 0.009621291421353817,
+  "attachments": [
+    {
+      "name": "staff_output_unwrapped",
+      "relative_error": 1.1920928955078125e-07,
+      "restore_error": 0.0
+    },
+    {
+      "name": "MyceanGripCorrective",
+      "relative_error": 2.9802322387695312e-08,
+      "restore_error": 0.0
+    },
+    {
+      "name": "StaffGripContactEnvelope",
+      "relative_error": 1.1920928955078125e-07,
+      "restore_error": 0.0
+    }
+  ],
+  "source_hashes_match": true,
+  "base_mesh_and_uv_match_originals": true,
+  "views": [
+    "front",
+    "se",
+    "sw",
+    "back",
+    "nw",
+    "ne"
+  ],
+  "limits": "Static pose only. Wrist attachment follows/restores, but future animation clearances, independently articulated fingers and in-game scale remain unvalidated."
+}

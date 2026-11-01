@@ -45,6 +45,7 @@
 /docs/reference/vulpin-review/** -text
 /docs/reference/lithide-review/** -text
 /docs/reference/batrafian-review/** -text
+/docs/reference/mycean-review/** -text
 /docs/reference/hero-concepts-2d-2026-10-21/** -text
 /docs/production/hero-animation-*.md -text
 /assets/previews/** -text
@@ -112,3 +113,4 @@
 /tools/isometric_painted_traps.cjs -text
 /tools/isometric_trap_registration.cjs -text
 /tools/isometric_trap_receiver.cjs -text
+/tools/prepare_arcane_door_review.cjs -text

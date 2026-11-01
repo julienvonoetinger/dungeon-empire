@@ -1,0 +1,22 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mycean — vues pour Meshy</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101620;color:#e9e5ed;font:16px/1.55 system-ui,sans-serif}main{max-width:1440px;margin:auto;padding:32px 24px}h1{font-size:30px;color:#d5b2f2;margin:0 0 12px}h2{font-size:23px;margin:30px 0 12px}p{max-width:960px;color:#b9c5d4}a{color:#d9b9fc}a.button{display:inline-block;padding:12px 20px;border:1px solid #8d61b0;border-radius:9px;background:#392848;color:#f7efff;text-decoration:none;margin:10px 0 20px;min-height:48px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}figure{margin:0;border:1px solid #3e4a5d;border-radius:10px;overflow:hidden;background:#202a38}figcaption{padding:12px 16px;border-bottom:1px solid #3e4a5d;color:#ecdbfa}figure img{display:block;width:100%;height:auto}figure>a:last-child{display:block;padding:12px 16px}.equipment{max-width:350px}.note{border-left:3px solid #9267bd;padding-left:16px}@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:20px 14px}}@media(max-width:460px){.grid{grid-template-columns:1fr}}
+</style><main>
+<h1>Mycean · mage champignon</h1>
+<p>Quatre vues du personnage en pose A, mains libres, plus un bâton séparé. Le chapeau, la tenue et les accessoires reprennent le concept du donjon.</p>
+<a class="button" href="mycean-mage-meshy-pack.zip" download>Télécharger le pack Meshy · ZIP</a>
+<h2>Le personnage — un seul modèle</h2>
+<p>Utiliser la face comme image principale et les trois autres angles comme références complémentaires dans <a href="https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view">Multi-View</a>. Chaque fichier montre une vue seule, sur fond transparent.</p>
+<section class="grid">
+<figure><figcaption>1 · Face</figcaption><a href="meshy/character/01-front.png"><img src="meshy/character/01-front.png" alt="Mycean de face en pose A, mains libres"></a><a href="meshy/character/01-front.png" download>Télécharger la face</a></figure>
+<figure><figcaption>2 · Profil gauche</figcaption><a href="meshy/character/02-left.png"><img src="meshy/character/02-left.png" alt="Profil gauche du Mycean, regard vers la gauche de l’image"></a><a href="meshy/character/02-left.png" download>Télécharger le profil gauche</a></figure>
+<figure><figcaption>3 · Dos</figcaption><a href="meshy/character/03-back.png"><img src="meshy/character/03-back.png" alt="Mycean de dos, champignons et sacoche à droite"></a><a href="meshy/character/03-back.png" download>Télécharger le dos</a></figure>
+<figure><figcaption>4 · Profil droit</figcaption><a href="meshy/character/04-right.png"><img src="meshy/character/04-right.png" alt="Profil droit du Mycean, sacoche et deux petits champignons visibles"></a><a href="meshy/character/04-right.png" download>Télécharger le profil droit</a></figure>
+</section>
+<h2>Le bâton — un modèle séparé</h2>
+<p>Générer le bâton à part : cette image ne va pas dans les angles complémentaires du personnage. Il sera attaché à la main dans Blender.</p>
+<figure class="equipment"><figcaption>Bâton fongique · forme continue</figcaption><a href="meshy/equipment/staff.png"><img src="meshy/equipment/staff.png" alt="Bâton dont la tige torsadée se prolonge directement dans les lamelles et le chapeau bleu-violet"></a><a href="meshy/equipment/staff.png" download>Télécharger le bâton</a></figure>
+<p class="note">PNG natifs1254×1254, transparence conservée. Ces illustrations ne sont pas des vues calibrées d’un modèle3D ; la reconstruction et le rig restent à tester dans Meshy. La caméra isométrique sera appliquée au modèle obtenu.</p>
+<p><a href="meshy/README.txt">Consignes d’import</a> · <a href="README.txt">Recette et limites</a> · <a href="prompts.json">Prompts ImageGen</a> · <a href="provenance.json">Provenance</a></p>
+</main></html>

@@ -1,0 +1,113 @@
+{
+  "created": "2026-11-01",
+  "tool": "built-in image_gen",
+  "intent": "Mycean Meshy front/left/back/right character views and separate staff, based on approved October21 concept.",
+  "assets": [
+    {
+      "id": "front",
+      "file": "source/front.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-4814cf82-aee0-4c63-95c8-0d1849c073e7.png",
+      "prompt_file": "source/front-prompt.txt",
+      "references": [
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/hero-concepts-2d-2026-10-21/heroes-comparison.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/hero-concepts-2d-2026-10-21/mycean-scene.png"
+      ],
+      "selected": true,
+      "sha256": "bcc08e637c716963e31675b0fa09ff83ce7ef44cf1a8cadce1cb63264f9fa147",
+      "bytes": 1243794
+    },
+    {
+      "id": "leftInitial",
+      "file": "source/left-initial.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-d2a9904f-6fd4-4dee-b15b-e064a97e89eb.png",
+      "prompt_file": "source/left-prompt.txt",
+      "references": [
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/front.png"
+      ],
+      "selected": false,
+      "sha256": "c3729546d4c4245c0082f7c24ca1bc25f24a48d38a5bb03c8d66db31dfbe1c7a",
+      "bytes": 887390
+    },
+    {
+      "id": "left",
+      "file": "source/left.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-c64174a3-6027-4916-b013-a45c2412c41f.png",
+      "prompt_file": "source/left-correction-prompt.txt",
+      "references": [
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/left-initial.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/front.png"
+      ],
+      "selected": true,
+      "sha256": "11378862b6cbc118abd571bcc2646072cc9bba84ceeedd68edcdc63003eaf903",
+      "bytes": 850508
+    },
+    {
+      "id": "staffInitial",
+      "file": "source/staff-initial.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-d5d027db-f001-4d0c-8330-8ec718f8c304.png",
+      "prompt_file": "source/staff-prompt.txt",
+      "references": [
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/hero-concepts-2d-2026-10-21/heroes-comparison.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/hero-concepts-2d-2026-10-21/mycean-scene.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/front.png"
+      ],
+      "selected": false,
+      "sha256": "a5cdf25cfe3878e872eef402659545aa46075e59ab24d51d831740039ec5205b",
+      "bytes": 326328
+    },
+    {
+      "id": "backInitial",
+      "file": "source/back-initial.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-d821e638-2739-4038-b989-3a78d2c61e70.png",
+      "prompt_file": "source/back-prompt.txt",
+      "references": [
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/front.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/left.png"
+      ],
+      "selected": false,
+      "sha256": "6ef9503a3d1215b5d666068d622ebae249d41c636c76403d795cd4a5096e1a26",
+      "bytes": 1244836
+    },
+    {
+      "id": "right",
+      "file": "source/right.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-8c99b3d1-f80a-4d91-a158-01e63a793128.png",
+      "prompt_file": "source/right-prompt.txt",
+      "references": [
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/front.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/left.png"
+      ],
+      "selected": true,
+      "sha256": "4e0bd6e37943347f86365ad9cd0a3e7d52eedba78be04a9d93fb322fa4a0a743",
+      "bytes": 862863
+    },
+    {
+      "id": "back",
+      "file": "source/back.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-90ef3d7c-e978-4e35-82ac-753a8f29b610.png",
+      "prompt_file": "source/back-correction-prompt.txt",
+      "references": [
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/back-initial.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/right.png",
+        "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/mycean-review/v1-meshy-turnaround/source/front.png"
+      ],
+      "selected": true,
+      "sha256": "f1222708faa84e4e4aa40a34b6ecf5b932ad8433696dc077f06f2b7b3d6fa93a",
+      "bytes": 1217272
+    },
+    {
+      "id": "staff",
+      "file": "source/staff.png",
+      "original_path": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-bbf08717-3f35-4b60-bccc-0a4a8254a8fd.png",
+      "prompt_file": "source/staff-integrated-prompt.txt",
+      "references": [
+        "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\mycean-review\\v1-meshy-turnaround\\source\\staff-initial.png",
+        "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\mycean-review\\v1-meshy-turnaround\\source\\front.png"
+      ],
+      "selected": true,
+      "sha256": "fd64eaab0d10c845c1d6143804f0df9044a185119c1cf3c31c50c4b992612b77",
+      "bytes": 317036
+    }
+  ],
+  "notes": "Native alpha preserved. Full PNG bytes copied; no resizing, mirroring or pixel repainting by script. Back anatomy/clothing are interpreted from the original front/three-quarter concept, not calibrated renders. User rejected perched-mushroom staff: selected staff is now a continuous woody fungal stalk flowing into one mushroom cap; first design archived."
+}

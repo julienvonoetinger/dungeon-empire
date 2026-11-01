@@ -1,0 +1,15 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mycean — réaction aux dégâts</title>
+<style>:root{color-scheme:dark;font:16px system-ui,sans-serif;background:#111923;color:#e3e9f3}body{max-width:1220px;margin:auto;padding:24px}h1{margin:8px 0}p{line-height:1.6;color:#bfc9d9}a{color:#cca3ff}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0;border:1px solid #37445b;border-radius:12px;overflow:hidden;background:#202836}img{display:block;width:100%;height:auto}figcaption{padding:14px 18px;text-align:center}.notes{padding:14px 20px;border-left:3px solid #b484ee;background:#1b2331}section{margin:28px 0}summary{cursor:pointer;padding:14px}@media(max-width:700px){body{padding:14px}.grid{grid-template-columns:1fr}}</style>
+<h1>Mycean · réaction aux dégâts</h1>
+<p>Un recul du buste, les genoux amortissent le choc et la main garde le bâton. Les pieds restent plantés, puis le personnage retrouve exactement sa posture initiale. Huit poses, quatre vraies directions isométriques.</p>
+<section class="grid">
+<figure><img src="hurt-preview.webp" alt="Réaction aux dégâts dans les quatre directions"><figcaption>Vitesse normale · 720 ms, puis pause au repos</figcaption></figure>
+<figure><img src="hurt-slow.webp" alt="Réaction aux dégâts au ralenti"><figcaption>Ralenti ×0,5 · appuis et tenue du bâton</figcaption></figure>
+</section>
+<p class="notes">Ouvrir <strong>MyceanHurt.tscn</strong> dans Godot puis F6 : rejouer le choc, pause, pas-à-pas, vitesses ×0,5 à ×2 et répétition facultative. Scène isolée ; cette animation n'est pas encore branchée aux raids.</p>
+<figure><img src="native-recoil.png" alt="Réaction aux dégâts sur les dalles dans Godot"><figcaption>Les quatre directions dans la scène native</figcaption></figure>
+<details><summary>Décomposition des poses</summary><img src="hurt-poses.png" alt="Planche des huit poses dans les quatre directions"></details>
+<p>Le modèle et ses textures restent inchangés. Le grand chapeau masque une partie du visage ; aucune expression faciale peinte ou fermeture de paupière n'est ajoutée.</p>
+<p><a href="README.txt">Reproduction et validation</a> · <a href="mycean-hurt-poses.blend">Source Blender avec les poses</a> · <a href="saved-pose-validation.json">Contrôle de la source sauvegardée</a></p>
+</html>

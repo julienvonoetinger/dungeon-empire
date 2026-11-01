@@ -1,0 +1,19 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mycean — marche et course</title>
+<style>:root{color-scheme:dark;font:16px system-ui,sans-serif;background:#111923;color:#e3e9f3}body{max-width:1240px;margin:auto;padding:24px}h1{margin:8px 0}p{line-height:1.6;color:#bfc9d9}a{color:#cca3ff}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0;border:1px solid #37445b;border-radius:12px;overflow:hidden;background:#202836}img{display:block;width:100%;height:auto}figcaption{padding:14px 18px;text-align:center}.notes{padding:14px 20px;border-left:3px solid #b484ee;background:#1b2331}section{margin:28px 0}summary{cursor:pointer;padding:14px}@media(max-width:700px){body{padding:14px}.grid{grid-template-columns:1fr}}</style>
+<h1>Mycean · marche et course</h1>
+<p>Deux cycles de huit poses, chacun rendu dans les quatre directions isométriques. Le personnage et son bâton sont rendus ensemble depuis le modèle complet, avec la prise corrigée.</p>
+<section class="grid">
+<figure><img src="walk-preview.webp" alt="Marche du Mycean dans les quatre directions"><figcaption>Marche · 15 images/s</figcaption></figure>
+<figure><img src="run-preview.webp" alt="Course du Mycean dans les quatre directions"><figcaption>Course · 16 images/s</figcaption></figure>
+</section>
+<p class="notes">Pour tester le déplacement : ouvrir <strong>MyceanWalk.tscn</strong> ou <strong>MyceanRun.tscn</strong> dans Godot puis F6. Les deux couloirs montrent les quatre directions en aller-retour. Pause, pas-à-pas et vitesses 0,5× à 2× sont disponibles.</p>
+<section class="grid">
+<figure><img src="native-walk.png" alt="Scène native de marche"><figcaption>Marche dans les couloirs</figcaption></figure>
+<figure><img src="native-run.png" alt="Scène native de course"><figcaption>Course dans les couloirs</figcaption></figure>
+</section>
+<details><summary>Décomposition des poses de marche</summary><img src="walk-poses.png" alt="Les huit poses de marche par direction"></details>
+<details><summary>Décomposition des poses de course</summary><img src="run-poses.png" alt="Les huit poses de course par direction"></details>
+<p>Le grand chapeau conserve sa forme d’origine et masque une partie du visage sous la caméra isométrique. Ces scènes sont des aperçus isolés ; le Mycean n’est pas encore ajouté aux raids.</p>
+<p><a href="README.txt">Reproduction et validation</a> · <a href="mycean-gait-poses.blend">Source Blender avec les poses</a> · <a href="saved-pose-validation.json">Contrôle des poses sauvegardées</a></p>
+</html>

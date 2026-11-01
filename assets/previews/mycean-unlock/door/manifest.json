@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "status": "isolated-preview-only",
+  "generator": "tools/prepare_arcane_door_review.cjs",
+  "source": "docs/reference/door-redesign/seal-v1/arcane-v1/source/face-source.png",
+  "sourceSha256": "7d9cdcb76d4d5744e02530f6421151fac9ce5be296f5b578242a47c1e239917e",
+  "directions": [
+    "south",
+    "north",
+    "east",
+    "west"
+  ],
+  "closedPartCount": 16,
+  "approvedProductionSelection": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/selection.json",
+  "seal": {
+    "height": 0.64,
+    "source": [
+      512,
+      875.6000000000001
+    ],
+    "canonicalFront": [
+      0.5,
+      0.525,
+      0.64
+    ],
+    "directionNormals": {
+      "south": [
+        0,
+        1
+      ],
+      "north": [
+        0,
+        -1
+      ],
+      "east": [
+        1,
+        0
+      ],
+      "west": [
+        -1,
+        0
+      ]
+    },
+    "worldTarget": "door cell + (0.5,0.5) + facing normal * 0.025, z=0.64",
+    "targetRgba": [
+      207,
+      51,
+      252,
+      253
+    ]
+  },
+  "mechanicalKeyhole": {
+    "height": 0.32,
+    "source": [
+      512,
+      1138
+    ],
+    "rgba": [
+      0,
+      0,
+      0,
+      253
+    ]
+  },
+  "unchangedOpenResources": "Use production door-{direction}-open-{leaf,arch,jamb-right}; no new open textures.",
+  "files": {
+    "door-south-leaf.png": "504803b23a6a5783122e3c407b7c3c1053ee8b8610b093439bd3375cb11c0c6c",
+    "door-south-arch.png": "823a966eea89d3937244575655dd6bb48315da4b27ef0ae60b2b59fbc7a727a6",
+    "door-south-jamb-right.png": "914c7310ebd7b21149b5c3d3a9b98aa034e20bfeb35bcf6afe7896159cb86890",
+    "door-south-panel.png": "0302466ce7fcd4c5f8293de7c797b062ba0baa65c338f6b5caad3cb9ca731437",
+    "door-north-leaf.png": "5ece20628b273fabee25f8375f31f98d9fcf0ded02399ea7760807014612b083",
+    "door-north-arch.png": "af1a33f73c1f6e99ee3160a2b2a24afc1d66ed93edc8643cc526391beb13a4bb",
+    "door-north-jamb-right.png": "5b4d543acd7431911f451e7286ef5de32470e4f4a650815bc40a8d92702f4475",
+    "door-north-panel.png": "45e32b8be22bdf6a914ca355ea0581cdd2ba309e18a8a4e29832d78f090c84d4",
+    "door-east-leaf.png": "367acbd284a18adf1709f33de0979b734c21121ad6cb88ad5bea7ede06af3f7c",
+    "door-east-arch.png": "8b8ab9022700c926a1e75d4f2fecbf98bbf666a1192833e9de0e743656b53413",
+    "door-east-jamb-right.png": "063149553148dcfa329ca65893b8169f06bd42f29c343f3a50e5c898fab3d40c",
+    "door-east-panel.png": "4bfd9475a7e6241e5dec8a6a9c15b163f88e8137d8a5d721ec7aaeaedd4a4852",
+    "door-west-leaf.png": "bfd0f19edb86e330aaa6ec372c5f1ddef6af27f423451eedcb967de7ab155258",
+    "door-west-arch.png": "87650183ecb3acc825dde657f7056768451c845ccc2018cce24a281436bd80e3",
+    "door-west-jamb-right.png": "c7155d77a3a5d2f18977660d4481f5bee9293c5a36593ed7a7c375b684c29e94",
+    "door-west-panel.png": "4940488f85bc340b58f9dbaf90b83de71f07cf87d5862cfe6237186a4419ab51"
+  },
+  "warning": "The legacy -leaf suffix is the left jamb. The actual door leaf is -panel; load all four closed pieces because original opaque seam pixels overlap by 2px."
+}

@@ -1,0 +1,11 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mycean — incantation arcanique</title>
+<style>body{margin:0;background:#0c1320;color:#eee6fa;font:16px/1.6 system-ui}main{max-width:1280px;margin:auto;padding:24px}h1{font-size:28px}h2{font-size:21px}p{max-width:900px;color:#c7c5d9}img{max-width:100%;height:auto;border:1px solid #394359;border-radius:10px;box-sizing:border-box}button,a{color:#dec2ff}button{font:inherit;padding:10px 18px;border:1px solid #8c67ad;border-radius:8px;background:#20203a;cursor:pointer;margin:0 8px 12px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.grid img{max-height:650px;object-fit:contain;background:#101723}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style>
+<main><h1>Mycean · incantation arcanique</h1>
+<p>Des spores lumineuses se rassemblent au sommet du bâton. Deux filaments brumeux s’enroulent jusqu’au sceau ; ses runes s’animent puis se dispersent à l’ouverture.</p>
+<button onclick="document.getElementById('motion').src='native-preview.webp'">Nouveau sort · 1×</button><button onclick="document.getElementById('motion').src='native-slow.webp'">Ralenti</button><button onclick="document.getElementById('motion').src='previous.webp'">Ancien laser</button>
+<img id="motion" src="native-preview.webp" alt="Capture animée du sort du Mycean dans quatre orientations">
+<p>Dans Godot : <a href="../../../../scenes/MyceanArcaneDoor.tscn">MyceanArcaneDoor.tscn</a> puis F6. L’animation, le sort et l’ouverture partagent une seule horloge. Les filaments sont naturellement masqués lorsqu’ils passent derrière la porte.</p>
+<h2>Le même héros et la même porte</h2><p>Seul l’effet magique a changé. Les sprites, le battant, les raccords et la durée de l’incantation sont conservés. Le flux est calculé en temps réel et réutilise la texture de halo existante : aucune nouvelle image lourde.</p>
+<h2>Formats de test</h2><div class="grid"><img src="portrait.png" alt="Aperçu portrait"><img src="landscape.png" alt="Aperçu petit paysage"></div>
+<p>Prévisualisation isolée, pas encore reliée aux raids. <a href="README.txt">Reproduction et vérifications</a>.</p></main></html>

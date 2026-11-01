@@ -1,0 +1,18 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mycean — chute et mort</title>
+<style>:root{color-scheme:dark;font:16px system-ui,sans-serif;background:#111923;color:#e3e9f3}body{max-width:1220px;margin:auto;padding:24px}h1{margin:8px 0}p{line-height:1.6;color:#bfc9d9}a{color:#cca3ff}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0;border:1px solid #37445b;border-radius:12px;overflow:hidden;background:#202836}img{display:block;width:100%;height:auto}figcaption{padding:14px 18px;text-align:center}.notes{padding:14px 20px;border-left:3px solid #b484ee;background:#1b2331}section{margin:28px 0}summary{cursor:pointer;padding:14px}@media(max-width:700px){body{padding:14px}.grid{grid-template-columns:1fr}}</style>
+<h1>Mycean · chute et mort</h1>
+<p>Les genoux cèdent, le bâton est lâché et le corps s'affaisse vers l'avant. Dix poses complètes, quatre vraies directions isométriques. La pose finale reste au sol.</p>
+<section class="grid">
+<figure><img src="death-preview.webp" alt="Chute du Mycean dans les quatre directions"><figcaption>Vitesse normale · 650 ms, puis pause sur la pose finale</figcaption></figure>
+<figure><img src="death-slow.webp" alt="La même chute au ralenti"><figcaption>Ralenti ×0,5 · pour examiner les appuis</figcaption></figure>
+</section>
+<p class="notes">Ouvrir <strong>MyceanDeath.tscn</strong> dans Godot puis F6 : Replay fall, pause, pas-à-pas, vitesses ×0,5 à ×2 et répétition facultative. Scène isolée, sans intégration aux raids.</p>
+<section class="grid">
+<figure><img src="native-final.png" alt="Pose finale dans Godot"><figcaption>Pose finale sur les dalles du donjon</figcaption></figure>
+<figure><img src="final-pose.png" alt="Les quatre vues du corps au sol"><figcaption>Textures et grand chapeau du modèle d'origine conservés</figcaption></figure>
+</section>
+<details><summary>Décomposition des dix poses</summary><img src="death-poses.png" alt="Planche des quarante sprites"></details>
+<p>Le grand chapeau masque le visage dans certaines directions. La tête s'oriente séparément du buste pour garder le corps près du sol. Les yeux sont peints dans le modèle : aucune fermeture des paupières n'est ajoutée.</p>
+<p><a href="README.txt">Reproduction et validation</a> · <a href="mycean-death-poses.blend">Source Blender avec les poses</a> · <a href="saved-pose-validation.json">Contrôle de la source sauvegardée</a></p>
+</html>

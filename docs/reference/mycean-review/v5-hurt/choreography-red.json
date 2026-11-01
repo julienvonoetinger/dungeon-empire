@@ -1,0 +1,21 @@
+{
+  "checks": [
+    {
+      "check": "head recoils backward, not a forward sneeze",
+      "passed": false
+    },
+    {
+      "check": "knees absorb impact",
+      "passed": false
+    },
+    {
+      "check": "torso leans backward at peak",
+      "passed": false
+    }
+  ],
+  "failures": [
+    "head recoils backward, not a forward sneeze",
+    "knees absorb impact",
+    "torso leans backward at peak"
+  ]
+}

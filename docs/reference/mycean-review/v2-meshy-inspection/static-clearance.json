@@ -1,0 +1,11 @@
+{
+  "surface_crossings_including_hand": 0,
+  "crossings": [],
+  "hit_details": [],
+  "excluded_body_triangles": 0,
+  "tested_body_triangles": 248904,
+  "hand_vertices_within_6mm": 0,
+  "nearest_hand_to_staff": 0.009621291421353817,
+  "staff_floor_clearance": 0.01900518126785755,
+  "limits": "Full static surface intersections; includes hand and all equipment. Does not prove absence of fully contained volumes or collisions during future animations."
+}

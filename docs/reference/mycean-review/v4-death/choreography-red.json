@@ -1,0 +1,77 @@
+{
+  "source": "docs\\reference\\mycean-review\\v2-meshy-inspection\\mycean-equipped-review.blend",
+  "checks": [
+    {
+      "check": "pelvis does not jump back up during fall",
+      "passed": true
+    },
+    {
+      "check": "short-legged pelvis lowers before torso lands",
+      "passed": false
+    },
+    {
+      "check": "knees receive weight first",
+      "passed": false
+    },
+    {
+      "check": "torso lies forward, not on its side",
+      "passed": false
+    },
+    {
+      "check": "chest rests near floor",
+      "passed": false
+    },
+    {
+      "check": "R elbow extends, not a push-up",
+      "passed": false
+    },
+    {
+      "check": "R hand reaches forward",
+      "passed": false
+    },
+    {
+      "check": "R wrist rests near floor",
+      "passed": false
+    },
+    {
+      "check": "L elbow extends, not a push-up",
+      "passed": false
+    },
+    {
+      "check": "L hand reaches forward",
+      "passed": false
+    },
+    {
+      "check": "L wrist rests near floor",
+      "passed": false
+    },
+    {
+      "check": "body stays above floor",
+      "passed": true
+    }
+  ],
+  "pelvis_heights": [
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803,
+    0.4017578661441803
+  ],
+  "failures": [
+    "short-legged pelvis lowers before torso lands",
+    "knees receive weight first",
+    "torso lies forward, not on its side",
+    "chest rests near floor",
+    "R elbow extends, not a push-up",
+    "R hand reaches forward",
+    "R wrist rests near floor",
+    "L elbow extends, not a push-up",
+    "L hand reaches forward",
+    "L wrist rests near floor"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01",
+  "generator": "built-in image_gen.imagegen",
+  "mode": "precise-object-edit",
+  "transparent_background": true,
+  "edit_target": "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+  "initial": {
+    "prompt": "prompt-initial.txt",
+    "native_output": "C:/Users/A/.codex/generated_images/01a198e5-a6e5-7621-986b-30dff56638f5/exec-e119a911-88f0-455f-a3d7-e1043cf6fd9e.png",
+    "archive": "initial-framing-keyhole-rejected.png",
+    "rejection": "Changed the vertical framing and removed the mechanical keyhole. Retained only as the violet rune design reference for the correction.",
+    "sha256": "1b4f8f8c648a86a0528ed275509ca894f506f33a2d0758870df988b7e86d0a15"
+  },
+  "selected": {
+    "prompt": "prompt.txt",
+    "input_images": [
+      "docs/reference/door-redesign/seal-v1/hero-fit-v15-iron-crystals/source/face-source.png",
+      "docs/reference/door-redesign/seal-v1/arcane-v1/source/initial-framing-keyhole-rejected.png"
+    ],
+    "native_output": "C:/Users/A/.codex/generated_images/01a198e5-a6e5-7621-986b-30dff56638f5/exec-483e14e0-d593-46f3-89e2-8fa21a3fed82.png",
+    "archive": "face-source.png",
+    "preparation": "Copy native bytes unchanged; project only leaf geometry through the existing isometric_seal_door.paint optional leafPainting API. No scripted painting.",
+    "sha256": "7d9cdcb76d4d5744e02530f6421151fac9ce5be296f5b578242a47c1e239917e"
+  }
+}

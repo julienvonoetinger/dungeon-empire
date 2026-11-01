@@ -1,5 +1,216 @@
 # Repository instructions
 
+## Commit validation for the Mycean pipeline — 2026-11-01
+
+- User requests commit/push of accumulated Mycean references, equipped source,
+  walk/run/death/hurt/staff-spell sprites, arcane leaf and isolated previews.
+  Fresh import,2047native checks (gaits708/death303/hurt275/unlock738/spell23)
+  and all7headless probe scenarios pass. All native/import stderr logs empty;
+  evidence artifacts/commit-mycean. No player saves or APK.
+- Commit preparation found the arcane leaf recipe depended on machine-local
+  generated_images files. Archived native sources now compare against recorded
+  SHA256 values, verified against both originals before archiving. Cache-denial
+  regression fails before and231prep checks pass after. Protected production
+  inputs/openframes remain unchanged. Preserve generator bytes with -text.
+- Keep immutable GLBs, packed pose blends, scripts, master renders and review
+  recipes; docs/.gdignore excludes these sources from game export. No new raid
+  integration is part of this checkpoint.
+
+## Mycean spell reads as an organic incantation — 2026-11-01
+
+- User rejects the straight laser. mycean_arcane_spell.gd now draws gathering
+  spores, two intertwined mist filaments, traveling motes and door-plane runes
+  that disperse on release. Existing falloff texture reused; no new PNGs or
+  edits to hero/door art. Isolated MyceanArcaneDoor scene only.
+- Static 98-vertex strip shared by two meshes (192 triangles per spell).
+  Shader phase comes exclusively from action_time, never TIME; preserve pause,
+  seek, speed, original450–1500ms channel and1850ms clip. Measured emitter,
+  seal and physical caster-layer occlusion stay. Layout reserves22pxsource/
+  42pxseal support. Update custom AABB for shader displacement: untranslated
+  unit-mesh bounds caused native culling after a viewport translation.
+- Independent review caught target effect missing exactly1500ms because
+  channel=false/release=0. Explicit releasing flag includes the first release
+  frame. Both boundary and translated-render regressions fail then pass.
+  Oldlaser has0off-axis pixels; new arcane flow passes visual coverage.
+-23native effect checks and738scene checks pass, import/stderr clean. Captures
+  at desktop/portrait/shortlandscape inspected. Historical v6 retained; new
+  comparison/recipe in mycean-review/v7-arcane-flow. No important unresolved
+  review finding; physical-phone profiling undone. No raids/save/APK/commit.
+
+## Mycean staff spell and special arcane door leaf — 2026-11-01
+
+- User requests magical unlocking with the staff and confirms a special sealed
+  door battant. MyceanArcaneDoor.tscn is an isolated four-direction preview.
+  Whole v2 equipped model preserved: twelve held slots/1850ms, channel450–1500ms
+  matching existing MAGE_ARCANE_OPEN_HOLD,350ms recovery. No raid integration.
+- All three Bone_031 staff/grip attachments remain active. Plant actual sole
+  meanX/Y+minZ;352saved-source checks pass, full staff/body crossings0 including
+  hands, max supporterror.0000223. Original topology/UV/weights/sixtextures intact.
+ 24unique640px masters uniformly reduced to320px; sixposes×4views, four1920x320
+  atlases1,099,923PNGbytes/9.375MiB RGBA. Exact neutral and held aliases reuse
+  complete images. WebP adjacent identical pages coalesce with preserved timing.
+- Staff cap emitter measured from actual mesh perpose and camera. Thin violet/
+  cyan beam and release ring use the same preview clock. Target is sealz.64,
+  normal*.025 on doorplane; hero stands1.05cells away. Spell shares actor depth:
+  far-side beam must be hidden by near stone/panel, never globaloverlay. On
+  release retain three production openframe parts; closedpreview parts hide.
+- Magic leaf native ImageGen edit, exactprompt/source/provenance in door-redesign/
+  seal-v1/arcane-v1. Existing v15 metal/crystals with violet runicseal, unchanged
+  smoothreceiver/geometry/masonry; original mechanicalkeyhole remainsz.32.
+  prepare_arcane_door_review.cjs writes16closedparts/catalog under previews/
+  mycean-unlock/door,302805PNGbytes. Legacy '-leaf' is leftjamb, '-panel' battant;
+  retain2pxseam overlap/3pxfilter allowance. Duplicate preview Resource before
+  replacing all16parts; activekit/selection/openparts stay unchanged.
+- Door231prep+134independent checks, native738checks and fresh206asset-review
+  assertions pass; import/stderr clean. Native desktop/portrait/shortlandscape
+  inspected. Source/recipes/packedblend/review: mycean-review/v6-arcane-door.
+  No important review finding. Cap obscures face; solemean stability is not
+  rigidvertex support; heldsurface checks not fullself/contained/interpolation
+  or phoneprofiling. No player saves, APK, commit or push.
+
+## Mycean backward damage reaction — 2026-11-01
+
+- User requests hurt animation after death. v5-hurt uses unchanged v2 equipped
+  Mycean, eight held poses/720ms in four true iso views. Backward torso recoil
+  to-17degrees, knee compression.070 and gradual return; avoids forward sneeze.
+  Staff remains held with all three original Bone_031 attachments, grip lattice
+  and contact envelope active throughout. Original geometry/UV/weights/painting
+  and six packed textures retained. First/last geometry matches exactly.
+- Actual sole meanX/Y+minZ targets measured from equipped source, independently
+  checked; max support error.0000231. Full-body/staff crossings0, hands included;
+  staff minfloor.019. Original shin/boot weights deform some sole vertices:
+  remaining-ground maxXY motion.01448 (~1.35nativepx), not rigid per-vertex feet.
+  Preserve source weights; documented minor limitation, no locomotion/root travel.
+-32masters512px uniformly reduced to256px, four2048x256atlases,1,330,149PNG
+  bytes/8MiB RGBA. Ortho2.6, anchor128,189.394539, scale.940425532 match gaits.
+  Identical neutral geometry renders a few channels +/-1/255 differently:
+  retain all32raw masters, verify endpoint difference<=1 then reuse full first
+  image for finalregion. source_index/rendered_sha256/sha256 trace this alias.
+  Native frames nonlooping; WebPs add1.2s pause, normal/slow1920/2640ms.
+- MyceanHurt.tscn reuses unchanged paladin_action_preview.gd, four floor stages,
+  Take a hit/pause/step/.5x–2x/optional Repeat. Review caught mistaken generated
+  mycean_action_preview path; fixed and added shared-script existence guard.
+  Missing-scene check and3standing negative-control checks fail initially;
+  final200saved-source checks and275native checks pass, import/stderr clean.
+- Independent review87source/292asset checks and native three-size captures
+  pass; no important remaining finding. Recipe/blend/review in mycean-review/
+  v5-hurt, evidence artifacts/mycean-hurt. Cap still hides face/no facial morphs;
+  no exhaustive self/contained collision or continuous3D/phone validation.
+  Preview only: no raid integration, player saves, APK, commit or push.
+
+## Mycean knee-first forward death — 2026-11-01
+
+- User requests death after walk/run. v4-death starts from unchanged v2 equipped
+  source: ten whole-model held poses, four actual iso directions,650ms. Knees
+  buckle, staff releases, arms extend and torso settles forward; final held
+  until explicit replay. Original meshes/UV/weights/textures preserved.
+- Preserve35-bone Mycean mapping from v2/v3, including forearm axial roll.
+  Staff/lattice/contact envelope remain Bone_031 children. During release,
+  lattice strength1/.8/.35/0 and contact off after first pose relax the hand;
+  CONSTANT keys restore original corrections on replay. Staff rigid world
+  pose animates separately and stays fixed on floor from image4. Full-body
+  crossing checks include hands; no hidden grip exclusion.
+- Boot orientations initially caused pelvis rebound. Foot angles after frame3
+  now145/185/195/165/160/155/150degrees; measured max rebound<.006. Anatomical
+  checks use short-leg pelvis lowering>.11 and knee joints<.12. Root finishes
+  at82degrees, torso77; broad cap independently34degrees/yaw-30 so it does not
+  lift the prone body. Final elbows~171degrees, arms forward, chest near floor.
+-40masters640px uniformly reduced to320px, four1600x640atlases:1,878,373PNG
+  bytes/15.625MiB RGBA. Ortho3.25 keeps gait pixel density; anchor160,199.224289,
+  scale.940425532. MyceanDeath.tscn reuses unchanged paladin_action_preview:
+  four floor stages, replay/pause/step/speeds/optional Repeat. Preview only.
+- Missing-scene native regression and standing-source choreography fail first;
+  final12choreography,10saved-source poses and303native checks pass. Original
+  hashes/six packed textures retained. Independent review77source/222asset
+  checks and native three-size inspection pass, no important findings. Import/
+  native stderr empty; logs/captures artifacts/mycean-death. Recipe/pose blend/
+  masters/WebPs in mycean-review/v4-death, excluded by docs/.gdignore.
+- Large cap still obscures front views; source has painted eyes/no eyelids.
+  Held surface checks do not prove all self/contained-volume collisions or
+  continuous3D motion. No physical-phone profiling, raid integration, player
+  saves, APK, commit or push.
+
+## Mycean whole-model walk and run sprites — 2026-11-01
+
+- User requests walking/running from the corrected equipped Mycean. Dedicated
+  background Blender only; v3-locomotion renders eight held poses per gait in
+  four real isometric directions. Original body/staff painting, base geometry,
+  UVs, weights and all three wrist attachments stay intact. No 2D body assembly.
+- Mycean chains: arms R025/024/023,L033/032/031; legs R006/005/004,L015/014/013.
+  Preserve approved forearm axial roll and full wrist orientation. The grip
+  lattice and hidden contact envelope must travel with the staff on Bone_031.
+  Collision checks include the complete evaluated hand, never exclude its grip.
+- Run pilots exposed staff/cap and then staff/boot crossings. Final carry uses
+  wrist pitch42degrees, outward correction-15degrees, hand lift.10, body lean5.
+  Walk retains upright staff with lift.075. All16held poses have zero detected
+  equipment/body surface crossings; staff minimum floor clearance.0185913.
+- Native travel uses walk15fps/1.125model-units per second, run16fps/1.6.
+  Initial run support moved.0736765 instead of.1 per pose due to leg reach.
+  Root compression-.130 at run0/4 plus actual sole Y/Z registration fixes it.
+  Independent saved-source checks require all12support intervals, tolerance
+  .0002 and no skipped wrong-sign deltas; measured maximum error.000049942.
+-64masters512px reduced uniformly to256px, eight2048x256atlases,2,733,604PNG
+  bytes/16MiB RGBA total. MyceanWalk/MyceanRun reuse unchanged corridor scripts,
+  two corridors/four directions, pause/step and.5x/1x/1.5x/2x. Preview only,
+  no raid integration. Packed pose blend, scripts, WebPs and reproduction in
+  docs/reference/mycean-review/v3-locomotion; docs/.gdignore excludes sources.
+- Fresh import and native708checks pass/empty stderr; desktop/short landscape/
+  portrait captures inspected in artifacts/mycean-gaits. Independent review
+  verifies22source preservation comparisons,64master/reduction pairs,8atlases,
+  WebP timelines and native foot/shadow placement; no important finding remains.
+  Original large cap still hides the face in iso. Held-pose surface checks do
+  not prove all self-intersections or continuous3D motion. No phone profiling,
+  player saves, APK, commit or push.
+
+## Mycean GLBs, static staff fitting and corrected grip — 2026-11-01
+
+- User supplies mycean.glb/baton.glb, then flags the hand traversing the staff.
+  Immutable originals/SHA256 in mycean-review/source; dedicated background
+  Blender only. Body35bones/15429vertices/10371triangles,34 deformation probes,
+  staff10633vertices/10342triangles; six packed2048² textures, no source actions.
+- v2-meshy-inspection preserves native painting/base mesh/UVs, static six views
+  and packed equipped blend. Staff uses left Bone_031, uniform scale.840929,
+  length1.60, outward15degrees. Do not reuse Batrafian bone numbering; semantic
+  map and exact reproduction are documented in its README/inspection.json.
+- Original serial hand bones did not articulate the forearm-weighted palm.
+  Working copy reweights410 hand vertices to wrist, adds wrist-attached C-grip
+  lattice12x3x3, SIMPLE subdivision2 for offline rendering and an OUTSIDE
+  contact constraint against a hidden closed grip envelope. Staff leather/wood
+  shells overlap: direct Shrinkwrap onto them has ambiguous inside normals.
+  Preserve all three wrist attachments for future animation renders. No 2D cuts.
+- Initial clearance check excluded hands and missed the actual defect. Current
+  saved-source check includes ALL248904evaluated body triangles:0crossings;
+  disabling contact reproduces421. Three attachments follow8degree wrist probe
+  and restore; fresh GLB imports confirm base topology/UV preservation, originals
+  hashes unchanged. Native front/iso/grip inspected; before-grip retained.
+- Large source cap hides much of the face at30degree elevation. Static proposal
+  only: no animation/full-motion collision guarantee or in-game scale approval.
+  No game/runtime changes, player saves, APK, commit or push. docs/.gdignore
+  excludes source/review data from Godot exports.
+
+## Mycean Meshy turnaround and integrated fungal staff — 2026-11-01
+
+- User requests the next hero's Meshy views, based on approved October21 Mycean
+  mushroom mage. v1-meshy-turnaround in mycean-review contains front/left/back/
+  right neutral A poses, empty hands, and separate staff. Native ImageGen alpha,
+  original painted style; no procedural painting, image mirroring or body cuts.
+- Preserve huge purple/cyan cap, cream face, green/violet leaf tunic, leather
+  harness/boots, ONE right-hip pouch and TWO right-rear-shoulder mushrooms.
+  Corrected left body/hand toward strict side view, back pouch to plain rear
+  panel. First versions and exact prompts/native provenance are retained.
+- User rejects staff with mushroom perched in a fork. Selected staff is one
+  continuous growth: twisted woody shaft transitions into fungal stem/gills
+  and cap, with central grip/root end. staff-initial.png is historical only.
+  Generate staff separately, never use its PNG as a body Multi-View angle.
+- prepare.cjs verifies archived SHA256, native alpha, full unclipped silhouettes,
+  same1254px canvas and byte-identical copies. FivePNGs4,491,473bytes; body top
+  spread14px/sole10px recorded rather than claiming calibration. ZIP contains
+  five finalPNGs and instructions; page/README/prompts/provenance retained.
+- Official Meshy Multi-View guidance checked. References are illustrations,
+  not calibrated3D views; reconstruction/rigging untested. Source/review excluded
+  from exports via docs/.gdignore; hashes preserved with .gitattributes. No game
+  changes, animation, uploads, APK, commit or push.
+
 ## Commit validation for the Batrafian sprite pipeline — 2026-11-01
 
 - User requests commit/push of accumulated Meshy references, immutable GLBs,

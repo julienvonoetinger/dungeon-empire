@@ -1,0 +1,80 @@
+{
+  "poses": [
+    {
+      "frame": 1,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 2,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 3,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 4,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 5,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 6,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 7,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 8,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 9,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    },
+    {
+      "frame": 10,
+      "replay_error": 0.0,
+      "full_body_crossings": 0,
+      "floor_ok": true,
+      "four_view_fit": true
+    }
+  ],
+  "staff_landed_frame": 4,
+  "grip_restores_on_replay": true,
+  "packed_images": 6,
+  "source_mesh_uv_weights_textures_unchanged": true,
+  "sources_unchanged": true,
+  "limits": "Held poses and mesh-edge crossings; not exhaustive self/contained-volume collision, interpolation or phone performance."
+}
