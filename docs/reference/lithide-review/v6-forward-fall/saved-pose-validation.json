@@ -1,0 +1,98 @@
+{
+  "poses": [
+    {
+      "frame": 1,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 2,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 3,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 4,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 5,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 6,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 7,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 8,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 9,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 10,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 11,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 12,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 13,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 14,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 15,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 16,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 17,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    },
+    {
+      "frame": 18,
+      "replay_error": 0.0,
+      "floor_and_equipment_ok": true
+    }
+  ],
+  "source_hashes_unchanged": true,
+  "packed_images": 9,
+  "four_camera_bounds": true,
+  "limits": "Held poses only. Edge/triangle checks do not prove absence of full containment or all armour self-intersections. No continuous 3D motion or phone performance validation."
+}

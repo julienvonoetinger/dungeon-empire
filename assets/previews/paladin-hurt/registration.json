@@ -1,0 +1,30 @@
+{
+  "anchor": [
+    128,
+    189.39453939444144
+  ],
+  "frame_size": 256,
+  "hero_scale": 0.9404255319148935,
+  "ortho_scale": 2.6,
+  "durations_ms": [
+    65,
+    65,
+    90,
+    115,
+    100,
+    95,
+    90,
+    100
+  ],
+  "phases": [
+    "Ready",
+    "Impact",
+    "Recoil",
+    "Brace",
+    "Return",
+    "Recover",
+    "Balance",
+    "Ready"
+  ],
+  "loop": false
+}

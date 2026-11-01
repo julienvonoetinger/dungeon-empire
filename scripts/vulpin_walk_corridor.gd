@@ -18,11 +18,21 @@ var _solids: Array[Dictionary] = []
 var _contact: Sprite2D
 var pose_fps := 10.0
 var cells_per_second := CELLS_PER_SECOND
+var frame_anchor := ANCHOR
+var frame_scale := HERO_SCALE
+var frame_size := 256.0
+var camera_ortho := 2.35
+var actor_half_extent := .16
 
-func build(corridor_axis: int, frames: SpriteFrames = FRAMES, frame_rate: float = 10.0, model_speed: float = .65) -> void:
+func build(corridor_axis: int, frames: SpriteFrames = FRAMES, frame_rate: float = 10.0, model_speed: float = .65, registration: Dictionary = {}) -> void:
 	axis = corridor_axis
 	pose_fps = frame_rate
-	cells_per_second = model_speed * (256.0 / 2.35) * .70710678 / 128.0 * HERO_SCALE
+	frame_anchor = registration.get("anchor", ANCHOR)
+	frame_scale = float(registration.get("hero_scale", HERO_SCALE))
+	frame_size = float(registration.get("frame_size", 256.0))
+	camera_ortho = float(registration.get("ortho_scale", 2.35))
+	actor_half_extent = float(registration.get("half_extent", .16))
+	cells_per_second = model_speed * (frame_size / camera_ortho) * .70710678 / 128.0 * frame_scale
 	if axis == 1:
 		path_start = Vector2(.5, .55)
 		path_end = Vector2(.5, 2.45)
@@ -38,18 +48,18 @@ func build(corridor_axis: int, frames: SpriteFrames = FRAMES, frame_rate: float 
 	_contact.scale = Vector2(38, 19) / _contact.texture.get_size()
 	_world.add_child(_contact)
 	actor = AnimatedSprite2D.new()
-	actor.name = "Vulpin"
+	actor.name = registration.get("actor_name", "Vulpin")
 	actor.sprite_frames = frames
 	actor.centered = false
-	actor.offset = -ANCHOR
-	actor.scale = Vector2.ONE * HERO_SCALE
+	actor.offset = -frame_anchor
+	actor.scale = Vector2.ONE * frame_scale
 	actor.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	actor.z_index = 1
 	_world.add_child(actor)
 	# One clock drives root travel and frames, including pause/speed/stepping.
 	set_walk_time(0.0)
 	for endpoint in [path_start, path_end]:
-		_frame = _frame.merge(Rect2(grid_to_local(endpoint) - ANCHOR * HERO_SCALE, Vector2.ONE * 256 * HERO_SCALE))
+		_frame = _frame.merge(Rect2(grid_to_local(endpoint) - frame_anchor * frame_scale, Vector2.ONE * frame_size * frame_scale))
 	_frame = _frame.grow(10)
 
 func _draw_part(part: Dictionary, layer: int) -> void:
@@ -74,9 +84,9 @@ func set_walk_time(seconds: float) -> void:
 	actor.set_frame_and_progress(floori(seconds * pose_fps + .000001) % actor.sprite_frames.get_frame_count(actor.animation), 0.0)
 	var parts: Array[Dictionary] = _solids.duplicate()
 	parts.append({"node": actor,
-		"min": Vector3(hero_grid.x - .16, hero_grid.y - .16, 0),
-		"max": Vector3(hero_grid.x + .16, hero_grid.y + .16, 1.15),
-		"rect": Rect2(actor.position - ANCHOR * HERO_SCALE, Vector2.ONE * 256 * HERO_SCALE),
+		"min": Vector3(hero_grid.x - actor_half_extent, hero_grid.y - actor_half_extent, 0),
+		"max": Vector3(hero_grid.x + actor_half_extent, hero_grid.y + actor_half_extent, 1.15),
+		"rect": Rect2(actor.position - frame_anchor * frame_scale, Vector2.ONE * frame_size * frame_scale),
 		"depth": (hero_grid.x + hero_grid.y) * .6123724356957945})
 	for part in _ordered_parts(parts):
 		_world.move_child(part.node, -1)

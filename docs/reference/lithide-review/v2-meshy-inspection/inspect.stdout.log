@@ -1,0 +1,24 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+09:33:09 | INFO: Data are loaded, start creating Blender stuff
+09:33:09 | INFO: Blender create Mesh node output_unwrapped
+09:33:09 | INFO: glTF import finished in 0.08s
+09:33:10 | INFO: Data are loaded, start creating Blender stuff
+09:33:10 | INFO: Blender create Mesh node output_unwrapped
+09:33:10 | INFO: glTF import finished in 0.03s
+09:33:10 | INFO: Data are loaded, start creating Blender stuff
+09:33:10 | INFO: Blender create Mesh node output_unwrapped
+09:33:10 | INFO: glTF import finished in 0.02s
+00:09.188  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\paladin-front.png'
+00:10.625  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\paladin-isometric.png'
+00:11.828  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\hammer-isometric.png'
+00:13.250  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\shield-isometric.png'
+Info: No new files have been packed
+Info: Saved as "inspection.blend"
+INSPECTION_OK {"paladin": {"bounds": {"min": [-0.880503, -0.312851, -0.0], "max": [0.880503, 0.31285, 1.7], "size": [1.761005, 0.625701, 1.7]}, "bones": 50, "probes": 49}, "hammer": {"bounds": {"min": [-0.632918, -0.325879, -0.951907], "max": [0.631448, 0.326809, 0.950691], "size": [1.264366, 0.652688, 1.902598]}, "bones": 0, "probes": 0}, "shield": {"bounds": {"min": [-0.671453, -0.252546, -0.952418], "max": [0.670634, 0.251822, 0.950807], "size": [1.342087, 0.504368, 1.903225]}, "bones": 0, "probes": 0}}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

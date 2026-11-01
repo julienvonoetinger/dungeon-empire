@@ -1,0 +1,5 @@
+{
+  "checks": 165,
+  "failures": [],
+  "limits": "Held poses and target contact. Edge/triangle checks do not exclude all containment or armour self-intersections; no continuous runtime 3D."
+}

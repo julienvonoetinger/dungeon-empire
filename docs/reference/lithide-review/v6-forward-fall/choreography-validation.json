@@ -1,0 +1,46 @@
+{
+  "source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\lithide-review\\v6-forward-fall\\paladin-action-poses.blend",
+  "checks": [
+    {
+      "check": "knees receive the body before the forward fall",
+      "passed": true
+    },
+    {
+      "check": "final torso falls forward, not sideways",
+      "passed": true
+    },
+    {
+      "check": "chest actually rests near the floor",
+      "passed": true
+    },
+    {
+      "check": "turned helmet rests near the floor",
+      "passed": true
+    },
+    {
+      "check": "R elbow extends instead of a push-up support",
+      "passed": true
+    },
+    {
+      "check": "R hand reaches forward beyond shoulder",
+      "passed": true
+    },
+    {
+      "check": "R hand reaches floor",
+      "passed": true
+    },
+    {
+      "check": "L elbow extends instead of a push-up support",
+      "passed": true
+    },
+    {
+      "check": "L hand reaches forward beyond shoulder",
+      "passed": true
+    },
+    {
+      "check": "L hand reaches floor",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

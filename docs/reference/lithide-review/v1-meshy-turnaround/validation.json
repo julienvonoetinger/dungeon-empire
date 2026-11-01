@@ -1,0 +1,117 @@
+{
+  "status": "prepared-not-reconstructed",
+  "tool": "built-in image_gen",
+  "records": [
+    {
+      "source": "source/front.png",
+      "file": "meshy/character/01-front.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1229836,
+      "sha256": "f7d046de667e14bcd0cf745255e18d78dc53473638af54f42a1d4b300c73bed9",
+      "nativeAlpha": true,
+      "transparentPixels": 911248,
+      "solidBounds": [
+        87,
+        106,
+        1166,
+        1174
+      ],
+      "noClippedSolidPixels": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "source": "source/left.png",
+      "file": "meshy/character/02-left.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 726420,
+      "sha256": "d9ecaacee6746abc3acaa1459ece29d31c9ed28ea4630467d0d7768d4f39aa10",
+      "nativeAlpha": true,
+      "transparentPixels": 1193173,
+      "solidBounds": [
+        421,
+        105,
+        864,
+        1174
+      ],
+      "noClippedSolidPixels": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "source": "source/back.png",
+      "file": "meshy/character/03-back.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1185820,
+      "sha256": "91b94fcb7403b842f242943e2d73147a864cc3676efb15dd61919a0e336d2d18",
+      "nativeAlpha": true,
+      "transparentPixels": 911507,
+      "solidBounds": [
+        72,
+        99,
+        1179,
+        1172
+      ],
+      "noClippedSolidPixels": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "source": "source/right.png",
+      "file": "meshy/character/04-right.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 688985,
+      "sha256": "5ee5d98185d4e37865db6801437400fe7e30333260c8ef0b0d3acb89ded98e1e",
+      "nativeAlpha": true,
+      "transparentPixels": 1216264,
+      "solidBounds": [
+        392,
+        106,
+        816,
+        1173
+      ],
+      "noClippedSolidPixels": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "source": "source/hammer-initial.png",
+      "file": "meshy/equipment/hammer.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1441441,
+      "sha256": "1fcbae9e5f748564579182d8cce2fb4b13d70720802fef11de77a33a159e95b4",
+      "nativeAlpha": true,
+      "transparentPixels": 1120265,
+      "solidBounds": [
+        116,
+        170,
+        921,
+        1399
+      ],
+      "noClippedSolidPixels": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "source": "source/shield.png",
+      "file": "meshy/equipment/shield.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1185576,
+      "sha256": "c84463d20ab414bfc7a7626f154282b69b37d9ef6049dafe3b44965a88635d57",
+      "nativeAlpha": true,
+      "transparentPixels": 933033,
+      "solidBounds": [
+        259,
+        47,
+        999,
+        1193
+      ],
+      "noClippedSolidPixels": true,
+      "byteIdenticalToSource": true
+    }
+  ],
+  "characterTopSpreadPixels": 7,
+  "characterSoleSpreadPixels": 2,
+  "limits": "Independent illustrations, not calibrated mesh renders. Meshy result untested. No game assets replaced."
+}

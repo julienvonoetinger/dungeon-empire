@@ -1,0 +1,260 @@
+@tool
+extends Control
+## Whole-render Paladin one-shot review. No game/session or player saves.
+@export var animation_frames: SpriteFrames
+@export var preview_title := "Paladin · hit reaction"
+@export var phases: PackedStringArray = []
+@export var frame_anchor := Vector2(128, 189.394539)
+@export var is_death := false
+@export var replay_caption := ""
+@export var stage_bounds := Rect2(-190, -195, 380, 300)
+const KIT: Resource = preload("res://assets/dungeon/isometric-kit/catalog.tres")
+const CONTACT: Texture2D = preload("res://assets/dungeon/mobile-kit/light-falloff.png")
+const DIRECTIONS := [&"se", &"sw", &"nw", &"ne"]
+const TITLES := ["Southeast", "Southwest", "Northwest", "Northeast"]
+
+
+const REPEAT_GAP := .8
+
+var actors: Array[AnimatedSprite2D] = []
+var action_time := 0.0
+var action_duration := 0.0
+var playback_speed := 1.0
+var trigger_count := 0
+var active := false
+var repeat_enabled := false
+var _playing := true
+var _repeat_elapsed := 0.0
+var _starts: Array[float] = []
+var _pause_button: Button
+var _speed_select: OptionButton
+var _repeat_button: CheckButton
+var _status: Label
+var _shadows: Array[Sprite2D] = []
+var _previous_content_scale := Vector2i.ZERO
+var _grid: GridContainer
+
+func _ready() -> void:
+	if not Engine.is_editor_hint():
+		_previous_content_scale = get_window().content_scale_size
+		get_window().content_scale_size = Vector2i.ZERO
+	for frame in animation_frames.get_frame_count(&"se"):
+		_starts.append(action_duration)
+		action_duration += animation_frames.get_frame_duration(&"se", frame) / animation_frames.get_animation_speed(&"se")
+	_build_preview()
+	resized.connect(_fit_columns)
+	_fit_columns()
+	seek_action(action_duration)
+	set_playing(not Engine.is_editor_hint())
+	set_process(not Engine.is_editor_hint())
+	if not Engine.is_editor_hint():
+		trigger_action()
+
+func _exit_tree() -> void:
+	if not Engine.is_editor_hint():
+		get_window().content_scale_size = _previous_content_scale
+
+func _fit_columns() -> void:
+	_grid.columns = 4 if size.x > size.y * 1.7 and size.y < 540 else 2
+
+func _build_preview() -> void:
+	var background := ColorRect.new()
+	background.color = Color("0e1521")
+	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(background)
+	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var margin := MarginContainer.new()
+	add_child(margin)
+	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	for side in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 16)
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 10)
+	margin.add_child(column)
+	var title := Label.new()
+	title.text = preview_title
+	title.add_theme_font_size_override("font_size", 24)
+	title.add_theme_color_override("font_color", Color("e6d0fa"))
+	column.add_child(title)
+	var grid := GridContainer.new()
+	_grid = grid
+	grid.name = "Directions"
+	grid.columns = 2
+	grid.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	grid.add_theme_constant_override("h_separation", 12)
+	grid.add_theme_constant_override("v_separation", 12)
+	column.add_child(grid)
+	for index in DIRECTIONS.size():
+		_add_direction(grid, index)
+	var toolbar := HFlowContainer.new()
+	toolbar.add_theme_constant_override("h_separation", 8)
+	toolbar.add_theme_constant_override("v_separation", 6)
+	column.add_child(toolbar)
+	var trigger := _button(replay_caption if not replay_caption.is_empty() else ("Replay fall" if is_death else "Take a hit"))
+	trigger.pressed.connect(trigger_action)
+	toolbar.add_child(trigger)
+	_pause_button = _button("Pause")
+	_pause_button.pressed.connect(func() -> void: set_playing(not _playing))
+	toolbar.add_child(_pause_button)
+	var step := _button("Next frame")
+	step.pressed.connect(next_pose)
+	toolbar.add_child(step)
+	_speed_select = OptionButton.new()
+	_speed_select.custom_minimum_size = Vector2(156, 48)
+	for caption in ["Slow · 0.5×", "Normal · 1×", "Fast · 1.5×", "Double · 2×"]:
+		_speed_select.add_item(caption)
+	_speed_select.select(1)
+	_speed_select.item_selected.connect(set_speed_index)
+	toolbar.add_child(_speed_select)
+	_repeat_button = CheckButton.new()
+	_repeat_button.text = "Repeat"
+	_repeat_button.custom_minimum_size = Vector2(128, 48)
+	_repeat_button.button_pressed = repeat_enabled
+	_repeat_button.toggled.connect(set_repeat_enabled)
+	toolbar.add_child(_repeat_button)
+	_status = Label.new()
+	_status.custom_minimum_size = Vector2(172, 48)
+	_status.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_status.add_theme_color_override("font_color", Color("e1c77d"))
+	toolbar.add_child(_status)
+
+func _button(caption: String) -> Button:
+	var button := Button.new()
+	button.text = caption
+	button.custom_minimum_size = Vector2(128, 48)
+	return button
+
+func _add_direction(grid: GridContainer, index: int) -> void:
+	var panel := PanelContainer.new()
+	panel.name = "Direction_" + str(DIRECTIONS[index])
+	panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	panel.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color("141e2b")
+	style.border_color = Color("3d4961")
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(10)
+	style.content_margin_left = 12
+	style.content_margin_right = 12
+	style.content_margin_top = 8
+	style.content_margin_bottom = 8
+	panel.add_theme_stylebox_override("panel", style)
+	grid.add_child(panel)
+	var column := VBoxContainer.new()
+	panel.add_child(column)
+	var label := Label.new()
+	label.text = TITLES[index]
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 18)
+	column.add_child(label)
+	var stage := Control.new()
+	stage.name = "Stage"
+	stage.custom_minimum_size = Vector2(110, 52)
+	stage.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	stage.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	column.add_child(stage)
+	var group := Node2D.new()
+	stage.add_child(group)
+	_populate_stage(group, index)
+	stage.resized.connect(_fit_stage.bind(stage, group))
+	_fit_stage.call_deferred(stage, group)
+
+func _populate_stage(group: Node2D, index: int) -> void:
+	var floor_sprite := Sprite2D.new()
+	floor_sprite.texture = KIT.get("textures")["floor-b1"]
+	floor_sprite.centered = false
+	floor_sprite.position = Vector2(-135, -69)
+	floor_sprite.scale = Vector2.ONE * 1.4
+	floor_sprite.position *= 1.4
+	floor_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	group.add_child(floor_sprite)
+	var shadow := Sprite2D.new()
+	shadow.texture = CONTACT
+	shadow.modulate = Color(0, 0, 0, .5)
+	shadow.scale = Vector2(38, 19) / CONTACT.get_size()
+	group.add_child(shadow)
+	_shadows.append(shadow)
+	var actor := AnimatedSprite2D.new()
+	actor.sprite_frames = animation_frames
+	actor.animation = DIRECTIONS[index]
+	actor.centered = false
+	actor.offset = -frame_anchor
+	actor.scale = Vector2.ONE * .9404255319148935
+	actor.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	group.add_child(actor)
+	actors.append(actor)
+
+func _fit_stage(stage: Control, group: Node2D) -> void:
+	var bounds := stage_bounds
+	var display_scale := minf(stage.size.x / bounds.size.x, stage.size.y / bounds.size.y)
+	group.scale = Vector2.ONE * display_scale
+	group.position = stage.size * .5 - bounds.get_center() * display_scale
+
+func seek_action(seconds: float) -> void:
+	action_time = clampf(seconds, 0.0, action_duration)
+	# SpriteFrames durations have float rounding; finish cleanly at the
+	# nominal endpoint at every speed.
+	if action_duration - action_time <= .000001:
+		action_time = action_duration
+	active = action_time < action_duration
+	var frame := 0
+	for index in _starts.size():
+		if action_time + .000001 >= _starts[index]:
+			frame = index
+	for actor in actors:
+		actor.set_frame_and_progress(frame, 0.0)
+	var settle := clampf((float(frame) - 3.0) / 6.0, 0.0, 1.0) if is_death else 0.0
+	for index in _shadows.size():
+		var forward: Vector2 = [Vector2(1, .5), Vector2(-1, .5), Vector2(-1, -.5), Vector2(1, -.5)][index]
+		if not is_death:
+			forward = [Vector2(-1, .5), Vector2(-1, -.5), Vector2(1, -.5), Vector2(1, .5)][index]
+		_shadows[index].position = forward * (settle * 29.0)
+		_shadows[index].rotation = forward.angle()
+		_shadows[index].scale = Vector2(lerpf(38, 125, settle), lerpf(19, 40, settle)) / CONTACT.get_size()
+	_status.text = phases[frame]
+
+func trigger_action() -> void:
+	trigger_count += 1
+	_repeat_elapsed = 0.0
+	seek_action(0.0)
+	set_playing(true)
+
+func set_playing(value: bool) -> void:
+	_playing = value
+	_pause_button.text = "Pause" if value else "Play"
+
+func set_speed_index(index: int) -> void:
+	playback_speed = [0.5, 1.0, 1.5, 2.0][clampi(index, 0, 3)]
+	_speed_select.select(clampi(index, 0, 3))
+
+func set_repeat_enabled(value: bool) -> void:
+	repeat_enabled = value
+	_repeat_elapsed = 0.0
+	_repeat_button.set_pressed_no_signal(value)
+
+func next_pose() -> void:
+	set_playing(false)
+	_repeat_elapsed = 0.0
+	seek_action(_starts[(actors[0].frame + 1) % _starts.size()])
+
+func _process(delta: float) -> void:
+	if not _playing:
+		return
+	if active:
+		seek_action(action_time + delta * playback_speed)
+		if not active:
+			_repeat_elapsed = 0.0
+	elif repeat_enabled:
+		_repeat_elapsed += delta * playback_speed
+		if _repeat_elapsed >= REPEAT_GAP:
+			trigger_action()
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_SPACE:
+			trigger_action()
+		elif event.keycode == KEY_RIGHT:
+			next_pose()
+		else:
+			return
+		get_viewport().set_input_as_handled()

@@ -43,6 +43,7 @@
 
 # Vulpin source archive and preservation manifest use exact byte hashes.
 /docs/reference/vulpin-review/** -text
+/docs/reference/lithide-review/** -text
 /docs/reference/hero-concepts-2d-2026-10-21/** -text
 /docs/production/hero-animation-*.md -text
 /assets/previews/** -text

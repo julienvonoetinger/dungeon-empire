@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "bones": 50,
+  "weighted_vertices": 14680,
+  "embedded_images": 9,
+  "attachments": [
+    {
+      "object": "hammer",
+      "bone": "Bone_023",
+      "follows_after_reload": true,
+      "restore_error": 0.0
+    },
+    {
+      "object": "shield",
+      "bone": "Bone_019",
+      "follows_after_reload": true,
+      "restore_error": 0.0
+    }
+  ],
+  "original_and_archive_hashes_match": true,
+  "limits": "Attachment persistence only. Initial grip fit is provisional; no walking/combat sprite or runtime integration."
+}

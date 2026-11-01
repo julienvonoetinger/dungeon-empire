@@ -1,0 +1,755 @@
+{
+  "gaits": {
+    "walk": {
+      "frames": [
+        {
+          "view": "se",
+          "index": 0,
+          "sha256": "46af06bc5dcb06c2edc03c33c90ce8656cba2b64fcb2425b33f3de29e1027558",
+          "alphaBounds": [
+            121,
+            75,
+            451,
+            395
+          ]
+        },
+        {
+          "view": "se",
+          "index": 1,
+          "sha256": "ed955cfa18eda921037fde58f9a1130275336dd8fd0291d9f154482a1c656925",
+          "alphaBounds": [
+            119,
+            77,
+            451,
+            390
+          ]
+        },
+        {
+          "view": "se",
+          "index": 2,
+          "sha256": "771843473ba7e2f66820676a56ffa9cb816aa28f250c6ac4e1ecba2468ae6055",
+          "alphaBounds": [
+            115,
+            77,
+            452,
+            388
+          ]
+        },
+        {
+          "view": "se",
+          "index": 3,
+          "sha256": "e7f9e2ef1381d02bb7f32f6de635d69fad15c8398695772acb9f757e00925fc9",
+          "alphaBounds": [
+            112,
+            76,
+            453,
+            405
+          ]
+        },
+        {
+          "view": "se",
+          "index": 4,
+          "sha256": "3c40480cc098929e999ffa370feb934f1b201d3f7f06e5e60b4975bffef16071",
+          "alphaBounds": [
+            111,
+            79,
+            454,
+            422
+          ]
+        },
+        {
+          "view": "se",
+          "index": 5,
+          "sha256": "8ca0ef8892e9ccdce1f6d4bf02a9a7422d4a1ef7fde0a84083c6cd7807e419fb",
+          "alphaBounds": [
+            112,
+            80,
+            453,
+            416
+          ]
+        },
+        {
+          "view": "se",
+          "index": 6,
+          "sha256": "de0d3d362b59206f4f0fb9c272807f439f703259fdf6d3097260b26400f7813e",
+          "alphaBounds": [
+            116,
+            77,
+            452,
+            409
+          ]
+        },
+        {
+          "view": "se",
+          "index": 7,
+          "sha256": "214aafbfa397f22da0b94aa357ec001b7f4735919a90b6a28b11e23547392876",
+          "alphaBounds": [
+            119,
+            73,
+            451,
+            403
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 0,
+          "sha256": "149fc6088b72aaaaa92e4217df9a684cd7605e1bcdc861ace03b680c13f5fa7b",
+          "alphaBounds": [
+            64,
+            60,
+            400,
+            422
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 1,
+          "sha256": "b3d742bce46eeeb20235ccb4eceb50db34c3570739a88c5ebfa31e6a310bb5e7",
+          "alphaBounds": [
+            63,
+            61,
+            399,
+            416
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 2,
+          "sha256": "d775057a607592e96e173afd160d8bf620f08ac79333bd62739e735f90c1bd59",
+          "alphaBounds": [
+            62,
+            57,
+            395,
+            410
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 3,
+          "sha256": "5b2ca95ac42edc9f9066f8055bec325056798f783bdae21d4a96f3778c99581d",
+          "alphaBounds": [
+            61,
+            54,
+            392,
+            408
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 4,
+          "sha256": "f506f3b6f0669eabd20661963ba27e8fa5cbf7f9fe4740117a820fdae676708d",
+          "alphaBounds": [
+            60,
+            57,
+            390,
+            411
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 5,
+          "sha256": "a80457c568b6ed90815c5b4c40ebe2c605d169896719c0b264c307e300146dc9",
+          "alphaBounds": [
+            61,
+            60,
+            392,
+            414
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 6,
+          "sha256": "54de4f61d17b001988a1cedc484b6ea441051399ebd78b80412771b4b09bed7f",
+          "alphaBounds": [
+            62,
+            60,
+            395,
+            413
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 7,
+          "sha256": "1e3121d14d3e0d4b5deeab540efa7bbfce85a7d35c1a308d4006c54c1fa9266c",
+          "alphaBounds": [
+            63,
+            58,
+            399,
+            410
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 0,
+          "sha256": "d10b0b67b5dbf04f4c4065ec34227e86a0571dd7a6ccbe024e604f1d3ecc4e20",
+          "alphaBounds": [
+            60,
+            17,
+            390,
+            419
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 1,
+          "sha256": "040c39f38f81a16175c963190c338f5502a8a8331935031919dd2965e6193274",
+          "alphaBounds": [
+            60,
+            18,
+            392,
+            419
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 2,
+          "sha256": "3567d5eb8ec1d5f05b4557390edbbe7371befae9e48643345d72bc1ea3c98523",
+          "alphaBounds": [
+            59,
+            19,
+            396,
+            418
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 3,
+          "sha256": "8c0dfa50e017c38d3380fd0a0561abb6d214713c5fa74abc724a5f5e00725501",
+          "alphaBounds": [
+            58,
+            19,
+            399,
+            422
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 4,
+          "sha256": "cb1f3d0895ef01cf83f4d93829562086c38f224d223ef635dbf8796d58c58941",
+          "alphaBounds": [
+            57,
+            23,
+            400,
+            424
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 5,
+          "sha256": "cd68d76d940704acd0cf8bbb4e17d0238f3fcd42e4afe4ceaa18652a01b077e1",
+          "alphaBounds": [
+            58,
+            25,
+            399,
+            408
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 6,
+          "sha256": "e021f974d1b8927b7c6fceaf40cd612a7b9db3f5d9d552d44e838289c1c34dae",
+          "alphaBounds": [
+            59,
+            21,
+            395,
+            397
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 7,
+          "sha256": "4a77d8fdab5ae6c1df4e50dc98e525038c71a021f04c0ec6d20006787a9cfb2b",
+          "alphaBounds": [
+            60,
+            16,
+            392,
+            409
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 0,
+          "sha256": "404085e4ed2fcd741d11cac5cb98d998984c7e8cd2bb66c94b3e0a8f03cf6e4f",
+          "alphaBounds": [
+            111,
+            74,
+            447,
+            426
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 1,
+          "sha256": "a9b1581b2787535fe427d2560e199be5b2f4c1a894e19402b42a11aec6be2208",
+          "alphaBounds": [
+            112,
+            74,
+            448,
+            408
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 2,
+          "sha256": "abd715d332cd298e2b6793d58754b35c51a177077428d5b56fe24d1afe56b614",
+          "alphaBounds": [
+            116,
+            70,
+            449,
+            399
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 3,
+          "sha256": "2e2769e4a7efaa4e1823ec5b3c600cf99417264f8edf1fc89d727be1454c0325",
+          "alphaBounds": [
+            119,
+            66,
+            450,
+            409
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 4,
+          "sha256": "00b2b57ce2d830aeeb2660fa3679fb05c5ebb486583e50876033b8ba979cc017",
+          "alphaBounds": [
+            121,
+            68,
+            450,
+            420
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 5,
+          "sha256": "85db49f1b7369ac99686e90e8c92f66eee842b810aafbaad66ccfad82a8c99ec",
+          "alphaBounds": [
+            119,
+            72,
+            450,
+            420
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 6,
+          "sha256": "d325a0bfdf0cc2670c55bb7a03347ff84c6416086230859030f75d4dd48e6043",
+          "alphaBounds": [
+            116,
+            72,
+            449,
+            420
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 7,
+          "sha256": "7eaaec25839431879629162f82d2020ed3977a83cb2ca0ba3bbf968276579076",
+          "alphaBounds": [
+            112,
+            71,
+            448,
+            423
+          ]
+        }
+      ],
+      "registration": {
+        "anchor": [
+          128,
+          189.39453939444144
+        ],
+        "frame_size": 256,
+        "hero_scale": 0.9404255319148935,
+        "ortho_scale": 2.6,
+        "half_extent": 0.23,
+        "actor_name": "Paladin",
+        "fps": 12,
+        "model_speed": 0.84
+      },
+      "sheetBytes": 1630067,
+      "rgbaBytes": 8388608,
+      "loopMilliseconds": 667
+    },
+    "run": {
+      "frames": [
+        {
+          "view": "se",
+          "index": 0,
+          "sha256": "85d3042f831848e78a63f1795dbe0b80d7ea59ba775d9e32295f28ae3acbf018",
+          "alphaBounds": [
+            131,
+            87,
+            457,
+            375
+          ]
+        },
+        {
+          "view": "se",
+          "index": 1,
+          "sha256": "02570dc35bf0c765dfdfd95862780595b1994974ea4234e51fb50a0c98d2bf03",
+          "alphaBounds": [
+            128,
+            93,
+            458,
+            373
+          ]
+        },
+        {
+          "view": "se",
+          "index": 2,
+          "sha256": "3d16b630f660ac4f4846d08eb525e0c42c824b113ef218bbce3455dcbd7246e4",
+          "alphaBounds": [
+            123,
+            88,
+            460,
+            392
+          ]
+        },
+        {
+          "view": "se",
+          "index": 3,
+          "sha256": "9e71b08cbc984b02668ffa3c91ba0cffcf930258486ac74444b5faaaf61499c7",
+          "alphaBounds": [
+            118,
+            79,
+            462,
+            408
+          ]
+        },
+        {
+          "view": "se",
+          "index": 4,
+          "sha256": "36599a245acb883a237cc732c29a0c2d40fe682253b62e4370a1ec2297bca9c7",
+          "alphaBounds": [
+            116,
+            93,
+            463,
+            425
+          ]
+        },
+        {
+          "view": "se",
+          "index": 5,
+          "sha256": "61977e3d1c2987ded93f4ce4e5018f58533833be7ee9cee24cc1325455ed169e",
+          "alphaBounds": [
+            118,
+            97,
+            462,
+            418
+          ]
+        },
+        {
+          "view": "se",
+          "index": 6,
+          "sha256": "a2ca368195d9d0922d9d30a1c270acf8fe6b5615e0217addf63932b1aba63867",
+          "alphaBounds": [
+            123,
+            88,
+            460,
+            409
+          ]
+        },
+        {
+          "view": "se",
+          "index": 7,
+          "sha256": "0cc1d675c56844126d51290ef3f0cea73acf6f4713a17379f648f1df888f0c65",
+          "alphaBounds": [
+            129,
+            75,
+            458,
+            379
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 0,
+          "sha256": "2d02d261b148b1038219a90bc7651271eccd7d71a20b7f670693d1668d332956",
+          "alphaBounds": [
+            50,
+            80,
+            394,
+            425
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 1,
+          "sha256": "43fff7466f9181e09453f9af4c87ce6b74fe49fa78a16d548c59c95d24d89c29",
+          "alphaBounds": [
+            49,
+            83,
+            393,
+            429
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 2,
+          "sha256": "eea94fe8871c54af3de1e7aa9e4579c037e9d0c7febe7cca7ed3f140274dbac0",
+          "alphaBounds": [
+            48,
+            75,
+            388,
+            424
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 3,
+          "sha256": "5ecc87ddc398aecf5daeaab88e7c1a758aeb96b814ad792ce3d84e9526e48d94",
+          "alphaBounds": [
+            47,
+            63,
+            383,
+            415
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 4,
+          "sha256": "ee20c163e57b59009a6eda909372c4b2f07a58546b8e19ea4873384262921304",
+          "alphaBounds": [
+            46,
+            76,
+            380,
+            429
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 5,
+          "sha256": "51b66b4dd04b2e0a4d43eba35f4a1bcc700a3dfab790dfd4e350f778fd162c52",
+          "alphaBounds": [
+            47,
+            82,
+            382,
+            434
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 6,
+          "sha256": "ff1ece06880b85718bd76b5c4a33bcbebe75c176bc8114cbf506fe1e7cc3aa30",
+          "alphaBounds": [
+            48,
+            77,
+            388,
+            426
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 7,
+          "sha256": "eb26d095d4d6fa217bd2638013cb1e4e109a9030542c7fe4a4591e1228f709c9",
+          "alphaBounds": [
+            49,
+            67,
+            393,
+            413
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 0,
+          "sha256": "f4ae5b92b9f195abcf8fe17fc374d8e38f0c2e433a963145a2d16b2bd7696d6f",
+          "alphaBounds": [
+            54,
+            27,
+            380,
+            414
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 1,
+          "sha256": "4afc601d65fb4c6458ef9110454a5033dfcb071e3a19d2ed5d7946521e5cd588",
+          "alphaBounds": [
+            53,
+            33,
+            383,
+            414
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 2,
+          "sha256": "301e19598f35aeffc49857d207790689db171c0ac3186a93ebadabb34e3622be",
+          "alphaBounds": [
+            51,
+            30,
+            388,
+            414
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 3,
+          "sha256": "0bc859e63ee1eb91548ba707a224c8fbe7abfdac2533312f00393ab0253a2cd6",
+          "alphaBounds": [
+            49,
+            24,
+            393,
+            404
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 4,
+          "sha256": "045c7cf3c64512fbdaa880b55e4da246e32d4c82dfdb33a5430645788f03a2b5",
+          "alphaBounds": [
+            48,
+            40,
+            395,
+            384
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 5,
+          "sha256": "3d0ff6b61105a1f2f6e964dd6efbef842cca2d32d3338c935b4e5973a550f30e",
+          "alphaBounds": [
+            49,
+            44,
+            393,
+            378
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 6,
+          "sha256": "5e631d36530081e4cacd12b71e1ef714c7a0113db9e06ca5a1ab7f612b84eaae",
+          "alphaBounds": [
+            51,
+            33,
+            388,
+            386
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 7,
+          "sha256": "7a4397b13c822a9647c9e42c3de780444b5406a39b49464c765f69bc8de53b09",
+          "alphaBounds": [
+            53,
+            17,
+            382,
+            401
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 0,
+          "sha256": "47f8656388804531d4f729e6690764016b73cbe7d3591b33ce404861f6680d3b",
+          "alphaBounds": [
+            116,
+            87,
+            461,
+            386
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 1,
+          "sha256": "35b3fd5bde1726a604c19110efb3107c067046e0cbf173e6ae9c374294b233d4",
+          "alphaBounds": [
+            118,
+            89,
+            462,
+            378
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 2,
+          "sha256": "1a4746f09f79b1670f960b450c81af7a5aa4108c24ee2db89733846db39f7350",
+          "alphaBounds": [
+            123,
+            79,
+            463,
+            387
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 3,
+          "sha256": "65acff0a418a872ba5e4a66989da67916474c6caa9289b40a5cf5db3afcc71ec",
+          "alphaBounds": [
+            128,
+            65,
+            464,
+            401
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 4,
+          "sha256": "9cacf9faa9d5ea282ede54cffe4d298d1d72083145490d2bec74be92a877343a",
+          "alphaBounds": [
+            131,
+            77,
+            465,
+            414
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 5,
+          "sha256": "269d4880518c8c993422870a214ec90917ab75e2d35d017f02dd1a1d9e39ad94",
+          "alphaBounds": [
+            128,
+            85,
+            464,
+            415
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 6,
+          "sha256": "165ba397340e13f31c21552ceecd76d69eb33fc6bb1f38d7d24124e69f01d2f0",
+          "alphaBounds": [
+            123,
+            82,
+            463,
+            415
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 7,
+          "sha256": "4b638c902296056d9f37f2f6277a11cc9dbf11788f82ad29e8dcceb117718000",
+          "alphaBounds": [
+            118,
+            73,
+            462,
+            406
+          ]
+        }
+      ],
+      "registration": {
+        "anchor": [
+          128,
+          189.39453939444144
+        ],
+        "frame_size": 256,
+        "hero_scale": 0.9404255319148935,
+        "ortho_scale": 2.6,
+        "half_extent": 0.23,
+        "actor_name": "Paladin",
+        "fps": 16,
+        "model_speed": 1.6
+      },
+      "sheetBytes": 1606917,
+      "rgbaBytes": 8388608,
+      "loopMilliseconds": 500
+    }
+  },
+  "sourceScene": "8301425d79cbccaad77c6c6bf420e99fa759bd4c4f017f2c6747c9982c9dc36d",
+  "checks": [
+    "64 distinct whole-mesh frames, native alpha and no clipped bounds",
+    "Fixed scale and matching directional anchors",
+    "Walk12fps/run16fps, eight frames per loop",
+    "Source art unchanged; only uniform reduction/atlas packing"
+  ]
+}

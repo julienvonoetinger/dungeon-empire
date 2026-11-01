@@ -1,0 +1,1503 @@
+{
+  "blender": "5.2.1 LTS",
+  "sources": {
+    "paladin": {
+      "file": "paladin-original.glb",
+      "sha256": "7b52ff05ac4fef1ed28e957efb07a77fe7a410fa056a55a09481087c20c358ac",
+      "bytes": 14377224,
+      "bounds": {
+        "min": [
+          -0.880503,
+          -0.312851,
+          -0.0
+        ],
+        "max": [
+          0.880503,
+          0.31285,
+          1.7
+        ],
+        "size": [
+          1.761005,
+          0.625701,
+          1.7
+        ]
+      },
+      "meshes": [
+        {
+          "name": "paladin_output_unwrapped",
+          "vertices": 14680,
+          "triangles": 10410,
+          "uv_layers": 1,
+          "unweighted_vertices": 0,
+          "weights": [
+            {
+              "bone": "Bone_000",
+              "vertices": 1861,
+              "sum": 199.54205202605226
+            },
+            {
+              "bone": "Bone_001",
+              "vertices": 2389,
+              "sum": 264.27789821848273
+            },
+            {
+              "bone": "Bone_004",
+              "vertices": 2934,
+              "sum": 557.0327389891754
+            },
+            {
+              "bone": "Bone_003",
+              "vertices": 1686,
+              "sum": 194.43120416223246
+            },
+            {
+              "bone": "Bone_002",
+              "vertices": 2562,
+              "sum": 280.0627829819132
+            },
+            {
+              "bone": "Bone_017",
+              "vertices": 3084,
+              "sum": 298.5696680365072
+            },
+            {
+              "bone": "Bone_016",
+              "vertices": 2765,
+              "sum": 747.4351412563119
+            },
+            {
+              "bone": "Bone_015",
+              "vertices": 1700,
+              "sum": 656.7823836547323
+            },
+            {
+              "bone": "Bone_021",
+              "vertices": 3256,
+              "sum": 1787.6119352323003
+            },
+            {
+              "bone": "Bone_020",
+              "vertices": 1414,
+              "sum": 362.0282744476863
+            },
+            {
+              "bone": "Bone_019",
+              "vertices": 1146,
+              "sum": 205.86491364265385
+            },
+            {
+              "bone": "Bone_018",
+              "vertices": 901,
+              "sum": 172.05636963027064
+            },
+            {
+              "bone": "Bone_028",
+              "vertices": 506,
+              "sum": 74.321296885435
+            },
+            {
+              "bone": "Bone_027",
+              "vertices": 166,
+              "sum": 8.252767993602902
+            },
+            {
+              "bone": "Bone_026",
+              "vertices": 270,
+              "sum": 72.63722797617083
+            },
+            {
+              "bone": "Bone_031",
+              "vertices": 661,
+              "sum": 140.41811029528617
+            },
+            {
+              "bone": "Bone_030",
+              "vertices": 306,
+              "sum": 82.43819191143848
+            },
+            {
+              "bone": "Bone_029",
+              "vertices": 162,
+              "sum": 72.15083885425702
+            },
+            {
+              "bone": "Bone_034",
+              "vertices": 536,
+              "sum": 235.58759208512492
+            },
+            {
+              "bone": "Bone_033",
+              "vertices": 206,
+              "sum": 19.964600007981062
+            },
+            {
+              "bone": "Bone_032",
+              "vertices": 109,
+              "sum": 23.71327265491709
+            },
+            {
+              "bone": "Bone_037",
+              "vertices": 420,
+              "sum": 195.8785757953301
+            },
+            {
+              "bone": "Bone_036",
+              "vertices": 250,
+              "sum": 22.745366552844644
+            },
+            {
+              "bone": "Bone_035",
+              "vertices": 92,
+              "sum": 25.954830789312837
+            },
+            {
+              "bone": "Bone_025",
+              "vertices": 3432,
+              "sum": 1811.5469081000774
+            },
+            {
+              "bone": "Bone_024",
+              "vertices": 1469,
+              "sum": 378.5881088817987
+            },
+            {
+              "bone": "Bone_023",
+              "vertices": 1169,
+              "sum": 226.50138286629226
+            },
+            {
+              "bone": "Bone_022",
+              "vertices": 848,
+              "sum": 149.96900438028388
+            },
+            {
+              "bone": "Bone_040",
+              "vertices": 498,
+              "sum": 82.1815532274195
+            },
+            {
+              "bone": "Bone_039",
+              "vertices": 234,
+              "sum": 20.913854821352288
+            },
+            {
+              "bone": "Bone_038",
+              "vertices": 149,
+              "sum": 45.0832122041611
+            },
+            {
+              "bone": "Bone_043",
+              "vertices": 469,
+              "sum": 221.09528568945825
+            },
+            {
+              "bone": "Bone_042",
+              "vertices": 184,
+              "sum": 4.7564598872559145
+            },
+            {
+              "bone": "Bone_041",
+              "vertices": 143,
+              "sum": 37.331424629548565
+            },
+            {
+              "bone": "Bone_046",
+              "vertices": 480,
+              "sum": 188.69344121348695
+            },
+            {
+              "bone": "Bone_045",
+              "vertices": 196,
+              "sum": 29.74605579348281
+            },
+            {
+              "bone": "Bone_044",
+              "vertices": 144,
+              "sum": 36.641806109342724
+            },
+            {
+              "bone": "Bone_049",
+              "vertices": 697,
+              "sum": 142.08830618896172
+            },
+            {
+              "bone": "Bone_048",
+              "vertices": 306,
+              "sum": 75.3344268440269
+            },
+            {
+              "bone": "Bone_047",
+              "vertices": 160,
+              "sum": 71.23060753941536
+            },
+            {
+              "bone": "Bone_009",
+              "vertices": 2702,
+              "sum": 1045.6645296852803
+            },
+            {
+              "bone": "Bone_008",
+              "vertices": 1857,
+              "sum": 918.8883367786184
+            },
+            {
+              "bone": "Bone_007",
+              "vertices": 1049,
+              "sum": 106.01435064472025
+            },
+            {
+              "bone": "Bone_006",
+              "vertices": 688,
+              "sum": 113.83352013524564
+            },
+            {
+              "bone": "Bone_005",
+              "vertices": 364,
+              "sum": 17.077369570892188
+            },
+            {
+              "bone": "Bone_014",
+              "vertices": 2607,
+              "sum": 999.9922130802297
+            },
+            {
+              "bone": "Bone_013",
+              "vertices": 1929,
+              "sum": 1001.9082230677013
+            },
+            {
+              "bone": "Bone_012",
+              "vertices": 1149,
+              "sum": 116.8548097055027
+            },
+            {
+              "bone": "Bone_011",
+              "vertices": 724,
+              "sum": 121.6978694773934
+            },
+            {
+              "bone": "Bone_010",
+              "vertices": 389,
+              "sum": 16.609052791376598
+            }
+          ],
+          "materials": [
+            "BakedMaterial"
+          ]
+        }
+      ],
+      "armatures": [
+        {
+          "name": "paladin_SmartRigArmature",
+          "bones": [
+            {
+              "name": "Bone_000",
+              "parent": null,
+              "head": [
+                0.003439,
+                0.037834,
+                0.495735
+              ],
+              "tail": [
+                0.003439,
+                0.003439,
+                0.550767
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_001",
+              "parent": "Bone_000",
+              "head": [
+                0.003439,
+                0.003439,
+                0.550767
+              ],
+              "tail": [
+                0.003439,
+                0.037834,
+                0.72274
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_004",
+              "parent": "Bone_001",
+              "head": [
+                0.003439,
+                0.037834,
+                0.72274
+              ],
+              "tail": [
+                0.003439,
+                0.003439,
+                0.901592
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_003",
+              "parent": "Bone_004",
+              "head": [
+                0.003439,
+                0.00344,
+                0.901592
+              ],
+              "tail": [
+                0.003439,
+                0.058471,
+                1.025413
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_002",
+              "parent": "Bone_003",
+              "head": [
+                0.003439,
+                0.058471,
+                1.025413
+              ],
+              "tail": [
+                0.003439,
+                0.037834,
+                1.176749
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_017",
+              "parent": "Bone_002",
+              "head": [
+                0.003439,
+                0.037834,
+                1.176749
+              ],
+              "tail": [
+                0.003439,
+                0.044713,
+                1.307449
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_016",
+              "parent": "Bone_017",
+              "head": [
+                0.003439,
+                0.044713,
+                1.307449
+              ],
+              "tail": [
+                -0.00344,
+                -0.037834,
+                1.445027
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_015",
+              "parent": "Bone_016",
+              "head": [
+                -0.003439,
+                -0.037834,
+                1.445027
+              ],
+              "tail": [
+                -0.010318,
+                -0.120381,
+                1.582606
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_021",
+              "parent": "Bone_002",
+              "head": [
+                0.381781,
+                0.079108,
+                1.066686
+              ],
+              "tail": [
+                0.574391,
+                0.099745,
+                0.832803
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_020",
+              "parent": "Bone_021",
+              "head": [
+                0.574391,
+                0.099744,
+                0.832803
+              ],
+              "tail": [
+                0.691332,
+                0.06535,
+                0.633314
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_019",
+              "parent": "Bone_020",
+              "head": [
+                0.691332,
+                0.06535,
+                0.633314
+              ],
+              "tail": [
+                0.746364,
+                0.06535,
+                0.509493
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_018",
+              "parent": "Bone_019",
+              "head": [
+                0.746364,
+                0.06535,
+                0.509493
+              ],
+              "tail": [
+                0.822032,
+                0.092866,
+                0.426946
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_028",
+              "parent": "Bone_018",
+              "head": [
+                0.822032,
+                0.092866,
+                0.426946
+              ],
+              "tail": [
+                0.794516,
+                0.085987,
+                0.351278
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_027",
+              "parent": "Bone_028",
+              "head": [
+                0.794516,
+                0.085987,
+                0.351278
+              ],
+              "tail": [
+                0.767,
+                0.072229,
+                0.33752
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_026",
+              "parent": "Bone_027",
+              "head": [
+                0.767,
+                0.072229,
+                0.33752
+              ],
+              "tail": [
+                0.739484,
+                0.058471,
+                0.323762
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_031",
+              "parent": "Bone_018",
+              "head": [
+                0.718848,
+                -0.044713,
+                0.557645
+              ],
+              "tail": [
+                0.64318,
+                -0.058471,
+                0.523251
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_030",
+              "parent": "Bone_031",
+              "head": [
+                0.64318,
+                -0.058471,
+                0.523251
+              ],
+              "tail": [
+                0.608785,
+                -0.051592,
+                0.46134
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_029",
+              "parent": "Bone_030",
+              "head": [
+                0.608785,
+                -0.051592,
+                0.461341
+              ],
+              "tail": [
+                0.574391,
+                -0.044713,
+                0.39943
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_034",
+              "parent": "Bone_018",
+              "head": [
+                0.760122,
+                0.161655,
+                0.406309
+              ],
+              "tail": [
+                0.725727,
+                0.147897,
+                0.344399
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_033",
+              "parent": "Bone_034",
+              "head": [
+                0.725727,
+                0.147897,
+                0.344399
+              ],
+              "tail": [
+                0.698211,
+                0.120381,
+                0.33752
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_032",
+              "parent": "Bone_033",
+              "head": [
+                0.698211,
+                0.120381,
+                0.33752
+              ],
+              "tail": [
+                0.670696,
+                0.092866,
+                0.330641
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_037",
+              "parent": "Bone_018",
+              "head": [
+                0.842669,
+                0.00344,
+                0.440704
+              ],
+              "tail": [
+                0.828911,
+                0.00344,
+                0.365035
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_036",
+              "parent": "Bone_037",
+              "head": [
+                0.828911,
+                0.00344,
+                0.365036
+              ],
+              "tail": [
+                0.787637,
+                -0.003439,
+                0.33752
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_035",
+              "parent": "Bone_036",
+              "head": [
+                0.787637,
+                -0.003439,
+                0.33752
+              ],
+              "tail": [
+                0.746364,
+                -0.010318,
+                0.310004
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_025",
+              "parent": "Bone_002",
+              "head": [
+                -0.374902,
+                0.079108,
+                1.066686
+              ],
+              "tail": [
+                -0.567512,
+                0.099744,
+                0.832803
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_024",
+              "parent": "Bone_025",
+              "head": [
+                -0.567512,
+                0.099745,
+                0.832803
+              ],
+              "tail": [
+                -0.684453,
+                0.06535,
+                0.633313
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_023",
+              "parent": "Bone_024",
+              "head": [
+                -0.684453,
+                0.06535,
+                0.633314
+              ],
+              "tail": [
+                -0.746364,
+                0.072229,
+                0.509493
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_022",
+              "parent": "Bone_023",
+              "head": [
+                -0.746364,
+                0.072229,
+                0.509493
+              ],
+              "tail": [
+                -0.815153,
+                0.092866,
+                0.426946
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_040",
+              "parent": "Bone_022",
+              "head": [
+                -0.815153,
+                0.092866,
+                0.426946
+              ],
+              "tail": [
+                -0.787638,
+                0.085987,
+                0.351277
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_039",
+              "parent": "Bone_040",
+              "head": [
+                -0.787638,
+                0.085987,
+                0.351277
+              ],
+              "tail": [
+                -0.767001,
+                0.06535,
+                0.330641
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_038",
+              "parent": "Bone_039",
+              "head": [
+                -0.767001,
+                0.06535,
+                0.330641
+              ],
+              "tail": [
+                -0.746364,
+                0.044713,
+                0.310004
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_043",
+              "parent": "Bone_022",
+              "head": [
+                -0.83579,
+                0.010318,
+                0.433825
+              ],
+              "tail": [
+                -0.822032,
+                0.00344,
+                0.365035
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_042",
+              "parent": "Bone_043",
+              "head": [
+                -0.822032,
+                0.00344,
+                0.365035
+              ],
+              "tail": [
+                -0.808274,
+                0.00344,
+                0.344399
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_041",
+              "parent": "Bone_042",
+              "head": [
+                -0.808274,
+                0.00344,
+                0.344399
+              ],
+              "tail": [
+                -0.794516,
+                0.00344,
+                0.323762
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_046",
+              "parent": "Bone_022",
+              "head": [
+                -0.753243,
+                0.161655,
+                0.406309
+              ],
+              "tail": [
+                -0.718848,
+                0.147897,
+                0.344398
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_045",
+              "parent": "Bone_046",
+              "head": [
+                -0.718848,
+                0.147897,
+                0.344398
+              ],
+              "tail": [
+                -0.70509,
+                0.113502,
+                0.323762
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_044",
+              "parent": "Bone_045",
+              "head": [
+                -0.70509,
+                0.113503,
+                0.323762
+              ],
+              "tail": [
+                -0.691332,
+                0.079108,
+                0.303125
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_049",
+              "parent": "Bone_022",
+              "head": [
+                -0.711969,
+                -0.044713,
+                0.557645
+              ],
+              "tail": [
+                -0.636301,
+                -0.058471,
+                0.523251
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_048",
+              "parent": "Bone_049",
+              "head": [
+                -0.636301,
+                -0.058471,
+                0.523251
+              ],
+              "tail": [
+                -0.601906,
+                -0.051592,
+                0.46134
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_047",
+              "parent": "Bone_048",
+              "head": [
+                -0.601907,
+                -0.051592,
+                0.46134
+              ],
+              "tail": [
+                -0.567512,
+                -0.044713,
+                0.39943
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_009",
+              "parent": "Bone_001",
+              "head": [
+                -0.189171,
+                0.044713,
+                0.612677
+              ],
+              "tail": [
+                -0.251081,
+                -0.00344,
+                0.385672
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_008",
+              "parent": "Bone_009",
+              "head": [
+                -0.251081,
+                -0.003439,
+                0.385672
+              ],
+              "tail": [
+                -0.299233,
+                0.044713,
+                0.041726
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_007",
+              "parent": "Bone_008",
+              "head": [
+                -0.299233,
+                0.044713,
+                0.041726
+              ],
+              "tail": [
+                -0.340507,
+                -0.120381,
+                0.069241
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_006",
+              "parent": "Bone_007",
+              "head": [
+                -0.340507,
+                -0.120381,
+                0.069241
+              ],
+              "tail": [
+                -0.361144,
+                -0.216686,
+                0.034847
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_005",
+              "parent": "Bone_006",
+              "head": [
+                -0.361144,
+                -0.216686,
+                0.034847
+              ],
+              "tail": [
+                -0.381781,
+                -0.312991,
+                0.000452
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_014",
+              "parent": "Bone_001",
+              "head": [
+                0.196049,
+                0.044713,
+                0.612677
+              ],
+              "tail": [
+                0.25796,
+                -0.003439,
+                0.385672
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_013",
+              "parent": "Bone_014",
+              "head": [
+                0.25796,
+                -0.003439,
+                0.385672
+              ],
+              "tail": [
+                0.306112,
+                0.044713,
+                0.041726
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_012",
+              "parent": "Bone_013",
+              "head": [
+                0.306112,
+                0.044713,
+                0.041726
+              ],
+              "tail": [
+                0.347386,
+                -0.120381,
+                0.069241
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_011",
+              "parent": "Bone_012",
+              "head": [
+                0.347386,
+                -0.120381,
+                0.069241
+              ],
+              "tail": [
+                0.368023,
+                -0.216686,
+                0.027968
+              ],
+              "deform": true
+            },
+            {
+              "name": "Bone_010",
+              "parent": "Bone_011",
+              "head": [
+                0.368023,
+                -0.216686,
+                0.027968
+              ],
+              "tail": [
+                0.38866,
+                -0.312991,
+                -0.013306
+              ],
+              "deform": true
+            }
+          ]
+        }
+      ],
+      "deformation_probes": [
+        {
+          "bone": "Bone_001",
+          "changed_vertices": 14680,
+          "max_displacement": 0.10034193239933854,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_004",
+          "changed_vertices": 10890,
+          "max_displacement": 0.08555104668248692,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_003",
+          "changed_vertices": 10230,
+          "max_displacement": 0.0697733330884168,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_002",
+          "changed_vertices": 10218,
+          "max_displacement": 0.06522931177400965,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_017",
+          "changed_vertices": 3081,
+          "max_displacement": 0.04644037033249296,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_016",
+          "changed_vertices": 2765,
+          "max_displacement": 0.03653207929107505,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_015",
+          "changed_vertices": 1700,
+          "max_displacement": 0.019722204569159112,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_021",
+          "changed_vertices": 4683,
+          "max_displacement": 0.07608427342737085,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_020",
+          "changed_vertices": 2452,
+          "max_displacement": 0.05034389546108221,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_019",
+          "changed_vertices": 1820,
+          "max_displacement": 0.030840184074176175,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_018",
+          "changed_vertices": 1660,
+          "max_displacement": 0.021284548145638085,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_028",
+          "changed_vertices": 669,
+          "max_displacement": 0.014113225021751406,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_027",
+          "changed_vertices": 340,
+          "max_displacement": 0.008368727471501115,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_026",
+          "changed_vertices": 270,
+          "max_displacement": 0.005607324912739172,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_031",
+          "changed_vertices": 726,
+          "max_displacement": 0.018929000242796694,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_030",
+          "changed_vertices": 306,
+          "max_displacement": 0.013021095366064134,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_029",
+          "changed_vertices": 162,
+          "max_displacement": 0.00673897863549655,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_034",
+          "changed_vertices": 554,
+          "max_displacement": 0.01130851774144103,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_033",
+          "changed_vertices": 209,
+          "max_displacement": 0.006514259840077323,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_032",
+          "changed_vertices": 109,
+          "max_displacement": 0.002976734581840993,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_037",
+          "changed_vertices": 470,
+          "max_displacement": 0.011542696718182761,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_036",
+          "changed_vertices": 269,
+          "max_displacement": 0.005958656799860184,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_035",
+          "changed_vertices": 91,
+          "max_displacement": 0.0020639343164522224,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_025",
+          "changed_vertices": 4847,
+          "max_displacement": 0.07655108530056975,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_024",
+          "changed_vertices": 2474,
+          "max_displacement": 0.050776547749531484,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_023",
+          "changed_vertices": 1831,
+          "max_displacement": 0.03099098849793349,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_022",
+          "changed_vertices": 1652,
+          "max_displacement": 0.02149864854948535,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_040",
+          "changed_vertices": 638,
+          "max_displacement": 0.013869812064634125,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_039",
+          "changed_vertices": 306,
+          "max_displacement": 0.007699667176164148,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_038",
+          "changed_vertices": 149,
+          "max_displacement": 0.0048154817844004855,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_043",
+          "changed_vertices": 496,
+          "max_displacement": 0.01135032666038742,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_042",
+          "changed_vertices": 245,
+          "max_displacement": 0.004931795448954098,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_041",
+          "changed_vertices": 143,
+          "max_displacement": 0.003029166605374757,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_046",
+          "changed_vertices": 524,
+          "max_displacement": 0.012717425631991169,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_045",
+          "changed_vertices": 227,
+          "max_displacement": 0.006837207934611857,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_044",
+          "changed_vertices": 144,
+          "max_displacement": 0.003085654086603969,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_049",
+          "changed_vertices": 750,
+          "max_displacement": 0.01858625639993996,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_048",
+          "changed_vertices": 306,
+          "max_displacement": 0.012659156988564828,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_047",
+          "changed_vertices": 160,
+          "max_displacement": 0.006396472094993526,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_009",
+          "changed_vertices": 3230,
+          "max_displacement": 0.06275990836291653,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_008",
+          "changed_vertices": 1873,
+          "max_displacement": 0.04195862147788813,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_007",
+          "changed_vertices": 1049,
+          "max_displacement": 0.029819273316542636,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_006",
+          "changed_vertices": 688,
+          "max_displacement": 0.015743103216093138,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_005",
+          "changed_vertices": 364,
+          "max_displacement": 0.004742111621397848,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_014",
+          "changed_vertices": 3215,
+          "max_displacement": 0.06254200134089946,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_013",
+          "changed_vertices": 1953,
+          "max_displacement": 0.04211923506771441,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_012",
+          "changed_vertices": 1151,
+          "max_displacement": 0.029205051458731555,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_011",
+          "changed_vertices": 724,
+          "max_displacement": 0.015612888228705196,
+          "restoration_max_error": 0.0
+        },
+        {
+          "bone": "Bone_010",
+          "changed_vertices": 389,
+          "max_displacement": 0.005129845839482494,
+          "restoration_max_error": 0.0
+        }
+      ]
+    },
+    "hammer": {
+      "file": "hammer-original.glb",
+      "sha256": "67edab4820d970c253682c659d9d0b08aa13f20ecb0479f3d540245732f9f099",
+      "bytes": 12864752,
+      "bounds": {
+        "min": [
+          -0.632918,
+          -0.325879,
+          -0.951907
+        ],
+        "max": [
+          0.631448,
+          0.326809,
+          0.950691
+        ],
+        "size": [
+          1.264366,
+          0.652688,
+          1.902598
+        ]
+      },
+      "meshes": [
+        {
+          "name": "hammer_output_unwrapped",
+          "vertices": 11115,
+          "triangles": 9917,
+          "uv_layers": 1,
+          "unweighted_vertices": null,
+          "weights": [],
+          "materials": [
+            "BakedMaterial.001"
+          ]
+        }
+      ],
+      "armatures": [],
+      "deformation_probes": []
+    },
+    "shield": {
+      "file": "shield-original.glb",
+      "sha256": "eee3fdc2d15ed99ead1dd8e73f88a518f3389f0ee2be393450de294f7577750c",
+      "bytes": 12246416,
+      "bounds": {
+        "min": [
+          -0.671453,
+          -0.252546,
+          -0.952418
+        ],
+        "max": [
+          0.670634,
+          0.251822,
+          0.950807
+        ],
+        "size": [
+          1.342087,
+          0.504368,
+          1.903225
+        ]
+      },
+      "meshes": [
+        {
+          "name": "shield_output_unwrapped",
+          "vertices": 11015,
+          "triangles": 9743,
+          "uv_layers": 1,
+          "unweighted_vertices": null,
+          "weights": [],
+          "materials": [
+            "BakedMaterial.002"
+          ]
+        }
+      ],
+      "armatures": [],
+      "deformation_probes": []
+    }
+  },
+  "limits": "Rig probes check connectivity and exact restoration, not animation quality or full collision-free range.",
+  "actions": [],
+  "images": [
+    {
+      "name": "normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "normal.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "normal.002",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "texture_0",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "texture_0.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "texture_0.002",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "texture_0_metallic_roughness",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "texture_0_metallic_roughness.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    },
+    {
+      "name": "texture_0_metallic_roughness.002",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "has_data": true
+    }
+  ]
+}

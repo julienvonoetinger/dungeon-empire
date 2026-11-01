@@ -1,0 +1,64 @@
+{
+  "created": "2026-11-01",
+  "tool": "built-in image_gen",
+  "purpose": "Lithide paladin multi-view references for user-operated Meshy reconstruction; no model upload/generation or game integration",
+  "identityReference": "docs/reference/hero-concepts-2d-2026-10-21/heroes-comparison.png",
+  "originalSceneReference": "docs/reference/hero-concepts-2d-2026-10-21/lithide-scene.png",
+  "choices": {
+    "pose": "Neutral A pose, empty hands",
+    "camera": "Front/back/opposite side elevation illustrations",
+    "equipment": "Hammer and shield supplied as separate model references for later rig attachment",
+    "rearDesign": "Proposed continuation of existing stone armor; no cape or extra equipment"
+  },
+  "sourceFiles": [
+    {
+      "file": "front.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-5be737d2-e9a1-4ef8-8ced-abb80e2ce786.png"
+    },
+    {
+      "file": "left.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-123a5b62-d2d3-468f-ad55-5e6b9daa4082.png"
+    },
+    {
+      "file": "back-initial.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-e98780ff-6753-4f48-812d-b5e5fee14fcb.png"
+    },
+    {
+      "file": "back.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-1e243b9c-c14e-4ba2-a8f7-eefa3ac884bb.png"
+    },
+    {
+      "file": "right.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-3f85c530-984b-44ee-8baf-8d253f39f783.png"
+    },
+    {
+      "file": "hammer-initial.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-b0f46102-17fb-45dd-a114-b0933294235e.png"
+    },
+    {
+      "file": "hammer-correction-1.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-87703ef5-c235-44f6-85a7-7134e6d743f7.png"
+    },
+    {
+      "file": "shield.png",
+      "original": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-b0713623-e664-4d6e-aba4-2729a7189319.png"
+    }
+  ],
+  "selected": {
+    "front": "front.png",
+    "left": "left.png",
+    "back": "back.png",
+    "right": "right.png",
+    "hammer": "hammer-initial.png",
+    "shield": "shield.png"
+  },
+  "correctionNotes": [
+    "Rear hands, knees and heels revised to avoid duplicating front anatomy.",
+    "Hammer preview appeared to have a halo; sampled surrounding RGB has alpha0 in both versions. Original selected for its fuller margins; alpha preserved byte-identically."
+  ],
+  "limits": "AI illustrations derived from shared references, not calibrated renders from one existing mesh. Small shape differences remain; hidden armor surfaces are interpretations. Meshy reconstruction/rigging not tested.",
+  "references": [
+    "https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view",
+    "https://help.meshy.ai/en/articles/16102789-meshy-multi-view-best-practices-angles-and-images"
+  ]
+}

@@ -14,6 +14,8 @@ const FACING := {&"se": "Southeast", &"sw": "Southwest", &"nw": "Northwest", &"n
 @export_range(1.0, 60.0) var pose_fps := 10.0
 @export_range(.01, 10.0) var model_travel_units_per_second := .65
 @export_range(.1, 4.0) var base_playback_rate := BASE_WALK_RATE
+## Optional registration for other whole-character sprite sets; Vulpin defaults remain.
+@export var sprite_registration: Dictionary = {}
 
 var actors: Array[AnimatedSprite2D] = []
 var corridors: Array[Node2D] = []
@@ -128,7 +130,7 @@ func _add_corridor(index: int) -> void:
 	var corridor := CORRIDOR.new()
 	corridor.name = "DungeonCorridor"
 	stage.add_child(corridor)
-	corridor.build(index, animation_frames, pose_fps, model_travel_units_per_second)
+	corridor.build(index, animation_frames, pose_fps, model_travel_units_per_second, sprite_registration)
 	corridors.append(corridor)
 	actors.append(corridor.actor)
 	var direction_label := Label.new()

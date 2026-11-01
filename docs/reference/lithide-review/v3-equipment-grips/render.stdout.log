@@ -1,0 +1,18 @@
+00:01.546  blend            | Read blend: "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\inspection.blend"
+00:04.203  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v3-equipment-grips\equipped-front.png'
+00:06.609  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v3-equipment-grips\equipped-sw.png'
+00:09.156  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v3-equipment-grips\equipped-se.png'
+00:11.859  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v3-equipment-grips\equipped-back.png'
+00:14.468  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v3-equipment-grips\equipped-ne.png'
+00:17.187  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v3-equipment-grips\equipped-nw.png'
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+Info: No new files have been packed
+Info: Saved as "paladin-equipped-review.blend"
+GRIP_FIT_OK {"grips": {"R": [-0.629546, -0.470314, 0.86535], "L": [0.589668, -0.470314, 0.90035]}, "source_grips": {"hammer": [0.0, 0.0, -0.46], "shield": [0.0, 0.205, 0.055]}, "hammer_yaw_degrees": -90, "hammer_strike_axis": [-0.0, -1.0, 0.0], "hands": {"R": {"wrist": "Bone_023", "head": [-0.59, -0.25, 0.87], "elbow": [-0.634921, -0.042141, 0.967114]}, "L": {"wrist": "Bone_019", "head": [0.55, -0.25, 0.9], "elbow": [0.641587, -0.048151, 0.974319]}}, "views": ["front", "sw", "se", "back", "ne", "nw"], "limits": "Static corrective pose; not an animation-range validation. Both original handles used; original GLBs unchanged."}
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

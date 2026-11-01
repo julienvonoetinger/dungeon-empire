@@ -1,5 +1,204 @@
 # Repository instructions
 
+## Commit validation for the Paladin sprite pipeline — 2026-11-01
+
+- User requests commit/push of accumulated Paladin sources, equipment fitting,
+  walk/run/hurt/forward-death/attack sprites and six isolated preview scenes.
+  Fresh import,1551 native Paladin checks, Vulpin walk/run regressions and all7
+  headless probe scenarios pass; native stderr logs empty. Saved attack scene
+  reload passes165 checks, including original GLB/equipped-scene preservation.
+  Evidence: artifacts/commit-paladin. No raid integration, player saves or APK.
+- Keep reproducible GLBs, packed pose scenes, render scripts and review records.
+  Existing local ignores exclude intermediate inspection.blend and automatic
+  .blend1 backups. Lithide review files retain exact bytes through .gitattributes,
+  like the Vulpin pipeline. Source/review assets remain excluded from exports.
+
+## Paladin attacks the actual Core in four directions — 2026-11-01
+
+- PaladinCoreAttack.tscn is an isolated repeating contact review: existing v7
+  attack frames/scale, actual production heart, vortex and self-shadow/glow.
+  No new artwork or simulation integration. Four caps use approved geometry
+  centres±.295/height.255; actor roots align the recorded2D hammer contact to
+  those projections and stay planted. Native support sorting stays active.
+- Shared action UI now builds stages through _populate_stage; original attack
+  retains its geometric target. Core subclass adds only world setup, optional
+  Ghost core transparency and a shared vortex clock respecting pause/speed.
+  Repeated attacks do not reset the vortex. No Game/Session/save access.
+- Native208checks plus attack281/reactions354 regressions pass, empty stderr.
+  Four directions and3sizes inspected; independent review clear. Evidence in
+  artifacts/paladin-core-attack, reproduction/native review in lithide-review/
+  v8-core-attack. Contact is a visual2D calibration, not continuous3D collision
+  validation. No phone profiling, gameplay, APK, commit or push.
+
+## Paladin four-direction hammer attack — 2026-11-01
+
+- User requests attack after approved forward death. v7-hammer-attack reuses
+  equipped v3 Meshy rig/materials and rigid wrist grips. Wind-up, downward blow,
+  rebound and exact saved guard return:10held poses/900ms, impact450ms. No combat
+  integration or roster change. Nine distinct images per view; final guard
+  references the first whole image. Four2880x320atlases,1,915,166PNGbytes/14.0625MiB.
+- First pilot clipped southwest wind-up and penetrated target on follow-through.
+  Camera target1.04 and upward rebound fix these. A higher wrist made the rear
+  shaft cross arm armour; lower strike grip resolves it. Sole XY support correction
+  removes small weight-transfer drift; final pose copies initial full-rig transforms
+  rather than resolving IK again. Original GLBs/equipped blend remain unchanged.
+- Shared ground reference(0,-.20,0),320px/ortho3.25,scale.940425532 preserved;
+  anchor(160,248.681001) accounts for higher framing. Four real camera views.
+  Physical hammer-face contact projects onto an isolated geometric test target.
+  PaladinAttack.tscn reuses reaction controls via subclass; shared base only gains
+  optional replay caption/stage bounds. Hit event crosses450ms once even at2x;
+  scrub is visual-only. No game/session/save access.
+- Saved scene165checks, native attack281checks and reaction regression354checks
+  pass; native stderr empty. All four views and1280x720/844x390/720x960 inspected.
+  Independent review clear after exact guard fix. Native images/logs in
+  artifacts/paladin-attack, full recipe/review in lithide-review/v7-hammer-attack.
+  Prior action art unchanged. Source/review files excluded by docs/.gdignore.
+  Held-pose intersections are not a continuous physics/full self-collision proof;
+  artistic acceptance and physical-phone profiling remain separate. No APK,
+  player-save access, commit or push.
+
+## Paladin death follows the approved Vulpin forward collapse — 2026-11-01
+
+- User rejects v5 side fall as tree-like. v6-forward-fall adapts the previously
+  approved Vulpin recipe: knees receive weight, chest bends independently, arms
+  extend forward, torso settles prone and head turns65deg. Never equate static
+  collision checks with artistic approval. Preserve whole-mesh rendering.
+- The old v5 fails7 of10 choreography checks. New held poses pass all10:
+  forward torso direction, low knees, chest/helmet contact, extended elbows and
+  low forward hands. First pilots had raised head and equipment/arm crossings;
+  flex the neck, pronate forearms with wrists and release gear before kneeling.
+  Props rotate about their real centres, moving outward before rotating flat.
+- Four directions,10poses/750ms and320px/ortho3.25 retained. Lower camera target
+  .72→.46, ground anchor(160,199.224289), same pixel density/scale. Updated only
+  PaladinDeath resources and death contact cue; hurt/walk/run33file hashes match.
+  Saved18pose source reload, all4camera bounds, floor/grips/equipment intersections
+  pass. Full-body collision check includes hands once gear is released atpose3.
+- Native354checks pass/empty stderr in3sizes. Review found a shared-shadow side
+  effect on hurt:4 red checks reproduced, restored old non-death directions.
+  Final captures in artifacts/paladin-forward-fall. Review and reproduction in
+  docs/reference/lithide-review/v6-forward-fall; v5 side fall is superseded.
+  Final death PNG2,117,770bytes,15.625MiB decoded. No gameplay, save, APK, commit/push.
+  Still held-pose validation, not continuous physics/full self-collision proof
+  or physical-phone profiling; final artistic feedback belongs to the user.
+
+## Paladin damage and death sprites — 2026-11-01
+
+- User requests damage/death after walk/run. v5-reactions uses the original
+  equipped v3 model with unchanged GLB/material hashes. Hurt8poses/720ms: planted
+  feet,14deg recoil, exact neutral return. Death10poses/750ms: knees buckle before
+  side collapse, fingers release props, corpse remains held. No raid integration.
+- First pilot had the hammer support the falling body and clipped its silhouette.
+  Fold arms, release equipment in3D, ground against evaluated mesh; hammer rotates
+  around Y so both shaft/head lie flat. Props are keyed relative to wrist parents
+  only after release; prior grip matrices remain fixed. Never repaint body pieces.
+- Four views: hurt512→256px/ortho2.6; death640→320px/ortho3.25. Same pixel density,
+  physical scale.940425532; anchors(128,189.394539)/(160,221.394539). Packed18-pose
+  source with9images, masters, reports and exact recipe in lithide-review/v5-reactions.
+- PaladinHurt/PaladinDeath scenes use isolated paladin_action_preview: replay,
+  pause/step,0.5–2x, optional repeat off by default. Death holds last frame.
+  Review WebPs add1.2s pause/repeat only. Native350checks pass, stderr empty;
+  1280x720/844x390/720x960 inspected. Short landscape uses4columns; temporary
+  preview stretch override is restored on exit so controls stay48px.
+- Saved18poses independently reloaded: floor support, neutral return, original
+  hashes,4camera bounds, rigid grips until release, equipment/body and prop/prop
+  edge intersections pass. Hands included once gear lands. Independent review no
+  actionable finding. Not a continuous-physics/all-self-intersection/containment
+  proof; no phone profiling. PNG3,629,534bytes; decoded23.625MiB for both sets.
+- No changes to existing Vulpin/gait resources, player saves, gameplay, APK,
+  commit or push. Source/review assets stay excluded by docs/.gdignore.
+
+## Paladin walk and run from the equipped Meshy model — 2026-11-01
+
+- User approves hammer orientation and requests walk/run. v4-locomotion reuses
+  the approved v3 packed scene and untouched GLBs/materials. Eight held poses
+  per gait, four30deg views,64whole-character sprites. Walk12fps/.84model units/s;
+  run16fps/1.60 with8deg lean and two airborne poses. Both props follow closed
+  wrist grips; preserve hammer forward/back strike axis and original shield grip.
+- Pilot ankle-based lifts dipped toes by up to.058. Iterative per-leg registration
+  uses evaluated boot soles for both support and recovery. Final16poses finite,
+  sole errors<.0001,12support intervals match travel. Separate reload recomputes
+  equipment/armor edge intersections outside holding hands:0; rigid grip/bounds
+  replay,9packed images, original GLB and approved scene hashes pass. No continuous
+  collision/self-intersection guarantee; visual approval and phone profiling pending.
+- PaladinWalk.tscn/PaladinRun.tscn share existing corridor playback via optional
+  sprite_registration. Vulpin defaults/constants remain unchanged. Paladin256px,
+  anchor(128,189.394539), ortho2.6/scale.940425532 preserve physical hero scale.
+  Native708checks pass/empty stderr:4directions, pause/step/2x, path reversals,
+  registration, wall order and3sizes. Existing Vulpin walk/run fixtures also pass;
+  redirected capture outputs only into artifacts/paladin-gaits, no old art overwrite.
+- Eight sheets total3236984PNG bytes (~3.24MB),16MiB decoded together/8MiB per gait.
+  Sources, packed16-pose blend, reports, animated reviews and reproduction README
+  in docs/reference/lithide-review/v4-locomotion, excluded by docs/.gdignore.
+  Independent review no actionable issue. Updated only2shared-script preservation
+  hashes;6other manifest discrepancies match HEAD and remain explicitly recorded
+  in artifacts/paladin-gaits/preservation-audit.json. No raid roster/gameplay changes,
+  player saves, APK, commit or push.
+
+## Lithide equipment uses posed hands and original grips — 2026-11-01
+
+- User rejects v2 accessory placement. Its wrist-parent tests were insufficient:
+  unchanged A-pose/open hands let hammer cross forearm/shoulder and shield cross
+  armor. v3-equipment-grips bends both elbows with fixed-length IK, rotates palms
+  to vertical grip axes and closes fingers using this model's existing bones.
+  Hammer thumb refined after close-up exposed a shaft intersection.
+- Follow-up: hammer head was transverse to the hero. Rotate original equipment
+  -90deg about its vertical grip, X strike axis becomes forward -Y. Hands, shield,
+  accessory dimensions and source meshes stay unchanged. Keep before-hammer-turn
+  capture; saved-scene validation checks actual strike/shaft axes and grip position.
+- Shield has an existing gold rear attachment, confirmed by isolated rear renders.
+  A briefly attempted extra handle was removed; final scene contains original
+  geometry/materials only. Original prop sizes unchanged, wrist attachments023/019,
+  same archived GLBs. V2 explicitly marked rejected; v3 static pose needs feedback.
+- verify_fit reloads both scenes: mesh edge/triangle crossings outside the holding
+  hand regions go403/75 to0/0 (hammer/shield). Both rigid attachments follow an8deg
+  wrist rotation and restore within1e-5;9packed images and archived hashes checked.
+  This excludes intended hand contact and does not prove contained-volume or full
+  animation-range clearance. Six whole-model renders/four iso angles and close-up
+  grips inspected. Scripts/reports/packed blend and reproduction README retained.
+  No production animation, runtime changes, player saves, APK, commit or push.
+
+## Lithide Meshy models and provisional equipment fit — 2026-11-01
+
+- User supplies paladin, hammer and shield GLBs. Preserve byte-identical originals
+  in docs/reference/lithide-review/source; provenance.json records source paths,
+  sizes and SHA256. All three have embedded textures, no animation clips. Review
+  scripts, reports, four equipped isometric views and a front view are retained
+  in v2-meshy-inspection. docs/.gdignore excludes them from game exports.
+- Actual paladin has50 bones,14680 vertices/10410 triangles,0 unweighted vertices.
+  All49 weighted nonroot bones move geometry and restore after individual probes.
+  Inspect this model's mapping: right wrist Bone_023, left wrist Bone_019; do not
+  copy Vulpin bone names. Hammer9917triangles and shield9743 are rigid accessories.
+- Background Blender5.2.1 preserves original meshes/materials; uniform equipment
+  scale gives hammer1.04 and shield1.16 versus body height1.70. Bone-parented props
+  follow wrists. Packed paladin-equipped-review.blend reopens with9 embedded images,
+  both attachments following/restoring and original/archive hashes matching.
+  Camera30degrees, common framing verified for all5 views; front/rear inspected.
+- This is an initial A-pose fit: fingers remain open, grip/armor intersections and
+  natural motion need pose-specific adjustment. Rig probes do not validate animation
+  quality. Blender connector unavailable, so separate background CLI used; no live
+  scene touched. Reproduction commands and limitations in the review README.txt.
+  No new animations, runtime changes, player saves, APK, commit or push.
+
+## Lithide paladin references for user-operated Meshy — 2026-11-01
+
+- User requests paladin images for Meshy. Reuse the original approved Lithide
+  concept (stone/gold guardian with hammer/shield) in hero-concepts-2d-2026-10-21.
+  New reference proposal: docs/reference/lithide-review/v1-meshy-turnaround.
+  Four1254px native-alpha ImageGen views in neutral A pose with empty hands;
+  hammer and shield supplied separately for later rig attachment. No 3D upload.
+- Source originals, exact prompts, provenance and rear-anatomy correction are
+  retained. prepare.cjs only copies PNG bytes and measures alpha/framing/hashes;
+  it does not repaint, crop, resize or mirror. Rear knees/heels/hands corrected.
+  Hammer's apparent preview halo is hidden RGB with alpha0 in sampled exterior
+  pixels; original with wider margins selected over the attempted correction.
+- All6 import PNGs have native transparency, no solid edge clipping and exact
+  source hashes. Character crown spread7px/sole spread2px. ZIP has4 body views,
+  2 equipment images and README. AI views are not calibrated mesh renders;
+  small shape differences/interpretations of hidden surfaces remain. Meshy
+  reconstruction/rigging untested. Local browser opening blocked by URL policy;
+  PNGs inspected directly, comparison HTML not visually browser-validated.
+  No runtime changes, APK, commit or push.
+
 ## Commit validation for excavation and crystal doors — 2026-11-01
 
 - User requests commit/push of accumulated excavation and approved door work.

@@ -1,0 +1,233 @@
+{
+  "poses": [
+    {
+      "frame": 1,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 2,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 3,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 4,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 5,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 6,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 7,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 8,
+      "gait": "walk",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 9,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 10,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 11,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 12,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 13,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 14,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 15,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    },
+    {
+      "frame": 16,
+      "gait": "run",
+      "bounds_replay_error": 0.0,
+      "contacts_ok": true,
+      "attachments_ok": true,
+      "reloaded_equipment_crossings": 0
+    }
+  ],
+  "support_stride": [
+    {
+      "gait": "walk",
+      "side": "L",
+      "pose": 0,
+      "foot_delta": 0.0661284717911984,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.003871528208801586
+    },
+    {
+      "gait": "walk",
+      "side": "L",
+      "pose": 1,
+      "foot_delta": 0.06843341661671742,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.0015665833832825687
+    },
+    {
+      "gait": "walk",
+      "side": "L",
+      "pose": 2,
+      "foot_delta": 0.06957957449952488,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.00042042550047510785
+    },
+    {
+      "gait": "walk",
+      "side": "L",
+      "pose": 3,
+      "foot_delta": 0.07026841270740762,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.0002684127074076281
+    },
+    {
+      "gait": "walk",
+      "side": "R",
+      "pose": 4,
+      "foot_delta": 0.06654638135537441,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.0034536186446255807
+    },
+    {
+      "gait": "walk",
+      "side": "R",
+      "pose": 5,
+      "foot_delta": 0.06881536031812584,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.0011846396818741556
+    },
+    {
+      "gait": "walk",
+      "side": "R",
+      "pose": 6,
+      "foot_delta": 0.06983821255292882,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.00016178744707116832
+    },
+    {
+      "gait": "walk",
+      "side": "R",
+      "pose": 7,
+      "foot_delta": 0.07074622598327236,
+      "travel_delta": 0.06999999999999999,
+      "error": 0.0007462259832723694
+    },
+    {
+      "gait": "run",
+      "side": "L",
+      "pose": 0,
+      "foot_delta": 0.0942280676980049,
+      "travel_delta": 0.1,
+      "error": 0.005771932301995103
+    },
+    {
+      "gait": "run",
+      "side": "L",
+      "pose": 1,
+      "foot_delta": 0.09840377487562897,
+      "travel_delta": 0.1,
+      "error": 0.001596225124371034
+    },
+    {
+      "gait": "run",
+      "side": "R",
+      "pose": 4,
+      "foot_delta": 0.09479046726423035,
+      "travel_delta": 0.1,
+      "error": 0.005209532735769656
+    },
+    {
+      "gait": "run",
+      "side": "R",
+      "pose": 5,
+      "foot_delta": 0.09891930894318722,
+      "travel_delta": 0.1,
+      "error": 0.0010806910568127853
+    }
+  ],
+  "packed_images": 9,
+  "sources_unchanged": true,
+  "limits": "Sampled held poses, real sole vertices and mesh-edge tests. No continuous interpolation, self-collision proof or phone profiling."
+}

@@ -1,0 +1,868 @@
+{
+  "actions": {
+    "hurt": {
+      "anchor": [
+        128,
+        189.39453939444144
+      ],
+      "frame_size": 256,
+      "hero_scale": 0.9404255319148935,
+      "ortho_scale": 2.6,
+      "durations_ms": [
+        65,
+        65,
+        90,
+        115,
+        100,
+        95,
+        90,
+        100
+      ],
+      "phases": [
+        "Ready",
+        "Impact",
+        "Recoil",
+        "Brace",
+        "Return",
+        "Recover",
+        "Balance",
+        "Ready"
+      ],
+      "loop": false,
+      "sheet_bytes": 1500505,
+      "rgba_bytes": 8388608,
+      "frames": [
+        {
+          "view": "se",
+          "index": 0,
+          "sha256": "9ca88f1dc990bd1c5081f84ca330ba559dc73c30d0554c989a62a961e9247aec",
+          "alphaBounds": [
+            113,
+            72,
+            450,
+            410
+          ]
+        },
+        {
+          "view": "se",
+          "index": 1,
+          "sha256": "2d06944d3f259460ccb13ecdde36e660cc7bc75196e6da6be6a95095eb0a3c49",
+          "alphaBounds": [
+            103,
+            69,
+            444,
+            410
+          ]
+        },
+        {
+          "view": "se",
+          "index": 2,
+          "sha256": "e496bea1ffceac2d0879fc82357b1e45714b52bbcc8402161562c9cbdcade4ab",
+          "alphaBounds": [
+            92,
+            67,
+            438,
+            409
+          ]
+        },
+        {
+          "view": "se",
+          "index": 3,
+          "sha256": "f72bbfa98e958c8e673bcf10c752eb45f53ef05085cebd56ea88411e4269847d",
+          "alphaBounds": [
+            90,
+            68,
+            437,
+            409
+          ]
+        },
+        {
+          "view": "se",
+          "index": 4,
+          "sha256": "230b1b441d2434039bc7ac13248ce338129b6eb6e2ea762e5ab1e51ac82da520",
+          "alphaBounds": [
+            98,
+            68,
+            441,
+            409
+          ]
+        },
+        {
+          "view": "se",
+          "index": 5,
+          "sha256": "44764db3e3573a80749cf940c3350ca000b19b160bc4eba921698a35143efd20",
+          "alphaBounds": [
+            106,
+            70,
+            445,
+            410
+          ]
+        },
+        {
+          "view": "se",
+          "index": 6,
+          "sha256": "46deb767f66f6b92dd60b67a298353ccff7a69aee602e2beea0e997aa5517ed4",
+          "alphaBounds": [
+            111,
+            72,
+            448,
+            410
+          ]
+        },
+        {
+          "view": "se",
+          "index": 7,
+          "sha256": "367bde379c1e87d6ec33c20cd12b3f8a449d82c9b910b300c5f05dcd01095ef8",
+          "alphaBounds": [
+            113,
+            72,
+            450,
+            410
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 0,
+          "sha256": "f99338574115f844be8f53d2990c53c36fcc35068ddd848af9c94c8f9f566aeb",
+          "alphaBounds": [
+            67,
+            52,
+            398,
+            409
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 1,
+          "sha256": "c4e3a1a81cf422abbf28548f0569c02dd2021f4d0bfd7b50f71dbb9f3680a4c4",
+          "alphaBounds": [
+            78,
+            41,
+            406,
+            409
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 2,
+          "sha256": "bc6e9fa4603ee11b61b65cafda72b3c813e80895479b45242713a035bfee4259",
+          "alphaBounds": [
+            92,
+            31,
+            415,
+            409
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 3,
+          "sha256": "64d69fefc93005fd4305f3e9e09122a25d2992a3a16e541f3987458de2f880fe",
+          "alphaBounds": [
+            94,
+            29,
+            416,
+            409
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 4,
+          "sha256": "cd3be749d5c5cabe839788b7dc61e416921cbd2e8a0b05b083a59353b667994f",
+          "alphaBounds": [
+            84,
+            36,
+            410,
+            409
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 5,
+          "sha256": "de0d697e94a69f689e7e7fdecbcc036598ff107761b247da8c5be7655fbd0121",
+          "alphaBounds": [
+            74,
+            44,
+            403,
+            409
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 6,
+          "sha256": "c5056211a3d6827912f840e840113306bd2ebdeea913754b70744b9706cfc137",
+          "alphaBounds": [
+            69,
+            50,
+            399,
+            409
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 7,
+          "sha256": "c4179f691f6ec37c69711d1eb3931eff2a04685d7c0646914b36f5cd30d4d54c",
+          "alphaBounds": [
+            67,
+            52,
+            398,
+            409
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 0,
+          "sha256": "837c1fc2fc9db2fea4d5781adbebdefa5306899e66335350f853804b83ca0709",
+          "alphaBounds": [
+            61,
+            15,
+            398,
+            421
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 1,
+          "sha256": "b604592de51a0ec700ebec68725ea814eeee2240edac6cc2c2bf4fbc785af55f",
+          "alphaBounds": [
+            67,
+            10,
+            408,
+            420
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 2,
+          "sha256": "265e52b14e5e1ff4041fc359e8cea4432cc5a9fa3cc1ad513aa45f63c42278fa",
+          "alphaBounds": [
+            73,
+            8,
+            419,
+            420
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 3,
+          "sha256": "acae25d6ce5ce8a0ee9c49ad7d3d22fc395e5e801c132418e621bb65387544e3",
+          "alphaBounds": [
+            74,
+            9,
+            421,
+            420
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 4,
+          "sha256": "4b34426de0ff59c5d4480bafb75399754c569006e938daabfff05c8dc78a5799",
+          "alphaBounds": [
+            70,
+            9,
+            413,
+            420
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 5,
+          "sha256": "004ac44d13cce00927b2ab53e98e974a622661d08e540d85416084f8fcf3bae7",
+          "alphaBounds": [
+            66,
+            12,
+            405,
+            420
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 6,
+          "sha256": "f6a6985198345f99ef9bf353851ff31c2243ff764786334a57808cff7ab7cf15",
+          "alphaBounds": [
+            62,
+            14,
+            400,
+            421
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 7,
+          "sha256": "1bc91e2c16d9997e1b00fadae46d123ea82a5e29fee86553a364bc3d92370fe5",
+          "alphaBounds": [
+            61,
+            15,
+            398,
+            421
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 0,
+          "sha256": "bb7109a6cde1646a6285dcc35715513e01fce7beec5a9875104f9f686faa5d5e",
+          "alphaBounds": [
+            113,
+            66,
+            444,
+            422
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 1,
+          "sha256": "c56b0c84d724ba6348357c8eb02db77beed33f8295817da6934a600b5a5f8bcd",
+          "alphaBounds": [
+            105,
+            62,
+            433,
+            421
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 2,
+          "sha256": "88f403cf21cc7961c9a4a97535fcd724c781d99ccc1cfd65bbbd6609a2f97feb",
+          "alphaBounds": [
+            96,
+            60,
+            419,
+            420
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 3,
+          "sha256": "6eec339c93276382bf05802ed5fc7c6afe2683483d979f0d9c14b5faf29dffd7",
+          "alphaBounds": [
+            95,
+            60,
+            417,
+            420
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 4,
+          "sha256": "f5860196b0f27894ffa8ec9f779a62e5edb44a5e0aac6fa1fa7004e118d194e1",
+          "alphaBounds": [
+            101,
+            61,
+            427,
+            420
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 5,
+          "sha256": "47f3b6384a424d9b7c11019ce7fdf873b1c862e3ac81578323c69ec598e6f5b5",
+          "alphaBounds": [
+            108,
+            63,
+            437,
+            421
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 6,
+          "sha256": "c2162e8ffa4a1a37a3e17c840026f84d046fa62a8ea8dd59a7e726d63ad14471",
+          "alphaBounds": [
+            112,
+            66,
+            442,
+            422
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 7,
+          "sha256": "bf14d02c8b35bbf3bffff5d0c0225aecde5f4011dc71aa3796fa8cd848da0f16",
+          "alphaBounds": [
+            113,
+            66,
+            444,
+            422
+          ]
+        }
+      ]
+    },
+    "death": {
+      "anchor": [
+        160,
+        221.39453939444144
+      ],
+      "frame_size": 320,
+      "hero_scale": 0.9404255319148935,
+      "ortho_scale": 3.25,
+      "durations_ms": [
+        55,
+        65,
+        75,
+        85,
+        80,
+        70,
+        70,
+        65,
+        80,
+        105
+      ],
+      "phases": [
+        "Standing",
+        "Hit",
+        "Buckle",
+        "Lowering",
+        "Knees down",
+        "Yield",
+        "Falling",
+        "Landing",
+        "Settle",
+        "Dead"
+      ],
+      "loop": false,
+      "sheet_bytes": 2129029,
+      "rgba_bytes": 16384000,
+      "frames": [
+        {
+          "view": "se",
+          "index": 0,
+          "sha256": "d0a7f0ceece45e083669e1d3c4f49a465def8492bad35ca04e47869581616262",
+          "alphaBounds": [
+            177,
+            136,
+            514,
+            474
+          ]
+        },
+        {
+          "view": "se",
+          "index": 1,
+          "sha256": "f4cffecf9db60fc74463be3dbeb4e0366bdd3fd7331054e4a3a9e32617c53600",
+          "alphaBounds": [
+            169,
+            136,
+            507,
+            467
+          ]
+        },
+        {
+          "view": "se",
+          "index": 2,
+          "sha256": "a36a2450ef19672a4be712dc63bdeebdaf96af5e6e4a416ce79522e29148da7a",
+          "alphaBounds": [
+            174,
+            154,
+            511,
+            451
+          ]
+        },
+        {
+          "view": "se",
+          "index": 3,
+          "sha256": "bfb622f5cc455f622bf2d4c8c3fec5977114c5e1c20431d0f67805f20005704b",
+          "alphaBounds": [
+            179,
+            183,
+            516,
+            464
+          ]
+        },
+        {
+          "view": "se",
+          "index": 4,
+          "sha256": "c8df973168649a8b18369aebcc8d4050544cb09346765b36f10f2e75bc9bc7b6",
+          "alphaBounds": [
+            172,
+            194,
+            534,
+            528
+          ]
+        },
+        {
+          "view": "se",
+          "index": 5,
+          "sha256": "09df3b8067805a96d7b8e703ca396d32235c1ef4e717525ba54d5f46e9a37447",
+          "alphaBounds": [
+            174,
+            209,
+            558,
+            570
+          ]
+        },
+        {
+          "view": "se",
+          "index": 6,
+          "sha256": "c7ffaeb5a57bf22c7876a6dd316e45d276b872601b0c161c0b22f56f5af26b94",
+          "alphaBounds": [
+            172,
+            217,
+            563,
+            575
+          ]
+        },
+        {
+          "view": "se",
+          "index": 7,
+          "sha256": "8c106168e925da62c712ce1aada948792034c4294f19a3fa2a9c5c2269533b15",
+          "alphaBounds": [
+            161,
+            235,
+            563,
+            575
+          ]
+        },
+        {
+          "view": "se",
+          "index": 8,
+          "sha256": "7a890521b20d237c4f7fa0f3c5acdf4e48ece83e9ee2bacb54c23356c42ce266",
+          "alphaBounds": [
+            153,
+            239,
+            563,
+            575
+          ]
+        },
+        {
+          "view": "se",
+          "index": 9,
+          "sha256": "e33465ddba666550643e0bdb9b356c904f721603f8bbdb1cdc03ecb3c77fd8b9",
+          "alphaBounds": [
+            150,
+            238,
+            563,
+            575
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 0,
+          "sha256": "09836eac3b7f8d8dfaa0e52647302b427f828141e3b98019603a7289711abb4b",
+          "alphaBounds": [
+            131,
+            116,
+            462,
+            473
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 1,
+          "sha256": "f4a02b39c35230660597e79da637e2253ccf22552c63c17de5c44014ab4283da",
+          "alphaBounds": [
+            140,
+            112,
+            467,
+            466
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 2,
+          "sha256": "61559dacf590f796a89007c92c714666081634826f7228704da7c46c140277b4",
+          "alphaBounds": [
+            126,
+            133,
+            459,
+            482
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 3,
+          "sha256": "0f089283dea5a8f8ef68865e3980ad76fa3706799d249949b584a9bfcc1aa385",
+          "alphaBounds": [
+            107,
+            167,
+            455,
+            508
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 4,
+          "sha256": "7d5124f412dff56127e5a9690047a9d162b904e55d8d87b0f7ab1d884d510423",
+          "alphaBounds": [
+            88,
+            175,
+            465,
+            535
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 5,
+          "sha256": "9c4cfa8ed830a7b56824cba7b2bd1216ad6725fc86c8bccf55568f3928bda35f",
+          "alphaBounds": [
+            27,
+            164,
+            463,
+            539
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 6,
+          "sha256": "620e64e9fbb33e4f98b2a71eb7ec59d9595009817b8c35381940028bbdabcdef",
+          "alphaBounds": [
+            7,
+            171,
+            451,
+            548
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 7,
+          "sha256": "3617ace1302db4f8a8079a52b5994819b30213243f2279787e4cf203b92b6e80",
+          "alphaBounds": [
+            7,
+            193,
+            443,
+            548
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 8,
+          "sha256": "b2a11d5025efc45f11a387fc69973a7d16b46afa18972a3e528598e02ff24ec1",
+          "alphaBounds": [
+            7,
+            201,
+            443,
+            548
+          ]
+        },
+        {
+          "view": "sw",
+          "index": 9,
+          "sha256": "63fecf52048b52582f8d77591f7afd45c03d1f9ea611c5edb74ab8679660aedd",
+          "alphaBounds": [
+            7,
+            201,
+            443,
+            548
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 0,
+          "sha256": "865fac245b675d5a727bafbf9a299ec50a9ff060b582f79f418d71821db91ab5",
+          "alphaBounds": [
+            125,
+            79,
+            462,
+            485
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 1,
+          "sha256": "261a0f996b1b147312f8e09e7a5bc194d032d72cb016f47635b0240b6764b4bf",
+          "alphaBounds": [
+            132,
+            80,
+            470,
+            485
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 2,
+          "sha256": "15c83bc1688537dc9b8c50f14e05a2646b6f4b4041308c71da8a4ce85a74d783",
+          "alphaBounds": [
+            128,
+            96,
+            465,
+            488
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 3,
+          "sha256": "b46249395932c4cbede6d4ae4d6ce336c0a10d8042f0305fed9a1d12be1bcdb5",
+          "alphaBounds": [
+            123,
+            125,
+            460,
+            495
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 4,
+          "sha256": "9e181d4321d8128ffa863f9d1ff75c021849a08405de2614f90c83bf30005ce2",
+          "alphaBounds": [
+            105,
+            162,
+            467,
+            488
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 5,
+          "sha256": "00cf29708ab9ede83a6ee1faadf70b51caf61c5543bd79a0e4d2fdaf035365e3",
+          "alphaBounds": [
+            82,
+            162,
+            465,
+            450
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 6,
+          "sha256": "96f0c00f05db8bd45b7493054d6dcae9836cb3214f0a741be2fc4b958b166736",
+          "alphaBounds": [
+            76,
+            162,
+            467,
+            495
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 7,
+          "sha256": "0f0731c7654cdf4c88caf937aaadaffc05cdf6457d024e41660001502f4d68e5",
+          "alphaBounds": [
+            76,
+            182,
+            478,
+            495
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 8,
+          "sha256": "678fc6872563825d805b19a2fd4afac8b3b9218d62fee11a395241b408a57803",
+          "alphaBounds": [
+            76,
+            207,
+            486,
+            495
+          ]
+        },
+        {
+          "view": "nw",
+          "index": 9,
+          "sha256": "e3e839c5f03536de3be3ec594d34eae4caf27b30ab34a187953b2a0791ef44b4",
+          "alphaBounds": [
+            76,
+            209,
+            489,
+            495
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 0,
+          "sha256": "fe9589a69e846cda4d57b3fddcc883a85eeedaa3322a88f4b73c595f94f67d28",
+          "alphaBounds": [
+            177,
+            130,
+            508,
+            486
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 1,
+          "sha256": "3ffda50d4b2978d0c1c40a9a3d4f7587194ce24ef1532acf020a564fae040535",
+          "alphaBounds": [
+            172,
+            131,
+            498,
+            486
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 2,
+          "sha256": "25950222676551b2d037c7371d53ba8abeb9df7ef973269605cabfe0f94e07c5",
+          "alphaBounds": [
+            180,
+            145,
+            513,
+            489
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 3,
+          "sha256": "57e27f275045cdb06812648c04189621b25cf432b9d095af5472f0e09cfe0919",
+          "alphaBounds": [
+            185,
+            167,
+            532,
+            496
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 4,
+          "sha256": "8b71c42ee5d7588bf3e49b68ce22236082aaa69d00cac0a1eec6959bd154c161",
+          "alphaBounds": [
+            174,
+            200,
+            551,
+            488
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 5,
+          "sha256": "a3d8fec6138ceaea8206acef8bfaff307294c7992629502eb8f2c16679ed8a61",
+          "alphaBounds": [
+            176,
+            212,
+            612,
+            484
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 6,
+          "sha256": "72b01169b0ffb3f281f45e031eca42823fa89ebe9642c6283042d983cd290abb",
+          "alphaBounds": [
+            188,
+            223,
+            632,
+            485
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 7,
+          "sha256": "ad5ad5972c2bf94ab4d09052b6a68a9e64710dd506862a27d12174d2ec3b8bcf",
+          "alphaBounds": [
+            196,
+            236,
+            632,
+            484
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 8,
+          "sha256": "c12a8c9aea2a71b2c36582a38a6e99d98a609e6839911aa1c96489560daf2fdd",
+          "alphaBounds": [
+            196,
+            257,
+            632,
+            495
+          ]
+        },
+        {
+          "view": "ne",
+          "index": 9,
+          "sha256": "55f23cb5502697a999ad17dac8cc0a43f778ba542c08f43060dd489949ca08fd",
+          "alphaBounds": [
+            196,
+            268,
+            632,
+            497
+          ]
+        }
+      ]
+    }
+  }
+}

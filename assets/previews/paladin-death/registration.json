@@ -1,0 +1,34 @@
+{
+  "anchor": [
+    160,
+    199.22428905755982
+  ],
+  "frame_size": 320,
+  "hero_scale": 0.9404255319148935,
+  "ortho_scale": 3.25,
+  "durations_ms": [
+    55,
+    65,
+    75,
+    85,
+    80,
+    70,
+    70,
+    65,
+    80,
+    105
+  ],
+  "phases": [
+    "Standing",
+    "Buckle",
+    "Lowering",
+    "Knees down",
+    "Kneeling",
+    "Reach",
+    "Falling",
+    "Catch",
+    "Settle",
+    "Dead"
+  ],
+  "loop": false
+}

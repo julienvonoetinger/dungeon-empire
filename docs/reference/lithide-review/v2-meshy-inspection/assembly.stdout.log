@@ -1,0 +1,17 @@
+00:01.328  blend            | Read blend: "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\inspection.blend"
+00:03.718  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\equipped-front.png'
+00:05.859  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\equipped-se.png'
+00:08.078  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\equipped-sw.png'
+00:10.453  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\equipped-nw.png'
+00:12.797  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\lithide-review\v2-meshy-inspection\equipped-ne.png'
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+Info: No new files have been packed
+Info: Saved as "paladin-equipped-review.blend"
+ASSEMBLY_OK {"status": "static-equipment-fit-review", "attachments": {"hammer": {"bone": "Bone_023", "uniform_scale": 0.5466210334209004, "height": 1.04, "source_grip": [0, 0, -0.46], "world_grip": [-0.753, 0.035, 0.465], "matrix": [[0.5466210246086121, 0.0, 0.0, -0.753000020980835], [0.0, 0.5466210246086121, 0.0, 0.03500000014901161], [0.0, 0.0, 0.5466210246086121, 0.7164456844329834], [0.0, 0.0, 0.0, 1.0]]}, "shield": {"bone": "Bone_019", "uniform_scale": 0.6094917630985839, "height": 1.16, "source_grip": [0, 0.245, -0.12], "world_grip": [0.746, -0.08, 0.58], "matrix": [[0.609491765499115, 0.0, 0.0, 0.7459999918937683], [0.0, 0.609491765499115, 0.0, -0.22932548820972443], [0.0, 0.0, 0.609491765499115, 0.6531389951705933], [0.0, 0.0, 0.0, 1.0]]}}, "bone_mapping": {"right_arm": ["Bone_025", "Bone_024", "Bone_023", "Bone_022"], "left_arm": ["Bone_021", "Bone_020", "Bone_019", "Bone_018"], "head": "Bone_015", "right_leg": ["Bone_009", "Bone_008", "Bone_007"], "left_leg": ["Bone_014", "Bone_013", "Bone_012"]}, "checks": [{"object": "hammer", "moved_with_bone": true, "matrix_delta": 0.06251830607652664, "restore_error": 0.0}, {"object": "shield", "moved_with_bone": true, "matrix_delta": 0.0717272236943245, "restore_error": 0.0}, {"view": "front", "fully_in_frame": true}, {"view": "se", "fully_in_frame": true}, {"view": "sw", "fully_in_frame": true}, {"view": "nw", "fully_in_frame": true}, {"view": "ne", "fully_in_frame": true}], "camera_elevation_isometric": 30, "ortho_scale": 2.6143062114715576, "limits": "Initial A-pose fitting only. No closed grip pose, gait, combat or full collision-range validation; source mesh/materials unchanged."}
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

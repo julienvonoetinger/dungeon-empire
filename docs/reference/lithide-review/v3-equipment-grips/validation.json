@@ -1,0 +1,46 @@
+{
+  "before": {
+    "hammer": {
+      "nonhand_surface_crossings": 403,
+      "follows_hand": true,
+      "relative_attachment_error": 8.940696716308594e-08,
+      "restore_error": 0.0
+    },
+    "shield": {
+      "nonhand_surface_crossings": 75,
+      "follows_hand": true,
+      "relative_attachment_error": 1.7881393432617188e-07,
+      "restore_error": 0.0
+    }
+  },
+  "after": {
+    "hammer": {
+      "nonhand_surface_crossings": 0,
+      "follows_hand": true,
+      "relative_attachment_error": 2.9802322387695312e-08,
+      "restore_error": 5.960464477539063e-08
+    },
+    "shield": {
+      "nonhand_surface_crossings": 0,
+      "follows_hand": true,
+      "relative_attachment_error": 5.960464477539063e-08,
+      "restore_error": 1.564621925354004e-07
+    }
+  },
+  "limits": "Static mesh-edge/triangle surface intersections outside holding-hand regions. Hand contacts inspected in close-up. Does not certify every animation pose or contained closed volumes.",
+  "hammer_orientation": {
+    "strike_axis": [
+      1.976386130309038e-07,
+      -1.0,
+      -1.9082348501342494e-07
+    ],
+    "shaft_axis": [
+      -1.0904200564709754e-07,
+      8.178150778803683e-08,
+      1.0
+    ],
+    "grip_error": 6.447228089804631e-07
+  },
+  "source_hashes_unchanged": true,
+  "embedded_images": 9
+}
