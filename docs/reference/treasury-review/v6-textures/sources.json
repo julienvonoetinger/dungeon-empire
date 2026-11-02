@@ -1,0 +1,17 @@
+{
+  "tool": "Built-in ImageGen",
+  "material": "The coin layer is fitted to a square without stretching and sampled on the four stone floor tiles at z=0. The arch, sill, recessed backing and pillar all use the kit's walls-planes material.",
+  "references": [
+    "C:/Users/A/AppData/Local/Temp/codex-clipboard-fc51336c-8846-433d-9b91-635ae36128df.png",
+    "docs/reference/treasury-review/v5-wireframe/vues/S1.webp",
+    "docs/reference/treasury-review/v4-murs-de-salle/salle-or.png"
+  ],
+  "image": "source/monnaie-plan.png",
+  "native": "exec-e70ee378-d169-4347-90b1-bc520387c203.png",
+  "prompt": "Use case: stylized-concept. Create one SQUARE flat plan-view diffuse paint layer for the treasure-room floor of Dungeon Empire on TRUE alpha transparency. It will be projected by the game onto a horizontal surface; this source must be seen straight DOWN at exactly 90 degrees, like a flatbed scan of real loose pocket change. Every coin facing the camera is a CIRCLE with no visible side, never an ellipse. The reference scene 1 describes the abundance of small gold coins under an alcove; refs 2 and 3 indicate dungeon style and native brick scale only, NOT camera angle for this source. Illustrate a broad, organic accumulation of ancient gold currency that collects along two perpendicular walls: long dense irregular bank along TOP, a shorter bank tapering down LEFT; they merge through the upper-left quarter, at least half of all the visible field is empty transparent toward lower right. Accumulations should look plentiful: natural streams of scattered coins falling away from the main mass, uneven silhouette and spaces of bare ground. Many small medieval stamped coins overlapping, different top marks, slightly varying muted brass/antique gold color; disciplined painted dark cool outlines and scarce pale gold highlights, soft ambient contact shading. Let roughly 32 to 40 individual circular coins fit across the whole square width at their usual diameter. Each coin reads as a small coin at game scale. No vertical piles, upright stacks, coin side walls, upright bags, chests, objects, torches, flame, glows, masonry, floor, scene, frames, words, labels, background or isometric camera. No other materials. THE COINS ARE ALREADY FLAT ON THE FLOOR. Keep the original square canvas coordinates, with the top and left banks against the corresponding edges rather than centred.",
+  "unusedStudies": [
+    "source/sol.png",
+    "source/niche.png",
+    "source/nappe.png"
+  ]
+}

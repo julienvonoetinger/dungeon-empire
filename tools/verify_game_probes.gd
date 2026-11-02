@@ -48,7 +48,65 @@ func run() -> void:
 	check(ResourceLoader.exists("res://scripts/testing/game_probes.gd"), "read-only game probes exist")
 	if ResourceLoader.exists("res://scripts/testing/game_probes.gd"):
 		test_probes()
+		test_raid_morale()
 	finish()
+
+func test_raid_morale() -> void:
+	var probes = preload("res://scripts/testing/game_probes.gd")
+	var game = Session.new()
+	game.persistence_enabled = false
+	root.add_child(game)
+	game.set_process(false)
+	game.restart(true)
+	seed(21)
+	game.start_raid()
+	var raid = game.raid
+	var entrance: Vector2i = raid.hero.pos
+	check(probes.snapshot(game).hero.morale == 100.0, "a visitor begins the raid at full morale")
+	# Two newly discovered bodies cost a stubborn hero seven morale each.
+	raid.hero.trait = "Stubborn"
+	raid.hero.hp = 1
+	raid.hero.morale = 14.0
+	game.sim.corpses.append({"pos": entrance, "fear": 18.0})
+	for tick in 40:
+		game.advance_simulation(.05)
+		if raid.hero.get("turns", 0) > 0: break
+	var first: Dictionary = probes.snapshot(game).hero
+	check(first.get("morale") == 7.0 and first.get("fleeing") == false and raid.hero.pos != entrance,
+		"low HP and seven morale still allow exploration after seeing a body")
+
+	game.sim.corpses.append({"pos": raid.hero.pos, "fear": 18.0})
+	for tick in 40:
+		game.advance_simulation(.05)
+		if raid.hero.get("fleeing", false) or not raid.raid_active: break
+	var broken: Dictionary = probes.snapshot(game)
+	check(broken.hero.get("morale") == 0.0 and broken.hero.get("fleeing") == true,
+		"the second body breaks morale at exactly zero")
+	check(broken.raid.active and broken.raid.stats.escaped == 0,
+		"losing morale starts the return, not an instant escape")
+	for tick in 150:
+		game.advance_simulation(.05)
+		if not raid.raid_active: break
+	check(raid.last_result.get("escaped") == 1 and raid.last_result.get("killed") == 0,
+		"the living visitor completes the trip back up the stairs")
+	for trait_name in ["Greedy", "Stubborn"]:
+		game.restart(true)
+		seed(21)
+		game.start_raid()
+		raid.hero.trait = trait_name
+		raid.hero.morale = 55.0
+		raid.hero.lockpick_success_chance = 1.0
+		var theft_gain := 0.0
+		for tick in 2400:
+			var before: float = raid.hero.morale
+			game.advance_simulation(.05)
+			if not raid.raid_active: break
+			if raid.hero.stolen_gold > 0:
+				theft_gain = float(probes.snapshot(game).hero.morale) - before
+				break
+		check(is_equal_approx(theft_gain, 20.0 if trait_name == "Greedy" else 10.0),
+			"successful theft grants morale according to the visitor's trait: " + trait_name)
+	game.free()
 
 func test_probes() -> void:
 	var probes = load("res://scripts/testing/game_probes.gd")

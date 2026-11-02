@@ -153,13 +153,6 @@ static func _valid(data: Dictionary) -> bool:
 	var balances = data.get("vault_gold", {})
 	if not balances is Dictionary or balances.size() > Types.COLS * Types.ROWS:
 		return false
-	var stored := 0
-	for pos in balances:
-		if not _coord(pos) or data.grid[pos.y][pos.x] != Types.Tile.VAULT or not _integer(balances[pos], Types.VAULT_CAPACITY):
-			return false
-		stored += int(balances[pos])
-	if stored > data.gold:
-		return false
 	var locks = data.get("vault_locks", {})
 	var opened = data.get("vault_opened", {})
 	if not locks is Dictionary or not opened is Dictionary or locks.size() > Types.COLS * Types.ROWS or opened.size() > locks.size():
@@ -169,6 +162,18 @@ static func _valid(data: Dictionary) -> bool:
 			return false
 	for pos in opened:
 		if not locks.has(pos) or not opened[pos] is bool:
+			return false
+	if not balances.is_empty():
+		var layout := DungeonSim.new()
+		layout.grid = data.grid
+		layout.vault_locks = locks
+		var limits := layout.vault_capacities()
+		var stored := 0
+		for pos in balances:
+			if not _coord(pos) or not limits.has(pos) or not _integer(balances[pos], limits[pos]):
+				return false
+			stored += int(balances[pos])
+		if stored > data.gold:
 			return false
 	for field in ["door_hp", "door_opened", "trap_charges", "kingdom_knowledge"]:
 		if not data[field] is Dictionary or data[field].size() > Types.COLS * Types.ROWS:

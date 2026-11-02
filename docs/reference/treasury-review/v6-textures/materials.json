@@ -1,0 +1,296 @@
+{
+  "walls": {
+    "bay-W-0-2-b01": {
+      "material": "walls-planes",
+      "frame": [
+        -254,
+        -135,
+        267,
+        263
+      ],
+      "bytes": 55786
+    },
+    "bay-S-0-1-a10": {
+      "material": "walls-planes",
+      "frame": [
+        -254,
+        21,
+        139,
+        179
+      ],
+      "bytes": 26965
+    },
+    "pier-0-2": {
+      "material": "walls-planes",
+      "frame": [
+        -289,
+        -26,
+        66,
+        172
+      ],
+      "bytes": 13791
+    },
+    "bay-W-0-2-a11": {
+      "material": "walls-planes",
+      "frame": [
+        -254,
+        -137,
+        252,
+        265
+      ],
+      "bytes": 53565
+    },
+    "bay-N-0-1-a11": {
+      "material": "walls-planes",
+      "frame": [
+        2,
+        -107,
+        124,
+        171
+      ],
+      "bytes": 27466
+    },
+    "pier-0-0": {
+      "material": "walls-planes",
+      "frame": [
+        -33,
+        -154,
+        66,
+        172
+      ],
+      "bytes": 13791
+    },
+    "bay-N-0-2-a10": {
+      "material": "walls-planes",
+      "frame": [
+        2,
+        -137,
+        267,
+        273
+      ],
+      "bytes": 63783
+    },
+    "bay-W-0-1-a10": {
+      "material": "walls-planes",
+      "frame": [
+        -141,
+        -107,
+        139,
+        179
+      ],
+      "bytes": 28933
+    },
+    "bay-N-0-2-a11": {
+      "material": "walls-planes",
+      "frame": [
+        2,
+        -137,
+        252,
+        265
+      ],
+      "bytes": 60594
+    },
+    "bay-N-0-2-b01": {
+      "material": "walls-planes",
+      "frame": [
+        -13,
+        -135,
+        267,
+        263
+      ],
+      "bytes": 62376
+    },
+    "bay-E-0-1-a10": {
+      "material": "walls-planes",
+      "frame": [
+        115,
+        21,
+        139,
+        179
+      ],
+      "bytes": 24952
+    },
+    "pier-2-0": {
+      "material": "walls-planes",
+      "frame": [
+        223,
+        -26,
+        66,
+        172
+      ],
+      "bytes": 13791
+    },
+    "bay-W-0-1-a11": {
+      "material": "walls-planes",
+      "frame": [
+        -126,
+        -107,
+        124,
+        171
+      ],
+      "bytes": 26290
+    }
+  },
+  "floors": {
+    "sol-N1-0-0": {
+      "tile": "floor-b1",
+      "painted": 4654,
+      "bytes": 30990
+    },
+    "sol-N1-1-0": {
+      "tile": "floor-b3",
+      "painted": 0,
+      "bytes": 20382
+    },
+    "sol-N1-0-1": {
+      "tile": "floor-b1",
+      "painted": 12540,
+      "bytes": 47874
+    },
+    "sol-N1-1-1": {
+      "tile": "floor-b3",
+      "painted": 2395,
+      "bytes": 26897
+    },
+    "sol-N2-0-0": {
+      "tile": "floor-b1",
+      "painted": 12528,
+      "bytes": 46847
+    },
+    "sol-N2-1-0": {
+      "tile": "floor-b3",
+      "painted": 1037,
+      "bytes": 23174
+    },
+    "sol-N2-0-1": {
+      "tile": "floor-b1",
+      "painted": 4822,
+      "bytes": 30824
+    },
+    "sol-N2-1-1": {
+      "tile": "floor-b3",
+      "painted": 0,
+      "bytes": 20382
+    },
+    "sol-E1-0-0": {
+      "tile": "floor-b1",
+      "painted": 12531,
+      "bytes": 47003
+    },
+    "sol-E1-1-0": {
+      "tile": "floor-b3",
+      "painted": 4649,
+      "bytes": 30907
+    },
+    "sol-E1-0-1": {
+      "tile": "floor-b1",
+      "painted": 2406,
+      "bytes": 25715
+    },
+    "sol-E1-1-1": {
+      "tile": "floor-b3",
+      "painted": 0,
+      "bytes": 20382
+    },
+    "sol-E2-0-0": {
+      "tile": "floor-b1",
+      "painted": 12531,
+      "bytes": 47003
+    },
+    "sol-E2-1-0": {
+      "tile": "floor-b3",
+      "painted": 4822,
+      "bytes": 31267
+    },
+    "sol-E2-0-1": {
+      "tile": "floor-b1",
+      "painted": 2406,
+      "bytes": 25715
+    },
+    "sol-E2-1-1": {
+      "tile": "floor-b3",
+      "painted": 0,
+      "bytes": 20382
+    },
+    "sol-S1-0-0": {
+      "tile": "floor-b1",
+      "painted": 12531,
+      "bytes": 47003
+    },
+    "sol-S1-1-0": {
+      "tile": "floor-b3",
+      "painted": 4822,
+      "bytes": 31267
+    },
+    "sol-S1-0-1": {
+      "tile": "floor-b1",
+      "painted": 2393,
+      "bytes": 25657
+    },
+    "sol-S1-1-1": {
+      "tile": "floor-b3",
+      "painted": 0,
+      "bytes": 20382
+    },
+    "sol-S2-0-0": {
+      "tile": "floor-b1",
+      "painted": 12531,
+      "bytes": 47003
+    },
+    "sol-S2-1-0": {
+      "tile": "floor-b3",
+      "painted": 4822,
+      "bytes": 31267
+    },
+    "sol-S2-0-1": {
+      "tile": "floor-b1",
+      "painted": 2406,
+      "bytes": 25715
+    },
+    "sol-S2-1-1": {
+      "tile": "floor-b3",
+      "painted": 0,
+      "bytes": 20382
+    },
+    "sol-W1-0-0": {
+      "tile": "floor-b1",
+      "painted": 4654,
+      "bytes": 30798
+    },
+    "sol-W1-1-0": {
+      "tile": "floor-b3",
+      "painted": 12540,
+      "bytes": 47685
+    },
+    "sol-W1-0-1": {
+      "tile": "floor-b1",
+      "painted": 0,
+      "bytes": 19313
+    },
+    "sol-W1-1-1": {
+      "tile": "floor-b3",
+      "painted": 2395,
+      "bytes": 26846
+    },
+    "sol-W2-0-0": {
+      "tile": "floor-b1",
+      "painted": 12528,
+      "bytes": 46991
+    },
+    "sol-W2-1-0": {
+      "tile": "floor-b3",
+      "painted": 4822,
+      "bytes": 31267
+    },
+    "sol-W2-0-1": {
+      "tile": "floor-b1",
+      "painted": 1037,
+      "bytes": 22136
+    },
+    "sol-W2-1-1": {
+      "tile": "floor-b3",
+      "painted": 0,
+      "bytes": 20382
+    }
+  }
+}

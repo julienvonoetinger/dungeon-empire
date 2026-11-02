@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réserve aux deux coffres · Dungeon Empire</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111621;color:#e1e5ed;font:16px/1.5 system-ui,sans-serif}
+main{max-width:960px;margin:auto;padding:22px clamp(12px,3vw,30px) 40px}h1{color:#eee0c6;font:600 clamp(1.6rem,4vw,2.2rem) Georgia,serif;margin:0}
+nav,.files{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}button,.files a{min-height:44px;padding:9px 12px;font:inherit;border-radius:6px;background:#222b3b;border:1px solid #4d586e;color:#e4e4ed;cursor:pointer;text-decoration:none}
+button[aria-pressed=true]{background:#46334d;border-color:#ad91bd}button:focus-visible,a:focus-visible{outline:2px solid #dec592}
+figure{margin:10px 0}figure img{display:block;width:100%;height:auto;border:1px solid #354156;border-radius:7px}figcaption{margin:.4em 0;color:#c2cbdb}
+</style><main><h1>Réserve aux deux coffres</h1><p>Les coffres, les sacs et les pièces sont peints ensemble. La même image transparente est posée dans la salle de 2 × 2. Choisis un accès pour comparer le placement sur les dalles du jeu.</p>
+<nav id="nav" aria-label="Position du couloir"></nav><figure><a id="full" href="vues/S1.webp"><img id="scene" src="vues/S1.webp" width="900" height="600" alt="Entrée au sud de la réserve"></a><figcaption id="label">Sud · position 1</figcaption></figure>
+<div class="files"><a href="reserve.png" download>Sprite PNG · 372 × 144</a><a href="source/treasure-master.png" download>PNG haute définition</a><a href="source/concept.png">Concept de référence</a></div>
+</main><script>
+const names={N:'Nord',E:'Est',S:'Sud',W:'Ouest'};
+function show(id){const title=names[id[0]]+' · position '+id[1],src='vues/'+id+'.webp';
+ document.querySelector('#scene').src=src;document.querySelector('#scene').alt='Réserve, '+title;document.querySelector('#full').href=src;document.querySelector('#label').textContent=title;
+ for(const b of document.querySelectorAll('nav button'))b.setAttribute('aria-pressed',String(b.dataset.id===id));
+}
+for(const side in names)for(const slot of [1,2]){const id=side+slot,b=document.createElement('button');b.type='button';b.dataset.id=id;b.textContent=names[side]+' '+slot;b.onclick=()=>show(id);document.querySelector('#nav').append(b);}
+show('S1');
+</script></html>

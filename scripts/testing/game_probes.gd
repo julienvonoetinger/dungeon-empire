@@ -37,7 +37,8 @@ static func snapshot(game) -> Dictionary:
 	}
 	probes.hero["present"] = not raid.hero.is_empty()
 	var stored := 0
-	var vault_count := 0
+	var limits: Dictionary = sim.vault_capacities()
+	var total_capacity := 0
 	for y in range(sim.grid.size()):
 		for x in range(sim.grid[y].size()):
 			var p := Vector2i(x,y)
@@ -56,11 +57,14 @@ static func snapshot(game) -> Dictionary:
 			elif tile == Types.Tile.VAULT:
 				var gold: int = sim.vault_gold.get(p,0)
 				stored += gold
-				vault_count += 1
-				probes[cell_id("vault",p)] = {"cell":[x,y], "gold":gold, "capacity":Types.VAULT_CAPACITY,
+				total_capacity += int(limits[p])
+				probes[cell_id("vault",p)] = {"cell":[x,y], "gold":gold, "capacity":limits[p],
 					"lock_tier":sim.vault_locks.get(p,0), "opened":sim.vault_opened.get(p,false), "protected":sim.vault_protected(p)}
+	for room: Dictionary in sim.treasure_rooms():
+		probes[cell_id("treasure",room.origin)] = {"origin":json_value(room.origin),"entrance":json_value(room.entrance),
+			"side":room.side,"slot":room.slot,"gold":sim.stored_gold(room.cells),"capacity":Types.store_capacity(room.cells)}
 	probes["economy"] = {"gold":sim.gold, "stored":stored, "unstored":sim.gold-stored,
-		"capacity":vault_count*Types.VAULT_CAPACITY}
+		"capacity":total_capacity}
 	return probes
 
 static func violations(game) -> Array:
@@ -79,6 +83,7 @@ static func violations(game) -> Array:
 	var core_count := 0
 	var entrance_count := 0
 	var stored := 0
+	var limits: Dictionary = sim.vault_capacities()
 	for y in Types.ROWS:
 		for x in Types.COLS:
 			var p := Vector2i(x,y)
@@ -96,7 +101,7 @@ static func violations(game) -> Array:
 			if tile == Types.Tile.VAULT:
 				var gold: int = sim.vault_gold.get(p,0)
 				stored += gold
-				_check(out, gold >= 0 and gold <= Types.VAULT_CAPACITY, "vault.gold", cell_id("vault",p), "Vault gold out of range")
+				_check(out, gold >= 0 and gold <= int(limits[p]), "vault.gold", cell_id("vault",p), "Vault gold out of range")
 				var tier: int = sim.vault_locks.get(p,0)
 				_check(out, tier >= 0 and tier <= 2, "vault.lock", cell_id("vault",p), "Invalid protection tier")
 	_check(out, core_count == 0 or core_count == Types.CORE_W*Types.CORE_H, "core.footprint", "core", "Invalid core footprint")

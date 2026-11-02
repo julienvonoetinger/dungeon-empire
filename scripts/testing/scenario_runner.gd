@@ -76,7 +76,7 @@ static func _probe_id(value: Variant) -> bool:
 	if not value is String: return false
 	if value in ["session","core","economy","raid","hero","progression","loot"]: return true
 	var parts: PackedStringArray = value.split(":")
-	if parts.size() != 3 or parts[0] not in ["cell","door","trap","vault"]: return false
+	if parts.size() != 3 or parts[0] not in ["cell","door","trap","vault","treasure"]: return false
 	if not parts[1].is_valid_int() or not parts[2].is_valid_int(): return false
 	var p := Vector2i(int(parts[1]),int(parts[2]))
 	return _cell([p.x,p.y]) and value == Probes.cell_id(parts[0],p)

@@ -3,7 +3,17 @@ extends RefCounted
 
 const MAX_VALUE := 2147483647
 const MAX_RECORDS := 16384
-const STATS := ["max_hp", "greed", "steal_capacity", "fear_weight", "trap_weight", "objective", "door_damage", "flee_ratio", "patience"]
+const LEGACY_STATS := ["max_hp", "greed", "steal_capacity", "fear_weight", "trap_weight", "objective", "door_damage", "flee_ratio", "patience"]
+const TWO_APTITUDE_STATS := LEGACY_STATS + ["strength", "perception"]
+const STATS := TWO_APTITUDE_STATS + ["agility", "intelligence"]
+const TRAP_ONLY_STATS := LEGACY_STATS + ["trap_perception"]
+# Recruitment ranges; the stats themselves accept the full 0..100 scale.
+const APTITUDES := {
+	"thief":   {"strength": Vector2i(20, 40), "perception": Vector2i(40, 70), "agility": Vector2i(55, 80), "intelligence": Vector2i(35, 60)},
+	"paladin": {"strength": Vector2i(75, 95), "perception": Vector2i(20, 45), "agility": Vector2i(20, 40), "intelligence": Vector2i(35, 55)},
+	"ranger":  {"strength": Vector2i(35, 55), "perception": Vector2i(55, 80), "agility": Vector2i(70, 90), "intelligence": Vector2i(30, 55)},
+	"mage":    {"strength": Vector2i(20, 40), "perception": Vector2i(35, 60), "agility": Vector2i(25, 45), "intelligence": Vector2i(70, 90)},
+}
 const CLASSES := {"thief": "Vulpin Thief", "paladin": "Lithide Paladin", "ranger": "Batrafian Ranger", "mage": "Sable Mage"}
 const NAMES := {"thief": ["Rusk", "Neris", "Varek"], "paladin": ["Borin", "Thoren", "Garran"], "ranger": ["Syll", "Oren", "Tarek"], "mage": ["Maelis", "Sorel", "Ilyr"]}
 const OBJECTIVES := {"thief": "vault", "paladin": "core", "ranger": "explore", "mage": "core"}
@@ -17,6 +27,14 @@ static func level_for_xp(xp: int) -> int:
 		level += 1
 	return level
 
+static func aptitudes_at_level(profile: Dictionary, level: int) -> Dictionary:
+	# Saves keep recruitment scores. Derive the bonus from XP so old veterans
+	# receive it too, and loading a profile never awards the same level twice.
+	var current := {}
+	for stat in APTITUDES[profile.kind]:
+		current[stat] = mini(100, int(profile.stats[stat]) + level - 1)
+	return current
+
 static func display_name(hero: Dictionary) -> String:
 	var stored := str(hero.get("name", "Hero"))
 	var id := int(hero.get("id", 0))
@@ -25,10 +43,13 @@ static func display_name(hero: Dictionary) -> String:
 			return personal_name
 	return stored
 
-func recruit(base: Dictionary) -> Dictionary:
+func recruit(base: Dictionary, rng: RandomNumberGenerator) -> Dictionary:
 	var stats := {}
-	for key in STATS:
+	for key in LEGACY_STATS:
 		stats[key] = base[key]
+	for stat in APTITUDES[base.kind]:
+		var limits: Vector2i = APTITUDES[base.kind][stat]
+		stats[stat] = rng.randi_range(limits.x, limits.y)
 	var id := next_id
 	next_id += 1
 	var names: Array = NAMES[base.kind]
@@ -95,14 +116,28 @@ func finish(id: int, survived: bool, ledger: Dictionary) -> Dictionary:
 		profile.discovered.merge(ledger.get("discoveries", {}), true)
 	else:
 		profiles.erase(id)
-	return {"hero_id": id, "hero_xp_breakdown": breakdown, "hero_xp_gained": gained,
+	var after := level_for_xp(profile.xp)
+	var result := {"hero_id": id, "hero_xp_breakdown": breakdown, "hero_xp_gained": gained,
 		"hero_xp_total": int(profile.xp), "hero_level_before": before,
-		"hero_level_after": level_for_xp(profile.xp)}
+		"hero_level_after": after}
+	if survived:
+		result["hero_aptitudes"] = aptitudes_at_level(profile, after)
+	return result
 
 func restore(data: Dictionary) -> bool:
 	if not valid_snapshot(data):
 		return false
 	profiles = data.profiles.duplicate(true)
+	for profile: Dictionary in profiles.values():
+		var stats: Dictionary = profile.stats
+		if stats.has("trap_perception"):
+			if profile.kind == "thief":
+				stats.perception = stats.trap_perception
+			stats.erase("trap_perception")
+		for stat in APTITUDES[profile.kind]:
+			if not stats.has(stat):
+				var limits: Vector2i = APTITUDES[profile.kind][stat]
+				stats[stat] = roundi((limits.x + limits.y) * 0.5)
 	next_id = data.next_id
 	previous_id = data.previous_id
 	return true
@@ -142,9 +177,16 @@ static func valid_snapshot(data: Variant) -> bool:
 		names[p.name] = true
 		if p.class_name != CLASSES[p.kind] or not p.trait is String or not GameTypes.TRAITS.has(p.trait):
 			return false
-		if not _integer(p.xp, 0, MAX_VALUE) or not _keys(p.stats, STATS):
+		if not _integer(p.xp, 0, MAX_VALUE):
+			return false
+		if not (_keys(p.stats, STATS) or _keys(p.stats, TWO_APTITUDE_STATS) or _keys(p.stats, TRAP_ONLY_STATS) or _keys(p.stats, LEGACY_STATS)):
 			return false
 		var s: Dictionary = p.stats
+		for stat in APTITUDES[p.kind]:
+			if s.has(stat) and not _integer(s[stat], 0, 100):
+				return false
+		if s.has("trap_perception") and not _integer(s.trap_perception, 40 if p.kind == "thief" else 0, 70 if p.kind == "thief" else 0):
+			return false
 		var hp: int = {"thief": 68, "paladin": 115, "ranger": 82, "mage": 74}[p.kind]
 		var damage: int = {"thief": 18, "paladin": 34, "ranger": 20, "mage": 8}[p.kind]
 		if not _integer(s.max_hp, hp - 6, hp + 6) or not _integer(s.door_damage, damage - 3, damage + 3):

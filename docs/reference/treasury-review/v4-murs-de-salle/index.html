@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les murs de la salle au trésor · Dungeon Empire</title>
+<style>
+*{box-sizing:border-box}body{background:#10151e;color:#e2e5ef;margin:0;font:16px/1.45 system-ui,sans-serif}main{max-width:1280px;margin:auto;padding:24px clamp(12px,3vw,35px) 40px}
+h1,h2{color:#ede0c4;font-family:Georgia,serif;line-height:1.15}h1{margin:0}h2{margin:.2rem 0 .55rem}.lead{max-width:72ch}
+.bar{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:14px 0}button{background:#283042;color:#f0e8d9;border:1px solid #646076;border-radius:6px;padding:10px 15px;min-height:44px;font:inherit;cursor:pointer}
+button[aria-pressed=true]{background:#493655;border-color:#a18ab1}section{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}article,details{background:#192130;border:1px solid #353e54;border-radius:7px;padding:12px}
+article p{margin:.55rem .1rem .2rem}figure{margin:0;background:#111821;display:grid;place-items:center}figure a,figure img{width:100%;display:block;height:auto}.mini figure a{max-width:320px}
+details{margin-top:14px}summary{cursor:pointer}details figure{max-width:640px;margin-top:12px}footer{font-size:.9rem;color:#acb9ce;margin-top:16px}a{color:#d4badf}button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid #f4ce82;outline-offset:2px}
+@media(max-width:750px){section{grid-template-columns:1fr}}
+</style>
+<main><h1>Les murs de la salle au trésor</h1>
+<p class="lead">Les quatre coffres d’une pièce de 2 × 2 deviennent un trésor commun. Le passage reste ouvert. Masque les pièces pour juger la salle par ses murs.</p>
+<div class="bar"><button type="button" id="hide" aria-pressed="false">Masquer le tas de pièces</button><button type="button" id="mini" aria-pressed="false">Voir en petit format</button></div>
+<section>
+<article><h2>A · La salle des comptes</h2><figure><a data-kind="comptoir" href="comptoir-or.webp"><img src="comptoir-or.webp" alt="Étude des parois à niches de la salle des comptes."></a></figure>
+<p>Des niches de comptage sont taillées dans les parois. Leurs linteaux et leurs tablettes font corps avec les rangées de briques.</p></article>
+<article><h2>B · La chambre du tribut</h2><figure><a data-kind="sceau" href="sceau-or.webp"><img src="sceau-or.webp" alt="Étude des reliefs monétaires de la chambre du tribut."></a></figure>
+<p>Une frise court d’un mur à l’autre. Deux grands sceaux monétaires se lisent de part et d’autre du pilier d’angle.</p></article>
+</section>
+<details><summary>Comparer aux murs ordinaires du donjon</summary><figure><a data-kind="salle" href="salle-or.png"><img src="salle-or.png" alt="Salle de référence rendue par Godot avec les murs ordinaires."></a></figure></details>
+<footer>Études de direction artistique sur une vue du jeu. <a href="sources.json">Références et prompts ImageGen</a>.</footer></main>
+<script>
+const hide=document.querySelector('#hide'),mini=document.querySelector('#mini');
+hide.onclick=()=>{
+ const empty=hide.getAttribute('aria-pressed')==='false';
+ hide.setAttribute('aria-pressed',String(empty));hide.textContent=empty?'Afficher le tas de pièces':'Masquer le tas de pièces';
+ for(const a of document.querySelectorAll('[data-kind]')){
+  const key=a.dataset.kind;
+  const filename=key==='salle'?(empty?'salle-nue.png':'salle-or.png'):(key+(empty?'-murs.webp':'-or.webp'));
+  a.href=filename;a.querySelector('img').src=filename;
+ }
+};
+mini.onclick=()=>{
+ const small=document.querySelector('main').classList.toggle('mini');
+ mini.setAttribute('aria-pressed',String(small));mini.textContent=small?'Agrandir':'Voir en petit format';
+};
+</script></html>

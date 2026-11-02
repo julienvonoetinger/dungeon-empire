@@ -16,6 +16,8 @@ const CORE_H := 1
 const DOOR_MAX_HP := 60
 const TRAP_MAX_CHARGES := 3
 const VAULT_CAPACITY := 150
+const TREASURY_CAPACITY_BONUS := 300
+const TREASURY_MEMBER_CAPACITY := VAULT_CAPACITY + TREASURY_CAPACITY_BONUS / 4
 const START_GOLD := 320
 
 const COST_DIG := 5
@@ -58,6 +60,12 @@ const TRAITS := {
 	"Stubborn": {"fear": -0.20, "trap": -0.10, "greed": 1.00, "flee": -0.12, "patience": 35},
 	"Cowardly": {"fear": 0.70, "trap": 0.50, "greed": 0.90, "flee": 0.15, "patience": -25}
 }
+
+static func capacity_per_chest(store: Array) -> int:
+	return TREASURY_MEMBER_CAPACITY if store.size() == 4 else VAULT_CAPACITY
+
+static func store_capacity(store: Array) -> int:
+	return store.size() * capacity_per_chest(store)
 
 static func is_trap_tile(t: int) -> bool:
 	return t == Tile.SPIKE or t == Tile.SNARE or t == Tile.VOID

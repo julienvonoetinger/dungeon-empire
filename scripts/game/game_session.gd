@@ -182,7 +182,9 @@ func check_action(cell: Vector2i, requested_tool: int = -1) -> Dictionary:
 	var modified := false
 	for field in FIELDS:
 		if copy.get(field) != sim.get(field): modified = true
-	return {"valid": modified, "cost": maxi(0, sim.gold - copy.gold), "reason": copy.message}
+	# Coins displaced onto the ground are recoverable, not a construction cost.
+	var spent := sim.gold - copy.gold - (copy._unsecured_loot_total() - sim._unsecured_loot_total())
+	return {"valid": modified, "cost": maxi(0, spent), "reason": copy.message}
 
 func _apply(target: DungeonSim, cell: Vector2i, requested_tool: int = -1) -> void:
 	var action_tool := tool if requested_tool < 0 else requested_tool
@@ -211,7 +213,8 @@ func report_rejected_action(cell:Vector2i,requested_tool:int=-1) -> void:
 		copy.set(field,value.duplicate(true) if value is Array or value is Dictionary else value)
 	copy.gold=1000000
 	_apply(copy,cell,action_tool)
-	if 1000000-copy.gold>sim.gold: presentation_event.emit("fauche")
+	var spent := 1000000 - copy.gold - (copy._unsecured_loot_total() - sim._unsecured_loot_total())
+	if spent>sim.gold: presentation_event.emit("fauche")
 
 func confirm_action(requested_tool: int = -1) -> void:
 	if selected.x < 0 or not can_edit(): return
@@ -224,9 +227,10 @@ func confirm_action(requested_tool: int = -1) -> void:
 	if sim._has_core():
 		_build_history.append(_build_snapshot())
 		if _build_history.size() > 32: _build_history.pop_front()
+	var previous_rooms := sim.treasure_rooms().size()
 	_apply(sim, selected, requested_tool)
 	sim._storage_state()
-	notice = "Action complete."
+	notice = "Treasure room discovered! +%d storage capacity." % Types.TREASURY_CAPACITY_BONUS if sim.treasure_rooms().size() > previous_rooms else "Action complete."
 	presentation_event.emit("placed")
 	_after_edit()
 
@@ -257,7 +261,6 @@ func absorb_selected() -> void:
 		if corpse.pos == selected:
 			sim.corpses.erase(corpse)
 			sim.core_hp = mini(Types.CORE_MAX, sim.core_hp + 2)
-			raid.invalidate_kingdom_knowledge(selected)
 			notice = "Corpse absorbed: +2 Core HP."
 			_after_edit()
 			return

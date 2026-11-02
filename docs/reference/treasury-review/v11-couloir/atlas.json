@@ -1,0 +1,349 @@
+{
+  "file": "reserve-atlas.png",
+  "regions": {
+    "N": {
+      "rect": [
+        6,
+        6,
+        316,
+        195
+      ],
+      "pivot": [
+        153,
+        108
+      ],
+      "objects": [
+        {
+          "type": "bank",
+          "id": "bank",
+          "at": [
+            0,
+            0.28
+          ],
+          "visibleRatio": 0.939
+        },
+        {
+          "type": "open",
+          "id": "prop-chest-open-north",
+          "at": [
+            0.41,
+            -0.2
+          ],
+          "visibleRatio": 0.938
+        },
+        {
+          "type": "closed",
+          "id": "prop-chest-north",
+          "at": [
+            -0.39,
+            -0.11
+          ],
+          "visibleRatio": 0.756
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            0.63,
+            0.3
+          ],
+          "visibleRatio": 1
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            0.49,
+            -0.57
+          ],
+          "visibleRatio": 0.691
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            -0.5,
+            0.48
+          ],
+          "visibleRatio": 0.981
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            -0.68,
+            0.13
+          ],
+          "visibleRatio": 0.777
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            -0.68,
+            -0.32
+          ],
+          "visibleRatio": 0.384
+        }
+      ]
+    },
+    "E": {
+      "rect": [
+        344,
+        6,
+        326,
+        195
+      ],
+      "pivot": [
+        170,
+        118
+      ],
+      "objects": [
+        {
+          "type": "bank",
+          "id": "bank",
+          "at": [
+            -0.28,
+            0
+          ],
+          "visibleRatio": 0.563
+        },
+        {
+          "type": "open",
+          "id": "prop-chest-open-east",
+          "at": [
+            0.2,
+            0.41
+          ],
+          "visibleRatio": 0.959
+        },
+        {
+          "type": "closed",
+          "id": "prop-chest-east",
+          "at": [
+            0.11,
+            -0.39
+          ],
+          "visibleRatio": 0.836
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            -0.3,
+            0.63
+          ],
+          "visibleRatio": 1
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            0.57,
+            0.49
+          ],
+          "visibleRatio": 1
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            -0.48,
+            -0.5
+          ],
+          "visibleRatio": 0.816
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            -0.13,
+            -0.68
+          ],
+          "visibleRatio": 0.457
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            0.32,
+            -0.68
+          ],
+          "visibleRatio": 0.992
+        }
+      ]
+    },
+    "S": {
+      "rect": [
+        6,
+        213,
+        316,
+        191
+      ],
+      "pivot": [
+        163,
+        117
+      ],
+      "objects": [
+        {
+          "type": "bank",
+          "id": "bank",
+          "at": [
+            0,
+            -0.28
+          ],
+          "visibleRatio": 0.694
+        },
+        {
+          "type": "open",
+          "id": "prop-chest-open",
+          "at": [
+            -0.41,
+            0.2
+          ],
+          "visibleRatio": 0.91
+        },
+        {
+          "type": "closed",
+          "id": "prop-chest",
+          "at": [
+            0.39,
+            0.11
+          ],
+          "visibleRatio": 0.846
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            -0.63,
+            -0.3
+          ],
+          "visibleRatio": 0.668
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            -0.49,
+            0.57
+          ],
+          "visibleRatio": 1
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            0.5,
+            -0.48
+          ],
+          "visibleRatio": 0.83
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            0.68,
+            -0.13
+          ],
+          "visibleRatio": 1
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            0.68,
+            0.32
+          ],
+          "visibleRatio": 1
+        }
+      ]
+    },
+    "W": {
+      "rect": [
+        344,
+        213,
+        326,
+        187
+      ],
+      "pivot": [
+        156,
+        114
+      ],
+      "objects": [
+        {
+          "type": "bank",
+          "id": "bank",
+          "at": [
+            0.28,
+            0
+          ],
+          "visibleRatio": 0.884
+        },
+        {
+          "type": "open",
+          "id": "prop-chest-open-west",
+          "at": [
+            -0.2,
+            -0.41
+          ],
+          "visibleRatio": 0.898
+        },
+        {
+          "type": "closed",
+          "id": "prop-chest-west",
+          "at": [
+            -0.11,
+            0.39
+          ],
+          "visibleRatio": 0.714
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            0.3,
+            -0.63
+          ],
+          "visibleRatio": 1
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            -0.57,
+            -0.49
+          ],
+          "visibleRatio": 0.54
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            0.48,
+            0.5
+          ],
+          "visibleRatio": 0.999
+        },
+        {
+          "type": "tied",
+          "id": "tied",
+          "at": [
+            0.13,
+            0.68
+          ],
+          "visibleRatio": 1
+        },
+        {
+          "type": "open-bag",
+          "id": "open-bag",
+          "at": [
+            -0.32,
+            0.68
+          ],
+          "visibleRatio": 0.995
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réserve débordante · validation du wireframe</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#10141f;color:#e4e3ec;font:16px/1.45 system-ui,sans-serif}main{max-width:1150px;margin:auto;padding:22px clamp(12px,3vw,32px) 40px}h1,h2{font-family:Georgia,serif;color:#f0e1cb;margin:.15em 0}p{max-width:83ch}nav,.tools{display:flex;gap:.45rem;flex-wrap:wrap;margin:12px 0}button{font:inherit;background:#212b3a;border:1px solid #465067;color:inherit;cursor:pointer;border-radius:6px;padding:8px 11px;min-height:44px}button[aria-pressed=true]{background:#493552;border-color:#b088bd}button:focus-visible,a:focus-visible{outline:2px solid #e4cd91}.row{display:grid;grid-template-columns:3fr 1fr;gap:14px;align-items:start}.stage,aside,.zoom{border:1px solid #364057;border-radius:8px;overflow:hidden;background:#121924}.stage{position:relative}.stage img,.stage svg{width:100%;height:auto;display:block}.stage svg{position:absolute;inset:0;pointer-events:none}aside{padding:12px}aside svg{display:block;width:100%;max-width:210px;margin:auto}.secondary{color:#b7bed1;font-size:.93rem}.zooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.zoom svg{width:100%;display:block}.zoom h3{margin:.5em .7em;font-size:.96rem}a{color:#e4c2f0}button:hover{border-color:#958291}@media(max-width:720px){.row{grid-template-columns:1fr}aside{display:flex;align-items:center;gap:10px}aside svg{width:110px;flex:none}.tools,nav{gap:.25rem}nav button{min-width:45px;padding:6px}.zooms{gap:6px}.zoom h3{font-size:.85rem}}
+</style>
+<main><h1>Réserve débordante · wireframe</h1><p>Une salle de 2 × 2, un seul couloir d’une case. Le magenta indique les deux alcôves murées et leur pilier commun. Les quatre dalles restent planes pour la future peinture des pièces.</p>
+<nav aria-label="Choisir le côté et la position du couloir" id="slots"></nav>
+<div class="tools"><button id="kit" aria-pressed="false">Comparer aux murs du jeu</button><button id="points" aria-pressed="false">Repérer les raccords</button></div>
+<div class="row"><div class="stage"><a id="full" href="vues/S1.webp"><img id="view" width="900" height="600" alt="Wireframe avec le couloir choisi"></a><svg viewBox="0 0 900 600" id="marks"></svg></div>
+<aside><svg id="plan" viewBox="0 0 120 120" aria-label="Plan vu du dessus"></svg><div><strong id="desc"></strong><p id="text" class="secondary"></p><small>Plan vu du dessus · couloir en bleu, coin de la réserve en rose. Les directions suivent les axes de la grille.</small></div></aside></div>
+<h2>Jonctions avec le kit</h2><p>Deux gros plans suivent l’extrémité des alcôves opposée au pilier commun. Le bouton de comparaison affiche exactement le même raccord avec le mur ordinaire.</p><div class="zooms" id="zooms"></div>
+<p class="secondary"><a href="planche.webp">Les huit orientations sur une planche</a> · <a href="verification.json">Contrôles de géométrie</a></p></main>
+<script src="review-data.js"></script><script>
+const names={N:'Nord',E:'Est',S:'Sud',W:'Ouest'};let active='S1',kit=false,pins=false;
+const $=s=>document.querySelector(s);
+function dot(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="6" fill="none" stroke="#86e7e0" stroke-width="2"/>';}
+function update(){
+ const row=REVIEW[active],file='vues/'+active+(kit?'-kit':'')+'.webp';
+ $('#view').src=file;$('#full').href=file;$('#view').alt='Couloir '+names[row.side]+' '+(row.slot+1)+(kit?', murs du jeu':', wireframe de la réserve');
+ $('#kit').setAttribute('aria-pressed',kit);$('#kit').textContent=kit?'Revenir au wireframe':'Comparer aux murs du jeu';
+ $('#points').setAttribute('aria-pressed',pins);$('#points').textContent=pins?'Masquer les repères':'Repérer les raccords';
+ for(const btn of $('#slots').children)btn.setAttribute('aria-pressed',btn.dataset.id===active);
+ $('#desc').textContent=names[row.side]+' · position '+(row.slot+1);
+ $('#text').textContent='Grande alcôve sur le mur '+names[row.bays[0].side].toLowerCase()+', petite sur le mur '+names[row.bays[1].side].toLowerCase()+'.';
+ const rect=(x,y,fill)=>'<rect x="'+(34+26*x)+'" y="'+(34+26*y)+'" width="26" height="26" fill="'+fill+'" stroke="#758298" stroke-width="1"/>';
+ $('#plan').innerHTML=[[0,0],[0,1],[1,0],[1,1]].map(p=>rect(...p,'#465168')).join('')+row.passage.map(p=>rect(...p,'#255c69')).join('')+'<circle cx="'+(34+26*row.corner[0])+'" cy="'+(34+26*row.corner[1])+'" r="4.3" fill="#e695ec"/>';
+ const marks=row.joints.map(p=>dot(...p)).join('')+dot(...row.mouth);
+ $('#marks').innerHTML=pins?marks:'';
+ $('#zooms').innerHTML=row.ends.map((j,i)=>{const p=row.joints[j];return '<div class="zoom"><h3>'+(i?'Petite':'Grande')+' alcôve · raccord extérieur</h3><svg viewBox="'+[p[0]-85,p[1]-56,170,112].join(' ')+'"><image href="'+file+'" width="900" height="600"/>'+(pins?dot(...p):'')+'</svg></div>';}).join('');
+}
+for(const [id,row] of Object.entries(REVIEW)){
+ const b=document.createElement('button');b.dataset.id=id;b.textContent=names[row.side]+' '+(row.slot+1);b.onclick=()=>{active=id;update()};$('#slots').append(b);
+}
+$('#kit').onclick=()=>{kit=!kit;update()};$('#points').onclick=()=>{pins=!pins;update()};update();
+</script></html>

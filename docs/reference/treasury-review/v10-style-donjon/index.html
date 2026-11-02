@@ -1,0 +1,22 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réserve · coffres et bourses du donjon</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111621;color:#e1e5ed;font:16px/1.48 system-ui,sans-serif}main{max-width:960px;margin:auto;padding:22px clamp(12px,3vw,30px) 42px}
+h1{color:#eee0c6;font:600 clamp(1.6rem,4vw,2.2rem) Georgia,serif;margin:0}p{max-width:78ch}
+nav,.actions{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}button,a.item{font:inherit;cursor:pointer;min-height:44px;padding:8px 11px;background:#222b3b;color:#e1e5ed;border:1px solid #4d586e;border-radius:6px;text-decoration:none}button[aria-pressed=true]{background:#46334d;border-color:#ad91bd}button:focus-visible,a:focus-visible{outline:2px solid #e0c98c}
+figure{margin:10px 0}.art{width:100%;background:#151b28;display:grid;place-items:center;border:1px solid #394255;border-radius:8px;overflow:hidden}.art a{width:100%;display:block}.art img{display:block;width:100%;height:auto}main.small .art a{max-width:355px}figcaption,.note{font-size:.94rem;color:#c2cbdb;margin:.4em 0}a{color:#e1c2ec}
+</style><main><h1>Réserve aux deux coffres</h1><p>Un seul sprite réunit les coffres, les bourses et l’or. Compare la nouvelle peinture avec le concept précédent au même endroit dans la salle.</p>
+<nav id="slots" aria-label="Position du couloir"></nav><div class="actions"><button id="after" aria-pressed="true">Nouvelle peinture</button><button id="before" aria-pressed="false">Version précédente</button><button id="scale" aria-pressed="false">Petit format</button></div>
+<figure><div class="art"><a id="full" href="vues/S1.webp"><img id="img" src="vues/S1.webp" width="900" height="600" alt="Réserve, entrée au sud"></a></div><figcaption id="caption"></figcaption></figure>
+<p class="actions"><a class="item" href="reserve.png" download>Télécharger le sprite PNG</a><a class="item" href="source/treasure-master.png" download>Peinture haute définition</a></p><p class="note"><a href="source.json">Références et prompt ImageGen</a></p></main>
+<script>
+const sides={N:'Nord',E:'Est',S:'Sud',W:'Ouest'},$=s=>document.querySelector(s);let id='S1',after=true;
+function show(){
+ const url=(after?'':'../v9-sprite-unique/')+'vues/'+id+'.webp',txt=sides[id[0]]+' · '+id[1]+' · '+(after?'nouvelle peinture':'version précédente');
+ $('#img').src=url;$('#full').href=url;$('#img').alt=txt;$('#caption').textContent=txt;
+ $('#before').setAttribute('aria-pressed',!after);$('#after').setAttribute('aria-pressed',after);
+ for(const b of $('#slots').children)b.setAttribute('aria-pressed',b.dataset.id===id);
+}
+for(const s of Object.keys(sides))for(const n of [1,2]){const b=document.createElement('button');b.type='button';b.dataset.id=s+n;b.textContent=sides[s]+' '+n;b.onclick=()=>{id=b.dataset.id;show()};$('#slots').append(b);}
+$('#after').onclick=()=>{after=true;show()};$('#before').onclick=()=>{after=false;show()};$('#scale').onclick=()=>{const mini=$('main').classList.toggle('small');$('#scale').setAttribute('aria-pressed',mini);$('#scale').textContent=mini?'Agrandir':'Petit format'};show();
+</script></html>

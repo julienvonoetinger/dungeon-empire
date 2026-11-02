@@ -1,0 +1,202 @@
+{
+  "N1": {
+    "slot": "N1",
+    "coins": 476,
+    "blockedCentres": 203,
+    "visibleCentres": 273,
+    "bays": [
+      {
+        "side": "W",
+        "count": 344,
+        "peak": 0.47929584785000484
+      },
+      {
+        "side": "S",
+        "count": 132,
+        "peak": 0.3410502518109372
+      }
+    ],
+    "frame": [
+      -257,
+      -157,
+      504,
+      315
+    ],
+    "bytes": 37442
+  },
+  "N2": {
+    "slot": "N2",
+    "coins": 521,
+    "blockedCentres": 6,
+    "visibleCentres": 515,
+    "bays": [
+      {
+        "side": "W",
+        "count": 410,
+        "peak": 0.48467261890962055
+      },
+      {
+        "side": "N",
+        "count": 111,
+        "peak": 0.3376312348275093
+      }
+    ],
+    "frame": [
+      -247,
+      -134,
+      542,
+      284
+    ],
+    "bytes": 65808
+  },
+  "E1": {
+    "slot": "E1",
+    "coins": 476,
+    "blockedCentres": 3,
+    "visibleCentres": 473,
+    "bays": [
+      {
+        "side": "N",
+        "count": 344,
+        "peak": 0.47929584785000484
+      },
+      {
+        "side": "W",
+        "count": 132,
+        "peak": 0.3410502518109372
+      }
+    ],
+    "frame": [
+      -247,
+      -130,
+      543,
+      283
+    ],
+    "bytes": 62970
+  },
+  "E2": {
+    "slot": "E2",
+    "coins": 542,
+    "blockedCentres": 6,
+    "visibleCentres": 536,
+    "bays": [
+      {
+        "side": "N",
+        "count": 410,
+        "peak": 0.48467261890962055
+      },
+      {
+        "side": "W",
+        "count": 132,
+        "peak": 0.3410502518109372
+      }
+    ],
+    "frame": [
+      -249,
+      -130,
+      510,
+      352
+    ],
+    "bytes": 69542
+  },
+  "S1": {
+    "slot": "S1",
+    "coins": 542,
+    "blockedCentres": 6,
+    "visibleCentres": 536,
+    "bays": [
+      {
+        "side": "N",
+        "count": 410,
+        "peak": 0.48467261890962055
+      },
+      {
+        "side": "W",
+        "count": 132,
+        "peak": 0.3410502518109372
+      }
+    ],
+    "frame": [
+      -296,
+      -130,
+      542,
+      316
+    ],
+    "bytes": 67776
+  },
+  "S2": {
+    "slot": "S2",
+    "coins": 542,
+    "blockedCentres": 6,
+    "visibleCentres": 536,
+    "bays": [
+      {
+        "side": "N",
+        "count": 410,
+        "peak": 0.48467261890962055
+      },
+      {
+        "side": "W",
+        "count": 132,
+        "peak": 0.3410502518109372
+      }
+    ],
+    "frame": [
+      -292,
+      -130,
+      538,
+      414
+    ],
+    "bytes": 68064
+  },
+  "W1": {
+    "slot": "W1",
+    "coins": 476,
+    "blockedCentres": 203,
+    "visibleCentres": 273,
+    "bays": [
+      {
+        "side": "N",
+        "count": 344,
+        "peak": 0.47929584785000484
+      },
+      {
+        "side": "E",
+        "count": 132,
+        "peak": 0.3410502518109372
+      }
+    ],
+    "frame": [
+      -254,
+      -163,
+      509,
+      318
+    ],
+    "bytes": 35722
+  },
+  "W2": {
+    "slot": "W2",
+    "coins": 521,
+    "blockedCentres": 6,
+    "visibleCentres": 515,
+    "bays": [
+      {
+        "side": "N",
+        "count": 410,
+        "peak": 0.48467261890962055
+      },
+      {
+        "side": "W",
+        "count": 111,
+        "peak": 0.3376312348275093
+      }
+    ],
+    "frame": [
+      -129,
+      -130,
+      375,
+      285
+    ],
+    "bytes": 64854
+  }
+}

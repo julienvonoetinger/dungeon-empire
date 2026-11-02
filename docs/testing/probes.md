@@ -57,7 +57,11 @@ Les rapports doivent rester hors du dossier des scénarios et hors de `user://`.
 | `trap-recoil.json` | Graine 21 : arrêt sur les pointes pendant les dégâts, pause, reprise après récupération et une seule activation |
 | `timing.json` | Compte à rebours, pause et démarrage automatique |
 | `treasury.json` | Transfert entre coffres, conservation de l'or et coût du verrou |
+| `secret-treasury.json` | Formation d’une réserve avec quatre coffres simples, verrou, second accès et annulation |
 | `vulpin-lock-loot-repair.json` | Graine 21 : crochetage réel, déclenchement des pointes, vol sans attaque du cœur, réparation |
+
+La sonde `treasure:x:y` existe à l’origine du carré 2×2 tant que la salle
+est formée. Elle expose le côté et la case du couloir, le solde et la capacité.
 
 Les recettes de crochetage et d'escalier dépendent intentionnellement de leur
 graine. Pour explorer d'autres graines/classes, utiliser `raid-cycle.json`, dont

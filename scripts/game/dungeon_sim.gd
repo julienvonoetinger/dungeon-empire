@@ -23,6 +23,9 @@ const COST_MAGIC_DOOR := GameTypes.COST_MAGIC_DOOR
 const COST_REPAIR_DOOR := GameTypes.COST_REPAIR_DOOR
 const COST_REPAIR_TRAP := GameTypes.COST_REPAIR_TRAP
 const DIRS := GameTypes.DIRS
+const ROOM_CELLS: Array[Vector2i] = [Vector2i.ZERO, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.ONE]
+const ROOM_SIDES := ["N","E","S","W"]
+const ROOM_OUT := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
 var grid: Array = []
 var selected_tool: int = Tool.NONE
@@ -107,6 +110,7 @@ func repair_core_access() -> Array[Vector2i]:
 	var origin := _core_origin()
 	if origin.x < 0:
 		return changed
+	var previous_capacity := _storage_capacity()
 	for y in range(maxi(0, origin.y - 1), mini(ROWS, origin.y + CORE_H + 1)):
 		for x in range(maxi(0, origin.x - 1), mini(COLS, origin.x + CORE_W + 1)):
 			var p := Vector2i(x, y)
@@ -119,6 +123,8 @@ func repair_core_access() -> Array[Vector2i]:
 			_clear_cell_state(p)
 			grid[y][x] = Tile.FLOOR
 			changed.append(p)
+	if not changed.is_empty():
+		_spill_overflow_at(changed.front(), previous_capacity)
 	return changed
 
 
@@ -272,26 +278,26 @@ func _find_tile(tile: int) -> Vector2i:
 
 
 func _storage_capacity() -> int:
-	return _vault_positions().size() * VAULT_CAPACITY
-
-
-func _storage_free() -> int:
-	return maxi(0, _storage_capacity() - gold)
+	var total := 0
+	for limit: int in vault_capacities().values(): total += limit
+	return total
 
 
 func _deposit_gold(amount: int) -> int:
-	_storage_state()
-	var take := mini(maxi(0, amount), _storage_free())
+	var take := clampi(amount, 0, maxi(0, _storage_capacity() - gold))
 	gold += take
+	_storage_state()
 	return take
 
 
-func _spill_overflow_at(p: Vector2i) -> void:
-	var extra := gold - _storage_capacity()
-	if extra <= 0:
-		return
-	gold -= extra
-	loot_bags.append({"pos": p, "gold": extra, "taken": false})
+func _spill_overflow_at(p: Vector2i, previous_capacity: int = -1) -> void:
+	var capacity := _storage_capacity()
+	if previous_capacity >= 0 and capacity >= previous_capacity: return
+	var extra := gold - capacity
+	if extra > 0:
+		gold -= extra
+		loot_bags.append({"pos": p, "gold": extra, "taken": false})
+	_storage_state()
 
 
 func _vault_positions() -> Array[Vector2i]:
@@ -302,46 +308,110 @@ func _vault_positions() -> Array[Vector2i]:
 				out.append(Vector2i(x, y))
 	return out
 
+func _treasure_at_origin(origin: Vector2i) -> Dictionary:
+	if not _inside(origin) or not _inside(origin + Vector2i.ONE):
+		return {}
+	var members: Array[Vector2i] = []
+	for offset in ROOM_CELLS:
+		var p := origin + offset
+		# A picked lock keeps its protection tier until repaired.
+		if grid[p.y][p.x] != Tile.VAULT or int(vault_locks.get(p, 0)) != 0: return {}
+		members.append(p)
+	var result := {}
+	for i in ROOM_SIDES.size():
+		var out: Vector2i = ROOM_OUT[i]
+		var axis := Vector2i.RIGHT if out.y != 0 else Vector2i.DOWN
+		var first := origin + Vector2i(maxi(out.x,0), maxi(out.y,0)) + out
+		for slot in 2:
+			var opening := first + axis * slot
+			if not _is_excavated(opening): continue
+			if not result.is_empty() or grid[opening.y][opening.x] == Tile.CORE: return {}
+			result = {"origin":origin,"cells":members,"side":ROOM_SIDES[i],"slot":slot,"entrance":opening}
+	return result
+
+func treasure_rooms() -> Array[Dictionary]:
+	var rooms: Array[Dictionary] = []
+	for origin in _vault_positions():
+		var room := _treasure_at_origin(origin)
+		if not room.is_empty(): rooms.append(room)
+	return rooms
+
+func storage_cells(cell: Vector2i) -> Array[Vector2i]:
+	if not _inside(cell) or grid[cell.y][cell.x] != Tile.VAULT: return []
+	for offset in ROOM_CELLS:
+		var room := _treasure_at_origin(cell - offset)
+		if not room.is_empty(): return room.cells
+	return [cell]
+
+func stored_gold(cells: Array) -> int:
+	var total := 0
+	for cell in cells: total += int(vault_gold.get(cell, 0))
+	return total
+
+func vault_capacities() -> Dictionary:
+	# Keep grid order for redistributing gold when a room forms or dissolves.
+	var limits := {}
+	for p in _vault_positions(): limits[p] = VAULT_CAPACITY
+	for origin: Vector2i in limits:
+		var room := _treasure_at_origin(origin)
+		if not room.is_empty():
+			for p in room.cells: limits[p] = GameTypes.TREASURY_MEMBER_CAPACITY
+	return limits
+
 # Preserve assigned balances; reconcile purchases, deposits and removed vaults
 # against the total treasury. New or legacy vaults fill in grid order.
 func _storage_state() -> Dictionary:
 	var vaults := {}
-	for p in _vault_positions():
-		vaults[p] = clampi(int(vault_gold.get(p, 0)), 0, VAULT_CAPACITY)
+	var limits := vault_capacities()
+	var capacity := 0
+	for p in limits:
+		capacity += int(limits[p])
+		vaults[p] = clampi(int(vault_gold.get(p, 0)), 0, limits[p])
 	var assigned := 0
 	for amount in vaults.values():
 		assigned += int(amount)
 	var difference := gold - assigned
 	for p in vaults:
-		var change := mini(difference, VAULT_CAPACITY - int(vaults[p])) if difference >= 0 else -mini(-difference, int(vaults[p]))
+		var change := clampi(difference, -int(vaults[p]), int(limits[p]) - int(vaults[p]))
 		vaults[p] += change
 		difference -= change
 	vault_gold = vaults.duplicate()
-	return {"vaults": vaults, "unstored": maxi(0, difference), "capacity": vaults.size() * VAULT_CAPACITY}
+	return {"vaults": vaults, "unstored": maxi(0, difference), "capacity": capacity}
 
 
 func transfer_gold(source: Vector2i, destination: Vector2i, requested: int) -> int:
 	if game_over or (raid != null and raid.raid_active) or requested <= 0 or source == destination:
 		return 0
-	var balances: Dictionary = _storage_state().vaults
-	if not balances.has(source) or not balances.has(destination):
+	var from := storage_cells(source)
+	var to := storage_cells(destination)
+	if from.is_empty() or to.is_empty() or from.has(destination):
 		return 0
-	var amount := mini(requested, mini(int(balances[source]), VAULT_CAPACITY - int(balances[destination])))
+	_storage_state()
+	var amount := mini(requested, mini(stored_gold(from), GameTypes.store_capacity(to) - stored_gold(to)))
 	if amount <= 0:
 		return 0
-	vault_gold[source] -= amount
-	vault_gold[destination] += amount
+	_change_storage(from, -amount)
+	_change_storage(to, amount)
 	if raid != null:
-		raid.invalidate_kingdom_knowledge(source)
-		raid.invalidate_kingdom_knowledge(destination)
+		for cell in from + to: raid.invalidate_kingdom_knowledge(cell)
 	return amount
 
 
+func _change_storage(cells: Array[Vector2i], delta: int) -> void:
+	var limit := GameTypes.capacity_per_chest(cells)
+	for cell in cells:
+		var balance := int(vault_gold.get(cell, 0))
+		var change := clampi(delta, -balance, limit - balance)
+		vault_gold[cell] = balance + change
+		delta -= change
+		if delta == 0: break
+
 func withdraw_vault_gold(cell: Vector2i, requested: int) -> int:
-	var balances: Dictionary = _storage_state().vaults
-	var amount := mini(maxi(0, requested), int(balances.get(cell, 0)))
+	_storage_state()
+	var cells := storage_cells(cell)
+	var amount := mini(maxi(0, requested), stored_gold(cells))
 	if amount > 0:
-		vault_gold[cell] -= amount
+		_change_storage(cells, -amount)
 		gold -= amount
 	return amount
 
@@ -459,13 +529,14 @@ func build_vault(p: Vector2i, tier: int) -> bool:
 	if gold < cost:
 		message = "Not enough gold: %d required." % cost
 		return false
-	_storage_state()
+	var previous_capacity := int(_storage_state().capacity)
 	if not existing:
 		_clear_cell_state(p)
 		grid[p.y][p.x] = Tile.VAULT
 	gold -= cost
 	if tier > 0:
 		vault_locks[p] = tier
+		if existing: _spill_overflow_at(p, previous_capacity)
 	vault_opened.erase(p)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(p)
@@ -505,8 +576,10 @@ func _try_dig(gp: Vector2i) -> void:
 	if not reason.is_empty():
 		message = reason
 		return
+	var previous_capacity := _storage_capacity()
 	gold -= COST_DIG
 	grid[gp.y][gp.x] = Tile.FLOOR
+	_spill_overflow_at(gp, previous_capacity)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(gp)
 	message = "Dug a passage."
@@ -586,8 +659,6 @@ func repair_trap(p: Vector2i) -> int:
 	while int(trap_charges.get(p, _trap_max_charges(tile))) < _trap_max_charges(tile) and gold >= COST_REPAIR_TRAP:
 		gold -= COST_REPAIR_TRAP
 		trap_charges[p] = int(trap_charges[p]) + 1
-		if raid != null:
-			raid.invalidate_kingdom_knowledge(p)
 		charges += 1
 	return charges
 
@@ -629,8 +700,6 @@ func _repair_structures() -> void:
 		while int(trap_charges[p]) < _trap_max_charges(t) and gold >= COST_REPAIR_TRAP:
 			gold -= COST_REPAIR_TRAP
 			trap_charges[p] = int(trap_charges[p]) + 1
-			if raid != null:
-				raid.invalidate_kingdom_knowledge(p)
 			charges += 1
 	if doors == 0 and charges == 0:
 		message = "Nothing to repair (or not enough gold)."

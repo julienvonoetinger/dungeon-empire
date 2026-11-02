@@ -1,0 +1,346 @@
+{
+  "N1": {
+    "id": "N1",
+    "originalChest": "prop-chest-open-east",
+    "facing": "east",
+    "ground": [
+      0.385,
+      1.035
+    ],
+    "projectedAnchor": [
+      -83.19999999999999,
+      90.88
+    ],
+    "cofferPixelHash": "d3519f9b0048a630775b4913832375938a858a8296cf617ef73417e4d9a76e0f",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 318,
+    "hiddenCoinCentres": 273,
+    "peak": [
+      0.47929584785000484,
+      0.3410502518109372
+    ],
+    "details": {
+      "lock": [
+        132,
+        128
+      ],
+      "lid": [
+        1517,
+        1504
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-east.png",
+    "masterHash": "3ee68a289d021dc48375142ed5159a6a380318f3a433be95992c5d6383203244",
+    "frame": [
+      -256,
+      -180,
+      552,
+      344
+    ],
+    "bytes": 50504
+  },
+  "N2": {
+    "id": "N2",
+    "originalChest": "prop-chest-open-east",
+    "facing": "east",
+    "ground": [
+      0.385,
+      1.095
+    ],
+    "projectedAnchor": [
+      -90.88,
+      94.72
+    ],
+    "cofferPixelHash": "d3519f9b0048a630775b4913832375938a858a8296cf617ef73417e4d9a76e0f",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 642,
+    "hiddenCoinCentres": 9,
+    "peak": [
+      0.48467261890962055,
+      0.3376312348275093
+    ],
+    "details": {
+      "lock": [
+        122,
+        118
+      ],
+      "lid": [
+        1518,
+        1498
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-east.png",
+    "masterHash": "3ee68a289d021dc48375142ed5159a6a380318f3a433be95992c5d6383203244",
+    "frame": [
+      -245,
+      -134,
+      540,
+      297
+    ],
+    "bytes": 79260
+  },
+  "E1": {
+    "id": "E1",
+    "originalChest": "prop-chest-open",
+    "facing": "south",
+    "ground": [
+      0.9650000000000001,
+      0.385
+    ],
+    "projectedAnchor": [
+      74.24000000000001,
+      86.4
+    ],
+    "cofferPixelHash": "c7f6e57a654a425a7856b13be2dbfb71f6308b7801cc345ce98eb550d956d51e",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 589,
+    "hiddenCoinCentres": 5,
+    "peak": [
+      0.47929584785000484,
+      0.3410502518109372
+    ],
+    "details": {
+      "lock": [
+        137,
+        128
+      ],
+      "lid": [
+        1322,
+        1288
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+    "masterHash": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c",
+    "frame": [
+      -253,
+      -135,
+      549,
+      306
+    ],
+    "bytes": 80644
+  },
+  "E2": {
+    "id": "E2",
+    "originalChest": "prop-chest-open",
+    "facing": "south",
+    "ground": [
+      1.095,
+      0.385
+    ],
+    "projectedAnchor": [
+      90.88,
+      94.72
+    ],
+    "cofferPixelHash": "c7f6e57a654a425a7856b13be2dbfb71f6308b7801cc345ce98eb550d956d51e",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 670,
+    "hiddenCoinCentres": 8,
+    "peak": [
+      0.48467261890962055,
+      0.3410502518109372
+    ],
+    "details": {
+      "lock": [
+        131,
+        119
+      ],
+      "lid": [
+        1315,
+        1289
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+    "masterHash": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c",
+    "frame": [
+      -256,
+      -135,
+      541,
+      380
+    ],
+    "bytes": 84638
+  },
+  "S1": {
+    "id": "S1",
+    "originalChest": "prop-chest-open",
+    "facing": "south",
+    "ground": [
+      1.095,
+      0.385
+    ],
+    "projectedAnchor": [
+      90.88,
+      94.72
+    ],
+    "cofferPixelHash": "c7f6e57a654a425a7856b13be2dbfb71f6308b7801cc345ce98eb550d956d51e",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 670,
+    "hiddenCoinCentres": 8,
+    "peak": [
+      0.48467261890962055,
+      0.3410502518109372
+    ],
+    "details": {
+      "lock": [
+        131,
+        119
+      ],
+      "lid": [
+        1315,
+        1289
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+    "masterHash": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c",
+    "frame": [
+      -296,
+      -135,
+      546,
+      356
+    ],
+    "bytes": 84702
+  },
+  "S2": {
+    "id": "S2",
+    "originalChest": "prop-chest-open",
+    "facing": "south",
+    "ground": [
+      1.095,
+      0.385
+    ],
+    "projectedAnchor": [
+      90.88,
+      94.72
+    ],
+    "cofferPixelHash": "c7f6e57a654a425a7856b13be2dbfb71f6308b7801cc345ce98eb550d956d51e",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 670,
+    "hiddenCoinCentres": 8,
+    "peak": [
+      0.48467261890962055,
+      0.3410502518109372
+    ],
+    "details": {
+      "lock": [
+        131,
+        119
+      ],
+      "lid": [
+        1315,
+        1289
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+    "masterHash": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c",
+    "frame": [
+      -294,
+      -135,
+      544,
+      420
+    ],
+    "bytes": 84524
+  },
+  "W1": {
+    "id": "W1",
+    "originalChest": "prop-chest-open",
+    "facing": "south",
+    "ground": [
+      1.035,
+      0.385
+    ],
+    "projectedAnchor": [
+      83.19999999999999,
+      90.88
+    ],
+    "cofferPixelHash": "c7f6e57a654a425a7856b13be2dbfb71f6308b7801cc345ce98eb550d956d51e",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 328,
+    "hiddenCoinCentres": 269,
+    "peak": [
+      0.47929584785000484,
+      0.3410502518109372
+    ],
+    "details": {
+      "lock": [
+        128,
+        118
+      ],
+      "lid": [
+        1340,
+        1315
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+    "masterHash": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c",
+    "frame": [
+      -253,
+      -163,
+      509,
+      334
+    ],
+    "bytes": 50074
+  },
+  "W2": {
+    "id": "W2",
+    "originalChest": "prop-chest-open",
+    "facing": "south",
+    "ground": [
+      1.095,
+      0.385
+    ],
+    "projectedAnchor": [
+      90.88,
+      94.72
+    ],
+    "cofferPixelHash": "c7f6e57a654a425a7856b13be2dbfb71f6308b7801cc345ce98eb550d956d51e",
+    "purses": [
+      "sac-ouvert",
+      "sac-lie"
+    ],
+    "visibleCoinCentres": 643,
+    "hiddenCoinCentres": 8,
+    "peak": [
+      0.48467261890962055,
+      0.3376312348275093
+    ],
+    "details": {
+      "lock": [
+        131,
+        119
+      ],
+      "lid": [
+        1315,
+        1289
+      ]
+    },
+    "master": "docs/reference/treasure-chest-review/v4-directions/source/open-south.png",
+    "masterHash": "6c67cb2ad181e036f0f8ee0c958d0f378379a773885151d4077b65b8ed00333c",
+    "frame": [
+      -258,
+      -135,
+      508,
+      306
+    ],
+    "bytes": 78648
+  }
+}

@@ -1,0 +1,24 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réserve · pierre et monnaie au sol</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#10151e;color:#e3e5ee;font:16px/1.5 system-ui,sans-serif}
+main{width:min(960px,100%);margin:auto;padding:20px 14px 38px}h1{color:#ece3cb;font-family:Georgia,serif;line-height:1.15}
+nav,.mode{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}button{min-height:44px;padding:8px 12px;border:1px solid #495267;color:#e1e5ed;background:#202735;border-radius:6px;cursor:pointer;font:inherit}
+button[aria-pressed=true]{background:#41344e;border-color:#a987bf}button:focus-visible,a:focus-visible{outline:2px solid #dfc58d}
+figure{margin:12px 0}img{width:100%;height:auto;display:block;border:1px solid #354056;border-radius:8px}figcaption{margin-top:.55rem;color:#c2c9da}a{color:#e0c2ef}
+</style><main><h1>Réserve · pierre et monnaie au sol</h1><p>La monnaie occupe le sol au pied des deux alcôves. Leurs fonds, leurs rebords et le pilier sont taillés dans la pierre bleue du kit.</p>
+<nav id="slots" aria-label="Position de l’entrée"></nav><div class="mode" id="modes" aria-label="Rendu"></div>
+<figure><a id="large" href="vues/S1.webp"><img id="view" width="900" height="600" src="vues/S1.webp" alt="Réserve, entrée au sud, première position"></a><figcaption id="label"></figcaption></figure>
+<a href="verification.json">Contrôles Godot</a> · <a href="sources.json">Sources de la peinture</a></main>
+<script>
+const names={N:'Nord',E:'Est',S:'Sud',W:'Ouest'},modes={paint:'Textures',wire:'Wireframe',kit:'Murs ordinaires'};
+let slot='S1',mode='paint';const $=s=>document.querySelector(s);
+function buttons(container,entries,set){for(const [key,label] of entries){const b=document.createElement('button');b.textContent=label;b.dataset.key=key;b.onclick=()=>{set(key);update()};$(container).appendChild(b)}}
+buttons('#slots',Object.keys(names).flatMap(s=>[1,2].map(i=>[s+i,names[s]+' '+i])),v=>slot=v);buttons('#modes',Object.entries(modes),v=>mode=v);
+function update(){
+ const file=mode==='wire'?'../v5-wireframe/vues/'+slot+'.webp':'vues/'+slot+(mode==='kit'?'-kit':'')+'.webp';
+ $('#view').src=file;$('#large').href=file;const label=names[slot[0]]+' · position '+slot[1]+' · '+modes[mode];$('#label').textContent=label;$('#view').alt=label;
+ for(const b of $('#slots').children)b.setAttribute('aria-pressed',b.dataset.key===slot);
+ for(const b of $('#modes').children)b.setAttribute('aria-pressed',b.dataset.key===mode);
+}update();
+</script></html>

@@ -5,6 +5,7 @@ const VulpinActor = preload("res://scripts/game/vulpin_actor.gd")
 const Stairs = preload("res://scripts/game/stair_traversal.gd")
 const Types = preload("res://scripts/game/game_types.gd")
 const ChestOrientation = preload("res://scripts/game/chest_orientation.gd")
+const TreasureArt = preload("res://scripts/game/treasure_room_art.gd")
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 # Stair suffixes name the low, open side, not the wall behind the top step.
 const ENTRANCE_OPEN_SIDES := {
@@ -22,6 +23,7 @@ var _trap_triggers: Dictionary = {}
 var _actor: Node2D
 var _actor_at := Vector2(INF, INF)
 var chest_facings: Dictionary = {}
+var _treasure_rooms: Array[Dictionary] = []
 var _overlay: Node2D
 var _placement_cell := Vector2i(-1,-1)
 var _placement_valid := false
@@ -113,6 +115,10 @@ func rebuild() -> void:
 	var trap_floors := {}
 	var mechanisms := {}
 	var sim := session.sim
+	_treasure_rooms = sim.treasure_rooms()
+	var treasury_cells := {}
+	for room in _treasure_rooms:
+		for cell in room.cells: treasury_cells[cell] = room
 	_prune_trap_triggers()
 	for y in Types.ROWS:
 		for x in Types.COLS:
@@ -127,6 +133,9 @@ func rebuild() -> void:
 				if kind != "void": mechanisms[p] = "trap-"+kind+"-"+state+"-mechanism"
 			if tile == Types.Tile.CORE: hearts.append(Vector2(p) + Vector2(.5,.5))
 			if tile == Types.Tile.VAULT:
+				if treasury_cells.has(p):
+					chest_facings[p] = {"facing":TreasureArt.FACING[treasury_cells[p].side],"accessible":false}
+					continue
 				var orientation := ChestOrientation.select(sim, p)
 				chest_facings[p] = orientation
 				chests[Vector2(p) + Vector2(.5,.5)] = ChestOrientation.sprite_id(sim.vault_protected(p), orientation.facing)
@@ -186,13 +195,25 @@ func rebuild() -> void:
 	move_child(_floor_guide,-1)
 
 func _ordered_parts(parts: Array[Dictionary]) -> Array[Dictionary]:
+	for room in _treasure_rooms:
+		parts.append(TreasureArt.part(room, parts, self))
 	_paint_order = super._ordered_parts(parts)
 	_paint_cursor = 0
 	return _paint_order
 
 func _draw_part(part: Dictionary, layer: int) -> void:
 	var before := _world.get_child_count()
-	super._draw_part(part, layer)
+	if part.has("room"):
+		var sprite := Sprite2D.new()
+		sprite.name = "TreasureRoom"
+		sprite.texture = part.texture
+		sprite.centered = false
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		sprite.position = part.rect.position
+		_world.add_child(sprite)
+		_frame = _frame.merge(part.rect)
+	else:
+		super._draw_part(part, layer)
 	var entry: Dictionary = _definition.get("entries").get(part.id, {})
 	if entry.has("trap"):
 		for node in _world.get_children().slice(before):
@@ -214,14 +235,18 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 		node.reparent(_last_group)
 		if node is Sprite2D: node.z_index = 0
 	var is_door_arch: bool = str(part.id).begins_with("door-") and str(part.id).ends_with("-arch")
-	if main and (entry.get("decoration", {}).has("chest_state") or is_door_arch):
+	if main and (part.has("room") or entry.get("decoration", {}).has("chest_state") or is_door_arch):
 		# One ring per object, anchored above its complete prepared silhouette.
 		var caption := Marker.new()
 		caption.kind = "door" if is_door_arch else "chest"
 		caption.position = grid_to_local(Vector2(part.at)+(Vector2(.5,.5) if is_door_arch else Vector2.ZERO))
 		_last_group.add_child(caption)
 		caption.badge_anchor_y = part.rect.position.y - caption.position.y
-		_markers.append({"cell":Vector2i(Vector2(part.at).floor()),"kind":caption.kind,"node":caption})
+		var marker := {"cell":Vector2i(Vector2(part.at).floor()),"kind":caption.kind,"node":caption}
+		if part.has("room"):
+			marker.kind = "treasury"
+			marker.cells = part.room.cells
+		_markers.append(marker)
 
 func _proxy(at: Vector2, height: float, node: Node2D, elevation := 0.0) -> Dictionary:
 	return {"at":at,"min":Vector3(at.x-.14,at.y-.14,elevation),"max":Vector3(at.x+.14,at.y+.14,height+elevation),
@@ -286,6 +311,8 @@ func _update_markers() -> void:
 		var p: Vector2i = item.cell
 		var text_value := ""
 		match item.kind:
+			"treasury":
+				item.node.badge.set_amount(sim.stored_gold(item.cells), Types.store_capacity(item.cells))
 			"chest":
 				item.node.badge.set_amount(int(sim.vault_gold.get(p,0)),Types.VAULT_CAPACITY,int(sim.vault_locks.get(p,0)),sim.vault_protected(p))
 			"trap":

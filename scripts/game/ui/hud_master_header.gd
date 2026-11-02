@@ -255,7 +255,7 @@ func refresh(session: IsometricGameSession, delta: float=0) -> void:
 	health.tooltip_text="Core health · "+health.text
 	time_bar.value=100*clampf(session.raid.raid_timer/Types.RAID_DELAY,0,1) if not raid else 100
 	time_bar.modulate=Color(.65,.65,.65) if stopped or building else Color.WHITE
-	var capacity:=session.sim._vault_positions().size()*Types.VAULT_CAPACITY
+	var capacity:=session.sim._storage_capacity()
 	gold_bar.value=100*clampf(float(session.sim.gold)/maxi(capacity,1),0,1)
 	gold_bar.tooltip_text="Available gold / storage capacity"
 	_refresh_eye(session,delta)

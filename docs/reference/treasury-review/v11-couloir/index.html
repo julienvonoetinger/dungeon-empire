@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salle au trésor · Orientation du couloir</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#10141e;color:#ebe8ec;font:16px/1.45 system-ui,sans-serif}main{max-width:950px;margin:auto;padding:clamp(12px,3vw,30px)}h1{font:600 clamp(22px,4vw,34px) Georgia,serif;margin:0 0 6px}p{margin:6px 0 16px;color:#cfccd6}fieldset{display:flex;flex-wrap:wrap;gap:6px;border:0;padding:0;margin:0 0 12px}legend{font-weight:600;margin-bottom:6px}button{color:inherit;background:#212738;border:1px solid #505971;border-radius:7px;padding:8px 12px;min-height:42px;cursor:pointer;font:inherit}button[aria-pressed=true]{background:#423354;border-color:#bb92db}figure{margin:0;border:1px solid #40465b;border-radius:8px;overflow:hidden;background:#19212f}img{display:block;width:100%;height:auto}figcaption{padding:10px 14px;color:#dbd3dd}
+</style>
+<main>
+<h1>Salle au trésor · Orientation du couloir</h1>
+<p>La caméra reste fixe. Les deux coffres présentent leur serrure au visiteur. Le tas d’or occupe le fond de la salle.</p>
+<fieldset id="entrances"><legend>Emplacement de l’entrée</legend></fieldset>
+<fieldset id="versions"><legend>Comparer à cadrage identique</legend></fieldset>
+<figure><img id="scene" width="900" height="600" src="vues/N1.webp" alt="Salle au trésor avec accès nord"><figcaption id="caption" aria-live="polite"></figcaption></figure>
+</main>
+<script>
+const sides={N:"Nord",E:"Est",S:"Sud",W:"Ouest"};
+const corners={N:"en haut à droite",E:"en bas à droite",S:"en bas à gauche",W:"en haut à gauche"};
+let selected="N1",previous=false;
+function add(group,key,label,action){
+ const button=document.createElement("button");
+ button.type="button";button.dataset.key=key;button.textContent=label;button.addEventListener("click",()=>{action();render()});
+ document.getElementById(group).append(button);
+}
+for(const [key,name] of Object.entries(sides))for(const slot of [1,2]){
+ const id=key+slot;add("entrances",id,name+" "+slot,()=>{selected=id});
+}
+add("versions","current","Orienté vers le couloir",()=>{previous=false});
+add("versions","previous","Avant · direction fixe",()=>{previous=true});
+function render(){
+ const side=selected[0],label=sides[side]+" "+selected[1];
+ for(const button of document.querySelectorAll("button"))button.setAttribute("aria-pressed",String(button.dataset.key===selected||button.dataset.key===(previous?"previous":"current")));
+ const image=document.getElementById("scene");
+ image.src=(previous?"../v10-style-donjon/":"")+"vues/"+selected+".webp";
+ image.alt="Salle au trésor, entrée "+label+(previous?", ancien sprite.":", trésor orienté vers le couloir.");
+ document.getElementById("caption").textContent=label+" · Le couloir arrive "+corners[side]+". "+(previous?"Le dessin présente la même face quelle que soit l’entrée.":side==="N"||side==="W"?"Les charnières sont côté caméra. Les serrures font face au couloir.":"Les serrures sont visibles depuis la caméra, du côté du couloir.");
+}
+render();
+</script>
+</html>

@@ -1,0 +1,12 @@
+{
+  "tool": "Built-in ImageGen",
+  "editReference": "../v10-style-donjon/source/treasure-master.png",
+  "painting": "source/coin-bank.png",
+  "native": "exec-e713426f-c5bb-43f1-addb-e22a10f93f36.png",
+  "prompt": "Use case: precise-object-edit, transparent mobile game art. From this approved treasury sprite extract the SINGLE CENTRAL PILE OF GOLD COINS that is behind the chests, reconstructing all the areas currently hidden by the two chests and bags. Output just ONE hefty, broad, three-dimensional mound of gold coins, all sides fully visible and complete, on TRUE transparent alpha. Absolutely no chests, bags, walls, floor, tiles, gems or props. The mound's base has an approximately circular footprint in the world, seen at the reference fixed 2:1 isometric angle, with a smooth irregular domed crest; it should be moderately high, organic, and spill slightly at its foot. Image is seen from a 30° elevation orthographic camera, horizontal coins have elliptical tops. Fine irregularities are okay but no long directional arms or floor-shaped footprint. Keep EXACTLY the plain honey-gold discs, sizes relative to the pile, rich cool umber occlusion under individual coins, crisp painted bevels, warm mids and selective upper-left highlights of the source. Around 18 to 26 coins could lie side by side across the mound diameter. Use a wide perspective roughly 2 units wide to 1.12 units high including pile relief. Not a thin flat scatter, yet not a steep cone or symmetrical geometric pyramid. No vintage stamped markings. No text. Subtle local contact only, transparent margins all around. This prop will be baked with the original painted objects shown in the reference and must look like it came from the same drawing.",
+  "otherSources": [
+    "tools/chest_direction_sources.json",
+    "docs/reference/treasury-review/v8-coffre-et-cuir/source/sac-lie.png",
+    "docs/reference/treasury-review/v8-coffre-et-cuir/source/sac-ouvert.png"
+  ]
+}

@@ -1,5 +1,5 @@
 extends RefCounted
-## Presentation only. No saved facing or influence on raid movement.
+## World-grid facing shared by chest sprites and raid perception.
 const Types = preload("res://scripts/game/game_types.gd")
 const DIRECTIONS := [Vector2i.DOWN, Vector2i.RIGHT, Vector2i.UP, Vector2i.LEFT]
 const NAMES := ["south", "east", "north", "west"]
@@ -24,6 +24,16 @@ static func select(sim: DungeonSim, at: Vector2i) -> Dictionary:
 			best = score
 			facing = NAMES[i]
 	return {"facing":facing, "accessible":best >= 0}
+
+static func is_chest_front(sim: DungeonSim, cell: Vector2i) -> bool:
+	for i in DIRECTIONS.size():
+		var chest: Vector2i = cell - DIRECTIONS[i]
+		if not sim._inside(chest) or sim.grid[chest.y][chest.x] != Types.Tile.VAULT:
+			continue
+		var orientation := select(sim, chest)
+		if orientation.accessible and orientation.facing == NAMES[i]:
+			return true
+	return false
 
 static func sprite_id(protected: bool, facing: String) -> String:
 	var base := "prop-chest" if protected else "prop-chest-open"

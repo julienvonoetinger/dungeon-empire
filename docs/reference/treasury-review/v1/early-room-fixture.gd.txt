@@ -1,0 +1,110 @@
+extends SceneTree
+## Builds the secret room through normal paid actions. No player saves.
+const Session = preload("res://scripts/game/game_session.gd")
+const Game = preload("res://scenes/game/DungeonGame.tscn")
+const Save = preload("res://scripts/game/gameplay_save.gd")
+const Probes = preload("res://scripts/testing/game_probes.gd")
+const Tile = GameTypes.Tile
+const Tool = GameTypes.Tool
+const ORIGIN := Vector2i(3, 4)
+const GATE := Vector2i(4, 6)
+const SQUARE := [ORIGIN, Vector2i(4, 4), Vector2i(3, 5), Vector2i(4, 5)]
+const REVIEW := "res://docs/reference/treasury-review/v1/"
+var checks := 0
+var failures: Array[String] = []
+var native := false
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func check(ok: bool, message: String) -> void:
+	checks += 1
+	if not ok:
+		failures.append(message)
+		print("FAIL: ", message)
+
+func build(game, tool: int, cell: Vector2i) -> void:
+	game.selected = cell
+	game.confirm_action(tool)
+
+func capture(game, label: String) -> void:
+	if not native: return
+	var world: SubViewport = game.get_node("PlayArea/World")
+	var view = world.get_node("Dungeon")
+	var camera: Camera2D = world.get_node("Camera2D")
+	game.get_node("PlayArea").stretch = false
+	world.size = Vector2i(640, 440)
+	camera.zoom = Vector2.ONE * .94
+	camera.position = view.grid_to_local(Vector2(4, 5.3)) - Vector2(0, 16)
+	camera.force_update_scroll()
+	await process_frame
+	await RenderingServer.frame_post_draw
+	check(world.get_texture().get_image().save_png(REVIEW + label + ".png") == OK, "capture " + label)
+
+func run() -> void:
+	native = "--capture" in OS.get_cmdline_user_args()
+	var game = Game.instantiate() if native else Session.new()
+	game.persistence_enabled = false
+	root.add_child(game)
+	game.set_process(false)
+	await process_frame
+	game.restart(true)
+	var sim = game.sim
+	check(sim.has_method("treasure_rooms"), "simulation recognises secret rooms")
+	if not failures.is_empty():
+		game.free()
+		quit(1)
+		return
+	for cell in [Vector2i(4,7), GATE, Vector2i(4,5), Vector2i(3,5), Vector2i(4,4), ORIGIN]:
+		build(game, Tool.DIG, cell)
+	for index in 3: build(game, Tool.STORE, SQUARE[index])
+	check(sim.treasure_rooms().is_empty(), "three chests are ordinary")
+	await capture(game, "three-chests")
+	build(game, Tool.STORE, SQUARE[3])
+	check(sim.treasure_rooms().get(ORIGIN) == GATE, "four chests discover the room")
+	await capture(game, "treasury")
+	build(game, Tool.BUILD_DOOR, GATE)
+	check(Probes.snapshot(game)["door:4:6"].get("reinforced") == true, "the threshold gate alone is reinforced")
+	check(not Probes.snapshot(game)["door:5:8"].get("reinforced", true), "unrelated doors remain ordinary")
+	await capture(game, "strongroom")
+	game.undo_build()
+	check(sim.treasure_rooms().get(ORIGIN) == GATE and sim.grid[GATE.y][GATE.x] == Tile.FLOOR, "undoing the door keeps the treasury")
+	build(game, Tool.DIG, SQUARE[3])
+	build(game, Tool.BUILD_DOOR, GATE)
+	check(not sim.is_strongroom_door(GATE), "gate built first has no bonus yet")
+	build(game, Tool.STORE, SQUARE[3])
+	check(sim.is_strongroom_door(GATE), "building the fourth chest last reinforces the existing gate")
+	build(game, Tool.DIG, Vector2i(2, 4))
+	check(sim.treasure_rooms().is_empty() and not sim.is_strongroom_door(GATE), "a second opening breaks the enclosure")
+	game.undo_build()
+	check(sim.is_strongroom_door(GATE), "undo restores the enclosure")
+	check(Save.apply(Save.capture(sim, game.raid, game.progression), sim, game.raid, game.progression) and sim.is_strongroom_door(GATE), "room survives saving and loading")
+	test_resistance(game)
+	game.free()
+	print("Secret treasury: ", checks, " checks, ", failures.size(), " failures")
+	quit(0 if failures.is_empty() else 1)
+
+func test_resistance(game) -> void:
+	var sim = game.sim
+	var raid = game.raid
+	game.start_raid()
+	raid.hero.door_damage = 34
+	raid._apply_door_damage(GATE)
+	check(sim.door_hp[GATE] == 43, "fortified door absorbs half a hammer blow")
+	raid._apply_door_damage(Vector2i(5,8))
+	check(sim.door_hp[Vector2i(5,8)] == 26, "ordinary door receives the full blow")
+	# Force a roll between 25% and 50% so the same pick opens only the ordinary lock.
+	var pick_seed := 0
+	for candidate in range(1, 200):
+		seed(candidate)
+		var roll := randf()
+		if roll > .25 and roll < .50:
+			pick_seed = candidate
+			break
+	raid.hero.lockpick_success_chance = .50
+	seed(pick_seed)
+	raid._resolve_vulpin_lockpick(GATE)
+	check(sim._door_intact(GATE), "strongroom lock resists the same Vulpin pick")
+	seed(pick_seed)
+	raid._resolve_vulpin_lockpick(Vector2i(5,8))
+	check(not sim._door_intact(Vector2i(5,8)), "ordinary lock opens at the same roll")

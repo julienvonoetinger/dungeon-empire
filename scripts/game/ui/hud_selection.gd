@@ -139,7 +139,10 @@ func refresh() -> void:
 		title.text = names[tile]
 		glyph.texture = UI.icon("chest" if tile == Types.Tile.VAULT else "gem" if tile == Types.Tile.CORE else "door" if session.sim._is_door_tile(tile) else "pick")
 		detail.text = "Tile %d, %d" % [p.x + 1, p.y + 1]
-		if tile == Types.Tile.VAULT: detail.text = "%d / %d gold" % [session.sim.vault_gold.get(p, 0), Types.VAULT_CAPACITY]
+		if tile == Types.Tile.VAULT:
+			var store := session.sim.storage_cells(p)
+			if store.size() > 1: title.text = "Treasure room"
+			detail.text = "%d / %d gold" % [session.sim.stored_gold(store), Types.store_capacity(store)]
 		elif session.sim._is_door_tile(tile):
 			var hp:=int(session.sim.door_hp.get(p,Types.DOOR_MAX_HP))
 			detail.text="%d / %d HP" % [hp,Types.DOOR_MAX_HP] if hp>0 else "Unlocked" if session.sim.door_opened.get(p,false) else "Broken · Needs repair"
@@ -175,7 +178,7 @@ func _confirm() -> void:
 
 func _open_transfer() -> void:
 	_transfer_open = true
-	_amount = Types.VAULT_CAPACITY
+	_amount = session.sim.stored_gold(session.sim.storage_cells(session.selected))
 	refresh()
 
 func _close() -> void:
@@ -189,16 +192,21 @@ func _close() -> void:
 
 func _refresh_transfer() -> void:
 	_destinations.clear()
+	var source := session.sim.storage_cells(session.selected)
 	for cell in session.sim._vault_positions():
-		if cell != session.selected: _destinations.append(cell)
+		if source.has(cell): continue
+		var store := session.sim.storage_cells(cell)
+		if store.front() == cell: _destinations.append(cell)
 	if not _destinations.has(_destination):
 		_destination = _destinations[0] if not _destinations.is_empty() else Vector2i(-1, -1)
 	_limit = 0
 	if _destination.x >= 0:
-		var source_gold := int(session.sim.vault_gold.get(session.selected, 0))
-		var target_gold := int(session.sim.vault_gold.get(_destination, 0))
-		_limit = maxi(0, mini(source_gold, Types.VAULT_CAPACITY - target_gold))
-		target_label.text = "To chest %d · %d / %d gold\nTile %d, %d" % [_destinations.find(_destination) + 1, target_gold, Types.VAULT_CAPACITY, _destination.x + 1, _destination.y + 1]
+		var target := session.sim.storage_cells(_destination)
+		var target_gold := session.sim.stored_gold(target)
+		var capacity := Types.store_capacity(target)
+		_limit = maxi(0, mini(session.sim.stored_gold(source), capacity - target_gold))
+		var name_label := "treasure room" if target.size() > 1 else "chest %d" % (_destinations.find(_destination) + 1)
+		target_label.text = "To %s · %d / %d gold\nTile %d, %d" % [name_label, target_gold, capacity, _destination.x + 1, _destination.y + 1]
 	else: target_label.text = "Build another chest to transfer gold."
 	_amount = clampi(_amount, 0, _limit)
 	amount_label.text = "%d gold" % _amount
@@ -214,7 +222,7 @@ func _refresh_transfer() -> void:
 func _cycle(direction: int) -> void:
 	if _destinations.is_empty(): return
 	_destination = _destinations[posmod(_destinations.find(_destination) + direction, _destinations.size())]
-	_amount = Types.VAULT_CAPACITY
+	_amount = session.sim.stored_gold(session.sim.storage_cells(session.selected))
 	_refresh_transfer()
 
 func _set_amount(value: int) -> void:

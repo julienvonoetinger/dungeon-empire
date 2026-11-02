@@ -7,6 +7,7 @@ var last_result: Dictionary = {}
 var _completed_raid_id := -1
 
 const Tile := GameTypes.Tile
+const ChestOrientation := preload("res://scripts/game/chest_orientation.gd")
 const COLS := GameTypes.COLS
 const ROWS := GameTypes.ROWS
 const RAID_DELAY := GameTypes.RAID_DELAY
@@ -40,6 +41,7 @@ var mage_pressure := 0
 var solid_core: bool = false
 const Roster := preload("res://scripts/game/hero_roster.gd")
 var roster := Roster.new()
+var _raid_rng := RandomNumberGenerator.new()
 
 func reset_for_new_map() -> void:
 	roster.reset()
@@ -60,9 +62,8 @@ func _start_raid() -> void:
 	if entrance.x < 0:
 		return
 
-	var rng := RandomNumberGenerator.new()
-	rng.seed = randi()
-	var profile: Dictionary = roster.select_return(mage_pressure, bool(ProjectSettings.get_setting("testing/vulpin_only", false)), rng)
+	_raid_rng.seed = randi()
+	var profile: Dictionary = roster.select_return(mage_pressure, bool(ProjectSettings.get_setting("testing/vulpin_only", false)), _raid_rng)
 	if profile.is_empty():
 		profile = _new_hero_profile()
 	if profile.kind == "mage":
@@ -98,6 +99,10 @@ func _start_raid() -> void:
 		"morale_moves": 0,
 		"morale_progress": false,
 		"triggered_traps": {},
+		"trap_detection_rolls": {},
+		"door_force_rolls": {},
+		"trap_jump_rolls": {},
+		"arcane_door_rolls": {},
 		"portaling": false,
 		"void_absorbing": false,
 		"portal_t": 0.0,
@@ -105,6 +110,7 @@ func _start_raid() -> void:
 		"facing": sim._entrance_mouth(entrance)
 	}
 	hero.merge(profile.stats.duplicate(true))
+	hero.merge(Roster.aptitudes_at_level(profile, hero.level), true)
 	raid_active = true
 	elapsed_seconds = 0.0
 	raid_timer = 0.0
@@ -139,7 +145,7 @@ func _new_hero_profile() -> Dictionary:
 		"objective": template.objective,
 		"door_damage": maxi(4, int(template.door_damage) + randi_range(-3, 3)),
 		"flee_ratio": clampf(_jitter(float(template.flee_ratio) + float(mods.flee), 0.05), 0.05, 0.8),
-		"patience": maxi(25, int(template.patience) + int(mods.patience) + randi_range(-10, 10))})
+		"patience": maxi(25, int(template.patience) + int(mods.patience) + randi_range(-10, 10))}, _raid_rng)
 
 
 func _roll_trait() -> String:
@@ -309,8 +315,7 @@ func _update_hero(delta: float) -> void:
 			hero.erase("door_striking")
 			hero.erase("door_strike_t")
 			hero.erase("door_strike_pos")
-			_apply_door_damage(door)
-			if sim._door_intact(door):
+			if _try_force_door(door) and sim._door_intact(door):
 				_attack_door(door)
 		return
 
@@ -366,7 +371,6 @@ func _update_hero(delta: float) -> void:
 	hero["turns"] = int(hero["turns"]) + 1
 
 	_remember_nearby(hero)
-	_update_flee_state()
 
 	var pos: Vector2i = hero["pos"]
 	if not bool(hero["fleeing"]) and int(sim.grid[pos.y][pos.x]) == Tile.VAULT and String(hero.get("kind", "")) == "thief":
@@ -446,8 +450,11 @@ func _try_trap_jump(from: Vector2i, trap: Vector2i) -> bool:
 		return false
 	if solid_core and int(sim.grid[landing.y][landing.x]) == Tile.CORE:
 		return false
-	if sim._is_trap_tile(int(sim.grid[landing.y][landing.x])) and int(sim.trap_charges.get(landing, 0)) > 0 and not hero.get("triggered_traps", {}).has(landing):
+	# A second, unreported trap looks like floor. Resolve it on landing.
+	if sim._is_trap_tile(int(hero["known"].get(landing, Tile.FLOOR))) and int(sim.trap_charges.get(landing, 0)) > 0 and not hero.get("triggered_traps", {}).has(landing):
 		return false
+	if not _passes_stat_check(hero.agility, hero.trap_jump_rolls, trap):
+		landing = trap
 	hero["facing"] = trap - from
 	hero["visited"][landing] = int(hero["visited"].get(landing, 0)) + 1
 	hero["pos"] = landing
@@ -492,18 +499,6 @@ func _recover_from_core() -> bool:
 	return false
 
 
-func _update_flee_state() -> void:
-	if bool(hero["fleeing"]):
-		return
-	var ratio := float(hero["hp"]) / float(hero["max_hp"])
-	if ratio <= float(hero["flee_ratio"]):
-		hero["fleeing"] = true
-		sim.message = "%s is badly wounded and looks for the exit." % hero["display"]
-	elif float(hero.get("morale", 100.0)) <= 20.0:
-		hero["fleeing"] = true
-		sim.message = "%s loses heart and looks for the exit." % hero["display"]
-
-
 func _morale_event(event: String, value: float) -> void:
 	var trait_name := String(hero.get("trait", ""))
 	if value < 0.0:
@@ -521,9 +516,8 @@ func _morale_event(event: String, value: float) -> void:
 	elif event == "theft" and trait_name == "Greedy":
 		value = 20.0
 	hero["morale"] = clampf(float(hero.get("morale", 100.0)) + value, 0.0, 100.0)
-	if float(hero["morale"]) <= 20.0 and not bool(hero.get("fleeing", false)):
-		hero["fleeing"] = true
-		sim.message = "%s loses heart and looks for the exit." % hero.get("display", "Hero")
+	if float(hero["morale"]) == 0.0 and int(hero["hp"]) > 0 and not bool(hero.get("fleeing", false)):
+		_begin_retreat("%s loses heart and looks for the exit." % hero.get("display", "Hero"))
 
 
 func _morale_progress() -> void:
@@ -610,6 +604,7 @@ func _trigger_trap(p: Vector2i, tile: int) -> void:
 	var charges := int(sim.trap_charges.get(p, sim._trap_max_charges(tile)))
 	if charges <= 0:
 		return  # Spent defense: it stays inert until repaired.
+	hero.get_or_add("known", {})[p] = tile
 	sim.trap_charges[p] = charges - 1
 	if not hero.has("triggered_traps"):
 		hero["triggered_traps"] = {}
@@ -674,7 +669,8 @@ func _attack_door(p: Vector2i) -> void:
 	if String(hero.get("kind", "")) == "thief":
 		_start_vulpin_lockpick(p)
 		return
-	_apply_door_damage(p)
+	if hero.get("kind") == "mage":
+		_try_force_door(p)
 
 func _vulpin_lockpick_limit() -> int:
 	var level := maxi(1, int(hero.get("level", 1)))
@@ -696,7 +692,7 @@ func _start_vulpin_lockpick(p: Vector2i) -> void:
 
 func _attack_magic_door(p: Vector2i) -> void:
 	if String(hero.get("kind", "")) == "mage":
-		if bool(hero.get("arcane_opening", false)):
+		if bool(hero.get("arcane_opening", false)) or hero.get("avoided_doors", {}).has(p):
 			return
 		hero["arcane_opening"] = true
 		hero["arcane_open_t"] = MAGE_ARCANE_OPEN_HOLD
@@ -720,6 +716,10 @@ func _resolve_mage_arcane_open(p: Vector2i) -> void:
 			sim.message = "%s dissipates the magic vault seal." % hero["display"]
 		return
 	if p.x < 0 or not sim._door_intact(p) or int(sim.grid[p.y][p.x]) != Tile.MAGIC_DOOR:
+		return
+	if not _passes_stat_check(hero.intelligence, hero.arcane_door_rolls, p):
+		hero.get_or_add("avoided_doors", {})[p] = true
+		sim.message = "%s cannot break the seal and looks for another route." % hero.display
 		return
 	sim.door_hp[p] = 0
 	sim.door_opened[p] = true
@@ -777,6 +777,17 @@ func _mark_vulpin_lockpick_failure(p: Vector2i, vault: bool) -> void:
 	sim.message = "%s abandons the stubborn lock and looks for another route." % hero["display"]
 
 
+func _try_force_door(p: Vector2i) -> bool:
+	if not sim._door_intact(p) or int(sim.grid[p.y][p.x]) != Tile.DOOR:
+		return false
+	if not _passes_stat_check(hero.strength, hero.door_force_rolls, p):
+		hero.get_or_add("avoided_doors", {})[p] = true
+		sim.message = "%s cannot force the door and looks for another route." % hero.display
+		return false
+	_apply_door_damage(p)
+	return true
+
+
 func _apply_door_damage(p: Vector2i) -> void:
 	if p.x < 0 or int(sim.door_hp.get(p, DOOR_MAX_HP)) <= 0:
 		return
@@ -811,9 +822,8 @@ func _try_rob_vault(p: Vector2i) -> void:
 			else:
 				_start_vulpin_lockpick(p)
 		return
-	var storage := sim._storage_state()
-	var vaults: Dictionary = storage["vaults"]
-	var available := int(vaults.get(p, 0))
+	sim._storage_state()
+	var available := sim.stored_gold(sim.storage_cells(p))
 	if available <= 0:
 		hero["ignored"][p] = true
 		sim.message = "%s finds nothing but an empty storage." % hero["display"]
@@ -840,7 +850,7 @@ func _try_rob_vault(p: Vector2i) -> void:
 
 
 func _start_vulpin_exit(pending_gold: int = 0, vault: Vector2i = Vector2i(-1, -1)) -> void:
-	if bool(hero.get("collecting_gold", false)) or pending_gold <= 0 or int(sim._storage_state().vaults.get(vault, 0)) <= 0:
+	if bool(hero.get("collecting_gold", false)) or pending_gold <= 0 or sim.stored_gold(sim.storage_cells(vault)) <= 0:
 		return
 	hero["collecting_gold"] = true
 	hero["collect_t"] = VULPIN_COLLECT_HOLD
@@ -942,7 +952,27 @@ func _remember_nearby(h: Dictionary) -> void:
 				# Rolled once per cell: two heroes never price a route alike.
 				if not h["known"].has(q):
 					h["bias"][q] = randf_range(0.0, ROUTE_BIAS)
-				h["known"][q] = sim.grid[q.y][q.x]
+				h["known"][q] = _perceived_tile(h, q)
+
+
+func _perceived_tile(h: Dictionary, cell: Vector2i) -> int:
+	var tile: int = sim.grid[cell.y][cell.x]
+	if not sim._is_trap_tile(tile) or h.known.get(cell) == tile:
+		return tile
+	if h.kind != "thief":
+		return Tile.FLOOR
+	var sides := 100
+	if h.trait == "Greedy" and not h.trap_detection_rolls.has(cell) and ChestOrientation.is_chest_front(sim, cell):
+		# A d200 halves the chance exactly, including odd Perception scores.
+		sides = 200
+	return tile if _passes_stat_check(h.perception, h.trap_detection_rolls, cell, sides) else Tile.FLOOR
+
+
+func _passes_stat_check(score: int, rolls: Dictionary, cell: Vector2i, sides: int = 100) -> bool:
+	# One roll for this action on this tile for the whole raid.
+	if not rolls.has(cell):
+		rolls[cell] = _raid_rng.randi_range(1, sides)
+	return rolls[cell] <= score
 
 
 func _remember_morale_nearby(h: Dictionary) -> void:

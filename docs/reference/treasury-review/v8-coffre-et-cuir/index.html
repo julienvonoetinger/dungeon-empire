@@ -1,0 +1,20 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réserve · le coffre du tribut</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111621;color:#e0e3eb;font:16px/1.46 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:22px clamp(12px,3vw,32px) 44px}h1,h2{color:#f2e4cc;font-family:Georgia,serif;margin:.2em 0}p{max-width:75ch}button,a{font:inherit}button{cursor:pointer;border:1px solid #4b566b;min-height:44px;padding:8px 11px;background:#202938;color:#e2e6f2;border-radius:6px}button[aria-pressed=true]{background:#493551;border-color:#a889b4}nav,.modes{display:flex;flex-wrap:wrap;gap:6px;margin:.7em 0}a{color:#d9bce7}a:focus-visible,button:focus-visible{outline:2px solid #e9c57e}figure{margin:12px 0}.pic{background:#111725;border:1px solid #384158;border-radius:7px;overflow:hidden;display:grid;place-items:center}.pic a{display:block;width:100%}.pic img{width:100%;display:block;height:auto}.mini .pic a{max-width:340px}figcaption,.note{font-size:.94rem;color:#bdc9d9;margin:.45rem 0}.detail{width:min(100%,710px);height:auto;display:block}
+</style>
+<main><h1>Le coffre du tribut</h1><p>Le coffre entrouvert se niche dans la grande réserve, la serrure tournée vers la salle. Le motif de la monnaie du HUD et les faces dorées du coffre servent de référence aux pièces sur les dalles et sous les voûtes.</p>
+<nav id="slots" aria-label="Position de l’entrée"></nav><div class="modes" id="mode" aria-label="Rendu"></div><button id="size" type="button" aria-pressed="false">Voir en petit format</button>
+<figure><div class="pic"><a id="large" href="vues/S1.webp"><img id="view" src="vues/S1.webp" width="900" height="600" alt="Réserve avec coffre entrouvert"></a></div><figcaption id="caption"></figcaption></figure>
+<details><summary>Voir les détails de la grande alcôve</summary><img class="detail" src="detail.webp" alt="Coffre du jeu, pièces dorées et deux sacs cousus, entrée Sud 1."></details>
+<p class="note">Prévisualisation Godot. <a href="sources.json">Peintures et références</a> · <a href="reserve.json">Visibilité du coffre</a> · <a href="verification.json">Contrôles de géométrie</a></p></main>
+<script>
+const names={N:'Nord',E:'Est',S:'Sud',W:'Ouest'},modes={paint:'Coffre et sacs',old:'Version précédente',wire:'Wireframe'};let slot='S1',mode='paint';
+const $=s=>document.querySelector(s);
+function buttons(parent,items,set){for(const [key,text] of items){const btn=document.createElement('button');btn.type='button';btn.dataset.key=key;btn.textContent=text;btn.onclick=()=>{set(key);show()};$(parent).appendChild(btn)}}
+buttons('#slots',Object.keys(names).flatMap(s=>[1,2].map(i=>[s+i,names[s]+' '+i])),v=>slot=v);buttons('#mode',Object.entries(modes),v=>mode=v);
+function show(){const url=(mode==='wire'?'../v5-wireframe/':mode==='old'?'../v7-reserve-en-relief/':'')+'vues/'+slot+'.webp';
+$('#view').src=url;$('#large').href=url;const label=names[slot[0]]+' · position '+slot[1]+' · '+modes[mode];$('#view').alt=label;$('#caption').textContent=label;
+for(const b of $('#slots').children)b.setAttribute('aria-pressed',b.dataset.key===slot);for(const b of $('#mode').children)b.setAttribute('aria-pressed',b.dataset.key===mode);}
+$('#size').onclick=()=>{const mini=$('main').classList.toggle('mini');$('#size').setAttribute('aria-pressed',mini);$('#size').textContent=mini?'Agrandir':'Voir en petit format'};show();
+</script></html>

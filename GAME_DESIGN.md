@@ -5,6 +5,11 @@
 Les **Oculins**, un peuple de monstres cyclopes, ont invoqué le maître du donjon
 dans leur monde. Le joueur incarne ce maître. Les Oculins sont ses serviteurs.
 
+La [fiche de gameplay des races et des raids](docs/superpowers/specs/2026-11-02-races-et-raids-design.md)
+présente leurs rôles et distingue les règles actuelles des comportements proposés.
+Les [règles d'attraction proposées](docs/superpowers/specs/2026-11-02-races-et-raids-design.md#attraction-et-choix-du-chemin)
+expliquent comment un visiteur départage deux cibles et quand un piège ou un cadavre lui fait préférer un détour.
+
 ## 0. État jouable — première boucle isométrique du 25 octobre 2026
 
 `scenes/game/DungeonGame.tscn` ajoute une première boucle jouable indépendante
@@ -55,6 +60,21 @@ de gamme sont refusées. Supprimer du stockage peut laisser le surplus en butin.
 Ramasser ne dépose que ce qui tient dans les coffres. Absorber un corps donne
 2 PV au cœur (maximum 100) ; le bouton explicite confirme l'absorption.
 
+### Salle au trésor secrète
+
+Quatre **coffres simples sans serrure** disposés en carré de 2×2 forment une
+salle au trésor si son périmètre a une seule ouverture sur le donjon. Une
+porte peut occuper cette ouverture. Un coffre mécanique ou magique, même
+crocheté pendant un raid, empêche la transformation.
+
+La réserve présente un seul amas peint orienté vers l’entrée. Les quatre cases
+partagent une capacité de **900 pièces**, soit un bonus de **300 places (+50 %)**
+par rapport aux quatre coffres séparés. Un seul indicateur affiche le solde
+commun pour les transferts et le pillage. Ouvrir un second passage, enlever un
+coffre ou lui poser un verrou défait la salle. Chaque coffre restant retrouve
+sa capacité de 150 pièces. L’or est réparti dans les coffres disponibles du
+donjon. Le surplus tombe sur la case modifiée, où le joueur peut le récupérer.
+
 Le **donjon d'essai** est un démarrage facultatif, confirmé : cœur en (8,8), salle
 3×3, couloir vers l'entrée (3,8), trois coffres, porte (5,8), pointes (6,8).
 Il commence avec **245 or**, après le prix de la porte et des pointes ; ses sols
@@ -77,12 +97,44 @@ Quatre classes simulées, représentées par quatre couleurs provisoires :
   Une frappe réussie retire 42 PV du cœur, puis il repart.
 - **Ranger** : explore avec une perception plus large ; évite les portes intactes
   et peut sauter un piège connu si la réception est libre. Contact du cœur : 24 PV.
-- **Mage** : recherche le cœur, ouvre les protections magiques, ne vole pas dans
+- **Mage** : recherche le cœur, tente de dissiper les portes magiques et ouvre les coffres scellés, ne vole pas dans
   les coffres. Contact du cœur : 24 PV, puis départ.
 
-Conserver les personnalités, variations individuelles, connaissance partielle et
-morale du prototype. Perception de rayon 2 (3 Ranger), non occultée par les murs ;
+Chaque héros entre dans le raid avec **100 points de moral**, y compris un
+vétéran. La jauge reste cachée au joueur. Elle varie au fil des événements,
+entre 0 et 100, sans régénération passive. **À zéro, un héros vivant abandonne
+son objectif et rejoint l'escalier.** Les blessures réduisent son moral en
+proportion des PV perdus. Un héros encore motivé peut poursuivre à très bas PV.
+Une mission accomplie ou l'épuisement des pistes du Vulpin peuvent aussi
+conduire à un départ volontaire. Les [événements et tempéraments](docs/superpowers/specs/2026-11-02-races-et-raids-design.md#moral-des-visiteurs)
+détaillent ce qui fait varier la jauge.
+
+Perception de rayon 2 (3 Ranger), non occultée par les murs ;
 navigation cardinale en coordonnées logiques, pas dans les pixels isométriques.
+Chaque héros reçoit quatre caractéristiques individuelles, **Force**, **Perception**, **Agilité** et **Intelligence**,
+conservées d'un raid à l'autre. Chacune va de 0 à 100 et donne directement le
+pourcentage de base d'une action que le héros sait tenter. Chaque niveau
+gagné ajoute **1 point à chacune des quatre caractéristiques**, jusqu'à 100.
+Le bonus s'applique dès le bilan du raid, pour chaque niveau franchi. Un Lithide de
+Force 80 a 80 % de chances de pouvoir enfoncer une porte normale donnée.
+En cas de réussite, ses frappes retirent les PV habituels de la porte.
+L'Agilité donne au Batrafian sa chance de franchir un piège connu. Un saut trop
+court le fait retomber sur le piège, qui se déclenche à l'atterrissage.
+L'Intelligence donne au Mycean sa chance de dissiper une porte magique après
+1,5 seconde d'incantation. Si le sceau résiste, il cherche un autre passage.
+Chaque piège ou porte donne un seul jet pour cette aptitude et ce raid.
+Les [plages de recrutement par race](docs/superpowers/specs/2026-11-02-races-et-raids-design.md#caractéristiques-individuelles) servent au premier équilibrage.
+
+Un piège inconnu ressemble à du sol dans la carte mentale des visiteurs. Seul le
+Vulpin peut le repérer à distance. Il fait un seul jet de **Perception** par
+piège inconnu et par raid dès qu'il est à portée de deux cases. Un Vulpin
+**cupide** a moitié moins de chances de repérer un piège placé sur la case
+directement devant le coffre, du côté de son ouverture. Cette interaction est
+à découvrir par le joueur. En cas d'échec,
+la case reste pour lui du sol. Tout héros
+qui le déclenche découvre sa position. S'il ressort vivant, par l'escalier ou
+par le néant, il transmet ses découvertes au royaume pour les raids suivants.
+Sa mort ne transmet rien. Réarmer le même piège conserve ce renseignement.
 Déplacement normal de 0,48 seconde ; les durées historiques d'interaction restent
 actives malgré l'absence des anciennes animations 3D. Le temps de déplacement
 visuel est séparé du délai de décision et des immobilisations : une interaction

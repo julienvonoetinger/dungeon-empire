@@ -60,6 +60,7 @@ func run() -> void:
 	game._visual_state=game._structure_hash()
 	game.raid.hero={"display":"Review","lockpick_success_chance":1.0}
 	game.raid._resolve_vulpin_lockpick(cells[0])
+	game.raid.hero = {"kind":"mage","display":"Review","intelligence":100,"arcane_door_rolls":{}}
 	game.raid._resolve_mage_arcane_open(cells[1])
 	game.raid.hero.clear(); game.raid.raid_active=true; game.paused=false
 	game._process(0) # Actual live structural refresh, not a manual view rebuild.

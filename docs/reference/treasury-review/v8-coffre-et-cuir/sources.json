@@ -1,0 +1,25 @@
+{
+  "tool": "Built-in ImageGen",
+  "references": [
+    "docs/reference/treasure-chest-review/v4-directions/sprites/prop-chest-open.png",
+    "assets/ui/master/dark-icons/coins.png",
+    "docs/reference/treasury-review/v7-reserve-en-relief/vues/S1.webp"
+  ],
+  "assets": [
+    {
+      "file": "source/sac-lie.png",
+      "native": "exec-80e55214-6c31-4e68-a20d-a7e0f53d6957.png",
+      "prompt": "Use case: stylized-concept. For the actual isometric mobile game Dungeon Empire, author ONE high quality isolated sprite/material on TRUE transparent alpha, crisp edge and transparent margins on all four sides. Image 1 is the approved in-game chest: MATCH its clean painterly charcoal edge, graphic bevels, dark violet-blue ambient, cool upper-left highlights, simple readable masses at tiny native sprite sizes. Image 2 is the exact UI currency icon: its lozenge in a polygonal gold rim, strong brass/ochre contrast, sparse light glints, dark purple underside are canonical. Image 3 is only an old composition and fixed camera reference, DO NOT imitate its mottled photoreal coins or clay-looking bags. No text, HUD, logo, frame, prop base or torch. Paint ONE soft CLOSED money bag in a three-quarter isometric camera with 30 degree elevation (ground projects 2:1), ground-supported. Asymmetric squat slouching pear silhouette with flat weighted bottom, gathered neck, visibly cinched dark plum leather cord, two dangling ends with small bluish iron tips. Upper mouth folds collapse sideways. HAND-PAINTED rich plum-brown chestnut leather, clear broad creases, a short seam with 3 chunky stitches, a single small oxidized gunmetal clasp with muted violet inset. Soft bag shape, not a pot. Stylized hard-edged highlights and dark ink contour like image 1. No visible coins, no floor, no items around bag. Hero asset rendered legibly at just 40-55 pixels. Soft local contact shade only."
+    },
+    {
+      "file": "source/sac-ouvert.png",
+      "native": "exec-82341471-e683-4865-b82f-24fbacdb7adb.png",
+      "prompt": "Use case: stylized-concept. For the actual isometric mobile game Dungeon Empire, author ONE high quality isolated sprite/material on TRUE transparent alpha, crisp edge and transparent margins on all four sides. Image 1 is the approved in-game chest: MATCH its clean painterly charcoal edge, graphic bevels, dark violet-blue ambient, cool upper-left highlights, simple readable masses at tiny native sprite sizes. Image 2 is the exact UI currency icon: its lozenge in a polygonal gold rim, strong brass/ochre contrast, sparse light glints, dark purple underside are canonical. Image 3 is only an old composition and fixed camera reference, DO NOT imitate its mottled photoreal coins or clay-looking bags. No text, HUD, logo, frame, prop base or torch. Paint ONE open, slightly collapsed money pouch. Camera 30 degrees above the ground, orthographic mobile 2:1 isometric, showing both the mouth and the sides. It sits on a flat weighted leather bottom, asymmetrical and squat, mouth folding outward with a soft irregular lip. Visible small amber gold coins peep through its open mouth; each is smaller than the corresponding clasp on the Coffer. Dark aubergine-brown leather with lighter russet folds, one faded seam with a few thick stitches, a dark plum cord hanging loosely, cool gunmetal tips, charcoal ink outline. Soft illustrated leather, NOT a cylindrical pot, no angular clay mesh look. One bag ONLY, no coins scattered around it, no chest, no scenery. Keep the upper-left rim light and the sides cool and deep. The silhouette is clear and uncomplicated at ~45 px."
+    },
+    {
+      "file": "source/monnaie.png",
+      "native": "exec-21cb50d5-85fd-4c87-8f8a-afdb295eb222.png",
+      "prompt": "Use case: stylized-concept. For the actual isometric mobile game Dungeon Empire, author ONE high quality isolated sprite/material on TRUE transparent alpha, crisp edge and transparent margins on all four sides. Image 1 is the approved in-game chest: MATCH its clean painterly charcoal edge, graphic bevels, dark violet-blue ambient, cool upper-left highlights, simple readable masses at tiny native sprite sizes. Image 2 is the exact UI currency icon: its lozenge in a polygonal gold rim, strong brass/ochre contrast, sparse light glints, dark purple underside are canonical. Image 3 is only an old composition and fixed camera reference, DO NOT imitate its mottled photoreal coins or clay-looking bags. No text, HUD, logo, frame, prop base or torch. Make ONE SINGLE COIN, an orthographic perfectly round TOP FACE material for applying to a real 3D coin. We will supply the perspective and thickness in Blender. Reinterpret the coin emblem in image 2 looking STRAIGHT DOWN: a plain, sharp-cut, dark indented lozenge within a broad honey-gold octagonal mint rim, bold near-black amber groove, ONE small pale highlight on the upper-left of the rim. Three or four flat painted color masses like a crafted game icon. Coin is centered, completely face-on, a circle, no thickness visible, NO tilted or elliptical view, no stack, no extra coins, no floor. No tiny detail or etched filigree. Alpha margin."
+    }
+  ]
+}

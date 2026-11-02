@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salle au trésor · Quatre peintures</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101420;color:#ebe7e4;font:16px/1.5 system-ui,sans-serif}
+main{max-width:960px;margin:auto;padding:clamp(12px,3vw,30px)}h1{font:600 clamp(23px,4vw,35px) Georgia,serif;margin:0}
+p{color:#ccc8d4;margin:.35em 0 1em}nav{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 14px}
+fieldset{border:0;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}legend{font-size:13px;color:#d6c7df;margin-bottom:2px}
+button{padding:8px 12px;min-height:44px;font:inherit;cursor:pointer;border-radius:6px;border:1px solid #4a5064;color:inherit;background:#202535}
+button[aria-pressed=true]{border-color:#ad86cb;background:#44334e}figure{padding:0;margin:0;overflow:hidden;border-radius:8px;border:1px solid #44485a}
+img{display:block;width:100%;height:auto;background:#161d2a}figcaption{padding:9px 13px}a{color:#dcb8f1}
+</style>
+<main>
+<h1>La réserve · Quatre peintures</h1>
+<p>Choisis le côté du couloir pour voir l’amas depuis la caméra du jeu.</p>
+<nav aria-label="Orientation de la salle">
+<fieldset id="directions"><legend>Entrée</legend></fieldset>
+<fieldset id="slots"><legend>Position sur le mur</legend></fieldset>
+<fieldset id="modes"><legend>Afficher</legend></fieldset></nav>
+<figure><img id="image" src="vues/N1.webp" width="900" height="600" alt="Salle au trésor, accès nord"><figcaption id="caption" aria-live="polite"></figcaption></figure>
+<p><a id="download" href="reserve-N.png">Ouvrir le sprite transparent</a></p>
+</main>
+<script>
+const names = {N:"Nord", E:"Est", S:"Sud", W:"Ouest"};
+const positions = {N:"en haut à droite", E:"en bas à droite", S:"en bas à gauche", W:"en haut à gauche"};
+const entry = /^#([NESW])([12])$/.exec(location.hash);
+const state = {directions:entry?.[1] || "N", slots:entry?.[2] || "1", modes:"room"};
+const controls = {
+  directions:Object.entries(names),
+  slots:[["1","1"],["2","2"]],
+  modes:[["room","Dans le donjon"],["sprite","Sprite seul"]]
+};
+for(const [group,choices] of Object.entries(controls))for(const [key,label] of choices){
+  const button=document.createElement("button");button.type="button";
+  button.textContent=label;button.dataset.group=group;button.dataset.key=key;
+  button.onclick=()=>{state[group]=key;draw()};
+  document.getElementById(group).append(button);
+}
+function draw(){
+  const side=state.directions,slot=state.slots,inRoom=state.modes==="room";
+  for(const b of document.querySelectorAll("button"))b.setAttribute("aria-pressed",b.dataset.key===state[b.dataset.group]);
+  document.getElementById("slots").disabled=!inRoom;
+  const sprite="reserve-"+side+".png",img=document.getElementById("image");
+  img.src=inRoom?"vues/"+side+slot+".webp"+("ES".includes(side)?"?alignement-mur":""):sprite;
+  img.alt=inRoom?"Salle au trésor, accès "+names[side]+" "+slot:"Peinture entière pour une entrée "+names[side];
+  const wall = side==="E"?" Le trésor longe le mur de droite.":side==="S"?" Le trésor longe le mur de gauche.":"";
+  document.getElementById("caption").textContent=inRoom?names[side]+" "+slot+" · Le couloir arrive "+positions[side]+"."+wall:names[side]+" · Peinture sur fond transparent.";
+  document.getElementById("download").href=sprite;
+}
+draw();
+</script>
+</html>

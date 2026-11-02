@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salle au trésor ouverte · Dungeon Empire</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111621;color:#e2e4ea;font:16px/1.5 system-ui,sans-serif}
+main{width:min(1180px,100%);margin:auto;padding:28px 16px 50px}
+h1,h2{line-height:1.15;margin:0 0 .45em;color:#faf4e6}h1{font:600 clamp(1.65rem,4vw,2.5rem) Georgia,serif}
+p{margin:0 0 1em}header p{color:#bdc5d5;max-width:78ch}.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+article,details{background:#1a2130;border:1px solid #333e54;border-radius:8px;padding:14px}details{margin:1rem 0}summary{cursor:pointer}
+.image{background:#0e1420;width:100%;display:grid;place-items:center;overflow:hidden;min-height:80px}
+.image img{width:100%;height:auto;display:block}.image a{display:block;width:100%}
+main.mini .image a{max-width:330px}details .image{max-width:680px;margin:14px auto 0}
+h2{font-size:1.22rem}.desc{margin:.65em 0 0;color:#c2cada}.nav{display:flex;align-items:center;gap:12px;margin:18px 0}
+button{border:1px solid #665378;background:#231e30;color:#eee1f8;padding:11px 14px;border-radius:6px;cursor:pointer;font:inherit}button[aria-pressed=true]{background:#433052}
+.note{font-size:.9rem;color:#adb8ca;margin-top:20px}a{color:#dbbbf6}
+@media(max-width:740px){.pair{grid-template-columns:1fr}main{padding:18px 12px}article{padding:10px}}
+</style>
+<main>
+<header><h1>Salle au trésor ouverte</h1>
+<p>Quatre coffres placés en carré de 2 × 2 se transforment en un trésor commun. Le couloir débouche directement sur la salle. Le coffre-fort à porte renforcée est une évolution distincte.</p></header>
+<details><summary>Voir la pièce du jeu avec les quatre coffres</summary>
+<div class="image"><a href="avant.png"><img src="avant.png" width="880" height="500" alt="Les quatre coffres dans la salle ouverte de deux cases de côté, reliée au couloir à gauche."></a></div></details>
+<div class="nav"><button id="size" type="button" aria-pressed="false">Voir en petit format</button></div>
+<section class="pair">
+<article><h2>A · L’Éboulis d’or</h2><div class="image"><a href="eboulis.png"><img src="eboulis.png" width="880" height="500" alt="Plusieurs monticules de pièces se rejoignent sur les dalles. Deux appliques chaudes éclairent le fond de la salle."></a></div>
+<p class="desc">L’or s’est accumulé directement sur les dalles. Les deux torches éclairent la pierre et un losange de bronze marque le seuil.</p></article>
+<article><h2>B · La Fosse de la dîme</h2><div class="image"><a href="cuve.png"><img src="cuve.png" width="880" height="500" alt="Des piles de pièces occupent une cuve carrée, bordée de pierre bleue. Un petit groupe de cristaux violets est enchâssé au fond de la pièce."></a></div>
+<p class="desc">Une assise de pierre suit le contour du trésor. Quelques piles plus hautes en émergent, et un cristal violet marque l’angle du fond.</p></article>
+</section><p class="note">Études visuelles. Les murs, les dalles, le couloir et la roche extérieure sont rendus avec les ressources du jeu. Les illustrations des pièces ont été créées avec ImageGen. <a href="sources.json">Sources et prompts</a>.</p>
+</main>
+<script>
+const button=document.getElementById('size');
+button.addEventListener('click',()=>{
+ const mini=document.querySelector('main').classList.toggle('mini');
+ button.setAttribute('aria-pressed',String(mini));
+ button.textContent=mini?'Agrandir les vues':'Voir en petit format';
+});
+</script>
+</html>
