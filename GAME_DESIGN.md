@@ -1,5 +1,10 @@
 # Dungeon Empire — conception
 
+## Origine du maître du donjon
+
+Les **Oculins**, un peuple de monstres cyclopes, ont invoqué le maître du donjon
+dans leur monde. Le joueur incarne ce maître. Les Oculins sont ses serviteurs.
+
 ## 0. État jouable — première boucle isométrique du 25 octobre 2026
 
 `scenes/game/DungeonGame.tscn` ajoute une première boucle jouable indépendante

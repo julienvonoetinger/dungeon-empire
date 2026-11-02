@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-02",
+  "tool": "built-in image_gen",
+  "selected_concept": "B from ../v1-concepts/concepts.png",
+  "working_name": "Oculin",
+  "file": "oculin-front.png",
+  "native_output": "C:\\Users\\A\\.codex\\generated_images\\01a15ce9-67f0-77e2-a485-14b09d65f5da\\exec-d126b1e6-e6f5-4810-bb4a-6182d7ac6b87.png",
+  "sha256": "74a4d285d609e421cf104ca8590b99bd21e83d577be0d35b6247f079c9d4e2ad",
+  "size": [
+    1305,
+    1206
+  ],
+  "alpha_bounds_gt8": [
+    86,
+    75,
+    1220,
+    1149
+  ],
+  "bytes": 1639557,
+  "status": "Individual front-view reference after user selected B; not a calibrated multi-view pack or runtime sprite"
+}

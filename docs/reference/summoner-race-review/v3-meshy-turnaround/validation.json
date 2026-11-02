@@ -1,0 +1,82 @@
+{
+  "status": "prepared-not-reconstructed",
+  "records": [
+    {
+      "id": "front",
+      "file": "meshy/01-front.png",
+      "size": [
+        1305,
+        1206
+      ],
+      "solid_bounds": [
+        88,
+        77,
+        1218,
+        1148
+      ],
+      "bytes": 1639557,
+      "sha256": "74a4d285d609e421cf104ca8590b99bd21e83d577be0d35b6247f079c9d4e2ad",
+      "native_alpha": true,
+      "byte_identical_to_source": true
+    },
+    {
+      "id": "left",
+      "file": "meshy/02-left.png",
+      "size": [
+        1305,
+        1205
+      ],
+      "solid_bounds": [
+        394,
+        65,
+        981,
+        1170
+      ],
+      "bytes": 1008414,
+      "sha256": "ca235758d029814dddc62dc00f3dee1ce20aaba0a5113dc728927772820ed106",
+      "native_alpha": true,
+      "byte_identical_to_source": true
+    },
+    {
+      "id": "back",
+      "file": "meshy/03-back.png",
+      "size": [
+        1305,
+        1205
+      ],
+      "solid_bounds": [
+        82,
+        74,
+        1223,
+        1156
+      ],
+      "bytes": 1663420,
+      "sha256": "c19276f292667947b08d60bd2d28cb540e643eda9ca25f3e7a52615d861659f6",
+      "native_alpha": true,
+      "byte_identical_to_source": true
+    },
+    {
+      "id": "right",
+      "file": "meshy/04-right.png",
+      "size": [
+        1305,
+        1205
+      ],
+      "solid_bounds": [
+        354,
+        67,
+        901,
+        1165
+      ],
+      "bytes": 986688,
+      "sha256": "279bb08375e66cb59fc0e885576bdc7f03f9e3bcebc84ece3a529a6e983675d0",
+      "native_alpha": true,
+      "byte_identical_to_source": true
+    }
+  ],
+  "top_spread_pixels": 12,
+  "sole_spread_pixels": 22,
+  "total_png_bytes": 5298079,
+  "limits": "Native independent illustrations, not calibrated geometry; no Meshy reconstruction or rig validation.",
+  "zip_bytes": 5093846
+}

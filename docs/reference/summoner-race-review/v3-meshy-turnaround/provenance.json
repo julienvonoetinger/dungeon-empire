@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-02",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "id": "front",
+      "file": "source/front.png",
+      "prompt": "source/front-prompt.txt",
+      "native_output": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-d126b1e6-e6f5-4810-bb4a-6182d7ac6b87.png",
+      "sha256": "74a4d285d609e421cf104ca8590b99bd21e83d577be0d35b6247f079c9d4e2ad"
+    },
+    {
+      "id": "left",
+      "file": "source/left.png",
+      "prompt": "source/left-prompt.txt",
+      "native_output": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-4db04c50-a7c2-41f4-8627-85e10a27060c.png",
+      "sha256": "ca235758d029814dddc62dc00f3dee1ce20aaba0a5113dc728927772820ed106"
+    },
+    {
+      "id": "back",
+      "file": "source/back.png",
+      "prompt": "source/back-prompt.txt",
+      "native_output": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-88ab649b-7286-4efb-b50d-7b9459016034.png",
+      "sha256": "c19276f292667947b08d60bd2d28cb540e643eda9ca25f3e7a52615d861659f6"
+    },
+    {
+      "id": "right",
+      "file": "source/right.png",
+      "prompt": "source/right-prompt.txt",
+      "native_output": "C:/Users/A/.codex/generated_images/01a15ce9-67f0-77e2-a485-14b09d65f5da/exec-ebf2c7b6-f9cb-4fcc-a07f-42a4160915e0.png",
+      "sha256": "279bb08375e66cb59fc0e885576bdc7f03f9e3bcebc84ece3a529a6e983675d0"
+    }
+  ],
+  "reference": "../v2-oculin-reference/oculin-front.png",
+  "selection": "User selected B from v1 concept board; front reference retained exactly",
+  "limits": "Generated illustrations, not calibrated 3D views. Back garment surface interpreted from the approved front and generated profile."
+}
