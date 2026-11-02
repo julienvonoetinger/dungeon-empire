@@ -1,0 +1,1485 @@
+{
+  "checks": [
+    {
+      "check": "charge pulls staff backward",
+      "passed": true
+    },
+    {
+      "check": "knees brace",
+      "passed": true
+    },
+    {
+      "check": "wind-up leans backward",
+      "passed": true
+    },
+    {
+      "check": "release thrusts staff forward",
+      "passed": true
+    },
+    {
+      "check": "release leans into attack",
+      "passed": true
+    },
+    {
+      "check": "original rig and body counts",
+      "passed": true
+    },
+    {
+      "check": "mycean_output_unwrapped original geometry/UV/weights/material assignments",
+      "passed": true
+    },
+    {
+      "check": "staff_output_unwrapped original geometry/UV/weights/material assignments",
+      "passed": true
+    },
+    {
+      "check": "original packed textures",
+      "passed": true
+    },
+    {
+      "check": "measurement probe hidden",
+      "passed": true
+    },
+    {
+      "check": "contact proxy hidden",
+      "passed": true
+    },
+    {
+      "check": "twelve slots over1400ms",
+      "passed": true
+    },
+    {
+      "check": "0 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "0 body replay",
+      "passed": true
+    },
+    {
+      "check": "0 staff replay",
+      "passed": true
+    },
+    {
+      "check": "0 body ground",
+      "passed": true
+    },
+    {
+      "check": "0 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "0 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "0 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "0 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "0 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "0 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "0 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "0 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "0 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "0 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "0 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "0 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "0 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "0 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "0 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "0 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "0 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "0 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "0 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "0 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "0 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "0 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "0 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "0 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "1 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "1 body replay",
+      "passed": true
+    },
+    {
+      "check": "1 staff replay",
+      "passed": true
+    },
+    {
+      "check": "1 body ground",
+      "passed": true
+    },
+    {
+      "check": "1 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "1 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "1 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "1 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "1 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "1 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "1 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "1 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "1 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "1 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "1 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "1 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "1 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "1 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "1 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "1 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "1 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "1 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "1 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "1 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "1 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "1 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "1 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "1 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "2 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "2 body replay",
+      "passed": true
+    },
+    {
+      "check": "2 staff replay",
+      "passed": true
+    },
+    {
+      "check": "2 body ground",
+      "passed": true
+    },
+    {
+      "check": "2 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "2 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "2 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "2 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "2 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "2 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "2 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "2 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "2 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "2 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "2 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "2 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "2 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "2 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "2 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "2 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "2 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "2 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "2 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "2 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "2 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "2 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "2 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "2 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "3 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "3 body replay",
+      "passed": true
+    },
+    {
+      "check": "3 staff replay",
+      "passed": true
+    },
+    {
+      "check": "3 body ground",
+      "passed": true
+    },
+    {
+      "check": "3 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "3 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "3 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "3 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "3 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "3 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "3 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "3 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "3 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "3 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "3 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "3 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "3 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "3 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "3 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "3 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "3 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "3 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "3 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "3 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "3 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "3 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "3 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "3 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "4 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "4 body replay",
+      "passed": true
+    },
+    {
+      "check": "4 staff replay",
+      "passed": true
+    },
+    {
+      "check": "4 body ground",
+      "passed": true
+    },
+    {
+      "check": "4 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "4 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "4 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "4 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "4 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "4 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "4 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "4 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "4 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "4 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "4 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "4 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "4 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "4 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "4 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "4 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "4 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "4 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "4 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "4 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "4 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "4 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "4 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "4 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "5 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "5 body replay",
+      "passed": true
+    },
+    {
+      "check": "5 staff replay",
+      "passed": true
+    },
+    {
+      "check": "5 body ground",
+      "passed": true
+    },
+    {
+      "check": "5 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "5 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "5 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "5 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "5 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "5 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "5 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "5 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "5 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "5 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "5 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "5 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "5 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "5 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "5 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "5 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "5 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "5 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "5 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "5 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "5 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "5 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "5 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "5 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "6 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "6 body replay",
+      "passed": true
+    },
+    {
+      "check": "6 staff replay",
+      "passed": true
+    },
+    {
+      "check": "6 body ground",
+      "passed": true
+    },
+    {
+      "check": "6 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "6 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "6 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "6 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "6 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "6 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "6 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "6 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "6 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "6 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "6 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "6 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "6 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "6 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "6 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "6 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "6 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "6 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "6 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "6 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "6 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "6 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "6 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "6 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "7 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "7 body replay",
+      "passed": true
+    },
+    {
+      "check": "7 staff replay",
+      "passed": true
+    },
+    {
+      "check": "7 body ground",
+      "passed": true
+    },
+    {
+      "check": "7 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "7 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "7 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "7 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "7 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "7 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "7 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "7 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "7 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "7 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "7 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "7 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "7 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "7 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "7 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "7 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "7 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "7 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "7 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "7 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "7 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "7 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "7 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "7 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "8 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "8 body replay",
+      "passed": true
+    },
+    {
+      "check": "8 staff replay",
+      "passed": true
+    },
+    {
+      "check": "8 body ground",
+      "passed": true
+    },
+    {
+      "check": "8 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "8 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "8 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "8 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "8 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "8 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "8 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "8 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "8 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "8 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "8 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "8 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "8 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "8 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "8 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "8 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "8 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "8 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "8 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "8 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "8 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "8 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "8 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "8 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "9 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "9 body replay",
+      "passed": true
+    },
+    {
+      "check": "9 staff replay",
+      "passed": true
+    },
+    {
+      "check": "9 body ground",
+      "passed": true
+    },
+    {
+      "check": "9 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "9 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "9 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "9 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "9 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "9 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "9 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "9 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "9 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "9 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "9 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "9 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "9 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "9 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "9 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "9 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "9 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "9 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "9 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "9 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "9 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "9 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "9 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "9 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "10 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "10 body replay",
+      "passed": true
+    },
+    {
+      "check": "10 staff replay",
+      "passed": true
+    },
+    {
+      "check": "10 body ground",
+      "passed": true
+    },
+    {
+      "check": "10 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "10 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "10 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "10 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "10 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "10 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "10 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "10 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "10 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "10 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "10 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "10 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "10 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "10 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "10 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "10 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "10 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "10 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "10 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "10 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "10 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "10 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "10 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "10 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "11 finite geometry",
+      "passed": true
+    },
+    {
+      "check": "11 body replay",
+      "passed": true
+    },
+    {
+      "check": "11 staff replay",
+      "passed": true
+    },
+    {
+      "check": "11 body ground",
+      "passed": true
+    },
+    {
+      "check": "11 staff above floor",
+      "passed": true
+    },
+    {
+      "check": "11 whole body/staff contact including hand",
+      "passed": true
+    },
+    {
+      "check": "11 actual saved staff cap emitter",
+      "passed": true
+    },
+    {
+      "check": "11 L fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "11 R fixed XYZ sole support",
+      "passed": true
+    },
+    {
+      "check": "11 staff_output_unwrapped wrist parent",
+      "passed": true
+    },
+    {
+      "check": "11 staff_output_unwrapped original mount",
+      "passed": true
+    },
+    {
+      "check": "11 MyceanGripCorrective wrist parent",
+      "passed": true
+    },
+    {
+      "check": "11 MyceanGripCorrective original mount",
+      "passed": true
+    },
+    {
+      "check": "11 StaffGripContactEnvelope wrist parent",
+      "passed": true
+    },
+    {
+      "check": "11 StaffGripContactEnvelope original mount",
+      "passed": true
+    },
+    {
+      "check": "11 approved grip enabled",
+      "passed": true
+    },
+    {
+      "check": "11 se registered anchor",
+      "passed": true
+    },
+    {
+      "check": "11 se emitter registration",
+      "passed": true
+    },
+    {
+      "check": "11 se no clipping",
+      "passed": true
+    },
+    {
+      "check": "11 sw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "11 sw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "11 sw no clipping",
+      "passed": true
+    },
+    {
+      "check": "11 nw registered anchor",
+      "passed": true
+    },
+    {
+      "check": "11 nw emitter registration",
+      "passed": true
+    },
+    {
+      "check": "11 nw no clipping",
+      "passed": true
+    },
+    {
+      "check": "11 ne registered anchor",
+      "passed": true
+    },
+    {
+      "check": "11 ne emitter registration",
+      "passed": true
+    },
+    {
+      "check": "11 ne no clipping",
+      "passed": true
+    },
+    {
+      "check": "exact full-body neutral recovery",
+      "passed": true
+    },
+    {
+      "check": "exact staff neutral recovery",
+      "passed": true
+    },
+    {
+      "check": "mycean-original.glb immutable",
+      "passed": true
+    },
+    {
+      "check": "staff-original.glb immutable",
+      "passed": true
+    },
+    {
+      "check": "equipped source immutable",
+      "passed": true
+    },
+    {
+      "check": "six packed original images",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "poses": [
+    {
+      "frame": 1,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.01900470443069935
+    },
+    {
+      "frame": 2,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.05833394452929497
+    },
+    {
+      "frame": 3,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.09861940145492554
+    },
+    {
+      "frame": 4,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.12899452447891235
+    },
+    {
+      "frame": 5,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.12899452447891235
+    },
+    {
+      "frame": 6,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.3425806760787964
+    },
+    {
+      "frame": 7,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.29654452204704285
+    },
+    {
+      "frame": 8,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.23133093118667603
+    },
+    {
+      "frame": 9,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.16022023558616638
+    },
+    {
+      "frame": 10,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.08123809099197388
+    },
+    {
+      "frame": 11,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.03321048989892006
+    },
+    {
+      "frame": 12,
+      "full_body_crossings": 0,
+      "staff_min_z": 0.01900470443069935
+    }
+  ],
+  "max_support_error": 3.0763829826056194e-05,
+  "limits": "Held poses, full equipment/body surface crossing and sole support checks; not exhaustive self/contained-volume collisions, interpolation or phone performance."
+}

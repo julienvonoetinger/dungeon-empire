@@ -1,5 +1,43 @@
 # Repository instructions
 
+## Commit validation for the Mycean Core attack — 2026-11-02
+
+- User requests commit/push of the spore attack, four-direction preview and
+  complete reproduction sources. Fresh import,704native attack checks,
+  17effect checks and all7headless scenarios pass; stderr logs empty.
+  Evidence artifacts/commit-mycean-attack. Preserve packed pose blend,
+  40masters, scripts and reviews under docs/.gdignore. No APK or raid integration.
+
+## Mycean offensive spore burst against the Core — 2026-11-02
+
+- User requests a different attack from magical unlocking. v8-spore-attack
+  uses unchanged v2 equipped Mycean: backward wind-up, forward staff thrust,
+  cyan/green detached spore orb and impact bloom. Twelve held slots/1400ms,
+  release650ms/flight320ms/impact970ms; exact neutral recovery. Preview only.
+- Ten unique poses per direction,40whole640px masters uniformly reduced320px;
+  four1600x640atlases1,891,722PNGbytes/15.625MiB RGBA. Original painting, mesh,
+  UV, weights, sixtextures and three Bone_031 attachments preserved. Wind-up
+  staff inward tilt crossed cap; outward tilt crossed boot; neutral axial
+  correction with20degree forward pitch clears both. Release pitch68degrees.
+- Saved-source354checks pass: complete staff/body surface crossings0 including
+  hands, max actual mean-sole support error.000030764, exact first/last geometry,
+  cap emitter measured in each pose/view, original hashes retained. Independent
+  source review15comparisons and154asset/repack/timing checks pass. Static source
+  vs evaluated neutral differs by max.001673modelunit(~.155nativepx); base data
+  unchanged, no visible issue. Mean sole support is not rigid per-vertex contact.
+- MyceanCoreAttack.tscn uses unchanged action controls, real Core/shadow/vortex,
+  four incoming axes/two-cell range. Charge follows caster layer; free projectile
+  and impact use aerial overlay in this floor-only stage. Real-raid obstacle
+  occlusion needs integration. Emitter handoff, effects and shader use action
+  time only, never TIME. Pass vertex tint separately: fragment COLOR otherwise
+  multiplies the procedural orb by fallback texture alpha twice. No new VFX PNG.
+- Missing-scene and standing-choreography negatives fail first. Native704 and
+  effect17checks plus7headless scenarios pass; final stderr/import clean. Three
+  sizes visually inspected. Current review/recipes/packedblend/masters in
+  mycean-review/v8-spore-attack, evidence artifacts/mycean-attack. No important
+  review finding. Phone profiling, exhaustive self/contained/continuous3D checks
+  and artistic approval remain outside validation. No raids/save/APK/commit/push.
+
 ## Commit validation for the Mycean pipeline — 2026-11-01
 
 - User requests commit/push of accumulated Mycean references, equipped source,

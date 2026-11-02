@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "check": "charge pulls staff backward",
+      "passed": false
+    },
+    {
+      "check": "knees brace",
+      "passed": false
+    },
+    {
+      "check": "wind-up leans backward",
+      "passed": false
+    },
+    {
+      "check": "release thrusts staff forward",
+      "passed": false
+    },
+    {
+      "check": "release leans into attack",
+      "passed": false
+    }
+  ],
+  "failures": [
+    "charge pulls staff backward",
+    "knees brace",
+    "wind-up leans backward",
+    "release thrusts staff forward",
+    "release leans into attack"
+  ]
+}
