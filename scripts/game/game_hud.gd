@@ -294,6 +294,7 @@ func _queue_layout() -> void:
 
 func _layout() -> void:
 	_layout_queued=false
+	if not is_inside_tree(): return
 	var viewport_size:=get_viewport().get_visible_rect().size
 	var window_size:=Vector2(get_window().size)
 	if viewport_size.x<=0 or window_size.x<=0: return

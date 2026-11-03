@@ -43,7 +43,10 @@ n'ont pas été modifiées pour ajouter le gameplay.
 
 ## Jouer
 
-Ouvrir `scenes/game/DungeonGame.tscn`, puis **F6** dans Godot. Choisir un nouveau
+Appuyer sur **F5** dans Godot pour lancer le menu principal. **Continuer** reprend
+la sauvegarde. **Nouvelle partie** mène au placement du Cœur après confirmation
+si un donjon existe déjà. Pour accéder directement à la scène de jeu,
+ouvrir `scenes/game/DungeonGame.tscn`, puis appuyer sur **F6**. Choisir un nouveau
 donjon, ou **Donjon d'essai** puis confirmer pour disposer d'une entrée, d'une
 porte, de pointes et de trois coffres. **Lancer le raid** commence l'expédition.
 

@@ -25,7 +25,8 @@ function collectDirectory(directory) {
   }
 }
 
-collect('scenes/game/DungeonGame.tscn');
+const mainScene = fs.readFileSync(path.join(root, 'project.godot'), 'utf8').match(/^run\/main_scene="res:\/\/(.+)"$/m)[1];
+collect(mainScene);
 // These roots also cover class_name registrations and concatenated load() paths.
 for (const directory of ['scripts/game', 'assets/ui', 'assets/dungeon/bedrock']) collectDirectory(directory);
 collect('assets/ui/master/fonts/OFL.txt');
@@ -49,7 +50,7 @@ const projectPath = path.join(staging, 'project.godot');
 const project = fs.readFileSync(projectPath, 'utf8');
 fs.writeFileSync(projectPath, project.replace('[rendering]', '[rendering]\n\ntextures/vram_compression/import_etc2_astc=true'));
 const inventory = {
-  staging, mainScene: 'res://scenes/game/DungeonGame.tscn',
+  staging, mainScene: 'res://' + mainScene,
   sources: selected.map(file => ({ file, bytes: fs.statSync(path.join(root, file)).size,
     sha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex') })),
 };

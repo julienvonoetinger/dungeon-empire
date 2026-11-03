@@ -9,7 +9,12 @@ signal presentation_event(kind: String)
 const Types = preload("res://scripts/game/game_types.gd")
 const Save = preload("res://scripts/game/gameplay_save.gd")
 const SAVE_PATH := "user://isometric_run_v1.save"
-var save_path := SAVE_PATH
+static func launch_save_path() -> String:
+	if OS.get_cmdline_user_args().has("--forge-review"): return "user://forge_review_v1.save"
+	if OS.get_cmdline_user_args().has("--review-session"): return "user://isometric_review_v1.save"
+	return SAVE_PATH
+
+var save_path := launch_save_path()
 ## Set before entering the tree for isolated simulations; no disk reads or writes.
 var persistence_enabled := true
 const FIELDS := ["grid", "gold", "vault_gold", "vault_locks", "vault_opened", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over"]
@@ -34,10 +39,8 @@ var _build_history: Array[Dictionary] = []
 func _ready() -> void:
 	# Explicit manual-review slot; never touches the player's current dungeon.
 	if persistence_enabled and OS.get_cmdline_user_args().has("--forge-review"):
-		save_path = "user://forge_review_v1.save"
 		get_window().title = "Forge · Review"
 	elif persistence_enabled and OS.get_cmdline_user_args().has("--review-session"):
-		save_path = "user://isometric_review_v1.save"
 		get_window().title = "Dungeon Empire · Review"
 	sim.raid = raid
 	raid.sim = sim
