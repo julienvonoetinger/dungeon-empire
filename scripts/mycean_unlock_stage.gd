@@ -7,7 +7,6 @@ const CONFIG := {
 	&"nw": {"door":"east", "axis":0, "normal":Vector2.RIGHT},
 	&"ne": {"door":"south", "axis":1, "normal":Vector2.DOWN},
 }
-const DOOR_ART := "res://assets/previews/mycean-unlock/door/"
 const SEAL_HEIGHT := .64
 
 const Spell := preload("res://scripts/mycean_arcane_spell.gd")
@@ -27,17 +26,6 @@ var _solids: Array[Dictionary] = []
 var _closed: Array[Sprite2D] = []
 var _open: Array[Sprite2D] = []
 
-func _load_definition(reload_textures: bool) -> bool:
-	if not super._load_definition(reload_textures): return false
-	# The preview override never mutates the shared production Resource.
-	_definition = _definition.duplicate(true)
-	if FileAccess.file_exists(DOOR_ART+"catalog.json"):
-		var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DOOR_ART+"catalog.json"))
-		for id: String in data:
-			_definition.entries[id] = data[id].duplicate(true)
-			_definition.textures[id] = load(DOOR_ART+str(data[id].file))
-	return true
-
 func build(direction: StringName, frames: SpriteFrames, registration: Dictionary) -> void:
 	facing = direction
 	_registration = registration
@@ -50,7 +38,8 @@ func build(direction: StringName, frames: SpriteFrames, registration: Dictionary
 	hero_grid = seal_grid+normal*1.05
 	var cells := {}
 	for i in 3: cells[Vector2i(i,0) if config.axis == 0 else Vector2i(0,i)] = true
-	render_plan({"cells":cells,"openings":{},"floor_variants":true},{cell:"doors/"+str(config.door)},false)
+	render_plan({"cells":cells,"openings":{},"floor_variants":true,"door_materials":{cell:"arcane"}},
+		{cell:"doors/"+str(config.door)},false)
 	for solid in _solids:
 		if str(solid.id).begins_with("door-"): _closed.append(solid.node)
 	# Prepared open frame contains no leaf. Keep all its sorted masonry pieces.

@@ -474,6 +474,8 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 		var direction := special.get_slice("/", 1)
 		if special.begins_with("doors/"):
 			var prefix := "door-%s" % direction
+			var material: String = plan.get("door_materials", {}).get(cell, "wood")
+			var swinging: bool = plan.get("opening_doors", {}).has(cell)
 			if plan.get("open_doors", {}).get(cell, false): prefix += "-open"
 			var leaf_id := prefix + "-leaf"
 			parts.append(_part(leaf_id, Vector2(cell)))
@@ -482,7 +484,15 @@ func render_plan(plan: Dictionary, specials: Dictionary, pillar_details: bool, r
 			# Historical review catalogues omit companions and retain two parts.
 			var entries: Dictionary = _definition.get("entries")
 			for companion: String in entries[leaf_id].get("companions", []):
-				parts.append(_part(companion, Vector2(cell)))
+				if not companion.ends_with("-panel"):
+					parts.append(_part(companion, Vector2(cell)))
+				elif swinging:
+					for side in ["left","right"]:
+						parts.append(_part("%s-%s-panel-%s" % [prefix,material,side], Vector2(cell)))
+				elif material == "wood":
+					parts.append(_part(companion, Vector2(cell)))
+				else:
+					parts.append(_part("%s-%s-panel" % [prefix,material], Vector2(cell)))
 		else:
 			parts.append(_part("stair-%s" % direction, Vector2(cell)))
 	for at: Vector2 in plan.get("hearts", PackedVector2Array()):

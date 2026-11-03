@@ -119,7 +119,7 @@ func repair_core_access() -> Array[Vector2i]:
 				continue
 			# Old saves keep the value of doors displaced by the access rule.
 			if _is_door_tile(tile):
-				loot_bags.append({"pos": p, "gold": COST_DOOR if tile == Tile.DOOR else COST_MAGIC_DOOR, "taken": false})
+				loot_bags.append({"pos": p, "gold": GameTypes.door_build_cost(tile), "taken": false})
 			_clear_cell_state(p)
 			grid[y][x] = Tile.FLOOR
 			changed.append(p)
@@ -150,7 +150,8 @@ func _damaged_structure_count() -> int:
 			damaged += 1
 	for key in door_hp.keys():
 		var p: Vector2i = key
-		if _is_door_tile(int(grid[p.y][p.x])) and int(door_hp[p]) < DOOR_MAX_HP:
+		var tile := int(grid[p.y][p.x])
+		if _is_door_tile(tile) and int(door_hp[p]) < GameTypes.door_max_hp(tile):
 			damaged += 1
 	for key in trap_charges.keys():
 		var p: Vector2i = key
@@ -175,7 +176,7 @@ func _is_trap_tile(t: int) -> bool:
 
 
 func _is_door_tile(t: int) -> bool:
-	return t == Tile.DOOR or t == Tile.MAGIC_DOOR
+	return GameTypes.is_door_tile(t)
 
 
 func _trap_max_charges(t: int) -> int:
@@ -262,7 +263,10 @@ func _can_step(from: Vector2i, to: Vector2i) -> bool:
 
 
 func _door_intact(p: Vector2i) -> bool:
-	return _inside(p) and _is_door_tile(int(grid[p.y][p.x])) and int(door_hp.get(p, DOOR_MAX_HP)) > 0
+	if not _inside(p):
+		return false
+	var tile := int(grid[p.y][p.x])
+	return _is_door_tile(tile) and int(door_hp.get(p, GameTypes.door_max_hp(tile))) > 0
 
 
 func _core_origin() -> Vector2i:
@@ -505,6 +509,8 @@ func _build_at(gp: Vector2i) -> void:
 			_place(gp, Tile.VOID, COST_VOID)
 		Tool.BUILD_DOOR:
 			_place(gp, Tile.DOOR, COST_DOOR)
+		Tool.BUILD_REINFORCED_DOOR:
+			_place(gp, Tile.REINFORCED_DOOR, GameTypes.COST_REINFORCED_DOOR)
 		Tool.BUILD_MAGIC_DOOR:
 			_place(gp, Tile.MAGIC_DOOR, COST_MAGIC_DOOR)
 		Tool.BUILD_ENTRANCE:
@@ -613,7 +619,7 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 		message = "Keep the passage around the Core clear." if _is_core_access(p) else "A door must sit in a gap between two walls."
 		return
 	if current == tile:
-		if not _is_door_tile(tile) or int(door_hp.get(p, DOOR_MAX_HP)) > 0:
+		if not _is_door_tile(tile) or _door_intact(p):
 			return
 	if gold < cost:
 		message = "Not enough gold (%d required)." % cost
@@ -627,7 +633,7 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 	if was_vault and tile != Tile.VAULT:
 		_spill_overflow_at(p)
 	if _is_door_tile(tile):
-		door_hp[p] = DOOR_MAX_HP
+		door_hp[p] = GameTypes.door_max_hp(tile)
 		door_opened.erase(p)
 		if raid != null:
 			raid.invalidate_kingdom_knowledge(p)
@@ -665,12 +671,14 @@ func repair_trap(p: Vector2i) -> int:
 func repair_door(p: Vector2i) -> bool:
 	if game_over or (raid != null and raid.raid_active) or not _inside(p):
 		return false
-	if not _is_door_tile(int(grid[p.y][p.x])) or gold < COST_REPAIR_DOOR:
+	var tile := int(grid[p.y][p.x])
+	if not _is_door_tile(tile) or gold < COST_REPAIR_DOOR:
 		return false
-	if int(door_hp.get(p, DOOR_MAX_HP)) >= DOOR_MAX_HP and not bool(door_opened.get(p, false)):
+	var maximum := GameTypes.door_max_hp(tile)
+	if int(door_hp.get(p, maximum)) >= maximum and not bool(door_opened.get(p, false)):
 		return false
 	gold -= COST_REPAIR_DOOR
-	door_hp[p] = DOOR_MAX_HP
+	door_hp[p] = maximum
 	door_opened.erase(p)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(p)
@@ -681,16 +689,16 @@ func _repair_structures() -> void:
 	var charges := 0
 	for key in door_hp.keys():
 		var p: Vector2i = key
-		if not _is_door_tile(int(grid[p.y][p.x])):
+		var tile := int(grid[p.y][p.x])
+		if not GameTypes.has_standard_door_lock(tile):
 			continue
-		if int(grid[p.y][p.x]) == Tile.MAGIC_DOOR:
-			continue
-		if int(door_hp[p]) <= 0 or int(door_hp[p]) >= DOOR_MAX_HP:
+		var maximum := GameTypes.door_max_hp(tile)
+		if int(door_hp[p]) <= 0 or int(door_hp[p]) >= maximum:
 			continue
 		if gold < COST_REPAIR_DOOR:
 			break
 		gold -= COST_REPAIR_DOOR
-		door_hp[p] = DOOR_MAX_HP
+		door_hp[p] = maximum
 		doors += 1
 	for key in trap_charges.keys():
 		var p: Vector2i = key

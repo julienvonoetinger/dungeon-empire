@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les quatre portes · Dungeon Empire</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101521;color:#eee9f4;font:16px/1.5 system-ui,sans-serif}main{width:min(1010px,100%);margin:auto;padding:clamp(16px,4vw,42px)}h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.16}h1{font-size:clamp(30px,5vw,48px);margin:.18em 0}h2{margin:0;font-size:23px}.folio{font-size:12px;letter-spacing:.12em;color:#c1a6d8;font-weight:650}p{color:#c4c7d3;margin:.4em 0 1em}fieldset{display:flex;flex-wrap:wrap;gap:6px;border:none;margin:18px 0;padding:0}legend{font-size:14px;padding:0 0 6px;color:#c4c7d3}button,a{color:#dfc7f2}button{min-height:44px;padding:7px 13px;border:1px solid #51576f;border-radius:6px;background:#1b2231;color:inherit;font:inherit;cursor:pointer}button[aria-pressed=true]{background:#41304b;border-color:#b794cb}button:focus-visible,a:focus-visible{outline:2px solid #e9c9fc;outline-offset:3px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{overflow:hidden;border:1px solid #3b4156;border-radius:9px;background:#192030}.card img{display:block;width:100%;height:auto;background:#111825}.body{padding:14px 17px 16px}.body p{margin:5px 0 9px}.body a{display:inline-flex;min-height:44px;align-items:center;font-size:14px}.actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.notes{margin:22px 0}.notes a{margin-right:14px}@media(max-width:620px){.grid{grid-template-columns:1fr}.body{padding:11px 14px}}
+</style><main>
+<span class="folio">DUNGEON EMPIRE &nbsp;/&nbsp; ÉTUDE DE TEXTURES</span><h1>Les quatre portes</h1>
+<p>Même couloir, même arche de pierre. Les captures utilisent le zoom fixe du jeu. Touchez une image pour voir la capture originale.</p>
+<fieldset id="angles"><legend>Direction d’approche</legend></fieldset>
+<fieldset><legend>Trois portes à deux vantaux</legend><button id="swing" type="button" aria-pressed="false">Entrouvrir les portes</button></fieldset>
+<div class="grid">
+<article class="card" data-type="wood"><a class="scene"><img width="460" height="320" alt="Porte en bois dans le couloir"></a><div class="body"><h2>Bois ferré</h2><p>Quatre pentures indépendantes. La serrure en fer chevauche le joint central et reste entière à l’ouverture.</p><a href="source/wood.png">Peinture de face</a></div></article>
+<article class="card" data-type="arcane"><a class="scene"><img width="460" height="320" alt="Porte au sceau violet dans le couloir"></a><div class="body"><h2>Porte magique</h2><p>Le sceau violet chevauche la fente et lie les deux vantaux.</p><a href="source/arcane.png">Peinture de face</a></div></article>
+<article class="card" data-type="iron"><a class="scene"><img width="460" height="320" alt="Porte renforcée dans le couloir"></a><div class="body"><h2>Fer renforcé</h2><p>Chaque vantail porte un bras du V. Le boîtier central est solidaire du vantail droit vu de face.</p><a href="source/iron.png">Peinture de face</a></div></article>
+<article class="card" data-type="grille"><a class="scene"><img width="460" height="320" alt="Herse à levier dans le couloir"></a><div class="body"><h2>Herse à levier</h2><p>Cinq barreaux laissent voir le passage. Le levier commande la levée de la grille.</p><div class="actions"><button type="button" id="lever" aria-pressed="false">Lever la herse</button><a href="source/grille.png">Peinture de face</a></div></div></article>
+</div><p class="notes">Le levier de cet aperçu compare les deux états. Son placement et son fonctionnement en raid restent à définir.</p>
+<p class="notes"><a href="../v16-segmental-frame/index.html#face">Wireframe validé</a><a href="source/prompts.json">Consignes ImageGen</a></p>
+</main><script>
+let direction="ne", raised=false, ajar=false;
+const labels={ne:"Nord-est",nw:"Nord-ouest",sw:"Sud-ouest",se:"Sud-est"};
+const lever=document.querySelector("#lever");
+const swing=document.querySelector("#swing");
+function draw(){
+ for(const card of document.querySelectorAll(".card")){
+  const id=card.dataset.type,open=id==="grille"&&raised;
+  const file="vues/"+(open?"open":id+(ajar && id!=="grille"?"-ajar":""))+"-"+direction+".png";
+  card.querySelector(".scene").href=file;
+  const img=card.querySelector("img");img.src=file;img.alt=card.querySelector("h2").textContent+" · "+labels[direction]+(id==="grille"?(open?" · levée":" · abaissée"):"");
+ }
+ for(const b of document.querySelectorAll("#angles button"))b.setAttribute("aria-pressed",String(direction===b.dataset.angle));
+ lever.textContent=raised?"Abaisser la herse":"Lever la herse";lever.setAttribute("aria-pressed",String(raised));
+ swing.textContent=ajar?"Refermer les portes":"Entrouvrir les portes";swing.setAttribute("aria-pressed",String(ajar));
+}
+for(const [key,label] of Object.entries(labels)){
+ const b=document.createElement("button");b.textContent=label;b.dataset.angle=key;b.onclick=()=>{direction=key;draw()};document.querySelector("#angles").append(b);
+}
+lever.onclick=()=>{raised=!raised;draw()};swing.onclick=()=>{ajar=!ajar;draw()};draw();
+</script></html>

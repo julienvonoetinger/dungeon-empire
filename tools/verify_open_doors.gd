@@ -21,10 +21,19 @@ func inspect(view: Node2D, state: String, open_frame: bool, removed := false) ->
 	var segments: Array = view.solid_groups.filter(func(p): return p.has("wall_segment"))
 	check(doors.size() == (0 if removed else 6 if open_frame else 8), state + ": independent jambs/crowns and closed panels on both doors")
 	for cell in [Vector2i(8,6),Vector2i(10,8)]:
-		var roles: Array = doors.filter(func(p): return Vector2i(p.at)==cell).map(func(p): return view._definition.entries[p.id].get("door_part", ""))
+		var cell_parts := doors.filter(func(p): return Vector2i(p.at)==cell)
+		var roles := cell_parts.map(func(p): return view._definition.entries[p.id].get("door_part", ""))
 		check(roles.count("jamb-left")==int(not removed) and roles.count("jamb-right")==int(not removed) and roles.count("crown")==int(not removed), state+": complete frame per door")
 		check(roles.count("panel")==int(not removed and not open_frame),state+": panel exists only while closed")
-	check(segments.size() == (0 if removed else 8), state + ": wall contacts must match the frames")
+		if not removed and not open_frame:
+			var panel_id := "door-north-panel" if cell.x==8 else "door-west-arcane-panel"
+			check(cell_parts.any(func(p): return p.id==panel_id),state+": correct material for "+panel_id)
+		var across := Vector2i.RIGHT if cell.x==8 else Vector2i.DOWN
+		var wall_prefix := "wall-v-" if cell.x==8 else "wall-h-"
+		for at: Vector2i in [cell,cell+across]:
+			var walls: Array = view.solid_groups.filter(func(p): return str(p.id).begins_with(wall_prefix) and Vector2i(p.at)==at)
+			check(walls.size()==1,state+": one continuous wall at "+str(at))
+	check(segments.is_empty(),state+": no rail cuts below the segmental frame")
 	for p in doors:
 		check(str(p.id).contains("-open-") == open_frame, state + ": wrong leaf state " + str(p.id))
 	records.append({"state":state,"parts":doors.map(func(p): return p.id),"contacts":segments.size()})
@@ -58,7 +67,7 @@ func run() -> void:
 	var view: Node2D=game.get_node("PlayArea/World/Dungeon")
 	view.rebuild(); inspect(view,"closed",false); await snapshot(game,view,"closed")
 	game._visual_state=game._structure_hash()
-	game.raid.hero={"display":"Review","lockpick_success_chance":1.0}
+	game.raid.hero={"kind":"thief","display":"Review","lockpick_success_chance":1.0}
 	game.raid._resolve_vulpin_lockpick(cells[0])
 	game.raid.hero = {"kind":"mage","display":"Review","intelligence":100,"arcane_door_rolls":{}}
 	game.raid._resolve_mage_arcane_open(cells[1])
@@ -95,18 +104,38 @@ func run() -> void:
 				game.raid.elapsed_seconds=TYPES.TURN_TIME*progress
 				view._update_markers(); await snapshot(game,view,"actor-%s-%d-%.2f" % ["n" if gate.x==8 else "w",step,progress])
 	game.raid.raid_active=false; game.raid.hero.clear()
-	game.sim.door_opened.clear()
-	game.raid.raid_stats={"doors_destroyed":0}
-	game.raid.hero={"display":"Review","door_damage":TYPES.DOOR_MAX_HP}
 	for p in cells:
+		game.sim.door_opened.erase(p)
 		game.sim.door_hp[p]=TYPES.DOOR_MAX_HP
-		game.raid._apply_door_damage(p)
+	game.raid.raid_stats={"doors_destroyed":0}
+	game.raid.hero={"kind":"paladin","display":"Review","door_damage":TYPES.DOOR_MAX_HP,"strength":100,"door_force_rolls":{}}
+	check(game.raid._try_force_door(cells[0]),"Force destroys the wooden door")
+	check(not game.raid._try_force_door(cells[1]) and game.sim._door_intact(cells[1]),"Force leaves the arcane seal intact")
+	game.raid.hero={"kind":"mage","display":"Review","intelligence":100,"arcane_door_rolls":{}}
+	game.raid._resolve_mage_arcane_open(cells[1])
 	game.raid.hero.clear()
 	view.rebuild(); inspect(view,"forced",true); await snapshot(game,view,"forced")
 	game.sim.gold=200
 	for p in cells: check(game.sim.repair_door(p), "Existing repair action succeeds")
 	view.rebuild(); inspect(view,"repaired",false)
 	for p in cells: check(game.sim._door_intact(p), "Repair restores the blocking leaf")
+	var gate: Vector2i = cells[0]
+	game.sim.grid[gate.y][gate.x] = TYPES.Tile.REINFORCED_DOOR
+	game.sim.door_hp[gate] = 60
+	view.rebuild()
+	check(view.solid_groups.any(func(p): return Vector2i(p.at)==gate and p.id=="door-north-iron-panel"), "Reinforced gate uses the iron panel")
+	for item in view._markers:
+		if item.cell == gate and item.kind == "door":
+			check(is_equal_approx(item.node.badge.ratio,.5), "60 HP fills half the reinforced door ring")
+	var hud = game.get_node("HUD")
+	game.progression.xp = 60
+	hud.radial._choose_family(1)
+	check(hud.radial.choices.any(func(item): return item[0]==TYPES.Tool.BUILD_REINFORCED_DOOR), "Reinforced door is available in the Doors menu")
+	game.tool = TYPES.Tool.NONE
+	game.selected = gate
+	hud.selection.refresh()
+	check(hud.selection.title.text=="Reinforced door" and hud.selection.detail.text=="60 / 120 HP", "Inspecting the iron gate shows its material and resistance")
+	await snapshot(game,view,"reinforced")
 	for p in cells: game.sim.grid[p.y][p.x]=TYPES.Tile.FLOOR
 	view.rebuild(); inspect(view,"removed",false,true)
 	check(not FileAccess.file_exists(game.save_path), "Review must not write a save")

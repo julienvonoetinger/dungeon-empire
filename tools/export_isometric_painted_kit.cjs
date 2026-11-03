@@ -1,6 +1,6 @@
 // Active painted kit. Frozen wireframe review is read-only; all new evidence
 // and prepared PNGs go to painted-v1. Godot consumes the packed results only.
-const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),sharp=require('sharp');
 const P=require('./isometric_paint_geometry.cjs'),Stone=require('./isometric_stone_paint.cjs'),Props=require('./isometric_prop_paint.cjs'),B=require('./prepare_mobile_reference.cjs');
 const HeartLight=require('./isometric_approved_heart_light.cjs');
 const WallVariants=require('./isometric_wall_variants.cjs');
@@ -8,11 +8,63 @@ const FloorVariants=require('./isometric_floor_variants.cjs');
 const FloorDamage=require('./isometric_floor_damage.cjs');
 const RitualProps=require('./isometric_ritual_props.cjs');
 const TreasureChest=require('./isometric_treasure_chest.cjs');
-const SealDoor=require('./isometric_seal_door.cjs');
 const InsetTraps=require('./isometric_painted_traps.cjs');
 const {writeGeneratedFile}=require('./write_generated_file.cjs');
 const OUT='docs/reference/isometric-review/painted-v1',ASSETS='assets/dungeon/isometric-kit',GEOMETRY='docs/reference/isometric-review/migration-v1/geometry.json';
 const write=(p,b)=>writeGeneratedFile(path.join(P.ROOT,p),b),json=(p,v)=>write(p,JSON.stringify(v,null,2)+'\n');
+const doorReview='docs/reference/door-redesign/seal-v1';
+const frameCatalog=doorReview+'/v16-segmental-frame/parts.json',hingeCatalog=doorReview+'/v17-door-materials/hinges.json';
+async function reviewedDoors() {
+  const frames=JSON.parse(fs.readFileSync(path.join(P.ROOT,frameCatalog)));
+  const hinges=JSON.parse(fs.readFileSync(path.join(P.ROOT,hingeCatalog))).parts;
+  const closed=[],open=[],variants=[],files=new Map();
+  async function part(id,meta,file,doorPart) {
+    const approvedSource=doorReview+'/v17-door-materials/parts/'+file;
+    if(!files.has(file)){
+      const png=fs.readFileSync(path.join(P.ROOT,approvedSource));
+      const {width,height}=await sharp(png).metadata();
+      if(width!==meta.size[0]||height!==meta.size[1])throw Error('Door source size mismatch: '+file);
+      files.set(file,png);
+    }
+    return {id,frame:[...meta.offset,...meta.size],bounds:meta.bounds,doorPart,approvedSource,png:files.get(file)};
+  }
+  for(const d of ['north','east','south','west']){
+    const prefix='door-'+d+'-';
+    for(const [suffix,role] of [['leaf','jamb-left'],['arch','crown'],['jamb-right','jamb-right']]){
+      const stone=await part(prefix+suffix,frames[prefix+suffix],d+'-'+suffix+'.png',role);
+      const openStone={...stone,id:prefix+'open-'+suffix};
+      if(suffix==='leaf'){
+        stone.companions=[prefix+'jamb-right',prefix+'panel'];
+        openStone.companions=[prefix+'open-jamb-right'];
+      }
+      closed.push(stone);open.push(openStone);
+    }
+    for(const material of ['wood','arcane','iron','grille']){
+      const panel=await part(prefix+(material==='wood'?'':material+'-')+'panel',frames[prefix+'panel'],material+'-'+d+'-panel.png','panel');
+      (material==='wood'?closed:variants).push(panel);
+      if(material==='grille')continue;
+      for(const side of ['left','right']){
+        const suffix='panel-'+side;
+        variants.push(await part(prefix+material+'-'+suffix,hinges[prefix+suffix],material+'-'+d+'-'+suffix+'.png','panel'));
+      }
+    }
+  }
+  return {closed,open,variants};
+}
+async function packDoors(doors) {
+  // Frame state aliases and identical masonry PNGs share texels. Placement
+  // and physical sorting bounds still belong to each individual resource.
+  const unique=new Map(),sourceId=new Map();
+  for(const item of doors){
+    const hash=crypto.createHash('sha256').update(item.png).digest('hex');
+    if(!unique.has(hash))unique.set(hash,item);
+    sourceId.set(item.id,unique.get(hash).id);
+  }
+  const packed=await B.pack([...unique.values()],256,ASSETS+'/open-doors',false,1024);
+  const regions={};
+  for(const item of doors)regions[item.id]={...packed.regions[sourceId.get(item.id)],offset:item.frame.slice(0,2),size:item.frame.slice(2)};
+  return {...packed,regions};
+}
 const fixedSources={
   [GEOMETRY]:'316151de97888a6418dd156af75a10f29b63ce497dd5c2e48e07cf45fbf646f0',
   'docs/reference/mobile-door-frame-review/painted-art-v2/source/door-face-fitted.png':'e69233ab8fb2421ed75ad9fd74ef97617ed29bf7d7bd4c008553cd797b859b55'
@@ -48,7 +100,8 @@ async function main() {
     }
     if(m.id==='pillar') {const cap=await Props.cap(m,item);items.push(cap);await prepare(cap,m);}
   }
-  for(const d of ['north','east','south','west'])for(const item of await SealDoor.doors(d)) {items.push(item);await prepare(item,item);}
+  const doors=await reviewedDoors();
+  items.push(...doors.closed);
   const wallVariants=await WallVariants.approvedWallVariants();
   items.push(...wallVariants);
   const floorVariants=await FloorVariants.preparedFloorVariants();
@@ -78,13 +131,9 @@ async function main() {
   atlas.sourceBytes+=trapAtlas.sourceBytes;
   atlas.uncompressedRGBABytes+=trapAtlas.uncompressedRGBABytes;
   for(const [id,entry] of Object.entries(trapAtlas.regions))atlas.regions[id]={...entry,atlas_path:trapPath};
-  // Keep the historical page path stable; it now packs both door states.
-  const openDoors=items.filter(item=>item.id.startsWith('door-'));
-  for(const d of ['north','east','south','west'])for(const item of await SealDoor.doors(d,true)){
-    openDoors.push(item);items.push(item);await prepare(item,item);
-  }
+  items.push(...doors.open,...doors.variants);
   const openPath=`res://${ASSETS}/open-doors/atlas-256.png`;
-  const openAtlas=await B.pack(openDoors,256,ASSETS+'/open-doors',false,512);
+  const openAtlas=await packDoors([...doors.closed,...doors.open,...doors.variants]);
   atlas.pages.push({path:openPath,width:openAtlas.width,height:openAtlas.height,sourceBytes:openAtlas.sourceBytes,uncompressedRGBABytes:openAtlas.uncompressedRGBABytes});
   atlas.sourceBytes+=openAtlas.sourceBytes;
   atlas.uncompressedRGBABytes+=openAtlas.uncompressedRGBABytes;
@@ -107,7 +156,7 @@ async function main() {
     if(item.doorPart)atlas.regions[item.id].door_part=item.doorPart;
     if(item.trap)atlas.regions[item.id].trap=item.trap;
   }
-  const manifest={id:'isometric-painted-v1',appearance:'shared dungeon stone and approved v15 blackened metal/crystal doors; jambs aligned to wall courses',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
+  const manifest={id:'isometric-painted-v1',appearance:'shared dungeon stone, segmental arches and wood, arcane, iron and grille doors',density:256,worldPixelsPerCell:256,sourceDiamond:[256,128],displayDiamond:[192,96],cameraZoom:.75,logicalCell:[1,1],camera:P.camera,wallThickness:P.T,wallHeight:P.H,pillarWidth:P.PILLAR,floorRows:3,spriteCount:items.length,optionalDetails:['pillar-top-carved'],lighting:true,atlas};
   manifest.wallVariants=wallVariants.filter(v=>!v.wallVariant.ornament).map(v=>v.id);
   manifest.optionalWallOrnaments=wallVariants.filter(v=>v.wallVariant.ornament).map(v=>v.id);
   manifest.floorVariants=floorVariants.map(v=>v.id);
@@ -127,12 +176,12 @@ async function main() {
   sourceFiles.push('tools/isometric_floor_damage.cjs',...FloorDamage.referenceFiles);
   sourceFiles.push('tools/isometric_ritual_props.cjs',...RitualProps.referenceFiles);
   sourceFiles.push('tools/isometric_treasure_chest.cjs',...TreasureChest.referenceFiles);
-  sourceFiles.push('tools/isometric_seal_door.cjs','tools/isometric_seal_texture.cjs','tools/seal_masonry_finish.cjs',...SealDoor.referenceFiles);
+  sourceFiles.push(frameCatalog,hingeCatalog,...[...doors.closed,...doors.variants].map(item=>item.approvedSource));
   sourceFiles.push('tools/isometric_painted_traps.cjs',...InsetTraps.referenceFiles);
   for(const entry of Object.values(materialCatalog.entries))if(entry.file)sourceFiles.push(path.posix.normalize('assets/dungeon/shared-materials/'+entry.file));
   json(`${OUT}/recipe.json`,{...manifest,generator:'tools/export_isometric_painted_kit.cjs',geometry:GEOMETRY,sourceHashes:Object.fromEntries([...new Set(sourceFiles)].map(p=>[p,P.hash(p)])),
     items:items.map(({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,png})=>({id,frame,bounds,report,adaptation,light,groundShadow,groundShadowDirections,groundEffect,groundEffects,groundBlend,wallVariant,floorVariant,floorDamage,approvedSource,bytes:png.length})),
-    notes:['Historical approved sources and wireframe snapshots remain unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','The four doors use approved compact v11 geometry, v12 masonry and v15 blackened metal/crystal leaf: smooth interchangeable receiver, 1/3..2/3 jamb contacts, visible lower lock and hinges. Final pixels use independent left/right jamb, crown and closed-panel supports for actor passage, with companions consumed by the shared renderer.']});
+    notes:['Historical approved sources and wireframe snapshots remain unchanged.','The heart reuses source sculptural details on the rigid support and a camera-facing vortex; this adapted appearance is not a new approval.','Flame uses one screen scale with physical cup occlusion.','Doors use v16 segmental-frame placement and v17 reviewed raster parts at native density. Open and closed frames share masonry. Each hinged half uses its reviewed offset and sorting bounds.']});
   console.log(JSON.stringify({sprites:items.length,atlas:[atlas.width,atlas.height],pngBytes:atlas.sourceBytes,rgbaBytes:atlas.uncompressedRGBABytes}));
 }
 main().catch(e=>{console.error(e.stack);process.exitCode=1;});

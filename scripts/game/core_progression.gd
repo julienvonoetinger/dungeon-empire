@@ -4,6 +4,7 @@ extends RefCounted
 const THRESHOLDS := [0, 60, 150, 280]
 const REQUIRED_LEVEL := {
 	GameTypes.Tool.TRAP_SNARE: 2,
+	GameTypes.Tool.BUILD_REINFORCED_DOOR: 2,
 	GameTypes.Tool.TRAP_VOID: 3,
 	GameTypes.Tool.BUILD_MAGIC_DOOR: 4,
 	GameTypes.Tool.STORE_MAGIC: 4,

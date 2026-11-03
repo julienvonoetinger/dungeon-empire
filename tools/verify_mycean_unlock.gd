@@ -31,22 +31,27 @@ func run() -> void:
 	p.set_playing(false)
 	check(p.rooms.size() == 4,"Four directions")
 	check(p.preview_title.contains("arcane door"),"Correct action title")
-	check(FileAccess.file_exists("res://assets/previews/mycean-unlock/door/catalog.json"),"Special magic leaf is packaged")
 	check(is_equal_approx(p.action_duration,1.85),"1850ms including recovery")
 	check(is_equal_approx(p.channel_time,.45) and is_equal_approx(p.unlock_time,1.5),"Matches mage opening hold")
 	var game_source := FileAccess.get_file_as_string("res://scripts/game/raid_director.gd")
 	check(game_source.contains("MAGE_ARCANE_OPEN_HOLD := 1.5"),"Gameplay hold remains unchanged")
 	for room in p.rooms:
-		check(room._definition != room.DEFINITION,"Preview owns its catalogue copy")
+		check(room._definition == room.DEFINITION,"Spell preview uses the shared production catalogue")
+		var prefix := "door-%s-" % room.CONFIG[room.facing].door
+		var expected_closed := [prefix+"leaf",prefix+"jamb-right",prefix+"arch",prefix+"arcane-panel"]
+		var expected_open := [prefix+"open-leaf",prefix+"open-jamb-right",prefix+"open-arch"]
 		check(room.spell.z_index==room.actor.z_index and room.spell.get_index()==room.actor.get_index()+1,"Spell shares caster depth rather than overlaying masonry")
 		for part in room._closed:
-			check(part.texture.resource_path.begins_with(room.DOOR_ART),"Special arcane painting replaces closed preview parts")
+			var id: String = part.get_meta("prepared_id")
+			check(expected_closed.has(id) and room.DEFINITION.textures.get(id)==part.texture,"Closed frame and arcane seal from production atlas: "+id)
+			expected_closed.erase(id)
+		check(expected_closed.is_empty(),"All four approved closed parts are present")
+		check(room._door_wall_junctions.is_empty(),"Arcane door mounts on intact corridor walls")
 		var normal: Vector2 = room.CONFIG[room.facing].normal
 		check(room.hero_grid.is_equal_approx(room.seal_grid+normal*1.05),"Hero stands back facing seal")
 		check(room.actor.scale.is_equal_approx(Vector2.ONE*.9404255319148935),"Approved hero scale")
 		check(room.actor.sprite_frames.get_frame_count(room.facing)==12,"Twelve timing slots")
 		check(not room.actor.sprite_frames.get_animation_loop(room.facing),"One-shot resource")
-		check(room._closed.size()==4 and room._open.size()>=2,"Prepared closed and open masonry")
 		check(room.seal_point.is_equal_approx(room.grid_to_local(room.seal_grid,.64)),"Seal target on actual door plane")
 		for i in 12:
 			p.seek_action(p._starts[i])
@@ -55,7 +60,10 @@ func run() -> void:
 			check(room.spell.target==room.seal_point,"Beam endpoint never drifts")
 			check(room.actor.position==room.grid_to_local(room.hero_grid),"Planted root")
 		for part in room._open:
-			check(not part.texture.resource_path.begins_with(room.DOOR_ART),"Open masonry stays production art")
+			var id: String = part.get_meta("prepared_id")
+			check(expected_open.has(id) and room.DEFINITION.textures.get(id)==part.texture,"Open masonry from production atlas: "+id)
+			expected_open.erase(id)
+		check(expected_open.is_empty(),"Open portal retains both jambs and the crown")
 	for speed in [0,1,3]:
 		p.set_repeat_enabled(false)
 		p.set_speed_index(speed)

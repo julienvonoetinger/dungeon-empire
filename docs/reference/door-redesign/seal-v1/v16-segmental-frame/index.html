@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Porte · Cadre en pierre</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101724;color:#eee8ef;font:16px/1.5 system-ui,sans-serif}main{max-width:940px;margin:auto;padding:clamp(14px,3vw,30px)}h1,h2{font:600 28px Georgia,serif;margin:0 0 .4em}h2{font-size:21px;margin-top:24px}p{margin:.2em 0 .8em;color:#cbc6d7}nav{display:flex;gap:15px;flex-wrap:wrap}fieldset{border:0;padding:0;margin:0 0 .7em}legend{font-size:13px;color:#cab9d4}button{background:#21293a;color:inherit;font:inherit;min-height:42px;padding:7px 10px;border:1px solid #495269;border-radius:6px;margin:2px}button[aria-pressed=true]{background:#44364f;border-color:#b38bbd}figure{margin:0;border:1px solid #46465a;border-radius:8px;overflow:hidden}figure img{display:block;width:100%;height:auto}figcaption{padding:9px 12px;background:#1b2130}.front{position:relative;width:min(360px,100%);background:#171d2a}.front img,.front svg{display:block;width:100%;height:auto}.front svg{position:absolute;inset:0}.front svg[hidden]{display:none}label{display:inline-flex;gap:8px;align-items:center;min-height:44px}
+</style>
+<main><h1>Porte · Cadre en pierre</h1><p>Les quatre pierres se répondent deux à deux. De face, le joint du milieu est vertical sur l’axe du passage et les joints latéraux ont des inclinaisons opposées. Les montants prennent appui sur le dessus des murs.</p>
+<nav><fieldset id="views"><legend>Vue</legend></fieldset><fieldset id="angles"><legend>Direction du Vulpin</legend></fieldset></nav>
+<figure><img id="scene" src="vues/cadre-ne.png?symetrie" width="820" height="550" alt="Cadre proposé en perspective isométrique"><figcaption id="caption" aria-live="polite"></figcaption></figure>
+<h2>Galbe et joints de la voûte</h2><figure><img src="couronne.png?symetrie" width="976" height="364" alt="Couronne de la référence et wireframe dans le couloir, au même cadrage"></figure>
+<h2>Raccord du montant</h2><figure><img src="raccord.png?mur-entier" width="644" height="382" alt="Avant et après : le montant repose sur le mur, dont la brique centrale reste entière"></figure>
+<h2 id="face">Vue de face</h2><p>Le joint central et la serrure sont sur le même axe. L’entrée de clé peut être affichée séparément sur le battant.</p>
+<label><input type="checkbox" id="key"> Montrer la serrure proposée sur le guide de face</label>
+<div class="front"><img src="face-guide.svg?symetrie" alt="Guide de face au trait magenta"><svg viewBox="0 0 464 464" id="overlay" hidden aria-hidden="true">
+<g transform="translate(232 325.8)"><path d="M0-15 10-7 10 9 0 15-10 9-10-7Z" fill="#586277" stroke="#99a6b9" stroke-width="2"/>
+<path d="M-2.3 .1a4.2 4.2 0 1 1 4.6 0L4 7h-8Z" fill="#151420"/></g></svg></div></main>
+<script>
+const options={views:{cadre:"Cadre proposé",actuelle:"Porte actuelle",crochetage:"Crochetage",passage:"Passage ouvert"},angles:{ne:"Nord-est",nw:"Nord-ouest",sw:"Sud-ouest",se:"Sud-est"}};
+const state={views:"cadre",angles:"ne"};
+for(const [group,values] of Object.entries(options))for(const [value,label] of Object.entries(values)){
+ const b=document.createElement("button");b.textContent=label;b.dataset.group=group;b.dataset.value=value;
+ b.onclick=()=>{state[group]=value;draw()};document.getElementById(group).append(b);
+}
+function draw(){for(const b of document.querySelectorAll("button"))b.setAttribute("aria-pressed",state[b.dataset.group]===b.dataset.value);
+ const img=document.getElementById("scene");img.src="vues/"+state.views+"-"+state.angles+".png?symetrie";
+ img.alt=options.views[state.views]+" · "+options.angles[state.angles];document.getElementById("caption").textContent=img.alt;
+}
+document.getElementById("key").onchange=e=>document.getElementById("overlay").toggleAttribute("hidden",!e.target.checked);
+draw();
+</script></html>

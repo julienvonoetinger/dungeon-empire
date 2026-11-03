@@ -46,7 +46,9 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
 | Pointes | 35 | 3 charges, 30 dégâts (20 contre le Paladin) |
 | Entrave | 30 | Niveau 2, 3 charges, 16 dégâts et arrêt de 3 secondes |
 | Néant | 45 | Niveau 3, 1 charge, bannissement vivant du visiteur avec son butin |
-| Porte normale / magique | 40 / 80 | 60 PV ; magique au niveau 4 |
+| Porte en bois | 40 | 60 PV |
+| Porte renforcée en fer | 60 | 120 PV, disponible au niveau 2 |
+| Porte magique | 80 | 60 PV, disponible au niveau 4 |
 | Entrée | 0 | Unique, permanente |
 | Réparer porte ou protection de coffre | 15 | Restaure intégralement / referme la protection |
 | Réparer piège | 10 par charge | Autant de charges manquantes que l'or permet |
@@ -118,9 +120,12 @@ gagné ajoute **1 point à chacune des quatre caractéristiques**, jusqu'à 100.
 Le bonus s'applique dès le bilan du raid, pour chaque niveau franchi. Un Lithide de
 Force 80 a 80 % de chances de pouvoir enfoncer une porte normale donnée.
 En cas de réussite, ses frappes retirent les PV habituels de la porte.
+Devant une porte renforcée en fer, le Paladin cherche un autre passage.
+Seul le Vulpin peut tenter d’en crocheter la serrure.
 L'Agilité donne au Batrafian sa chance de franchir un piège connu. Un saut trop
 court le fait retomber sur le piège, qui se déclenche à l'atterrissage.
-L'Intelligence donne au Mycean sa chance de dissiper une porte magique après
+Le Mycean cherche un autre passage devant une porte fermée en bois ou en fer.
+Son Intelligence lui donne une chance de dissiper une porte magique après
 1,5 seconde d'incantation. Si le sceau résiste, il cherche un autre passage.
 Chaque piège ou porte donne un seul jet pour cette aptitude et ce raid.
 Les [plages de recrutement par race](docs/superpowers/specs/2026-11-02-races-et-raids-design.md#caractéristiques-individuelles) servent au premier équilibrage.
@@ -218,8 +223,13 @@ le matériau rocheux, projeté avec la même caméra sous la colonne réservée.
 
 Les coffres et pièges reprennent les couronnes de la version mobile précédente :
 or avec un tas de pièces pour le remplissage, cuivre avec l'icône du piège pour
-ses charges, segments selon sa capacité. Les anneaux restent à 32 unités d'écran
-et au-dessus de la maçonnerie ; les objets eux-mêmes gardent leur profondeur.
+ses charges, segments selon sa capacité. Les anneaux mesurent 44 unités d’écran
+en paysage et en portrait. Une porte affiche un seul cadenas au centre,
+fermé quand elle résiste, ouvert quand elle est déverrouillée, ouvert et fendu
+quand elle est détruite. Les coffres affichent les pièces, avec un petit sceau
+en bas à droite si le coffre a une serrure. Les pièges montrent leur mécanisme.
+Les pictogrammes tiennent à l’intérieur du disque, avec
+une marge qui laisse la jauge visible sur tout son pourtour.
 Les valeurs exactes se lisent en sélectionnant la case. Aucune valeur de vie
 artificielle n'est ajoutée aux coffres ou pièges.
 

@@ -3,8 +3,8 @@ extends Object
 
 ## Shared enums, economy, and presentation constants. No simulation.
 
-enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID, MAGIC_DOOR }
-enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_MAGIC_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET, NONE, STORE_LOCKED, STORE_MAGIC }
+enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID, MAGIC_DOOR, REINFORCED_DOOR }
+enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_MAGIC_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET, NONE, STORE_LOCKED, STORE_MAGIC, BUILD_REINFORCED_DOOR }
 
 const COLS := 16
 const ROWS := 16
@@ -14,6 +14,7 @@ const CORE_MAX := 100
 const CORE_W := 1
 const CORE_H := 1
 const DOOR_MAX_HP := 60
+const REINFORCED_DOOR_MAX_HP := 120
 const TRAP_MAX_CHARGES := 3
 const VAULT_CAPACITY := 150
 const TREASURY_CAPACITY_BONUS := 300
@@ -28,6 +29,7 @@ const COST_SPIKE := 35
 const COST_SNARE := 30
 const COST_VOID := 45
 const COST_DOOR := 40
+const COST_REINFORCED_DOOR := 60
 const COST_MAGIC_DOOR := 80
 const COST_REPAIR_DOOR := 15
 const COST_REPAIR_TRAP := 10
@@ -70,12 +72,32 @@ static func store_capacity(store: Array) -> int:
 static func is_trap_tile(t: int) -> bool:
 	return t == Tile.SPIKE or t == Tile.SNARE or t == Tile.VOID
 
+static func has_standard_door_lock(t: int) -> bool:
+	return t == Tile.DOOR or t == Tile.REINFORCED_DOOR
+
+static func is_door_tile(t: int) -> bool:
+	return has_standard_door_lock(t) or t == Tile.MAGIC_DOOR
+
+static func door_material(t: int) -> String:
+	match t:
+		Tile.DOOR: return "wood"
+		Tile.MAGIC_DOOR: return "arcane"
+		Tile.REINFORCED_DOOR: return "iron"
+	return ""
+
+static func door_max_hp(t: int) -> int:
+	return REINFORCED_DOOR_MAX_HP if t == Tile.REINFORCED_DOOR else DOOR_MAX_HP
+
+static func door_build_cost(t: int) -> int:
+	return {Tile.DOOR: COST_DOOR, Tile.REINFORCED_DOOR: COST_REINFORCED_DOOR, Tile.MAGIC_DOOR: COST_MAGIC_DOOR}.get(t, 0)
+
 static func fixed_tool_cost(tool:int) -> int:
 	# Only unconditional prices can signal poverty at catalogue selection.
 	# DIG may clear for free; repair and vault upgrades depend on the structure.
 	# Those are checked on the actual cell by report_rejected_action instead.
 	return {Tool.TRAP_SPIKE:COST_SPIKE,Tool.TRAP_SNARE:COST_SNARE,
-		Tool.TRAP_VOID:COST_VOID,Tool.BUILD_DOOR:COST_DOOR,Tool.BUILD_MAGIC_DOOR:COST_MAGIC_DOOR}.get(tool,0)
+		Tool.TRAP_VOID:COST_VOID,Tool.BUILD_DOOR:COST_DOOR,Tool.BUILD_REINFORCED_DOOR:COST_REINFORCED_DOOR,
+		Tool.BUILD_MAGIC_DOOR:COST_MAGIC_DOOR}.get(tool,0)
 
 static func trap_max_charges(t: int) -> int:
 	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES

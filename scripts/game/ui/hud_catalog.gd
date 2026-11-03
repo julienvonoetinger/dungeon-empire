@@ -11,6 +11,7 @@ const TOOLS := [
 	[Types.Tool.REPAIR, "Repair", "Varies", "hammer", 0],
 	[Types.Tool.TRAP_SPIKE, "Spikes", "35 gold", "spike", 2],
 	[Types.Tool.BUILD_DOOR, "Door", "40 gold", "door", 1],
+	[Types.Tool.BUILD_REINFORCED_DOOR, "Reinforced door", "%d gold" % Types.COST_REINFORCED_DOOR, "door", 1],
 	[Types.Tool.TRAP_SNARE, "Snare", "30 gold", "snare", 2],
 	[Types.Tool.TRAP_VOID, "Void", "45 gold", "void", 2],
 	[Types.Tool.BUILD_MAGIC_DOOR, "Arcane door", "80 gold", "door", 1],

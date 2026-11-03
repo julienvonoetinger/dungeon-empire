@@ -14,7 +14,7 @@ var badge_anchor_y := -26.0
 
 func fit_badge(extent: float) -> void:
 	if not badge: return
-	badge.scale=Vector2.ONE*(extent/42.0)
+	badge.scale=Vector2.ONE*(extent/badge.size.x)
 	badge.position=Vector2(-extent/2,badge_anchor_y-extent-5)
 
 func _ready() -> void:
@@ -34,10 +34,9 @@ func _ready() -> void:
 		badge.name="StatusRing"
 		# Information remains readable over nearby masonry; the prop keeps its depth.
 		badge.z_index=10
-		badge.position=Vector2(-28,-72)
-		badge.scale=Vector2.ONE*(4.0/3.0)
 		add_child(badge)
-		badge.configure("coins" if kind=="chest" else "door" if kind=="door" else "spike",Color("e9b94f") if kind=="chest" else Color("c66b50"),kind=="trap")
+		fit_badge(Badge.SCREEN_DIAMETER)
+		badge.configure("coins" if kind=="chest" else "lock" if kind=="door" else "spike",Color("e9b94f") if kind=="chest" else Color("c66b50"),kind=="trap")
 
 func refresh(text_value: String, ratio := 1.0) -> void:
 	caption = text_value

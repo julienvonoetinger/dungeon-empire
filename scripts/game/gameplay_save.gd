@@ -185,9 +185,9 @@ static func _valid(data: Dictionary) -> bool:
 			var tile: int = data.grid[pos.y][pos.x]
 			match field:
 				"door_hp", "door_opened":
-					if tile not in [Types.Tile.DOOR, Types.Tile.MAGIC_DOOR]:
+					if not Types.is_door_tile(tile):
 						return false
-					if field == "door_hp" and not _integer(value, Types.DOOR_MAX_HP):
+					if field == "door_hp" and not _integer(value, Types.door_max_hp(tile)):
 						return false
 					if field == "door_opened" and not value is bool:
 						return false

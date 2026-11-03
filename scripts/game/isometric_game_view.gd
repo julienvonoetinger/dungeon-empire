@@ -110,6 +110,7 @@ func rebuild() -> void:
 	var cells := {}
 	var specials := {}
 	var open_doors := {}
+	var door_materials := {}
 	var hearts := PackedVector2Array()
 	var chests := {}
 	var trap_floors := {}
@@ -142,13 +143,14 @@ func rebuild() -> void:
 			if sim._is_door_tile(tile):
 				var vertical_passage := sim._is_rock_cell(p + Vector2i.LEFT) and sim._is_rock_cell(p + Vector2i.RIGHT)
 				specials[p] = "doors/north" if vertical_passage else "doors/west"
+				door_materials[p] = Types.door_material(tile)
 				if not sim._door_intact(p): open_doors[p] = true
 			if tile == Types.Tile.ENTRANCE:
 				# Despite its legacy name, this returns the direction into the dungeon.
 				var mouth := sim._wall_entrance_face(p)
 				if ENTRANCE_OPEN_SIDES.has(mouth):
 					specials[p] = "entrances/" + ENTRANCE_OPEN_SIDES[mouth]
-	var plan := {"cells":cells,"openings":{},"hearts":hearts,"decoration_positions":chests,"wall_variants":true,"floor_variants":true,"floor_damage":true,"floor_replacements":trap_floors,"mechanisms":mechanisms,"open_doors":open_doors}
+	var plan := {"cells":cells,"openings":{},"hearts":hearts,"decoration_positions":chests,"wall_variants":true,"floor_variants":true,"floor_damage":true,"floor_replacements":trap_floors,"mechanisms":mechanisms,"open_doors":open_doors,"door_materials":door_materials}
 	render_plan(plan, specials, true, false)
 	for p: Vector2i in cells:
 		var tile: int = sim.grid[p.y][p.x]
@@ -302,10 +304,10 @@ func _update_markers() -> void:
 		var id: String = "trap-"+item.kind+"-"+state+"-"+item.layer
 		item.node.texture = _definition.get("textures")[id]
 		item.node.set_meta("prepared_id", id)
-	# Keep the old mobile rings readable through project stretch and fixed zoom.
+	# Keep the status rings the same physical size across stretch and camera zoom.
 	var density := clampf(DisplayServer.screen_get_dpi()/160.0,1,4) if OS.has_feature("mobile") else 1.0
 	var ui_scale := get_tree().root.get_visible_rect().size.x/maxf(1,get_window().size.x)*density
-	var badge_extent := 32.0*ui_scale/maxf(.01,get_canvas_transform().get_scale().x)
+	var badge_extent := Marker.Badge.SCREEN_DIAMETER*ui_scale/maxf(.01,get_canvas_transform().get_scale().x)
 	for item in _markers:
 		item.node.fit_badge(badge_extent)
 		var p: Vector2i = item.cell
@@ -321,9 +323,10 @@ func _update_markers() -> void:
 				item.node.badge.set_amount(charges,maximum)
 				item.node.active = charges > 0
 			"door":
-				var hp:=int(sim.door_hp.get(p,Types.DOOR_MAX_HP))
+				var maximum := Types.door_max_hp(sim.grid[p.y][p.x])
+				var hp:=int(sim.door_hp.get(p,maximum))
 				var tier:=2 if sim.grid[p.y][p.x]==Types.Tile.MAGIC_DOOR else 1
-				item.node.badge.set_amount(hp,Types.DOOR_MAX_HP,tier,hp>0)
+				item.node.badge.set_amount(hp,maximum,tier,hp>0)
 				item.node.badge.set_door_status("closed" if hp>0 else "open" if sim.door_opened.get(p,false) else "broken")
 			"corpse": text_value = "Corpse"
 			"loot": text_value = "Loot"
@@ -399,9 +402,7 @@ func solid_covers_point(local_point: Vector2) -> bool:
 		var badge: Control = item.node.badge
 		if not is_instance_valid(badge) or not badge.is_visible_in_tree(): continue
 		var badge_point := badge.get_global_transform().affine_inverse()*world_point
-		if badge_point.distance_to(badge.size*.5) <= badge.size.x*.5: return true
-		var has_seal: bool = badge.door_status in ["open","broken"] or badge.protection_tier > 0
-		if has_seal and badge_point.distance_to(Vector2(34,33)) <= 8: return true
+		if badge.contains_ink(badge_point): return true
 	for part in solid_groups:
 		if part.has("pick_bounds") and not part.pick_bounds.has_point(local_point): continue
 		# Junction shaders retain only a physical segment of a full wall image.

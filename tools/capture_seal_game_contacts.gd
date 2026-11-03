@@ -2,7 +2,8 @@ extends SceneTree
 ## Isolated static scene review; no gameplay commands or player save access.
 const Game = preload("res://scenes/game/DungeonGame.tscn")
 const Types = preload("res://scripts/game/game_types.gd")
-var OUT := "res://docs/reference/door-redesign/seal-v1/painted-v3/"
+const GATES := [Vector2i(8,6),Vector2i(10,8),Vector2i(8,10),Vector2i(6,8)]
+var OUT := "res://artifacts/door-frame-contacts/"
 var records: Array[Dictionary] = []
 var failed := false
 
@@ -14,8 +15,8 @@ func _initialize() -> void:
 	create_timer(25.0).timeout.connect(func(): quit(2))
 	_capture.call_deferred()
 
-func _record(label: String, view: Node2D, expected_segments: int) -> void:
-	var segments: Array[Dictionary] = []
+func _record(label: String, view: Node2D) -> void:
+	var walls: Array[Dictionary] = []
 	var nodes := {}
 	for part in view.solid_groups:
 		if nodes.has(part.node):
@@ -23,15 +24,27 @@ func _record(label: String, view: Node2D, expected_segments: int) -> void:
 			push_error("Two physical supports share one gameplay group")
 		nodes[part.node] = true
 		if part.has("wall_segment"):
-			segments.append({"id": part.id, "at": [part.at.x,part.at.y], "span": [part.wall_segment.span.x,part.wall_segment.span.y], "index": part.node.get_index(), "min": [part.min.x,part.min.y,part.min.z], "max": [part.max.x,part.max.y,part.max.z]})
-	if segments.size() != expected_segments or view._paint_cursor != view._paint_order.size():
+			failed = true
+			push_error("Unexpected wall cut beneath frame in " + label)
+	for gate: Vector2i in GATES:
+		var across := Vector2i.RIGHT if gate.x==8 else Vector2i.DOWN
+		var prefix := "wall-v-" if gate.x==8 else "wall-h-"
+		for at: Vector2i in [gate,gate+across]:
+			var supports: Array = view.solid_groups.filter(func(part): return str(part.id).begins_with(prefix) and Vector2i(part.at)==at)
+			if supports.size() != 1:
+				failed = true
+				push_error("Expected an intact wall at %s in %s" % [at,label])
+				continue
+			walls.append({"id":supports[0].id,"at":[at.x,at.y],"index":supports[0].node.get_index()})
+	if view._paint_cursor != view._paint_order.size():
 		failed = true
 		push_error("Incomplete gameplay contact groups in " + label)
-	records.append({"label":label,"segments":segments,"groups":view.solid_groups.size(),"actor_index":view._actor.get_index() if is_instance_valid(view._actor) else -1})
+	records.append({"label":label,"walls":walls,"groups":view.solid_groups.size(),"actor_index":view._actor.get_index() if is_instance_valid(view._actor) else -1})
 
 func _capture() -> void:
 	var game := Game.instantiate()
 	game.save_path = OUT + "never-created.save"
+	game.persistence_enabled = false
 	game.set_process(false)
 	root.add_child(game)
 	game.set_process(false)
@@ -41,18 +54,17 @@ func _capture() -> void:
 		game.sim.grid[8][i] = Types.Tile.FLOOR
 		game.sim.grid[i][8] = Types.Tile.FLOOR
 	game.sim.grid[8][8] = Types.Tile.CORE
-	var gates := [Vector2i(8,6),Vector2i(10,8),Vector2i(8,10),Vector2i(6,8)]
-	for p in gates: game.sim.grid[p.y][p.x] = Types.Tile.DOOR
+	for p in GATES: game.sim.grid[p.y][p.x] = Types.Tile.DOOR
 	var view: Node2D = game.get_node("PlayArea/World/Dungeon")
 	view.rebuild()
-	_record("intact",view,16)
+	_record("intact",view)
 	game.raid.raid_active = true
 	game.raid.hero = {"pos":Vector2i(8,9),"name":"Neris","kind":"thief","level":1,"hp":80,"max_hp":100}
 	view.rebuild()
-	_record("actor-behind",view,16)
+	_record("actor-behind",view)
 	game.raid.hero.pos = Vector2i(8,11)
 	view._update_markers()
-	_record("actor-in-front",view,16)
+	_record("actor-in-front",view)
 	game.get_node("HUD").visible = false
 	game.get_node("PlayArea").stretch = false
 	var world: SubViewport = game.get_node("PlayArea/World")
@@ -81,15 +93,15 @@ func _capture() -> void:
 		await RenderingServer.frame_post_draw
 		await RenderingServer.frame_post_draw
 		if world.get_texture().get_image().save_png(OUT + ("actor-behind.png" if side == 0 else "actor-in-front.png")) != OK: failed = true
-		_record("overlap-behind" if side == 0 else "overlap-in-front",view,16)
+		_record("overlap-behind" if side == 0 else "overlap-in-front",view)
 	game.raid.hero.erase("move_from")
 	game.raid.hero.erase("step_started_at")
-	for p in gates: game.sim.door_hp[p] = 0
+	for p in GATES: game.sim.door_hp[p] = 0
 	view.rebuild()
-	_record("destroyed",view,16) # Empty frames retain their wall junctions.
-	for p in gates: game.sim.door_hp[p] = Types.DOOR_MAX_HP
+	_record("destroyed",view)
+	for p in GATES: game.sim.door_hp[p] = Types.DOOR_MAX_HP
 	view.rebuild()
-	_record("restored",view,16)
+	_record("restored",view)
 	var file := FileAccess.open(OUT + "game-contact-inventory.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(records,"\t"))
 	if FileAccess.file_exists(game.save_path):

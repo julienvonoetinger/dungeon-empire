@@ -45,10 +45,11 @@ static func snapshot(game) -> Dictionary:
 			var tile: int = sim.grid[y][x]
 			probes[cell_id("cell",p)] = {"cell":[x,y], "tile":Types.Tile.keys()[tile], "walkable":sim._walkable(p)}
 			if sim._is_door_tile(tile):
-				var hp: int = sim.door_hp.get(p, Types.DOOR_MAX_HP)
+				var maximum := Types.door_max_hp(tile)
+				var hp: int = sim.door_hp.get(p, maximum)
 				var opened: bool = sim.door_opened.get(p,false)
 				probes[cell_id("door",p)] = {"cell":[x,y], "tile":Types.Tile.keys()[tile], "hp":hp,
-					"max_hp":Types.DOOR_MAX_HP, "status":"open" if opened else ("locked" if hp > 0 else "broken"),
+					"max_hp":maximum, "status":"open" if opened else ("locked" if hp > 0 else "broken"),
 					"blocking":sim._door_intact(p)}
 			elif sim._is_trap_tile(tile):
 				var charges: int = sim.trap_charges.get(p, Types.trap_max_charges(tile))
@@ -91,8 +92,9 @@ static func violations(game) -> Array:
 			if tile == Types.Tile.CORE: core_count += 1
 			if tile == Types.Tile.ENTRANCE: entrance_count += 1
 			if sim._is_door_tile(tile):
-				var hp: int = sim.door_hp.get(p,Types.DOOR_MAX_HP)
-				_check(out, hp >= 0 and hp <= Types.DOOR_MAX_HP, "door.hp", cell_id("door",p), "Door HP out of range")
+				var maximum := Types.door_max_hp(tile)
+				var hp: int = sim.door_hp.get(p,maximum)
+				_check(out, hp >= 0 and hp <= maximum, "door.hp", cell_id("door",p), "Door HP out of range")
 				_check(out, not sim.door_opened.get(p,false) or hp == 0, "door.open_hp", cell_id("door",p), "Open door retains resistance")
 			if sim._is_trap_tile(tile):
 				var maximum := Types.trap_max_charges(tile)

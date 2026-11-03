@@ -646,12 +646,16 @@ func _banish_via_void() -> void:
 
 
 func _attack_door(p: Vector2i) -> void:
-	if int(sim.door_hp.get(p, DOOR_MAX_HP)) <= 0:
+	if not sim._door_intact(p):
 		return
 	if int(sim.grid[p.y][p.x]) == Tile.MAGIC_DOOR:
 		_attack_magic_door(p)
 		return
 	if String(hero.get("kind", "")) == "paladin":
+		if sim.grid[p.y][p.x] == Tile.REINFORCED_DOOR:
+			hero.get_or_add("avoided_doors", {})[p] = true
+			sim.message = "%s cannot break the reinforced door and looks for another route." % hero.display
+			return
 		if bool(hero.get("door_striking", false)):
 			return
 		if _known_targets(hero, Tile.CORE).is_empty():
@@ -670,7 +674,8 @@ func _attack_door(p: Vector2i) -> void:
 		_start_vulpin_lockpick(p)
 		return
 	if hero.get("kind") == "mage":
-		_try_force_door(p)
+		hero.get_or_add("avoided_doors", {})[p] = true
+		sim.message = "%s finds no arcane seal and looks for another route." % hero.display
 
 func _vulpin_lockpick_limit() -> int:
 	var level := maxi(1, int(hero.get("level", 1)))
@@ -682,6 +687,8 @@ func _vulpin_lockpick_chance() -> float:
 	return clampf(float(hero.get("lockpick_success_chance", chance)), 0.0, 1.0)
 
 func _start_vulpin_lockpick(p: Vector2i) -> void:
+	if hero.get("kind") != "thief":
+		return
 	if bool(hero.get("lockpicking", false)) or int(hero.get("lockpick_attempts", {}).get(p, 0)) >= _vulpin_lockpick_limit():
 		return
 	hero["lockpicking"] = true
@@ -730,6 +737,8 @@ func _resolve_mage_arcane_open(p: Vector2i) -> void:
 
 
 func _resolve_vulpin_lockpick(p: Vector2i) -> void:
+	if hero.get("kind") != "thief":
+		return
 	if sim._inside(p) and int(sim.grid[p.y][p.x]) == Tile.VAULT:
 		if not sim.vault_protected(p) or int(sim.vault_locks.get(p, 0)) != 1:
 			return
@@ -741,7 +750,7 @@ func _resolve_vulpin_lockpick(p: Vector2i) -> void:
 			return
 		_mark_vulpin_lockpick_failure(p, true)
 		return
-	if not sim._door_intact(p):
+	if not sim._door_intact(p) or not GameTypes.has_standard_door_lock(sim.grid[p.y][p.x]):
 		return
 	if randf() < _vulpin_lockpick_chance():
 		sim.door_hp[p] = 0
@@ -778,7 +787,7 @@ func _mark_vulpin_lockpick_failure(p: Vector2i, vault: bool) -> void:
 
 
 func _try_force_door(p: Vector2i) -> bool:
-	if not sim._door_intact(p) or int(sim.grid[p.y][p.x]) != Tile.DOOR:
+	if hero.get("kind") != "paladin" or not sim._door_intact(p) or sim.grid[p.y][p.x] != Tile.DOOR:
 		return false
 	if not _passes_stat_check(hero.strength, hero.door_force_rolls, p):
 		hero.get_or_add("avoided_doors", {})[p] = true
@@ -789,9 +798,9 @@ func _try_force_door(p: Vector2i) -> bool:
 
 
 func _apply_door_damage(p: Vector2i) -> void:
-	if p.x < 0 or int(sim.door_hp.get(p, DOOR_MAX_HP)) <= 0:
+	if not sim._door_intact(p):
 		return
-	var hp := int(sim.door_hp.get(p, DOOR_MAX_HP)) - int(hero.get("door_damage", 18))
+	var hp := int(sim.door_hp.get(p, GameTypes.door_max_hp(sim.grid[p.y][p.x]))) - int(hero.get("door_damage", 18))
 	_morale_progress()
 	hero["move_cd"] = float(hero.get("move_cd", 0.0)) + 0.35
 	if hp <= 0:
@@ -1126,7 +1135,7 @@ func _step_cost(h: Dictionary, p: Vector2i) -> float:
 	var seen := int(h["known"].get(p, Tile.ROCK))
 	if sim._is_trap_tile(seen) and not h.get("triggered_traps", {}).has(p):
 		cost += ROUTE_TRAP * float(h["trap_weight"])
-	elif seen == Tile.DOOR or seen == Tile.MAGIC_DOOR:
+	elif GameTypes.is_door_tile(seen):
 		cost += ROUTE_DOOR
 	# A Paladin has a negative fear weight: sim.corpses draw it in instead.
 	cost += _corpse_danger_near(p) * float(h["fear_weight"])

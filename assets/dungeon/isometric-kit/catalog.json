@@ -1,6 +1,6 @@
 {
   "id": "isometric-painted-v1",
-  "appearance": "shared dungeon stone and approved v15 blackened metal/crystal doors; jambs aligned to wall courses",
+  "appearance": "shared dungeon stone, segmental arches and wood, arcane, iron and grille doors",
   "density": 256,
   "worldPixelsPerCell": 256,
   "sourceDiamond": [
@@ -37,7 +37,7 @@
   "wallHeight": 0.3133333333333333,
   "pillarWidth": 0.24,
   "floorRows": 3,
-  "spriteCount": 171,
+  "spriteCount": 207,
   "optionalDetails": [
     "pillar-top-carved"
   ],
@@ -46,8 +46,8 @@
     "density": 256,
     "width": 1024,
     "height": 2048,
-    "sourceBytes": 2094278,
-    "uncompressedRGBABytes": 13631488,
+    "sourceBytes": 2980408,
+    "uncompressedRGBABytes": 15728640,
     "regions": {
       "heart-self-glow": {
         "region": [
@@ -5383,250 +5383,32 @@
           "layer": "mechanism"
         }
       },
-      "door-east-jamb-right": {
-        "region": [
-          4,
-          4,
-          72,
-          146
-        ],
-        "offset": [
-          -101,
-          -65
-        ],
-        "size": [
-          89,
-          182
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.3333333333333333,
-            0.7247634285714285,
-            0
-          ],
-          "max": [
-            0.6666666666666666,
-            1.0833333333333333,
-            0.92
-          ]
-        },
-        "door_part": "jamb-right"
-      },
-      "door-west-leaf": {
-        "region": [
-          84,
-          4,
-          72,
-          146
-        ],
-        "offset": [
-          -101,
-          -65
-        ],
-        "size": [
-          89,
-          182
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.33333333333333337,
-            0.7247634285714286,
-            0
-          ],
-          "max": [
-            0.6666666666666667,
-            1.0833333333333333,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "h",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
-          ]
-        },
-        "companions": [
-          "door-west-jamb-right",
-          "door-west-panel"
-        ],
-        "door_part": "jamb-left"
-      },
-      "door-north-open-leaf": {
-        "region": [
-          164,
-          4,
-          72,
-          146
-        ],
-        "offset": [
-          12,
-          -65
-        ],
-        "size": [
-          89,
-          182
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.7247634285714285,
-            0.33333333333333337,
-            0
-          ],
-          "max": [
-            1.0833333333333333,
-            0.6666666666666667,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "v",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
-          ]
-        },
-        "companions": [
-          "door-north-open-jamb-right"
-        ],
-        "door_part": "jamb-left"
-      },
-      "door-east-open-jamb-right": {
-        "region": [
-          244,
-          4,
-          71,
-          146
-        ],
-        "offset": [
-          -101,
-          -65
-        ],
-        "size": [
-          88,
-          182
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.3333333333333333,
-            0.7247634285714285,
-            0
-          ],
-          "max": [
-            0.6666666666666666,
-            1.0833333333333333,
-            0.92
-          ]
-        },
-        "door_part": "jamb-right"
-      },
-      "door-south-open-jamb-right": {
-        "region": [
-          323,
-          4,
-          72,
-          146
-        ],
-        "offset": [
-          12,
-          -65
-        ],
-        "size": [
-          89,
-          182
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.7247634285714286,
-            0.3333333333333333,
-            0
-          ],
-          "max": [
-            1.0833333333333333,
-            0.6666666666666666,
-            0.92
-          ]
-        },
-        "door_part": "jamb-right"
-      },
-      "door-west-open-leaf": {
-        "region": [
-          403,
-          4,
-          71,
-          146
-        ],
-        "offset": [
-          -101,
-          -65
-        ],
-        "size": [
-          88,
-          182
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.33333333333333337,
-            0.7247634285714286,
-            0
-          ],
-          "max": [
-            0.6666666666666667,
-            1.0833333333333333,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "h",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
-          ]
-        },
-        "companions": [
-          "door-west-open-jamb-right"
-        ],
-        "door_part": "jamb-left"
-      },
       "door-north-leaf": {
         "region": [
+          969,
           4,
-          158,
-          71,
-          145
+          48,
+          114
         ],
         "offset": [
-          13,
-          -64
+          40,
+          -54
         ],
         "size": [
-          88,
-          181
+          48,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.7247634285714285,
-            0.33333333333333337,
-            0
+            0.9166666666666666,
+            0.41666666666666663,
+            0.3133333333333333
           ],
           "max": [
             1.0833333333333333,
-            0.6666666666666667,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "v",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
+            0.5833333333333333,
+            0.87
           ]
         },
         "companions": [
@@ -5635,219 +5417,122 @@
         ],
         "door_part": "jamb-left"
       },
-      "door-south-jamb-right": {
+      "door-north-arch": {
         "region": [
-          83,
-          158,
-          71,
-          145
+          662,
+          574,
+          174,
+          114
         ],
         "offset": [
-          13,
-          -64
+          -87,
+          -142
         ],
         "size": [
-          88,
-          181
+          174,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.7247634285714286,
-            0.3333333333333333,
-            0
+            -0.08333333333333326,
+            0.41666666666666663,
+            0.87
           ],
           "max": [
             1.0833333333333333,
-            0.6666666666666666,
-            0.92
+            0.5833333333333333,
+            1.1953188919825841
+          ]
+        },
+        "door_part": "crown"
+      },
+      "door-north-jamb-right": {
+        "region": [
+          969,
+          4,
+          48,
+          114
+        ],
+        "offset": [
+          -88,
+          -118
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            -0.08333333333333326,
+            0.41666666666666663,
+            0.3133333333333333
+          ],
+          "max": [
+            0.08333333333333337,
+            0.5833333333333333,
+            0.87
           ]
         },
         "door_part": "jamb-right"
       },
       "door-north-panel": {
         "region": [
-          162,
-          158,
-          67,
-          142
+          46,
+          432,
+          118,
+          203
         ],
         "offset": [
-          -49,
-          -94
+          -59,
+          -108
         ],
         "size": [
-          83,
-          177
+          118,
+          203
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.18500000000000005,
+            0.08333333333333337,
             0.475,
             0
           ],
           "max": [
-            0.815,
+            0.9166666666666666,
             0.525,
-            0.9600000000000001
+            1.0417642646542187
           ]
         },
         "door_part": "panel"
-      },
-      "door-east-panel": {
-        "region": [
-          237,
-          158,
-          67,
-          142
-        ],
-        "offset": [
-          -34,
-          -94
-        ],
-        "size": [
-          83,
-          177
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.475,
-            0.18500000000000005,
-            0
-          ],
-          "max": [
-            0.525,
-            0.815,
-            0.9600000000000001
-          ]
-        },
-        "door_part": "panel"
-      },
-      "door-south-panel": {
-        "region": [
-          312,
-          158,
-          67,
-          142
-        ],
-        "offset": [
-          -49,
-          -94
-        ],
-        "size": [
-          83,
-          177
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.185,
-            0.475,
-            0
-          ],
-          "max": [
-            0.815,
-            0.525,
-            0.9600000000000001
-          ]
-        },
-        "door_part": "panel"
-      },
-      "door-west-panel": {
-        "region": [
-          387,
-          158,
-          67,
-          142
-        ],
-        "offset": [
-          -34,
-          -94
-        ],
-        "size": [
-          83,
-          177
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.475,
-            0.185,
-            0
-          ],
-          "max": [
-            0.525,
-            0.815,
-            0.9600000000000001
-          ]
-        },
-        "door_part": "panel"
-      },
-      "door-north-jamb-right": {
-        "region": [
-          162,
-          308,
-          51,
-          136
-        ],
-        "offset": [
-          -101,
-          -111
-        ],
-        "size": [
-          63,
-          170
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            -0.08333333333333326,
-            0.33333333333333337,
-            0
-          ],
-          "max": [
-            0.2752365714285714,
-            0.6666666666666667,
-            0.92
-          ]
-        },
-        "door_part": "jamb-right"
       },
       "door-east-leaf": {
         "region": [
-          4,
-          311,
-          52,
-          136
+          969,
+          126,
+          48,
+          114
         ],
         "offset": [
-          37,
-          -111
+          -88,
+          -54
         ],
         "size": [
-          64,
-          170
+          48,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.3333333333333333,
-            -0.08333333333333326,
-            0
+            0.4166666666666667,
+            0.9166666666666666,
+            0.3133333333333333
           ],
           "max": [
-            0.6666666666666666,
-            0.2752365714285714,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "h",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
+            0.5833333333333334,
+            1.0833333333333333,
+            0.87
           ]
         },
         "companions": [
@@ -5856,39 +5541,122 @@
         ],
         "door_part": "jamb-left"
       },
-      "door-south-leaf": {
+      "door-east-arch": {
         "region": [
-          64,
-          311,
-          51,
-          136
+          662,
+          696,
+          174,
+          114
         ],
         "offset": [
-          -101,
-          -111
+          -87,
+          -142
         ],
         "size": [
-          63,
-          170
+          174,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.4166666666666667,
+            -0.08333333333333326,
+            0.87
+          ],
+          "max": [
+            0.5833333333333334,
+            1.0833333333333333,
+            1.1953188919825841
+          ]
+        },
+        "door_part": "crown"
+      },
+      "door-east-jamb-right": {
+        "region": [
+          969,
+          126,
+          48,
+          114
+        ],
+        "offset": [
+          40,
+          -118
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.4166666666666667,
+            -0.08333333333333326,
+            0.3133333333333333
+          ],
+          "max": [
+            0.5833333333333334,
+            0.08333333333333337,
+            0.87
+          ]
+        },
+        "door_part": "jamb-right"
+      },
+      "door-east-panel": {
+        "region": [
+          51,
+          643,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.475,
+            0.08333333333333337,
+            0
+          ],
+          "max": [
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-leaf": {
+        "region": [
+          969,
+          248,
+          48,
+          114
+        ],
+        "offset": [
+          -88,
+          -118
+        ],
+        "size": [
+          48,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
             -0.08333333333333333,
-            0.3333333333333333,
-            0
+            0.4166666666666667,
+            0.3133333333333333
           ],
           "max": [
-            0.2752365714285715,
-            0.6666666666666666,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "v",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
+            0.08333333333333334,
+            0.5833333333333334,
+            0.87
           ]
         },
         "companions": [
@@ -5897,99 +5665,339 @@
         ],
         "door_part": "jamb-left"
       },
-      "door-west-jamb-right": {
+      "door-south-arch": {
         "region": [
-          221,
-          308,
-          52,
-          136
+          844,
+          728,
+          174,
+          114
         ],
         "offset": [
-          37,
-          -111
+          -87,
+          -142
         ],
         "size": [
-          65,
-          170
+          174,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.33333333333333337,
             -0.08333333333333333,
-            0
+            0.4166666666666667,
+            0.87
           ],
           "max": [
-            0.6666666666666667,
-            0.2752365714285715,
-            0.92
+            1.0833333333333333,
+            0.5833333333333334,
+            1.1953188919825841
+          ]
+        },
+        "door_part": "crown"
+      },
+      "door-south-jamb-right": {
+        "region": [
+          969,
+          248,
+          48,
+          114
+        ],
+        "offset": [
+          40,
+          -54
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.9166666666666666,
+            0.4166666666666667,
+            0.3133333333333333
+          ],
+          "max": [
+            1.0833333333333333,
+            0.5833333333333334,
+            0.87
           ]
         },
         "door_part": "jamb-right"
       },
-      "door-north-open-jamb-right": {
+      "door-south-panel": {
         "region": [
-          281,
-          308,
-          69,
-          136
+          93,
+          4,
+          118,
+          203
         ],
         "offset": [
-          -101,
-          -111
+          -59,
+          -108
         ],
         "size": [
-          86,
-          170
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.08333333333333334,
+            0.475,
+            0
+          ],
+          "max": [
+            0.9166666666666666,
+            0.525,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-leaf": {
+        "region": [
+          969,
+          370,
+          48,
+          114
+        ],
+        "offset": [
+          40,
+          -118
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.41666666666666663,
+            -0.08333333333333333,
+            0.3133333333333333
+          ],
+          "max": [
+            0.5833333333333333,
+            0.08333333333333334,
+            0.87
+          ]
+        },
+        "companions": [
+          "door-west-jamb-right",
+          "door-west-panel"
+        ],
+        "door_part": "jamb-left"
+      },
+      "door-west-arch": {
+        "region": [
+          662,
+          818,
+          174,
+          114
+        ],
+        "offset": [
+          -87,
+          -142
+        ],
+        "size": [
+          174,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.41666666666666663,
+            -0.08333333333333333,
+            0.87
+          ],
+          "max": [
+            0.5833333333333333,
+            1.0833333333333333,
+            1.1953188919825841
+          ]
+        },
+        "door_part": "crown"
+      },
+      "door-west-jamb-right": {
+        "region": [
+          969,
+          370,
+          48,
+          114
+        ],
+        "offset": [
+          -88,
+          -54
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.41666666666666663,
+            0.9166666666666666,
+            0.3133333333333333
+          ],
+          "max": [
+            0.5833333333333333,
+            1.0833333333333333,
+            0.87
+          ]
+        },
+        "door_part": "jamb-right"
+      },
+      "door-west-panel": {
+        "region": [
+          93,
+          215,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.475,
+            0.08333333333333334,
+            0
+          ],
+          "max": [
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-open-leaf": {
+        "region": [
+          969,
+          4,
+          48,
+          114
+        ],
+        "offset": [
+          40,
+          -54
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.9166666666666666,
+            0.41666666666666663,
+            0.3133333333333333
+          ],
+          "max": [
+            1.0833333333333333,
+            0.5833333333333333,
+            0.87
+          ]
+        },
+        "companions": [
+          "door-north-open-jamb-right"
+        ],
+        "door_part": "jamb-left"
+      },
+      "door-north-open-arch": {
+        "region": [
+          662,
+          574,
+          174,
+          114
+        ],
+        "offset": [
+          -87,
+          -142
+        ],
+        "size": [
+          174,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
             -0.08333333333333326,
-            0.33333333333333337,
-            0
+            0.41666666666666663,
+            0.87
           ],
           "max": [
-            0.2752365714285714,
-            0.6666666666666667,
-            0.92
+            1.0833333333333333,
+            0.5833333333333333,
+            1.1953188919825841
+          ]
+        },
+        "door_part": "crown"
+      },
+      "door-north-open-jamb-right": {
+        "region": [
+          969,
+          4,
+          48,
+          114
+        ],
+        "offset": [
+          -88,
+          -118
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            -0.08333333333333326,
+            0.41666666666666663,
+            0.3133333333333333
+          ],
+          "max": [
+            0.08333333333333337,
+            0.5833333333333333,
+            0.87
           ]
         },
         "door_part": "jamb-right"
       },
       "door-east-open-leaf": {
         "region": [
-          358,
-          308,
-          69,
-          136
+          969,
+          126,
+          48,
+          114
         ],
         "offset": [
-          15,
-          -111
+          -88,
+          -54
         ],
         "size": [
-          86,
-          170
+          48,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.3333333333333333,
-            -0.08333333333333326,
-            0
+            0.4166666666666667,
+            0.9166666666666666,
+            0.3133333333333333
           ],
           "max": [
-            0.6666666666666666,
-            0.2752365714285714,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "h",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
+            0.5833333333333334,
+            1.0833333333333333,
+            0.87
           ]
         },
         "companions": [
@@ -5997,39 +6005,92 @@
         ],
         "door_part": "jamb-left"
       },
-      "door-south-open-leaf": {
+      "door-east-open-arch": {
         "region": [
-          435,
-          308,
-          69,
-          136
+          662,
+          696,
+          174,
+          114
         ],
         "offset": [
-          -101,
-          -111
+          -87,
+          -142
         ],
         "size": [
-          86,
-          170
+          174,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.4166666666666667,
+            -0.08333333333333326,
+            0.87
+          ],
+          "max": [
+            0.5833333333333334,
+            1.0833333333333333,
+            1.1953188919825841
+          ]
+        },
+        "door_part": "crown"
+      },
+      "door-east-open-jamb-right": {
+        "region": [
+          969,
+          126,
+          48,
+          114
+        ],
+        "offset": [
+          40,
+          -118
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.4166666666666667,
+            -0.08333333333333326,
+            0.3133333333333333
+          ],
+          "max": [
+            0.5833333333333334,
+            0.08333333333333337,
+            0.87
+          ]
+        },
+        "door_part": "jamb-right"
+      },
+      "door-south-open-leaf": {
+        "region": [
+          969,
+          248,
+          48,
+          114
+        ],
+        "offset": [
+          -88,
+          -118
+        ],
+        "size": [
+          48,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
             -0.08333333333333333,
-            0.3333333333333333,
-            0
+            0.4166666666666667,
+            0.3133333333333333
           ],
           "max": [
-            0.2752365714285715,
-            0.6666666666666666,
-            0.92
-          ]
-        },
-        "wall_junction": {
-          "axis": "v",
-          "span": [
-            0.3333333333333333,
-            0.6666666666666666
+            0.08333333333333334,
+            0.5833333333333334,
+            0.87
           ]
         },
         "companions": [
@@ -6037,275 +6098,1238 @@
         ],
         "door_part": "jamb-left"
       },
-      "door-west-open-jamb-right": {
+      "door-south-open-arch": {
         "region": [
-          123,
-          452,
-          70,
-          136
+          844,
+          728,
+          174,
+          114
         ],
         "offset": [
-          15,
-          -111
+          -87,
+          -142
         ],
         "size": [
-          87,
-          170
+          174,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.33333333333333337,
             -0.08333333333333333,
-            0
+            0.4166666666666667,
+            0.87
           ],
           "max": [
-            0.6666666666666667,
-            0.2752365714285715,
-            0.92
+            1.0833333333333333,
+            0.5833333333333334,
+            1.1953188919825841
+          ]
+        },
+        "door_part": "crown"
+      },
+      "door-south-open-jamb-right": {
+        "region": [
+          969,
+          248,
+          48,
+          114
+        ],
+        "offset": [
+          40,
+          -54
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.9166666666666666,
+            0.4166666666666667,
+            0.3133333333333333
+          ],
+          "max": [
+            1.0833333333333333,
+            0.5833333333333334,
+            0.87
           ]
         },
         "door_part": "jamb-right"
       },
-      "door-north-arch": {
+      "door-west-open-leaf": {
         "region": [
-          201,
-          452,
-          139,
-          94
+          969,
+          370,
+          48,
+          114
         ],
         "offset": [
-          -86,
-          -152
+          40,
+          -118
         ],
         "size": [
-          173,
-          117
+          48,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            -0.022232394423524874,
-            0.36,
-            0.92
+            0.41666666666666663,
+            -0.08333333333333333,
+            0.3133333333333333
           ],
           "max": [
-            1.022232394423525,
-            0.64,
-            1.16
+            0.5833333333333333,
+            0.08333333333333334,
+            0.87
           ]
         },
-        "door_part": "crown"
-      },
-      "door-west-arch": {
-        "region": [
-          348,
-          452,
-          139,
-          94
+        "companions": [
+          "door-west-open-jamb-right"
         ],
-        "offset": [
-          -87,
-          -152
-        ],
-        "size": [
-          173,
-          117
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            0.36,
-            -0.022232394423524895,
-            0.92
-          ],
-          "max": [
-            0.64,
-            1.022232394423525,
-            1.16
-          ]
-        },
-        "door_part": "crown"
-      },
-      "door-north-open-arch": {
-        "region": [
-          201,
-          554,
-          139,
-          94
-        ],
-        "offset": [
-          -86,
-          -152
-        ],
-        "size": [
-          173,
-          117
-        ],
-        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "bounds": {
-          "min": [
-            -0.022232394423524874,
-            0.36,
-            0.92
-          ],
-          "max": [
-            1.022232394423525,
-            0.64,
-            1.16
-          ]
-        },
-        "door_part": "crown"
+        "door_part": "jamb-left"
       },
       "door-west-open-arch": {
         "region": [
-          348,
-          554,
-          139,
-          94
+          662,
+          818,
+          174,
+          114
         ],
         "offset": [
           -87,
-          -152
+          -142
         ],
         "size": [
-          173,
-          117
+          174,
+          114
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.36,
-            -0.022232394423524895,
-            0.92
+            0.41666666666666663,
+            -0.08333333333333333,
+            0.87
           ],
           "max": [
-            0.64,
-            1.022232394423525,
-            1.16
+            0.5833333333333333,
+            1.0833333333333333,
+            1.1953188919825841
           ]
         },
         "door_part": "crown"
       },
-      "door-east-arch": {
+      "door-west-open-jamb-right": {
+        "region": [
+          969,
+          370,
+          48,
+          114
+        ],
+        "offset": [
+          -88,
+          -54
+        ],
+        "size": [
+          48,
+          114
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.41666666666666663,
+            0.9166666666666666,
+            0.3133333333333333
+          ],
+          "max": [
+            0.5833333333333333,
+            1.0833333333333333,
+            0.87
+          ]
+        },
+        "door_part": "jamb-right"
+      },
+      "door-north-wood-panel-left": {
+        "region": [
+          863,
+          4,
+          80,
+          173
+        ],
+        "offset": [
+          -23,
+          -68
+        ],
+        "size": [
+          80,
+          173
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.6866826982387223,
+            0.48749999999999993,
+            0
+          ],
+          "max": [
+            0.9383173017612776,
+            0.8733439182435161,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-wood-panel-right": {
+        "region": [
+          685,
+          4,
+          39,
+          180
+        ],
+        "offset": [
+          -85,
+          -103
+        ],
+        "size": [
+          39,
+          180
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.06168269823872241,
+            0.48749999999999993,
+            0
+          ],
+          "max": [
+            0.3695493525688466,
+            0.9687406872560198,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-arcane-panel": {
+        "region": [
+          172,
+          426,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.08333333333333337,
+            0.475,
+            0
+          ],
+          "max": [
+            0.9166666666666666,
+            0.525,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-arcane-panel-left": {
+        "region": [
+          863,
+          185,
+          80,
+          173
+        ],
+        "offset": [
+          -23,
+          -68
+        ],
+        "size": [
+          80,
+          173
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.6866826982387223,
+            0.48749999999999993,
+            0
+          ],
+          "max": [
+            0.9383173017612776,
+            0.8733439182435161,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-arcane-panel-right": {
+        "region": [
+          685,
+          192,
+          39,
+          180
+        ],
+        "offset": [
+          -85,
+          -103
+        ],
+        "size": [
+          39,
+          180
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.06168269823872241,
+            0.48749999999999993,
+            0
+          ],
+          "max": [
+            0.3695493525688466,
+            0.9687406872560198,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-iron-panel": {
+        "region": [
+          177,
+          637,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.08333333333333337,
+            0.475,
+            0
+          ],
+          "max": [
+            0.9166666666666666,
+            0.525,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-iron-panel-left": {
+        "region": [
+          774,
+          192,
+          80,
+          173
+        ],
+        "offset": [
+          -23,
+          -68
+        ],
+        "size": [
+          80,
+          173
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.6866826982387223,
+            0.48749999999999993,
+            0
+          ],
+          "max": [
+            0.9383173017612776,
+            0.8733439182435161,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-iron-panel-right": {
+        "region": [
+          732,
+          4,
+          39,
+          180
+        ],
+        "offset": [
+          -85,
+          -103
+        ],
+        "size": [
+          39,
+          180
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.06168269823872241,
+            0.48749999999999993,
+            0
+          ],
+          "max": [
+            0.3695493525688466,
+            0.9687406872560198,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-north-grille-panel": {
+        "region": [
+          219,
+          4,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.08333333333333337,
+            0.475,
+            0
+          ],
+          "max": [
+            0.9166666666666666,
+            0.525,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-east-wood-panel-left": {
         "region": [
           4,
-          596,
-          139,
-          93
+          4,
+          34,
+          206
         ],
         "offset": [
-          -87,
-          -151
+          -80,
+          -112
         ],
         "size": [
-          173,
-          116
+          34,
+          206
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.36,
-            -0.022232394423524874,
-            0.92
+            0.1266560817564839,
+            0.6866826982387223,
+            0
           ],
           "max": [
-            0.64,
-            1.022232394423525,
-            1.16
+            0.5125000000000001,
+            0.9383173017612776,
+            1.0417642646542187
           ]
         },
-        "door_part": "crown"
+        "door_part": "panel"
       },
-      "door-south-arch": {
+      "door-east-wood-panel-right": {
         "region": [
-          151,
-          656,
-          139,
-          93
+          550,
+          426,
+          99,
+          182
         ],
         "offset": [
-          -86,
-          -151
+          -42,
+          -140
         ],
         "size": [
-          173,
-          116
+          99,
+          182
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            -0.022232394423524895,
-            0.36,
-            0.92
+            0.03125931274398014,
+            0.06168269823872241,
+            0
           ],
           "max": [
-            1.022232394423525,
-            0.64,
-            1.16
+            0.5125000000000001,
+            0.3695493525688466,
+            1.0417642646542187
           ]
         },
-        "door_part": "crown"
+        "door_part": "panel"
       },
-      "door-east-open-arch": {
+      "door-east-arcane-panel": {
+        "region": [
+          219,
+          215,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.475,
+            0.08333333333333337,
+            0
+          ],
+          "max": [
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-east-arcane-panel-left": {
         "region": [
           4,
-          697,
-          139,
-          93
+          218,
+          34,
+          206
         ],
         "offset": [
-          -87,
-          -151
+          -80,
+          -112
         ],
         "size": [
-          173,
-          116
+          34,
+          206
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            0.36,
-            -0.022232394423524874,
-            0.92
+            0.1266560817564839,
+            0.6866826982387223,
+            0
           ],
           "max": [
-            0.64,
-            1.022232394423525,
-            1.16
+            0.5125000000000001,
+            0.9383173017612776,
+            1.0417642646542187
           ]
         },
-        "door_part": "crown"
+        "door_part": "panel"
       },
-      "door-south-open-arch": {
+      "door-east-arcane-panel-right": {
+        "region": [
+          555,
+          616,
+          99,
+          182
+        ],
+        "offset": [
+          -42,
+          -140
+        ],
+        "size": [
+          99,
+          182
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.03125931274398014,
+            0.06168269823872241,
+            0
+          ],
+          "max": [
+            0.5125000000000001,
+            0.3695493525688466,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-east-iron-panel": {
         "region": [
           298,
-          656,
-          139,
-          93
+          426,
+          118,
+          203
         ],
         "offset": [
-          -86,
-          -151
+          -59,
+          -108
         ],
         "size": [
-          173,
-          116
+          118,
+          203
         ],
         "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
         "bounds": {
           "min": [
-            -0.022232394423524895,
-            0.36,
-            0.92
+            0.475,
+            0.08333333333333337,
+            0
           ],
           "max": [
-            1.022232394423525,
-            0.64,
-            1.16
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
           ]
         },
-        "door_part": "crown"
+        "door_part": "panel"
+      },
+      "door-east-iron-panel-left": {
+        "region": [
+          4,
+          432,
+          34,
+          206
+        ],
+        "offset": [
+          -80,
+          -112
+        ],
+        "size": [
+          34,
+          206
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.1266560817564839,
+            0.6866826982387223,
+            0
+          ],
+          "max": [
+            0.5125000000000001,
+            0.9383173017612776,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-east-iron-panel-right": {
+        "region": [
+          555,
+          806,
+          99,
+          182
+        ],
+        "offset": [
+          -42,
+          -140
+        ],
+        "size": [
+          99,
+          182
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.03125931274398014,
+            0.06168269823872241,
+            0
+          ],
+          "max": [
+            0.5125000000000001,
+            0.3695493525688466,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-east-grille-panel": {
+        "region": [
+          303,
+          637,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.475,
+            0.08333333333333337,
+            0
+          ],
+          "max": [
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-wood-panel-left": {
+        "region": [
+          597,
+          4,
+          80,
+          182
+        ],
+        "offset": [
+          -57,
+          -140
+        ],
+        "size": [
+          80,
+          182
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.061682698238722355,
+            0.1266560817564839,
+            0
+          ],
+          "max": [
+            0.3133173017612777,
+            0.5125000000000001,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-wood-panel-right": {
+        "region": [
+          4,
+          646,
+          39,
+          206
+        ],
+        "offset": [
+          46,
+          -112
+        ],
+        "size": [
+          39,
+          206
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.6304506474311534,
+            0.03125931274398014,
+            0
+          ],
+          "max": [
+            0.9383173017612776,
+            0.5125000000000001,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-arcane-panel": {
+        "region": [
+          345,
+          4,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.08333333333333334,
+            0.475,
+            0
+          ],
+          "max": [
+            0.9166666666666666,
+            0.525,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-arcane-panel-left": {
+        "region": [
+          597,
+          194,
+          80,
+          182
+        ],
+        "offset": [
+          -57,
+          -140
+        ],
+        "size": [
+          80,
+          182
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.061682698238722355,
+            0.1266560817564839,
+            0
+          ],
+          "max": [
+            0.3133173017612777,
+            0.5125000000000001,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-arcane-panel-right": {
+        "region": [
+          46,
+          4,
+          39,
+          206
+        ],
+        "offset": [
+          46,
+          -112
+        ],
+        "size": [
+          39,
+          206
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.6304506474311534,
+            0.03125931274398014,
+            0
+          ],
+          "max": [
+            0.9383173017612776,
+            0.5125000000000001,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-iron-panel": {
+        "region": [
+          345,
+          215,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.08333333333333334,
+            0.475,
+            0
+          ],
+          "max": [
+            0.9166666666666666,
+            0.525,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-iron-panel-left": {
+        "region": [
+          657,
+          384,
+          80,
+          182
+        ],
+        "offset": [
+          -57,
+          -140
+        ],
+        "size": [
+          80,
+          182
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.061682698238722355,
+            0.1266560817564839,
+            0
+          ],
+          "max": [
+            0.3133173017612777,
+            0.5125000000000001,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-iron-panel-right": {
+        "region": [
+          46,
+          218,
+          39,
+          206
+        ],
+        "offset": [
+          46,
+          -112
+        ],
+        "size": [
+          39,
+          206
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.6304506474311534,
+            0.03125931274398014,
+            0
+          ],
+          "max": [
+            0.9383173017612776,
+            0.5125000000000001,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-south-grille-panel": {
+        "region": [
+          424,
+          426,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.08333333333333334,
+            0.475,
+            0
+          ],
+          "max": [
+            0.9166666666666666,
+            0.525,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-wood-panel-left": {
+        "region": [
+          732,
+          192,
+          34,
+          180
+        ],
+        "offset": [
+          46,
+          -103
+        ],
+        "size": [
+          34,
+          180
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.48749999999999993,
+            0.061682698238722355,
+            0
+          ],
+          "max": [
+            0.8733439182435161,
+            0.3133173017612777,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-wood-panel-right": {
+        "region": [
+          862,
+          366,
+          99,
+          173
+        ],
+        "offset": [
+          -57,
+          -68
+        ],
+        "size": [
+          99,
+          173
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.48749999999999993,
+            0.6304506474311534,
+            0
+          ],
+          "max": [
+            0.9687406872560198,
+            0.9383173017612776,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-arcane-panel": {
+        "region": [
+          429,
+          637,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.475,
+            0.08333333333333334,
+            0
+          ],
+          "max": [
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-arcane-panel-left": {
+        "region": [
+          779,
+          4,
+          34,
+          180
+        ],
+        "offset": [
+          46,
+          -103
+        ],
+        "size": [
+          34,
+          180
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.48749999999999993,
+            0.061682698238722355,
+            0
+          ],
+          "max": [
+            0.8733439182435161,
+            0.3133173017612777,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-arcane-panel-right": {
+        "region": [
+          745,
+          380,
+          99,
+          173
+        ],
+        "offset": [
+          -57,
+          -68
+        ],
+        "size": [
+          99,
+          173
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.48749999999999993,
+            0.6304506474311534,
+            0
+          ],
+          "max": [
+            0.9687406872560198,
+            0.9383173017612776,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-iron-panel": {
+        "region": [
+          471,
+          4,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.475,
+            0.08333333333333334,
+            0
+          ],
+          "max": [
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-iron-panel-left": {
+        "region": [
+          821,
+          4,
+          34,
+          180
+        ],
+        "offset": [
+          46,
+          -103
+        ],
+        "size": [
+          34,
+          180
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.48749999999999993,
+            0.061682698238722355,
+            0
+          ],
+          "max": [
+            0.8733439182435161,
+            0.3133173017612777,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-iron-panel-right": {
+        "region": [
+          852,
+          547,
+          99,
+          173
+        ],
+        "offset": [
+          -57,
+          -68
+        ],
+        "size": [
+          99,
+          173
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.48749999999999993,
+            0.6304506474311534,
+            0
+          ],
+          "max": [
+            0.9687406872560198,
+            0.9383173017612776,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
+      },
+      "door-west-grille-panel": {
+        "region": [
+          471,
+          215,
+          118,
+          203
+        ],
+        "offset": [
+          -59,
+          -108
+        ],
+        "size": [
+          118,
+          203
+        ],
+        "atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+        "bounds": {
+          "min": [
+            0.475,
+            0.08333333333333334,
+            0
+          ],
+          "max": [
+            0.525,
+            0.9166666666666666,
+            1.0417642646542187
+          ]
+        },
+        "door_part": "panel"
       }
     },
     "pages": [
@@ -6332,10 +7356,10 @@
       },
       {
         "path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
-        "width": 512,
+        "width": 1024,
         "height": 1024,
-        "sourceBytes": 369502,
-        "uncompressedRGBABytes": 2097152
+        "sourceBytes": 1255632,
+        "uncompressedRGBABytes": 4194304
       }
     ]
   },

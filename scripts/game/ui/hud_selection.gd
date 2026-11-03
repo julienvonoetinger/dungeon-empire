@@ -135,7 +135,7 @@ func refresh() -> void:
 		if not session.preview.is_empty():
 			detail.text = "%d gold · %s" % [session.preview.get("cost", 0), "Ready to confirm" if session.preview.get("valid", false) else str(session.preview.get("reason", "Cannot place here"))]
 	else:
-		var names := ["Rock", "Floor", "Entrance", "Core", "Chest", "Spikes", "Snare", "Door", "Void", "Arcane door"]
+		var names := ["Rock", "Floor", "Entrance", "Core", "Chest", "Spikes", "Snare", "Door", "Void", "Arcane door", "Reinforced door"]
 		title.text = names[tile]
 		glyph.texture = UI.icon("chest" if tile == Types.Tile.VAULT else "gem" if tile == Types.Tile.CORE else "door" if session.sim._is_door_tile(tile) else "pick")
 		detail.text = "Tile %d, %d" % [p.x + 1, p.y + 1]
@@ -144,8 +144,9 @@ func refresh() -> void:
 			if store.size() > 1: title.text = "Treasure room"
 			detail.text = "%d / %d gold" % [session.sim.stored_gold(store), Types.store_capacity(store)]
 		elif session.sim._is_door_tile(tile):
-			var hp:=int(session.sim.door_hp.get(p,Types.DOOR_MAX_HP))
-			detail.text="%d / %d HP" % [hp,Types.DOOR_MAX_HP] if hp>0 else "Unlocked" if session.sim.door_opened.get(p,false) else "Broken · Needs repair"
+			var maximum := Types.door_max_hp(tile)
+			var hp:=int(session.sim.door_hp.get(p,maximum))
+			detail.text="%d / %d HP" % [hp,maximum] if hp>0 else "Unlocked" if session.sim.door_opened.get(p,false) else "Broken · Needs repair"
 		elif Types.is_trap_tile(tile): detail.text = "%d / %d charges" % [session.sim.trap_charges.get(p, 0), Types.trap_max_charges(tile)]
 	if removal_pending:
 		title.text = "Remove structure"
