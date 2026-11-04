@@ -162,6 +162,13 @@ godot --headless --editor --path . --import
 Les anciens exporteurs, dont `export_mobile_kit.cjs`, reconstruisent les étapes
 historiques. Ils ne mettent pas à jour le catalogue isométrique actif.
 
+## Comparer les portes
+
+Pour comparer les portes en bois, renforcées, magiques et la herse, ouvrir
+`scenes/DoorGallery.tscn` puis **F6**. Le sélecteur change l’orientation
+des quatre portes et le bouton **État** montre leur version fermée ou ouverte.
+Cette scène de présentation utilise les assets du jeu sans toucher aux sauvegardes.
+
 ## APK Android jouable
 
 `tools/prepare_android_game.cjs` prépare une copie isolée du jeu courant dans
