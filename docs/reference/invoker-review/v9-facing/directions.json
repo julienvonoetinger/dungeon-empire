@@ -1,0 +1,77 @@
+{
+  "source_sha256": "fa6719233d4ee5a055c5a16a18da029acb6ba00d830388ca993232547405655d",
+  "directions": {
+    "n": {
+      "angle": 0,
+      "heading": [
+        -1.7881397695873602e-07,
+        -1.0
+      ],
+      "stride_pixels": 24.614479064942316,
+      "masters": "v5-procession/invoker"
+    },
+    "ne": {
+      "angle": 315,
+      "heading": [
+        0.8944272994995117,
+        -0.44721341133117676
+      ],
+      "stride_pixels": 38.91891312599182,
+      "masters": "v8-follow-master/nw"
+    },
+    "e": {
+      "angle": 270,
+      "heading": [
+        1.0,
+        0.0
+      ],
+      "stride_pixels": 49.228951222449325,
+      "masters": "v9-facing/e"
+    },
+    "se": {
+      "angle": 225,
+      "heading": [
+        0.8944271802902222,
+        0.4472135305404663
+      ],
+      "stride_pixels": 38.91891974210739,
+      "masters": "v8-follow-master/sw"
+    },
+    "s": {
+      "angle": 180,
+      "heading": [
+        0.0,
+        1.0
+      ],
+      "stride_pixels": 24.614486694335938,
+      "masters": "v9-facing/s"
+    },
+    "sw": {
+      "angle": 135,
+      "heading": [
+        -0.8944272994995117,
+        0.4472135305404663
+      ],
+      "stride_pixels": 38.91892033815384,
+      "masters": "v8-follow-master/se"
+    },
+    "w": {
+      "angle": 90,
+      "heading": [
+        -1.0,
+        0.0
+      ],
+      "stride_pixels": 49.22896503731664,
+      "masters": "v9-facing/w"
+    },
+    "nw": {
+      "angle": 45,
+      "heading": [
+        -0.8944272994995117,
+        -0.44721347093582153
+      ],
+      "stride_pixels": 38.91893404722214,
+      "masters": "v8-follow-master/ne"
+    }
+  }
+}

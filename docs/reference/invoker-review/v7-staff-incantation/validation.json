@@ -1,0 +1,84 @@
+{
+  "poses": [
+    {
+      "frame": 0,
+      "body_staff_edge_crossings": 0,
+      "finger_contact": {
+        "lower": 0.005191247910261154,
+        "middle": 0.005035738460719585,
+        "upper": 0.004868372343480587,
+        "thumb": 0.005148505792021751
+      },
+      "staff_floor": 0.022210543337628508
+    },
+    {
+      "frame": 8,
+      "body_staff_edge_crossings": 0,
+      "finger_contact": {
+        "lower": 0.005190648138523102,
+        "middle": 0.005007490050047636,
+        "upper": 0.004868367221206427,
+        "thumb": 0.005148505792021751
+      },
+      "staff_floor": 0.03120125580148425
+    },
+    {
+      "frame": 16,
+      "body_staff_edge_crossings": 0,
+      "finger_contact": {
+        "lower": 0.005192456301301718,
+        "middle": 0.005004935897886753,
+        "upper": 0.004872043151408434,
+        "thumb": 0.005148493219166994
+      },
+      "staff_floor": 0.1095884342821094
+    },
+    {
+      "frame": 24,
+      "body_staff_edge_crossings": 0,
+      "finger_contact": {
+        "lower": 0.0051912278868258,
+        "middle": 0.00503568584099412,
+        "upper": 0.004868348129093647,
+        "thumb": 0.005148541182279587
+      },
+      "staff_floor": 0.18122004467563357
+    },
+    {
+      "frame": 32,
+      "body_staff_edge_crossings": 0,
+      "finger_contact": {
+        "lower": 0.005194661673158407,
+        "middle": 0.00503565976396203,
+        "upper": 0.004868329036980867,
+        "thumb": 0.005148508120328188
+      },
+      "staff_floor": 0.15140857297496524
+    },
+    {
+      "frame": 40,
+      "body_staff_edge_crossings": 0,
+      "finger_contact": {
+        "lower": 0.005190671421587467,
+        "middle": 0.005007360130548477,
+        "upper": 0.004868305288255215,
+        "thumb": 0.0051485346630215645
+      },
+      "staff_floor": 0.060373098883196974
+    },
+    {
+      "frame": 47,
+      "body_staff_edge_crossings": 0,
+      "finger_contact": {
+        "lower": 0.005191247910261154,
+        "middle": 0.005035738460719585,
+        "upper": 0.004868372343480587,
+        "thumb": 0.005148505792021751
+      },
+      "staff_floor": 0.022210543337628508
+    }
+  ],
+  "endpoint_error": 0.0,
+  "source_unchanged": true,
+  "packed_images": 6
+}

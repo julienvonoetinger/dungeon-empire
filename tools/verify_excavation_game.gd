@@ -54,7 +54,7 @@ func run() -> void:
 	game=GAME.instantiate(); game.persistence_enabled=false
 	root.add_child(game); game.set_process(false); await settle()
 	hud=game.get_node("HUD"); view=game.get_node("PlayArea/World/Dungeon"); terrain=game.get_node("PlayArea/World/Terrain")
-	check(not game.sim._has_core() and hud.shade.visible,"Cold start keeps the normal welcome/core-placement flow")
+	check(game.sim._core_origin()==Vector2i(8,8) and not hud.shade.visible and visible_blocks()>0,"Cold start opens the centred Core chamber for excavation")
 	check(is_equal_approx(terrain.cut_margin,1.35),"Main scene uses the approved terrain placement reference")
 	check(hud.dig_targets.get("blocks") is Array,"Main HUD uses excavation cubes, without preview replacement")
 	hud._welcome=false; game.restart(true); game.notice=""; game.cancel_selection(); await settle()

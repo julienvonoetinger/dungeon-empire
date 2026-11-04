@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/game_session.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/game/isometric_game_view.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/game/game_input.gd" id="3"]
 [ext_resource type="Script" path="res://scripts/game/game_hud.gd" id="4"]
 [ext_resource type="Script" path="res://scripts/game/excavation_terrain.gd" id="5"]
+
+[ext_resource type="Script" path="res://scripts/game/first_dungeon_intro.gd" id="6"]
 
 [node name="DungeonGame" type="Node"]
 script = ExtResource("1")
@@ -35,3 +37,7 @@ script = ExtResource("3")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4")
+
+[node name="Introduction" type="CanvasLayer" parent="."]
+layer = 4
+script = ExtResource("6")

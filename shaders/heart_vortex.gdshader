@@ -8,6 +8,8 @@ uniform vec2 vortex_center;
 uniform float vortex_radius = 1.0;
 uniform float phase = 0.0;
 uniform bool animation_enabled = true;
+uniform float awakening : hint_range(0.0,1.0) = 1.0;
+uniform sampler2D dormant_texture : filter_linear, repeat_disable;
 varying vec4 vertex_tint;
 
 void vertex() {
@@ -40,5 +42,14 @@ void fragment() {
 		halo *= 1.0 - smoothstep(0.72, 0.92, p.y);
 		rgb *= 1.0 + 0.045 * sin(phase * TAU * 3.0) * halo;
 	}
-	COLOR = vec4(rgb, base.a) * vertex_tint;
+	vec4 active = vec4(rgb,base.a);
+	if (awakening < 1.0) {
+		vec2 frame_uv = (UV-atlas_rect.xy)/atlas_rect.zw;
+		vec4 dormant = texture(dormant_texture,frame_uv);
+		// Premultiplied crossfade preserves the pedestal at the orb's soft edges.
+		float alpha = mix(dormant.a,active.a,awakening);
+		vec3 premult = mix(dormant.rgb*dormant.a,active.rgb*active.a,awakening);
+		active=vec4(premult/max(alpha,.00001),alpha);
+	}
+	COLOR = active * vertex_tint;
 }

@@ -1,0 +1,158 @@
+{
+  "models": [
+    {
+      "id": "eye",
+      "blender": "5.2.1 LTS",
+      "source": {
+        "id": "eye",
+        "original": "C:/Users/A/Downloads/Meshy_AI_Violet_Void_Eye_1104125947_texture.glb",
+        "file": "eye-original.glb",
+        "bytes": 12396216,
+        "sha256": "b0fbb772d8c8c3d334ef60d3ed3e4b25b82318cc80613e7f6ac5f57f324e3cd7",
+        "meshes": 1,
+        "skins": 0,
+        "animations": 0,
+        "materials": 1,
+        "images": 3
+      },
+      "bounds": {
+        "min": [
+          -0.9462429881095886,
+          -0.8078569769859314,
+          -0.8581979870796204
+        ],
+        "max": [
+          0.9440310001373291,
+          0.807889997959137,
+          0.8554180264472961
+        ],
+        "size": [
+          1.8902740478515625,
+          1.6157469749450684,
+          1.7136160135269165
+        ]
+      },
+      "geometry_uv_sha256": "b469f109818978a399596da2d4044860fa9064434129e44a2283717cb4d646b5",
+      "meshes": [
+        {
+          "name": "output_unwrapped",
+          "vertices": 10283,
+          "triangles": 10282,
+          "materials": [
+            "BakedMaterial"
+          ],
+          "uv_layers": 1,
+          "shape_keys": []
+        }
+      ],
+      "armatures": [],
+      "actions": [],
+      "images": [
+        {
+          "name": "normal",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true,
+          "has_data": true
+        },
+        {
+          "name": "texture_0",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true,
+          "has_data": true
+        },
+        {
+          "name": "texture_0_metallic_roughness",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true,
+          "has_data": true
+        }
+      ]
+    },
+    {
+      "id": "volute",
+      "blender": "5.2.1 LTS",
+      "source": {
+        "id": "volute",
+        "original": "C:/Users/A/Downloads/Meshy_AI_Violet_Crescent_Flame_1104130018_texture.glb",
+        "file": "volute-original.glb",
+        "bytes": 12490860,
+        "sha256": "cef46e71513999d4cd4ee7bb4f85ceba19959eb2627a91a3fb9fb0294de11266",
+        "meshes": 1,
+        "skins": 0,
+        "animations": 0,
+        "materials": 1,
+        "images": 3
+      },
+      "bounds": {
+        "min": [
+          -0.9517409205436707,
+          -0.1896110475063324,
+          -0.8711859583854675
+        ],
+        "max": [
+          0.9506159424781799,
+          0.19093096256256104,
+          0.8681259155273438
+        ],
+        "size": [
+          1.9023568630218506,
+          0.38054201006889343,
+          1.739311933517456
+        ]
+      },
+      "geometry_uv_sha256": "ce2646178f80bc14abd666790bc544905076df7efd63d730a186489e3b7c1025",
+      "meshes": [
+        {
+          "name": "output_unwrapped",
+          "vertices": 9380,
+          "triangles": 10244,
+          "materials": [
+            "BakedMaterial"
+          ],
+          "uv_layers": 1,
+          "shape_keys": []
+        }
+      ],
+      "armatures": [],
+      "actions": [],
+      "images": [
+        {
+          "name": "normal",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true,
+          "has_data": true
+        },
+        {
+          "name": "texture_0",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true,
+          "has_data": true
+        },
+        {
+          "name": "texture_0_metallic_roughness",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true,
+          "has_data": true
+        }
+      ]
+    }
+  ]
+}

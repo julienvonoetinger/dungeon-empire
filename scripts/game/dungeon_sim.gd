@@ -27,6 +27,7 @@ const ROOM_CELLS: Array[Vector2i] = [Vector2i.ZERO, Vector2i.RIGHT, Vector2i.DOW
 const ROOM_SIDES := ["N","E","S","W"]
 const ROOM_OUT := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
+var lesson := GameTypes.Lesson.FREE
 var grid: Array = []
 var selected_tool: int = Tool.NONE
 var gold := START_GOLD
@@ -46,6 +47,7 @@ var reset_armed := false
 var raid = null
 
 func new_map() -> void:
+	lesson = GameTypes.Lesson.FREE
 	vault_gold.clear()
 	vault_locks.clear()
 	vault_opened.clear()

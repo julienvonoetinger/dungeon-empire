@@ -1,0 +1,25 @@
+Introduction — Version 1 validée
+Date : 4 novembre 2026
+
+Validation explicite de l’utilisateur :
+« ok on peut valider la version actuelle comme premier version »
+
+Cette version constitue la base acceptée pour les prochaines évolutions :
+- Décor du sanctuaire et présentation isométrique.
+- Arrivée de l’invocateur et des Oculins, participation au rituel.
+- Effets magiques et apparition du Maître à un œil.
+- Création d’une entrée physique avec escalier descendant.
+- Descente du Maître, suivi de l’invocateur, puis arrivée au Cœur.
+- Apparition de la sphère du Cœur après l’arrivée du Maître.
+- Dialogues écrits en français, puis transition vers les leçons jouables.
+
+Les dix textes du prologue restent ceux fournis par l’utilisateur.
+Les voix ne font pas partie de cette première version.
+
+Dernières vérifications réalisées avant cette validation :
+check_dialogue.gd et check_dungeon_handoff.gd : aucun échec, stderr vide.
+Lisibilité inspectée en 1280×720, 390×844 et 844×390.
+Détails des dialogues : dialogues.txt dans ce même dossier.
+
+La validation est consignée sans changement du jeu, des sauvegardes,
+sans export APK, commit, tag Git ni push.

@@ -1,0 +1,410 @@
+{
+  "source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\summoner-race-review\\source\\Meshy_AI_Grumgaze_20261102_character.glb",
+  "sha256": "2ed56ff6ec1cac294436df2ecf1fdc4b906b3b7a1b1835f4b77f84d179dccfbe",
+  "frames": [
+    {
+      "clip": "idle",
+      "frame": 0,
+      "index": 0,
+      "ground": 1.241946421259854e-07,
+      "file": "idle-00.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 0,
+      "index": 1,
+      "ground": -0.0601746030151844,
+      "file": "walk-00.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 1,
+      "index": 2,
+      "ground": -0.045740943402051926,
+      "file": "walk-01.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 2,
+      "index": 3,
+      "ground": -0.02477174624800682,
+      "file": "walk-02.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 3,
+      "index": 4,
+      "ground": -0.027849985286593437,
+      "file": "walk-03.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 4,
+      "index": 5,
+      "ground": -0.04051746428012848,
+      "file": "walk-04.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 5,
+      "index": 6,
+      "ground": -0.0631314218044281,
+      "file": "walk-05.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 6,
+      "index": 7,
+      "ground": -0.08024676144123077,
+      "file": "walk-06.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 7,
+      "index": 8,
+      "ground": -0.07838408648967743,
+      "file": "walk-07.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 8,
+      "index": 9,
+      "ground": -0.07254889607429504,
+      "file": "walk-08.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 9,
+      "index": 10,
+      "ground": -0.06378071755170822,
+      "file": "walk-09.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 10,
+      "index": 11,
+      "ground": -0.06762855499982834,
+      "file": "walk-10.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 11,
+      "index": 12,
+      "ground": -0.06643427163362503,
+      "file": "walk-11.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 12,
+      "index": 13,
+      "ground": -0.05905299261212349,
+      "file": "walk-12.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 13,
+      "index": 14,
+      "ground": -0.04486662894487381,
+      "file": "walk-13.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 14,
+      "index": 15,
+      "ground": -0.024187101051211357,
+      "file": "walk-14.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 15,
+      "index": 16,
+      "ground": -0.0288225244730711,
+      "file": "walk-15.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 16,
+      "index": 17,
+      "ground": -0.03900451958179474,
+      "file": "walk-16.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 17,
+      "index": 18,
+      "ground": -0.06171010807156563,
+      "file": "walk-17.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 18,
+      "index": 19,
+      "ground": -0.07878605276346207,
+      "file": "walk-18.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 19,
+      "index": 20,
+      "ground": -0.07692799717187881,
+      "file": "walk-19.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 20,
+      "index": 21,
+      "ground": -0.0711071789264679,
+      "file": "walk-20.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 21,
+      "index": 22,
+      "ground": -0.06526948511600494,
+      "file": "walk-21.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 22,
+      "index": 23,
+      "ground": -0.06906420737504959,
+      "file": "walk-22.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 23,
+      "index": 24,
+      "ground": -0.06774606555700302,
+      "file": "walk-23.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 0,
+      "index": 25,
+      "ground": 1.241946421259854e-07,
+      "file": "kneel-00.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 1,
+      "index": 26,
+      "ground": 8.49667630973272e-05,
+      "file": "kneel-01.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 2,
+      "index": 27,
+      "ground": 0.00021933793323114514,
+      "file": "kneel-02.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 3,
+      "index": 28,
+      "ground": 0.00033128279028460383,
+      "file": "kneel-03.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 4,
+      "index": 29,
+      "ground": 0.0005743493675254285,
+      "file": "kneel-04.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 5,
+      "index": 30,
+      "ground": 0.0010222851997241378,
+      "file": "kneel-05.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 6,
+      "index": 31,
+      "ground": 0.0017551686614751816,
+      "file": "kneel-06.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 7,
+      "index": 32,
+      "ground": 0.002855889732018113,
+      "file": "kneel-07.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 8,
+      "index": 33,
+      "ground": 0.004404351115226746,
+      "file": "kneel-08.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 9,
+      "index": 34,
+      "ground": 0.006473230198025703,
+      "file": "kneel-09.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 10,
+      "index": 35,
+      "ground": 0.00912440661340952,
+      "file": "kneel-10.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 11,
+      "index": 36,
+      "ground": 0.012405235320329666,
+      "file": "kneel-11.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 12,
+      "index": 37,
+      "ground": 0.016346704214811325,
+      "file": "kneel-12.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 13,
+      "index": 38,
+      "ground": 0.020960628986358643,
+      "file": "kneel-13.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 14,
+      "index": 39,
+      "ground": 0.026239586994051933,
+      "file": "kneel-14.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 15,
+      "index": 40,
+      "ground": 0.032154884189367294,
+      "file": "kneel-15.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 16,
+      "index": 41,
+      "ground": 0.038658060133457184,
+      "file": "kneel-16.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 17,
+      "index": 42,
+      "ground": 0.045680612325668335,
+      "file": "kneel-17.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 18,
+      "index": 43,
+      "ground": 0.053135279566049576,
+      "file": "kneel-18.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 19,
+      "index": 44,
+      "ground": 0.060918357223272324,
+      "file": "kneel-19.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 20,
+      "index": 45,
+      "ground": 0.0689113512635231,
+      "file": "kneel-20.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 21,
+      "index": 46,
+      "ground": 0.07698266208171844,
+      "file": "kneel-21.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 22,
+      "index": 47,
+      "ground": 0.08499124646186829,
+      "file": "kneel-22.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 23,
+      "index": 48,
+      "ground": 0.09278871864080429,
+      "file": "kneel-23.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 24,
+      "index": 49,
+      "ground": 0.10022192448377609,
+      "file": "kneel-24.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 25,
+      "index": 50,
+      "ground": 0.1071356013417244,
+      "file": "kneel-25.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 26,
+      "index": 51,
+      "ground": 0.11337465792894363,
+      "file": "kneel-26.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 27,
+      "index": 52,
+      "ground": 0.11878696829080582,
+      "file": "kneel-27.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 28,
+      "index": 53,
+      "ground": 0.12322494387626648,
+      "file": "kneel-28.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 29,
+      "index": 54,
+      "ground": 0.1265491247177124,
+      "file": "kneel-29.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 30,
+      "index": 55,
+      "ground": 0.12862877547740936,
+      "file": "kneel-30.png"
+    },
+    {
+      "clip": "kneel",
+      "frame": 31,
+      "index": 56,
+      "ground": 0.1293458491563797,
+      "file": "kneel-31.png"
+    }
+  ],
+  "anchor": [
+    192,
+    280.68100134752655
+  ],
+  "ortho": 3
+}

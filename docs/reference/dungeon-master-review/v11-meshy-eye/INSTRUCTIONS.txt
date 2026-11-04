@@ -1,0 +1,26 @@
+MAITRE DU DONJON — IMAGES POUR MESHY
+
+GENERATION 1 : OEIL CENTRAL
+Importer ensemble les quatre images du dossier eye dans Multi-View :
+01-front.png : vue principale / face
+02-left.png : profil gauche, ouverture de l'oeil vers la gauche de l'image
+03-back.png : dos ferme, sans second oeil
+04-right.png : profil droit, ouverture vers la droite de l'image
+
+GENERATION 2 : VOLUTE
+Generer accessory/volute.png comme un objet independant en Image to 3D.
+Ne pas l'ajouter comme cinquieme vue de l'oeil.
+Elle servira de base aux courants distincts autour du noyau.
+
+Exporter les deux modeles avec leurs textures au format GLB.
+Nous verifierons ensuite la geometrie et preparerons les parties mobiles
+dans Blender. Les images ne garantissent pas que Meshy separe automatiquement
+l'iris, la pupille et les contours, ni qu'un rig automatique convienne.
+
+Chaque PNG montre un objet complet. Les fonds transparents sont natifs.
+La planche de comparaison ne doit pas etre importee a la place des vues.
+Ce sont des illustrations independantes, pas des rendus calibres d'un modele.
+
+Documentation officielle consultee le 4 novembre 2026 :
+https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view
+https://docs.meshy.ai/en/webapp/image-to-3d

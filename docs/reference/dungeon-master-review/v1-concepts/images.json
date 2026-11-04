@@ -1,0 +1,46 @@
+{
+  "tool": "built-in ImageGen",
+  "purpose": "exploratory design proposals, not Meshy turnaround views",
+  "records": [
+    {
+      "id": "01-titan",
+      "title": "A · Le Titan des profondeurs",
+      "file": "source/01-titan.png",
+      "prompt": "source/prompt-01-titan.txt",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2060686,
+      "sha256": "9db99c2999ee3818d7a5275142ee2898314b20ddddb42cc629d8e808eb6a14a3"
+    },
+    {
+      "id": "02-roi-creux",
+      "title": "B · Le Roi creux",
+      "file": "source/02-roi-creux.png",
+      "prompt": "source/prompt-02-roi-creux.txt",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1025502,
+      "sha256": "ce9cc5fb9667894e36a712e5f44669c468a38715b1de88a2d9679491ab6c950a"
+    },
+    {
+      "id": "03-presence",
+      "title": "C · La Présence",
+      "file": "source/03-presence.png",
+      "prompt": "source/prompt-03-presence.txt",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1005057,
+      "sha256": "90c1671a0bbfe640b87b2141cd5d3d85136c3a212f8d4a78148cd6fc3da3397b"
+    },
+    {
+      "id": "04-primordial",
+      "title": "D · L’Ancêtre primordial",
+      "file": "source/04-primordial.png",
+      "prompt": "source/prompt-04-primordial.txt",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1717039,
+      "sha256": "0b5900e4f555377db59ffd211f6319fa3fd40e2418b85401a962b1f6d052daa3"
+    }
+  ]
+}

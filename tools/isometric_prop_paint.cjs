@@ -76,7 +76,7 @@ async function cap(m,base) {
   }
   return {id:'pillar-top-carved',frame,bounds:m.bounds,png:await encoded(out,mesh,frame),adaptation:{source:sources.cap[0],sha256:P.hash(sources.cap[0]),preservedRimSourcePixels:3,blendSourcePixels:3}};
 }
-async function heart(m) {
+async function heart(m, {includeVortex=true}={}) {
   const im=await pixels('heart'),unit=im.info.width/289,tex=(x,y)=>sample(im,x*unit,y*unit),frame=[m.frame[0],m.frame[1]-20,m.frame[2],m.frame[3]+20],mesh=P.raster(m,frame),raw=Buffer.alloc(mesh.width*mesh.height*4),ink=await strokes(m,frame,.5);
   const normals=m.faces.map(f=>P.normal(f.points));
   for(let k=0;k<mesh.owner.length;k++)if(mesh.owner[k]>=0) {
@@ -105,7 +105,7 @@ async function heart(m) {
     for(let j=0;j<3;j++)raw[i+j]=clamp(Math.round(c[j]*shade*(1-dark)+[9,13,25][j]*dark),0,255);raw[i+3]=255;
   }
   const centre=P.project(m.orb.centre),sourceCentre=[144.5,88],scale=P.PX*m.orb.radius/54;
-  for(let y=0;y<mesh.height;y++)for(let x=0;x<mesh.width;x++) {
+  if(includeVortex) for(let y=0;y<mesh.height;y++)for(let x=0;x<mesh.width;x++) {
     const k=y*mesh.width+x,sx=frame[0]+(x+.5)/S,sy=frame[1]+(y+.5)/S;
     const u=sourceCentre[0]+(sx-centre[0])/scale,v=sourceCentre[1]+(sy-centre[1])/scale;
     // The original glow is above the orb. At its sides the painting already

@@ -1,0 +1,36 @@
+{
+  "tool": "built-in ImageGen",
+  "date": "2026-11-04",
+  "records": [
+    {
+      "view": "front",
+      "source": "source/front.png",
+      "nativeSource": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-f514067e-1c61-4848-8e6d-13a58de2bf34.png",
+      "prompt": "source/prompt-front-ancient.txt",
+      "sha256": "4f7b129628777e774259371ed79e3eebf29799f9fc0fcc18a8f0b42a3524bf94"
+    },
+    {
+      "view": "left",
+      "source": "source/left.png",
+      "nativeSource": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-ab2ffc74-45e5-49a5-b8f4-fdb77a2bb95c.png",
+      "prompt": "source/prompt-left-single.txt",
+      "sha256": "f7d5334d9abc56882ef7c24bf390e9286afa3a6eb0b449183255727787e11c69"
+    },
+    {
+      "view": "back",
+      "source": "source/back.png",
+      "nativeSource": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-f5c7eb80-365b-401c-8ee2-44023b454c9d.png",
+      "prompt": "source/prompt-back-single.txt",
+      "sha256": "215fee031667a130aa35e6fa186f1ab9592710864fbc2b89648caa4a32a198a9"
+    },
+    {
+      "view": "right",
+      "source": "source/right.png",
+      "nativeSource": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-0839cc1c-b082-4efb-b183-9763d720ea16.png",
+      "prompt": "source/prompt-right-single.txt",
+      "sha256": "0cfa7614fb0f2c3d2939501a6502ec6754c086ea889dc414effebd826625fd58"
+    }
+  ],
+  "sideAndBackReference": "source/front.png",
+  "notes": "Native PNG bytes preserved. Rejected multi-view sheets are archived separately and excluded from delivery."
+}

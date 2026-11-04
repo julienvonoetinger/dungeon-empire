@@ -1,0 +1,74 @@
+{
+  "tool": "built-in ImageGen",
+  "status": "references-only",
+  "records": [
+    {
+      "id": "front",
+      "file": "meshy/character/01-front.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "4f7b129628777e774259371ed79e3eebf29799f9fc0fcc18a8f0b42a3524bf94",
+      "bytes": 1820180,
+      "solidBounds": [
+        162,
+        38,
+        1090,
+        1228
+      ],
+      "nativeAlpha": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "id": "left",
+      "file": "meshy/character/02-left.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "f7d5334d9abc56882ef7c24bf390e9286afa3a6eb0b449183255727787e11c69",
+      "bytes": 1422411,
+      "solidBounds": [
+        300,
+        7,
+        946,
+        1229
+      ],
+      "nativeAlpha": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "id": "back",
+      "file": "meshy/character/03-back.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "215fee031667a130aa35e6fa186f1ab9592710864fbc2b89648caa4a32a198a9",
+      "bytes": 1702935,
+      "solidBounds": [
+        160,
+        31,
+        1093,
+        1232
+      ],
+      "nativeAlpha": true,
+      "byteIdenticalToSource": true
+    },
+    {
+      "id": "right",
+      "file": "meshy/character/04-right.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0cfa7614fb0f2c3d2939501a6502ec6754c086ea889dc414effebd826625fd58",
+      "bytes": 1366076,
+      "solidBounds": [
+        276,
+        30,
+        889,
+        1230
+      ],
+      "nativeAlpha": true,
+      "byteIdenticalToSource": true
+    }
+  ],
+  "topSpreadPixels": 31,
+  "soleSpreadPixels": 4,
+  "totalPngBytes": 6311602,
+  "limits": "Independent illustrations, not calibrated mesh renders; reconstruction and rigging untested."
+}

@@ -116,3 +116,11 @@
 /tools/isometric_trap_registration.cjs -text
 /tools/isometric_trap_receiver.cjs -text
 /tools/prepare_arcane_door_review.cjs -text
+
+# Introduction reproduction sources and cleanup manifests retain exact bytes.
+/docs/reference/invoker-review/** -text
+/docs/reference/dungeon-master-review/** -text
+/docs/reference/summoner-race-review/** -text
+/docs/reference/sanctuary-textured/** -text
+/docs/reference/invocation-magic/** -text
+/docs/reference/asset-cleanup/** -text

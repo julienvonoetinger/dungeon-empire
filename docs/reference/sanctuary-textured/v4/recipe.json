@@ -1,0 +1,33 @@
+{
+  "source": "docs/reference/sanctuary-textured/v4/source/ground.png",
+  "sha256": "a50eeabd4c06891d85c696b9f66c7828ab7e26a81d1a4bb92daff6f7d46c4b4d",
+  "size": [
+    1254,
+    1254
+  ],
+  "map": [
+    -1050,
+    -900,
+    2100,
+    2100
+  ],
+  "groundPolygons": 1008,
+  "placements": 1051,
+  "scenerySource": "scenes/SanctuaryCoherent.tscn",
+  "scenerySourceHash": "41a0089ac64541f971704bbd1c3080605cdcc15675d9440eed8125e9eaf1dd00",
+  "candle": {
+    "name": "Bougies2",
+    "previousGrid": [
+      -0.95,
+      -0.12
+    ],
+    "grid": [
+      -0.95,
+      0.5
+    ]
+  },
+  "guard": 0.017469281074217108,
+  "textureRepeat": "mirror outside the central painted extent",
+  "resources": 97,
+  "orderedSolids": 71
+}

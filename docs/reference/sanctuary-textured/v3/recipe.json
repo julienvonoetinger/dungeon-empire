@@ -1,0 +1,3510 @@
+{
+  "method": "native ImageGen whole sprites, independent alpha layers, uniform scaling and unchanged logical terrain placements",
+  "geometryHash": "8231bbbf8d011ad97fa7cc32789c9f5c3a92d17305ef13fbc95106104198fdbd",
+  "sources": {
+    "ritual": "549a12eb4982f7e5c6fe577a5979f7225164cae9ab4696ff61a6bfcbca37b183",
+    "cliffs": "09ed8e5b63cefeefcb775f0db10b353e4d14d348d9b5e72c1e7b5d5149e9f204",
+    "boulders": "9ee149d3b204bc64b3767e04874e624854cae0f4be68adb74a013c82b2aa5546",
+    "Crete-1": "855658991f77bd3364dd4247967c344bff1bfb95dfc1048c8a0561c83e2eea7e",
+    "Crete-2": "8e469fb51d25549f0ba7dea879e5fa784e385673b7b78c7a862b2518ec99ce48",
+    "Crete-3": "dfe44e107b7577ca65fe9786a5d85e8c792d1b22f16352576341ec43c5b5f4f2",
+    "Crete-4": "34056ee95ebc6ab10b36302267ed27a74c3727545ee4d17abb0d8c1970c20e92",
+    "Crete-5": "887571d4ba681b5d9cdd50109861a591688e3e394f76db1740d6076b7451300a",
+    "Crete-6": "ca9e2b5eab466697553cff6ccca4cd1e60e5ee422330dfb0da16fd1b0b815aab",
+    "dressing": "faf8fcd12691a81c371291dbad2317dfa8072da81b8ebd89276a84eab24b1d23",
+    "ground": "18d74dfa7ed4895fd37359fd9f28dc6df22d048a253bed5de210e37a26f35ef2"
+  },
+  "records": {
+    "altar": {
+      "frame": [
+        -228.38709677419354,
+        -243.19354838709677,
+        455,
+        455
+      ],
+      "sha256": "5596e11abd9f10c20b799e903a4efaefacf3774f4a7f22375f557bb0ceb9a07d",
+      "bytes": 239310,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ritual.png",
+        "rect": [
+          0,
+          0,
+          418,
+          418
+        ],
+        "solidBounds": [
+          18,
+          105,
+          402,
+          322
+        ],
+        "uniformScale": 1.087557603686636
+      }
+    },
+    "Menhir-1": {
+      "frame": [
+        -108.37598944591029,
+        -189.3957783641161,
+        217,
+        217
+      ],
+      "sha256": "8b26a75c0cdd9bf62c18fa13c63a15929363fc189679c54dc5761b56150841c1",
+      "bytes": 55031,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ritual.png",
+        "rect": [
+          418,
+          0,
+          418,
+          418
+        ],
+        "solidBounds": [
+          111,
+          20,
+          306,
+          399
+        ],
+        "uniformScale": 0.5197889182058048
+      }
+    },
+    "Menhir-2": {
+      "frame": [
+        -124.15329729729731,
+        -217.9928648648649,
+        249,
+        249
+      ],
+      "sha256": "8c53031ba5d4521c342cb427ef85773891b481967d0def0722186fa79b51d870",
+      "bytes": 66629,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ritual.png",
+        "rect": [
+          836,
+          0,
+          418,
+          418
+        ],
+        "solidBounds": [
+          116,
+          22,
+          301,
+          398
+        ],
+        "uniformScale": 0.5954594594594596
+      }
+    },
+    "Menhir-3": {
+      "frame": [
+        -135.6503867403315,
+        -237.76795580110502,
+        269,
+        269
+      ],
+      "sha256": "7bbf885c795675e1b1c3112529f76f441022e129573c71f8d49726fd60dfe96f",
+      "bytes": 76328,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ritual.png",
+        "rect": [
+          0,
+          418,
+          418,
+          418
+        ],
+        "solidBounds": [
+          120,
+          19,
+          301,
+          400
+        ],
+        "uniformScale": 0.6444198895027625
+      }
+    },
+    "Menhir-4": {
+      "frame": [
+        -122.3191011235955,
+        -213.8238202247191,
+        243,
+        243
+      ],
+      "sha256": "0d9119cbf8c3c9aac3df3caece38431c7a008bc6507fcf1d387fcbdfbe942af2",
+      "bytes": 61973,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ritual.png",
+        "rect": [
+          418,
+          418,
+          418,
+          418
+        ],
+        "solidBounds": [
+          121,
+          19,
+          299,
+          398
+        ],
+        "uniformScale": 0.5824719101123595
+      }
+    },
+    "Menhir-5": {
+      "frame": [
+        -116.83636363636364,
+        -202.98909090909092,
+        233,
+        233
+      ],
+      "sha256": "cccd97bc433509771abc53f62e4659c8211261a035189ec416ab3bace96b6a89",
+      "bytes": 65183,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ritual.png",
+        "rect": [
+          836,
+          418,
+          418,
+          418
+        ],
+        "solidBounds": [
+          111,
+          17,
+          309,
+          399
+        ],
+        "uniformScale": 0.5563636363636364
+      }
+    },
+    "Menhir-6": {
+      "frame": [
+        -100.53529411764707,
+        -171.15882352941176,
+        199,
+        199
+      ],
+      "sha256": "a7f19baa3b1dc34fabad948f53024a5993e706a9b77d4f31b43aa6c898238386",
+      "bytes": 48624,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ritual.png",
+        "rect": [
+          0,
+          836,
+          418,
+          418
+        ],
+        "solidBounds": [
+          109,
+          19,
+          313,
+          397
+        ],
+        "uniformScale": 0.47647058823529415
+      }
+    },
+    "Paroi-1": {
+      "frame": [
+        -245.57969151670952,
+        -417.6992287917738,
+        493,
+        493
+      ],
+      "sha256": "75ddc381587d29391e3912197606bd25f7c0d8678763af12c83e9185393e7473",
+      "bytes": 246126,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          0,
+          0,
+          418,
+          418
+        ],
+        "solidBounds": [
+          35,
+          15,
+          366,
+          404
+        ],
+        "uniformScale": 1.179948586118252
+      }
+    },
+    "Paroi-2": {
+      "frame": [
+        -203.90155172413796,
+        -357.68965517241384,
+        442,
+        442
+      ],
+      "sha256": "bbdda76fd1d22aae7eb4c8cb281a886da2de835115ec76c2cbc50ba8696df8a4",
+      "bytes": 156958,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          418,
+          0,
+          418,
+          418
+        ],
+        "solidBounds": [
+          85,
+          21,
+          317,
+          400
+        ],
+        "uniformScale": 1.0567241379310346
+      }
+    },
+    "Paroi-3": {
+      "frame": [
+        -126.85393258426967,
+        -225.43258426966293,
+        284,
+        284
+      ],
+      "sha256": "36b8f18fce7228b5457fa0e8cd42c0a6280227f004b757943b53ac5da33b3f0a",
+      "bytes": 106116,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          836,
+          0,
+          418,
+          418
+        ],
+        "solidBounds": [
+          14,
+          33,
+          396,
+          389
+        ],
+        "uniformScale": 0.6797752808988764
+      }
+    },
+    "Paroi-4": {
+      "frame": [
+        -163.05851063829786,
+        -229.58776595744678,
+        330,
+        330
+      ],
+      "sha256": "dc3a671862e59e154fbfd92bdd5430d7f42e6c7aa80322cef51dac1e180dd9cc",
+      "bytes": 105382,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          0,
+          418,
+          418,
+          418
+        ],
+        "solidBounds": [
+          58,
+          21,
+          346,
+          397
+        ],
+        "uniformScale": 0.7898936170212766
+      }
+    },
+    "Paroi-5": {
+      "frame": [
+        -288.5439114391144,
+        -468.5881918819189,
+        575,
+        575
+      ],
+      "sha256": "980e75a6fc11a0f494a0d6f9954299801e549726ce442c606f1f6ceb33a31c8c",
+      "bytes": 257188,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          418,
+          418,
+          418,
+          418
+        ],
+        "solidBounds": [
+          66,
+          17,
+          337,
+          399
+        ],
+        "uniformScale": 1.3749077490774908
+      }
+    },
+    "Paroi-6": {
+      "frame": [
+        -198.42413223140497,
+        -387.22809917355374,
+        470,
+        470
+      ],
+      "sha256": "cb987375a1812f6e3a39c80a61563b1ed27720be8231a0fae4173d6fd664c574",
+      "bytes": 169720,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          836,
+          418,
+          418,
+          418
+        ],
+        "solidBounds": [
+          83,
+          20,
+          325,
+          395
+        ],
+        "uniformScale": 1.1246280991735538
+      }
+    },
+    "Paroi-7": {
+      "frame": [
+        -125.09234828496044,
+        -178.4986807387863,
+        248,
+        248
+      ],
+      "sha256": "c292111fdab7cf9b09592ce4b3c7e6b8c386d4e93a6fb67fd91c0175ed45bc3f",
+      "bytes": 83235,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          0,
+          836,
+          418,
+          418
+        ],
+        "solidBounds": [
+          22,
+          16,
+          391,
+          395
+        ],
+        "uniformScale": 0.5936675461741425
+      }
+    },
+    "Paroi-8": {
+      "frame": [
+        -214.95382585751977,
+        -375.754617414248,
+        482,
+        482
+      ],
+      "sha256": "443234ccf3784c5cd6ca20e009b5afcb85feaf4d24e6b5b418b0d77a786d6d0b",
+      "bytes": 182052,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/cliffs.png",
+        "rect": [
+          418,
+          836,
+          418,
+          418
+        ],
+        "solidBounds": [
+          80,
+          18,
+          318,
+          397
+        ],
+        "uniformScale": 1.1530343007915567
+      }
+    },
+    "Eboulis-1": {
+      "frame": [
+        -166.67469879518072,
+        -190.65060240963857,
+        333,
+        333
+      ],
+      "sha256": "a599fb4e14a28feb6d02d8d655a1341ce98e009c8f2ffe409ae8639aada55c42",
+      "bytes": 63133,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          0,
+          0,
+          251,
+          251
+        ],
+        "solidBounds": [
+          17,
+          85,
+          230,
+          168
+        ],
+        "uniformScale": 1.3253012048192772
+      }
+    },
+    "Eboulis-2": {
+      "frame": [
+        -45.242574257425744,
+        -62.15841584158416,
+        92,
+        92
+      ],
+      "sha256": "9d43b59cbf444b136bcfe3fe84344d4348e084ae7ea10dfbdec8ad8a076db43f",
+      "bytes": 12508,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          251,
+          0,
+          251,
+          251
+        ],
+        "solidBounds": [
+          20,
+          25,
+          227,
+          227
+        ],
+        "uniformScale": 0.36633663366336633
+      }
+    },
+    "Eboulis-3": {
+      "frame": [
+        -127.63768115942028,
+        -176.55072463768116,
+        236,
+        236
+      ],
+      "sha256": "48e02ef3c0b7803ad5db8f8caf0650724db555cf371640bc2f862cf4c8deed67",
+      "bytes": 60856,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          502,
+          0,
+          250,
+          251
+        ],
+        "solidBounds": [
+          38,
+          25,
+          216,
+          232
+        ],
+        "uniformScale": 0.9420289855072463
+      }
+    },
+    "Eboulis-4": {
+      "frame": [
+        -52.27717391304348,
+        -66.47826086956522,
+        101,
+        101
+      ],
+      "sha256": "cc669a59e67f8cf1ed1212ab87b2c62e0c163bb2c9a44678244fa4dd851ae196",
+      "bytes": 13574,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          752,
+          0,
+          251,
+          251
+        ],
+        "solidBounds": [
+          23,
+          36,
+          232,
+          220
+        ],
+        "uniformScale": 0.40217391304347827
+      }
+    },
+    "Eboulis-5": {
+      "frame": [
+        -152.6531100478469,
+        -186.55980861244018,
+        288,
+        288
+      ],
+      "sha256": "b5220d972cb1617262b167c7c3c6d5becfc866514ed9c3531aa770aef1ba9ca2",
+      "bytes": 63834,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          1003,
+          0,
+          251,
+          251
+        ],
+        "solidBounds": [
+          68,
+          24,
+          197,
+          233
+        ],
+        "uniformScale": 1.1483253588516746
+      }
+    },
+    "Eboulis-6": {
+      "frame": [
+        -89.08256880733946,
+        -150.34862385321102,
+        212,
+        212
+      ],
+      "sha256": "fdce130ab4578007a9cd18d234c73e435474fdfb1077cb78c811575f4ef9294f",
+      "bytes": 51273,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          0,
+          251,
+          251,
+          251
+        ],
+        "solidBounds": [
+          38,
+          17,
+          211,
+          235
+        ],
+        "uniformScale": 0.8440366972477065
+      }
+    },
+    "Eboulis-7": {
+      "frame": [
+        -160.03378378378378,
+        -215.35135135135133,
+        302,
+        302
+      ],
+      "sha256": "f041a9f5ce394f82c2ec1c12a1740b824ff9ac45afaadf9d6455d0dd100953a5",
+      "bytes": 79712,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          251,
+          251,
+          251,
+          251
+        ],
+        "solidBounds": [
+          13,
+          56,
+          234,
+          204
+        ],
+        "uniformScale": 1.2027027027027026
+      }
+    },
+    "Eboulis-8": {
+      "frame": [
+        -57.975,
+        -79.10000000000001,
+        113,
+        113
+      ],
+      "sha256": "0244489a91fb794e8f0b2f8540bedae460dac2d6b31164dabfff74e2bfc12c18",
+      "bytes": 17125,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          502,
+          251,
+          250,
+          251
+        ],
+        "solidBounds": [
+          20,
+          38,
+          231,
+          218
+        ],
+        "uniformScale": 0.45
+      }
+    },
+    "Eboulis-9": {
+      "frame": [
+        -165.06976744186048,
+        -194.62790697674419,
+        344,
+        344
+      ],
+      "sha256": "a6723a55eda2c54035c828ae7392e515bb557d1ce16827f57536f942b3390f1f",
+      "bytes": 69994,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          752,
+          251,
+          251,
+          251
+        ],
+        "solidBounds": [
+          16,
+          85,
+          237,
+          171
+        ],
+        "uniformScale": 1.372093023255814
+      }
+    },
+    "Eboulis-10": {
+      "frame": [
+        -91.36804733727811,
+        -128.1881656804734,
+        170,
+        170
+      ],
+      "sha256": "91cb305ecb89d19a1b9dd984a69f99f14d2baf57c7422a1014b2f020a3008c42",
+      "bytes": 32228,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          1003,
+          251,
+          251,
+          251
+        ],
+        "solidBounds": [
+          43,
+          21,
+          212,
+          235
+        ],
+        "uniformScale": 0.677396449704142
+      }
+    },
+    "Eboulis-11": {
+      "frame": [
+        -113.5,
+        -152.73493975903614,
+        239,
+        238
+      ],
+      "sha256": "e2867cb250472533eeefdecb1b41519d94d6765b377b8fa588970bf4acf98fe1",
+      "bytes": 58192,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          0,
+          502,
+          251,
+          250
+        ],
+        "solidBounds": [
+          15,
+          47,
+          234,
+          213
+        ],
+        "uniformScale": 0.9518072289156626
+      }
+    },
+    "Eboulis-12": {
+      "frame": [
+        -85.67579908675799,
+        -127.9634703196347,
+        191,
+        191
+      ],
+      "sha256": "0176c8e14702d30b1d0e25a5ba0f2402568f07de723b788db45081a473fa2510",
+      "bytes": 41904,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          251,
+          502,
+          251,
+          250
+        ],
+        "solidBounds": [
+          43,
+          17,
+          204,
+          236
+        ],
+        "uniformScale": 0.7625570776255708
+      }
+    },
+    "Eboulis-13": {
+      "frame": [
+        -88.84272300469483,
+        -116.9906103286385,
+        175,
+        175
+      ],
+      "sha256": "18c2d89e7871437fea87c660230b754b3ee35588695066be3e3d44e7518ef2f0",
+      "bytes": 38621,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          502,
+          502,
+          250,
+          250
+        ],
+        "solidBounds": [
+          32,
+          20,
+          212,
+          233
+        ],
+        "uniformScale": 0.6995305164319249
+      }
+    },
+    "Eboulis-14": {
+      "frame": [
+        -123.47959183673468,
+        -166.85714285714283,
+        241,
+        240
+      ],
+      "sha256": "d08b70bdbc4d3f01918744e5338d4346378f989c3125117eaae56a999c2ad8ba",
+      "bytes": 66963,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          752,
+          502,
+          251,
+          250
+        ],
+        "solidBounds": [
+          13,
+          28,
+          233,
+          224
+        ],
+        "uniformScale": 0.9591836734693877
+      }
+    },
+    "RocheApproche-1": {
+      "frame": [
+        -106.41176470588235,
+        -128.14705882352942,
+        203,
+        202
+      ],
+      "sha256": "732352fa6092e7128cb23d8e5d52227613677cef3b6eab1a52a12337e830472f",
+      "bytes": 38128,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          1003,
+          502,
+          251,
+          250
+        ],
+        "solidBounds": [
+          16,
+          62,
+          236,
+          198
+        ],
+        "uniformScale": 0.8088235294117647
+      }
+    },
+    "RocheApproche-2": {
+      "frame": [
+        -32.016129032258064,
+        -41.774193548387096,
+        65,
+        65
+      ],
+      "sha256": "3151ec62e4354d52bc40f9a748479f52b5f51bd318e48695c19ff07c7432a4f7",
+      "bytes": 6448,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          0,
+          752,
+          251,
+          251
+        ],
+        "solidBounds": [
+          22,
+          34,
+          230,
+          220
+        ],
+        "uniformScale": 0.25806451612903225
+      }
+    },
+    "RocheApproche-3": {
+      "frame": [
+        -130.30769230769232,
+        -173.25443786982248,
+        247,
+        247
+      ],
+      "sha256": "ac88667555811ee803253f4cba9b506f0cd3e57a306f36304486ff077e55f7db",
+      "bytes": 63120,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          251,
+          752,
+          251,
+          251
+        ],
+        "solidBounds": [
+          13,
+          42,
+          234,
+          211
+        ],
+        "uniformScale": 0.9822485207100592
+      }
+    },
+    "RocheApproche-4": {
+      "frame": [
+        -31.366013071895424,
+        -48.45751633986928,
+        70,
+        71
+      ],
+      "sha256": "ca5c8e2c5778bf7e5f3a09e32e840e5087bd4cead0ba0343013e9042478a8b6a",
+      "bytes": 6614,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          502,
+          752,
+          250,
+          251
+        ],
+        "solidBounds": [
+          17,
+          55,
+          224,
+          208
+        ],
+        "uniformScale": 0.28104575163398693
+      }
+    },
+    "RocheApproche-5": {
+      "frame": [
+        -147.29411764705884,
+        -175,
+        295,
+        295
+      ],
+      "sha256": "fdb9633f923b071a94a4f1fed8ce56fe4a9ebb266a2b7130633ca6989f84c3c0",
+      "bytes": 64175,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          752,
+          752,
+          251,
+          251
+        ],
+        "solidBounds": [
+          13,
+          68,
+          234,
+          187
+        ],
+        "uniformScale": 1.1764705882352942
+      }
+    },
+    "RocheApproche-6": {
+      "frame": [
+        -40.263636363636365,
+        -53.46666666666667,
+        88,
+        88
+      ],
+      "sha256": "5f8c1acabbdc7bf594d93325d098344436fb602514eadff6995d99b58ff50ea4",
+      "bytes": 10352,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          1003,
+          752,
+          251,
+          251
+        ],
+        "solidBounds": [
+          18,
+          44,
+          231,
+          209
+        ],
+        "uniformScale": 0.3515151515151515
+      }
+    },
+    "RocheApproche-7": {
+      "frame": [
+        -103.06648936170212,
+        -125.6808510638298,
+        194,
+        194
+      ],
+      "sha256": "8032facf14c0a2387cfebc631a7bd59340e8bd5db3b4fb08678b9951cf2a9a89",
+      "bytes": 44972,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          0,
+          1003,
+          251,
+          251
+        ],
+        "solidBounds": [
+          20,
+          32,
+          233,
+          220
+        ],
+        "uniformScale": 0.7712765957446809
+      }
+    },
+    "RocheApproche-8": {
+      "frame": [
+        -48.21290322580645,
+        -59.70967741935485,
+        94,
+        94
+      ],
+      "sha256": "b2e2c0a1bde8e068670ac8bcae02b3d495a519e32b09ec9d0b1b46da4eb69951",
+      "bytes": 10987,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/boulders.png",
+        "rect": [
+          251,
+          1003,
+          251,
+          251
+        ],
+        "solidBounds": [
+          19,
+          50,
+          228,
+          205
+        ],
+        "uniformScale": 0.3741935483870968
+      }
+    },
+    "Crete-1": {
+      "frame": [
+        -427.28993223620523,
+        -622.4162633107454,
+        824,
+        824
+      ],
+      "sha256": "66b531fab26a9b1a59fd3b84146068d749ed3ea420715b4b7a9e517dd65d5151",
+      "bytes": 688398,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/Crete-1.png",
+        "rect": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "solidBounds": [
+          9,
+          98,
+          1247,
+          1131
+        ],
+        "uniformScale": 0.6573088092933205
+      }
+    },
+    "Crete-2": {
+      "frame": [
+        -445.953125,
+        -771.421875,
+        921,
+        921
+      ],
+      "sha256": "fb86590b73e2c245a05967f76b42293888a4e965f204db22645dd3ae24a0bd05",
+      "bytes": 535397,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/Crete-2.png",
+        "rect": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "solidBounds": [
+          286,
+          21,
+          968,
+          1237
+        ],
+        "uniformScale": 0.734375
+      }
+    },
+    "Crete-3": {
+      "frame": [
+        -378.4893355209188,
+        -612.2920426579163,
+        759,
+        759
+      ],
+      "sha256": "a77248ba22a7717ad04d70e99a03a9573a576582e0ee26bca7e7ac4b7b3f629d",
+      "bytes": 594635,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/Crete-3.png",
+        "rect": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "solidBounds": [
+          147,
+          17,
+          1105,
+          1236
+        ],
+        "uniformScale": 0.605414273995078
+      }
+    },
+    "Crete-4": {
+      "frame": [
+        -348.70465686274514,
+        -665.6584967320262,
+        776,
+        776
+      ],
+      "sha256": "badf459f5cf8e4713570ae57866dba23b392167056999bbb3ded556048838888",
+      "bytes": 529889,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/Crete-4.png",
+        "rect": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "solidBounds": [
+          195,
+          14,
+          1062,
+          1238
+        ],
+        "uniformScale": 0.6184640522875817
+      }
+    },
+    "Crete-5": {
+      "frame": [
+        -404.5292347377472,
+        -661.7102321582115,
+        800,
+        800
+      ],
+      "sha256": "ba1ff0047749a97e218bd60308a6fc19f0614baa5ab2270c11f416b43f2dd95f",
+      "bytes": 625032,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/Crete-5.png",
+        "rect": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "solidBounds": [
+          18,
+          45,
+          1236,
+          1208
+        ],
+        "uniformScale": 0.6380051590713671
+      }
+    },
+    "Crete-6": {
+      "frame": [
+        -329.0540322580645,
+        -566.8274193548386,
+        686,
+        686
+      ],
+      "sha256": "08cd40d12ce91747b770f2fcc58ad6ba130679f0d4e8c54da44cd09714264378",
+      "bytes": 417841,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/Crete-6.png",
+        "rect": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "solidBounds": [
+          221,
+          7,
+          1032,
+          1247
+        ],
+        "uniformScale": 0.5467741935483871
+      }
+    },
+    "candles": {
+      "frame": [
+        -59.35121951219512,
+        -71.13170731707318,
+        115,
+        77
+      ],
+      "sha256": "8f0be152d82b60d128e4b421d99df9e0b7d63c544ecc156098b67c4ff7ec262b",
+      "bytes": 7099,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          0,
+          0,
+          512,
+          341
+        ],
+        "solidBounds": [
+          162,
+          67,
+          367,
+          317
+        ],
+        "uniformScale": 0.22439024390243903
+      }
+    },
+    "candle-dish": {
+      "frame": [
+        -55.11111111111111,
+        -70,
+        114,
+        76
+      ],
+      "sha256": "8472b643a5731f2f08cb1334d731d4119553bacd1d82f4518aa7ae8a4bdb3632",
+      "bytes": 7230,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          512,
+          0,
+          512,
+          341
+        ],
+        "solidBounds": [
+          131,
+          71,
+          365,
+          315
+        ],
+        "uniformScale": 0.2222222222222222
+      }
+    },
+    "candle-bowl": {
+      "frame": [
+        -53.773770491803276,
+        -67.94754098360656,
+        111,
+        74
+      ],
+      "sha256": "bc7c9e822d1725d5e4497fdc0040892d688f1faf76a610ee61bb75d1b4181fe9",
+      "bytes": 9272,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          1024,
+          0,
+          512,
+          341
+        ],
+        "solidBounds": [
+          96,
+          69,
+          401,
+          314
+        ],
+        "uniformScale": 0.21639344262295082
+      }
+    },
+    "fern": {
+      "frame": [
+        -58.050000000000004,
+        -68.85000000000001,
+        115,
+        77
+      ],
+      "sha256": "a252af0450c1156ba343a8e1781659c33ce320ebb17f853679730153de53134d",
+      "bytes": 13662,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          0,
+          341,
+          512,
+          342
+        ],
+        "solidBounds": [
+          58,
+          58,
+          458,
+          306
+        ],
+        "uniformScale": 0.225
+      }
+    },
+    "violets": {
+      "frame": [
+        -39.366336633663366,
+        -48.475247524752476,
+        81,
+        54
+      ],
+      "sha256": "15cd1231c8a4b197bc9ca8e32172a84770e8c5be34c48054950e1b2a3e6609dd",
+      "bytes": 5510,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          512,
+          341,
+          512,
+          342
+        ],
+        "solidBounds": [
+          97,
+          55,
+          400,
+          306
+        ],
+        "uniformScale": 0.15841584158415842
+      }
+    },
+    "mushrooms": {
+      "frame": [
+        -43.11692307692308,
+        -47.85230769230769,
+        85,
+        57
+      ],
+      "sha256": "293a1340b77a64469d30b0d5314925b9c474206bd9259d77b578a4dbe5fcc546",
+      "bytes": 5547,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          1024,
+          341,
+          512,
+          342
+        ],
+        "solidBounds": [
+          97,
+          65,
+          422,
+          288
+        ],
+        "uniformScale": 0.16615384615384615
+      }
+    },
+    "moss": {
+      "frame": [
+        -75.05841121495327,
+        -72.42990654205607,
+        150,
+        100
+      ],
+      "sha256": "36c4e701ca72a291df0dada0ab94b618619afa68ab81bc5893d96bfee08308ef",
+      "bytes": 15497,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          0,
+          683,
+          512,
+          341
+        ],
+        "solidBounds": [
+          43,
+          87,
+          471,
+          248
+        ],
+        "uniformScale": 0.29205607476635514
+      }
+    },
+    "wildflowers": {
+      "frame": [
+        -33.57255520504732,
+        -35.91482649842271,
+        73,
+        48
+      ],
+      "sha256": "d87938b5f154cd75ad7bde91b83db1bea0689beb1f42ea87cbfad3efe0e5fbfe",
+      "bytes": 3685,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          512,
+          683,
+          512,
+          341
+        ],
+        "solidBounds": [
+          78,
+          46,
+          395,
+          253
+        ],
+        "uniformScale": 0.14195583596214512
+      }
+    },
+    "garden": {
+      "frame": [
+        -54.80419580419581,
+        -62.29370629370629,
+        122,
+        81
+      ],
+      "sha256": "0067793ab5e058e3c37feaa44020af075ae5656ce6afa7dbbdba899beee60bd1",
+      "bytes": 15400,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/dressing.png",
+        "rect": [
+          1024,
+          683,
+          512,
+          341
+        ],
+        "solidBounds": [
+          16,
+          40,
+          445,
+          262
+        ],
+        "uniformScale": 0.23776223776223776
+      }
+    },
+    "floor-0-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-0": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          0
+        ],
+        "period": 2
+      }
+    },
+    "floor-0-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-1": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          1
+        ],
+        "period": 2
+      }
+    },
+    "floor-0-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-2": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          2
+        ],
+        "period": 2
+      }
+    },
+    "floor-0-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-3": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          3
+        ],
+        "period": 2
+      }
+    },
+    "floor-0-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-4": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          4
+        ],
+        "period": 2
+      }
+    },
+    "floor-0-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-5": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          5
+        ],
+        "period": 2
+      }
+    },
+    "floor-0-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "73155fecd0d624d66540ea45c1a8ab3241654ea6121b9b38c556f691ce64195f",
+      "bytes": 32708,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-6": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "be59270421f62821b06bf6eca285fc2159187c695728479a62332a3ade4e1b54",
+      "bytes": 32493,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          6
+        ],
+        "period": 2
+      }
+    },
+    "floor-0-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          0,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "floor-1-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          1,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "floor-2-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          2,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "floor-3-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          3,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "floor-4-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          4,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "floor-5-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          5,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "floor-6-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "ed1240916e1db82f05a38a1d95bd05276225874c1a99714a46ce2ff4a6eebbae",
+      "bytes": 32457,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          6,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "floor-7-7": {
+      "frame": [
+        -132,
+        -4,
+        264,
+        136
+      ],
+      "sha256": "d9266c690d1bcfbfd56ea7d4e4a6e58b5c462ec74cd0dcfc4312325b72890e86",
+      "bytes": 32789,
+      "source": {
+        "file": "docs/reference/sanctuary-textured/v3/source/ground.png",
+        "worldUV": [
+          7,
+          7
+        ],
+        "period": 2
+      }
+    },
+    "altar-shadow": {
+      "frame": [
+        -239,
+        -132,
+        478,
+        264
+      ],
+      "sha256": "7d4ea15b35f21838de8b7bded453beac2873835ea21054db667cc9bdba7b0682",
+      "bytes": 20600,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/altar-shadow.png"
+      }
+    },
+    "Menhir-1-shadow": {
+      "frame": [
+        -72,
+        -43,
+        144,
+        86
+      ],
+      "sha256": "dbfd96f21b498bb7d1167be755081a0bb8e11553914bd64fe5e7194c3cb71fd8",
+      "bytes": 6066,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Menhir-1-shadow.png"
+      }
+    },
+    "Menhir-2-shadow": {
+      "frame": [
+        -76,
+        -44,
+        152,
+        88
+      ],
+      "sha256": "665130e6d4c09f20b1dd22023a65bf4a48096bd0ead8b58f99ef034af2bb330c",
+      "bytes": 6324,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Menhir-2-shadow.png"
+      }
+    },
+    "Menhir-3-shadow": {
+      "frame": [
+        -79,
+        -45,
+        158,
+        90
+      ],
+      "sha256": "fa77d15efd133c1911a2b1c1a0a05e6ae0c3a8b5906f3aefd849178a50e85e26",
+      "bytes": 6296,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Menhir-3-shadow.png"
+      }
+    },
+    "Menhir-4-shadow": {
+      "frame": [
+        -73,
+        -43,
+        146,
+        86
+      ],
+      "sha256": "eca900a92199296dcc366138c05a33afc2bcb7afb85f0223c50a985284a5e6c8",
+      "bytes": 6292,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Menhir-4-shadow.png"
+      }
+    },
+    "Menhir-5-shadow": {
+      "frame": [
+        -76,
+        -44,
+        152,
+        88
+      ],
+      "sha256": "446fd5cfc76485172329d9bf13bc76933efe619336910e17a5dce1b003af2e8c",
+      "bytes": 6343,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Menhir-5-shadow.png"
+      }
+    },
+    "Menhir-6-shadow": {
+      "frame": [
+        -70,
+        -43,
+        140,
+        86
+      ],
+      "sha256": "83102532e98acc1db8c0c126cc00909d71621978f5577c3435048744ea11fe90",
+      "bytes": 6047,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Menhir-6-shadow.png"
+      }
+    },
+    "Paroi-1-shadow": {
+      "frame": [
+        -218,
+        -82,
+        425,
+        166
+      ],
+      "sha256": "5c4dc0e55d2cfcd4f64399ce85fb217b0cd0e378238efa71307b64f0c452c7e4",
+      "bytes": 13213,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-1-shadow.png"
+      }
+    },
+    "Paroi-2-shadow": {
+      "frame": [
+        -130,
+        -93,
+        277,
+        183
+      ],
+      "sha256": "91f5ee18d1bddd898f26ec8c9742ace69a427fb741daa651d57e230525f1909f",
+      "bytes": 11119,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-2-shadow.png"
+      }
+    },
+    "Paroi-3-shadow": {
+      "frame": [
+        -142,
+        -62,
+        292,
+        126
+      ],
+      "sha256": "066ac4f6ce96c5e09ce186660504e3765fbf43be3dad10363bc8fa76ea49efa6",
+      "bytes": 9649,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-3-shadow.png"
+      }
+    },
+    "Paroi-4-shadow": {
+      "frame": [
+        -138,
+        -107,
+        269,
+        216
+      ],
+      "sha256": "e81f0220fa2a3918aa460f593cf9b2d975b0209693b03d37f2df386ee6008264",
+      "bytes": 12992,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-4-shadow.png"
+      }
+    },
+    "Paroi-5-shadow": {
+      "frame": [
+        -209,
+        -109,
+        395,
+        214
+      ],
+      "sha256": "d0d1a5623f7c2f781d8a93ad16d021861b0a64945280688cf01859e2dd7d3fa5",
+      "bytes": 14783,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-5-shadow.png"
+      }
+    },
+    "Paroi-6-shadow": {
+      "frame": [
+        -120,
+        -73,
+        261,
+        155
+      ],
+      "sha256": "6b01e02b1b8d50f1970c1208a6737d6a290db3fd699352ef77bb3f2616693bc4",
+      "bytes": 10224,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-6-shadow.png"
+      }
+    },
+    "Paroi-7-shadow": {
+      "frame": [
+        -137,
+        -93,
+        269,
+        174
+      ],
+      "sha256": "ee9ace3901e09d40ab82c09c6c2e31da0e96fc2e4c54f00d0131f3ea782427ce",
+      "bytes": 10581,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-7-shadow.png"
+      }
+    },
+    "Paroi-8-shadow": {
+      "frame": [
+        -134,
+        -102,
+        288,
+        209
+      ],
+      "sha256": "7c4cb6383b29673d0d58f7de40e72f2308400417eedc8cc5e6a021c93ae4f3c6",
+      "bytes": 12901,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Paroi-8-shadow.png"
+      }
+    },
+    "Crete-1-shadow": {
+      "frame": [
+        -465,
+        -136,
+        901,
+        282
+      ],
+      "sha256": "5fe0c62aabb8723e03724290e773c655301b6774264e664807b57a296e9dca69",
+      "bytes": 25883,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Crete-1-shadow.png"
+      }
+    },
+    "Crete-2-shadow": {
+      "frame": [
+        -246,
+        -165,
+        521,
+        327
+      ],
+      "sha256": "c9a984ee4b13789c0d4c4107b9f623373829d144e366476905b954e9eeb5640a",
+      "bytes": 21753,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Crete-2-shadow.png"
+      }
+    },
+    "Crete-3-shadow": {
+      "frame": [
+        -308,
+        -150,
+        589,
+        311
+      ],
+      "sha256": "e5ab6a4a92503a2499f5f6b0543acf610f9cbfc6a824c231aa7dc5272482cbda",
+      "bytes": 20068,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Crete-3-shadow.png"
+      }
+    },
+    "Crete-4-shadow": {
+      "frame": [
+        -247,
+        -129,
+        512,
+        254
+      ],
+      "sha256": "ddbcfc5ba1097abb695ec7e08076368b09103e01a6013745f05a41cfc49aa049",
+      "bytes": 19471,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Crete-4-shadow.png"
+      }
+    },
+    "Crete-5-shadow": {
+      "frame": [
+        -405,
+        -148,
+        815,
+        282
+      ],
+      "sha256": "8e5f783b04b66bbbeff435ee1c3ade484ff88b4f995a202f28479b9e5846a9ac",
+      "bytes": 22158,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Crete-5-shadow.png"
+      }
+    },
+    "Crete-6-shadow": {
+      "frame": [
+        -231,
+        -156,
+        489,
+        296
+      ],
+      "sha256": "23b153060e99f7343738e7e7a8a038bb521c9bc8ea2f79fbc3b12f93863cb38b",
+      "bytes": 19447,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Crete-6-shadow.png"
+      }
+    },
+    "Eboulis-1-shadow": {
+      "frame": [
+        -180,
+        -62,
+        354,
+        119
+      ],
+      "sha256": "70c64d240b8a233b1d03c05ba566e7fff93780f46e2b74767f246518aae12fe2",
+      "bytes": 9801,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-1-shadow.png"
+      }
+    },
+    "Eboulis-2-shadow": {
+      "frame": [
+        -62,
+        -51,
+        124,
+        97
+      ],
+      "sha256": "b650ed1acbf1d5601bb6ca2952bc097826625a9b0b54d57d33bd34ce0f69fb5e",
+      "bytes": 5637,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-2-shadow.png"
+      }
+    },
+    "Eboulis-3-shadow": {
+      "frame": [
+        -115,
+        -65,
+        214,
+        132
+      ],
+      "sha256": "891cbab9a4d8316ea6323e253c1d1c71c1e1f04e12f797df6400efd7fd5ad2f7",
+      "bytes": 10070,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-3-shadow.png"
+      }
+    },
+    "Eboulis-4-shadow": {
+      "frame": [
+        -64,
+        -45,
+        124,
+        92
+      ],
+      "sha256": "426b3f15ee4b3ff522a771e771f8c05679b6e21df2ad6a95fef6bdbb2939b15e",
+      "bytes": 5496,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-4-shadow.png"
+      }
+    },
+    "Eboulis-5-shadow": {
+      "frame": [
+        -89,
+        -96,
+        179,
+        202
+      ],
+      "sha256": "b48e74e7dafe80a90e6f2ebd1b1b6208190a908cfd30a6556eebe3e0d6c2e7b4",
+      "bytes": 10291,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-5-shadow.png"
+      }
+    },
+    "Eboulis-6-shadow": {
+      "frame": [
+        -80,
+        -67,
+        170,
+        140
+      ],
+      "sha256": "06f1e84ea82526aa65f0c425fc12ec2af3d3a226fda1d79198bab9ba7404860d",
+      "bytes": 8708,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-6-shadow.png"
+      }
+    },
+    "Eboulis-7-shadow": {
+      "frame": [
+        -170,
+        -64,
+        318,
+        119
+      ],
+      "sha256": "fd89f7770ccc2d5ca3fbd4e85ffc4b501308f4c344d252675dd1c5bbfb9a8c87",
+      "bytes": 9456,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-7-shadow.png"
+      }
+    },
+    "Eboulis-8-shadow": {
+      "frame": [
+        -75,
+        -49,
+        147,
+        93
+      ],
+      "sha256": "aca2f261f69a2611600bcbe5d0b36dafb74327eafe3156cc3ba97f69c53999e7",
+      "bytes": 5944,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-8-shadow.png"
+      }
+    },
+    "Eboulis-9-shadow": {
+      "frame": [
+        -191,
+        -63,
+        399,
+        128
+      ],
+      "sha256": "8b125d9bcae7d271f614405f62a2a65276eb819f7b11d304de5920e24cd3037d",
+      "bytes": 11989,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-9-shadow.png"
+      }
+    },
+    "Eboulis-10-shadow": {
+      "frame": [
+        -83,
+        -55,
+        156,
+        111
+      ],
+      "sha256": "34d4dfbb675ec5bdd63faa670a7450326fbd3e644de6a411c5bb00aed87967d8",
+      "bytes": 7544,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-10-shadow.png"
+      }
+    },
+    "Eboulis-11-shadow": {
+      "frame": [
+        -123,
+        -87,
+        248,
+        162
+      ],
+      "sha256": "e90d8140d04ed608de4fada985cd8f47fdf0aa040f5ca34746150bb194d493a8",
+      "bytes": 10284,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-11-shadow.png"
+      }
+    },
+    "Eboulis-12-shadow": {
+      "frame": [
+        -70,
+        -73,
+        149,
+        150
+      ],
+      "sha256": "d01d5d469dfbd9bafb74e51b300c85b56bd58223d3cf54cd5196c72447b8952d",
+      "bytes": 8759,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-12-shadow.png"
+      }
+    },
+    "Eboulis-13-shadow": {
+      "frame": [
+        -87,
+        -72,
+        167,
+        143
+      ],
+      "sha256": "fdb13dfbfbb0a67940f20d114e43edbe3326c183c56b471d7392e0fbcefa7897",
+      "bytes": 9668,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-13-shadow.png"
+      }
+    },
+    "Eboulis-14-shadow": {
+      "frame": [
+        -132,
+        -81,
+        255,
+        154
+      ],
+      "sha256": "74295ab07662e14a93be5af160d564e2828051b68b7717a680c42bef0fb0d292",
+      "bytes": 10414,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/Eboulis-14-shadow.png"
+      }
+    },
+    "RocheApproche-1-shadow": {
+      "frame": [
+        -126,
+        -55,
+        243,
+        112
+      ],
+      "sha256": "56c7d02a32788dbe07086edd49520cec60284ae3c5c8e4a8ec3b9c2637eba825",
+      "bytes": 8619,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-1-shadow.png"
+      }
+    },
+    "RocheApproche-2-shadow": {
+      "frame": [
+        -52,
+        -40,
+        105,
+        80
+      ],
+      "sha256": "0f74013ee9ddcca6b41b67c38b5cabe05aa678bd4f2cb0c65cc20561620b44e4",
+      "bytes": 4059,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-2-shadow.png"
+      }
+    },
+    "RocheApproche-3-shadow": {
+      "frame": [
+        -143,
+        -61,
+        269,
+        120
+      ],
+      "sha256": "b947fadc469110a38311e29b157836bb7e842b273d5866e8bb241c36621f45f9",
+      "bytes": 9400,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-3-shadow.png"
+      }
+    },
+    "RocheApproche-4-shadow": {
+      "frame": [
+        -53,
+        -35,
+        107,
+        70
+      ],
+      "sha256": "4e2a45e52aceb7b7d4be18688583718fba2ce866e1f3b269f7cef955383f8ef8",
+      "bytes": 3105,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-4-shadow.png"
+      }
+    },
+    "RocheApproche-5-shadow": {
+      "frame": [
+        -157,
+        -72,
+        310,
+        142
+      ],
+      "sha256": "1d507125d0f00ae56dc5dd66be7ad1898d3654ca52c4c7af076a93102199a2f3",
+      "bytes": 10931,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-5-shadow.png"
+      }
+    },
+    "RocheApproche-6-shadow": {
+      "frame": [
+        -59,
+        -47,
+        125,
+        92
+      ],
+      "sha256": "1ba75b9d48f4f943987d86629d721d5ff12d77dcfb0aff5ab739659d85eb70f2",
+      "bytes": 5851,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-6-shadow.png"
+      }
+    },
+    "RocheApproche-7-shadow": {
+      "frame": [
+        -104,
+        -76,
+        197,
+        145
+      ],
+      "sha256": "caf945efd15e4e5965f57556aaa0a8ec045b9093a1d3ddf5d87be8415762a247",
+      "bytes": 9209,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-7-shadow.png"
+      }
+    },
+    "RocheApproche-8-shadow": {
+      "frame": [
+        -66,
+        -41,
+        125,
+        83
+      ],
+      "sha256": "c07848f0b4ea0c50adb87996a462c21fefd2b1ea836361787ae4138f3a8f3b4a",
+      "bytes": 5083,
+      "source": {
+        "file": "assets/previews/sanctuary-textured/RocheApproche-8-shadow.png"
+      }
+    }
+  },
+  "decor": [
+    {
+      "id": "fern",
+      "x": -1.5,
+      "y": 1.3,
+      "scale": 1,
+      "name": "Vegetation0",
+      "position": [
+        -358.4,
+        -12.799999999999997
+      ],
+      "ground": false
+    },
+    {
+      "id": "violets",
+      "x": -1.05,
+      "y": 2.1,
+      "scale": 0.85,
+      "name": "Vegetation1",
+      "position": [
+        -403.20000000000005,
+        67.2
+      ],
+      "ground": false
+    },
+    {
+      "id": "mushrooms",
+      "x": 2.05,
+      "y": -0.5,
+      "scale": 0.85,
+      "name": "Vegetation2",
+      "position": [
+        326.4,
+        99.19999999999999
+      ],
+      "ground": false
+    },
+    {
+      "id": "garden",
+      "x": -2.5,
+      "y": 0.5,
+      "scale": 0.85,
+      "name": "Vegetation3",
+      "position": [
+        -384,
+        -128
+      ],
+      "ground": false
+    },
+    {
+      "id": "fern",
+      "x": 1.4,
+      "y": -2.1,
+      "scale": 0.8,
+      "name": "Vegetation4",
+      "position": [
+        448,
+        -44.80000000000001
+      ],
+      "ground": false
+    },
+    {
+      "id": "violets",
+      "x": 2.4,
+      "y": -1.4,
+      "scale": 0.8,
+      "name": "Vegetation5",
+      "position": [
+        486.4,
+        64
+      ],
+      "ground": false
+    },
+    {
+      "id": "moss",
+      "x": -1.8,
+      "y": -0.8,
+      "scale": 1,
+      "name": "Vegetation6",
+      "position": [
+        -128,
+        -166.4
+      ],
+      "ground": true
+    },
+    {
+      "id": "moss",
+      "x": 2.6,
+      "y": 0.6,
+      "scale": 0.8,
+      "name": "Vegetation7",
+      "position": [
+        256,
+        204.8
+      ],
+      "ground": true
+    },
+    {
+      "id": "moss",
+      "x": 1.6,
+      "y": 2.2,
+      "scale": 0.75,
+      "name": "Vegetation8",
+      "position": [
+        -76.80000000000001,
+        243.20000000000002
+      ],
+      "ground": true
+    },
+    {
+      "id": "fern",
+      "x": 0.8,
+      "y": 3.75,
+      "scale": 1.1,
+      "name": "Vegetation9",
+      "position": [
+        -377.6,
+        291.2
+      ],
+      "ground": false
+    },
+    {
+      "id": "violets",
+      "x": 1.18,
+      "y": 4.1,
+      "scale": 0.8,
+      "name": "Vegetation10",
+      "position": [
+        -373.76,
+        337.91999999999996
+      ],
+      "ground": false
+    },
+    {
+      "id": "mushrooms",
+      "x": 3.2,
+      "y": 1.5,
+      "scale": 0.8,
+      "name": "Vegetation11",
+      "position": [
+        217.60000000000002,
+        300.8
+      ],
+      "ground": false
+    },
+    {
+      "id": "garden",
+      "x": 4.6,
+      "y": 2.45,
+      "scale": 0.95,
+      "name": "Vegetation12",
+      "position": [
+        275.19999999999993,
+        451.2
+      ],
+      "ground": false
+    },
+    {
+      "id": "moss",
+      "x": 3.35,
+      "y": 2.45,
+      "scale": 0.9,
+      "name": "Vegetation13",
+      "position": [
+        115.19999999999999,
+        371.20000000000005
+      ],
+      "ground": true
+    },
+    {
+      "id": "wildflowers",
+      "x": 0.5,
+      "y": 3.1,
+      "scale": 0.9,
+      "name": "Vegetation14",
+      "position": [
+        -332.8,
+        230.4
+      ],
+      "ground": false
+    },
+    {
+      "id": "garden",
+      "x": 4.2,
+      "y": 6.55,
+      "scale": 1.25,
+      "name": "Vegetation15",
+      "position": [
+        -300.79999999999995,
+        688
+      ],
+      "ground": false
+    },
+    {
+      "id": "fern",
+      "x": 6.8,
+      "y": 4.5,
+      "scale": 1.1,
+      "name": "Vegetation16",
+      "position": [
+        294.4,
+        723.2
+      ],
+      "ground": false
+    },
+    {
+      "id": "violets",
+      "x": 6.25,
+      "y": 4.4,
+      "scale": 1.05,
+      "name": "Vegetation17",
+      "position": [
+        236.79999999999995,
+        681.6
+      ],
+      "ground": false
+    },
+    {
+      "id": "mushrooms",
+      "x": 4.7,
+      "y": 6.9,
+      "scale": 0.95,
+      "name": "Vegetation18",
+      "position": [
+        -281.6,
+        742.4000000000001
+      ],
+      "ground": false
+    },
+    {
+      "id": "wildflowers",
+      "x": 2.8,
+      "y": 5.3,
+      "scale": 0.7,
+      "name": "Vegetation19",
+      "position": [
+        -320,
+        518.4
+      ],
+      "ground": false
+    },
+    {
+      "id": "moss",
+      "x": 3.15,
+      "y": 5.9,
+      "scale": 1,
+      "name": "Vegetation20",
+      "position": [
+        -352.00000000000006,
+        579.2
+      ],
+      "ground": true
+    },
+    {
+      "id": "fern",
+      "x": -3.8,
+      "y": -1.3,
+      "scale": 1.3,
+      "name": "Vegetation21",
+      "position": [
+        -320,
+        -326.4
+      ],
+      "ground": false
+    },
+    {
+      "id": "garden",
+      "x": -2.1,
+      "y": -3.2,
+      "scale": 1.2,
+      "name": "Vegetation22",
+      "position": [
+        140.8,
+        -339.20000000000005
+      ],
+      "ground": false
+    },
+    {
+      "id": "violets",
+      "x": 2.9,
+      "y": -3.1,
+      "scale": 1,
+      "name": "Vegetation23",
+      "position": [
+        768,
+        -12.800000000000011
+      ],
+      "ground": false
+    },
+    {
+      "id": "mushrooms",
+      "x": -4.3,
+      "y": 2.5,
+      "scale": 0.9,
+      "name": "Vegetation24",
+      "position": [
+        -870.4,
+        -115.19999999999999
+      ],
+      "ground": false
+    },
+    {
+      "id": "fern",
+      "x": -1.7,
+      "y": 4.5,
+      "scale": 1.1,
+      "name": "Vegetation25",
+      "position": [
+        -793.6,
+        179.2
+      ],
+      "ground": false
+    },
+    {
+      "id": "garden",
+      "x": 5.7,
+      "y": 3.5,
+      "scale": 1,
+      "name": "Vegetation26",
+      "position": [
+        281.6,
+        588.8
+      ],
+      "ground": false
+    },
+    {
+      "id": "moss",
+      "x": -2.8,
+      "y": 2.4,
+      "scale": 1.3,
+      "name": "Vegetation27",
+      "position": [
+        -665.5999999999999,
+        -25.599999999999994
+      ],
+      "ground": true
+    },
+    {
+      "id": "moss",
+      "x": 4.9,
+      "y": 4.4,
+      "scale": 1.25,
+      "name": "Vegetation28",
+      "position": [
+        64,
+        595.2
+      ],
+      "ground": true
+    },
+    {
+      "id": "moss",
+      "x": 1.9,
+      "y": 6.1,
+      "scale": 1.1,
+      "name": "Vegetation29",
+      "position": [
+        -537.5999999999999,
+        512
+      ],
+      "ground": true
+    },
+    {
+      "id": "candles",
+      "x": -0.46,
+      "y": 1.68,
+      "scale": 1,
+      "name": "Bougies0",
+      "position": [
+        -273.92,
+        78.08
+      ]
+    },
+    {
+      "id": "candles",
+      "x": 1.69,
+      "y": -0.42,
+      "scale": 1,
+      "name": "Bougies1",
+      "position": [
+        270.08,
+        81.28
+      ]
+    },
+    {
+      "id": "candle-dish",
+      "x": -0.95,
+      "y": -0.12,
+      "scale": 1,
+      "name": "Bougies2",
+      "position": [
+        -106.24,
+        -68.47999999999999
+      ]
+    },
+    {
+      "id": "candles",
+      "x": 0.13,
+      "y": -0.92,
+      "scale": 1,
+      "name": "Bougies3",
+      "position": [
+        134.4,
+        -50.56
+      ]
+    },
+    {
+      "id": "candle-bowl",
+      "x": 1.6,
+      "y": 1.15,
+      "scale": 1,
+      "name": "Bougies4",
+      "position": [
+        57.60000000000002,
+        176
+      ]
+    },
+    {
+      "id": "candles",
+      "x": 0.92,
+      "y": 1.96,
+      "scale": 1,
+      "name": "Bougies5",
+      "position": [
+        -133.12,
+        184.32
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\invoker-review\\v4-grip-correction\\invoker-equipped.blend",
+  "grip_center": [
+    0.4628756642341614,
+    -0.34517472982406616,
+    0.8399147391319275
+  ],
+  "digits": {
+    "lower": {
+      "tip": [
+        0.42438098788261414,
+        -0.41021475195884705,
+        0.798206627368927
+      ],
+      "tip_opposition_to_palm": -0.07200931012630463,
+      "closest_mesh_distance": 0.005191418342292309
+    },
+    "middle": {
+      "tip": [
+        0.403842031955719,
+        -0.39072656631469727,
+        0.8500001430511475
+      ],
+      "tip_opposition_to_palm": -0.07437897101044655,
+      "closest_mesh_distance": 0.0050358218140900135
+    },
+    "upper": {
+      "tip": [
+        0.42069047689437866,
+        -0.407745361328125,
+        0.8877111673355103
+      ],
+      "tip_opposition_to_palm": -0.07312186434864998,
+      "closest_mesh_distance": 0.004868428688496351
+    },
+    "thumb": {
+      "tip": [
+        0.3941507339477539,
+        -0.31152310967445374,
+        0.9063485860824585
+      ],
+      "tip_opposition_to_palm": -0.028923124074935913,
+      "closest_mesh_distance": 0.005148452706634998
+    }
+  },
+  "crossings_count": 0,
+  "crossings": [],
+  "failures": [],
+  "original_hashes_unchanged": true,
+  "packed_images": 6,
+  "attachment_probe_error": 6.332993507385254e-08
+}

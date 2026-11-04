@@ -106,6 +106,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		session.get_node("HUD").handle_back()
 		get_viewport().set_input_as_handled()
 		return
+	if session.sim.lesson != GameTypes.Lesson.FREE: return
 	if session.paused or session.result_open or session.confirmation_open or session.save_blocked: return
 	if (event is InputEventScreenTouch or event is InputEventMouseButton) and session.get_node("HUD").blocks_pointer(event.position):
 		if not event.pressed: _cancel_world_pointer()

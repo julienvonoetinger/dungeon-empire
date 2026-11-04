@@ -48,6 +48,7 @@ func run() -> void:
 
 func exercise_direction(game: Node,view: Node,mouth: Vector2i) -> void:
 	game.restart(false)
+	game.sim.new_map() # Isolate the stairs in a single corridor.
 	var entrance := Vector2i(8,8)
 	for i in 4:
 		var cell := entrance+mouth*i
@@ -58,6 +59,7 @@ func exercise_direction(game: Node,view: Node,mouth: Vector2i) -> void:
 	game.sim.grid[entrance.y][entrance.x]=Types.Tile.ENTRANCE
 	# This small inspection corridor deliberately bypasses storage prerequisites.
 	# The first case above exercises start_raid in the real complete demo instead.
+	seed(21) # Repeat the same visitor and decisions in each direction.
 	game.raid._start_raid(); game.changed.emit(true)
 	var direction: String=view.ENTRANCE_OPEN_SIDES[mouth]
 	check(game.sim._entrance_mouth(entrance)==mouth,"Native mouth "+direction)
@@ -77,7 +79,8 @@ func exercise_direction(game: Node,view: Node,mouth: Vector2i) -> void:
 	var climbing:=false
 	var max_exit_height:=0.0
 	var last_opacity:=1.0
-	for frame in 120:
+	for frame in 240:
+		if frame >= 120 and not game.raid.raid_active: break
 		if game.raid.raid_active:
 			# Turn back through the simulation after reaching the corridor floor.
 			if frame==34: game.raid.hero.fleeing=true
@@ -101,7 +104,7 @@ func exercise_direction(game: Node,view: Node,mouth: Vector2i) -> void:
 				check(is_equal_approx(actor.modulate.a,1),"No mid-stair fade "+direction)
 			last_opacity=actor.modulate.a
 			trace.append({"frame":frame,"at":str(actor.grid_position),"height":actor.elevation,"alpha":last_opacity,"enter":hero.get("entering",false),"exit":hero.get("exiting",false)})
-		if frame%2==0:
+		if frame<120 and frame%2==0:
 			await process_frame; await RenderingServer.frame_post_draw
 			var screen: Image=game.get_node("PlayArea/World").get_texture().get_image()
 			# 15 FPS native captures; simulation still advances at 30 Hz.
@@ -113,6 +116,7 @@ func exercise_direction(game: Node,view: Node,mouth: Vector2i) -> void:
 
 func exercise_adjacent_door(game: Node,view: Node,mouth: Vector2i) -> void:
 	game.restart(false)
+	game.sim.new_map() # Isolate the stairs in a single corridor.
 	var entrance:=Vector2i(8,8)
 	for i in 4:
 		var cell:=entrance+mouth*i

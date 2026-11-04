@@ -6,6 +6,11 @@ extends Object
 enum Tile { ROCK, FLOOR, ENTRANCE, CORE, VAULT, SPIKE, SNARE, DOOR, VOID, MAGIC_DOOR, REINFORCED_DOOR }
 enum Tool { DIG, STORE, TRAP_SPIKE, TRAP_SNARE, TRAP_VOID, BUILD_DOOR, BUILD_MAGIC_DOOR, BUILD_ENTRANCE, REPAIR, ABSORB, RESET, NONE, STORE_LOCKED, STORE_MAGIC, BUILD_REINFORCED_DOOR }
 
+enum Lesson { FREE, DOOR, ALCOVE, CHEST }
+const FIRST_STAIR := Vector2i(3, 8)
+const FIRST_DOOR := Vector2i(5, 8)
+const FIRST_ALCOVE := Vector2i(6, 7)
+
 const COLS := 16
 const ROWS := 16
 const RAID_DELAY := 25.0
@@ -103,5 +108,4 @@ static func trap_max_charges(t: int) -> int:
 	return 1 if t == Tile.VOID else TRAP_MAX_CHARGES
 
 static func core_origin_cell() -> Vector2i:
-	return Vector2i((COLS - CORE_W) / 2 - ((COLS - CORE_W) / 2) % CORE_W,
-		(ROWS - CORE_H) / 2 - ((ROWS - CORE_H) / 2) % CORE_H)
+	return Vector2i((COLS / CORE_W / 2) * CORE_W, (ROWS / CORE_H / 2) * CORE_H)

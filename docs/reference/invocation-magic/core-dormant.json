@@ -1,0 +1,27 @@
+{
+  "recipe": "tools/prepare_dormant_intro_core.cjs",
+  "source": [
+    "docs/reference/mobile-heart-review/ritual-v3/source/a.png",
+    "c05bfe3218c1ae045218bff300d5c5d5589b4611043ab7ce168acc60399e2bc7"
+  ],
+  "frame": [
+    -106,
+    -161,
+    212,
+    215
+  ],
+  "bounds": {
+    "min": [
+      -0.40625,
+      -0.40625,
+      0
+    ],
+    "max": [
+      0.40625,
+      0.40625,
+      0.76
+    ]
+  },
+  "sha256": "6eaf1b6cccda6b37fc7425c2ce67db2b8fdd8221bcd27d65fbdea479a52d1ff0",
+  "description": "Original rigid pedestal and painted mapping; vortex billboard omitted. Full active core and atlas unchanged."
+}

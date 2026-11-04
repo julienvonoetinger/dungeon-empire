@@ -1,0 +1,746 @@
+{
+  "source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\invoker-review\\v4-grip-correction\\invoker-equipped.blend",
+  "sha256": "42f86670600e10f06c02729bf62c64da4a4b0dfc592dcac3955d85f66d4451d3",
+  "frames": [
+    {
+      "clip": "idle",
+      "frame": 0,
+      "index": 0,
+      "ground": 5.465431485163208e-08,
+      "file": "idle-00.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 0,
+      "index": 1,
+      "ground": -0.05831080675125122,
+      "file": "walk-00.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 1,
+      "index": 2,
+      "ground": -0.04961705580353737,
+      "file": "walk-01.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 2,
+      "index": 3,
+      "ground": -0.0337119959294796,
+      "file": "walk-02.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 3,
+      "index": 4,
+      "ground": -0.0245693139731884,
+      "file": "walk-03.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 4,
+      "index": 5,
+      "ground": -0.030476104468107224,
+      "file": "walk-04.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 5,
+      "index": 6,
+      "ground": -0.034428928047418594,
+      "file": "walk-05.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 6,
+      "index": 7,
+      "ground": -0.03530558571219444,
+      "file": "walk-06.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 7,
+      "index": 8,
+      "ground": -0.03482487425208092,
+      "file": "walk-07.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 8,
+      "index": 9,
+      "ground": -0.03305276855826378,
+      "file": "walk-08.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 9,
+      "index": 10,
+      "ground": -0.04472753778100014,
+      "file": "walk-09.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 10,
+      "index": 11,
+      "ground": -0.05402883142232895,
+      "file": "walk-10.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 11,
+      "index": 12,
+      "ground": -0.05867461860179901,
+      "file": "walk-11.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 12,
+      "index": 13,
+      "ground": -0.057312823832035065,
+      "file": "walk-12.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 13,
+      "index": 14,
+      "ground": -0.04977864772081375,
+      "file": "walk-13.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 14,
+      "index": 15,
+      "ground": -0.03519347682595253,
+      "file": "walk-14.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 15,
+      "index": 16,
+      "ground": -0.023851508274674416,
+      "file": "walk-15.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 16,
+      "index": 17,
+      "ground": -0.030850911512970924,
+      "file": "walk-16.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 17,
+      "index": 18,
+      "ground": -0.0357179120182991,
+      "file": "walk-17.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 18,
+      "index": 19,
+      "ground": -0.03779745101928711,
+      "file": "walk-18.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 19,
+      "index": 20,
+      "ground": -0.03716123849153519,
+      "file": "walk-19.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 20,
+      "index": 21,
+      "ground": -0.0349319688975811,
+      "file": "walk-20.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 21,
+      "index": 22,
+      "ground": -0.04578559100627899,
+      "file": "walk-21.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 22,
+      "index": 23,
+      "ground": -0.05510991811752319,
+      "file": "walk-22.png"
+    },
+    {
+      "clip": "walk",
+      "frame": 23,
+      "index": 24,
+      "ground": -0.05980698764324188,
+      "file": "walk-23.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 0,
+      "index": 25,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-00.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 1,
+      "index": 26,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-01.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 2,
+      "index": 27,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-02.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 3,
+      "index": 28,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-03.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 4,
+      "index": 29,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-04.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 5,
+      "index": 30,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-05.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 6,
+      "index": 31,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-06.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 7,
+      "index": 32,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-07.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 8,
+      "index": 33,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-08.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 9,
+      "index": 34,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-09.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 10,
+      "index": 35,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-10.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 11,
+      "index": 36,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-11.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 12,
+      "index": 37,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-12.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 13,
+      "index": 38,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-13.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 14,
+      "index": 39,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-14.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 15,
+      "index": 40,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-15.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 16,
+      "index": 41,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-16.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 17,
+      "index": 42,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-17.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 18,
+      "index": 43,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-18.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 19,
+      "index": 44,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-19.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 20,
+      "index": 45,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-20.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 21,
+      "index": 46,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-21.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 22,
+      "index": 47,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-22.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 23,
+      "index": 48,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-23.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 24,
+      "index": 49,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-24.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 25,
+      "index": 50,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-25.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 26,
+      "index": 51,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-26.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 27,
+      "index": 52,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-27.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 28,
+      "index": 53,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-28.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 29,
+      "index": 54,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-29.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 30,
+      "index": 55,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-30.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 31,
+      "index": 56,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-31.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 32,
+      "index": 57,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-32.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 33,
+      "index": 58,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-33.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 34,
+      "index": 59,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-34.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 35,
+      "index": 60,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-35.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 36,
+      "index": 61,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-36.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 37,
+      "index": 62,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-37.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 38,
+      "index": 63,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-38.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 39,
+      "index": 64,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-39.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 40,
+      "index": 65,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-40.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 41,
+      "index": 66,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-41.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 42,
+      "index": 67,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-42.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 43,
+      "index": 68,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-43.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 44,
+      "index": 69,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-44.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 45,
+      "index": 70,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-45.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 46,
+      "index": 71,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-46.png"
+    },
+    {
+      "clip": "chant",
+      "frame": 47,
+      "index": 72,
+      "ground": 5.465431485163208e-08,
+      "file": "chant-47.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 0,
+      "index": 73,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-00.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 1,
+      "index": 74,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-01.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 2,
+      "index": 75,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-02.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 3,
+      "index": 76,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-03.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 4,
+      "index": 77,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-04.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 5,
+      "index": 78,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-05.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 6,
+      "index": 79,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-06.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 7,
+      "index": 80,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-07.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 8,
+      "index": 81,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-08.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 9,
+      "index": 82,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-09.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 10,
+      "index": 83,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-10.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 11,
+      "index": 84,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-11.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 12,
+      "index": 85,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-12.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 13,
+      "index": 86,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-13.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 14,
+      "index": 87,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-14.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 15,
+      "index": 88,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-15.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 16,
+      "index": 89,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-16.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 17,
+      "index": 90,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-17.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 18,
+      "index": 91,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-18.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 19,
+      "index": 92,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-19.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 20,
+      "index": 93,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-20.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 21,
+      "index": 94,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-21.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 22,
+      "index": 95,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-22.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 23,
+      "index": 96,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-23.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 24,
+      "index": 97,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-24.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 25,
+      "index": 98,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-25.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 26,
+      "index": 99,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-26.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 27,
+      "index": 100,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-27.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 28,
+      "index": 101,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-28.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 29,
+      "index": 102,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-29.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 30,
+      "index": 103,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-30.png"
+    },
+    {
+      "clip": "bow",
+      "frame": 31,
+      "index": 104,
+      "ground": 5.465431485163208e-08,
+      "file": "bow-31.png"
+    }
+  ],
+  "anchor": [
+    192,
+    280.68100134752655
+  ],
+  "ortho": 3
+}

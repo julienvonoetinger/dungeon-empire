@@ -2,8 +2,24 @@
 
 ## Origine du maître du donjon
 
-Les **Oculins**, un peuple de monstres cyclopes, ont invoqué le maître du donjon
-dans leur monde. Le joueur incarne ce maître. Les Oculins sont ses serviteurs.
+Les **Oculins** vivent dans un village de montagne inconnu des autres peuples.
+Aldren, roi de Valdorne, envoie un cartographe et deux éclaireurs reconnaître
+les cols. Après leur découverte, les Oculins refusent la route que leur propose
+son émissaire. Aldren fait prendre le passage par son armée pour étendre son
+royaume. Les survivants se réfugient dans les grottes tandis qu’une garnison
+s’installe et qu’une forteresse s’élève sur les ruines du village.
+
+Le joueur parcourt dix tableaux à son rythme. Face au froid et au manque de
+vivres, les Oculins acceptent le prix du rite révélé par un ancien. Dans le
+sanctuaire interdit, ils jurent fidélité à un dieu du mal pour renverser Aldren.
+La scène isométrique validée dure environ 40 secondes : l’invocateur et quatre
+Oculins approchent de l’autel et participent au rituel. Un symbole ésotérique
+s’illumine, puis le Maître à un œil apparaît et les Oculins s’agenouillent.
+Des dialogues écrits accompagnent le serment et la réponse du Maître. Celui-ci
+détruit un rocher pour créer un escalier physique et descend, suivi de l’invocateur.
+La transition dans le donjon dure neuf secondes. La sphère du Cœur apparaît
+seulement lorsque le Maître l’atteint ; l’invocateur guide ensuite les constructions.
+« Passer le récit » rejoint le rite. « Passer » rejoint la leçon.
 
 La [fiche de gameplay des races et des raids](docs/superpowers/specs/2026-11-02-races-et-raids-design.md)
 présente leurs rôles et distingue les règles actuelles des comportements proposés.
@@ -24,9 +40,12 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
 
 - Grille logique 16×16 ; cœur solide **1×1**, au centre de sa case, sans changer
   son sprite. L'ancienne empreinte 2×2 est abandonnée dans cette version.
-- Nouveau donjon : 320 or, 100 PV du cœur, roche partout. Ancrage gratuit du
-  cœur avec confirmation ; l'anneau d'accès d'une case est excavé gratuitement,
-  diagonales comprises, limité aux frontières. Entrées et portes y sont interdites.
+- Le premier donjon démarre avec 320 or, un Cœur central à 100 PV, un escalier
+  et un couloir. Le passage d’une case autour du Cœur est dégagé gratuitement,
+  diagonales comprises. Entrées et portes y sont interdites.
+- L’invocateur guide la pose d’une porte, le creusement d’une alcôve et la pose
+  d’un coffre. Chaque geste est sauvegardé. Le joueur peut passer l’invocation
+  ou quitter les leçons pour construire librement.
 - Creusement : 5 or, voisin cardinal d'un espace excavé. La roche soutenant
   l'entrée est protégée. Retirer une structure laisse du sol, sans remboursement.
   Cœur et entrée sont permanents. Poser un élément sur roche ne creuse pas.

@@ -1,0 +1,96 @@
+{
+  "status": "static placement proposal; original source materials",
+  "eye_geometry_uv_sha256": "b469f109818978a399596da2d4044860fa9064434129e44a2283717cb4d646b5",
+  "volute_geometry_uv_sha256": "ce2646178f80bc14abd666790bc544905076df7efd63d730a186489e3b7c1025",
+  "eye_root": "Eye_Control",
+  "volute_root": "Volute_Control",
+  "volute_scale": [
+    2.4000000953674316,
+    2.4000000953674316,
+    2.4000000953674316
+  ],
+  "volute_rotation": [
+    0.3141592741012573,
+    -0.3490658402442932,
+    0.13962633907794952
+  ],
+  "volute_position": [
+    -0.30000001192092896,
+    0.30000001192092896,
+    0.3499999940395355
+  ],
+  "placement_trials": [
+    {
+      "depth": 0,
+      "bvh_surface_candidates": 143
+    },
+    {
+      "depth": 0.15,
+      "bvh_surface_candidates": 106
+    },
+    {
+      "depth": 0.3,
+      "bvh_surface_candidates": 0
+    }
+  ],
+  "remaining_bvh_surface_candidates": 0,
+  "images": [
+    {
+      "name": "normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "normal.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "Render Result",
+      "size": [
+        0,
+        0
+      ],
+      "packed": false
+    },
+    {
+      "name": "texture_0",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "texture_0.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "texture_0_metallic_roughness",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "texture_0_metallic_roughness.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    }
+  ],
+  "limitations": "No rig, deformation, animation or full-volume/continuous collision validation. Surface BVH placement check only."
+}

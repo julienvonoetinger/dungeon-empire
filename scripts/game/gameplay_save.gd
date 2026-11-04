@@ -19,6 +19,7 @@ static func capture(sim, raid, progression) -> Dictionary:
 	data["vault_locks"] = sim.vault_locks
 	data["vault_opened"] = sim.vault_opened
 	data["hero_roster"] = raid.roster.snapshot()
+	if sim.lesson != Types.Lesson.FREE: data["lesson"] = sim.lesson
 	return data.duplicate(true)
 
 static func apply(data: Dictionary, sim, raid, progression) -> bool:
@@ -32,6 +33,7 @@ static func apply(data: Dictionary, sim, raid, progression) -> bool:
 	sim.vault_gold = snapshot.get("vault_gold", {})
 	sim.vault_locks = snapshot.get("vault_locks", {})
 	sim.vault_opened = snapshot.get("vault_opened", {})
+	sim.lesson = snapshot.get("lesson", Types.Lesson.FREE)
 	sim.selected_tool = Types.Tool.NONE
 	sim.reset_armed = false
 	sim.message = ""
@@ -123,6 +125,9 @@ static func _tile(value) -> bool:
 
 static func _valid(data: Dictionary) -> bool:
 	var fields := FIELDS.duplicate()
+	if data.has("lesson"):
+		if not data.lesson is int or data.lesson not in Types.Lesson.values(): return false
+		fields.append("lesson")
 	if data.has("vault_gold"):
 		fields.append("vault_gold")
 	for field in ["vault_locks", "vault_opened", "hero_roster"]:

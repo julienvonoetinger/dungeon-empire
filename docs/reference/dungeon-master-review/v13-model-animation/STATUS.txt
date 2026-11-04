@@ -1,0 +1,10 @@
+Direction remplacee par l'utilisateur pendant l'implementation, 4 novembre 2026.
+Nouvelle reference : esprit d'ombre avec un visage, explicitement choisi dans
+la clarification. Ne pas poursuivre l'ancien oeil-vortex comme design actif.
+
+Etat technique conserve : animation objet Blender/GLB 18 s exportee,
+deux controles independants, apercu Godot ajoute. Premier test natif :
+seul echec sur la duree (export a partir de frame 1 ajoutait 1/30 s).
+Recette corrigee pour frames 0-540 et asset reimporte sans erreur.
+Verification finale, revue independante et livraison de l'animation non faites.
+Pas d'integration au jeu, pas d'APK, pas de commit/push.

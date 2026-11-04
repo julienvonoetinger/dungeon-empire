@@ -1,0 +1,42 @@
+[
+  {
+    "file": "ne-idle.png",
+    "sha256": "52b2d84b29b0fe4f8d5dc452fbcd05b9b54f45bb83d963128d0d6b57d42335b0",
+    "bytes": 30051
+  },
+  {
+    "file": "ne-walk.png",
+    "sha256": "00ddcfae5148f0483e1f2771bc296a56856d6a40bfd02155e732163f63f0783e",
+    "bytes": 683577
+  },
+  {
+    "file": "se-idle.png",
+    "sha256": "8fae61e575bb094fd517e27ce3be92bbb7e27750c491fd8ec403fc18c42c0250",
+    "bytes": 28409
+  },
+  {
+    "file": "se-walk.png",
+    "sha256": "fce0c199edd54811193ff609c1ff1c6777f0fb2503ad604fc55bef92af0ae51a",
+    "bytes": 655871
+  },
+  {
+    "file": "sw-idle.png",
+    "sha256": "8a04a53f7eff801ed07de14aedae22f82010f89a92531715c1c7625fb0415cf4",
+    "bytes": 32353
+  },
+  {
+    "file": "sw-walk.png",
+    "sha256": "9085e1763ca4e4380fd303d6b3bce3a0a1afc36c27ac71eba47262f9425906ac",
+    "bytes": 741562
+  },
+  {
+    "file": "nw-idle.png",
+    "sha256": "85f0f85965843e984e3e42f2b886b92e181e6686f8004dd60789b7ae32d8dbcd",
+    "bytes": 27239
+  },
+  {
+    "file": "nw-walk.png",
+    "sha256": "d3c92fee99fb02b3bc3690a76a662b92b30a27745b090dd5a3faf85ae40862d7",
+    "bytes": 619985
+  }
+]

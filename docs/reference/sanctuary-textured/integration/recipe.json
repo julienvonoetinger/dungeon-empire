@@ -1,0 +1,583 @@
+{
+  "source": "scenes/SanctuaryFlora.tscn",
+  "sourceHash": "b76ee5733c2d229b3c3e42e0f299a8123b8a2a0e6ae5a7e22bdd5c0b0b6fb08e",
+  "scene": "scenes/game/InvocationSanctuary.tscn",
+  "assets": {
+    "altar": {
+      "source": "assets/previews/sanctuary-integrated/altar.png",
+      "target": "assets/game/introduction/sanctuary/altar.png",
+      "sha256": "5ec582fc216e636fcddd98efdf45f64c782bf3d6e4a19e6bbfd128394025c7f2",
+      "bytes": 243057
+    },
+    "Menhir-1": {
+      "source": "assets/previews/sanctuary-integrated/Menhir-1.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-1.png",
+      "sha256": "4003c717e39a2c64e02783e2c1f438b85ea161378c6f0e493144d9f0672fd271",
+      "bytes": 55862
+    },
+    "Menhir-2": {
+      "source": "assets/previews/sanctuary-integrated/Menhir-2.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-2.png",
+      "sha256": "11acd13b9adf63977e0748174cd7e713debe7e4fbd815cbcd046f2a29f979bc1",
+      "bytes": 66767
+    },
+    "Menhir-3": {
+      "source": "assets/previews/sanctuary-integrated/Menhir-3.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-3.png",
+      "sha256": "d81733e0cd3934d7dc57164c670c1de7a28414c2b7767dbd0073ef56a680dfde",
+      "bytes": 76988
+    },
+    "Menhir-4": {
+      "source": "assets/previews/sanctuary-integrated/Menhir-4.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-4.png",
+      "sha256": "c990b39cc1d62ce63a1d9c1ede142eea73c2e7cbe7d4c023e10c56c3e019b4da",
+      "bytes": 62993
+    },
+    "Menhir-5": {
+      "source": "assets/previews/sanctuary-integrated/Menhir-5.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-5.png",
+      "sha256": "8e38f538674b42e19c8d55fb5589877abc8c5a77519c69f34a706f1d84481f8f",
+      "bytes": 64548
+    },
+    "Menhir-6": {
+      "source": "assets/previews/sanctuary-integrated/Menhir-6.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-6.png",
+      "sha256": "fa6bea2554be009c2228429b68755ae9d40549d2545b9eae6ffd7cb343823c6a",
+      "bytes": 49250
+    },
+    "Paroi-1": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-1.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-1.png",
+      "sha256": "3c2b2c177455feaf3765b0149863656e95da392b9727ab0ca17814b353acaf0c",
+      "bytes": 259189
+    },
+    "Paroi-2": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-2.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-2.png",
+      "sha256": "7b3add307b4fd847dd5b54ac782b619ce1378eb68c663ae036c3c93dc8643f69",
+      "bytes": 165346
+    },
+    "Paroi-3": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-3.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-3.png",
+      "sha256": "952c1145190dfaaf0f910873df46ee2ffc2b2556761b3dc66f8bfd5e2048ccd0",
+      "bytes": 112261
+    },
+    "Paroi-4": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-4.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-4.png",
+      "sha256": "8488eb5df509eb9848edb5badf0abb5d9e3ce043054851a0d2308d0ca90f9e09",
+      "bytes": 113600
+    },
+    "Paroi-5": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-5.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-5.png",
+      "sha256": "1d8017f9cdc1a02b6b5313a1d0aaac52b05f6c37a08bbba0f3ddb9a337eed877",
+      "bytes": 277971
+    },
+    "Paroi-6": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-6.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-6.png",
+      "sha256": "2bde92fa92275fc111e30ada481c7a4d52be8fbefabe8607b8adfddd35f0ee54",
+      "bytes": 181225
+    },
+    "Paroi-7": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-7.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-7.png",
+      "sha256": "0f33ee79b4d5bb59c0e7e0e52c00b9b5b337ef0ba4e91db3e44fabd23fd200b7",
+      "bytes": 87905
+    },
+    "Paroi-8": {
+      "source": "assets/previews/sanctuary-integrated/Paroi-8.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-8.png",
+      "sha256": "6d4c30a7b992a62e6fac041616bcc54e9f40145bab2923b9c3dd5691b3afa81c",
+      "bytes": 196219
+    },
+    "Eboulis-1": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-1.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-1.png",
+      "sha256": "0bfe45226c0896e2dd91737f0b338cf7d716f13f0c8c71b9be9901f51c12c6db",
+      "bytes": 69278
+    },
+    "Eboulis-2": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-2.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-2.png",
+      "sha256": "ed77a3f08cf3a8792754d46e894b8bd99cf789c379ca5d33101fc0eca7a3ce29",
+      "bytes": 14085
+    },
+    "Eboulis-3": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-3.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-3.png",
+      "sha256": "dc7179e56bafef453d6460b6c758a0b0ee0fbd5e993cda599d284cea3fb4bbd3",
+      "bytes": 68774
+    },
+    "Eboulis-4": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-4.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-4.png",
+      "sha256": "0403b9b63d3c793b58418544c623bc98ca5ec35fa5aabc15c51de44338ccf03b",
+      "bytes": 15655
+    },
+    "Eboulis-5": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-5.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-5.png",
+      "sha256": "015618367483283ec6263908157634afb0215ace6707b9a1437805e3baa459d2",
+      "bytes": 71305
+    },
+    "Eboulis-6": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-6.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-6.png",
+      "sha256": "ffa18391606fda9d72d24cb612812dd562334bc783ada1d21255ef7f529cab52",
+      "bytes": 55779
+    },
+    "Eboulis-7": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-7.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-7.png",
+      "sha256": "2168abb2a7ef440c80eb68e47e70e12995672abae002b100298950713d2344a8",
+      "bytes": 93116
+    },
+    "Eboulis-8": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-8.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-8.png",
+      "sha256": "fa48093543365e5c94d64e02fdc06e5ea950f2775d61021d3579270978c69dd4",
+      "bytes": 19491
+    },
+    "Eboulis-9": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-9.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-9.png",
+      "sha256": "9d9ea4f5f626fc8520bac6bcabeba02341a3cb17fedadd79e094b26cdd9fd140",
+      "bytes": 79439
+    },
+    "Eboulis-10": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-10.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-10.png",
+      "sha256": "6e25408b98f28c4a4e536dca8d2397d488d646452bbca9edab073110eeec7855",
+      "bytes": 36011
+    },
+    "Eboulis-11": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-11.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-11.png",
+      "sha256": "0c82664128cba25eca5ca7d914de7a4c389ee43d6a50f75bbd8249d2ed201f1a",
+      "bytes": 64377
+    },
+    "Eboulis-12": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-12.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-12.png",
+      "sha256": "042f6c78c355fd68dabe44e1b658839d34d9690a3f6905d36a620892d4725229",
+      "bytes": 44602
+    },
+    "Eboulis-13": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-13.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-13.png",
+      "sha256": "2be70f07ee6cf82ac85aa1ad6f04f57847e41c75735534bf64cf7334fe2dd892",
+      "bytes": 41656
+    },
+    "Eboulis-14": {
+      "source": "assets/previews/sanctuary-integrated/Eboulis-14.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-14.png",
+      "sha256": "5137e653b8987b765906f96efea574ee9e0c2f53958280441786cd06dcf6ec95",
+      "bytes": 75134
+    },
+    "RocheApproche-1": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-1.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-1.png",
+      "sha256": "72edba3bcd1b1a843e3e9a5816e71ad3bb160fc301055b8c95d539888e514207",
+      "bytes": 42435
+    },
+    "RocheApproche-2": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-2.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-2.png",
+      "sha256": "96c6d4afcbafab7549b77b22e2ef58d4bb6ee760ffe4b96a320acf3aacfd1dde",
+      "bytes": 7091
+    },
+    "RocheApproche-3": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-3.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-3.png",
+      "sha256": "9c7907f80196e776e820e153a1bb7f36ba3225d136b6a28e4fb141d2985dfaec",
+      "bytes": 71851
+    },
+    "RocheApproche-4": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-4.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-4.png",
+      "sha256": "b5f8c8504689d9040939db240b30241f3e0670b9898d64e2b4e4093b6c8a715d",
+      "bytes": 7166
+    },
+    "RocheApproche-5": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-5.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-5.png",
+      "sha256": "9ae173c89923fa0aa4883daf0d7b7ed12028c49c5b3f8e800fc3d70c6032d9dd",
+      "bytes": 71264
+    },
+    "RocheApproche-6": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-6.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-6.png",
+      "sha256": "a595badb0cb9146c5639cd29defec563b29bd518021403b9af2be2a449a28c0d",
+      "bytes": 11436
+    },
+    "RocheApproche-7": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-7.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-7.png",
+      "sha256": "cc475907c745a53621188faa6f1728276ee1bcd850d722057c01cbf6266c2bc8",
+      "bytes": 50808
+    },
+    "RocheApproche-8": {
+      "source": "assets/previews/sanctuary-integrated/RocheApproche-8.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-8.png",
+      "sha256": "812fb550e6ec751e800fbe57b1cd6c717f16f2502633324ad6a2c05c4b1a3611",
+      "bytes": 12510
+    },
+    "Crete-1": {
+      "source": "assets/previews/sanctuary-integrated/Crete-1.png",
+      "target": "assets/game/introduction/sanctuary/Crete-1.png",
+      "sha256": "18634143b79edec07c1c4997bc43fe247c4a806724ebf36e45aacba0dbc1e27f",
+      "bytes": 738159
+    },
+    "Crete-2": {
+      "source": "assets/previews/sanctuary-integrated/Crete-2.png",
+      "target": "assets/game/introduction/sanctuary/Crete-2.png",
+      "sha256": "024abb220c70cf52abee7519a5439aa4fe1bc8a8f3cb35e737decc48ae8042f9",
+      "bytes": 590099
+    },
+    "Crete-3": {
+      "source": "assets/previews/sanctuary-integrated/Crete-3.png",
+      "target": "assets/game/introduction/sanctuary/Crete-3.png",
+      "sha256": "004fe058abc6d25715f5726c97e0c474d6cecab06a712f432c5163342715417f",
+      "bytes": 597582
+    },
+    "Crete-4": {
+      "source": "assets/previews/sanctuary-integrated/Crete-4.png",
+      "target": "assets/game/introduction/sanctuary/Crete-4.png",
+      "sha256": "daf93898a5c68e2d6a90baf5d3a14c979de71a3cfad0b753326bdf2e1978b664",
+      "bytes": 540840
+    },
+    "Crete-5": {
+      "source": "assets/previews/sanctuary-integrated/Crete-5.png",
+      "target": "assets/game/introduction/sanctuary/Crete-5.png",
+      "sha256": "038d7cc8d20679e5eea8cfbc97f3eda3deb580933df201349bff75b52fa3854b",
+      "bytes": 655282
+    },
+    "Crete-6": {
+      "source": "assets/previews/sanctuary-integrated/Crete-6.png",
+      "target": "assets/game/introduction/sanctuary/Crete-6.png",
+      "sha256": "210641c3f4b6deb73d22f1d1bd02b569f3350611778eee2507e256852e921b48",
+      "bytes": 416911
+    },
+    "candles": {
+      "source": "assets/previews/sanctuary-coherent/candles.png",
+      "target": "assets/game/introduction/sanctuary/candles.png",
+      "sha256": "8f0be152d82b60d128e4b421d99df9e0b7d63c544ecc156098b67c4ff7ec262b",
+      "bytes": 7099
+    },
+    "candle-dish": {
+      "source": "assets/previews/sanctuary-coherent/candle-dish.png",
+      "target": "assets/game/introduction/sanctuary/candle-dish.png",
+      "sha256": "8472b643a5731f2f08cb1334d731d4119553bacd1d82f4518aa7ae8a4bdb3632",
+      "bytes": 7230
+    },
+    "candle-bowl": {
+      "source": "assets/previews/sanctuary-coherent/candle-bowl.png",
+      "target": "assets/game/introduction/sanctuary/candle-bowl.png",
+      "sha256": "bc7c9e822d1725d5e4497fdc0040892d688f1faf76a610ee61bb75d1b4181fe9",
+      "bytes": 9272
+    },
+    "fern": {
+      "source": "assets/previews/sanctuary-flora/fern.png",
+      "target": "assets/game/introduction/sanctuary/fern.png",
+      "sha256": "37026f0317b2774645fd7ba5d04a5139b1b9102c3d417cbef51fe8b5d21bdcca",
+      "bytes": 11079
+    },
+    "violets": {
+      "source": "assets/previews/sanctuary-flora/violets.png",
+      "target": "assets/game/introduction/sanctuary/violets.png",
+      "sha256": "9f6488ff3632eb4773c38d137f12665e16f0637fed0cad14e27a4b9c8c1fb4be",
+      "bytes": 4886
+    },
+    "mushrooms": {
+      "source": "assets/previews/sanctuary-flora/mushrooms.png",
+      "target": "assets/game/introduction/sanctuary/mushrooms.png",
+      "sha256": "6820bc1e547d8b1f98c0288894fa480d5ffd5e5d9fe247de6fd19d80964a8b9a",
+      "bytes": 5311
+    },
+    "moss": {
+      "source": "assets/previews/sanctuary-flora/moss.png",
+      "target": "assets/game/introduction/sanctuary/moss.png",
+      "sha256": "85d516130f31de94a94951f578aac602d73e488514bfe6ab4abbe4340875c8fb",
+      "bytes": 13776
+    },
+    "wildflowers": {
+      "source": "assets/previews/sanctuary-flora/wildflowers.png",
+      "target": "assets/game/introduction/sanctuary/wildflowers.png",
+      "sha256": "b84b811d6e5e7bd70f2d40d36bc2714a1d5b76bf7fb1a88e11438ebd2d82f3a1",
+      "bytes": 3504
+    },
+    "garden": {
+      "source": "assets/previews/sanctuary-flora/garden.png",
+      "target": "assets/game/introduction/sanctuary/garden.png",
+      "sha256": "e1359797b02f5f37cc7588e1b20833efc376694fa747461e621913c42516ae2d",
+      "bytes": 13780
+    },
+    "altar-shadow": {
+      "source": "assets/previews/sanctuary-coherent/altar-shadow.png",
+      "target": "assets/game/introduction/sanctuary/altar-shadow.png",
+      "sha256": "7d4ea15b35f21838de8b7bded453beac2873835ea21054db667cc9bdba7b0682",
+      "bytes": 20600
+    },
+    "Menhir-1-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Menhir-1-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-1-shadow.png",
+      "sha256": "dbfd96f21b498bb7d1167be755081a0bb8e11553914bd64fe5e7194c3cb71fd8",
+      "bytes": 6066
+    },
+    "Menhir-2-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Menhir-2-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-2-shadow.png",
+      "sha256": "665130e6d4c09f20b1dd22023a65bf4a48096bd0ead8b58f99ef034af2bb330c",
+      "bytes": 6324
+    },
+    "Menhir-3-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Menhir-3-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-3-shadow.png",
+      "sha256": "fa77d15efd133c1911a2b1c1a0a05e6ae0c3a8b5906f3aefd849178a50e85e26",
+      "bytes": 6296
+    },
+    "Menhir-4-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Menhir-4-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-4-shadow.png",
+      "sha256": "eca900a92199296dcc366138c05a33afc2bcb7afb85f0223c50a985284a5e6c8",
+      "bytes": 6292
+    },
+    "Menhir-5-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Menhir-5-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-5-shadow.png",
+      "sha256": "446fd5cfc76485172329d9bf13bc76933efe619336910e17a5dce1b003af2e8c",
+      "bytes": 6343
+    },
+    "Menhir-6-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Menhir-6-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Menhir-6-shadow.png",
+      "sha256": "83102532e98acc1db8c0c126cc00909d71621978f5577c3435048744ea11fe90",
+      "bytes": 6047
+    },
+    "Paroi-1-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-1-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-1-shadow.png",
+      "sha256": "5c4dc0e55d2cfcd4f64399ce85fb217b0cd0e378238efa71307b64f0c452c7e4",
+      "bytes": 13213
+    },
+    "Paroi-2-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-2-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-2-shadow.png",
+      "sha256": "91f5ee18d1bddd898f26ec8c9742ace69a427fb741daa651d57e230525f1909f",
+      "bytes": 11119
+    },
+    "Paroi-3-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-3-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-3-shadow.png",
+      "sha256": "066ac4f6ce96c5e09ce186660504e3765fbf43be3dad10363bc8fa76ea49efa6",
+      "bytes": 9649
+    },
+    "Paroi-4-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-4-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-4-shadow.png",
+      "sha256": "e81f0220fa2a3918aa460f593cf9b2d975b0209693b03d37f2df386ee6008264",
+      "bytes": 12992
+    },
+    "Paroi-5-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-5-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-5-shadow.png",
+      "sha256": "d0d1a5623f7c2f781d8a93ad16d021861b0a64945280688cf01859e2dd7d3fa5",
+      "bytes": 14783
+    },
+    "Paroi-6-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-6-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-6-shadow.png",
+      "sha256": "6b01e02b1b8d50f1970c1208a6737d6a290db3fd699352ef77bb3f2616693bc4",
+      "bytes": 10224
+    },
+    "Paroi-7-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-7-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-7-shadow.png",
+      "sha256": "ee9ace3901e09d40ab82c09c6c2e31da0e96fc2e4c54f00d0131f3ea782427ce",
+      "bytes": 10581
+    },
+    "Paroi-8-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Paroi-8-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Paroi-8-shadow.png",
+      "sha256": "7c4cb6383b29673d0d58f7de40e72f2308400417eedc8cc5e6a021c93ae4f3c6",
+      "bytes": 12901
+    },
+    "Crete-1-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Crete-1-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Crete-1-shadow.png",
+      "sha256": "5fe0c62aabb8723e03724290e773c655301b6774264e664807b57a296e9dca69",
+      "bytes": 25883
+    },
+    "Crete-2-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Crete-2-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Crete-2-shadow.png",
+      "sha256": "c9a984ee4b13789c0d4c4107b9f623373829d144e366476905b954e9eeb5640a",
+      "bytes": 21753
+    },
+    "Crete-3-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Crete-3-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Crete-3-shadow.png",
+      "sha256": "e5ab6a4a92503a2499f5f6b0543acf610f9cbfc6a824c231aa7dc5272482cbda",
+      "bytes": 20068
+    },
+    "Crete-4-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Crete-4-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Crete-4-shadow.png",
+      "sha256": "ddbcfc5ba1097abb695ec7e08076368b09103e01a6013745f05a41cfc49aa049",
+      "bytes": 19471
+    },
+    "Crete-5-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Crete-5-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Crete-5-shadow.png",
+      "sha256": "8e5f783b04b66bbbeff435ee1c3ade484ff88b4f995a202f28479b9e5846a9ac",
+      "bytes": 22158
+    },
+    "Crete-6-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Crete-6-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Crete-6-shadow.png",
+      "sha256": "23b153060e99f7343738e7e7a8a038bb521c9bc8ea2f79fbc3b12f93863cb38b",
+      "bytes": 19447
+    },
+    "Eboulis-1-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-1-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-1-shadow.png",
+      "sha256": "70c64d240b8a233b1d03c05ba566e7fff93780f46e2b74767f246518aae12fe2",
+      "bytes": 9801
+    },
+    "Eboulis-2-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-2-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-2-shadow.png",
+      "sha256": "b650ed1acbf1d5601bb6ca2952bc097826625a9b0b54d57d33bd34ce0f69fb5e",
+      "bytes": 5637
+    },
+    "Eboulis-3-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-3-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-3-shadow.png",
+      "sha256": "891cbab9a4d8316ea6323e253c1d1c71c1e1f04e12f797df6400efd7fd5ad2f7",
+      "bytes": 10070
+    },
+    "Eboulis-4-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-4-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-4-shadow.png",
+      "sha256": "426b3f15ee4b3ff522a771e771f8c05679b6e21df2ad6a95fef6bdbb2939b15e",
+      "bytes": 5496
+    },
+    "Eboulis-5-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-5-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-5-shadow.png",
+      "sha256": "b48e74e7dafe80a90e6f2ebd1b1b6208190a908cfd30a6556eebe3e0d6c2e7b4",
+      "bytes": 10291
+    },
+    "Eboulis-6-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-6-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-6-shadow.png",
+      "sha256": "06f1e84ea82526aa65f0c425fc12ec2af3d3a226fda1d79198bab9ba7404860d",
+      "bytes": 8708
+    },
+    "Eboulis-7-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-7-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-7-shadow.png",
+      "sha256": "fd89f7770ccc2d5ca3fbd4e85ffc4b501308f4c344d252675dd1c5bbfb9a8c87",
+      "bytes": 9456
+    },
+    "Eboulis-8-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-8-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-8-shadow.png",
+      "sha256": "aca2f261f69a2611600bcbe5d0b36dafb74327eafe3156cc3ba97f69c53999e7",
+      "bytes": 5944
+    },
+    "Eboulis-9-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-9-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-9-shadow.png",
+      "sha256": "8b125d9bcae7d271f614405f62a2a65276eb819f7b11d304de5920e24cd3037d",
+      "bytes": 11989
+    },
+    "Eboulis-10-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-10-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-10-shadow.png",
+      "sha256": "34d4dfbb675ec5bdd63faa670a7450326fbd3e644de6a411c5bb00aed87967d8",
+      "bytes": 7544
+    },
+    "Eboulis-11-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-11-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-11-shadow.png",
+      "sha256": "e90d8140d04ed608de4fada985cd8f47fdf0aa040f5ca34746150bb194d493a8",
+      "bytes": 10284
+    },
+    "Eboulis-12-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-12-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-12-shadow.png",
+      "sha256": "d01d5d469dfbd9bafb74e51b300c85b56bd58223d3cf54cd5196c72447b8952d",
+      "bytes": 8759
+    },
+    "Eboulis-13-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-13-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-13-shadow.png",
+      "sha256": "fdb13dfbfbb0a67940f20d114e43edbe3326c183c56b471d7392e0fbcefa7897",
+      "bytes": 9668
+    },
+    "Eboulis-14-shadow": {
+      "source": "assets/previews/sanctuary-coherent/Eboulis-14-shadow.png",
+      "target": "assets/game/introduction/sanctuary/Eboulis-14-shadow.png",
+      "sha256": "74295ab07662e14a93be5af160d564e2828051b68b7717a680c42bef0fb0d292",
+      "bytes": 10414
+    },
+    "RocheApproche-1-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-1-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-1-shadow.png",
+      "sha256": "56c7d02a32788dbe07086edd49520cec60284ae3c5c8e4a8ec3b9c2637eba825",
+      "bytes": 8619
+    },
+    "RocheApproche-2-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-2-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-2-shadow.png",
+      "sha256": "0f74013ee9ddcca6b41b67c38b5cabe05aa678bd4f2cb0c65cc20561620b44e4",
+      "bytes": 4059
+    },
+    "RocheApproche-3-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-3-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-3-shadow.png",
+      "sha256": "b947fadc469110a38311e29b157836bb7e842b273d5866e8bb241c36621f45f9",
+      "bytes": 9400
+    },
+    "RocheApproche-4-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-4-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-4-shadow.png",
+      "sha256": "4e2a45e52aceb7b7d4be18688583718fba2ce866e1f3b269f7cef955383f8ef8",
+      "bytes": 3105
+    },
+    "RocheApproche-5-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-5-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-5-shadow.png",
+      "sha256": "1d507125d0f00ae56dc5dd66be7ad1898d3654ca52c4c7af076a93102199a2f3",
+      "bytes": 10931
+    },
+    "RocheApproche-6-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-6-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-6-shadow.png",
+      "sha256": "1ba75b9d48f4f943987d86629d721d5ff12d77dcfb0aff5ab739659d85eb70f2",
+      "bytes": 5851
+    },
+    "RocheApproche-7-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-7-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-7-shadow.png",
+      "sha256": "caf945efd15e4e5965f57556aaa0a8ec045b9093a1d3ddf5d87be8415762a247",
+      "bytes": 9209
+    },
+    "RocheApproche-8-shadow": {
+      "source": "assets/previews/sanctuary-coherent/RocheApproche-8-shadow.png",
+      "target": "assets/game/introduction/sanctuary/RocheApproche-8-shadow.png",
+      "sha256": "c07848f0b4ea0c50adb87996a462c21fefd2b1ea836361787ae4138f3a8f3b4a",
+      "bytes": 5083
+    },
+    "natural_ground": {
+      "source": "assets/previews/sanctuary-natural-ground/ground.png",
+      "target": "assets/game/introduction/sanctuary/natural_ground.png",
+      "sha256": "a50eeabd4c06891d85c696b9f66c7828ab7e26a81d1a4bb92daff6f7d46c4b4d",
+      "bytes": 2321632
+    }
+  }
+}

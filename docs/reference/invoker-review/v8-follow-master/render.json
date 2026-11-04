@@ -1,0 +1,906 @@
+{
+  "source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\invoker-review\\v5-procession\\invoker-poses.blend",
+  "sha256": "fa6719233d4ee5a055c5a16a18da029acb6ba00d830388ca993232547405655d",
+  "frames": [
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "idle",
+      "frame": 0,
+      "index": 0,
+      "ground": 5.465431485163208e-08,
+      "file": "idle-00.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 0,
+      "index": 1,
+      "ground": -0.05831080675125122,
+      "file": "walk-00.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 1,
+      "index": 2,
+      "ground": -0.04961705580353737,
+      "file": "walk-01.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 2,
+      "index": 3,
+      "ground": -0.0337119959294796,
+      "file": "walk-02.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 3,
+      "index": 4,
+      "ground": -0.0245693139731884,
+      "file": "walk-03.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 4,
+      "index": 5,
+      "ground": -0.030476104468107224,
+      "file": "walk-04.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 5,
+      "index": 6,
+      "ground": -0.034428928047418594,
+      "file": "walk-05.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 6,
+      "index": 7,
+      "ground": -0.03530558571219444,
+      "file": "walk-06.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 7,
+      "index": 8,
+      "ground": -0.03482487425208092,
+      "file": "walk-07.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 8,
+      "index": 9,
+      "ground": -0.03305276855826378,
+      "file": "walk-08.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 9,
+      "index": 10,
+      "ground": -0.04472753778100014,
+      "file": "walk-09.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 10,
+      "index": 11,
+      "ground": -0.05402883142232895,
+      "file": "walk-10.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 11,
+      "index": 12,
+      "ground": -0.05867461860179901,
+      "file": "walk-11.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 12,
+      "index": 13,
+      "ground": -0.057312823832035065,
+      "file": "walk-12.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 13,
+      "index": 14,
+      "ground": -0.04977864772081375,
+      "file": "walk-13.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 14,
+      "index": 15,
+      "ground": -0.03519347682595253,
+      "file": "walk-14.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 15,
+      "index": 16,
+      "ground": -0.023851508274674416,
+      "file": "walk-15.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 16,
+      "index": 17,
+      "ground": -0.030850911512970924,
+      "file": "walk-16.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 17,
+      "index": 18,
+      "ground": -0.0357179120182991,
+      "file": "walk-17.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 18,
+      "index": 19,
+      "ground": -0.03779745101928711,
+      "file": "walk-18.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 19,
+      "index": 20,
+      "ground": -0.03716123849153519,
+      "file": "walk-19.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 20,
+      "index": 21,
+      "ground": -0.0349319688975811,
+      "file": "walk-20.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 21,
+      "index": 22,
+      "ground": -0.04578559100627899,
+      "file": "walk-21.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 22,
+      "index": 23,
+      "ground": -0.05510991811752319,
+      "file": "walk-22.png"
+    },
+    {
+      "direction": "ne",
+      "angle": 45,
+      "clip": "walk",
+      "frame": 23,
+      "index": 24,
+      "ground": -0.05980698764324188,
+      "file": "walk-23.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "idle",
+      "frame": 0,
+      "index": 0,
+      "ground": 5.465431485163208e-08,
+      "file": "idle-00.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 0,
+      "index": 1,
+      "ground": -0.05831080675125122,
+      "file": "walk-00.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 1,
+      "index": 2,
+      "ground": -0.04961705580353737,
+      "file": "walk-01.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 2,
+      "index": 3,
+      "ground": -0.0337119959294796,
+      "file": "walk-02.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 3,
+      "index": 4,
+      "ground": -0.0245693139731884,
+      "file": "walk-03.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 4,
+      "index": 5,
+      "ground": -0.030476104468107224,
+      "file": "walk-04.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 5,
+      "index": 6,
+      "ground": -0.034428928047418594,
+      "file": "walk-05.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 6,
+      "index": 7,
+      "ground": -0.03530558571219444,
+      "file": "walk-06.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 7,
+      "index": 8,
+      "ground": -0.03482487425208092,
+      "file": "walk-07.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 8,
+      "index": 9,
+      "ground": -0.03305276855826378,
+      "file": "walk-08.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 9,
+      "index": 10,
+      "ground": -0.04472753778100014,
+      "file": "walk-09.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 10,
+      "index": 11,
+      "ground": -0.05402883142232895,
+      "file": "walk-10.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 11,
+      "index": 12,
+      "ground": -0.05867461860179901,
+      "file": "walk-11.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 12,
+      "index": 13,
+      "ground": -0.057312823832035065,
+      "file": "walk-12.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 13,
+      "index": 14,
+      "ground": -0.04977864772081375,
+      "file": "walk-13.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 14,
+      "index": 15,
+      "ground": -0.03519347682595253,
+      "file": "walk-14.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 15,
+      "index": 16,
+      "ground": -0.023851508274674416,
+      "file": "walk-15.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 16,
+      "index": 17,
+      "ground": -0.030850911512970924,
+      "file": "walk-16.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 17,
+      "index": 18,
+      "ground": -0.0357179120182991,
+      "file": "walk-17.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 18,
+      "index": 19,
+      "ground": -0.03779745101928711,
+      "file": "walk-18.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 19,
+      "index": 20,
+      "ground": -0.03716123849153519,
+      "file": "walk-19.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 20,
+      "index": 21,
+      "ground": -0.0349319688975811,
+      "file": "walk-20.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 21,
+      "index": 22,
+      "ground": -0.04578559100627899,
+      "file": "walk-21.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 22,
+      "index": 23,
+      "ground": -0.05510991811752319,
+      "file": "walk-22.png"
+    },
+    {
+      "direction": "se",
+      "angle": 135,
+      "clip": "walk",
+      "frame": 23,
+      "index": 24,
+      "ground": -0.05980698764324188,
+      "file": "walk-23.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "idle",
+      "frame": 0,
+      "index": 0,
+      "ground": 5.465431485163208e-08,
+      "file": "idle-00.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 0,
+      "index": 1,
+      "ground": -0.05831080675125122,
+      "file": "walk-00.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 1,
+      "index": 2,
+      "ground": -0.04961705580353737,
+      "file": "walk-01.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 2,
+      "index": 3,
+      "ground": -0.0337119959294796,
+      "file": "walk-02.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 3,
+      "index": 4,
+      "ground": -0.0245693139731884,
+      "file": "walk-03.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 4,
+      "index": 5,
+      "ground": -0.030476104468107224,
+      "file": "walk-04.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 5,
+      "index": 6,
+      "ground": -0.034428928047418594,
+      "file": "walk-05.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 6,
+      "index": 7,
+      "ground": -0.03530558571219444,
+      "file": "walk-06.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 7,
+      "index": 8,
+      "ground": -0.03482487425208092,
+      "file": "walk-07.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 8,
+      "index": 9,
+      "ground": -0.03305276855826378,
+      "file": "walk-08.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 9,
+      "index": 10,
+      "ground": -0.04472753778100014,
+      "file": "walk-09.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 10,
+      "index": 11,
+      "ground": -0.05402883142232895,
+      "file": "walk-10.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 11,
+      "index": 12,
+      "ground": -0.05867461860179901,
+      "file": "walk-11.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 12,
+      "index": 13,
+      "ground": -0.057312823832035065,
+      "file": "walk-12.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 13,
+      "index": 14,
+      "ground": -0.04977864772081375,
+      "file": "walk-13.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 14,
+      "index": 15,
+      "ground": -0.03519347682595253,
+      "file": "walk-14.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 15,
+      "index": 16,
+      "ground": -0.023851508274674416,
+      "file": "walk-15.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 16,
+      "index": 17,
+      "ground": -0.030850911512970924,
+      "file": "walk-16.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 17,
+      "index": 18,
+      "ground": -0.0357179120182991,
+      "file": "walk-17.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 18,
+      "index": 19,
+      "ground": -0.03779745101928711,
+      "file": "walk-18.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 19,
+      "index": 20,
+      "ground": -0.03716123849153519,
+      "file": "walk-19.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 20,
+      "index": 21,
+      "ground": -0.0349319688975811,
+      "file": "walk-20.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 21,
+      "index": 22,
+      "ground": -0.04578559100627899,
+      "file": "walk-21.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 22,
+      "index": 23,
+      "ground": -0.05510991811752319,
+      "file": "walk-22.png"
+    },
+    {
+      "direction": "sw",
+      "angle": 225,
+      "clip": "walk",
+      "frame": 23,
+      "index": 24,
+      "ground": -0.05980698764324188,
+      "file": "walk-23.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "idle",
+      "frame": 0,
+      "index": 0,
+      "ground": 5.465431485163208e-08,
+      "file": "idle-00.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 0,
+      "index": 1,
+      "ground": -0.05831080675125122,
+      "file": "walk-00.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 1,
+      "index": 2,
+      "ground": -0.04961705580353737,
+      "file": "walk-01.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 2,
+      "index": 3,
+      "ground": -0.0337119959294796,
+      "file": "walk-02.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 3,
+      "index": 4,
+      "ground": -0.0245693139731884,
+      "file": "walk-03.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 4,
+      "index": 5,
+      "ground": -0.030476104468107224,
+      "file": "walk-04.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 5,
+      "index": 6,
+      "ground": -0.034428928047418594,
+      "file": "walk-05.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 6,
+      "index": 7,
+      "ground": -0.03530558571219444,
+      "file": "walk-06.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 7,
+      "index": 8,
+      "ground": -0.03482487425208092,
+      "file": "walk-07.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 8,
+      "index": 9,
+      "ground": -0.03305276855826378,
+      "file": "walk-08.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 9,
+      "index": 10,
+      "ground": -0.04472753778100014,
+      "file": "walk-09.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 10,
+      "index": 11,
+      "ground": -0.05402883142232895,
+      "file": "walk-10.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 11,
+      "index": 12,
+      "ground": -0.05867461860179901,
+      "file": "walk-11.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 12,
+      "index": 13,
+      "ground": -0.057312823832035065,
+      "file": "walk-12.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 13,
+      "index": 14,
+      "ground": -0.04977864772081375,
+      "file": "walk-13.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 14,
+      "index": 15,
+      "ground": -0.03519347682595253,
+      "file": "walk-14.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 15,
+      "index": 16,
+      "ground": -0.023851508274674416,
+      "file": "walk-15.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 16,
+      "index": 17,
+      "ground": -0.030850911512970924,
+      "file": "walk-16.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 17,
+      "index": 18,
+      "ground": -0.0357179120182991,
+      "file": "walk-17.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 18,
+      "index": 19,
+      "ground": -0.03779745101928711,
+      "file": "walk-18.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 19,
+      "index": 20,
+      "ground": -0.03716123849153519,
+      "file": "walk-19.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 20,
+      "index": 21,
+      "ground": -0.0349319688975811,
+      "file": "walk-20.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 21,
+      "index": 22,
+      "ground": -0.04578559100627899,
+      "file": "walk-21.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 22,
+      "index": 23,
+      "ground": -0.05510991811752319,
+      "file": "walk-22.png"
+    },
+    {
+      "direction": "nw",
+      "angle": 315,
+      "clip": "walk",
+      "frame": 23,
+      "index": 24,
+      "ground": -0.05980698764324188,
+      "file": "walk-23.png"
+    }
+  ]
+}

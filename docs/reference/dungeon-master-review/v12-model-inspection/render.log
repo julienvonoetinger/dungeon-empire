@@ -1,0 +1,24 @@
+14:02:31 | INFO: Data are loaded, start creating Blender stuff
+14:02:31 | INFO: Blender create Mesh node output_unwrapped
+14:02:31 | INFO: glTF import finished in 0.03s
+00:07.968  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\eye-front.png'
+00:08.828  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\eye-left.png'
+00:09.734  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\eye-back.png'
+00:10.656  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\eye-iso.png'
+Info: No new files have been packed
+Info: Saved as "eye-inspection.blend"
+INSPECTED eye {"min": [-0.9462429881095886, -0.8078569769859314, -0.8581979870796204], "max": [0.9440310001373291, 0.807889997959137, 0.8554180264472961], "size": [1.8902740478515625, 1.6157469749450684, 1.7136160135269165]}
+14:02:36 | INFO: Data are loaded, start creating Blender stuff
+14:02:36 | INFO: Blender create Mesh node output_unwrapped
+14:02:36 | INFO: glTF import finished in 0.03s
+00:11.875  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\volute-front.png'
+00:12.546  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\volute-left.png'
+00:13.296  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\volute-back.png'
+00:14.031  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\volute-iso.png'
+Info: No new files have been packed
+Info: Saved as "volute-inspection.blend"
+INSPECTED volute {"min": [-0.9517409205436707, -0.1896110475063324, -0.8711859583854675], "max": [0.9506159424781799, 0.19093096256256104, 0.8681259155273438], "size": [1.9023568630218506, 0.38054201006889343, 1.739311933517456]}
+MODEL_INSPECTION_OK
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

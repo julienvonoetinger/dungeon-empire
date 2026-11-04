@@ -5,7 +5,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const root = path.resolve(__dirname, '..');
 const files = new Set();
-const resourceExtension = /\.(?:gdshader|gd|tscn|tres|png|svg|ttf|otf|txt)$/i;
+const resourceExtension = /\.(?:gdshader|gd|glb|tscn|tres|png|webp|wav|svg|ttf|otf|txt|json)$/i;
 
 function collect(file) {
   if (files.has(file)) return;
@@ -13,7 +13,7 @@ function collect(file) {
   files.add(file);
   if (/\.(gd|tscn|tres|gdshader)$/.test(file)) {
     const source = fs.readFileSync(path.join(root, file), 'utf8');
-    for (const match of source.matchAll(/res:\/\/([A-Za-z0-9_./-]+\.(?:gdshader|gd|tscn|tres|png|svg|ttf|otf))/g)) collect(match[1]);
+    for (const match of source.matchAll(/res:\/\/([A-Za-z0-9_./-]+\.(?:gdshader|gd|glb|tscn|tres|png|webp|wav|svg|ttf|otf|json))/g)) collect(match[1]);
   }
 }
 
@@ -28,10 +28,13 @@ function collectDirectory(directory) {
 const mainScene = fs.readFileSync(path.join(root, 'project.godot'), 'utf8').match(/^run\/main_scene="res:\/\/(.+)"$/m)[1];
 collect(mainScene);
 // These roots also cover class_name registrations and concatenated load() paths.
-for (const directory of ['scripts/game', 'assets/ui', 'assets/dungeon/bedrock']) collectDirectory(directory);
+for (const directory of ['scripts/game', 'assets/ui', 'assets/dungeon/bedrock', 'assets/game/introduction']) collectDirectory(directory);
 collect('assets/ui/master/fonts/OFL.txt');
 
 const staging = fs.mkdtempSync(path.join(root, 'artifacts/android-game-'));
+// Native validation writes screenshots here. Exclude them before the first import.
+fs.mkdirSync(path.join(staging, 'artifacts'));
+fs.writeFileSync(path.join(staging, 'artifacts/.gdignore'), '');
 function copy(file) {
   const target = path.join(staging, file);
   fs.mkdirSync(path.dirname(target), { recursive: true });

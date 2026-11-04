@@ -1,0 +1,16 @@
+{
+  "source": "source.png",
+  "sha256": "99cd37c118c3e183c26a7141174b381cba0bd90011f3c66d1e64eaebadecebbc",
+  "sourceSize": [
+    1399,
+    1124
+  ],
+  "frame": [
+    -260,
+    -44,
+    392,
+    315
+  ],
+  "method": "Whole painted sprite, uniform contain reduction, native alpha, same canvas registration as approved guide",
+  "generator": "tools/prepare_invocation_stairwell_painted.cjs"
+}

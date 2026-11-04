@@ -1,0 +1,18 @@
+00:01.297  blend            | Read blend: "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\master-assembly.blend"
+Info: No new files have been packed
+Info: Saved as "master-animated.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+14:23:41 | INFO: Starting glTF 2.0 export
+14:23:41 | INFO: Extracting primitive: output_unwrapped
+14:23:41 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+14:23:41 | INFO: Primitives created: 1
+14:23:41 | INFO: Extracting primitive: output_unwrapped.001
+14:23:41 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+14:23:41 | INFO: Primitives created: 1
+14:23:41 | INFO: Finished glTF 2.0 export in 0.46834230422973633 s
+
+MASTER_ANIMATION_BUILT {"duration": 18, "fps": 30, "frames": 541, "eye_radius": 0.956840589117895, "volute_inner_radius": 0.829331095524459, "safety_scale": 1.336405546793612, "minimum_gap_after_eye_appears": 0.14814178651669174, "animation_names": ["Scene"], "export_sha256": "f6da4a7a80b2fd210a5c2431c3ef9a5178bd93b9517cd8b4552bd59e515caf8a", "bytes": 24927604, "scope": "Object-control rig: growth, gaze, orbit and settlement. No skeletal eyelid deformation.", "limitation": "Conservative source-surface radial clearance; export interpolation checked separately."}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

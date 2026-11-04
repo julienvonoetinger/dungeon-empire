@@ -228,7 +228,7 @@ func _refresh(_structure: bool) -> void:
 		if radial.visible: _close_radial(false)
 	session.catalog_open=_catalog_open or radial.visible
 	shade.visible=session.paused or session.result_open or session.sim.game_over or _reset_pending or session.save_blocked or (_welcome and not session.sim._has_core() and session.selected.x<0)
-	var editable:=session.can_edit() and not shade.visible
+	var editable:=session.can_edit() and not shade.visible and session.sim.lesson==Types.Lesson.FREE
 	catalog.visible=_catalog_open and editable; catalog.refresh(session)
 	selection.visible=editable and not catalog.visible and not radial.visible and session.selected.x>=0
 	session.get_node("PlayArea/World/Dungeon").dig_guides_visible=editable and not session.catalog_open and session.selected.x<0 and session.tool==Types.Tool.NONE
@@ -418,7 +418,7 @@ func _resume() -> void:
 		_reset_pending = false
 		_welcome = false
 		_catalog_open = false
-		session.restart(_reset_prepared)
+		session.restart(_reset_prepared, not _reset_prepared)
 	elif session.result_open: session.continue_preparation()
 	elif session.paused: session.set_paused(false)
 	else:

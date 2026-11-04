@@ -18,5 +18,9 @@ Thumbs.db
 __pycache__/
 *.pyc
 
+# Automatic Blender backups; retain the named .blend reproduction sources.
+*.blend1
+*.blend2
+
 .superpowers/
 .codex-remote-attachments/

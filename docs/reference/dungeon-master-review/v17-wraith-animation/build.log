@@ -1,0 +1,25 @@
+00:01.360  blend            | Read blend: "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v16-wraith-inspection\wraith-inspection.blend"
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+Info: No new files have been packed
+Info: Saved as "wraith-levitation.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+14:51:06 | INFO: Starting glTF 2.0 export
+INFO:glTFImporter:Starting glTF 2.0 export
+14:51:06 | INFO: Extracting primitive: output_unwrapped
+INFO:glTFImporter:Extracting primitive: output_unwrapped
+14:51:06 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+WARNING:glTFImporter:More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+14:51:06 | INFO: Primitives created: 1
+INFO:glTFImporter:Primitives created: 1
+INFO:glTFImporter:Finished glTF 2.0 export in 0.6115398406982422 s
+14:51:06 | INFO: Finished glTF 2.0 export in 0.6115398406982422 s
+
+WRAITH_ANIMATION_OK {"duration": 6, "fps": 30, "frames": 181, "loop_error": 0.0, "peak_vertex_change": 0.20497473596950408, "preserved_geometry_uv_weights": "ab61823d503c37980989a8a72ceebc577a357b166d48bb7ec4342a938655bd07", "source_sha256": "3cc543a6bee045d46352e25a9073abf30c99fa83cfeba505249179784772fef9", "source_unchanged": true, "tail_chain": ["Bone_011", "Bone_010", "Bone_009", "Bone_008", "Bone_007", "Bone_006", "Bone_005"], "export_bytes": 14374288, "export_sha256": "94fb5875912021e70e29a6f49616433017870336adde4254c05b290ce509f436", "limitations": "Low-amplitude skeletal study. No facial morphs, no full self-collision proof, no sanctuary integration."}
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

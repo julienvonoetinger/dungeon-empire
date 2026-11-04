@@ -1,0 +1,812 @@
+{
+  "method": "native whole-sprite paint corrections, unchanged canvas registration",
+  "baseline": "scenes/SanctuaryNaturalGround.tscn",
+  "baselineHash": "5e8c6de4cfc0661025722657e9b5c6ee5bd476efd992a71df3b8143c907d6a5c",
+  "sources": {
+    "ritual": {
+      "file": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "sha256": "e31fb16f0dfdabecdfed47ad7c222ad424e0e09b3305857c7e4a1f59883217a5",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "cliffs": {
+      "file": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "sha256": "fea72a4d502bb88fd8da9ed5dd9c72fba1c52c5581c50120d743add242ff25bd",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "boulders": {
+      "file": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "sha256": "002ced948e32bd5f86732055875b8c02f86d284f557a6961b03558581be5a632",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "Crete-1": {
+      "file": "docs/reference/sanctuary-textured/v5/source/Crete-1.png",
+      "sha256": "e3a29c9ad6003f08e9711e74337c3c0d28677d1c2cc7b97bca0ccaf6fa440c7b",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "Crete-2": {
+      "file": "docs/reference/sanctuary-textured/v5/source/Crete-2.png",
+      "sha256": "d650d46554fdbf0261915df2961507f4d0ab7dfbcaf1bee6050748faa15c28b5",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "Crete-3": {
+      "file": "docs/reference/sanctuary-textured/v5/source/Crete-3.png",
+      "sha256": "9f07ade31680b97a127cf614892d4361f840bd7226cfdb52ec498d246e08a547",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "Crete-4": {
+      "file": "docs/reference/sanctuary-textured/v5/source/Crete-4.png",
+      "sha256": "f1f167c4d5d28a1487bb07ddbc56073d0e87fb16cb77082dc3a8479e08cecfc7",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "Crete-5": {
+      "file": "docs/reference/sanctuary-textured/v5/source/Crete-5.png",
+      "sha256": "65491881feb724a51cb561d50e294ddb0973cc685372a9b0ab85ef73f77780b8",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    "Crete-6": {
+      "file": "docs/reference/sanctuary-textured/v5/source/Crete-6.png",
+      "sha256": "af5203c0b07b480d9e8c4304bcd9c91657b2d1a67b96d7bd55d54bdd2be6a467",
+      "size": [
+        1254,
+        1254
+      ]
+    }
+  },
+  "records": {
+    "altar": {
+      "frame": [
+        -228.38709677419354,
+        -243.19354838709677,
+        455,
+        455
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "rect": [
+        0,
+        0,
+        418,
+        418
+      ],
+      "bytes": 243057,
+      "sha256": "5ec582fc216e636fcddd98efdf45f64c782bf3d6e4a19e6bbfd128394025c7f2"
+    },
+    "Menhir-1": {
+      "frame": [
+        -108.37598944591029,
+        -189.3957783641161,
+        217,
+        217
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "rect": [
+        418,
+        0,
+        418,
+        418
+      ],
+      "bytes": 55862,
+      "sha256": "4003c717e39a2c64e02783e2c1f438b85ea161378c6f0e493144d9f0672fd271"
+    },
+    "Menhir-2": {
+      "frame": [
+        -124.15329729729731,
+        -217.9928648648649,
+        249,
+        249
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "rect": [
+        836,
+        0,
+        418,
+        418
+      ],
+      "bytes": 66767,
+      "sha256": "11acd13b9adf63977e0748174cd7e713debe7e4fbd815cbcd046f2a29f979bc1"
+    },
+    "Menhir-3": {
+      "frame": [
+        -135.6503867403315,
+        -237.76795580110502,
+        269,
+        269
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "rect": [
+        0,
+        418,
+        418,
+        418
+      ],
+      "bytes": 76988,
+      "sha256": "d81733e0cd3934d7dc57164c670c1de7a28414c2b7767dbd0073ef56a680dfde"
+    },
+    "Menhir-4": {
+      "frame": [
+        -122.3191011235955,
+        -213.8238202247191,
+        243,
+        243
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "rect": [
+        418,
+        418,
+        418,
+        418
+      ],
+      "bytes": 62993,
+      "sha256": "c990b39cc1d62ce63a1d9c1ede142eea73c2e7cbe7d4c023e10c56c3e019b4da"
+    },
+    "Menhir-5": {
+      "frame": [
+        -116.83636363636364,
+        -202.98909090909092,
+        233,
+        233
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "rect": [
+        836,
+        418,
+        418,
+        418
+      ],
+      "bytes": 64548,
+      "sha256": "8e38f538674b42e19c8d55fb5589877abc8c5a77519c69f34a706f1d84481f8f"
+    },
+    "Menhir-6": {
+      "frame": [
+        -100.53529411764707,
+        -171.15882352941176,
+        199,
+        199
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/ritual.png",
+      "rect": [
+        0,
+        836,
+        418,
+        418
+      ],
+      "bytes": 49250,
+      "sha256": "fa6bea2554be009c2228429b68755ae9d40549d2545b9eae6ffd7cb343823c6a"
+    },
+    "Paroi-1": {
+      "frame": [
+        -245.57969151670952,
+        -417.6992287917738,
+        493,
+        493
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        0,
+        0,
+        418,
+        418
+      ],
+      "bytes": 259189,
+      "sha256": "3c2b2c177455feaf3765b0149863656e95da392b9727ab0ca17814b353acaf0c"
+    },
+    "Paroi-2": {
+      "frame": [
+        -203.90155172413796,
+        -357.68965517241384,
+        442,
+        442
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        418,
+        0,
+        418,
+        418
+      ],
+      "bytes": 165346,
+      "sha256": "7b3add307b4fd847dd5b54ac782b619ce1378eb68c663ae036c3c93dc8643f69"
+    },
+    "Paroi-3": {
+      "frame": [
+        -126.85393258426967,
+        -225.43258426966293,
+        284,
+        284
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        836,
+        0,
+        418,
+        418
+      ],
+      "bytes": 112261,
+      "sha256": "952c1145190dfaaf0f910873df46ee2ffc2b2556761b3dc66f8bfd5e2048ccd0"
+    },
+    "Paroi-4": {
+      "frame": [
+        -163.05851063829786,
+        -229.58776595744678,
+        330,
+        330
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        0,
+        418,
+        418,
+        418
+      ],
+      "bytes": 113600,
+      "sha256": "8488eb5df509eb9848edb5badf0abb5d9e3ce043054851a0d2308d0ca90f9e09"
+    },
+    "Paroi-5": {
+      "frame": [
+        -288.5439114391144,
+        -468.5881918819189,
+        575,
+        575
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        418,
+        418,
+        418,
+        418
+      ],
+      "bytes": 277971,
+      "sha256": "1d8017f9cdc1a02b6b5313a1d0aaac52b05f6c37a08bbba0f3ddb9a337eed877"
+    },
+    "Paroi-6": {
+      "frame": [
+        -198.42413223140497,
+        -387.22809917355374,
+        470,
+        470
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        836,
+        418,
+        418,
+        418
+      ],
+      "bytes": 181225,
+      "sha256": "2bde92fa92275fc111e30ada481c7a4d52be8fbefabe8607b8adfddd35f0ee54"
+    },
+    "Paroi-7": {
+      "frame": [
+        -125.09234828496044,
+        -178.4986807387863,
+        248,
+        248
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        0,
+        836,
+        418,
+        418
+      ],
+      "bytes": 87905,
+      "sha256": "0f33ee79b4d5bb59c0e7e0e52c00b9b5b337ef0ba4e91db3e44fabd23fd200b7"
+    },
+    "Paroi-8": {
+      "frame": [
+        -214.95382585751977,
+        -375.754617414248,
+        482,
+        482
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/cliffs.png",
+      "rect": [
+        418,
+        836,
+        418,
+        418
+      ],
+      "bytes": 196219,
+      "sha256": "6d4c30a7b992a62e6fac041616bcc54e9f40145bab2923b9c3dd5691b3afa81c"
+    },
+    "Eboulis-1": {
+      "frame": [
+        -166.67469879518072,
+        -190.65060240963857,
+        333,
+        333
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        0,
+        0,
+        251,
+        251
+      ],
+      "bytes": 69278,
+      "sha256": "0bfe45226c0896e2dd91737f0b338cf7d716f13f0c8c71b9be9901f51c12c6db"
+    },
+    "Eboulis-2": {
+      "frame": [
+        -45.242574257425744,
+        -62.15841584158416,
+        92,
+        92
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        251,
+        0,
+        251,
+        251
+      ],
+      "bytes": 14085,
+      "sha256": "ed77a3f08cf3a8792754d46e894b8bd99cf789c379ca5d33101fc0eca7a3ce29"
+    },
+    "Eboulis-3": {
+      "frame": [
+        -127.63768115942028,
+        -176.55072463768116,
+        236,
+        236
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        502,
+        0,
+        250,
+        251
+      ],
+      "bytes": 68774,
+      "sha256": "dc7179e56bafef453d6460b6c758a0b0ee0fbd5e993cda599d284cea3fb4bbd3"
+    },
+    "Eboulis-4": {
+      "frame": [
+        -52.27717391304348,
+        -66.47826086956522,
+        101,
+        101
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        752,
+        0,
+        251,
+        251
+      ],
+      "bytes": 15655,
+      "sha256": "0403b9b63d3c793b58418544c623bc98ca5ec35fa5aabc15c51de44338ccf03b"
+    },
+    "Eboulis-5": {
+      "frame": [
+        -152.6531100478469,
+        -186.55980861244018,
+        288,
+        288
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        1003,
+        0,
+        251,
+        251
+      ],
+      "bytes": 71305,
+      "sha256": "015618367483283ec6263908157634afb0215ace6707b9a1437805e3baa459d2"
+    },
+    "Eboulis-6": {
+      "frame": [
+        -89.08256880733946,
+        -150.34862385321102,
+        212,
+        212
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        0,
+        251,
+        251,
+        251
+      ],
+      "bytes": 55779,
+      "sha256": "ffa18391606fda9d72d24cb612812dd562334bc783ada1d21255ef7f529cab52"
+    },
+    "Eboulis-7": {
+      "frame": [
+        -160.03378378378378,
+        -215.35135135135133,
+        302,
+        302
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        251,
+        251,
+        251,
+        251
+      ],
+      "bytes": 93116,
+      "sha256": "2168abb2a7ef440c80eb68e47e70e12995672abae002b100298950713d2344a8"
+    },
+    "Eboulis-8": {
+      "frame": [
+        -57.975,
+        -79.10000000000001,
+        113,
+        113
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        502,
+        251,
+        250,
+        251
+      ],
+      "bytes": 19491,
+      "sha256": "fa48093543365e5c94d64e02fdc06e5ea950f2775d61021d3579270978c69dd4"
+    },
+    "Eboulis-9": {
+      "frame": [
+        -165.06976744186048,
+        -194.62790697674419,
+        344,
+        344
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        752,
+        251,
+        251,
+        251
+      ],
+      "bytes": 79439,
+      "sha256": "9d9ea4f5f626fc8520bac6bcabeba02341a3cb17fedadd79e094b26cdd9fd140"
+    },
+    "Eboulis-10": {
+      "frame": [
+        -91.36804733727811,
+        -128.1881656804734,
+        170,
+        170
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        1003,
+        251,
+        251,
+        251
+      ],
+      "bytes": 36011,
+      "sha256": "6e25408b98f28c4a4e536dca8d2397d488d646452bbca9edab073110eeec7855"
+    },
+    "Eboulis-11": {
+      "frame": [
+        -113.5,
+        -152.73493975903614,
+        239,
+        238
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        0,
+        502,
+        251,
+        250
+      ],
+      "bytes": 64377,
+      "sha256": "0c82664128cba25eca5ca7d914de7a4c389ee43d6a50f75bbd8249d2ed201f1a"
+    },
+    "Eboulis-12": {
+      "frame": [
+        -85.67579908675799,
+        -127.9634703196347,
+        191,
+        191
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        251,
+        502,
+        251,
+        250
+      ],
+      "bytes": 44602,
+      "sha256": "042f6c78c355fd68dabe44e1b658839d34d9690a3f6905d36a620892d4725229"
+    },
+    "Eboulis-13": {
+      "frame": [
+        -88.84272300469483,
+        -116.9906103286385,
+        175,
+        175
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        502,
+        502,
+        250,
+        250
+      ],
+      "bytes": 41656,
+      "sha256": "2be70f07ee6cf82ac85aa1ad6f04f57847e41c75735534bf64cf7334fe2dd892"
+    },
+    "Eboulis-14": {
+      "frame": [
+        -123.47959183673468,
+        -166.85714285714283,
+        241,
+        240
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        752,
+        502,
+        251,
+        250
+      ],
+      "bytes": 75134,
+      "sha256": "5137e653b8987b765906f96efea574ee9e0c2f53958280441786cd06dcf6ec95"
+    },
+    "RocheApproche-1": {
+      "frame": [
+        -106.41176470588235,
+        -128.14705882352942,
+        203,
+        202
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        1003,
+        502,
+        251,
+        250
+      ],
+      "bytes": 42435,
+      "sha256": "72edba3bcd1b1a843e3e9a5816e71ad3bb160fc301055b8c95d539888e514207"
+    },
+    "RocheApproche-2": {
+      "frame": [
+        -32.016129032258064,
+        -41.774193548387096,
+        65,
+        65
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        0,
+        752,
+        251,
+        251
+      ],
+      "bytes": 7091,
+      "sha256": "96c6d4afcbafab7549b77b22e2ef58d4bb6ee760ffe4b96a320acf3aacfd1dde"
+    },
+    "RocheApproche-3": {
+      "frame": [
+        -130.30769230769232,
+        -173.25443786982248,
+        247,
+        247
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        251,
+        752,
+        251,
+        251
+      ],
+      "bytes": 71851,
+      "sha256": "9c7907f80196e776e820e153a1bb7f36ba3225d136b6a28e4fb141d2985dfaec"
+    },
+    "RocheApproche-4": {
+      "frame": [
+        -31.366013071895424,
+        -48.45751633986928,
+        70,
+        71
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        502,
+        752,
+        250,
+        251
+      ],
+      "bytes": 7166,
+      "sha256": "b5f8c8504689d9040939db240b30241f3e0670b9898d64e2b4e4093b6c8a715d"
+    },
+    "RocheApproche-5": {
+      "frame": [
+        -147.29411764705884,
+        -175,
+        295,
+        295
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        752,
+        752,
+        251,
+        251
+      ],
+      "bytes": 71264,
+      "sha256": "9ae173c89923fa0aa4883daf0d7b7ed12028c49c5b3f8e800fc3d70c6032d9dd"
+    },
+    "RocheApproche-6": {
+      "frame": [
+        -40.263636363636365,
+        -53.46666666666667,
+        88,
+        88
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        1003,
+        752,
+        251,
+        251
+      ],
+      "bytes": 11436,
+      "sha256": "a595badb0cb9146c5639cd29defec563b29bd518021403b9af2be2a449a28c0d"
+    },
+    "RocheApproche-7": {
+      "frame": [
+        -103.06648936170212,
+        -125.6808510638298,
+        194,
+        194
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        0,
+        1003,
+        251,
+        251
+      ],
+      "bytes": 50808,
+      "sha256": "cc475907c745a53621188faa6f1728276ee1bcd850d722057c01cbf6266c2bc8"
+    },
+    "RocheApproche-8": {
+      "frame": [
+        -48.21290322580645,
+        -59.70967741935485,
+        94,
+        94
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/boulders.png",
+      "rect": [
+        251,
+        1003,
+        251,
+        251
+      ],
+      "bytes": 12510,
+      "sha256": "812fb550e6ec751e800fbe57b1cd6c717f16f2502633324ad6a2c05c4b1a3611"
+    },
+    "Crete-1": {
+      "frame": [
+        -427.28993223620523,
+        -622.4162633107454,
+        824,
+        824
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/Crete-1.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bytes": 738159,
+      "sha256": "18634143b79edec07c1c4997bc43fe247c4a806724ebf36e45aacba0dbc1e27f"
+    },
+    "Crete-2": {
+      "frame": [
+        -445.953125,
+        -771.421875,
+        921,
+        921
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/Crete-2.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bytes": 590099,
+      "sha256": "024abb220c70cf52abee7519a5439aa4fe1bc8a8f3cb35e737decc48ae8042f9"
+    },
+    "Crete-3": {
+      "frame": [
+        -378.4893355209188,
+        -612.2920426579163,
+        759,
+        759
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/Crete-3.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bytes": 597582,
+      "sha256": "004fe058abc6d25715f5726c97e0c474d6cecab06a712f432c5163342715417f"
+    },
+    "Crete-4": {
+      "frame": [
+        -348.70465686274514,
+        -665.6584967320262,
+        776,
+        776
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/Crete-4.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bytes": 540840,
+      "sha256": "daf93898a5c68e2d6a90baf5d3a14c979de71a3cfad0b753326bdf2e1978b664"
+    },
+    "Crete-5": {
+      "frame": [
+        -404.5292347377472,
+        -661.7102321582115,
+        800,
+        800
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/Crete-5.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bytes": 655282,
+      "sha256": "038d7cc8d20679e5eea8cfbc97f3eda3deb580933df201349bff75b52fa3854b"
+    },
+    "Crete-6": {
+      "frame": [
+        -329.0540322580645,
+        -566.8274193548386,
+        686,
+        686
+      ],
+      "source": "docs/reference/sanctuary-textured/v5/source/Crete-6.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "bytes": 416911,
+      "sha256": "210641c3f4b6deb73d22f1d1bd02b569f3350611778eee2507e256852e921b48"
+    }
+  }
+}

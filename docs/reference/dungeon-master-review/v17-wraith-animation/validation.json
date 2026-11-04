@@ -1,0 +1,22 @@
+{
+  "duration": 6,
+  "fps": 30,
+  "frames": 181,
+  "loop_error": 0.0,
+  "peak_vertex_change": 0.20497473596950408,
+  "preserved_geometry_uv_weights": "ab61823d503c37980989a8a72ceebc577a357b166d48bb7ec4342a938655bd07",
+  "source_sha256": "3cc543a6bee045d46352e25a9073abf30c99fa83cfeba505249179784772fef9",
+  "source_unchanged": true,
+  "tail_chain": [
+    "Bone_011",
+    "Bone_010",
+    "Bone_009",
+    "Bone_008",
+    "Bone_007",
+    "Bone_006",
+    "Bone_005"
+  ],
+  "export_bytes": 14374288,
+  "export_sha256": "94fb5875912021e70e29a6f49616433017870336adde4254c05b290ce509f436",
+  "limitations": "Low-amplitude skeletal study. No facial morphs, no full self-collision proof, no sanctuary integration."
+}

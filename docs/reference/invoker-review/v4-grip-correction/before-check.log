@@ -1,0 +1,17 @@
+00:01.484  blend            | Read blend: "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v3-meshy-inspection\invoker-equipped.blend"
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+Traceback (most recent call last):
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+{"source": "C:\\Users\\A\\Documents\\GitHub\\dungeon-empire\\docs\\reference\\invoker-review\\v3-meshy-inspection\\invoker-equipped.blend", "grip_center": [0.43587565422058105, -0.21717476844787598, 0.8399146199226379], "digits": {"lower": {"tip": [0.4980904161930084, -0.39133721590042114, 0.772341787815094], "tip_opposition_to_palm": 0.10761011391878128, "closest_mesh_distance": 0.10764779895544052}, "middle": {"tip": [0.4812392592430115, -0.4081555902957916, 0.8146605491638184], "tip_opposition_to_palm": 0.09601980820298195, "closest_mesh_distance": 0.13475213944911957}, "upper": {"tip": [0.44024309515953064, -0.3999812602996826, 0.8692847490310669], "tip_opposition_to_palm": 0.054354069754481316, "closest_mesh_distance": 0.10774146765470505}, "thumb": {"tip": [0.47023436427116394, -0.4069475829601288, 0.9115873575210571], "tip_opposition_to_palm": 0.0851057693362236, "closest_mesh_distance": 0.005369746126234531}}, "crossings_count": 0, "failures": ["lower does not wrap beyond shaft axis", "middle does not wrap beyond shaft axis", "upper does not wrap beyond shaft axis", "thumb is not opposed behind shaft"], "original_hashes_unchanged": true, "packed_images": 6}
+  File "C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v4-grip-correction\verify.py", line 42, in <module>
+    assert not fail,fail
+           ^^^^^^^^
+AssertionError: ['lower does not wrap beyond shaft axis', 'middle does not wrap beyond shaft axis', 'upper does not wrap beyond shaft axis', 'thumb is not opposed behind shaft']
+
+Error: script failed, file: 'docs/reference/invoker-review/v4-grip-correction/verify.py', exiting.
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

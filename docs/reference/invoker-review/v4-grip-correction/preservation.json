@@ -1,0 +1,30 @@
+{
+  "unchanged": true,
+  "snapshot": {
+    "body": {
+      "geometry": "5e3d09c921710049cf296030d32c97a2e3bd7ff419bc29bcda80d38d3ab34ca2",
+      "uv": "9b2a81ad01e170fd524a2da61a687e4a40ce47f895aff31597e62ccbb2e6fc33",
+      "weights": "1a6cadc677a8042ed79db9e1a42d35ea6f4f35be97d306f24961f42f92eb3bce",
+      "materials": [
+        "BakedMaterial"
+      ]
+    },
+    "staff": {
+      "geometry": "c4f0f63fbf19c6979c66fe202e939db3bda2a6870c1f49334ee1ed420269e1ff",
+      "uv": "fac1c25dc454841d61bc964fb2b15d9215a90485b59aa4932527eddd9ddea342",
+      "weights": "39472a854cd132b7153bee9771b26ce7536628f8732d1709a56730e7144d187c",
+      "materials": [
+        "BakedMaterial.001"
+      ]
+    },
+    "rest_rig": "e6d2ca37e9215d292dc2fa881d967cc6d79de77b74c009e1d9406c847ac5a30d",
+    "textures": {
+      "normal": "4d76b9d578f83143a4c408c050b3681a1f07517825bcb8d9c69f7f9a83359c7e",
+      "normal.001": "f14d021e3f81eaa21af426efcddd96a1ef80de0dd722b8ee2b32f6a759733f17",
+      "texture_0": "d3ccf99ed99680cc0e33d14503416ffbd435e6e8b45b4b4f5acd13ae051533fe",
+      "texture_0.001": "45ecbb5da90b89758789d0f1de5906997daf52ff44537ccd80fcfa785c943624",
+      "texture_0_metallic_roughness": "0a251ba6f00c9c97accfbf2510dbaed4f961b86b9d4e6d608d77199cdc263bab",
+      "texture_0_metallic_roughness.001": "a0f9ddbc17dfbc26a94f9cddd5add50d57a109df04db79369da6401340b18146"
+    }
+  }
+}

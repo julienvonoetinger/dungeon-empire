@@ -1,0 +1,21 @@
+Dialogues écrits de l’invocation — 2026-11-04
+
+Source : scripts/game/invocation_dialogue.gd.
+Cinq répliques à la surface, deux dans le donjon. L’invocateur rappelle
+l’exil et renouvelle son serment ; le Maître exige sa fidélité, ouvre son
+royaume et confie la protection du Cœur. Aucun fichier de voix ajouté.
+
+Les intervalles utilisent le temps explicite de la scène, sans minuterie
+indépendante ni animation de frappe. L’apparition (20–22,2 s), la descente
+(après 35 s) et le fondu restent silencieux. Les textes du prologue et les
+instructions des trois leçons sont conservés.
+
+Présentation : thème pierre du HUD, nom or/violet, texte 20 px, largeur
+maximale 680 px, compensation de densité et zone sûre de l’introduction.
+L’aperçu réserve 48 px aux commandes de lecture.
+
+Validation native : artifacts/sanctuary-procession/check_dialogue.gd et
+check_dungeon_handoff.gd, zéro échec et stderr vide. Captures inspectées
+en 1280×720, 390×844 et 844×390. Pause, retour arrière, silences, passage
+aux leçons et fermeture vérifiés ; revue indépendante sans anomalie.
+Pas de modification des sauvegardes, APK, commit ou push.

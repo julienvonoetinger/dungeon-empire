@@ -1,0 +1,36 @@
+{
+  "tool": "built-in ImageGen",
+  "purpose": "energy-being concept exploration, not runtime assets",
+  "records": [
+    {
+      "id": "01-singularite",
+      "title": "A · La Singularité",
+      "file": "source/01-singularite.png",
+      "prompt": "source/prompt-01-singularite.txt",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1467031,
+      "sha256": "c1264e3ab44808981f67446ab77bb12fc333edb69633197bf289b15dc14ac0d0"
+    },
+    {
+      "id": "02-vortex",
+      "title": "B · Le Vortex vivant",
+      "file": "source/02-vortex.png",
+      "prompt": "source/prompt-02-vortex.txt",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1495597,
+      "sha256": "369acc4dec567b02a7913ede80d51aae5714078cc9e7ca3e5f4d2af7b9e54ae8"
+    },
+    {
+      "id": "03-faille",
+      "title": "C · La Faille vivante",
+      "file": "source/03-faille.png",
+      "prompt": "source/prompt-03-faille.txt",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1546438,
+      "sha256": "4fa265da22c363386a17e47827896e8ceabdfbc03c2b47e132f18f0456667534"
+    }
+  ]
+}

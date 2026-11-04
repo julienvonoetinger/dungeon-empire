@@ -1,0 +1,33 @@
+{
+  "tool": "native image_gen",
+  "concept": "One-eyed Oculin shadow deity",
+  "front": "Approved front preserved byte-for-byte.",
+  "views_are": "Illustrative references, not calibrated renders of a common 3D mesh. Reconstruction and rigging not yet tested.",
+  "files": [
+    {
+      "name": "01-front.png",
+      "source": "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/dungeon-master-review/v14-shadow-spirit/source/shadow-spirit-one-eye.png",
+      "prompt": "../v14-shadow-spirit/source/prompt-one-eye.txt"
+    },
+    {
+      "name": "02-left.png",
+      "source": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-d80e93da-643a-4541-9b4e-f2309eee2acf.png",
+      "prompt": "Create a STRICT SIDE ELEVATION of this exact cyclops shadow spirit for a modeling turnaround, facing LEFT. Input is design reference only. Camera is exactly 90 degrees from the front, orthographic, no three-quarter angle. We see the character's left shoulder square-on, chest and back in silhouette. One central frontal eye is almost entirely occluded by the edge of its brow; show only a narrow lens sliver at the left face edge, NOT an entire almond eye on its temple. Mouth is a short side opening. The near arm points toward the camera because both arms remain spread laterally in the same pose as the front; it is foreshortened, its hand overlaps the shoulder/torso area. Far arm and far hand are hidden behind torso. Do not turn both arms to spread them across the side image. Broad flame head with swept crest, purple spectral torso, same thick curling tapering tail, no legs. Preserve painterly violet flame materials and original anatomy. Fit complete silhouette within square with CLEAR 6 percent empty space above tallest flame and below tail. Transparent background. One isolated full character, no text. Geometric true profile is more important than showing the whole eye or both arms."
+    },
+    {
+      "name": "03-back.png",
+      "source": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-6a9373b3-90f0-4a51-b262-2d3ffaa24b06.png",
+      "prompt": "Use case: stylized-concept. Generate the BACK view for a Meshy character turnaround of EXACTLY the approved one-eyed purple shadow deity in the reference FRONT image. Rotate camera 180 degrees, strict orthographic rear elevation at torso height. Same fixed open-arm pose and proportions, same broad shoulders, flame-shaped swept crest (it swept to viewer RIGHT in the front, thus to viewer LEFT from the back), compact floating torso, exactly TWO substantial spectral arms and three hooked flame digits per hand, one thick S curling tapering tail (also reverse its screen direction naturally with the camera). No legs. The back of the head is completely opaque purple flowing flame material, NO EYE, NO MOUTH, NO FACE on the back or shoulders. Show the backs of both arms/hands, rear shoulder masses and back flowing into the tail. Preserve original dark purple painted fantasy game style with lavender edge lighting and continuous sculptable volume. No detached particles, smoke clouds, armor, clothes or objects. Full silhouette, square transparent canvas, 5% clear padding on all sides, no text, no floor or cast shadow. One character, one rear view only."
+    },
+    {
+      "name": "04-right.png",
+      "source": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-a7063da6-96a9-42cf-94c2-5d91dc11bd77.png",
+      "prompt": "Use case: stylized-concept. Generate the RIGHT-facing STRICT SIDE ELEVATION of this exact cyclops shadow spirit for a Meshy modeling turnaround. Image 1 is its approved FRONT design; image 2 is its LEFT-facing profile, for body depth and foreshortened arm construction. Create the opposite side, camera exactly 90 degrees from the front, character looks RIGHT, orthographic, NOT three-quarter. This is a new right side illustration of the same 3D object, not another pose. We see the right shoulder square-on and chest/back in silhouette. One central frontal eye almost entirely occluded by its brow edge: only a narrow luminous lens sliver on the right face edge, never a whole almond eye on the temple. Mouth is a short amber side opening. Near arm points toward camera because both arms remain spread laterally, foreshortened hand overlaps shoulder/torso, THREE broad hooked flame fingers only. Far arm/hand hidden by torso. Match profile reference anatomy and height. Broad swept flame crest and compact purple spectral torso tapering into one thick S-curved tail, no legs, original violet painterly material and lavender highlights. Do not add a second eye, facial details on the back, clothing, jewelry, smoke or particles. Square genuinely transparent canvas, complete unclipped character with clear margins above/below. One view only, no text, no floor/shadow."
+    }
+  ],
+  "rejected": {
+    "source": "C:/Users/A/.codex/generated_images/01a1a181-6ee9-7241-b413-6580736dc500/exec-6997ae25-8011-4c6f-a156-7a8e9c7688bc.png",
+    "reason": "Too much three-quarter view; replaced by stricter profile",
+    "prompt": "Use case: stylized-concept. Asset: single LEFT PROFILE reference for Meshy multi-view reconstruction. Reference image is the approved FRONT of exactly this one-eyed shadow deity. Render the SAME character rotated exactly 90 degrees, facing image LEFT, strict orthographic side view at face height, NOT three-quarter. Preserve the same pose in world space: two arms opened sideways with bent elbows and three thick hooked flame fingers on each hand; in profile near and far arms overlap naturally rather than both being splayed in image plane. Same single large central violet cyclops eye (seen edge-on from the side, never add a lateral eye), same amber toothy grin visible only in profile, swept-back purple flame head, broad shoulders and compact torso tapering into one thick S-curved spectral tail, no legs. Keep coherent solid sculptable flame volumes and original dark violet painterly game material, lavender edge highlights, no mist or detached particles. Do not redesign anatomy or add horns, clothes or accessories. Whole silhouette centered with 5% margin, square canvas, same subject height as front, transparent background, no text, no ground/shadow. One character, one view only. Show actual depth of torso/head from the side; preserve the single frontal eye location."
+  }
+}

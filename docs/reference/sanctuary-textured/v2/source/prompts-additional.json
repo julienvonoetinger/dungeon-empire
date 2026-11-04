@@ -1,0 +1,28 @@
+[
+  {
+    "name": "ritual-clean",
+    "prompt": "Remove ONLY the light grey/white background haze from this sprite sheet. Make all empty space between and around the seven objects FULLY TRANSPARENT (alpha zero), not translucent grey. Preserve all seven complete painted objects exactly: one dais and six pillars, same layout, size, positions, gold eye sigils, detailed purple rock, moss. Keep all fine irregular opaque stone edges. Remove the external ground shadows and white wash outside their silhouettes too. No redraw, no cropping, no rearranging, no extra objects, no background color. Production cutout sprites on fully transparent background.",
+    "paths": [
+      "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/sanctuary-textured/v2/source/ritual-initial.png"
+    ],
+    "alpha": true
+  },
+  {
+    "name": "dressing",
+    "prompt": "Create a high quality hand-painted dark fantasy isometric game sprite sheet with TRUE TRANSPARENT empty background. Reference images are STYLE ONLY. 3 by 3 evenly spaced square cells, exactly one isolated complete prop per cell, clearly separated with broad transparent margins. Consistent orthographic 2:1 game view, 30 degree elevation, no perspective. Row 1: (1) small cluster of five lit wax candles of varying height with dripped wax, no holder; (2) a different cluster of three lit candles on a small aged bronze dish; (3) a shallow round bronze brazier holding six lit candles, very low pedestal. Row 2: (4) lush dark olive fern cluster with trailing moss; (5) tuft of small violet alpine flowers with mossy roots; (6) cluster of red-brown woodland mushrooms with a tiny fern. Row 3: (7) irregular low moss cushion interspersed with tiny pebbles, horizontal ground scatter; (8) sparse delicate pale wildflowers with tufts of grass; (9) asymmetric ferns, tiny violet flowers and mushrooms growing together against a small piece of slate. Every object fits completely within its own 1/9 cell with generous transparent gutter, no labels, no grid. Rich brushwork and fine detail matching reference, blue-violet slate, muted olive greens, small violet flower accents, warm amber candle flames with subtle glow only immediately at the flames. No people, no full scene, no platforms, no large rocks or monoliths. Background fully transparent.",
+    "paths": [
+      "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/sanctuary-textured/v2/source/style-ritual.png",
+      "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/sanctuary-textured/v2/source/style-gorge.png"
+    ],
+    "alpha": true
+  },
+  {
+    "name": "ground",
+    "prompt": "Paint a single square seamless tiling terrain ALBEDO MATERIAL for an isometric dark fantasy game. References give style and color palette ONLY. Straight overhead flat view, no isometric perspective, no horizon. Quiet richly hand-painted natural ground of a hidden ancient mountain sanctuary: irregular exposed bluish slate sheets flush with earth, patches of dark teal moss and olive cushion moss in cracks, fine earthy grit and tiny gravel, a few scattered faded leaves. Broad varied dark mossy areas alternating with softly lit cool mineral slate areas. No path, no road, no paving, no grid, no ritual platform, no symbols, no characters, no large boulders, no upright plants, no buildings, no candles. Muted rich palette matching references, cool blue-green mineral and moss, not uniform grey. Natural scale variation with many unique small details but calm contrast for game legibility. Uniform diffuse moonlight-compatible shading, no cast shadows and no vignette, no bright highlights. Tileable all edges. The whole square is ground material, no border or text.",
+    "paths": [
+      "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/sanctuary-textured/v2/source/style-ritual.png",
+      "C:/Users/A/Documents/GitHub/dungeon-empire/docs/reference/sanctuary-textured/v2/source/style-gorge.png"
+    ],
+    "alpha": false
+  }
+]

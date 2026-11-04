@@ -1,5 +1,133 @@
 # Repository instructions
 
+## Commit validation for introduction V1 and asset cleanup — 2026-11-04
+
+- User requests commit/push of the approved introduction, sources and cleanup.
+  Fresh isolated playable staging import and 348 native menu/prologue/tutorial
+  checks pass; all eight headless scenarios pass. Retained 67 scenes/20 story
+  images, dialogue, transition and archive restoration checks pass, stderr empty.
+  Evidence artifacts/commit-introduction. No player saves or APK generated.
+- Commit preparation updates the old storyboard test to the actual five-actor
+  Wraith scene and nine-second arrival. Packaging now includes dynamic procession
+  and facing atlases plus JSON geometry/navigation; export filter includes JSON.
+  Named Blender sources are retained; automatic .blend1/.blend2 backups excluded.
+  Reference source bytes are preserved by .gitattributes and excluded from exports.
+
+## Superseded introduction assets archived — 2026-11-04
+
+- User requests cleanup after approving Intro V1. Explicit obsolete selection
+  archived under docs/reference/asset-cleanup/2026-11-04 (excluded by docs/.gdignore):
+  420 files / 76,453,689 bytes, including old eye-vortex/Meshy experiments,
+  first painted sanctuary, illustrated invocation, old stairs/prologue variants.
+  Matching obsolete scenes/scripts/shaders and UID/import files archived too.
+- Current V1, original production sources/recipes and useful hero/scenery previews
+  retained. All 1,178 remaining assets SHA-identical. Assets directory reduced
+  by 75,946,914 bytes; archive retains old data, not equivalent disk-space savings.
+- Restore original paths with python tools/archive_intro_experiments.py --restore
+  before reopening archived historical previews. Verified ZIP+manifest hashes;
+  restore refuses changed destinations. No automatic unused-file deletion.
+- Import, all 67 retained scenes/20 prologue images, dialogue and dungeon handoff
+  checks pass, empty stderr. Independent path/UID review finds no broken reference.
+  Evidence artifacts/sanctuary-procession/cleanup-*. No saves/APK/commit/push.
+
+## Introduction V1 approved by the user — 2026-11-04
+
+- User explicitly validates the current introduction as its first version.
+  Preserve this accepted baseline: painted sanctuary, invoker and Oculin
+  procession/ritual, magic and one-eyed Wraith manifestation, physical stair
+  creation, master followed by invoker into dungeon, Core awakening on arrival,
+  and written French dialogue. Voices are not part of this version.
+- Validation record: docs/reference/invocation-magic/version-1-approved.txt.
+  Latest dialogue and dungeon handoff checks passed with empty stderr;
+  portrait/landscape captures inspected. This is user acceptance, not a new
+  test run, release, commit or push authorization.
+
+## Master clears the Core support during arrival — 2026-11-04
+
+- User reports clipping at end near dormant Core. Walking actor positioning
+  put master at ground level; Core's rear cap cut his tail. Dedicated cinematic
+  position_intro_master uses elevation/actual sprite bounds and constrains him
+  after actual heart group while airborne and overlapping. Cached solid order
+  differed from actual sibling order there; no global overlay or scenery edit.
+- Master rises before crossing pedestal (distance1.35→.65cells), elevation.38,
+  then converges toward awakening orb at scale.38→.22/elevation.38→.31. Entire
+  image lower bound clears highest capz.255. Original arrival6.5/awakening6.6–8.6
+  preserved. Ordinary invoker positioning and gameplay Core bounds unchanged.
+- New native regression10failures before correction; final depth/three-size
+  captures, backward seek, handoff and follow checks pass, stderr empty. Focused
+  independent review no actionable findings. Evidence artifacts/sanctuary-
+  procession/core-depth-*. Preview -- --core-review pauses on arrival for review.
+  No saves/APK/commit/push.
+
+## Flying master depth and invoker facing — 2026-11-04
+
+- User catches master masked by altar during departure and invoker moving
+  sideways. Master now stays after Dalle while their screen bounds overlap;
+  ground-anchor depth alone was sorting him beneath the raised altar too early.
+  Scenery order unchanged; normal scenery/stair masking resumes when clear.
+- v8 camera labels were left/right reversed. v9-facing measures Blender's
+  projected forward(0,-1,0): (-sin(a),-.5cos(a)). Correct azimuths N0/NE315/E270/
+  SE225/S180/SW135/W90/NW45. Reuse opposite v8 diagonal masters; add75whole
+  E/W/S masters. Sixteen256px atlases, no mirroring/repaint/source-pose changes.
+- Eight-way heading uses inverse groundY squash. Gait phase accumulates across
+  path segments and stair descent, scaled by per-view projected ankle excursion
+  relative to approved90px diagonal cycle. This is stylistic cadence, not new
+  rigid foot planting/IK. Final dungeon idle now faces SE toward Core too.
+- Regression7failures before correction. Native departure-facing/follow/physical
+  entry/dungeon handoff pass; captures three sizes, stderr empty. Independent
+  review verifies forward equation,16atlas repacks and layer/phase continuity;
+  no actionable finding. Sources/docs invoker-review/v9-facing; evidence
+  artifacts/sanctuary-procession/facing-*. No saves/APK/commit/push.
+
+## Invoker follows the master into the dungeon — 2026-11-04
+
+- User says invoker too small and teleporting beside Core. Static .48 sprite
+  replaced with equipped animated Actor at.95, matching sanctuary256px grid.
+  He rises28.5–29.3s, routes around altar/scenery29.3–35.7s, descends35.7–37.9s,
+  enters tunnel by38.7s. Film now40.4s; master's accepted motion unchanged.
+- Departure-only Paths grid includes altar and moved rock footprints, excludes
+  destroyed Paroi4. Atlas-region UV mapping and a separate invoker material
+  keep physical stair masks independent of master. Replay clears actor alpha,
+  materials and pose. Four followers stay kneeling; only invoker follows.
+- Dungeon invoker walks from remote stair endpoint to existing lesson location
+  .8–8.4s, behind master, no mid-room fade. Same actor/scale/position at lesson.
+  position_invoker now accepts Node2D; existing Sprite2D callers still valid.
+  Core remains dormant until master arrives6.5s, awakens6.6–8.6s.
+- v8-follow-master renders four true camera views of unchanged packed v5 source:
+  NE/SE/SW/NW,100whole384px masters uniformly reduced256px,8atlases. Original
+  materials, grip and staff retained; no mirroring or2D body assembly. Scripts,
+  source hash and review in invoker-review/v8-follow-master, excluded by docs/.
+- Red regression2failures then native follow/procession/magic/physical-entry/
+  transition/dungeon-handoff pass. Three sizes inspected; independent review
+  verifies unchanged source,100unclipped masters and8exact atlas repacks, no
+  actionable finding. Evidence artifacts/sanctuary-procession/follow-*.
+  Existing gait support/collision limits remain. No saves/APK/commit/push.
+
+## Physical entrance after the invocation — 2026-11-04
+
+- User approved the two-cell wireframe, then painted entrance, then requested
+  rock destruction and master descent. Runtime invocation_passage.gd now uses
+  stairwell-v2: approved paint/geometry copied byte-identically; no portal shader.
+- Original rock fractures into36 textured pieces26–28.8s; stairs reveal27–29s.
+  Neighbouring Paroi8/Eboulis13 AND shadows use approved offsets; destroyed
+  Paroi4 shadow fades. Master contracts before approach28.8–31s, descends along
+  frozen isometric axis31–33.2s at constant.42scale, enters tunnel by34s.
+- Whole paint stays intact. prepare_invocation_stairwell_layers.cjs derives
+  near-rail/arch/aperture masks; sharp morphology MUST remain one grayscale
+  channel. Arch occlusion begins only on reaching its plane. Projected near
+  ground edge Y=-266.6666667-X/2 hides underground actor pixels beyond the pit.
+  All effects/poses/shaders use explicit film time, including pause/seek/reset.
+- First24s ritual retained; landscape camera pans/zooms1.18, portrait only pans.
+  Covered dungeon handoff35.4s and dormant-Core arrival remain: sphere awakens
+  only after arrival6.5s, awakening6.6–8.6s. Native physical/procession/magic/
+  transition/handoff checks pass, stderr/import empty; captures three sizes.
+  Solid-colour native shader probe verifies no underground pixel leaks.
+- Independent focused review found no actionable issue; paint bytes, masks,
+  replay/shared viewport and ground equation checked. Evidence artifacts/
+  sanctuary-procession/physical-*. README/recipes in invocation-magic/
+  stairwell-painted. Preview SanctuaryTransition.tscn, Entrée restarts23.5s.
+  No new audio, phone profiling, player saves, APK, commit or push.
+
 ## Commit validation for the Mycean Core attack — 2026-11-02
 
 - User requests commit/push of the spore attack, four-direction preview and

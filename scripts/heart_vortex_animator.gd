@@ -5,6 +5,7 @@ const EFFECT = preload("res://shaders/heart_vortex.gdshader")
 const CYCLE_SECONDS := 12.0
 var phase := 0.0
 var enabled := true
+var manual_time := -1.0
 var materials: Array[ShaderMaterial] = []
 
 func _ready() -> void:
@@ -21,7 +22,14 @@ func set_enabled(value: bool) -> void:
 	_refresh_processing()
 
 func _refresh_processing() -> void:
-	set_process(not Engine.is_editor_hint() and enabled and not materials.is_empty())
+	set_process(not Engine.is_editor_hint() and enabled and manual_time<0.0 and not materials.is_empty())
+
+func set_manual_time(time: float) -> void:
+	manual_time=time
+	if time>=0.0:
+		phase=fposmod(time/CYCLE_SECONDS,1.0)
+		for material in materials: material.set_shader_parameter("phase",phase)
+	_refresh_processing()
 
 func bind(entry: Dictionary, texture: AtlasTexture) -> ShaderMaterial:
 	var material := ShaderMaterial.new()

@@ -88,7 +88,7 @@ func _enter_game(fresh: bool) -> void:
 	session.save_path = save_path
 	session.get_node("HUD")._welcome = false
 	if fresh:
-		session.ready.connect(session.restart.bind(false), CONNECT_ONE_SHOT)
+		session.ready.connect(session.restart.bind(false, true), CONNECT_ONE_SHOT)
 	if get_tree().change_scene_to_node(session) != OK:
 		session.free()
 		message.text = "Impossible d’ouvrir le donjon."

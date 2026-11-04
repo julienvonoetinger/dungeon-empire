@@ -4,7 +4,6 @@
   "initial": "empty",
   "seed": 1,
   "steps": [
-    {"action":"build","tool":"DIG","cell":[8,8]},
     {"action":"build","tool":"DIG","cell":[6,8]},
     {"action":"assert","probe":"economy","field":"gold","op":"eq","value":315},
     {"action":"build","tool":"BUILD_DOOR","cell":[6,8]},

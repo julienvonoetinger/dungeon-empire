@@ -1,0 +1,103 @@
+{
+  "meshes": [
+    {
+      "name": "output_unwrapped.001",
+      "vertices": 12275,
+      "triangles": 10330,
+      "min": [
+        -0.13687600195407867,
+        -0.07670098543167114,
+        -0.9518260359764099
+      ],
+      "max": [
+        0.1346690058708191,
+        0.07729004323482513,
+        0.9513310194015503
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "images": [
+    {
+      "name": "normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "normal.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "Render Result",
+      "size": [
+        0,
+        0
+      ],
+      "packed": false
+    },
+    {
+      "name": "texture_0",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "texture_0.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "texture_0_metallic_roughness",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "texture_0_metallic_roughness.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    }
+  ]
+}

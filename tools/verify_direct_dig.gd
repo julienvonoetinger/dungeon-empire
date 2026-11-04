@@ -203,7 +203,7 @@ func run() -> void:
 		check(game.sim.gold == gold, "Tapping a status badge cannot dig through it")
 	check(not badge_points.is_empty(), "Badge fixture covers a legal frontier cell")
 	game.restart(false); hud._welcome = false; game.changed.emit(true)
-	check(visible_cells().is_empty(), "No dig hints before placing the Core")
+	check(not view.dig_cells.is_empty(), "A new dungeon exposes diggable rock around its Core")
 	var report := {"checks":checks,"failures":failures}
 	FileAccess.open(OUT+"report.json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t"))
 	print("Direct dig: ",checks," checks, ",failures.size()," failures")

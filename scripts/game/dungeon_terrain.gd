@@ -23,7 +23,7 @@ func _changed(structure: bool) -> void:
 	if not structure and _built: return
 	var cells: Array[Vector2i] = []
 	for y in Types.ROWS:
-		for x in Types.COLS:
+		for x in mini(Types.COLS,session.revealed_column + 1):
 			if session.sim.grid[y][x] != Types.Tile.ROCK: cells.append(Vector2i(x,y))
 	if _built and cells == _occupancy: return
 	_occupancy = cells

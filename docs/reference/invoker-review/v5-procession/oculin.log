@@ -1,0 +1,71 @@
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP addon registered
+BlenderMCP server stopped
+BlenderMCP addon unregistered
+15:06:15 | INFO: Data are loaded, start creating Blender stuff
+15:06:15 | INFO: Blender create Mesh node output_unwrapped
+15:06:15 | INFO: glTF import finished in 0.09s
+00:02.469  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\idle-00.png'
+00:02.938  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-00.png'
+00:03.360  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-01.png'
+00:03.703  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-02.png'
+00:04.078  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-03.png'
+00:04.578  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-04.png'
+00:04.938  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-05.png'
+00:05.313  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-06.png'
+00:05.813  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-07.png'
+00:06.172  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-08.png'
+00:06.547  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-09.png'
+00:07.047  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-10.png'
+00:07.407  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-11.png'
+00:07.782  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-12.png'
+00:08.282  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-13.png'
+00:08.625  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-14.png'
+00:08.985  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-15.png'
+00:09.500  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-16.png'
+00:09.844  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-17.png'
+00:10.203  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-18.png'
+00:10.703  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-19.png'
+00:11.063  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-20.png'
+00:11.391  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-21.png'
+00:11.875  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-22.png'
+00:12.235  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\walk-23.png'
+00:12.563  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-00.png'
+00:13.016  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-01.png'
+00:13.391  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-02.png'
+00:13.750  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-03.png'
+00:14.188  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-04.png'
+00:14.625  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-05.png'
+00:14.969  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-06.png'
+00:15.391  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-07.png'
+00:15.813  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-08.png'
+00:16.157  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-09.png'
+00:16.563  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-10.png'
+00:17.000  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-11.png'
+00:17.328  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-12.png'
+00:17.688  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-13.png'
+00:18.141  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-14.png'
+00:18.485  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-15.png'
+00:18.844  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-16.png'
+00:19.344  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-17.png'
+00:19.688  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-18.png'
+00:20.032  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-19.png'
+00:20.532  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-20.png'
+00:20.875  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-21.png'
+00:21.203  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-22.png'
+00:21.641  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-23.png'
+00:22.016  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-24.png'
+00:22.328  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-25.png'
+00:22.766  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-26.png'
+00:23.157  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-27.png'
+00:23.485  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-28.png'
+00:23.922  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-29.png'
+00:24.313  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-30.png'
+00:24.657  render           | Saved: 'C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\invoker-review\v5-procession\oculin\kneel-31.png'
+Info: No new files have been packed
+Info: Saved as "oculin-poses.blend"
+ACTOR_RENDER_OK oculin 57
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

@@ -44,16 +44,28 @@ n'ont pas été modifiées pour ajouter le gameplay.
 ## Jouer
 
 Appuyer sur **F5** dans Godot pour lancer le menu principal. **Continuer** reprend
-la sauvegarde. **Nouvelle partie** mène au placement du Cœur après confirmation
-si un donjon existe déjà. Pour accéder directement à la scène de jeu,
+la sauvegarde. **Nouvelle partie** ouvre le prologue des Oculins. Aldren, roi de
+Valdorne, veut ouvrir une route à travers leur col. Après le refus des anciens,
+son armée prend le village. Réfugiés dans les grottes, les survivants décident
+d’offrir leur fidélité à un dieu du mal pour renverser Aldren.
+Choisissez **Répondre à l’appel** après le dixième tableau pour voir l’invocation.
+La scène d’invocation dure environ 40 secondes : l’invocateur et quatre Oculins
+approchent de l’autel, accomplissent le rituel puis s’inclinent devant le Maître.
+Des dialogues écrits accompagnent la scène. Le Maître crée un escalier, descend
+suivi de l’invocateur et rejoint le Cœur, dont la sphère s’éveille à son arrivée.
+Cette transition dans le donjon dure neuf secondes. Pour revoir le rite seul, ouvrez
+`scenes/game/InvocationIsometrique.tscn` et appuyez sur **F6**. Le
+tutoriel guide la pose d’une porte, le creusement d’une alcôve et l’installation
+d’un coffre. **Passer** rejoint la première construction et **Jouer librement** quitte le tutoriel. Si un donjon existe déjà, le jeu demande de confirmer
+son remplacement. Pour accéder directement à la scène de jeu,
 ouvrir `scenes/game/DungeonGame.tscn`, puis appuyer sur **F6**. Choisir un nouveau
 donjon, ou **Donjon d'essai** puis confirmer pour disposer d'une entrée, d'une
 porte, de pointes et de trois coffres. **Lancer le raid** commence l'expédition.
 
 Glisser sur le donjon déplace la vue ; le zoom reste fixe. Choisir un outil puis
 toucher les cases pour poser en série, ou glisser l'outil depuis la palette.
-**↶** annule la dernière construction de cette session. L'ancrage du cœur et le
-remplacement d'un objet gardent une confirmation explicite.
+**↶** annule la dernière construction de cette session. Le jeu demande une
+confirmation avant de remplacer un objet.
 La **Forge en pierre et violet** réserve une colonne aux commandes, hors de la
 vue du donjon. Le catalogue commence directement par **Terrain, Portes, Pièges
 et Trésors** : choisir une famille puis son outil, qui reste actif pour poser
@@ -162,7 +174,7 @@ node tools/prepare_android_game.cjs
 $stage = (Get-Content build/android-game-inventory.json -Raw | ConvertFrom-Json).staging
 # Remplacer godot par le chemin de Godot 4.7.2 si nécessaire.
 godot --headless --path $stage --editor --import
-godot --headless --path $stage --export-debug "Android Game" "$PWD/build/dungeon-empire-0.1.3-test.apk"
+godot --headless --path $stage --export-debug "Android Game" "$PWD/build/dungeon-empire-0.1.11-test-oculins.apk"
 ```
 
 Les modèles Android correspondant à la version de Godot, le JDK et le SDK Android

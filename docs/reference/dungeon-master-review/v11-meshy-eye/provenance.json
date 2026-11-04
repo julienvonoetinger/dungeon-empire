@@ -1,0 +1,105 @@
+{
+  "tool": "built-in ImageGen",
+  "status": "illustrated references only",
+  "records": [
+    {
+      "id": "front",
+      "file": "meshy/eye/01-front.png",
+      "native": "C:\\Users\\A\\.codex\\generated_images\\01a1a181-6ee9-7241-b413-6580736dc500\\exec-8c1ce648-0f35-483c-9512-9ed64b04a755.png",
+      "prompt": "source/prompt-front.txt",
+      "sha256": "6cf019e369bb7eaca261748810824bd9ece8d4e952169b71ea6db7dd0033582c",
+      "bytes": 1386108,
+      "width": 1254,
+      "height": 1254,
+      "bounds": [
+        78,
+        131,
+        1172,
+        1124
+      ],
+      "transparentPixels": 795965,
+      "opaquePixels": 763729,
+      "edgePixels": 0
+    },
+    {
+      "id": "left",
+      "file": "meshy/eye/02-left.png",
+      "native": "C:\\Users\\A\\.codex\\generated_images\\01a1a181-6ee9-7241-b413-6580736dc500\\exec-8d07c967-c227-4789-831b-633be33db602.png",
+      "prompt": "source/prompt-left.txt",
+      "sha256": "0f0718a87fa48a0b934f33421318a48cb160685f2e6fc240f64039fadc21bb59",
+      "bytes": 1180887,
+      "width": 1254,
+      "height": 1254,
+      "bounds": [
+        176,
+        130,
+        1091,
+        1118
+      ],
+      "transparentPixels": 844167,
+      "opaquePixels": 711606,
+      "edgePixels": 0
+    },
+    {
+      "id": "back",
+      "file": "meshy/eye/03-back.png",
+      "native": "C:\\Users\\A\\.codex\\generated_images\\01a1a181-6ee9-7241-b413-6580736dc500\\exec-041188ba-4999-4404-afee-0dc7efef7ae3.png",
+      "prompt": "source/prompt-back.txt",
+      "sha256": "d96919b4a258da91d235980786026c9e1114d1e7459b0e86156032f4ba633ba9",
+      "bytes": 1202603,
+      "width": 1254,
+      "height": 1254,
+      "bounds": [
+        89,
+        128,
+        1165,
+        1121
+      ],
+      "transparentPixels": 806965,
+      "opaquePixels": 753873,
+      "edgePixels": 0
+    },
+    {
+      "id": "right",
+      "file": "meshy/eye/04-right.png",
+      "native": "C:\\Users\\A\\.codex\\generated_images\\01a1a181-6ee9-7241-b413-6580736dc500\\exec-612f2ce6-f706-48e4-b003-0a991fc12443.png",
+      "prompt": "source/prompt-right.txt",
+      "sha256": "c1f4a883c1ca2c08412894101634953376ebae3b6c7561122264d7cfc178706a",
+      "bytes": 1186318,
+      "width": 1254,
+      "height": 1254,
+      "bounds": [
+        140,
+        127,
+        1087,
+        1122
+      ],
+      "transparentPixels": 824413,
+      "opaquePixels": 736488,
+      "edgePixels": 0
+    },
+    {
+      "id": "volute",
+      "file": "meshy/accessory/volute.png",
+      "native": "C:\\Users\\A\\.codex\\generated_images\\01a1a181-6ee9-7241-b413-6580736dc500\\exec-f5a57381-f367-4a35-aab3-89655eae2fd3.png",
+      "prompt": "source/prompt-volute.txt",
+      "sha256": "f31e9e92bc20ed23129b6cfbf823aaacf2c8f6d5b5c40291ca796a1b32355f9e",
+      "bytes": 714523,
+      "width": 1254,
+      "height": 1254,
+      "bounds": [
+        63,
+        121,
+        1157,
+        1099
+      ],
+      "transparentPixels": 1204193,
+      "opaquePixels": 339151,
+      "edgePixels": 0
+    }
+  ],
+  "eyeTopSpread": 4,
+  "eyeBottomSpread": 6,
+  "totalBytes": 5670439,
+  "limits": "Independent illustrations, not calibrated views from a single mesh. Meshy reconstruction, part separation and animation untested."
+}

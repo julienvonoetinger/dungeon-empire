@@ -1,0 +1,173 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.4.55",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "output_unwrapped"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "BakedMaterial",
+      "normalTexture": {
+        "index": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicRoughnessTexture": {
+          "index": 2
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "output_unwrapped",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ],
+  "images": [
+    {
+      "bufferView": 4,
+      "mimeType": "image/png",
+      "name": "normal"
+    },
+    {
+      "bufferView": 5,
+      "mimeType": "image/png",
+      "name": "texture_0"
+    },
+    {
+      "bufferView": 6,
+      "mimeType": "image/png",
+      "name": "texture_0_metallic_roughness"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 10283,
+      "max": [
+        0.9440310001373291,
+        0.8554180264472961,
+        0.8078569769859314
+      ],
+      "min": [
+        -0.9462429881095886,
+        -0.8581979870796204,
+        -0.807889997959137
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 10283,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 10283,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 30846,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 123396,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 123396,
+      "byteOffset": 123396,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 82264,
+      "byteOffset": 246792,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 61692,
+      "byteOffset": 329056,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3696770,
+      "byteOffset": 390748
+    },
+    {
+      "buffer": 0,
+      "byteLength": 5080742,
+      "byteOffset": 4087520
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3226200,
+      "byteOffset": 9168264
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 12394464
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+C:\Users\A\Documents\GitHub\dungeon-empire\docs\reference\dungeon-master-review\v12-model-inspection\inspect.py:25: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('ReviewWorld');world.use_nodes=True

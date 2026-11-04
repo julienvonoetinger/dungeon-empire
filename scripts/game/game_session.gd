@@ -3,6 +3,7 @@ extends Node
 
 ## Rules restored from v1.0.0; this controller owns phases and player commands.
 signal changed(structure: bool)
+signal introduction_started
 signal frame_updated
 ## Optional presentation feedback; no consumer is required by simulations.
 signal presentation_event(kind: String)
@@ -32,6 +33,8 @@ var notice := ""
 var save_error := ""
 var save_blocked := false
 var last_reward: Dictionary = {}
+## Presentation-only cutaway; the complete playable map is saved from the start.
+var revealed_column := Types.COLS
 var raid_speed := 1
 var _visual_state := 0
 var _build_history: Array[Dictionary] = []
@@ -54,7 +57,8 @@ func _ready() -> void:
 		save_blocked = true
 		save_error = "The save could not be read. It has been kept. Start a new dungeon to play again."
 	else:
-		notice = "Place the Core, or try the demo dungeon."
+		sim._place_core(Types.core_origin_cell())
+		notice = sim.message
 	_visual_state = _structure_hash()
 	changed.emit(true)
 
@@ -69,7 +73,7 @@ func can_edit() -> bool:
 	return not paused and not confirmation_open and not result_open and not raid.raid_active and not sim.game_over and not save_blocked
 
 func ready_for_raid() -> bool:
-	return sim._has_required_storage() and not sim.game_over and not save_blocked
+	return sim.lesson == Types.Lesson.FREE and sim._has_required_storage() and not sim.game_over and not save_blocked
 
 func _process(delta: float) -> void:
 	advance_simulation(delta)
@@ -234,6 +238,16 @@ func confirm_action(requested_tool: int = -1) -> void:
 	_apply(sim, selected, requested_tool)
 	sim._storage_state()
 	notice = "Treasure room discovered! +%d storage capacity." % Types.TREASURY_CAPACITY_BONUS if sim.treasure_rooms().size() > previous_rooms else "Action complete."
+	var used := tool if requested_tool < 0 else requested_tool
+	match sim.lesson:
+		Types.Lesson.DOOR:
+			if selected == Types.FIRST_DOOR and used == Types.Tool.BUILD_DOOR: sim.lesson = Types.Lesson.ALCOVE
+		Types.Lesson.ALCOVE:
+			if selected == Types.FIRST_ALCOVE and used == Types.Tool.DIG: sim.lesson = Types.Lesson.CHEST
+		Types.Lesson.CHEST:
+			if selected == Types.FIRST_ALCOVE and used == Types.Tool.STORE:
+				sim.lesson = Types.Lesson.FREE
+				notice = "Votre premier coffre est prêt. Agrandissez votre domaine."
 	presentation_event.emit("placed")
 	_after_edit()
 
@@ -310,9 +324,15 @@ func set_paused(value: bool) -> void:
 	paused = value
 	changed.emit(false)
 
-func restart(prepared: bool) -> void:
+func leave_tutorial() -> void:
+	sim.lesson = Types.Lesson.FREE
+	notice = ""
+	_after_edit()
+
+func restart(prepared: bool, introduction := false) -> void:
 	# Called only after an explicit confirmation in the HUD.
 	_build_history.clear()
+	revealed_column = Types.COLS
 	sim.new_map()
 	raid.reset_for_new_map()
 	progression.last_raid_id = 0
@@ -324,10 +344,13 @@ func restart(prepared: bool) -> void:
 	tool = Types.Tool.NONE
 	selected = Vector2i(-1, -1)
 	preview = {}
+	sim._place_core(Types.core_origin_cell())
+	if prepared or introduction:
+		for x in range(Types.FIRST_STAIR.x, Types.core_origin_cell().x):
+			sim.grid[Types.FIRST_STAIR.y][x] = Types.Tile.FLOOR
+		sim._place_entrance(Types.FIRST_STAIR)
+	if introduction: sim.lesson = Types.Lesson.DOOR
 	if prepared:
-		sim._place_core(Vector2i(8, 8))
-		for x in range(3, 7): sim.grid[8][x] = Types.Tile.FLOOR
-		sim._place_entrance(Vector2i(3, 8))
 		for p in [Vector2i(7, 7), Vector2i(9, 7), Vector2i(9, 9)]: sim.build_vault(p, 0)
 		sim._place(Vector2i(5, 8), Types.Tile.DOOR, Types.COST_DOOR)
 		sim._place(Vector2i(6, 8), Types.Tile.SPIKE, Types.COST_SPIKE)
@@ -336,11 +359,12 @@ func restart(prepared: bool) -> void:
 		# Inspection keeps the preparation countdown stopped for the first look.
 		selected = Vector2i(8, 8)
 	else:
-		notice = "Choose a tile to anchor the Core."
+		notice = sim.message
 	_visual_state = _structure_hash()
 	_save()
 	presentation_event.emit("reset")
 	changed.emit(true)
+	if introduction: introduction_started.emit()
 
 func _save() -> bool:
 	if save_blocked: return false

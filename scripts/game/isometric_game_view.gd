@@ -7,6 +7,24 @@ const Types = preload("res://scripts/game/game_types.gd")
 const ChestOrientation = preload("res://scripts/game/chest_orientation.gd")
 const TreasureArt = preload("res://scripts/game/treasure_room_art.gd")
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
+const DORMANT_CORE = preload("res://assets/game/introduction/core-dormant.png")
+var core_awakening := 1.0
+var core_cinematic_time := -1.0
+
+func set_core_cinematic_time(time: float) -> void:
+	core_cinematic_time=time
+	if is_instance_valid(_vortex_animator): _vortex_animator.set_manual_time(time)
+
+func set_core_awakening(value: float) -> void:
+	core_awakening=clampf(value,0.,1.)
+	if not is_instance_valid(_world): return
+	for child in _world.find_children("*","Sprite2D",true,false):
+		var id: String=str(child.get_meta("prepared_id",""))
+		if id=="heart" and child.material is ShaderMaterial:
+			child.material.set_shader_parameter("dormant_texture",DORMANT_CORE)
+			child.material.set_shader_parameter("awakening",core_awakening)
+		elif id=="heart-self-glow":
+			child.modulate.a=core_awakening
 # Stair suffixes name the low, open side, not the wall behind the top step.
 const ENTRANCE_OPEN_SIDES := {
 	Vector2i.UP: "north", Vector2i.RIGHT: "east",
@@ -122,7 +140,7 @@ func rebuild() -> void:
 		for cell in room.cells: treasury_cells[cell] = room
 	_prune_trap_triggers()
 	for y in Types.ROWS:
-		for x in Types.COLS:
+		for x in mini(Types.COLS,session.revealed_column + 1):
 			var p := Vector2i(x,y)
 			var tile: int = sim.grid[y][x]
 			if tile == Types.Tile.ROCK: continue
@@ -152,6 +170,8 @@ func rebuild() -> void:
 					specials[p] = "entrances/" + ENTRANCE_OPEN_SIDES[mouth]
 	var plan := {"cells":cells,"openings":{},"hearts":hearts,"decoration_positions":chests,"wall_variants":true,"floor_variants":true,"floor_damage":true,"floor_replacements":trap_floors,"mechanisms":mechanisms,"open_doors":open_doors,"door_materials":door_materials}
 	render_plan(plan, specials, true, false)
+	set_core_awakening(core_awakening)
+	set_core_cinematic_time(core_cinematic_time)
 	for p: Vector2i in cells:
 		var tile: int = sim.grid[p.y][p.x]
 		if sim._is_trap_tile(tile):
@@ -369,6 +389,30 @@ func _update_markers() -> void:
 		support.stair = stairs.stair
 		_order_actor(support)
 
+func position_invoker(invoker: Node2D, at: Vector2) -> void:
+	if invoker.get_parent() == null: _world.add_child(invoker)
+	var stairs := Stairs.sample(session.sim, {}, at)
+	invoker.position = grid_to_local(at, stairs.elevation)
+	var support := _proxy(at, .82, invoker, stairs.elevation)
+	support.stair = stairs.stair
+	_order_actor(support)
+
+func position_intro_master(master: Sprite2D,at: Vector2,elevation: float) -> void:
+	if master.get_parent()==null: _world.add_child(master)
+	var stairs:=Stairs.sample(session.sim,{},at)
+	var height: float=elevation+stairs.elevation
+	master.position=grid_to_local(at,height)
+	var support:=_proxy(at,1.1,master,height)
+	support.rect=master.transform*master.get_rect()
+	support.stair=stairs.stair
+	_order_actor(support)
+	# The glowing orb shares a sprite group with the low stone support. Enforce
+	# this airborne relationship against actual sibling order, not cached order.
+	for part in solid_groups:
+		if str(part.get("id",""))!="heart" or height<.31: continue
+		if support.rect.intersects(part.rect) and master.get_index()<part.node.get_index():
+			_world.move_child(master,part.node.get_index())
+
 func _order_actor(actor: Dictionary) -> void:
 	# Insert into cached static order, honoring physical support constraints.
 	var lower := 0
@@ -388,8 +432,8 @@ func _order_actor(actor: Dictionary) -> void:
 		if before and not after: lower = maxi(lower,i+1)
 		elif after and not before: upper = mini(upper,i)
 	var index := clampi(fallback,lower,maxi(lower,upper))
-	_world.move_child(_actor,-1)
-	if index < solid_groups.size(): _world.move_child(_actor,solid_groups[index].node.get_index())
+	_world.move_child(actor.node,-1)
+	if index < solid_groups.size(): _world.move_child(actor.node,solid_groups[index].node.get_index())
 
 func pick_cell(local_point: Vector2) -> Vector2i:
 	return Vector2i(local_to_grid(local_point).floor())
