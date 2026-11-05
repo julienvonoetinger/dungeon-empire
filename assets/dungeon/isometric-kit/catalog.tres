@@ -1,10 +1,10 @@
-[gd_resource type="Resource" load_steps=213 format=3]
+[gd_resource type="Resource" format=3 uid="uid://de3dcot5gukby"]
 
-[ext_resource type="Script" path="res://scripts/mobile_kit_definition.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/atlas-256.png" id="2"]
-[ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/chests/atlas-256.png" id="3"]
-[ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/traps/atlas-256.png" id="4"]
-[ext_resource type="Texture2D" path="res://assets/dungeon/isometric-kit/open-doors/atlas-256.png" id="5"]
+[ext_resource type="Script" uid="uid://cy5ohle4g1xxu" path="res://scripts/mobile_kit_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d3tgbd342hubr" path="res://assets/dungeon/isometric-kit/atlas-256.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d03xwc7dkxkm6" path="res://assets/dungeon/isometric-kit/chests/atlas-256.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bitibfdp140aj" path="res://assets/dungeon/isometric-kit/traps/atlas-256.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://ba75wu188dwjk" path="res://assets/dungeon/isometric-kit/open-doors/atlas-256.png" id="5"]
 
 [sub_resource type="AtlasTexture" id="Sprite_0"]
 atlas = ExtResource("2")
@@ -1044,213 +1044,3108 @@ filter_clip = true
 [resource]
 script = ExtResource("1")
 projection_x = Vector3(0.5, -0.5, 0)
-projection_y = Vector3(0.25, 0.25, -0.6123724356957945)
-view_direction = Vector3(0.6123724356957945, 0.6123724356957945, 0.5)
-entries = {"heart-self-glow":{"region":[4,4,516,260],"offset":[-258,-130],"size":[516,260],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"add"},"heart":{"region":[528,4,212,215],"offset":[-106,-161],"size":[212,215],"bounds":{"min":[-0.40625,-0.40625,0],"max":[0.40625,0.40625,0.76]},"ground_effects":["heart-self-shadow","heart-self-glow"],"vortex":{"center":[106,73.2102876186509],"radius":51.2}},"heart-self-shadow":{"region":[528,227,404,208],"offset":[-202,-104],"size":[404,208],"bounds":{"min":[-1.5,-1.5,0],"max":[1.5,1.5,0]},"ground_effect":true,"ground_blend":"mix"},"prop-crystals":{"region":[748,4,154,126],"offset":[-103.02227171492206,-110.18485523385301],"size":[205,167],"bounds":{"min":[-0.18937040645879735,-0.18820462138084634,0],"max":[0.1678033825167038,0.16022577951002226,0.4254812100188696]},"ground_effects":["prop-crystals-shadow"],"decoration":{"source":"a-cristaux","label":"A · Cristaux corrompus","footprint":[[-0.1538836302895323,0.14222577951002227],[-0.06411817928730512,0.1410599944320713],[0.11774429287305123,0.12240743318485524],[0.1486375974387528,-0.03905380011135858],[0.1498033825167038,-0.1567980929844098],[0.037305122494432075,-0.17020462138084635],[-0.12357321826280625,-0.11891007795100224],[-0.17137040645879736,0.03613933741648108]],"gameHeight":62}},"prop-stele":{"region":[4,272,128,119],"offset":[-88.06441476826394,-113.10133542812255],"size":[170,158],"bounds":{"min":[-0.21360094265514531,-0.16419132953652787,0],"max":[0.212072810290652,0.16419132953652787,0.5731170214738054]},"ground_effects":["prop-stele-shadow"],"decoration":{"source":"c-stele","label":"C · Stèle rituelle","footprint":[[-0.15077572663000788,0.14466319717203457],[0.19407281029065201,0.1461913295365279],[0.1461913295365279,-0.1461913295365279],[-0.19560094265514533,-0.14466319717203457]],"gameHeight":84}},"prop-idol":{"region":[140,272,144,116],"offset":[-98.56031128404669,-113.0443579766537],"size":[192,154],"bounds":{"min":[-0.1711614785992218,-0.1597315175097276,0],"max":[0.16030301556420232,0.1574455252918288,0.5319538765334091]},"ground_effects":["prop-idol-shadow"],"decoration":{"source":"b-idole","label":"B · Idole de pierre","footprint":[[-0.1531614785992218,0.12801556420233462],[0.1394455252918288,0.1394455252918288],[0.14230301556420233,-0.13773103112840468],[-0.1394455252918288,-0.14173151750972762]],"gameHeight":76}},"stair-east":{"region":[292,272,208,146],"offset":[-109,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333337,0],"max":[0.84,0.9166666666666666,0.25]}},"stair-south":{"region":[4,399,208,146],"offset":[-99,-31],"size":[208,146],"bounds":{"min":[0.08333333333333333,0.08333333333333333,0],"max":[0.9166666666666666,0.84,0.25]}},"floor":{"region":[220,426,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]}},"floor-b1":{"region":[498,443,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":1,"edgeProfile":"shared-complete-stones-v1"}},"floor-b2":{"region":[4,572,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":2,"edgeProfile":"shared-complete-stones-v1"}},"floor-b3":{"region":[282,589,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":3,"edgeProfile":"shared-complete-stones-v1"}},"floor-b4":{"region":[4,718,270,138],"offset":[-135,-5],"size":[270,138],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_variant":{"family":"b","arrangement":4,"edgeProfile":"shared-complete-stones-v1"}},"prop-basin":{"region":[776,443,145,103],"offset":[-81.9848,-92.41760000000001],"size":[193,137],"bounds":{"min":[-0.16447499999999998,-0.16683749999999997,0],"max":[0.247753125,0.278465625,0.3163516002804475]},"ground_effects":["prop-basin-shadow"],"decoration":{"source":"d-vasque","label":"D · Vasque d’offrandes","footprint":[[-0.07560000000000001,0.24806250000000002],[-0.01476562499999999,0.260465625],[-0.012403125000000001,0.168328125],[0.21321562500000002,0.032484374999999996],[0.229753125,-0.062015625000000005],[-0.146475,-0.14883749999999998]],"gameHeight":49}},"prop-candles":{"region":[910,4,106,99],"offset":[-72.98894154818326,-97.22906793048973],"size":[141,132],"bounds":{"min":[-0.2020762601515146,-0.20207626015151453,0],"max":[0.20207626015151453,0.20207626015151456,0.4735385914590094]},"light":{"emission":[-0.6492890995260664,-43.28593996840443],"radius":110,"energy":0.65,"color":[1,0.55,0.2]},"ground_effects":["prop-candles-shadow"],"decoration":{"source":"f-cierges","label":"F · Cierges rituels","footprint":[[0.1479499901263823,-0.1479499901263823],[0.16654871231224508,-0.12366563279127299],[0.17874706088554232,-0.09462887454048091],[0.18407626015151454,-0.06195558170958242],[0.18233151197102018,-0.026901370618675147],[0.17357986603816955,0.009186645058645346],[0.15815764319818226,0.044921623118291995],[0.13665751082591704,0.0789302883938392],[0.10990570695102686,0.10990570695102686],[0.0789302883938392,0.13665751082591704],[0.044921623118292044,0.15815764319818224],[0.009186645058645401,0.1735798660381695],[-0.02690137061867505,0.18233151197102027],[-0.06195558170958245,0.18407626015151457],[-0.09462887454048088,0.1787470608855423],[-0.12366563279127299,0.16654871231224508],[-0.1479499901263823,0.1479499901263823],[-0.16654871231224508,0.12366563279127299],[-0.17874706088554224,0.094628874540481],[-0.1840762601515146,0.061955581709582465],[-0.1823315119710202,0.02690137061867519],[-0.1735798660381695,-0.009186645058645401],[-0.15815764319818232,-0.044921623118291946],[-0.1366575108259171,-0.07893028839383916],[-0.1099057069510269,-0.10990570695102682],[-0.0789302883938392,-0.13665751082591704],[-0.044921623118291995,-0.15815764319818226],[-0.009186645058645526,-0.17357986603816952],[0.02690137061867505,-0.18233151197102027],[0.06195558170958242,-0.18407626015151454],[0.0946288745404808,-0.1787470608855422],[0.12366563279127289,-0.1665487123122452]],"gameHeight":67}},"wall-h-0":{"region":[776,554,154,129],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-v-0":{"region":[560,589,154,129],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-h-0-a1":{"region":[722,691,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a1":{"region":[560,726,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a2":{"region":[846,691,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a2":{"region":[282,735,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-a3":{"region":[406,735,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-a3":{"region":[684,796,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c1":{"region":[530,831,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c1":{"region":[808,796,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c2":{"region":[282,840,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c2":{"region":[406,840,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-c3":{"region":[4,864,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":false}},"wall-v-0-c3":{"region":[128,864,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":false}},"wall-h-0-f1":{"region":[654,901,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f1":{"region":[530,936,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f2":{"region":[778,901,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f2":{"region":[902,901,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-0-f3":{"region":[252,945,116,97],"offset":[-13,-57],"size":[154,129],"bounds":{"min":[0,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":0,"base":"wall-h-0","ornament":true}},"wall-v-0-f3":{"region":[376,945,116,97],"offset":[-141,-57],"size":[154,129],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":0,"base":"wall-v-0","ornament":true}},"wall-h-1":{"region":[4,969,139,121],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]}},"wall-h-2":{"region":[654,1006,139,121],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-1":{"region":[500,1041,139,121],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]}},"wall-v-2":{"region":[801,1006,139,121],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-1-a1":{"region":[910,111,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a1":{"region":[151,1050,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a1":{"region":[4,1098,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a1":{"region":[264,1050,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a2":{"region":[377,1050,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a2":{"region":[647,1135,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a2":{"region":[760,1135,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a2":{"region":[873,1135,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-a3":{"region":[117,1149,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-a3":{"region":[4,1197,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-a3":{"region":[230,1149,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-a3":{"region":[343,1149,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c1":{"region":[456,1170,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c1":{"region":[117,1248,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c1":{"region":[4,1296,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c1":{"region":[230,1248,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c2":{"region":[343,1248,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c2":{"region":[569,1234,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c2":{"region":[456,1269,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c2":{"region":[117,1347,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-c3":{"region":[4,1395,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":false}},"wall-h-2-c3":{"region":[230,1347,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":false}},"wall-v-1-c3":{"region":[343,1347,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,1,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":false}},"wall-v-2-c3":{"region":[682,1234,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":false}},"wall-h-1-f1":{"region":[795,1234,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f1":{"region":[908,1234,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f1":{"region":[569,1333,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f1":{"region":[456,1368,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f2":{"region":[117,1446,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f2":{"region":[4,1494,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f2":{"region":[230,1446,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f2":{"region":[343,1446,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"wall-h-1-f3":{"region":[682,1333,105,91],"offset":[2,-49],"size":[139,121],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[1,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":1,"base":"wall-h-1","ornament":true}},"wall-h-2-f3":{"region":[795,1333,105,91],"offset":[-13,-57],"size":[139,121],"bounds":{"min":[0,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":2,"base":"wall-h-2","ornament":true}},"wall-v-1-f3":{"region":[908,1333,105,91],"offset":[-141,-49],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,1,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":1,"base":"wall-v-1","ornament":true}},"wall-v-2-f3":{"region":[569,1432,105,91],"offset":[-126,-57],"size":[139,121],"bounds":{"min":[-0.08333333333333333,0,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":2,"base":"wall-v-2","ornament":true}},"stair-north":{"region":[682,1432,208,115],"offset":[-109,5],"size":[208,115],"bounds":{"min":[0.08333333333333337,0.16000000000000003,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"stair-west":{"region":[456,1531,208,115],"offset":[-99,5],"size":[208,115],"bounds":{"min":[0.16000000000000003,0.08333333333333333,0],"max":[0.9166666666666666,0.9166666666666666,0.25]}},"prop-grimoire":{"region":[898,1432,121,86],"offset":[-82.9972337482711,-66.92807745504841],"size":[161,114],"bounds":{"min":[-0.2597498703319502,-0.22242708333333333,0],"max":[0.2589016251728907,0.2198823478561549,0.2957356192125574]},"ground_effects":["prop-grimoire-shadow"],"decoration":{"source":"e-grimoire","label":"E · Grimoire scellé","footprint":[[-0.2006099801175657,0.16668017375518673],[0.24090162517289074,0.20188234785615491],[0.198489367219917,-0.1696490318118949],[-0.2417498703319502,-0.20442708333333334]],"gameHeight":56}},"wall-h-3":{"region":[117,1545,124,113],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]}},"wall-v-3":{"region":[249,1545,124,113],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]}},"wall-h-3-a1":{"region":[4,1593,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a1":{"region":[898,1526,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a2":{"region":[672,1555,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a2":{"region":[773,1555,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-a3":{"region":[874,1619,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-a3":{"region":[672,1648,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"a","variant":"a3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c1":{"region":[773,1648,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10933333333333332,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c1":{"region":[874,1712,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10933333333333332,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c2":{"region":[4,1805,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.10733333333333334,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c2":{"region":[4,1686,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.10733333333333334,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-c3":{"region":[4,1898,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.11633333333333333,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":false}},"wall-v-3-c3":{"region":[105,1805,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.11633333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"c","variant":"c3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":false}},"wall-h-3-f1":{"region":[105,1666,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f1":{"region":[105,1898,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f1","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f2":{"region":[206,1805,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f2":{"region":[206,1666,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f2","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"wall-h-3-f3":{"region":[206,1898,93,85],"offset":[2,-49],"size":[124,113],"bounds":{"min":[0.12,-0.08333333333333333,0],"max":[0.88,0.08333333333333333,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"h","endProfile":3,"base":"wall-h-3","ornament":true}},"wall-v-3-f3":{"region":[307,1805,93,85],"offset":[-126,-49],"size":[124,113],"bounds":{"min":[-0.08333333333333333,0.12,0],"max":[0.08333333333333333,0.88,0.3133333333333333]},"wall_variant":{"family":"f","variant":"f3","axis":"v","endProfile":3,"base":"wall-v-3","ornament":true}},"pillar":{"region":[381,1545,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"pillar-top-carved":{"region":[381,1643,66,90],"offset":[-33,-72],"size":[66,90],"bounds":{"min":[-0.12,-0.12,0],"max":[0.12,0.12,0.3483333333333333]}},"floor-b2-damage-b":{"region":[307,1898,105,89],"offset":[-45,23],"size":[105,89],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"b","base":"floor-b2","corruption":false}},"prop-grimoire-shadow":{"region":[307,1666,62,44],"offset":[-60,-41],"size":[123,87],"bounds":{"min":[-0.5546875,-0.56640625,0],"max":[0.60546875,0.59375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-stele-shadow":{"region":[105,1759,52,37],"offset":[-50,-34],"size":[104,73],"bounds":{"min":[-0.4609375,-0.4765625,0],"max":[0.515625,0.5,0]},"ground_effect":true,"ground_blend":"mix"},"prop-idol-shadow":{"region":[970,210,50,33],"offset":[-48,-30],"size":[100,65],"bounds":{"min":[-0.421875,-0.4375,0],"max":[0.4765625,0.4609375,0]},"ground_effect":true,"ground_blend":"mix"},"torch-horizontal":{"region":[975,1619,42,64],"offset":[21,-26],"size":[42,64],"bounds":{"min":[0.421,0.08333333333333333,0.037],"max":[0.579,0.2753333333333333,0.264]},"light":{"emission":[38.86933333333333,-11.870910340391085],"emitter_world":[0.5,0.19633333333333333,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}},"torch-vertical":{"region":[975,1691,42,64],"offset":[-63,-26],"size":[42,64],"bounds":{"min":[0.08333333333333333,0.421,0.037],"max":[0.2753333333333333,0.579,0.264]},"light":{"emission":[-38.86933333333333,-11.870910340391085],"emitter_world":[0.19633333333333333,0.5,0.36],"radius":190,"energy":2.4,"color":[1,0.44,0.12]}},"prop-basin-shadow":{"region":[165,1759,54,32],"offset":[-54,-31],"size":[108,64],"bounds":{"min":[-0.453125,-0.453125,0],"max":[0.46875,0.46875,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b3-damage-c":{"region":[748,138,113,61],"offset":[-49,39],"size":[113,61],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"c","base":"floor-b3","corruption":true}},"prop-crystals-shadow":{"region":[227,1759,53,31],"offset":[-50,-28],"size":[106,61],"bounds":{"min":[-0.4140625,-0.4375,0],"max":[0.4765625,0.453125,0]},"ground_effect":true,"ground_blend":"mix"},"prop-candles-shadow":{"region":[288,1759,52,30],"offset":[-50,-27],"size":[104,59],"bounds":{"min":[-0.40625,-0.421875,0],"max":[0.4609375,0.4453125,0]},"ground_effect":true,"ground_blend":"mix"},"floor-b4-damage-d":{"region":[4,1991,131,53],"offset":[-62,46],"size":[131,53],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"d","base":"floor-b4","corruption":true}},"floor-b1-damage-a":{"region":[143,1995,153,48],"offset":[-69,44],"size":[153,48],"bounds":{"min":[0,0,0],"max":[1,1,0]},"floor_damage":{"appearance":"a","base":"floor-b1","corruption":false}},"prop-chest-north":{"region":[4,4,129,104],"offset":[-90.7911111111111,-93.71555555555555],"size":[172,138],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.2442847222222222,-0.1791458333333333,0],"max":[0.2442847222222222,0.1791458333333333,0.414372014820821]},"ground_effects":["prop-chest-north-shadow"],"decoration":{"source":"prop-chest-north","label":"Coffre verrouillé","footprint":[[-0.2117013888888889,0.16114583333333332],[0.2262847222222222,0.13149305555555554],[0.2117013888888889,-0.16114583333333332],[-0.2262847222222222,-0.13149305555555554]],"gameBodyWidth":72,"chest_state":"closed","facing":"north"}},"prop-chest-open-north":{"region":[4,116,115,99],"offset":[-78.02965779467681,-91.00342205323193],"size":[153,131],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.2503698906844106,-0.1702576045627376,0],"max":[0.2503698906844106,0.1702576045627376,0.45354318604616245]},"ground_effects":["prop-chest-open-north-shadow"],"decoration":{"source":"prop-chest-open-north","label":"Coffre ouvert","footprint":[[-0.2204194391634981,0.15225760456273763],[0.23236989068441063,0.131454966730038],[0.2204194391634981,-0.15225760456273763],[-0.23236989068441063,-0.131454966730038]],"gameBodyWidth":72,"chest_state":"open","facing":"north"}},"prop-chest-open":{"region":[127,116,118,97],"offset":[-82.40247561890472,-89.576144036009],"size":[157,129],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.2361243553075769,-0.17111298527756938,0],"max":[0.2361243553075769,0.17111298527756938,0.4861538860278129]},"ground_effects":["prop-chest-open-shadow"],"decoration":{"source":"prop-chest-open","label":"Coffre ouvert","footprint":[[-0.20153524709302323,0.1531129852775694],[0.2181243553075769,0.11545122608777193],[0.20153524709302323,-0.1531129852775694],[-0.2181243553075769,-0.11545122608777193]],"gameBodyWidth":72,"chest_state":"open","facing":"south"}},"prop-chest-west":{"region":[4,223,128,93],"offset":[-88.19940696812453,-84.69236471460341],"size":[170,124],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.17494206356560413,-0.24319864251297257,0],"max":[0.17494206356560413,0.24319864251297257,0.4356457908686493]},"ground_effects":["prop-chest-west-shadow"],"decoration":{"source":"prop-chest-west","label":"Coffre verrouillé","footprint":[[-0.15694206356560414,0.21654640011119347],[0.10166384822090438,0.22519864251297259],[0.15694206356560414,-0.21654640011119347],[-0.10166384822090438,-0.22519864251297259]],"gameBodyWidth":72,"chest_state":"closed","facing":"west"}},"prop-chest-open-west":{"region":[141,4,110,93],"offset":[-82.1448,-83.67840000000001],"size":[146,124],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.165546875,-0.245865625,0],"max":[0.165546875,0.245865625,0.42826266290385395]},"ground_effects":["prop-chest-open-west-shadow"],"decoration":{"source":"prop-chest-open-west","label":"Coffre ouvert","footprint":[[-0.14754687500000002,0.223871875],[0.111159375,0.22786562500000002],[0.14754687500000002,-0.223871875],[-0.111159375,-0.22786562500000002]],"gameBodyWidth":72,"chest_state":"open","facing":"west"}},"prop-chest-open-east":{"region":[140,221,112,93],"offset":[-80.86669303797468,-88.95411392405063],"size":[149,123],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.17326880191851263,-0.24003662727452532,0],"max":[0.17326880191851263,0.24003662727452532,0.4866166609965635]},"ground_effects":["prop-chest-open-east-shadow"],"decoration":{"source":"prop-chest-open-east","label":"Coffre ouvert","footprint":[[-0.15526880191851264,0.21083397201344936],[0.09701499456091774,0.22203662727452533],[0.15526880191851264,-0.21083397201344936],[-0.09701499456091774,-0.22203662727452533]],"gameBodyWidth":72,"chest_state":"open","facing":"east"}},"prop-chest-east":{"region":[4,324,129,91],"offset":[-93.27327327327328,-88.44632132132132],"size":[171,121],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.16933199605855853,-0.25650706174924925,0],"max":[0.16933199605855853,0.25650706174924925,0.4434638240121694]},"ground_effects":["prop-chest-east-shadow"],"decoration":{"source":"prop-chest-east","label":"Coffre verrouillé","footprint":[[-0.15133199605855854,0.2208761495870871],[0.10725471565315317,0.23850706174924927],[0.15133199605855854,-0.2208761495870871],[-0.10725471565315317,-0.23850706174924927]],"gameBodyWidth":72,"chest_state":"closed","facing":"east"}},"prop-chest":{"region":[4,423,114,78],"offset":[-83.63726372637262,-70.93519351935193],"size":[151,104],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.23559324369936993,-0.1864926305130513,0],"max":[0.2345595465796579,0.18545893339333933,0.42706914296358944]},"ground_effects":["prop-chest-shadow"],"decoration":{"source":"prop-chest","label":"Coffre verrouillé","footprint":[[-0.20467202970297027,0.16745893339333934],[0.21655954657965792,0.11835832020702068],[0.2036383325832583,-0.1684926305130513],[-0.21759324369936994,-0.11939201732673267]],"gameBodyWidth":72,"chest_state":"closed","facing":"south"}},"prop-chest-open-north-shadow":{"region":[141,322,59,35],"offset":[-57,-33],"size":[117,70],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.48046875,-0.4921875,0],"max":[0.5234375,0.51171875,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-north-shadow":{"region":[141,365,59,34],"offset":[-57,-32],"size":[117,68],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.47265625,-0.484375,0],"max":[0.515625,0.50390625,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-east-shadow":{"region":[141,407,59,34],"offset":[-57,-32],"size":[117,67],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.47265625,-0.484375,0],"max":[0.5078125,0.49609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-shadow":{"region":[126,449,59,33],"offset":[-57,-31],"size":[117,66],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.46484375,-0.4765625,0],"max":[0.5078125,0.49609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-open-shadow":{"region":[193,449,57,33],"offset":[-55,-31],"size":[113,66],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.45703125,-0.46875,0],"max":[0.5,0.48828125,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-open-west-shadow":{"region":[126,490,59,33],"offset":[-57,-31],"size":[117,66],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.46484375,-0.4765625,0],"max":[0.5078125,0.49609375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-open-east-shadow":{"region":[193,490,58,32],"offset":[-56,-30],"size":[115,64],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.453125,-0.46484375,0],"max":[0.49609375,0.484375,0]},"ground_effect":true,"ground_blend":"mix"},"prop-chest-west-shadow":{"region":[193,530,59,32],"offset":[-57,-30],"size":[117,64],"atlas_path":"res://assets/dungeon/isometric-kit/chests/atlas-256.png","bounds":{"min":[-0.45703125,-0.46875,0],"max":[0.5,0.48828125,0]},"ground_effect":true,"ground_blend":"mix"},"trap-spike-ready-floor":{"region":[4,4,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"spike","state":"ready","layer":"floor"}},"trap-spike-triggered-floor":{"region":[215,4,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"spike","state":"triggered","layer":"floor"}},"trap-spike-spent-floor":{"region":[4,116,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"spike","state":"spent","layer":"floor"}},"trap-snare-ready-floor":{"region":[215,116,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"snare","state":"ready","layer":"floor"}},"trap-snare-triggered-floor":{"region":[4,228,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"snare","state":"triggered","layer":"floor"}},"trap-snare-spent-floor":{"region":[215,228,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"snare","state":"spent","layer":"floor"}},"trap-void-ready-floor":{"region":[4,340,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"void","state":"ready","layer":"floor"}},"trap-void-triggered-floor":{"region":[215,340,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"void","state":"triggered","layer":"floor"}},"trap-void-spent-floor":{"region":[4,452,203,104],"offset":[-135,-5],"size":[270,138],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0,0,0],"max":[1,1,0]},"trap":{"kind":"void","state":"spent","layer":"floor"}},"trap-spike-ready-mechanism":{"region":[215,452,119,86],"offset":[-78,-10],"size":[158,114],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.0871428571428573,0.0871428571428573,0],"max":[0.9128571428571427,0.9128571428571427,0.4857142857142856]},"trap":{"kind":"spike","state":"ready","layer":"mechanism"}},"trap-spike-triggered-mechanism":{"region":[342,452,119,86],"offset":[-78,-10],"size":[158,114],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.0871428571428573,0.0871428571428573,0],"max":[0.9128571428571427,0.9128571428571427,0.4857142857142856]},"trap":{"kind":"spike","state":"triggered","layer":"mechanism"}},"trap-spike-spent-mechanism":{"region":[215,546,119,86],"offset":[-78,-10],"size":[158,114],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.0871428571428573,0.0871428571428573,0],"max":[0.9128571428571427,0.9128571428571427,0.4857142857142856]},"trap":{"kind":"spike","state":"spent","layer":"mechanism"}},"trap-snare-ready-mechanism":{"region":[342,546,119,86],"offset":[-78,-10],"size":[158,114],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.0871428571428573,0.0871428571428573,0],"max":[0.9128571428571427,0.9128571428571427,0.4857142857142856]},"trap":{"kind":"snare","state":"ready","layer":"mechanism"}},"trap-snare-triggered-mechanism":{"region":[4,564,119,86],"offset":[-78,-10],"size":[158,114],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.0871428571428573,0.0871428571428573,0],"max":[0.9128571428571427,0.9128571428571427,0.4857142857142856]},"trap":{"kind":"snare","state":"triggered","layer":"mechanism"}},"trap-snare-spent-mechanism":{"region":[131,640,119,86],"offset":[-78,-10],"size":[158,114],"atlas_path":"res://assets/dungeon/isometric-kit/traps/atlas-256.png","bounds":{"min":[0.0871428571428573,0.0871428571428573,0],"max":[0.9128571428571427,0.9128571428571427,0.4857142857142856]},"trap":{"kind":"snare","state":"spent","layer":"mechanism"}},"door-north-leaf":{"region":[969,4,48,114],"offset":[40,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.9166666666666666,0.41666666666666663,0.3133333333333333],"max":[1.0833333333333333,0.5833333333333333,0.87]},"companions":["door-north-jamb-right","door-north-panel"],"door_part":"jamb-left"},"door-north-arch":{"region":[662,574,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333326,0.41666666666666663,0.87],"max":[1.0833333333333333,0.5833333333333333,1.1953188919825841]},"door_part":"crown"},"door-north-jamb-right":{"region":[969,4,48,114],"offset":[-88,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333326,0.41666666666666663,0.3133333333333333],"max":[0.08333333333333337,0.5833333333333333,0.87]},"door_part":"jamb-right"},"door-north-panel":{"region":[46,432,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333337,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-east-leaf":{"region":[969,126,48,114],"offset":[-88,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.4166666666666667,0.9166666666666666,0.3133333333333333],"max":[0.5833333333333334,1.0833333333333333,0.87]},"companions":["door-east-jamb-right","door-east-panel"],"door_part":"jamb-left"},"door-east-arch":{"region":[662,696,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.4166666666666667,-0.08333333333333326,0.87],"max":[0.5833333333333334,1.0833333333333333,1.1953188919825841]},"door_part":"crown"},"door-east-jamb-right":{"region":[969,126,48,114],"offset":[40,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.4166666666666667,-0.08333333333333326,0.3133333333333333],"max":[0.5833333333333334,0.08333333333333337,0.87]},"door_part":"jamb-right"},"door-east-panel":{"region":[51,643,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333337,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"},"door-south-leaf":{"region":[969,248,48,114],"offset":[-88,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333333,0.4166666666666667,0.3133333333333333],"max":[0.08333333333333334,0.5833333333333334,0.87]},"companions":["door-south-jamb-right","door-south-panel"],"door_part":"jamb-left"},"door-south-arch":{"region":[844,728,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333333,0.4166666666666667,0.87],"max":[1.0833333333333333,0.5833333333333334,1.1953188919825841]},"door_part":"crown"},"door-south-jamb-right":{"region":[969,248,48,114],"offset":[40,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.9166666666666666,0.4166666666666667,0.3133333333333333],"max":[1.0833333333333333,0.5833333333333334,0.87]},"door_part":"jamb-right"},"door-south-panel":{"region":[93,4,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333334,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-west-leaf":{"region":[969,370,48,114],"offset":[40,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.41666666666666663,-0.08333333333333333,0.3133333333333333],"max":[0.5833333333333333,0.08333333333333334,0.87]},"companions":["door-west-jamb-right","door-west-panel"],"door_part":"jamb-left"},"door-west-arch":{"region":[662,818,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.41666666666666663,-0.08333333333333333,0.87],"max":[0.5833333333333333,1.0833333333333333,1.1953188919825841]},"door_part":"crown"},"door-west-jamb-right":{"region":[969,370,48,114],"offset":[-88,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.41666666666666663,0.9166666666666666,0.3133333333333333],"max":[0.5833333333333333,1.0833333333333333,0.87]},"door_part":"jamb-right"},"door-west-panel":{"region":[93,215,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333334,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"},"door-north-open-leaf":{"region":[969,4,48,114],"offset":[40,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.9166666666666666,0.41666666666666663,0.3133333333333333],"max":[1.0833333333333333,0.5833333333333333,0.87]},"companions":["door-north-open-jamb-right"],"door_part":"jamb-left"},"door-north-open-arch":{"region":[662,574,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333326,0.41666666666666663,0.87],"max":[1.0833333333333333,0.5833333333333333,1.1953188919825841]},"door_part":"crown"},"door-north-open-jamb-right":{"region":[969,4,48,114],"offset":[-88,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333326,0.41666666666666663,0.3133333333333333],"max":[0.08333333333333337,0.5833333333333333,0.87]},"door_part":"jamb-right"},"door-east-open-leaf":{"region":[969,126,48,114],"offset":[-88,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.4166666666666667,0.9166666666666666,0.3133333333333333],"max":[0.5833333333333334,1.0833333333333333,0.87]},"companions":["door-east-open-jamb-right"],"door_part":"jamb-left"},"door-east-open-arch":{"region":[662,696,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.4166666666666667,-0.08333333333333326,0.87],"max":[0.5833333333333334,1.0833333333333333,1.1953188919825841]},"door_part":"crown"},"door-east-open-jamb-right":{"region":[969,126,48,114],"offset":[40,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.4166666666666667,-0.08333333333333326,0.3133333333333333],"max":[0.5833333333333334,0.08333333333333337,0.87]},"door_part":"jamb-right"},"door-south-open-leaf":{"region":[969,248,48,114],"offset":[-88,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333333,0.4166666666666667,0.3133333333333333],"max":[0.08333333333333334,0.5833333333333334,0.87]},"companions":["door-south-open-jamb-right"],"door_part":"jamb-left"},"door-south-open-arch":{"region":[844,728,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[-0.08333333333333333,0.4166666666666667,0.87],"max":[1.0833333333333333,0.5833333333333334,1.1953188919825841]},"door_part":"crown"},"door-south-open-jamb-right":{"region":[969,248,48,114],"offset":[40,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.9166666666666666,0.4166666666666667,0.3133333333333333],"max":[1.0833333333333333,0.5833333333333334,0.87]},"door_part":"jamb-right"},"door-west-open-leaf":{"region":[969,370,48,114],"offset":[40,-118],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.41666666666666663,-0.08333333333333333,0.3133333333333333],"max":[0.5833333333333333,0.08333333333333334,0.87]},"companions":["door-west-open-jamb-right"],"door_part":"jamb-left"},"door-west-open-arch":{"region":[662,818,174,114],"offset":[-87,-142],"size":[174,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.41666666666666663,-0.08333333333333333,0.87],"max":[0.5833333333333333,1.0833333333333333,1.1953188919825841]},"door_part":"crown"},"door-west-open-jamb-right":{"region":[969,370,48,114],"offset":[-88,-54],"size":[48,114],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.41666666666666663,0.9166666666666666,0.3133333333333333],"max":[0.5833333333333333,1.0833333333333333,0.87]},"door_part":"jamb-right"},"door-north-wood-panel-left":{"region":[863,4,80,173],"offset":[-23,-68],"size":[80,173],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.6866826982387223,0.48749999999999993,0],"max":[0.9383173017612776,0.8733439182435161,1.0417642646542187]},"door_part":"panel"},"door-north-wood-panel-right":{"region":[685,4,39,180],"offset":[-85,-103],"size":[39,180],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.06168269823872241,0.48749999999999993,0],"max":[0.3695493525688466,0.9687406872560198,1.0417642646542187]},"door_part":"panel"},"door-north-arcane-panel":{"region":[172,426,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333337,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-north-arcane-panel-left":{"region":[863,185,80,173],"offset":[-23,-68],"size":[80,173],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.6866826982387223,0.48749999999999993,0],"max":[0.9383173017612776,0.8733439182435161,1.0417642646542187]},"door_part":"panel"},"door-north-arcane-panel-right":{"region":[685,192,39,180],"offset":[-85,-103],"size":[39,180],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.06168269823872241,0.48749999999999993,0],"max":[0.3695493525688466,0.9687406872560198,1.0417642646542187]},"door_part":"panel"},"door-north-iron-panel":{"region":[177,637,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333337,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-north-iron-panel-left":{"region":[774,192,80,173],"offset":[-23,-68],"size":[80,173],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.6866826982387223,0.48749999999999993,0],"max":[0.9383173017612776,0.8733439182435161,1.0417642646542187]},"door_part":"panel"},"door-north-iron-panel-right":{"region":[732,4,39,180],"offset":[-85,-103],"size":[39,180],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.06168269823872241,0.48749999999999993,0],"max":[0.3695493525688466,0.9687406872560198,1.0417642646542187]},"door_part":"panel"},"door-north-grille-panel":{"region":[219,4,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333337,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-east-wood-panel-left":{"region":[4,4,34,206],"offset":[-80,-112],"size":[34,206],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.1266560817564839,0.6866826982387223,0],"max":[0.5125000000000001,0.9383173017612776,1.0417642646542187]},"door_part":"panel"},"door-east-wood-panel-right":{"region":[550,426,99,182],"offset":[-42,-140],"size":[99,182],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.03125931274398014,0.06168269823872241,0],"max":[0.5125000000000001,0.3695493525688466,1.0417642646542187]},"door_part":"panel"},"door-east-arcane-panel":{"region":[219,215,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333337,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"},"door-east-arcane-panel-left":{"region":[4,218,34,206],"offset":[-80,-112],"size":[34,206],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.1266560817564839,0.6866826982387223,0],"max":[0.5125000000000001,0.9383173017612776,1.0417642646542187]},"door_part":"panel"},"door-east-arcane-panel-right":{"region":[555,616,99,182],"offset":[-42,-140],"size":[99,182],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.03125931274398014,0.06168269823872241,0],"max":[0.5125000000000001,0.3695493525688466,1.0417642646542187]},"door_part":"panel"},"door-east-iron-panel":{"region":[298,426,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333337,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"},"door-east-iron-panel-left":{"region":[4,432,34,206],"offset":[-80,-112],"size":[34,206],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.1266560817564839,0.6866826982387223,0],"max":[0.5125000000000001,0.9383173017612776,1.0417642646542187]},"door_part":"panel"},"door-east-iron-panel-right":{"region":[555,806,99,182],"offset":[-42,-140],"size":[99,182],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.03125931274398014,0.06168269823872241,0],"max":[0.5125000000000001,0.3695493525688466,1.0417642646542187]},"door_part":"panel"},"door-east-grille-panel":{"region":[303,637,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333337,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"},"door-south-wood-panel-left":{"region":[597,4,80,182],"offset":[-57,-140],"size":[80,182],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.061682698238722355,0.1266560817564839,0],"max":[0.3133173017612777,0.5125000000000001,1.0417642646542187]},"door_part":"panel"},"door-south-wood-panel-right":{"region":[4,646,39,206],"offset":[46,-112],"size":[39,206],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.6304506474311534,0.03125931274398014,0],"max":[0.9383173017612776,0.5125000000000001,1.0417642646542187]},"door_part":"panel"},"door-south-arcane-panel":{"region":[345,4,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333334,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-south-arcane-panel-left":{"region":[597,194,80,182],"offset":[-57,-140],"size":[80,182],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.061682698238722355,0.1266560817564839,0],"max":[0.3133173017612777,0.5125000000000001,1.0417642646542187]},"door_part":"panel"},"door-south-arcane-panel-right":{"region":[46,4,39,206],"offset":[46,-112],"size":[39,206],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.6304506474311534,0.03125931274398014,0],"max":[0.9383173017612776,0.5125000000000001,1.0417642646542187]},"door_part":"panel"},"door-south-iron-panel":{"region":[345,215,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333334,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-south-iron-panel-left":{"region":[657,384,80,182],"offset":[-57,-140],"size":[80,182],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.061682698238722355,0.1266560817564839,0],"max":[0.3133173017612777,0.5125000000000001,1.0417642646542187]},"door_part":"panel"},"door-south-iron-panel-right":{"region":[46,218,39,206],"offset":[46,-112],"size":[39,206],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.6304506474311534,0.03125931274398014,0],"max":[0.9383173017612776,0.5125000000000001,1.0417642646542187]},"door_part":"panel"},"door-south-grille-panel":{"region":[424,426,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.08333333333333334,0.475,0],"max":[0.9166666666666666,0.525,1.0417642646542187]},"door_part":"panel"},"door-west-wood-panel-left":{"region":[732,192,34,180],"offset":[46,-103],"size":[34,180],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.48749999999999993,0.061682698238722355,0],"max":[0.8733439182435161,0.3133173017612777,1.0417642646542187]},"door_part":"panel"},"door-west-wood-panel-right":{"region":[862,366,99,173],"offset":[-57,-68],"size":[99,173],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.48749999999999993,0.6304506474311534,0],"max":[0.9687406872560198,0.9383173017612776,1.0417642646542187]},"door_part":"panel"},"door-west-arcane-panel":{"region":[429,637,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333334,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"},"door-west-arcane-panel-left":{"region":[779,4,34,180],"offset":[46,-103],"size":[34,180],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.48749999999999993,0.061682698238722355,0],"max":[0.8733439182435161,0.3133173017612777,1.0417642646542187]},"door_part":"panel"},"door-west-arcane-panel-right":{"region":[745,380,99,173],"offset":[-57,-68],"size":[99,173],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.48749999999999993,0.6304506474311534,0],"max":[0.9687406872560198,0.9383173017612776,1.0417642646542187]},"door_part":"panel"},"door-west-iron-panel":{"region":[471,4,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333334,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"},"door-west-iron-panel-left":{"region":[821,4,34,180],"offset":[46,-103],"size":[34,180],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.48749999999999993,0.061682698238722355,0],"max":[0.8733439182435161,0.3133173017612777,1.0417642646542187]},"door_part":"panel"},"door-west-iron-panel-right":{"region":[852,547,99,173],"offset":[-57,-68],"size":[99,173],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.48749999999999993,0.6304506474311534,0],"max":[0.9687406872560198,0.9383173017612776,1.0417642646542187]},"door_part":"panel"},"door-west-grille-panel":{"region":[471,215,118,203],"offset":[-59,-108],"size":[118,203],"atlas_path":"res://assets/dungeon/isometric-kit/open-doors/atlas-256.png","bounds":{"min":[0.475,0.08333333333333334,0],"max":[0.525,0.9166666666666666,1.0417642646542187]},"door_part":"panel"}}
-textures = {"floor": SubResource("Sprite_0"),
-"wall-h-0": SubResource("Sprite_1"),
-"wall-h-1": SubResource("Sprite_2"),
-"wall-h-2": SubResource("Sprite_3"),
-"wall-h-3": SubResource("Sprite_4"),
-"wall-v-0": SubResource("Sprite_5"),
-"wall-v-1": SubResource("Sprite_6"),
-"wall-v-2": SubResource("Sprite_7"),
-"wall-v-3": SubResource("Sprite_8"),
+projection_y = Vector3(0.25, 0.25, -0.61237246)
+view_direction = Vector3(0.61237246, 0.61237246, 0.5)
+entries = {
+"door-east-arcane-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333337, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [219, 215, 118, 203],
+"size": [118, 203]
+},
+"door-east-arcane-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5125000000000001, 0.9383173017612776, 1.041764264654219],
+"min": [0.1266560817564839, 0.6866826982387223, 0]
+},
+"door_part": "panel",
+"offset": [-80, -112],
+"region": [4, 218, 34, 206],
+"size": [34, 206]
+},
+"door-east-arcane-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5125000000000001, 0.3695493525688466, 1.041764264654219],
+"min": [0.03125931274398014, 0.06168269823872241, 0]
+},
+"door_part": "panel",
+"offset": [-42, -140],
+"region": [555, 616, 99, 182],
+"size": [99, 182]
+},
+"door-east-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333334, 1.0833333333333333, 1.195318891982584],
+"min": [0.4166666666666667, -0.08333333333333326, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [662, 696, 174, 114],
+"size": [174, 114]
+},
+"door-east-grille-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333337, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [303, 637, 118, 203],
+"size": [118, 203]
+},
+"door-east-iron-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333337, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [298, 426, 118, 203],
+"size": [118, 203]
+},
+"door-east-iron-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5125000000000001, 0.9383173017612776, 1.041764264654219],
+"min": [0.1266560817564839, 0.6866826982387223, 0]
+},
+"door_part": "panel",
+"offset": [-80, -112],
+"region": [4, 432, 34, 206],
+"size": [34, 206]
+},
+"door-east-iron-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5125000000000001, 0.3695493525688466, 1.041764264654219],
+"min": [0.03125931274398014, 0.06168269823872241, 0]
+},
+"door_part": "panel",
+"offset": [-42, -140],
+"region": [555, 806, 99, 182],
+"size": [99, 182]
+},
+"door-east-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333334, 0.08333333333333337, 0.87],
+"min": [0.4166666666666667, -0.08333333333333326, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [40, -118],
+"region": [969, 126, 48, 114],
+"size": [48, 114]
+},
+"door-east-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333334, 1.0833333333333333, 0.87],
+"min": [0.4166666666666667, 0.9166666666666666, 0.3133333333333333]
+},
+"companions": ["door-east-jamb-right", "door-east-panel"],
+"door_part": "jamb-left",
+"offset": [-88, -54],
+"region": [969, 126, 48, 114],
+"size": [48, 114]
+},
+"door-east-open-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333334, 1.0833333333333333, 1.195318891982584],
+"min": [0.4166666666666667, -0.08333333333333326, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [662, 696, 174, 114],
+"size": [174, 114]
+},
+"door-east-open-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333334, 0.08333333333333337, 0.87],
+"min": [0.4166666666666667, -0.08333333333333326, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [40, -118],
+"region": [969, 126, 48, 114],
+"size": [48, 114]
+},
+"door-east-open-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333334, 1.0833333333333333, 0.87],
+"min": [0.4166666666666667, 0.9166666666666666, 0.3133333333333333]
+},
+"companions": ["door-east-open-jamb-right"],
+"door_part": "jamb-left",
+"offset": [-88, -54],
+"region": [969, 126, 48, 114],
+"size": [48, 114]
+},
+"door-east-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333337, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [51, 643, 118, 203],
+"size": [118, 203]
+},
+"door-east-wood-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5125000000000001, 0.9383173017612776, 1.041764264654219],
+"min": [0.1266560817564839, 0.6866826982387223, 0]
+},
+"door_part": "panel",
+"offset": [-80, -112],
+"region": [4, 4, 34, 206],
+"size": [34, 206]
+},
+"door-east-wood-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5125000000000001, 0.3695493525688466, 1.041764264654219],
+"min": [0.03125931274398014, 0.06168269823872241, 0]
+},
+"door_part": "panel",
+"offset": [-42, -140],
+"region": [550, 426, 99, 182],
+"size": [99, 182]
+},
+"door-north-arcane-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333337, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [172, 426, 118, 203],
+"size": [118, 203]
+},
+"door-north-arcane-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9383173017612776, 0.8733439182435161, 1.041764264654219],
+"min": [0.6866826982387223, 0.48749999999999993, 0]
+},
+"door_part": "panel",
+"offset": [-23, -68],
+"region": [863, 185, 80, 173],
+"size": [80, 173]
+},
+"door-north-arcane-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.3695493525688466, 0.9687406872560198, 1.041764264654219],
+"min": [0.06168269823872241, 0.48749999999999993, 0]
+},
+"door_part": "panel",
+"offset": [-85, -103],
+"region": [685, 192, 39, 180],
+"size": [39, 180]
+},
+"door-north-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333333, 1.195318891982584],
+"min": [-0.08333333333333326, 0.41666666666666663, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [662, 574, 174, 114],
+"size": [174, 114]
+},
+"door-north-grille-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333337, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [219, 4, 118, 203],
+"size": [118, 203]
+},
+"door-north-iron-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333337, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [177, 637, 118, 203],
+"size": [118, 203]
+},
+"door-north-iron-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9383173017612776, 0.8733439182435161, 1.041764264654219],
+"min": [0.6866826982387223, 0.48749999999999993, 0]
+},
+"door_part": "panel",
+"offset": [-23, -68],
+"region": [774, 192, 80, 173],
+"size": [80, 173]
+},
+"door-north-iron-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.3695493525688466, 0.9687406872560198, 1.041764264654219],
+"min": [0.06168269823872241, 0.48749999999999993, 0]
+},
+"door_part": "panel",
+"offset": [-85, -103],
+"region": [732, 4, 39, 180],
+"size": [39, 180]
+},
+"door-north-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.08333333333333337, 0.5833333333333333, 0.87],
+"min": [-0.08333333333333326, 0.41666666666666663, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [-88, -118],
+"region": [969, 4, 48, 114],
+"size": [48, 114]
+},
+"door-north-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333333, 0.87],
+"min": [0.9166666666666666, 0.41666666666666663, 0.3133333333333333]
+},
+"companions": ["door-north-jamb-right", "door-north-panel"],
+"door_part": "jamb-left",
+"offset": [40, -54],
+"region": [969, 4, 48, 114],
+"size": [48, 114]
+},
+"door-north-open-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333333, 1.195318891982584],
+"min": [-0.08333333333333326, 0.41666666666666663, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [662, 574, 174, 114],
+"size": [174, 114]
+},
+"door-north-open-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.08333333333333337, 0.5833333333333333, 0.87],
+"min": [-0.08333333333333326, 0.41666666666666663, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [-88, -118],
+"region": [969, 4, 48, 114],
+"size": [48, 114]
+},
+"door-north-open-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333333, 0.87],
+"min": [0.9166666666666666, 0.41666666666666663, 0.3133333333333333]
+},
+"companions": ["door-north-open-jamb-right"],
+"door_part": "jamb-left",
+"offset": [40, -54],
+"region": [969, 4, 48, 114],
+"size": [48, 114]
+},
+"door-north-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333337, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [46, 432, 118, 203],
+"size": [118, 203]
+},
+"door-north-wood-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9383173017612776, 0.8733439182435161, 1.041764264654219],
+"min": [0.6866826982387223, 0.48749999999999993, 0]
+},
+"door_part": "panel",
+"offset": [-23, -68],
+"region": [863, 4, 80, 173],
+"size": [80, 173]
+},
+"door-north-wood-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.3695493525688466, 0.9687406872560198, 1.041764264654219],
+"min": [0.06168269823872241, 0.48749999999999993, 0]
+},
+"door_part": "panel",
+"offset": [-85, -103],
+"region": [685, 4, 39, 180],
+"size": [39, 180]
+},
+"door-south-arcane-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333334, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [345, 4, 118, 203],
+"size": [118, 203]
+},
+"door-south-arcane-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.3133173017612777, 0.5125000000000001, 1.041764264654219],
+"min": [0.06168269823872235, 0.1266560817564839, 0]
+},
+"door_part": "panel",
+"offset": [-57, -140],
+"region": [597, 194, 80, 182],
+"size": [80, 182]
+},
+"door-south-arcane-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9383173017612776, 0.5125000000000001, 1.041764264654219],
+"min": [0.6304506474311534, 0.03125931274398014, 0]
+},
+"door_part": "panel",
+"offset": [46, -112],
+"region": [46, 4, 39, 206],
+"size": [39, 206]
+},
+"door-south-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333334, 1.195318891982584],
+"min": [-0.08333333333333333, 0.4166666666666667, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [844, 728, 174, 114],
+"size": [174, 114]
+},
+"door-south-grille-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333334, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [424, 426, 118, 203],
+"size": [118, 203]
+},
+"door-south-iron-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333334, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [345, 215, 118, 203],
+"size": [118, 203]
+},
+"door-south-iron-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.3133173017612777, 0.5125000000000001, 1.041764264654219],
+"min": [0.06168269823872235, 0.1266560817564839, 0]
+},
+"door_part": "panel",
+"offset": [-57, -140],
+"region": [657, 384, 80, 182],
+"size": [80, 182]
+},
+"door-south-iron-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9383173017612776, 0.5125000000000001, 1.041764264654219],
+"min": [0.6304506474311534, 0.03125931274398014, 0]
+},
+"door_part": "panel",
+"offset": [46, -112],
+"region": [46, 218, 39, 206],
+"size": [39, 206]
+},
+"door-south-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333334, 0.87],
+"min": [0.9166666666666666, 0.4166666666666667, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [40, -54],
+"region": [969, 248, 48, 114],
+"size": [48, 114]
+},
+"door-south-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.08333333333333334, 0.5833333333333334, 0.87],
+"min": [-0.08333333333333333, 0.4166666666666667, 0.3133333333333333]
+},
+"companions": ["door-south-jamb-right", "door-south-panel"],
+"door_part": "jamb-left",
+"offset": [-88, -118],
+"region": [969, 248, 48, 114],
+"size": [48, 114]
+},
+"door-south-open-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333334, 1.195318891982584],
+"min": [-0.08333333333333333, 0.4166666666666667, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [844, 728, 174, 114],
+"size": [174, 114]
+},
+"door-south-open-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [1.0833333333333333, 0.5833333333333334, 0.87],
+"min": [0.9166666666666666, 0.4166666666666667, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [40, -54],
+"region": [969, 248, 48, 114],
+"size": [48, 114]
+},
+"door-south-open-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.08333333333333334, 0.5833333333333334, 0.87],
+"min": [-0.08333333333333333, 0.4166666666666667, 0.3133333333333333]
+},
+"companions": ["door-south-open-jamb-right"],
+"door_part": "jamb-left",
+"offset": [-88, -118],
+"region": [969, 248, 48, 114],
+"size": [48, 114]
+},
+"door-south-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9166666666666666, 0.525, 1.041764264654219],
+"min": [0.08333333333333334, 0.475, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [93, 4, 118, 203],
+"size": [118, 203]
+},
+"door-south-wood-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.3133173017612777, 0.5125000000000001, 1.041764264654219],
+"min": [0.06168269823872235, 0.1266560817564839, 0]
+},
+"door_part": "panel",
+"offset": [-57, -140],
+"region": [597, 4, 80, 182],
+"size": [80, 182]
+},
+"door-south-wood-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9383173017612776, 0.5125000000000001, 1.041764264654219],
+"min": [0.6304506474311534, 0.03125931274398014, 0]
+},
+"door_part": "panel",
+"offset": [46, -112],
+"region": [4, 646, 39, 206],
+"size": [39, 206]
+},
+"door-west-arcane-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333334, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [429, 637, 118, 203],
+"size": [118, 203]
+},
+"door-west-arcane-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.8733439182435161, 0.3133173017612777, 1.041764264654219],
+"min": [0.48749999999999993, 0.06168269823872235, 0]
+},
+"door_part": "panel",
+"offset": [46, -103],
+"region": [779, 4, 34, 180],
+"size": [34, 180]
+},
+"door-west-arcane-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9687406872560198, 0.9383173017612776, 1.041764264654219],
+"min": [0.48749999999999993, 0.6304506474311534, 0]
+},
+"door_part": "panel",
+"offset": [-57, -68],
+"region": [745, 380, 99, 173],
+"size": [99, 173]
+},
+"door-west-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333333, 1.0833333333333333, 1.195318891982584],
+"min": [0.41666666666666663, -0.08333333333333333, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [662, 818, 174, 114],
+"size": [174, 114]
+},
+"door-west-grille-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333334, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [471, 215, 118, 203],
+"size": [118, 203]
+},
+"door-west-iron-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333334, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [471, 4, 118, 203],
+"size": [118, 203]
+},
+"door-west-iron-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.8733439182435161, 0.3133173017612777, 1.041764264654219],
+"min": [0.48749999999999993, 0.06168269823872235, 0]
+},
+"door_part": "panel",
+"offset": [46, -103],
+"region": [821, 4, 34, 180],
+"size": [34, 180]
+},
+"door-west-iron-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9687406872560198, 0.9383173017612776, 1.041764264654219],
+"min": [0.48749999999999993, 0.6304506474311534, 0]
+},
+"door_part": "panel",
+"offset": [-57, -68],
+"region": [852, 547, 99, 173],
+"size": [99, 173]
+},
+"door-west-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333333, 1.0833333333333333, 0.87],
+"min": [0.41666666666666663, 0.9166666666666666, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [-88, -54],
+"region": [969, 370, 48, 114],
+"size": [48, 114]
+},
+"door-west-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333333, 0.08333333333333334, 0.87],
+"min": [0.41666666666666663, -0.08333333333333333, 0.3133333333333333]
+},
+"companions": ["door-west-jamb-right", "door-west-panel"],
+"door_part": "jamb-left",
+"offset": [40, -118],
+"region": [969, 370, 48, 114],
+"size": [48, 114]
+},
+"door-west-open-arch": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333333, 1.0833333333333333, 1.195318891982584],
+"min": [0.41666666666666663, -0.08333333333333333, 0.87]
+},
+"door_part": "crown",
+"offset": [-87, -142],
+"region": [662, 818, 174, 114],
+"size": [174, 114]
+},
+"door-west-open-jamb-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333333, 1.0833333333333333, 0.87],
+"min": [0.41666666666666663, 0.9166666666666666, 0.3133333333333333]
+},
+"door_part": "jamb-right",
+"offset": [-88, -54],
+"region": [969, 370, 48, 114],
+"size": [48, 114]
+},
+"door-west-open-leaf": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.5833333333333333, 0.08333333333333334, 0.87],
+"min": [0.41666666666666663, -0.08333333333333333, 0.3133333333333333]
+},
+"companions": ["door-west-open-jamb-right"],
+"door_part": "jamb-left",
+"offset": [40, -118],
+"region": [969, 370, 48, 114],
+"size": [48, 114]
+},
+"door-west-panel": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.525, 0.9166666666666666, 1.041764264654219],
+"min": [0.475, 0.08333333333333334, 0]
+},
+"door_part": "panel",
+"offset": [-59, -108],
+"region": [93, 215, 118, 203],
+"size": [118, 203]
+},
+"door-west-wood-panel-left": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.8733439182435161, 0.3133173017612777, 1.041764264654219],
+"min": [0.48749999999999993, 0.06168269823872235, 0]
+},
+"door_part": "panel",
+"offset": [46, -103],
+"region": [732, 192, 34, 180],
+"size": [34, 180]
+},
+"door-west-wood-panel-right": {
+"atlas_path": "res://assets/dungeon/isometric-kit/open-doors/atlas-256.png",
+"bounds": {
+"max": [0.9687406872560198, 0.9383173017612776, 1.041764264654219],
+"min": [0.48749999999999993, 0.6304506474311534, 0]
+},
+"door_part": "panel",
+"offset": [-57, -68],
+"region": [862, 366, 99, 173],
+"size": [99, 173]
+},
+"floor": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [220, 426, 270, 138],
+"size": [270, 138]
+},
+"floor-b1": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_variant": {
+"arrangement": 1,
+"edgeProfile": "shared-complete-stones-v1",
+"family": "b"
+},
+"offset": [-135, -5],
+"region": [498, 443, 270, 138],
+"size": [270, 138]
+},
+"floor-b1-damage-a": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_damage": {
+"appearance": "a",
+"base": "floor-b1",
+"corruption": false
+},
+"offset": [-69, 44],
+"region": [143, 1995, 153, 48],
+"size": [153, 48]
+},
+"floor-b2": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_variant": {
+"arrangement": 2,
+"edgeProfile": "shared-complete-stones-v1",
+"family": "b"
+},
+"offset": [-135, -5],
+"region": [4, 572, 270, 138],
+"size": [270, 138]
+},
+"floor-b2-damage-b": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_damage": {
+"appearance": "b",
+"base": "floor-b2",
+"corruption": false
+},
+"offset": [-45, 23],
+"region": [307, 1898, 105, 89],
+"size": [105, 89]
+},
+"floor-b3": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_variant": {
+"arrangement": 3,
+"edgeProfile": "shared-complete-stones-v1",
+"family": "b"
+},
+"offset": [-135, -5],
+"region": [282, 589, 270, 138],
+"size": [270, 138]
+},
+"floor-b3-damage-c": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_damage": {
+"appearance": "c",
+"base": "floor-b3",
+"corruption": true
+},
+"offset": [-49, 39],
+"region": [748, 138, 113, 61],
+"size": [113, 61]
+},
+"floor-b4": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_variant": {
+"arrangement": 4,
+"edgeProfile": "shared-complete-stones-v1",
+"family": "b"
+},
+"offset": [-135, -5],
+"region": [4, 718, 270, 138],
+"size": [270, 138]
+},
+"floor-b4-damage-d": {
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"floor_damage": {
+"appearance": "d",
+"base": "floor-b4",
+"corruption": true
+},
+"offset": [-62, 46],
+"region": [4, 1991, 131, 53],
+"size": [131, 53]
+},
+"heart": {
+"bounds": {
+"max": [0.40625, 0.40625, 0.76],
+"min": [-0.40625, -0.40625, 0]
+},
+"ground_effects": ["heart-self-shadow", "heart-self-glow"],
+"offset": [-106, -161],
+"region": [528, 4, 212, 215],
+"size": [212, 215],
+"vortex": {
+"center": [106, 73.2102876186509],
+"radius": 51.2
+}
+},
+"heart-self-glow": {
+"bounds": {
+"max": [1.5, 1.5, 0],
+"min": [-1.5, -1.5, 0]
+},
+"ground_blend": "add",
+"ground_effect": true,
+"offset": [-258, -130],
+"region": [4, 4, 516, 260],
+"size": [516, 260]
+},
+"heart-self-shadow": {
+"bounds": {
+"max": [1.5, 1.5, 0],
+"min": [-1.5, -1.5, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-202, -104],
+"region": [528, 227, 404, 208],
+"size": [404, 208]
+},
+"pillar": {
+"bounds": {
+"max": [0.12, 0.12, 0.3483333333333333],
+"min": [-0.12, -0.12, 0]
+},
+"offset": [-33, -72],
+"region": [381, 1545, 66, 90],
+"size": [66, 90]
+},
+"pillar-top-carved": {
+"bounds": {
+"max": [0.12, 0.12, 0.3483333333333333],
+"min": [-0.12, -0.12, 0]
+},
+"offset": [-33, -72],
+"region": [381, 1643, 66, 90],
+"size": [66, 90]
+},
+"prop-basin": {
+"bounds": {
+"max": [0.247753125, 0.278465625, 0.3163516002804475],
+"min": [-0.16447499999999998, -0.16683749999999997, 0]
+},
+"decoration": {
+"footprint": [[-0.07560000000000001, 0.2480625], [-0.01476562499999999, 0.260465625], [-0.012403125, 0.168328125], [0.213215625, 0.03248437499999999], [0.229753125, -0.062015625], [-0.146475, -0.14883749999999998]],
+"gameHeight": 49,
+"label": "D · Vasque d’offrandes",
+"source": "d-vasque"
+},
+"ground_effects": ["prop-basin-shadow"],
+"offset": [-81.9848, -92.4176],
+"region": [776, 443, 145, 103],
+"size": [193, 137]
+},
+"prop-basin-shadow": {
+"bounds": {
+"max": [0.46875, 0.46875, 0],
+"min": [-0.453125, -0.453125, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-54, -31],
+"region": [165, 1759, 54, 32],
+"size": [108, 64]
+},
+"prop-candles": {
+"bounds": {
+"max": [0.20207626015151453, 0.20207626015151456, 0.4735385914590094],
+"min": [-0.2020762601515146, -0.20207626015151453, 0]
+},
+"decoration": {
+"footprint": [[0.1479499901263823, -0.1479499901263823], [0.16654871231224508, -0.123665632791273], [0.17874706088554232, -0.09462887454048093], [0.18407626015151457, -0.06195558170958242], [0.18233151197102015, -0.02690137061867514], [0.17357986603816955, 0.00918664505864534], [0.15815764319818226, 0.04492162311829199], [0.13665751082591704, 0.0789302883938392], [0.10990570695102686, 0.10990570695102686], [0.0789302883938392, 0.13665751082591704], [0.04492162311829204, 0.15815764319818224], [0.0091866450586454, 0.1735798660381695], [-0.02690137061867505, 0.1823315119710203], [-0.06195558170958245, 0.18407626015151457], [-0.09462887454048088, 0.1787470608855423], [-0.123665632791273, 0.16654871231224508], [-0.1479499901263823, 0.1479499901263823], [-0.16654871231224508, 0.123665632791273], [-0.17874706088554224, 0.094628874540481], [-0.1840762601515146, 0.06195558170958246], [-0.1823315119710202, 0.02690137061867519], [-0.1735798660381695, -0.0091866450586454], [-0.15815764319818232, -0.04492162311829194], [-0.1366575108259171, -0.07893028839383916], [-0.1099057069510269, -0.10990570695102682], [-0.0789302883938392, -0.13665751082591704], [-0.04492162311829199, -0.15815764319818226], [-0.00918664505864552, -0.17357986603816952], [0.02690137061867505, -0.1823315119710203], [0.06195558170958242, -0.18407626015151457], [0.0946288745404808, -0.1787470608855422], [0.12366563279127288, -0.1665487123122452]],
+"gameHeight": 67,
+"label": "F · Cierges rituels",
+"source": "f-cierges"
+},
+"ground_effects": ["prop-candles-shadow"],
+"light": {
+"color": [1, 0.55, 0.2],
+"emission": [-0.6492890995260664, -43.28593996840443],
+"energy": 0.65,
+"radius": 110
+},
+"offset": [-72.98894154818326, -97.22906793048972],
+"region": [910, 4, 106, 99],
+"size": [141, 132]
+},
+"prop-candles-shadow": {
+"bounds": {
+"max": [0.4609375, 0.4453125, 0],
+"min": [-0.40625, -0.421875, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-50, -27],
+"region": [288, 1759, 52, 30],
+"size": [104, 59]
+},
+"prop-chest": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.2345595465796579, 0.18545893339333933, 0.42706914296358944],
+"min": [-0.23559324369936993, -0.1864926305130513, 0]
+},
+"decoration": {
+"chest_state": "closed",
+"facing": "south",
+"footprint": [[-0.20467202970297027, 0.16745893339333934], [0.21655954657965792, 0.11835832020702068], [0.2036383325832583, -0.1684926305130513], [-0.21759324369936991, -0.11939201732673269]],
+"gameBodyWidth": 72,
+"label": "Coffre verrouillé",
+"source": "prop-chest"
+},
+"ground_effects": ["prop-chest-shadow"],
+"offset": [-83.63726372637262, -70.93519351935193],
+"region": [4, 423, 114, 78],
+"size": [151, 104]
+},
+"prop-chest-east": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.16933199605855853, 0.25650706174924925, 0.4434638240121694],
+"min": [-0.16933199605855853, -0.25650706174924925, 0]
+},
+"decoration": {
+"chest_state": "closed",
+"facing": "east",
+"footprint": [[-0.15133199605855854, 0.2208761495870871], [0.10725471565315316, 0.23850706174924927], [0.15133199605855854, -0.2208761495870871], [-0.10725471565315316, -0.23850706174924927]],
+"gameBodyWidth": 72,
+"label": "Coffre verrouillé",
+"source": "prop-chest-east"
+},
+"ground_effects": ["prop-chest-east-shadow"],
+"offset": [-93.27327327327328, -88.44632132132132],
+"region": [4, 324, 129, 91],
+"size": [171, 121]
+},
+"prop-chest-east-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.5078125, 0.49609375, 0],
+"min": [-0.47265625, -0.484375, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-57, -32],
+"region": [141, 407, 59, 34],
+"size": [117, 67]
+},
+"prop-chest-north": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.2442847222222222, 0.1791458333333333, 0.414372014820821],
+"min": [-0.2442847222222222, -0.1791458333333333, 0]
+},
+"decoration": {
+"chest_state": "closed",
+"facing": "north",
+"footprint": [[-0.2117013888888889, 0.16114583333333332], [0.2262847222222222, 0.13149305555555554], [0.2117013888888889, -0.16114583333333332], [-0.2262847222222222, -0.13149305555555554]],
+"gameBodyWidth": 72,
+"label": "Coffre verrouillé",
+"source": "prop-chest-north"
+},
+"ground_effects": ["prop-chest-north-shadow"],
+"offset": [-90.7911111111111, -93.71555555555555],
+"region": [4, 4, 129, 104],
+"size": [172, 138]
+},
+"prop-chest-north-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.515625, 0.50390625, 0],
+"min": [-0.47265625, -0.484375, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-57, -32],
+"region": [141, 365, 59, 34],
+"size": [117, 68]
+},
+"prop-chest-open": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.2361243553075769, 0.17111298527756938, 0.4861538860278129],
+"min": [-0.2361243553075769, -0.17111298527756938, 0]
+},
+"decoration": {
+"chest_state": "open",
+"facing": "south",
+"footprint": [[-0.20153524709302323, 0.1531129852775694], [0.2181243553075769, 0.11545122608777192], [0.20153524709302323, -0.1531129852775694], [-0.2181243553075769, -0.11545122608777192]],
+"gameBodyWidth": 72,
+"label": "Coffre ouvert",
+"source": "prop-chest-open"
+},
+"ground_effects": ["prop-chest-open-shadow"],
+"offset": [-82.40247561890472, -89.576144036009],
+"region": [127, 116, 118, 97],
+"size": [157, 129]
+},
+"prop-chest-open-east": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.17326880191851263, 0.24003662727452532, 0.4866166609965635],
+"min": [-0.17326880191851263, -0.24003662727452532, 0]
+},
+"decoration": {
+"chest_state": "open",
+"facing": "east",
+"footprint": [[-0.15526880191851264, 0.21083397201344936], [0.09701499456091774, 0.22203662727452533], [0.15526880191851264, -0.21083397201344936], [-0.09701499456091774, -0.22203662727452533]],
+"gameBodyWidth": 72,
+"label": "Coffre ouvert",
+"source": "prop-chest-open-east"
+},
+"ground_effects": ["prop-chest-open-east-shadow"],
+"offset": [-80.86669303797468, -88.95411392405063],
+"region": [140, 221, 112, 93],
+"size": [149, 123]
+},
+"prop-chest-open-east-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.49609375, 0.484375, 0],
+"min": [-0.453125, -0.46484375, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-56, -30],
+"region": [193, 490, 58, 32],
+"size": [115, 64]
+},
+"prop-chest-open-north": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.2503698906844106, 0.1702576045627376, 0.4535431860461625],
+"min": [-0.2503698906844106, -0.1702576045627376, 0]
+},
+"decoration": {
+"chest_state": "open",
+"facing": "north",
+"footprint": [[-0.2204194391634981, 0.15225760456273765], [0.23236989068441063, 0.131454966730038], [0.2204194391634981, -0.15225760456273765], [-0.23236989068441063, -0.131454966730038]],
+"gameBodyWidth": 72,
+"label": "Coffre ouvert",
+"source": "prop-chest-open-north"
+},
+"ground_effects": ["prop-chest-open-north-shadow"],
+"offset": [-78.02965779467681, -91.00342205323192],
+"region": [4, 116, 115, 99],
+"size": [153, 131]
+},
+"prop-chest-open-north-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.5234375, 0.51171875, 0],
+"min": [-0.48046875, -0.4921875, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-57, -33],
+"region": [141, 322, 59, 35],
+"size": [117, 70]
+},
+"prop-chest-open-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.5, 0.48828125, 0],
+"min": [-0.45703125, -0.46875, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-55, -31],
+"region": [193, 449, 57, 33],
+"size": [113, 66]
+},
+"prop-chest-open-west": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.165546875, 0.245865625, 0.4282626629038539],
+"min": [-0.165546875, -0.245865625, 0]
+},
+"decoration": {
+"chest_state": "open",
+"facing": "west",
+"footprint": [[-0.14754687500000002, 0.223871875], [0.111159375, 0.227865625], [0.14754687500000002, -0.223871875], [-0.111159375, -0.227865625]],
+"gameBodyWidth": 72,
+"label": "Coffre ouvert",
+"source": "prop-chest-open-west"
+},
+"ground_effects": ["prop-chest-open-west-shadow"],
+"offset": [-82.1448, -83.67840000000001],
+"region": [141, 4, 110, 93],
+"size": [146, 124]
+},
+"prop-chest-open-west-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.5078125, 0.49609375, 0],
+"min": [-0.46484375, -0.4765625, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-57, -31],
+"region": [126, 490, 59, 33],
+"size": [117, 66]
+},
+"prop-chest-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.5078125, 0.49609375, 0],
+"min": [-0.46484375, -0.4765625, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-57, -31],
+"region": [126, 449, 59, 33],
+"size": [117, 66]
+},
+"prop-chest-west": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.17494206356560413, 0.24319864251297257, 0.4356457908686493],
+"min": [-0.17494206356560413, -0.24319864251297257, 0]
+},
+"decoration": {
+"chest_state": "closed",
+"facing": "west",
+"footprint": [[-0.15694206356560414, 0.21654640011119347], [0.10166384822090438, 0.2251986425129726], [0.15694206356560414, -0.21654640011119347], [-0.10166384822090438, -0.2251986425129726]],
+"gameBodyWidth": 72,
+"label": "Coffre verrouillé",
+"source": "prop-chest-west"
+},
+"ground_effects": ["prop-chest-west-shadow"],
+"offset": [-88.19940696812453, -84.69236471460341],
+"region": [4, 223, 128, 93],
+"size": [170, 124]
+},
+"prop-chest-west-shadow": {
+"atlas_path": "res://assets/dungeon/isometric-kit/chests/atlas-256.png",
+"bounds": {
+"max": [0.5, 0.48828125, 0],
+"min": [-0.45703125, -0.46875, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-57, -30],
+"region": [193, 530, 59, 32],
+"size": [117, 64]
+},
+"prop-crystals": {
+"bounds": {
+"max": [0.1678033825167038, 0.16022577951002226, 0.4254812100188696],
+"min": [-0.18937040645879735, -0.18820462138084632, 0]
+},
+"decoration": {
+"footprint": [[-0.1538836302895323, 0.14222577951002227], [-0.06411817928730512, 0.1410599944320713], [0.11774429287305124, 0.12240743318485524], [0.1486375974387528, -0.03905380011135858], [0.1498033825167038, -0.1567980929844098], [0.03730512249443207, -0.17020462138084635], [-0.12357321826280623, -0.11891007795100224], [-0.17137040645879736, 0.03613933741648108]],
+"gameHeight": 62,
+"label": "A · Cristaux corrompus",
+"source": "a-cristaux"
+},
+"ground_effects": ["prop-crystals-shadow"],
+"offset": [-103.02227171492206, -110.184855233853],
+"region": [748, 4, 154, 126],
+"size": [205, 167]
+},
+"prop-crystals-shadow": {
+"bounds": {
+"max": [0.4765625, 0.453125, 0],
+"min": [-0.4140625, -0.4375, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-50, -28],
+"region": [227, 1759, 53, 31],
+"size": [106, 61]
+},
+"prop-grimoire": {
+"bounds": {
+"max": [0.2589016251728907, 0.2198823478561549, 0.2957356192125574],
+"min": [-0.2597498703319502, -0.22242708333333333, 0]
+},
+"decoration": {
+"footprint": [[-0.2006099801175657, 0.16668017375518673], [0.2409016251728907, 0.20188234785615491], [0.198489367219917, -0.1696490318118949], [-0.2417498703319502, -0.20442708333333337]],
+"gameHeight": 56,
+"label": "E · Grimoire scellé",
+"source": "e-grimoire"
+},
+"ground_effects": ["prop-grimoire-shadow"],
+"offset": [-82.9972337482711, -66.92807745504841],
+"region": [898, 1432, 121, 86],
+"size": [161, 114]
+},
+"prop-grimoire-shadow": {
+"bounds": {
+"max": [0.60546875, 0.59375, 0],
+"min": [-0.5546875, -0.56640625, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-60, -41],
+"region": [307, 1666, 62, 44],
+"size": [123, 87]
+},
+"prop-idol": {
+"bounds": {
+"max": [0.16030301556420232, 0.1574455252918288, 0.5319538765334091],
+"min": [-0.1711614785992218, -0.1597315175097276, 0]
+},
+"decoration": {
+"footprint": [[-0.1531614785992218, 0.12801556420233462], [0.1394455252918288, 0.1394455252918288], [0.14230301556420233, -0.13773103112840468], [-0.1394455252918288, -0.14173151750972762]],
+"gameHeight": 76,
+"label": "B · Idole de pierre",
+"source": "b-idole"
+},
+"ground_effects": ["prop-idol-shadow"],
+"offset": [-98.56031128404668, -113.0443579766537],
+"region": [140, 272, 144, 116],
+"size": [192, 154]
+},
+"prop-idol-shadow": {
+"bounds": {
+"max": [0.4765625, 0.4609375, 0],
+"min": [-0.421875, -0.4375, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-48, -30],
+"region": [970, 210, 50, 33],
+"size": [100, 65]
+},
+"prop-stele": {
+"bounds": {
+"max": [0.212072810290652, 0.16419132953652787, 0.5731170214738054],
+"min": [-0.21360094265514531, -0.16419132953652787, 0]
+},
+"decoration": {
+"footprint": [[-0.15077572663000788, 0.14466319717203455], [0.194072810290652, 0.1461913295365279], [0.1461913295365279, -0.1461913295365279], [-0.19560094265514533, -0.14466319717203455]],
+"gameHeight": 84,
+"label": "C · Stèle rituelle",
+"source": "c-stele"
+},
+"ground_effects": ["prop-stele-shadow"],
+"offset": [-88.06441476826394, -113.10133542812255],
+"region": [4, 272, 128, 119],
+"size": [170, 158]
+},
+"prop-stele-shadow": {
+"bounds": {
+"max": [0.515625, 0.5, 0],
+"min": [-0.4609375, -0.4765625, 0]
+},
+"ground_blend": "mix",
+"ground_effect": true,
+"offset": [-50, -34],
+"region": [105, 1759, 52, 37],
+"size": [104, 73]
+},
+"stair-east": {
+"bounds": {
+"max": [0.84, 0.9166666666666666, 0.25],
+"min": [0.08333333333333333, 0.08333333333333337, 0]
+},
+"offset": [-109, -31],
+"region": [292, 272, 208, 146],
+"size": [208, 146]
+},
+"stair-north": {
+"bounds": {
+"max": [0.9166666666666666, 0.9166666666666666, 0.25],
+"min": [0.08333333333333337, 0.16000000000000003, 0]
+},
+"offset": [-109, 5],
+"region": [682, 1432, 208, 115],
+"size": [208, 115]
+},
+"stair-south": {
+"bounds": {
+"max": [0.9166666666666666, 0.84, 0.25],
+"min": [0.08333333333333333, 0.08333333333333333, 0]
+},
+"offset": [-99, -31],
+"region": [4, 399, 208, 146],
+"size": [208, 146]
+},
+"stair-west": {
+"bounds": {
+"max": [0.9166666666666666, 0.9166666666666666, 0.25],
+"min": [0.16000000000000003, 0.08333333333333333, 0]
+},
+"offset": [-99, 5],
+"region": [456, 1531, 208, 115],
+"size": [208, 115]
+},
+"torch-horizontal": {
+"bounds": {
+"max": [0.579, 0.2753333333333333, 0.264],
+"min": [0.421, 0.08333333333333333, 0.037]
+},
+"light": {
+"color": [1, 0.44, 0.12],
+"emission": [38.86933333333333, -11.870910340391085],
+"emitter_world": [0.5, 0.19633333333333333, 0.36],
+"energy": 2.4,
+"radius": 190
+},
+"offset": [21, -26],
+"region": [975, 1619, 42, 64],
+"size": [42, 64]
+},
+"torch-vertical": {
+"bounds": {
+"max": [0.2753333333333333, 0.579, 0.264],
+"min": [0.08333333333333333, 0.421, 0.037]
+},
+"light": {
+"color": [1, 0.44, 0.12],
+"emission": [-38.86933333333333, -11.870910340391085],
+"emitter_world": [0.19633333333333333, 0.5, 0.36],
+"energy": 2.4,
+"radius": 190
+},
+"offset": [-63, -26],
+"region": [975, 1691, 42, 64],
+"size": [42, 64]
+},
+"trap-snare-ready-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [215, 116, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "snare",
+"layer": "floor",
+"state": "ready"
+}
+},
+"trap-snare-ready-mechanism": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [0.9128571428571428, 0.9128571428571428, 0.4857142857142856],
+"min": [0.0871428571428573, 0.0871428571428573, 0]
+},
+"offset": [-78, -10],
+"region": [342, 546, 119, 86],
+"size": [158, 114],
+"trap": {
+"kind": "snare",
+"layer": "mechanism",
+"state": "ready"
+}
+},
+"trap-snare-spent-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [215, 228, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "snare",
+"layer": "floor",
+"state": "spent"
+}
+},
+"trap-snare-spent-mechanism": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [0.9128571428571428, 0.9128571428571428, 0.4857142857142856],
+"min": [0.0871428571428573, 0.0871428571428573, 0]
+},
+"offset": [-78, -10],
+"region": [131, 640, 119, 86],
+"size": [158, 114],
+"trap": {
+"kind": "snare",
+"layer": "mechanism",
+"state": "spent"
+}
+},
+"trap-snare-triggered-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [4, 228, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "snare",
+"layer": "floor",
+"state": "triggered"
+}
+},
+"trap-snare-triggered-mechanism": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [0.9128571428571428, 0.9128571428571428, 0.4857142857142856],
+"min": [0.0871428571428573, 0.0871428571428573, 0]
+},
+"offset": [-78, -10],
+"region": [4, 564, 119, 86],
+"size": [158, 114],
+"trap": {
+"kind": "snare",
+"layer": "mechanism",
+"state": "triggered"
+}
+},
+"trap-spike-ready-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [4, 4, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "spike",
+"layer": "floor",
+"state": "ready"
+}
+},
+"trap-spike-ready-mechanism": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [0.9128571428571428, 0.9128571428571428, 0.4857142857142856],
+"min": [0.0871428571428573, 0.0871428571428573, 0]
+},
+"offset": [-78, -10],
+"region": [215, 452, 119, 86],
+"size": [158, 114],
+"trap": {
+"kind": "spike",
+"layer": "mechanism",
+"state": "ready"
+}
+},
+"trap-spike-spent-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [4, 116, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "spike",
+"layer": "floor",
+"state": "spent"
+}
+},
+"trap-spike-spent-mechanism": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [0.9128571428571428, 0.9128571428571428, 0.4857142857142856],
+"min": [0.0871428571428573, 0.0871428571428573, 0]
+},
+"offset": [-78, -10],
+"region": [215, 546, 119, 86],
+"size": [158, 114],
+"trap": {
+"kind": "spike",
+"layer": "mechanism",
+"state": "spent"
+}
+},
+"trap-spike-triggered-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [215, 4, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "spike",
+"layer": "floor",
+"state": "triggered"
+}
+},
+"trap-spike-triggered-mechanism": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [0.9128571428571428, 0.9128571428571428, 0.4857142857142856],
+"min": [0.0871428571428573, 0.0871428571428573, 0]
+},
+"offset": [-78, -10],
+"region": [342, 452, 119, 86],
+"size": [158, 114],
+"trap": {
+"kind": "spike",
+"layer": "mechanism",
+"state": "triggered"
+}
+},
+"trap-void-ready-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [4, 340, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "void",
+"layer": "floor",
+"state": "ready"
+}
+},
+"trap-void-spent-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [4, 452, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "void",
+"layer": "floor",
+"state": "spent"
+}
+},
+"trap-void-triggered-floor": {
+"atlas_path": "res://assets/dungeon/isometric-kit/traps/atlas-256.png",
+"bounds": {
+"max": [1, 1, 0],
+"min": [0, 0, 0]
+},
+"offset": [-135, -5],
+"region": [215, 340, 203, 104],
+"size": [270, 138],
+"trap": {
+"kind": "void",
+"layer": "floor",
+"state": "triggered"
+}
+},
+"wall-h-0": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [776, 554, 154, 129],
+"size": [154, 129]
+},
+"wall-h-0-a1": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [722, 691, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-h-0-a2": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [846, 691, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-h-0-a3": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [406, 735, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-h-0-c1": {
+"bounds": {
+"max": [1, 0.10933333333333332, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [530, 831, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-h-0-c2": {
+"bounds": {
+"max": [1, 0.10733333333333334, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [282, 840, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-h-0-c3": {
+"bounds": {
+"max": [1, 0.11633333333333332, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [4, 864, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-h-0-f1": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [654, 901, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-h-0-f2": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [778, 901, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-h-0-f3": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [252, 945, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-0",
+"endProfile": 0,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+},
+"wall-h-1": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [4, 969, 139, 121],
+"size": [139, 121]
+},
+"wall-h-1-a1": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [910, 111, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-h-1-a2": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [377, 1050, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-h-1-a3": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [117, 1149, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-h-1-c1": {
+"bounds": {
+"max": [1, 0.10933333333333332, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [456, 1170, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-h-1-c2": {
+"bounds": {
+"max": [1, 0.10733333333333334, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [343, 1248, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-h-1-c3": {
+"bounds": {
+"max": [1, 0.11633333333333332, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [4, 1395, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-h-1-f1": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [795, 1234, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-h-1-f2": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [117, 1446, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-h-1-f3": {
+"bounds": {
+"max": [1, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [682, 1333, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-1",
+"endProfile": 1,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+},
+"wall-h-2": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [654, 1006, 139, 121],
+"size": [139, 121]
+},
+"wall-h-2-a1": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [151, 1050, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-h-2-a2": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [647, 1135, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-h-2-a3": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [4, 1197, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-h-2-c1": {
+"bounds": {
+"max": [0.88, 0.10933333333333332, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [117, 1248, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-h-2-c2": {
+"bounds": {
+"max": [0.88, 0.10733333333333334, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [569, 1234, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-h-2-c3": {
+"bounds": {
+"max": [0.88, 0.11633333333333332, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [230, 1347, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-h-2-f1": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [908, 1234, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-h-2-f2": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [4, 1494, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-h-2-f3": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0, -0.08333333333333333, 0]
+},
+"offset": [-13, -57],
+"region": [795, 1333, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-2",
+"endProfile": 2,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+},
+"wall-h-3": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [117, 1545, 124, 113],
+"size": [124, 113]
+},
+"wall-h-3-a1": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [4, 1593, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-h-3-a2": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [672, 1555, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-h-3-a3": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [874, 1619, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-h-3-c1": {
+"bounds": {
+"max": [0.88, 0.10933333333333332, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [773, 1648, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-h-3-c2": {
+"bounds": {
+"max": [0.88, 0.10733333333333334, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [4, 1805, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-h-3-c3": {
+"bounds": {
+"max": [0.88, 0.11633333333333332, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [4, 1898, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-h-3-f1": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [105, 1666, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-h-3-f2": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [206, 1805, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-h-3-f3": {
+"bounds": {
+"max": [0.88, 0.08333333333333333, 0.3133333333333333],
+"min": [0.12, -0.08333333333333333, 0]
+},
+"offset": [2, -49],
+"region": [206, 1898, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "h",
+"base": "wall-h-3",
+"endProfile": 3,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+},
+"wall-v-0": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [560, 589, 154, 129],
+"size": [154, 129]
+},
+"wall-v-0-a1": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [560, 726, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-v-0-a2": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [282, 735, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-v-0-a3": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [684, 796, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-v-0-c1": {
+"bounds": {
+"max": [0.10933333333333332, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [808, 796, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-v-0-c2": {
+"bounds": {
+"max": [0.10733333333333334, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [406, 840, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-v-0-c3": {
+"bounds": {
+"max": [0.11633333333333332, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [128, 864, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-v-0-f1": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [530, 936, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-v-0-f2": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [902, 901, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-v-0-f3": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-141, -57],
+"region": [376, 945, 116, 97],
+"size": [154, 129],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-0",
+"endProfile": 0,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+},
+"wall-v-1": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [500, 1041, 139, 121],
+"size": [139, 121]
+},
+"wall-v-1-a1": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [4, 1098, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-v-1-a2": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [760, 1135, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-v-1-a3": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [230, 1149, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-v-1-c1": {
+"bounds": {
+"max": [0.10933333333333332, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [4, 1296, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-v-1-c2": {
+"bounds": {
+"max": [0.10733333333333334, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [456, 1269, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-v-1-c3": {
+"bounds": {
+"max": [0.11633333333333332, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [343, 1347, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-v-1-f1": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [569, 1333, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-v-1-f2": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [230, 1446, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-v-1-f3": {
+"bounds": {
+"max": [0.08333333333333333, 1, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-141, -49],
+"region": [908, 1333, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-1",
+"endProfile": 1,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+},
+"wall-v-2": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [801, 1006, 139, 121],
+"size": [139, 121]
+},
+"wall-v-2-a1": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [264, 1050, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-v-2-a2": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [873, 1135, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-v-2-a3": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [343, 1149, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-v-2-c1": {
+"bounds": {
+"max": [0.10933333333333332, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [230, 1248, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-v-2-c2": {
+"bounds": {
+"max": [0.10733333333333334, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [117, 1347, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-v-2-c3": {
+"bounds": {
+"max": [0.11633333333333332, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [682, 1234, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-v-2-f1": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [456, 1368, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-v-2-f2": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [343, 1446, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-v-2-f3": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0, 0]
+},
+"offset": [-126, -57],
+"region": [569, 1432, 105, 91],
+"size": [139, 121],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-2",
+"endProfile": 2,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+},
+"wall-v-3": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [249, 1545, 124, 113],
+"size": [124, 113]
+},
+"wall-v-3-a1": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [898, 1526, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "a",
+"ornament": false,
+"variant": "a1"
+}
+},
+"wall-v-3-a2": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [773, 1555, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "a",
+"ornament": false,
+"variant": "a2"
+}
+},
+"wall-v-3-a3": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [672, 1648, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "a",
+"ornament": false,
+"variant": "a3"
+}
+},
+"wall-v-3-c1": {
+"bounds": {
+"max": [0.10933333333333332, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [874, 1712, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "c",
+"ornament": false,
+"variant": "c1"
+}
+},
+"wall-v-3-c2": {
+"bounds": {
+"max": [0.10733333333333334, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [4, 1686, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "c",
+"ornament": false,
+"variant": "c2"
+}
+},
+"wall-v-3-c3": {
+"bounds": {
+"max": [0.11633333333333332, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [105, 1805, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "c",
+"ornament": false,
+"variant": "c3"
+}
+},
+"wall-v-3-f1": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [105, 1898, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "f",
+"ornament": true,
+"variant": "f1"
+}
+},
+"wall-v-3-f2": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [206, 1666, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "f",
+"ornament": true,
+"variant": "f2"
+}
+},
+"wall-v-3-f3": {
+"bounds": {
+"max": [0.08333333333333333, 0.88, 0.3133333333333333],
+"min": [-0.08333333333333333, 0.12, 0]
+},
+"offset": [-126, -49],
+"region": [307, 1805, 93, 85],
+"size": [124, 113],
+"wall_variant": {
+"axis": "v",
+"base": "wall-v-3",
+"endProfile": 3,
+"family": "f",
+"ornament": true,
+"variant": "f3"
+}
+}
+}
+textures = {
+"door-east-arcane-panel": SubResource("Sprite_182"),
+"door-east-arcane-panel-left": SubResource("Sprite_183"),
+"door-east-arcane-panel-right": SubResource("Sprite_184"),
+"door-east-arch": SubResource("Sprite_25"),
+"door-east-grille-panel": SubResource("Sprite_188"),
+"door-east-iron-panel": SubResource("Sprite_185"),
+"door-east-iron-panel-left": SubResource("Sprite_186"),
+"door-east-iron-panel-right": SubResource("Sprite_187"),
+"door-east-jamb-right": SubResource("Sprite_26"),
+"door-east-leaf": SubResource("Sprite_24"),
+"door-east-open-arch": SubResource("Sprite_163"),
+"door-east-open-jamb-right": SubResource("Sprite_164"),
+"door-east-open-leaf": SubResource("Sprite_162"),
+"door-east-panel": SubResource("Sprite_27"),
+"door-east-wood-panel-left": SubResource("Sprite_180"),
+"door-east-wood-panel-right": SubResource("Sprite_181"),
+"door-north-arcane-panel": SubResource("Sprite_173"),
+"door-north-arcane-panel-left": SubResource("Sprite_174"),
+"door-north-arcane-panel-right": SubResource("Sprite_175"),
+"door-north-arch": SubResource("Sprite_21"),
+"door-north-grille-panel": SubResource("Sprite_179"),
+"door-north-iron-panel": SubResource("Sprite_176"),
+"door-north-iron-panel-left": SubResource("Sprite_177"),
+"door-north-iron-panel-right": SubResource("Sprite_178"),
+"door-north-jamb-right": SubResource("Sprite_22"),
+"door-north-leaf": SubResource("Sprite_20"),
+"door-north-open-arch": SubResource("Sprite_160"),
+"door-north-open-jamb-right": SubResource("Sprite_161"),
+"door-north-open-leaf": SubResource("Sprite_159"),
+"door-north-panel": SubResource("Sprite_23"),
+"door-north-wood-panel-left": SubResource("Sprite_171"),
+"door-north-wood-panel-right": SubResource("Sprite_172"),
+"door-south-arcane-panel": SubResource("Sprite_191"),
+"door-south-arcane-panel-left": SubResource("Sprite_192"),
+"door-south-arcane-panel-right": SubResource("Sprite_193"),
+"door-south-arch": SubResource("Sprite_29"),
+"door-south-grille-panel": SubResource("Sprite_197"),
+"door-south-iron-panel": SubResource("Sprite_194"),
+"door-south-iron-panel-left": SubResource("Sprite_195"),
+"door-south-iron-panel-right": SubResource("Sprite_196"),
+"door-south-jamb-right": SubResource("Sprite_30"),
+"door-south-leaf": SubResource("Sprite_28"),
+"door-south-open-arch": SubResource("Sprite_166"),
+"door-south-open-jamb-right": SubResource("Sprite_167"),
+"door-south-open-leaf": SubResource("Sprite_165"),
+"door-south-panel": SubResource("Sprite_31"),
+"door-south-wood-panel-left": SubResource("Sprite_189"),
+"door-south-wood-panel-right": SubResource("Sprite_190"),
+"door-west-arcane-panel": SubResource("Sprite_200"),
+"door-west-arcane-panel-left": SubResource("Sprite_201"),
+"door-west-arcane-panel-right": SubResource("Sprite_202"),
+"door-west-arch": SubResource("Sprite_33"),
+"door-west-grille-panel": SubResource("Sprite_206"),
+"door-west-iron-panel": SubResource("Sprite_203"),
+"door-west-iron-panel-left": SubResource("Sprite_204"),
+"door-west-iron-panel-right": SubResource("Sprite_205"),
+"door-west-jamb-right": SubResource("Sprite_34"),
+"door-west-leaf": SubResource("Sprite_32"),
+"door-west-open-arch": SubResource("Sprite_169"),
+"door-west-open-jamb-right": SubResource("Sprite_170"),
+"door-west-open-leaf": SubResource("Sprite_168"),
+"door-west-panel": SubResource("Sprite_35"),
+"door-west-wood-panel-left": SubResource("Sprite_198"),
+"door-west-wood-panel-right": SubResource("Sprite_199"),
+"floor": SubResource("Sprite_0"),
+"floor-b1": SubResource("Sprite_108"),
+"floor-b1-damage-a": SubResource("Sprite_112"),
+"floor-b2": SubResource("Sprite_109"),
+"floor-b2-damage-b": SubResource("Sprite_113"),
+"floor-b3": SubResource("Sprite_110"),
+"floor-b3-damage-c": SubResource("Sprite_114"),
+"floor-b4": SubResource("Sprite_111"),
+"floor-b4-damage-d": SubResource("Sprite_115"),
+"heart": SubResource("Sprite_15"),
+"heart-self-glow": SubResource("Sprite_17"),
+"heart-self-shadow": SubResource("Sprite_16"),
 "pillar": SubResource("Sprite_9"),
 "pillar-top-carved": SubResource("Sprite_10"),
-"stair-north": SubResource("Sprite_11"),
-"stair-east": SubResource("Sprite_12"),
-"stair-south": SubResource("Sprite_13"),
-"stair-west": SubResource("Sprite_14"),
-"heart": SubResource("Sprite_15"),
-"heart-self-shadow": SubResource("Sprite_16"),
-"heart-self-glow": SubResource("Sprite_17"),
-"torch-horizontal": SubResource("Sprite_18"),
-"torch-vertical": SubResource("Sprite_19"),
-"door-north-leaf": SubResource("Sprite_20"),
-"door-north-arch": SubResource("Sprite_21"),
-"door-north-jamb-right": SubResource("Sprite_22"),
-"door-north-panel": SubResource("Sprite_23"),
-"door-east-leaf": SubResource("Sprite_24"),
-"door-east-arch": SubResource("Sprite_25"),
-"door-east-jamb-right": SubResource("Sprite_26"),
-"door-east-panel": SubResource("Sprite_27"),
-"door-south-leaf": SubResource("Sprite_28"),
-"door-south-arch": SubResource("Sprite_29"),
-"door-south-jamb-right": SubResource("Sprite_30"),
-"door-south-panel": SubResource("Sprite_31"),
-"door-west-leaf": SubResource("Sprite_32"),
-"door-west-arch": SubResource("Sprite_33"),
-"door-west-jamb-right": SubResource("Sprite_34"),
-"door-west-panel": SubResource("Sprite_35"),
-"wall-h-0-a1": SubResource("Sprite_36"),
-"wall-h-1-a1": SubResource("Sprite_37"),
-"wall-h-2-a1": SubResource("Sprite_38"),
-"wall-h-3-a1": SubResource("Sprite_39"),
-"wall-v-0-a1": SubResource("Sprite_40"),
-"wall-v-1-a1": SubResource("Sprite_41"),
-"wall-v-2-a1": SubResource("Sprite_42"),
-"wall-v-3-a1": SubResource("Sprite_43"),
-"wall-h-0-a2": SubResource("Sprite_44"),
-"wall-h-1-a2": SubResource("Sprite_45"),
-"wall-h-2-a2": SubResource("Sprite_46"),
-"wall-h-3-a2": SubResource("Sprite_47"),
-"wall-v-0-a2": SubResource("Sprite_48"),
-"wall-v-1-a2": SubResource("Sprite_49"),
-"wall-v-2-a2": SubResource("Sprite_50"),
-"wall-v-3-a2": SubResource("Sprite_51"),
-"wall-h-0-a3": SubResource("Sprite_52"),
-"wall-h-1-a3": SubResource("Sprite_53"),
-"wall-h-2-a3": SubResource("Sprite_54"),
-"wall-h-3-a3": SubResource("Sprite_55"),
-"wall-v-0-a3": SubResource("Sprite_56"),
-"wall-v-1-a3": SubResource("Sprite_57"),
-"wall-v-2-a3": SubResource("Sprite_58"),
-"wall-v-3-a3": SubResource("Sprite_59"),
-"wall-h-0-c1": SubResource("Sprite_60"),
-"wall-h-1-c1": SubResource("Sprite_61"),
-"wall-h-2-c1": SubResource("Sprite_62"),
-"wall-h-3-c1": SubResource("Sprite_63"),
-"wall-v-0-c1": SubResource("Sprite_64"),
-"wall-v-1-c1": SubResource("Sprite_65"),
-"wall-v-2-c1": SubResource("Sprite_66"),
-"wall-v-3-c1": SubResource("Sprite_67"),
-"wall-h-0-c2": SubResource("Sprite_68"),
-"wall-h-1-c2": SubResource("Sprite_69"),
-"wall-h-2-c2": SubResource("Sprite_70"),
-"wall-h-3-c2": SubResource("Sprite_71"),
-"wall-v-0-c2": SubResource("Sprite_72"),
-"wall-v-1-c2": SubResource("Sprite_73"),
-"wall-v-2-c2": SubResource("Sprite_74"),
-"wall-v-3-c2": SubResource("Sprite_75"),
-"wall-h-0-c3": SubResource("Sprite_76"),
-"wall-h-1-c3": SubResource("Sprite_77"),
-"wall-h-2-c3": SubResource("Sprite_78"),
-"wall-h-3-c3": SubResource("Sprite_79"),
-"wall-v-0-c3": SubResource("Sprite_80"),
-"wall-v-1-c3": SubResource("Sprite_81"),
-"wall-v-2-c3": SubResource("Sprite_82"),
-"wall-v-3-c3": SubResource("Sprite_83"),
-"wall-h-0-f1": SubResource("Sprite_84"),
-"wall-h-1-f1": SubResource("Sprite_85"),
-"wall-h-2-f1": SubResource("Sprite_86"),
-"wall-h-3-f1": SubResource("Sprite_87"),
-"wall-v-0-f1": SubResource("Sprite_88"),
-"wall-v-1-f1": SubResource("Sprite_89"),
-"wall-v-2-f1": SubResource("Sprite_90"),
-"wall-v-3-f1": SubResource("Sprite_91"),
-"wall-h-0-f2": SubResource("Sprite_92"),
-"wall-h-1-f2": SubResource("Sprite_93"),
-"wall-h-2-f2": SubResource("Sprite_94"),
-"wall-h-3-f2": SubResource("Sprite_95"),
-"wall-v-0-f2": SubResource("Sprite_96"),
-"wall-v-1-f2": SubResource("Sprite_97"),
-"wall-v-2-f2": SubResource("Sprite_98"),
-"wall-v-3-f2": SubResource("Sprite_99"),
-"wall-h-0-f3": SubResource("Sprite_100"),
-"wall-h-1-f3": SubResource("Sprite_101"),
-"wall-h-2-f3": SubResource("Sprite_102"),
-"wall-h-3-f3": SubResource("Sprite_103"),
-"wall-v-0-f3": SubResource("Sprite_104"),
-"wall-v-1-f3": SubResource("Sprite_105"),
-"wall-v-2-f3": SubResource("Sprite_106"),
-"wall-v-3-f3": SubResource("Sprite_107"),
-"floor-b1": SubResource("Sprite_108"),
-"floor-b2": SubResource("Sprite_109"),
-"floor-b3": SubResource("Sprite_110"),
-"floor-b4": SubResource("Sprite_111"),
-"floor-b1-damage-a": SubResource("Sprite_112"),
-"floor-b2-damage-b": SubResource("Sprite_113"),
-"floor-b3-damage-c": SubResource("Sprite_114"),
-"floor-b4-damage-d": SubResource("Sprite_115"),
+"prop-basin": SubResource("Sprite_122"),
+"prop-basin-shadow": SubResource("Sprite_123"),
+"prop-candles": SubResource("Sprite_126"),
+"prop-candles-shadow": SubResource("Sprite_127"),
+"prop-chest": SubResource("Sprite_128"),
+"prop-chest-east": SubResource("Sprite_132"),
+"prop-chest-east-shadow": SubResource("Sprite_133"),
+"prop-chest-north": SubResource("Sprite_136"),
+"prop-chest-north-shadow": SubResource("Sprite_137"),
+"prop-chest-open": SubResource("Sprite_130"),
+"prop-chest-open-east": SubResource("Sprite_134"),
+"prop-chest-open-east-shadow": SubResource("Sprite_135"),
+"prop-chest-open-north": SubResource("Sprite_138"),
+"prop-chest-open-north-shadow": SubResource("Sprite_139"),
+"prop-chest-open-shadow": SubResource("Sprite_131"),
+"prop-chest-open-west": SubResource("Sprite_142"),
+"prop-chest-open-west-shadow": SubResource("Sprite_143"),
+"prop-chest-shadow": SubResource("Sprite_129"),
+"prop-chest-west": SubResource("Sprite_140"),
+"prop-chest-west-shadow": SubResource("Sprite_141"),
 "prop-crystals": SubResource("Sprite_116"),
 "prop-crystals-shadow": SubResource("Sprite_117"),
+"prop-grimoire": SubResource("Sprite_124"),
+"prop-grimoire-shadow": SubResource("Sprite_125"),
 "prop-idol": SubResource("Sprite_118"),
 "prop-idol-shadow": SubResource("Sprite_119"),
 "prop-stele": SubResource("Sprite_120"),
 "prop-stele-shadow": SubResource("Sprite_121"),
-"prop-basin": SubResource("Sprite_122"),
-"prop-basin-shadow": SubResource("Sprite_123"),
-"prop-grimoire": SubResource("Sprite_124"),
-"prop-grimoire-shadow": SubResource("Sprite_125"),
-"prop-candles": SubResource("Sprite_126"),
-"prop-candles-shadow": SubResource("Sprite_127"),
-"prop-chest": SubResource("Sprite_128"),
-"prop-chest-shadow": SubResource("Sprite_129"),
-"prop-chest-open": SubResource("Sprite_130"),
-"prop-chest-open-shadow": SubResource("Sprite_131"),
-"prop-chest-east": SubResource("Sprite_132"),
-"prop-chest-east-shadow": SubResource("Sprite_133"),
-"prop-chest-open-east": SubResource("Sprite_134"),
-"prop-chest-open-east-shadow": SubResource("Sprite_135"),
-"prop-chest-north": SubResource("Sprite_136"),
-"prop-chest-north-shadow": SubResource("Sprite_137"),
-"prop-chest-open-north": SubResource("Sprite_138"),
-"prop-chest-open-north-shadow": SubResource("Sprite_139"),
-"prop-chest-west": SubResource("Sprite_140"),
-"prop-chest-west-shadow": SubResource("Sprite_141"),
-"prop-chest-open-west": SubResource("Sprite_142"),
-"prop-chest-open-west-shadow": SubResource("Sprite_143"),
-"trap-spike-ready-floor": SubResource("Sprite_144"),
-"trap-spike-ready-mechanism": SubResource("Sprite_145"),
-"trap-spike-triggered-floor": SubResource("Sprite_146"),
-"trap-spike-triggered-mechanism": SubResource("Sprite_147"),
-"trap-spike-spent-floor": SubResource("Sprite_148"),
-"trap-spike-spent-mechanism": SubResource("Sprite_149"),
+"stair-east": SubResource("Sprite_12"),
+"stair-north": SubResource("Sprite_11"),
+"stair-south": SubResource("Sprite_13"),
+"stair-west": SubResource("Sprite_14"),
+"torch-horizontal": SubResource("Sprite_18"),
+"torch-vertical": SubResource("Sprite_19"),
 "trap-snare-ready-floor": SubResource("Sprite_150"),
 "trap-snare-ready-mechanism": SubResource("Sprite_151"),
-"trap-snare-triggered-floor": SubResource("Sprite_152"),
-"trap-snare-triggered-mechanism": SubResource("Sprite_153"),
 "trap-snare-spent-floor": SubResource("Sprite_154"),
 "trap-snare-spent-mechanism": SubResource("Sprite_155"),
+"trap-snare-triggered-floor": SubResource("Sprite_152"),
+"trap-snare-triggered-mechanism": SubResource("Sprite_153"),
+"trap-spike-ready-floor": SubResource("Sprite_144"),
+"trap-spike-ready-mechanism": SubResource("Sprite_145"),
+"trap-spike-spent-floor": SubResource("Sprite_148"),
+"trap-spike-spent-mechanism": SubResource("Sprite_149"),
+"trap-spike-triggered-floor": SubResource("Sprite_146"),
+"trap-spike-triggered-mechanism": SubResource("Sprite_147"),
 "trap-void-ready-floor": SubResource("Sprite_156"),
-"trap-void-triggered-floor": SubResource("Sprite_157"),
 "trap-void-spent-floor": SubResource("Sprite_158"),
-"door-north-open-leaf": SubResource("Sprite_159"),
-"door-north-open-arch": SubResource("Sprite_160"),
-"door-north-open-jamb-right": SubResource("Sprite_161"),
-"door-east-open-leaf": SubResource("Sprite_162"),
-"door-east-open-arch": SubResource("Sprite_163"),
-"door-east-open-jamb-right": SubResource("Sprite_164"),
-"door-south-open-leaf": SubResource("Sprite_165"),
-"door-south-open-arch": SubResource("Sprite_166"),
-"door-south-open-jamb-right": SubResource("Sprite_167"),
-"door-west-open-leaf": SubResource("Sprite_168"),
-"door-west-open-arch": SubResource("Sprite_169"),
-"door-west-open-jamb-right": SubResource("Sprite_170"),
-"door-north-wood-panel-left": SubResource("Sprite_171"),
-"door-north-wood-panel-right": SubResource("Sprite_172"),
-"door-north-arcane-panel": SubResource("Sprite_173"),
-"door-north-arcane-panel-left": SubResource("Sprite_174"),
-"door-north-arcane-panel-right": SubResource("Sprite_175"),
-"door-north-iron-panel": SubResource("Sprite_176"),
-"door-north-iron-panel-left": SubResource("Sprite_177"),
-"door-north-iron-panel-right": SubResource("Sprite_178"),
-"door-north-grille-panel": SubResource("Sprite_179"),
-"door-east-wood-panel-left": SubResource("Sprite_180"),
-"door-east-wood-panel-right": SubResource("Sprite_181"),
-"door-east-arcane-panel": SubResource("Sprite_182"),
-"door-east-arcane-panel-left": SubResource("Sprite_183"),
-"door-east-arcane-panel-right": SubResource("Sprite_184"),
-"door-east-iron-panel": SubResource("Sprite_185"),
-"door-east-iron-panel-left": SubResource("Sprite_186"),
-"door-east-iron-panel-right": SubResource("Sprite_187"),
-"door-east-grille-panel": SubResource("Sprite_188"),
-"door-south-wood-panel-left": SubResource("Sprite_189"),
-"door-south-wood-panel-right": SubResource("Sprite_190"),
-"door-south-arcane-panel": SubResource("Sprite_191"),
-"door-south-arcane-panel-left": SubResource("Sprite_192"),
-"door-south-arcane-panel-right": SubResource("Sprite_193"),
-"door-south-iron-panel": SubResource("Sprite_194"),
-"door-south-iron-panel-left": SubResource("Sprite_195"),
-"door-south-iron-panel-right": SubResource("Sprite_196"),
-"door-south-grille-panel": SubResource("Sprite_197"),
-"door-west-wood-panel-left": SubResource("Sprite_198"),
-"door-west-wood-panel-right": SubResource("Sprite_199"),
-"door-west-arcane-panel": SubResource("Sprite_200"),
-"door-west-arcane-panel-left": SubResource("Sprite_201"),
-"door-west-arcane-panel-right": SubResource("Sprite_202"),
-"door-west-iron-panel": SubResource("Sprite_203"),
-"door-west-iron-panel-left": SubResource("Sprite_204"),
-"door-west-iron-panel-right": SubResource("Sprite_205"),
-"door-west-grille-panel": SubResource("Sprite_206")}
+"trap-void-triggered-floor": SubResource("Sprite_157"),
+"wall-h-0": SubResource("Sprite_1"),
+"wall-h-0-a1": SubResource("Sprite_36"),
+"wall-h-0-a2": SubResource("Sprite_44"),
+"wall-h-0-a3": SubResource("Sprite_52"),
+"wall-h-0-c1": SubResource("Sprite_60"),
+"wall-h-0-c2": SubResource("Sprite_68"),
+"wall-h-0-c3": SubResource("Sprite_76"),
+"wall-h-0-f1": SubResource("Sprite_84"),
+"wall-h-0-f2": SubResource("Sprite_92"),
+"wall-h-0-f3": SubResource("Sprite_100"),
+"wall-h-1": SubResource("Sprite_2"),
+"wall-h-1-a1": SubResource("Sprite_37"),
+"wall-h-1-a2": SubResource("Sprite_45"),
+"wall-h-1-a3": SubResource("Sprite_53"),
+"wall-h-1-c1": SubResource("Sprite_61"),
+"wall-h-1-c2": SubResource("Sprite_69"),
+"wall-h-1-c3": SubResource("Sprite_77"),
+"wall-h-1-f1": SubResource("Sprite_85"),
+"wall-h-1-f2": SubResource("Sprite_93"),
+"wall-h-1-f3": SubResource("Sprite_101"),
+"wall-h-2": SubResource("Sprite_3"),
+"wall-h-2-a1": SubResource("Sprite_38"),
+"wall-h-2-a2": SubResource("Sprite_46"),
+"wall-h-2-a3": SubResource("Sprite_54"),
+"wall-h-2-c1": SubResource("Sprite_62"),
+"wall-h-2-c2": SubResource("Sprite_70"),
+"wall-h-2-c3": SubResource("Sprite_78"),
+"wall-h-2-f1": SubResource("Sprite_86"),
+"wall-h-2-f2": SubResource("Sprite_94"),
+"wall-h-2-f3": SubResource("Sprite_102"),
+"wall-h-3": SubResource("Sprite_4"),
+"wall-h-3-a1": SubResource("Sprite_39"),
+"wall-h-3-a2": SubResource("Sprite_47"),
+"wall-h-3-a3": SubResource("Sprite_55"),
+"wall-h-3-c1": SubResource("Sprite_63"),
+"wall-h-3-c2": SubResource("Sprite_71"),
+"wall-h-3-c3": SubResource("Sprite_79"),
+"wall-h-3-f1": SubResource("Sprite_87"),
+"wall-h-3-f2": SubResource("Sprite_95"),
+"wall-h-3-f3": SubResource("Sprite_103"),
+"wall-v-0": SubResource("Sprite_5"),
+"wall-v-0-a1": SubResource("Sprite_40"),
+"wall-v-0-a2": SubResource("Sprite_48"),
+"wall-v-0-a3": SubResource("Sprite_56"),
+"wall-v-0-c1": SubResource("Sprite_64"),
+"wall-v-0-c2": SubResource("Sprite_72"),
+"wall-v-0-c3": SubResource("Sprite_80"),
+"wall-v-0-f1": SubResource("Sprite_88"),
+"wall-v-0-f2": SubResource("Sprite_96"),
+"wall-v-0-f3": SubResource("Sprite_104"),
+"wall-v-1": SubResource("Sprite_6"),
+"wall-v-1-a1": SubResource("Sprite_41"),
+"wall-v-1-a2": SubResource("Sprite_49"),
+"wall-v-1-a3": SubResource("Sprite_57"),
+"wall-v-1-c1": SubResource("Sprite_65"),
+"wall-v-1-c2": SubResource("Sprite_73"),
+"wall-v-1-c3": SubResource("Sprite_81"),
+"wall-v-1-f1": SubResource("Sprite_89"),
+"wall-v-1-f2": SubResource("Sprite_97"),
+"wall-v-1-f3": SubResource("Sprite_105"),
+"wall-v-2": SubResource("Sprite_7"),
+"wall-v-2-a1": SubResource("Sprite_42"),
+"wall-v-2-a2": SubResource("Sprite_50"),
+"wall-v-2-a3": SubResource("Sprite_58"),
+"wall-v-2-c1": SubResource("Sprite_66"),
+"wall-v-2-c2": SubResource("Sprite_74"),
+"wall-v-2-c3": SubResource("Sprite_82"),
+"wall-v-2-f1": SubResource("Sprite_90"),
+"wall-v-2-f2": SubResource("Sprite_98"),
+"wall-v-2-f3": SubResource("Sprite_106"),
+"wall-v-3": SubResource("Sprite_8"),
+"wall-v-3-a1": SubResource("Sprite_43"),
+"wall-v-3-a2": SubResource("Sprite_51"),
+"wall-v-3-a3": SubResource("Sprite_59"),
+"wall-v-3-c1": SubResource("Sprite_67"),
+"wall-v-3-c2": SubResource("Sprite_75"),
+"wall-v-3-c3": SubResource("Sprite_83"),
+"wall-v-3-f1": SubResource("Sprite_91"),
+"wall-v-3-f2": SubResource("Sprite_99"),
+"wall-v-3-f3": SubResource("Sprite_107")
+}
