@@ -63,13 +63,40 @@ func run() -> void:
 		intro._process(.5)
 		check(intro.elapsed==time,"Paused entrance does not advance")
 		game.paused=false
-		intro._process(2.)
+		for moment in [11.,16.,20.,22.,24.,26.,35.9]:
+			intro.elapsed = moment
+			intro._walk_in(moment/intro.ENTRY_DURATION)
+			if moment < intro.ARTISAN_START:
+				check(intro.dialogue.visible and intro.dialogue.speaker.text == "L’invocateur","Invoker addresses the awake Core")
+				check(intro.artisans.is_empty(), "Artisans wait for their introduction")
+			else:
+				var count := 0
+				for artisan in intro.artisans:
+					if artisan.visible:
+						var role: String = ["mineur","menuisier","scientifique"][count]
+						check(artisan.sprite_frames.resource_path.contains("oculin-"+role+"-walk"),"Arrival order: "+role)
+						count += 1
+				check(count == (1 if moment==22. else 2 if moment==24. else 3),"Artisans enter one after another")
+			if moment==26. or moment==35.9:
+				await process_frame
+				await RenderingServer.frame_post_draw
+				root.get_texture().get_image().save_png("res://artifacts/sanctuary-procession/artisans-%d-%d.png" % [extent.x,roundi(moment)])
+		var artisan_positions := []
+		for artisan in intro.artisans:
+			artisan_positions.append(artisan.position)
+			check(artisan.animation == &"ne" and artisan.frame == 0,"Artisans face the same way at rest")
+		check((artisan_positions[1]-artisan_positions[0]).is_equal_approx(artisan_positions[2]-artisan_positions[1]),"Artisans form an evenly spaced rank")
+		intro._walk_in(11./intro.ENTRY_DURATION)
+		for artisan in intro.artisans: check(not artisan.visible,"Seeking back hides the artisan")
+		intro._process(intro.ENTRY_DURATION-intro.elapsed)
 		intro.set_process(false)
 		check(intro.shot==intro.Shot.LESSON,"Entrance reaches playable lesson")
 		check(intro.dungeon_master==null and intro.arrival_light==null,"Arrival sprites cleaned up")
 		check(intro.film.master_view.render_target_update_mode==SubViewport.UPDATE_DISABLED,"Master renderer released")
 		check(intro.invoker.sprite.texture.resource_path.contains("invoker-follow/se-idle"),"Tutorial invoker faces the Core")
 		check(intro.invoker.position.is_equal_approx(invoker_position),"Invoker stays in place at lesson handoff")
+		for i in intro.artisans.size():
+			check(intro.artisans[i].visible and intro.artisans[i].position.is_equal_approx(artisan_positions[i]),"Artisan holds place into lesson")
 		check(intro.view.core_awakening==1.,"Normal gameplay restores the active Core")
 		check(intro.view._vortex_animator.manual_time<0.,"Gameplay restores normal Core animation")
 	for state in [intro.Shot.RITUAL,intro.Shot.ENTRANCE]:
@@ -87,7 +114,7 @@ func run() -> void:
 	for extent in [Vector2i(1280,720),Vector2i(390,844),Vector2i(844,390)]:
 		root.size=extent
 		await process_frame
-		for moment in [30.,40.,43.5]:
+		for moment in [31.6,preview.intro.Film.DURATION-.4,preview.intro.Film.DURATION+3.1]:
 			preview.clock=moment
 			preview.present(moment)
 			await process_frame

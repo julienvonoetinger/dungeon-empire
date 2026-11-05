@@ -8,6 +8,18 @@ var directional_textures := {}
 static var walk_data: Dictionary={}
 const COUNTS := {"idle":1,"walk":24,"chant":48,"bow":32,"kneel":32}
 
+const MESSENGER_ATLASES := {
+	"turn": "res://assets/game/introduction/messengers/turn.png",
+	"run-n": "res://assets/game/introduction/messengers/run-n.png",
+	"run-ne": "res://assets/game/introduction/messengers/run-ne.png",
+	"run-e": "res://assets/game/introduction/messengers/run-e.png",
+	"run-se": "res://assets/game/introduction/messengers/run-se.png",
+	"run-s": "res://assets/game/introduction/messengers/run-s.png",
+	"run-sw": "res://assets/game/introduction/messengers/run-sw.png",
+	"run-w": "res://assets/game/introduction/messengers/run-w.png",
+	"run-nw": "res://assets/game/introduction/messengers/run-nw.png",
+}
+
 func _ready() -> void:
 	shadow.texture = preload("res://assets/dungeon/mobile-kit/light-falloff.png")
 	shadow.scale = Vector2(98,32)/Vector2(shadow.texture.get_size())
@@ -27,6 +39,12 @@ func present(mode: String, frame: int) -> void:
 	var columns := mini(8,int(COUNTS[mode]))
 	sprite.texture = textures.get(mode)
 	sprite.region_rect = Rect2((frame%columns)*256,floori(float(frame)/columns)*256,256,256)
+
+func present_messenger(clip: String, frame: int) -> void:
+	if not directional_textures.has(clip):
+		directional_textures[clip] = load(MESSENGER_ATLASES[clip])
+	sprite.texture = directional_textures[clip]
+	sprite.region_rect = Rect2(frame%4*256,floori(frame/4.)*256,256,256)
 
 func present_direction(mode: String, frame: int, direction: String) -> void:
 	if direction=="n" or not is_invoker:

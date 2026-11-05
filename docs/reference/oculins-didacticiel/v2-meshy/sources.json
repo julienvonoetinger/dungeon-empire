@@ -1,0 +1,122 @@
+{
+  "mineur/personnage/01-face.png": {
+    "source": "mineur.png",
+    "sha256": "427b38811a0bca5d8b859b29a0cc8639e38cd74ee16ddf2f0b296a9b648a1515",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "mineur/personnage/02-profil-gauche.png": {
+    "source": "exec-3ebb1a6a-e2dc-4516-9518-b363a6c14b25.png",
+    "sha256": "07146bbabfe4ddb7df7182d8abe8b1f2e64a7e24c012fb4a2857d7b032e672b2",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "mineur/personnage/03-dos.png": {
+    "source": "exec-68a08a7e-4931-4b92-b5a6-22b1d59b101a.png",
+    "sha256": "18ff11755db2eedf5a4d34827a8198967a7ef3e9bb54db2542da15664026b9f7",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "mineur/personnage/04-profil-droit.png": {
+    "source": "exec-912d765a-4dbd-4341-9372-8d635b13b6a5.png",
+    "sha256": "eccc1008a0463358f9e8384ea676a49b3d19a1d926da84c8dbeca6d3fc7d9226",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "mineur/outil/pioche.png": {
+    "source": "exec-97efd2a2-2afd-45b2-a7ad-e17216c485e4.png",
+    "sha256": "dbe8bb8b2a4f167030c38d35b1023c203dbffccaac931c0b1a48def3cd34a5fe",
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  "batisseur/personnage/01-face.png": {
+    "source": "batisseur-sans-outils.png",
+    "sha256": "af105baf86dd2261051e3578d61e8469fa3c3cf0aeb3b2693ab9c915c9d512c6",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "batisseur/personnage/02-profil-gauche.png": {
+    "source": "exec-dab0f483-2d01-40a5-ae72-08acbded6f38.png",
+    "sha256": "d35396bd3b4852ab463d34a31784faf1d2c8da084231ba969a725393b759c36a",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "batisseur/personnage/03-dos.png": {
+    "source": "exec-487c0659-8a6a-45d5-88e4-66a87e4f7922.png",
+    "sha256": "4a807d2cb13f0effd69f5fdfbc1bfe1e4216cae18464956555c36c1a7bcb9320",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "batisseur/personnage/04-profil-droit.png": {
+    "source": "exec-b4161e11-2d40-4faa-a486-355ca33f57b1.png",
+    "sha256": "ff8d7c6bd0720f88ca2197a2ff97a980de347ce4fd61eabaddf82799a0dd2ca6",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "batisseur/outil/marteau.png": {
+    "source": "exec-9ae02d00-d4ff-474a-8237-8e2f1f82acc2.png",
+    "sha256": "a447a226712ee6f67058afa9372e6fa6007953cf76ca0527f208ad606093e8a2",
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  "scientifique/personnage/01-face.png": {
+    "source": "scientifique.png",
+    "sha256": "6431d86c43f5ede051aea76734ba58a91712eb20c46e67780bd9c6e641f04246",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "scientifique/personnage/02-profil-gauche.png": {
+    "source": "exec-7b274280-6b65-44d9-bc30-e0900e88e974.png",
+    "sha256": "5db21da800c5628805f5709995d539a847e698e8c02f551bd2dc9e81de89238a",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "scientifique/personnage/03-dos.png": {
+    "source": "exec-336b3fea-efdb-47c4-9777-449471693f4e.png",
+    "sha256": "bc394219d820c5fdbc819761a0e0b6c335fdc63353b83db3eb7d214c6cb14dbc",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "scientifique/personnage/04-profil-droit.png": {
+    "source": "exec-87640b1e-a0af-48fd-ad5d-edf2bc2e2d52.png",
+    "sha256": "6079a944f8380431f3f2b2723cd475d6e0dd3eec18e5ff0e1c1329b1d0268b83",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "scientifique/outil/diapason.png": {
+    "source": "exec-9f3954cc-71ba-4708-9d3b-83291a7dd509.png",
+    "sha256": "be8d0b0ddefb3421e23a799d01967bce1b6ff16dde18b401171afc410434e228",
+    "size": [
+      1024,
+      1536
+    ]
+  }
+}

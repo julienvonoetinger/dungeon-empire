@@ -2,7 +2,8 @@ extends Control
 ## Procession, incantation, manifestation and kneeling share one explicit clock.
 const ENVIRONMENT := preload("res://scenes/game/InvocationSanctuary.tscn")
 const TERRAIN_BOUNDS := Rect2(-1800,-2000,3600,4000)
-const DURATION := 40.4
+const DISPATCH_BEAT := 8.0
+const DURATION := 40.4 + DISPATCH_BEAT
 const Actor = preload("res://scripts/game/invocation_actor.gd")
 const Master = preload("res://scripts/previews/wraith_master.gd")
 const LIGHT = preload("res://assets/dungeon/mobile-kit/light-falloff.png")
@@ -20,6 +21,7 @@ var stops: Array[Vector2] = [Vector2(0,235),Vector2(-105,420),Vector2(105,420),V
 var navigation = Paths.new()
 var departure_navigation=Paths.new(true)
 var departure_route:=PackedVector2Array()
+var return_lengths: Array[float] = []
 var routes: Array[PackedVector2Array] = []
 var seconds := 0.0
 var kneel_progress := 0.0
@@ -44,7 +46,7 @@ func _ready() -> void:
 		sanctuary.add_child(actor)
 		actors.append(actor)
 	ritual_light.texture = LIGHT
-	ritual_light.position = Vector2(-6,22)
+	ritual_light.position = Magic.CENTER
 	ritual_light.scale = Vector2(430,190)/Vector2(LIGHT.get_size())
 	sanctuary.add_child(ritual_light)
 	_setup_master()
@@ -56,8 +58,8 @@ func _ready() -> void:
 	departure_route=departure_navigation.route(stops[0],Passage.GATE_CENTER)
 	for stone_name in ["Menhir3","Menhir4","Menhir5","Menhir6","Menhir1","Menhir2"]:
 		var stone: Sprite2D=sanctuary.get_node(stone_name)
-		var ink := stone.texture.get_image().get_used_rect()
-		air_magic.stones.append(stone.position+stone.offset+Vector2(ink.position)+Vector2(ink.size)*Vector2(.5,.25))
+		var crystal: Vector2 = stone.get_meta("crystal")
+		air_magic.stones.append(stone.position + crystal)
 	resized.connect(_fit)
 	_fit()
 	present(0.0)
@@ -77,12 +79,18 @@ func _fit() -> void:
 	camera_scale=sanctuary.scale.x
 	starts.clear()
 	routes.clear()
+	return_lengths.clear()
 	var bottom := (size.y-sanctuary.position.y)/sanctuary.scale.y
 	for i in 5:
 		var spawn := Vector2(stops[i].x,bottom+260+i*48)
 		if i >= 3: spawn.y=maxf(spawn.y,starts[i-2].y+160.0)
 		starts.append(navigation.spawn_below(spawn))
-		routes.append(navigation.route(starts[i],stops[i]))
+		var route: PackedVector2Array = navigation.route(starts[i],stops[i])
+		routes.append(route)
+		var length := 0.0
+		for j in range(1,route.size()):
+			length += route[j-1].distance_to(route[j])
+		return_lengths.append(length)
 	var was_visible := visible
 	# A hidden film may lend its viewport to the dungeon arrival shot.
 	# Resizing must not reset that shot's model pose or disable its renderer.
@@ -109,7 +117,10 @@ func present(time: float) -> void:
 		elif seconds >= 22.0 + i*.12:
 			mode = "bow" if i == 0 else "kneel"
 			frame = clampi(int((seconds-22.0-i*.12)*24.0),0,31)
+		actors[i].visible = true
 		actors[i].present(mode,frame)
+		if i > 0:
+			_present_messenger(i)
 		_sort_at(actors[i],actors[i].position.y)
 	kneel_progress = clampf((seconds-22.48)/(31.0/24.0),0.0,1.0)
 	var manifestation := smoothstep(20.0,22.0,seconds)
@@ -118,21 +129,23 @@ func present(time: float) -> void:
 	master_sprite.scale = Vector2.ONE*(.35+.65*manifestation)*1.10
 	# Form inside the light burst before rising to the final hovering position.
 	master_sprite.position = Magic.MANIFESTATION_CENTER.lerp(MASTER_HOVER_CENTER,smoothstep(20.6,22.0,seconds))-master_root.position
-	var contraction:=smoothstep(26.8,28.8,seconds)
+	# Hold the passage choreography while the invoker addresses the survivors.
+	var passage_time := seconds - clampf(seconds-24.,0.,DISPATCH_BEAT)
+	var contraction:=smoothstep(26.8,28.8,passage_time)
 	master_sprite.scale*=lerpf(1.,.42/1.10,contraction)
-	var travel_ground: Vector2=gate.master_ground(seconds)
-	if seconds>26.8:
+	var travel_ground: Vector2=gate.master_ground(passage_time)
+	if passage_time>26.8:
 		master_sprite.position=travel_ground-master_root.position+Vector2(0,lerpf(-235.,-76.,contraction))
-	master_sprite.modulate.a*=1.-smoothstep(33.55,34.,seconds)
-	master.rotation.y=PI*smoothstep(24.5,26.2,seconds)-.65*smoothstep(30.4,31.4,seconds)
+	master_sprite.modulate.a*=1.-smoothstep(33.55,34.,passage_time)
+	master.rotation.y=PI*smoothstep(24.5,26.2,passage_time)-.65*smoothstep(30.4,31.4,passage_time)
 	master_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS if master_sprite.visible else SubViewport.UPDATE_DISABLED
 	if master_sprite.visible: master.present(fposmod(seconds-20.0,6.0))
-	ritual_light.modulate = Color(.62,.23,1.0,(.16*smoothstep(11.0,20.0,seconds)+.2*manifestation))
+	ritual_light.modulate = Color(.62,.23,1.0,(.16*smoothstep(11.0,20.0,passage_time)+.2*manifestation))
 	_sort_at(ritual_light,55.0)
 	ground_magic.present(seconds)
 	air_magic.present(seconds)
 	_sort_at(ground_magic,54.6)
-	_sort_at(master_root,travel_ground.y if seconds>28.8 else 55.)
+	_sort_at(master_root,travel_ground.y if passage_time>28.8 else 55.)
 	# Its ground anchor moves behind the altar before the hovering body clears it.
 	# Keep the flying sprite above the altar until their screen bounds separate.
 	var altar: Sprite2D=sanctuary.get_node("Dalle")
@@ -141,46 +154,78 @@ func present(time: float) -> void:
 	altar_bounds.position+=altar.position
 	if master_bounds.intersects(altar_bounds) and master_root.get_index()<altar.get_index():
 		sanctuary.move_child(master_root,altar.get_index())
-	if seconds>=31. and master_root.get_index()<gate.stairs.get_index():
+	if passage_time>=31. and master_root.get_index()<gate.stairs.get_index():
 		sanctuary.move_child(master_root,gate.stairs.get_index())
 	_sort_at(air_magic,190.0)
 	gate.source=master_root.position+master_sprite.position
-	gate.present(seconds)
+	gate.present(passage_time)
 	_sort_at(gate,54.8)
-	gate.mask_master(master_sprite,master_root.position,seconds)
-	_present_invoker_departure()
-	var pan:=smoothstep(24.5,29.5,seconds)
+	gate.mask_master(master_sprite,master_root.position,passage_time)
+	_present_invoker_departure(passage_time)
+	var group_focus := camera_focus.lerp(Vector2(0,260),smoothstep(24.2,26.5,seconds))
+	var pan:=smoothstep(24.5,29.5,passage_time)
 	var zoom:=lerpf(1.,1.18,pan) if size.x>size.y else 1.
 	sanctuary.scale=Vector2.ONE*camera_scale*zoom
-	sanctuary.position=size*.5-camera_focus.lerp(Vector2(70,-220),pan)*camera_scale*zoom
+	sanctuary.position=size*.5-group_focus.lerp(Vector2(70,-220),pan)*camera_scale*zoom
 	show()
 
-func _present_invoker_departure() -> void:
+func _present_messenger(index: int) -> void:
+	var actor := actors[index]
+	# The two nearest the exit move first, leaving room for the front pair.
+	var rise := 29.3 + float([0.62,0.78,0.0,0.16][index-1])
+	if seconds < rise: return
+	var elapsed := seconds-rise
+	if elapsed < .65:
+		actor.present("kneel",roundi(31.*(1.-smoothstep(0.,.65,elapsed))))
+		return
+	if elapsed < 1.1:
+		actor.present_messenger("turn",roundi(8.*(elapsed-.65)/.45))
+		return
+	var running := elapsed-1.1
+	# Accelerate out of the pivot. Reverse the already cleared approach route.
+	var distance := 235.*(running - .14*(1.-exp(-running/.14)))
+	var route := routes[index]
+	var length := return_lengths[index]
+	if distance >= length:
+		actor.position = starts[index]
+		actor.hide()
+		return
+	actor.position = Paths.sample(route,1.-distance/length)
+	var ahead := Paths.sample(route,1.-(distance+4.)/length)
+	var facing := Actor.direction_for(ahead-actor.position)
+	actor.present_messenger("run-"+facing,int(running*24.)%12)
+
+func _present_invoker_departure(passage_time: float) -> void:
 	var actor: Node2D=actors[0]
 	actor.modulate.a=1.
 	actor.sprite.material=null
 	actor.shadow.modulate.a=.7
-	if seconds<28.5: return
-	if seconds<29.3:
-		actor.present("bow",roundi(31.*(1.-smoothstep(28.5,29.3,seconds))))
+	if seconds < 25.2: return
+	if seconds < 26.0:
+		actor.present("bow",roundi(31.*(1.-smoothstep(25.2,26.0,seconds))))
 		return
-	var progress:=smoothstep(29.3,35.7,seconds)
+	if passage_time < 29.3:
+		var turn := smoothstep(26.0,26.7,seconds) * (1.-smoothstep(32.6,33.3,seconds))
+		var headings := ["n","nw","w","sw","s"]
+		actor.present_direction("idle",0,headings[roundi(turn*4.)])
+		return
+	var progress:=smoothstep(29.3,35.7,passage_time)
 	var cycles: float=Actor.walk_cycles(departure_route,progress,actor.scale.x)
 	actor.position=Paths.sample(departure_route,progress)
 	var next:=Paths.sample(departure_route,minf(1.,progress+.005))
 	var direction: String=Actor.direction_for(next-actor.position)
-	if seconds>=35.7:
-		actor.position=gate.master_ground(seconds-4.7)
+	if passage_time>=35.7:
+		actor.position=gate.master_ground(passage_time-4.7)
 		var ground_distance: float=absf(actor.position.x-Passage.GATE_CENTER.x)*sqrt(1.25)
 		cycles+=ground_distance/(Actor.stride_pixels("ne")*actor.scale.x)
 		direction="ne"
 	actor.present_direction("walk",int(cycles*24.)%24,direction)
 	_sort_at(actor,actor.position.y)
-	if seconds>=35.7:
+	if passage_time>=35.7:
 		if actor.get_index()<gate.stairs.get_index(): sanctuary.move_child(actor,gate.stairs.get_index())
-		gate.mask_invoker(actor,seconds-4.7)
-		actor.shadow.modulate.a=.7*(1.-smoothstep(35.7,36.,seconds))
-		actor.modulate.a=1.-smoothstep(38.25,38.7,seconds)
+		gate.mask_invoker(actor,passage_time-4.7)
+		actor.shadow.modulate.a=.7*(1.-smoothstep(35.7,36.,passage_time))
+		actor.modulate.a=1.-smoothstep(38.25,38.7,passage_time)
 
 func release() -> void:
 	master_view.render_target_update_mode = SubViewport.UPDATE_DISABLED

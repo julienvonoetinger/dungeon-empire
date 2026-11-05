@@ -15,12 +15,6 @@ func _init(departure:=false) -> void:
 	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	grid.update()
 	var source = JSON.parse_string(FileAccess.get_file_as_string("res://assets/game/introduction/procession/obstacles.json"))
-	if departure:
-		var altar:=[]
-		for i in 32:
-			var angle:=TAU*i/32.
-			altar.append([-6+cos(angle)*207.,7+sin(angle)*111.])
-		source.append({"name":"Altar","points":altar})
 	for item in source:
 		if departure and item.name=="Paroi4": continue
 		var shift:=Vector2.ZERO

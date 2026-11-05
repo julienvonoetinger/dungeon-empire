@@ -10,7 +10,7 @@ scene=(REPO/'scenes/game/InvocationSanctuary.tscn').read_text()
 obstacles=[]
 for block in scene.split('[node ')[1:]:
     name=re.search(r'name="([^"]+)"',block).group(1)
-    if not name.startswith(('RocheApproche','Eboulis','Menhir','Paroi','Crete')) or 'Ombre' in name: continue
+    if not name.startswith(('RocheApproche','Eboulis','Paroi','Crete')) or 'Ombre' in name: continue
     texture=re.search(r'texture = ExtResource\("([^"]+)"\)',block)
     pos=re.search(r'position = Vector2\(([^,]+),([^\)]+)\)',block)
     if not texture or not pos or texture[1] not in models: continue
@@ -29,6 +29,8 @@ for block in scene.split('[node ')[1:]:
     if len(hull)<3: continue
     position=[float(pos[1]),float(pos[2])]
     obstacles.append(dict(name=name,points=[[p[0]+position[0],p[1]+position[1]] for p in hull]))
+footprint=REPO/'docs/reference/invocation-magic/autel-meshy/footprint.json'
+obstacles.append(dict(name='Altar',points=json.loads(footprint.read_text())))
 dest=REPO/'assets/game/introduction/procession'
 (dest/'obstacles.json').write_text(json.dumps(obstacles,separators=(',',':')),encoding='utf8')
 if (OUT/'oculin.json').exists():

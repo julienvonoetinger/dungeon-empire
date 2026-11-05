@@ -5,12 +5,17 @@ const RITUAL := [
 	[10.0, 14.8, "L’invocateur", "Aldren a pris nos terres. Nos familles se terrent dans les grottes."],
 	[15.0, 20.0, "L’invocateur", "Recevez notre serment. Donnez-nous la force de reprendre notre foyer !"],
 	[22.2, 26.4, "Le Maître", "J’ai entendu votre appel. Ma puissance aura un prix : votre fidélité."],
-	[26.6, 30.8, "Le Maître", "Sous cette montagne s’élèvera mon royaume. Suis-moi, invocateur."],
-	[31.0, 35.0, "L’invocateur", "Je vous suis, Maître. Que les nôtres trouvent enfin un refuge."],
+	[26.7, 30.5, "L’invocateur", "Retournez aux grottes. Allez chercher les autres et ramenez-les ici !"],
+	[32.6, 36.8, "Le Maître", "Sous cette montagne s’élèvera mon royaume. Suis-moi, invocateur."],
+	[37.1, 40.2, "L’invocateur", "Je vous suis, Maître. Que les nôtres trouvent enfin un refuge."],
 ]
 const ENTRANCE := [
 	[1.0, 4.8, "L’invocateur", "Tout est à bâtir… La montagne nous cachera-t-elle d’Aldren ?"],
 	[5.0, 8.9, "Le Maître", "Ce cœur abritera ma puissance. Défendez-le, et notre royaume grandira."],
+	[9.3, 14.2, "L’invocateur", "Maître, chez nous, on apprend à manier les outils. Bien peu des nôtres savent tenir une épée."],
+	[14.5, 18.8, "L’invocateur", "Mais nous vous avons donné notre parole. Tout ce que nos mains savent faire, nous le ferons pour vous."],
+	[19.2, 23.4, "L’invocateur", "J’ai fait venir nos meilleurs artisans. Tenez, les voilà qui descendent."],
+	[31.1, 36.1, "L’invocateur", "Approchez, mes amis. Maître, voici notre mineur, notre menuisier et notre scientifique."],
 ]
 var speaker := Label.new()
 var words := Label.new()

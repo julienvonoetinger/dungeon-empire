@@ -21,6 +21,6 @@ scene=scene.replace(/^\[ext_resource type="Script"[^\n]+\n/gm,'')
  .replace('[node name="SanctuairePeint"','[node name="Sanctuary"')
  .replace(/load_steps=\d+/,'load_steps='+(Object.keys(assets).length+1));
 if(scene.includes('res://assets/previews/')||scene.includes('sanctuary_wireframe_view'))throw Error('Preview dependency remains');
-save('scenes/game/InvocationSanctuary.tscn',scene);
+save('scenes/game/InvocationSanctuary.tscn',require('./integrate_ritual_altar.cjs').integrateRitualAltar(scene));
 save('docs/reference/sanctuary-textured/integration/recipe.json',JSON.stringify({source,sourceHash:hash(original),scene:'scenes/game/InvocationSanctuary.tscn',assets},null,2)+'\n');
 console.log(Object.keys(assets).length+' byte-identical textures promoted; scenery geometry unchanged.');

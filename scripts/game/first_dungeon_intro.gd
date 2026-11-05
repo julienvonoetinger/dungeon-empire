@@ -5,7 +5,17 @@ const Types = preload("res://scripts/game/game_types.gd")
 const Film = preload("res://scripts/game/invocation_sanctuary.gd")
 const Dialogue = preload("res://scripts/game/invocation_dialogue.gd")
 enum Shot { CLOSED, PROLOGUE, RITUAL, ENTRANCE, LESSON }
-const ENTRY_DURATION := 9.0
+const ENTRY_DURATION := 36.5
+const ARTISAN_START := 21.0
+const ARTISAN_SPACING := 1.65
+const ARTISAN_SPEED := .56
+const ARTISAN_FRAMES := [
+	"res://assets/previews/oculin-mineur-walk/frames.tres",
+	"res://assets/previews/oculin-menuisier-walk/frames.tres",
+	"res://assets/previews/oculin-scientifique-walk/frames.tres",
+]
+# Travel per second of the original equipped, 20 fps walk cycles (model units).
+const ARTISAN_GAITS := [.77, .725, .69]
 const Stairs = preload("res://scripts/game/stair_traversal.gd")
 const PROLOGUE := [
 	["À l’écart du monde", "Au cœur des montagnes, les Oculins vivaient dans un village dissimulé entre les falaises. Ils avaient aménagé les pentes pour leurs cultures et bâti leurs maisons dans la pierre. Depuis des générations, ils vivaient ainsi, sans contact avec les autres peuples. Leur village ne figurait sur aucune carte. Aucun royaume ne connaissait leur existence.", "res://assets/game/introduction/prologue-basalt.webp", "res://assets/game/introduction/prologue-basalt-portrait.webp"],
@@ -45,6 +55,7 @@ var action: Button
 var target: Button
 var invoker: Node2D
 var invoker_at:=Vector2.ZERO
+var artisans: Array[AnimatedSprite2D] = []
 var dungeon_master: Sprite2D
 var arrival_light: Sprite2D
 var needs_focus := false
@@ -108,6 +119,10 @@ func _sync(_structure: bool) -> void:
 
 func _set_shot(next: int) -> void:
 	_clear_master_arrival()
+	if next != Shot.LESSON:
+		for artisan in artisans:
+			if is_instance_valid(artisan): artisan.queue_free()
+		artisans.clear()
 	shot = next
 	dialogue.present("", 0.)
 	view.set_core_awakening(1.0 if shot in [Shot.CLOSED,Shot.LESSON] else 0.0)
@@ -191,6 +206,7 @@ func _show_lesson() -> void:
 	view.position_invoker(invoker,_invoker_destination())
 	invoker_at=_invoker_destination()
 	invoker.present_direction("idle",0,"se")
+	_present_artisans(ENTRY_DURATION, _entrance_top())
 	var step := session.sim.lesson
 	title.text = "%d / 3   ·   %s" % [step, TITLES[step]]
 	line.text = LINES[step] if session.save_error.is_empty() else session.save_error
@@ -220,7 +236,57 @@ func _entrance_top() -> Vector2:
 	return Vector2(Types.FIRST_STAIR) + Vector2(.5,.5) - Vector2(session.sim._entrance_mouth(Types.FIRST_STAIR)) * Stairs.TOP_TRAVEL
 
 func _invoker_destination() -> Vector2:
-	return Vector2(Types.core_origin_cell()) + Vector2(-.5,.5)
+	return Vector2(Types.core_origin_cell()) + Vector2(-.5,.23)
+
+func _present_artisans(time: float, start: Vector2) -> Vector2:
+	var core := Vector2(Types.core_origin_cell())
+	var group_center := core + Vector2(.35,.8)
+	if time < ARTISAN_START:
+		for actor in artisans: actor.hide()
+		return group_center
+	artisans.resize(ARTISAN_FRAMES.size())
+	var leader := start
+	for i in artisans.size():
+		var actor := artisans[i]
+		if not is_instance_valid(actor) or actor.is_queued_for_deletion():
+			actor = AnimatedSprite2D.new()
+			actor.sprite_frames = load(ARTISAN_FRAMES[i])
+			actor.centered = false
+			actor.offset = Vector2(-128,-194.076)
+			actor.scale = Vector2.ONE * .82
+			actor.self_modulate = Color("d9dbea")
+			actor.z_index = 1
+			var shadow := Sprite2D.new()
+			shadow.texture = Film.LIGHT
+			shadow.scale = Vector2(90,30)/Vector2(Film.LIGHT.get_size())
+			shadow.modulate = Color(.025,.015,.04,.7)
+			shadow.show_behind_parent = true
+			actor.add_child(shadow)
+			artisans[i] = actor
+		var travel := maxf(0.,time-ARTISAN_START-i*ARTISAN_SPACING)*ARTISAN_SPEED
+		# Keep to the open corridor, then fan out along the front of the Core.
+		var corner := core + Vector2(-.65,.75)
+		var front := core + Vector2(-.65,1.48)
+		var stop := front + Vector2(2.10-i*1.05,0)
+		var at := start
+		var remaining := travel
+		var facing: StringName = &"ne"
+		for waypoint: Vector2 in [corner,front,stop]:
+			var length := at.distance_to(waypoint)
+			if remaining < length:
+				facing = &"sw" if waypoint == front else &"se"
+				at = at.move_toward(waypoint,remaining)
+				break
+			remaining -= length
+			at = waypoint
+		view.position_invoker(actor,at)
+		actor.visible = travel > 0.
+		actor.modulate.a = smoothstep(0.,.15,travel)
+		actor.animation = facing
+		var gait_speed := float(ARTISAN_GAITS[i]) * (256./2.55) * .70710678 / 128. * actor.scale.x
+		actor.frame = 0 if at == stop else int(travel/gait_speed*20.) % actor.sprite_frames.get_frame_count(facing)
+		if i == 0: leader = at
+	return leader.lerp(group_center,smoothstep(28.0,32.5,time))
 
 func _walk_in(progress: float) -> void:
 	_ensure_master_arrival()
@@ -231,8 +297,9 @@ func _walk_in(progress: float) -> void:
 	var travel := smoothstep(.5,6.5,time)
 	var at := start.lerp(Vector2(Types.core_origin_cell())+Vector2(.5,.5),travel)
 	film.master.rotation.y=PI*.25
-	film.master.present(fposmod(time,6.))
-	film.master_view.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	if time < 9.:
+		film.master.present(fposmod(time,6.))
+	film.master_view.render_target_update_mode=SubViewport.UPDATE_ALWAYS if time < 9. else SubViewport.UPDATE_DISABLED
 	var awakening := smoothstep(6.6,8.6,time)
 	view.set_core_awakening(awakening)
 	dungeon_master.modulate.a=smoothstep(.2,1.1,time)*(1.-awakening)
@@ -244,7 +311,6 @@ func _walk_in(progress: float) -> void:
 	arrival_light.position=view.grid_to_local(at)
 	arrival_light.modulate.a=.26*dungeon_master.modulate.a+.55*sin(PI*smoothstep(7.,8.8,time))
 	veil.color=Color(.025,.009,.045,1.-smoothstep(0.,.75,time))
-	_focus(at,0.)
 	_ensure_invoker()
 	var mouth:=Vector2(session.sim._entrance_mouth(Types.FIRST_STAIR))
 	var from:=start-mouth*.3
@@ -256,6 +322,9 @@ func _walk_in(progress: float) -> void:
 	var moving:=following>0. and following<1.
 	var distance: float=view.grid_to_local(from).distance_to(view.grid_to_local(invoker_at))
 	invoker.present_direction("walk" if moving else "idle",int(distance/(Film.Actor.stride_pixels("se")*invoker.scale.x)*24.)%24 if moving else 0,"se")
+	var assembly := _present_artisans(time,start)
+	var entrance_focus := start if time < ARTISAN_START else assembly
+	_focus(at.lerp(entrance_focus,smoothstep(19.6,21.7,time)),0.)
 
 func _focus(cell: Vector2, panel_offset := 1.) -> void:
 	focus_cell = cell

@@ -132,24 +132,24 @@ func _draw_seal() -> void:
 	var reveal := smoothstep(10.0,13.5,seconds)
 	var breathing := .8+.2*sin((seconds-10.0)*PI)
 	_glow(CENTER,Vector2(320,155),VIOLET,.30*energy)
-	# Follow the painted altar's ellipse and eye/diamond, without a spiral.
-	_ellipse(CENTER,Vector2(130,64),.65*energy*breathing,reveal)
-	var diamond := PackedVector2Array([CENTER+Vector2(0,-41),CENTER+Vector2(54,0),CENTER+Vector2(0,41),CENTER+Vector2(-54,0),CENTER+Vector2(0,-41)])
+	# Trace the inlay in the orthographic Meshy bake.
+	_ellipse(CENTER,Vector2(104,48),.65*energy*breathing,reveal)
+	var diamond := PackedVector2Array([CENTER+Vector2(0,-32),CENTER+Vector2(47,0),CENTER+Vector2(0,32),CENTER+Vector2(-47,0),CENTER+Vector2(0,-32)])
 	_line(diamond,.85*energy*reveal)
 	for sign_y in [-1.0,1.0]:
 		var eye := PackedVector2Array()
 		for i in range(25):
 			var f := i/24.0
-			eye.append(CENTER+Vector2(lerpf(-37,37,f),sin(PI*f)*12*sign_y))
+			eye.append(CENTER+Vector2(lerpf(-27,27,f),sin(PI*f)*9*sign_y))
 		_line(eye,energy*reveal)
 	_ellipse(CENTER,Vector2(4,9),energy*reveal)
 	for i in 8:
 		var angle := TAU*i/8.0
-		var point := CENTER+Vector2(cos(angle)*112,sin(angle)*54)
+		var point := CENTER+Vector2(cos(angle)*92,sin(angle)*43)
 		_glow(point,Vector2(25,16),PALE,energy*(.25+.12*sin(seconds*3+i)))
 	if seconds>=20.0 and seconds<22.0:
 		var f := (seconds-20.0)/2.0
-		_ellipse(CENTER,Vector2(130,64)*(1+2*f),pow(1-f,2)*.9)
+		_ellipse(CENTER,Vector2(104,48)*(1+2*f),pow(1-f,2)*.9)
 
 func _draw_air() -> void:
 	var settled := 1.0-smoothstep(20.8,23.0,seconds)

@@ -1,12 +1,5 @@
-[gd_scene load_steps=97 format=3]
+[gd_scene load_steps=91 format=3]
 
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/altar.png" id="altar"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-1.png" id="Menhir-1"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-2.png" id="Menhir-2"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-3.png" id="Menhir-3"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-4.png" id="Menhir-4"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-5.png" id="Menhir-5"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-6.png" id="Menhir-6"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-1.png" id="Paroi-1"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-2.png" id="Paroi-2"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-3.png" id="Paroi-3"]
@@ -52,13 +45,6 @@
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/moss.png" id="moss"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/wildflowers.png" id="wildflowers"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/garden.png" id="garden"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/altar-shadow.png" id="altar-shadow"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-1-shadow.png" id="Menhir-1-shadow"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-2-shadow.png" id="Menhir-2-shadow"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-3-shadow.png" id="Menhir-3-shadow"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-4-shadow.png" id="Menhir-4-shadow"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-5-shadow.png" id="Menhir-5-shadow"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Menhir-6-shadow.png" id="Menhir-6-shadow"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-1-shadow.png" id="Paroi-1-shadow"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-2-shadow.png" id="Paroi-2-shadow"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-3-shadow.png" id="Paroi-3-shadow"]
@@ -97,6 +83,14 @@
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/RocheApproche-8-shadow.png" id="RocheApproche-8-shadow"]
 
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/natural_ground.png" id="natural_ground"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/Menhir3.png" id="Menhir3"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/Menhir4.png" id="Menhir4"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/Dalle.png" id="Dalle"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/Menhir2.png" id="Menhir2"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/Menhir5.png" id="Menhir5"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/Menhir1.png" id="Menhir1"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/Menhir6.png" id="Menhir6"]
+[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/autel/DalleOmbre.png" id="DalleOmbre"]
 
 [node name="Sanctuary" type="Node2D"]
 
@@ -8356,22 +8350,6 @@ offset = Vector2(-180,-62)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(-4.3,2.3)
 
-[node name="Menhir4Ombre" type="Sprite2D" parent="."]
-position = Vector2(108.35311567236587,-68.64442535471146)
-texture = ExtResource("Menhir-4-shadow")
-centered = false
-offset = Vector2(-73,-43)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-0.11303021498850407,-0.9595389311788625)
-
-[node name="Menhir3Ombre" type="Sprite2D" parent="."]
-position = Vector2(-121.15311567236603,-68.64442535471139)
-texture = ExtResource("Menhir-3-shadow")
-centered = false
-offset = Vector2(-79,-45)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-1.0095389311788625,-0.06303021498850297)
-
 [node name="Eboulis2Ombre" type="Sprite2D" parent="."]
 position = Vector2(-788.48,-56.31999999999999)
 texture = ExtResource("Eboulis-2-shadow")
@@ -8388,29 +8366,11 @@ offset = Vector2(-120,-73)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(2.38,-3.15)
 
-[node name="Menhir2Ombre" type="Sprite2D" parent="."]
-position = Vector2(-268.6768775266122,19.261561236693886)
-texture = ExtResource("Menhir-2-shadow")
-centered = false
-offset = Vector2(-76,-44)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-0.899038105676658,1.2)
-
-[node name="Menhir5Ombre" type="Sprite2D" parent="."]
-position = Vector2(255.87687752661228,19.261561236693908)
-texture = ExtResource("Menhir-5-shadow")
-centered = false
-offset = Vector2(-76,-44)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(1.1500000000000004,-0.849038105676658)
-
 [node name="DalleOmbre" type="Sprite2D" parent="."]
-position = Vector2(-6.399999999999999,54.400000000000006)
-texture = ExtResource("altar-shadow")
+position = Vector2(-6,61)
+texture = ExtResource("DalleOmbre")
 centered = false
-offset = Vector2(-239,-132)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(0.4,0.45)
+offset = Vector2(-268,-159)
 
 [node name="Paroi7Ombre" type="Sprite2D" parent="."]
 position = Vector2(686.0799999999999,76.79999999999998)
@@ -8419,22 +8379,6 @@ centered = false
 offset = Vector2(-137,-93)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(3.28,-2.08)
-
-[node name="Menhir6Ombre" type="Sprite2D" parent="."]
-position = Vector2(216.0235386903947,132.27131923314656)
-texture = ExtResource("Menhir-6-shadow")
-centered = false
-offset = Vector2(-70,-43)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(1.8772116295183117,0.1895277334996031)
-
-[node name="Menhir1Ombre" type="Sprite2D" parent="."]
-position = Vector2(-228.82353869039454,132.27131923314664)
-texture = ExtResource("Menhir-1-shadow")
-centered = false
-offset = Vector2(-72,-43)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(0.13952773349960457,1.927211629518312)
 
 [node name="Eboulis3Ombre" type="Sprite2D" parent="."]
 position = Vector2(-788.48,194.55999999999997)
@@ -8732,22 +8676,6 @@ offset = Vector2(-43.11692307692308,-47.85230769230769)
 scale = Vector2(0.9,0.9)
 metadata/grid_position = Vector2(-4.3,2.5)
 
-[node name="Menhir4" type="Sprite2D" parent="."]
-position = Vector2(108.35311567236587,-68.64442535471146)
-texture = ExtResource("Menhir-4")
-centered = false
-offset = Vector2(-122.3191011235955,-213.8238202247191)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-0.11303021498850407,-0.9595389311788625)
-
-[node name="Menhir3" type="Sprite2D" parent="."]
-position = Vector2(-121.15311567236603,-68.64442535471139)
-texture = ExtResource("Menhir-3")
-centered = false
-offset = Vector2(-135.6503867403315,-237.76795580110502)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-1.0095389311788625,-0.06303021498850297)
-
 [node name="Eboulis2" type="Sprite2D" parent="."]
 position = Vector2(-788.48,-56.31999999999999)
 texture = ExtResource("Eboulis-2")
@@ -8755,14 +8683,6 @@ centered = false
 offset = Vector2(-45.242574257425744,-62.15841584158416)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(-3.52,2.64)
-
-[node name="Bougies3" type="Sprite2D" parent="."]
-position = Vector2(134.4,-50.56)
-texture = ExtResource("candles")
-centered = false
-offset = Vector2(-59.35121951219512,-71.13170731707318)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(0.13,-0.92)
 
 [node name="Paroi6" type="Sprite2D" parent="."]
 position = Vector2(707.8399999999999,-49.28)
@@ -8780,13 +8700,35 @@ offset = Vector2(-58.050000000000004,-68.85000000000001)
 scale = Vector2(0.8,0.8)
 metadata/grid_position = Vector2(1.4,-2.1)
 
+[node name="Bougies3" type="Sprite2D" parent="."]
+position = Vector2(195,-44)
+texture = ExtResource("candles")
+centered = false
+offset = Vector2(-59.35121951219512,-71.13170731707318)
+scale = Vector2(1,1)
+metadata/grid_position = Vector2(0.41796875,-1.10546875)
+
 [node name="Bougies2" type="Sprite2D" parent="."]
-position = Vector2(-185.6,-28.799999999999997)
+position = Vector2(-208,-40)
 texture = ExtResource("candle-dish")
 centered = false
 offset = Vector2(-55.11111111111111,-70)
 scale = Vector2(1,1)
-metadata/grid_position = Vector2(-0.95,0.5)
+metadata/grid_position = Vector2(-1.125,0.5)
+
+[node name="Menhir3" type="Sprite2D" parent="."]
+position = Vector2(-99,-40)
+texture = ExtResource("Menhir3")
+centered = false
+offset = Vector2(-74,-256)
+metadata/crystal = Vector2(-3,-205)
+
+[node name="Menhir4" type="Sprite2D" parent="."]
+position = Vector2(87,-40)
+texture = ExtResource("Menhir4")
+centered = false
+offset = Vector2(-65,-256)
+metadata/crystal = Vector2(1,-205)
 
 [node name="Vegetation23" type="Sprite2D" parent="."]
 position = Vector2(768,-12.800000000000011)
@@ -8804,29 +8746,11 @@ offset = Vector2(-58.050000000000004,-68.85000000000001)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(-1.5,1.3)
 
-[node name="Menhir2" type="Sprite2D" parent="."]
-position = Vector2(-268.6768775266122,19.261561236693886)
-texture = ExtResource("Menhir-2")
-centered = false
-offset = Vector2(-124.15329729729731,-217.9928648648649)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-0.899038105676658,1.2)
-
-[node name="Menhir5" type="Sprite2D" parent="."]
-position = Vector2(255.87687752661228,19.261561236693908)
-texture = ExtResource("Menhir-5")
-centered = false
-offset = Vector2(-116.83636363636364,-202.98909090909092)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(1.1500000000000004,-0.849038105676658)
-
 [node name="Dalle" type="Sprite2D" parent="."]
-position = Vector2(-6.399999999999999,54.400000000000006)
-texture = ExtResource("altar")
+position = Vector2(-6,54)
+texture = ExtResource("Dalle")
 centered = false
-offset = Vector2(-228.38709677419354,-243.19354838709677)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(0.4,0.45)
+offset = Vector2(-253,-167)
 
 [node name="Vegetation5" type="Sprite2D" parent="."]
 position = Vector2(486.4,64)
@@ -8852,6 +8776,20 @@ offset = Vector2(-125.09234828496044,-178.4986807387863)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(3.28,-2.08)
 
+[node name="Menhir2" type="Sprite2D" parent="."]
+position = Vector2(-182,77)
+texture = ExtResource("Menhir2")
+centered = false
+offset = Vector2(-46,-181)
+metadata/crystal = Vector2(-2,-151)
+
+[node name="Menhir5" type="Sprite2D" parent="."]
+position = Vector2(170,77)
+texture = ExtResource("Menhir5")
+centered = false
+offset = Vector2(-48,-182)
+metadata/crystal = Vector2(0,-151)
+
 [node name="Bougies0" type="Sprite2D" parent="."]
 position = Vector2(-273.92,78.08)
 texture = ExtResource("candles")
@@ -8876,29 +8814,19 @@ offset = Vector2(-43.11692307692308,-47.85230769230769)
 scale = Vector2(0.85,0.85)
 metadata/grid_position = Vector2(2.05,-0.5)
 
-[node name="Menhir6" type="Sprite2D" parent="."]
-position = Vector2(216.0235386903947,132.27131923314656)
-texture = ExtResource("Menhir-6")
-centered = false
-offset = Vector2(-100.53529411764707,-171.15882352941176)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(1.8772116295183117,0.1895277334996031)
-
 [node name="Menhir1" type="Sprite2D" parent="."]
-position = Vector2(-228.82353869039454,132.27131923314664)
-texture = ExtResource("Menhir-1")
+position = Vector2(-115,158)
+texture = ExtResource("Menhir1")
 centered = false
-offset = Vector2(-108.37598944591029,-189.3957783641161)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(0.13952773349960457,1.927211629518312)
+offset = Vector2(-41,-100)
+metadata/crystal = Vector2(1,-76)
 
-[node name="Bougies4" type="Sprite2D" parent="."]
-position = Vector2(57.60000000000002,176)
-texture = ExtResource("candle-bowl")
+[node name="Menhir6" type="Sprite2D" parent="."]
+position = Vector2(103,158)
+texture = ExtResource("Menhir6")
 centered = false
-offset = Vector2(-53.773770491803276,-67.94754098360656)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(1.6,1.15)
+offset = Vector2(-42,-100)
+metadata/crystal = Vector2(-1,-76)
 
 [node name="Vegetation25" type="Sprite2D" parent="."]
 position = Vector2(-793.6,179.2)
@@ -8923,6 +8851,14 @@ centered = false
 offset = Vector2(-127.63768115942028,-176.55072463768116)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(-1.56,4.6)
+
+[node name="Bougies4" type="Sprite2D" parent="."]
+position = Vector2(108,197)
+texture = ExtResource("candle-bowl")
+centered = false
+offset = Vector2(-53.773770491803276,-67.94754098360656)
+scale = Vector2(1,1)
+metadata/grid_position = Vector2(1.9609375,1.1171875)
 
 [node name="Vegetation14" type="Sprite2D" parent="."]
 position = Vector2(-332.8,230.4)
