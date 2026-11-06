@@ -5,6 +5,11 @@ const CENTER := Vector2(-6,7)
 const MANIFESTATION_CENTER := CENTER+Vector2(0,-100)
 const VIOLET := Color(.60,.19,1.0)
 const PALE := Color(.88,.70,1.0)
+# Clockwise stone indices, alternating distant impacts around the sanctuary.
+const STRIKE_TIMES := [13.12, 14.74, 13.70, 15.24, 14.23, 15.72]
+const SKY_OFFSETS := [-205., 160., 155., -120., -145., -180.]
+var sky_top := -800.0
+var crystal_lights := PackedVector3Array()
 var aerial := false
 var seconds := 0.0
 var energy := 0.0
@@ -27,9 +32,14 @@ func present(time: float) -> void:
 	flash_strength=0.0
 	if time>=20.0 and time<21.0:
 		flash_strength=sin(PI*(time-20.0)) * (1.0-smoothstep(20.4,21.0,time))
-	lightning_strength=0.0
-	for onset in [13.8,15.7,17.1,18.35,19.25,19.8,20.12]:
-		lightning_strength=maxf(lightning_strength,_pulse(time,onset,.22))
+	lightning_strength=smoothstep(18.3,19.8,time)*(1.0-smoothstep(20.0,20.45,time))
+	if aerial:
+		crystal_lights.resize(stones.size())
+		for i in stones.size():
+			var age := time-float(STRIKE_TIMES[i])
+			var wake := smoothstep(.055,.11,age)*(1.-smoothstep(20.35,22.5,time))
+			var light := wake*(.46+.54*(1.-smoothstep(.15,.64,age)))
+			crystal_lights[i] = Vector3(stones[i].x,stones[i].y,light)
 	visible=time>10.0
 	queue_redraw()
 
@@ -41,7 +51,7 @@ func _glow(point: Vector2,extent: Vector2,color: Color,alpha: float) -> void:
 	if alpha<=.001: return
 	draw_texture_rect(LIGHT,Rect2(point-extent*.5,extent),false,Color(color,alpha))
 
-func _line(points: PackedVector2Array,alpha: float,width: float=1.7) -> void:
+func _line(points: PackedVector2Array,alpha: float,width: float=1.7,bolt: bool=false) -> void:
 	if alpha<=.001 or points.size()<2: return
 	# A continuous ribbon with a smooth transverse falloff replaces hard strokes.
 	var samples := PackedVector2Array([points[0]])
@@ -50,7 +60,7 @@ func _line(points: PackedVector2Array,alpha: float,width: float=1.7) -> void:
 	for i in range(1,points.size()):
 		var length := points[i-1].distance_to(points[i])
 		if length<.001: continue
-		var steps := maxi(1,ceili(length/4.0))
+		var steps := 1 if bolt else maxi(1,ceili(length/4.0))
 		for j in range(1,steps+1):
 			samples.append(points[i-1].lerp(points[i],float(j)/steps))
 			distances.append(total+length*float(j)/steps)
@@ -73,7 +83,7 @@ func _line(points: PackedVector2Array,alpha: float,width: float=1.7) -> void:
 		for side in 2:
 			var p := samples[i]+normal*width*4.5*(-1.0 if side==0 else 1.0)
 			vertices.append(Vector3(p.x,p.y,0))
-			uv.append(Vector2(distances[i]*.055+phase,2.0+side))
+			uv.append(Vector2(distances[i]*.055+phase,(4.0 if bolt else 2.0)+side))
 			colors.append(Color(1,1,1,alpha*taper))
 		if i>0:
 			var a := (i-1)*2
@@ -107,20 +117,46 @@ func _glyph(center: Vector2,index: int,alpha: float,size: float=9.0) -> void:
 	_line(PackedVector2Array([center+Vector2(0,-1.4)*size,center+Vector2(0,1.4)*size]),alpha*.75,1.0)
 	_glow(center,Vector2.ONE*size*5,VIOLET,alpha*.22)
 
-func _bolt(start: Vector2,finish: Vector2,seed: float,alpha: float) -> void:
+func _bolt(start: Vector2,finish: Vector2,seed: float,alpha: float,width: float) -> void:
+	if alpha<=.005 or start.distance_squared_to(finish)<1.0: return
 	var points := PackedVector2Array([start])
 	var side := (finish-start).orthogonal().normalized()
-	var tick := floorf(seconds*18.0)
+	var amplitude := clampf(start.distance_to(finish)*.095,5.0,44.0)
+	var tick := floorf(seconds*10.0)
 	for i in range(1,29):
 		var f := i/29.0
-		var displacement := (sin(seed*7.3+f*19.71+tick*.63)*9.0+sin(i*13.1+tick*9.13)*3.5)*sin(PI*f)
+		var jag := sin(i*78.233+seed*31.13+tick*.003)*4375.54
+		var displacement := (sin(seed*7.3+f*16.0)*.52+(fposmod(jag,1.0)*2.-1.)*.48)*amplitude*sin(PI*f)
 		points.append(start.lerp(finish,f)+side*displacement)
 	points.append(finish)
-	_line(points,alpha*1.6,2.1)
+	_line(points,alpha,width,true)
 	for branch_index in [9,20]:
 		var root := points[branch_index]
-		var tip := root+(finish-start)*.13+side*(17.0 if branch_index==9 else -22.0)
-		_line(PackedVector2Array([root,root.lerp(tip,.45)+side*6.0,tip]),alpha*.55,1.05)
+		var tip := root+(finish-start)*.15+side*amplitude*(1.3 if branch_index==9 else -1.6)
+		_line(PackedVector2Array([root,root.lerp(tip,.45)+side*6.0,tip]),alpha*.60,width*.5,true)
+
+func _draw_discharge(index: int, settled: float) -> void:
+	var stone := stones[index]
+	var age := seconds-float(STRIKE_TIMES[index])
+	if age < 0.0: return
+	var hit := 1.0-smoothstep(.10,.55,age)
+	if hit > 0.0:
+		var source := Vector2(stone.x+SKY_OFFSETS[index],sky_top)
+		var tip := source.lerp(stone,smoothstep(0.0,.08,age))
+		_bolt(source,tip,index+1,hit,4.8)
+
+	# Each struck facet holds a charge until the complete circuit discharges.
+	var charge := smoothstep(.06,.13,age)*settled
+	_glow(stone,Vector2(120,135),VIOLET,charge*(.60+.4*hit))
+	_glow(stone,Vector2(34,43),PALE,charge*(.84+.16*cos(seconds*4+index)))
+	var link := smoothstep(16.42+index*.18,16.75+index*.18,seconds)
+	var rim := link*(1.0-smoothstep(18.28,19.5,seconds))
+	if rim > 0.0:
+		var neighbor := stones[(index+1)%stones.size()]
+		_bolt(stone,stone.lerp(neighbor,link),index+12,rim*.9,2.8)
+	var reach := smoothstep(18.42+index*.065,19.30+index*.065,seconds)
+	if reach > 0.0:
+		_bolt(stone,stone.lerp(MANIFESTATION_CENTER,reach),index+26,lightning_strength,3.6)
 
 func _draw() -> void:
 	ribbons.clear()
@@ -160,12 +196,7 @@ func _draw_air() -> void:
 		var point := CENTER+Vector2(cos(angle)*167,sin(angle)*70-22-8*sin(seconds*1.4+i))
 		_glyph(point,i,energy*reveal*settled,9.0)
 	for i in stones.size():
-		var charge := energy*smoothstep(12.0+i*.2,15.0+i*.2,seconds)*settled
-		_glow(stones[i],Vector2(58,80),VIOLET,charge*.5)
-		if lightning_strength>0.0:
-			var destination := stones[(i+1)%stones.size()]
-			_bolt(stones[i],destination,i,lightning_strength*energy*.6)
-			if i%2==0: _bolt(stones[i],CENTER.lerp(MANIFESTATION_CENTER,energy),i+9,lightning_strength*energy*.7)
+		_draw_discharge(i,settled)
 	# Stable analytic particles, no frame-dependent randomness or wall-clock time.
 	for i in 36:
 		var f := fposmod((seconds-10.0)*(.22+i*.001)+i*.618034,1.0)
@@ -175,7 +206,7 @@ func _draw_air() -> void:
 		var alpha := sin(PI*f)*energy*settled
 		_glow(point,Vector2.ONE*(9+i%3*3),VIOLET,alpha*.7)
 		draw_circle(point,1.2+f,Color(PALE,alpha),true,-1,true)
-	var gathering := smoothstep(17.5,20.0,seconds)*(1.0-smoothstep(20.2,21.4,seconds))
+	var gathering := smoothstep(18.65,20.0,seconds)*(1.0-smoothstep(20.2,21.4,seconds))
 	for strand in 3:
 		var points := PackedVector2Array()
 		for i in range(33):
@@ -183,6 +214,8 @@ func _draw_air() -> void:
 			points.append(CENTER+Vector2(sin(f*TAU+seconds*2+strand*TAU/3)*28*sin(PI*f),-f*200))
 		_line(points,gathering*.45,1.3)
 	_glow(MANIFESTATION_CENTER,Vector2(160,290),VIOLET,gathering*.32)
+	_glow(MANIFESTATION_CENTER,Vector2.ONE*140,VIOLET,lightning_strength*.95)
+	_glow(MANIFESTATION_CENTER,Vector2.ONE*48,PALE,lightning_strength)
 	if flash_strength>0.0:
 		var epicenter := MANIFESTATION_CENTER
 		_glow(epicenter,Vector2(480,440),VIOLET,flash_strength*.85)

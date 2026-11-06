@@ -14,6 +14,7 @@ const Passage = preload("res://scripts/game/invocation_passage.gd")
 var gate := Passage.new()
 var ground_magic := Magic.new()
 var air_magic := Magic.new()
+var cloud_shadow := ColorRect.new()
 
 var sanctuary: Node2D
 var actors: Array[Node2D] = []
@@ -39,6 +40,12 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	sanctuary = ENVIRONMENT.instantiate()
 	add_child(sanctuary)
+	cloud_shadow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var storm_material := ShaderMaterial.new()
+	storm_material.shader = preload("res://shaders/invocation_storm.gdshader")
+	cloud_shadow.material = storm_material
+	add_child(cloud_shadow)
+	cloud_shadow.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for i in 5:
 		var actor := Actor.new()
 		actor.is_invoker = i == 0
@@ -77,6 +84,7 @@ func _fit() -> void:
 	sanctuary.position = size*.5-focus*sanctuary.scale
 	camera_focus=focus
 	camera_scale=sanctuary.scale.x
+	air_magic.sky_top = -sanctuary.position.y/camera_scale - 55.0
 	starts.clear()
 	routes.clear()
 	return_lengths.clear()
@@ -167,7 +175,22 @@ func present(time: float) -> void:
 	var zoom:=lerpf(1.,1.18,pan) if size.x>size.y else 1.
 	sanctuary.scale=Vector2.ONE*camera_scale*zoom
 	sanctuary.position=size*.5-group_focus.lerp(Vector2(70,-220),pan)*camera_scale*zoom
+	_present_storm()
 	show()
+
+func _present_storm() -> void:
+	var storm := smoothstep(9.65,13.05,seconds)*(1.-smoothstep(20.35,25.0,seconds))
+	cloud_shadow.visible = storm > 0.0
+	if not cloud_shadow.visible: return
+	var top_left := -sanctuary.position/sanctuary.scale
+	var extent := size/sanctuary.scale
+	var sky: ShaderMaterial = cloud_shadow.material
+	sky.set_shader_parameter("strength",storm)
+	sky.set_shader_parameter("effect_time",seconds)
+	sky.set_shader_parameter("world_rect",Vector4(top_left.x,top_left.y,extent.x,extent.y))
+	sky.set_shader_parameter("crystal_lights",air_magic.crystal_lights)
+	sky.set_shader_parameter("epicenter",Magic.MANIFESTATION_CENTER)
+	sky.set_shader_parameter("center_light",air_magic.lightning_strength+.85*air_magic.flash_strength)
 
 func _present_messenger(index: int) -> void:
 	var actor := actors[index]

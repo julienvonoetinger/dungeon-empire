@@ -4,16 +4,24 @@ render_mode unshaded, blend_add;
 uniform float effect_time = 0.0;
 varying vec4 tint;
 varying float is_filament;
+varying float is_bolt;
 
 void vertex() {
 	tint = COLOR;
-	// Procedural ribbons use V=2..3. Existing glow sprites keep their normal UVs.
+	// Seal filaments occupy V=2..3, lightning V=4..5, sprites V=0..1.
 	is_filament = step(1.5, UV.y);
-	UV.y -= 2.0 * is_filament;
+	is_bolt = step(3.5, UV.y);
+	UV.y -= 2.0 * (is_filament + is_bolt);
 }
 
 void fragment() {
-	if (is_filament > 0.5) {
+	if (is_bolt > 0.5) {
+		float d = abs(UV.y * 2.0 - 1.0);
+		float core = exp(-d*d*95.0);
+		float aura = exp(-d*d*5.5);
+		COLOR = vec4(mix(vec3(0.54,0.22,1.0),vec3(0.96,0.92,1.0),core),
+			tint.a * (0.46*aura + 0.96*core));
+	} else if (is_filament > 0.5) {
 		float u = UV.x;
 		float drift = 0.08 * sin(u * 2.3 - effect_time * 1.2)
 			+ 0.035 * sin(u * 6.7 + effect_time * 0.8);
