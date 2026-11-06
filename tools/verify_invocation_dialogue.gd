@@ -16,7 +16,7 @@ func run() -> void:
 	for extent in [Vector2i(1280,720), Vector2i(390,844), Vector2i(844,390)]:
 		root.size = extent
 		await process_frame
-		for moment in [11., 16., 23., 28., 34., 38., dungeon+2., dungeon+6.]:
+		for moment in [11., 16., 23., 28., 34., 38., dungeon+2., dungeon+6., dungeon+10., dungeon+16., dungeon+20., dungeon+33.]:
 			preview.present(moment)
 			for frame in range(4): await process_frame
 			check(captions.visible and not captions.words.text.is_empty(), "Dialogue shown at " + str(moment))
@@ -24,6 +24,15 @@ func run() -> void:
 			check(bounds.position.x >= 0 and bounds.position.y >= 0 and bounds.end.x <= intro.root.size.x + 1, "Caption inside viewport")
 			check(bounds.end.y <= intro.root.size.y - 48 * intro.unit, "Caption clears preview controls")
 			check(captions.words.size.y >= captions.words.get_minimum_size().y, "No clipped text")
+			var portrait := captions.get_node_or_null("Portrait") as TextureRect
+			check(portrait != null, "Cinematic dialogue has a speaker portrait")
+			if portrait != null:
+				var asset := "master" if moment in [23.,34.,dungeon+6.] else "invoker"
+				check(portrait.is_visible_in_tree() and portrait.texture.resource_path.ends_with("/"+asset+".webp"), "Portrait follows the speaking character")
+				var face := portrait.get_global_rect()
+				check(bounds.encloses(face) and face.end.x <= captions.words.get_global_rect().position.x, "Portrait fits to the left of the line")
+				check(captions.speaker.get_global_rect().position.y >= face.end.y - 1, "Name sits under the portrait")
+				check(bounds.encloses(captions.words.get_global_rect()), "Whole line fits in the dialogue")
 			if moment in [16., 28., dungeon+6.]:
 				await RenderingServer.frame_post_draw
 				root.get_texture().get_image().save_png("res://artifacts/sanctuary-procession/dialogue-%d-%04d.png" % [extent.x, roundi(moment*100)])

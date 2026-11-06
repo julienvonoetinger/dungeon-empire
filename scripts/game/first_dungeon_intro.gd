@@ -21,16 +21,16 @@ const PROLOGUE := [
 	["À l’écart du monde", "Au cœur des montagnes, les Oculins vivaient dans un village dissimulé entre les falaises. Ils avaient aménagé les pentes pour leurs cultures et bâti leurs maisons dans la pierre. Depuis des générations, ils vivaient ainsi, sans contact avec les autres peuples. Leur village ne figurait sur aucune carte. Aucun royaume ne connaissait leur existence.", "res://assets/game/introduction/prologue-basalt.webp", "res://assets/game/introduction/prologue-basalt-portrait.webp"],
 	["La découverte", "Au pied des montagnes s’étendait le royaume de Valdorne. Son souverain, le roi Aldren, voulait ouvrir une route vers les terres de l’autre versant. Il envoya un cartographe et deux éclaireurs reconnaître les cols. Depuis une crête, ils découvrirent le village des Oculins. Le cartographe dessina les maisons, les sentiers et le passage qu’elles dominaient.", "res://assets/game/introduction/prologue-lookout.webp", "res://assets/game/introduction/prologue-lookout-portrait.webp"],
 	["L’audience", "À la cour, le cartographe présenta son dessin à Aldren. Le roi l’interrogea sur les habitants et les chemins menant au col. Les trois voyageurs n’avaient observé le village que de loin. Ils ignoraient qui étaient ces êtres et s’ils accepteraient des visiteurs. Aldren envoya un émissaire et quelques gardes demander l’ouverture d’une route à travers leurs terres.", "res://assets/game/introduction/prologue-audience.webp", "res://assets/game/introduction/prologue-audience-portrait.webp"],
-	["Les étrangers", "À l’approche des envoyés, les Oculins barrèrent l’entrée du village. Jamais ils n’avaient rencontré de tels êtres. L’émissaire leur parla de Valdorne, de son roi et de la route qu’il souhaitait ouvrir. Les anciens refusèrent de le laisser poursuivre. « Ces montagnes sont notre foyer. Nous ne céderons aucune terre. Vos gens ne passeront pas. » Les envoyés repartirent sous leur surveillance.", "res://assets/game/introduction/prologue-envoy.webp", "res://assets/game/introduction/prologue-envoy-portrait.webp"],
+	["Les étrangers", "À l’approche des envoyés, les Oculins barrèrent l’entrée du village. Jamais ils n’avaient rencontré de tels êtres. L’émissaire leur parla de Valdorne, de son roi et de la route qu’il souhaitait ouvrir. Les anciens refusèrent de le laisser poursuivre.", "res://assets/game/introduction/prologue-envoy.webp", "res://assets/game/introduction/prologue-envoy-portrait.webp", ["Les anciens", "Ces montagnes sont notre foyer. Nous ne céderons aucune terre. Vos gens ne passeront pas.", "Les envoyés repartirent sous leur surveillance."]],
 	["Le passage fermé", "À leur retour, les envoyés rapportèrent le refus des Oculins. Ceux-ci avaient fermé les sentiers et montaient désormais la garde aux abords du col. Aldren voulait cette route pour étendre son royaume de l’autre côté des montagnes. Il décida de l’ouvrir par la force. Son capitaine reçut l’ordre de prendre le passage et d’y établir une garnison.", "res://assets/game/introduction/prologue-decree.webp", "res://assets/game/introduction/prologue-decree-portrait.webp"],
 	["L’attaque", "Lorsque les bannières de Valdorne apparurent dans la vallée, les Oculins transportèrent des provisions vers les grottes et renforcèrent leurs barricades. Les soldats forcèrent le passage. Le combat gagna les ruelles, où ils incendièrent les maisons pour en déloger les défenseurs. Les Oculins durent abandonner le village. Les survivants se replièrent dans les hauteurs en emportant leurs blessés.", "res://assets/game/introduction/prologue-assault.webp", "res://assets/game/introduction/prologue-assault-portrait.webp"],
 	["Les survivants", "Les rescapés se regroupèrent dans les grottes. On pansa les blessés et partagea les provisions mises à l’abri. Jusqu’à la nuit, des survivants continuèrent d’arriver. Puis les sentiers restèrent vides. À l’entrée du refuge, les Oculins veillèrent longtemps, espérant encore voir apparaître ceux qui manquaient. En contrebas, leurs maisons brûlaient.", "res://assets/game/introduction/prologue-pass.webp", "res://assets/game/introduction/prologue-pass-portrait.webp"],
 	["Les terres occupées", "Quelques jours plus tard, des Oculins redescendirent observer les ruines. Les soldats avaient dressé une palissade autour du village. Des ouvriers démolissaient les maisons encore debout pour en réemployer les pierres. La forteresse d’Aldren commençait à s’élever sur leurs terres. Les éclaireurs regagnèrent les grottes avec cette nouvelle. Là-haut, les provisions diminuaient et le froid s’installait.", "res://assets/game/introduction/prologue-occupation.webp", "res://assets/game/introduction/prologue-occupation-portrait.webp"],
-	["Le sanctuaire interdit", "Au refuge, un ancien révéla l’existence d’un sanctuaire caché dans les hauteurs. Les ancêtres des Oculins en avaient interdit l’accès : un dieu du mal pouvait y être invoqué. L’ancien connaissait encore le rite. « Il peut nous donner la force de vaincre. Mais nous devrons le servir. » Après une nuit de débats, les survivants décidèrent de s’y rendre.", "res://assets/game/introduction/prologue-council.webp", "res://assets/game/introduction/prologue-council-portrait.webp"],
-	["Votre royaume", "L’ancien les guida jusqu’à une gorge étroite. Là, à l’abri des regards, des pierres dressées entouraient une dalle gravée. Il s’avança au centre du sanctuaire et prononça votre nom. « Nous vous offrons notre fidélité. Donnez-nous la force de renverser Aldren. Sous la montagne, nous bâtirons votre royaume. » Autour de lui, les Oculins s’agenouillèrent. Leur appel venait de vous atteindre.", "res://assets/game/introduction/prologue-oath.webp", "res://assets/game/introduction/prologue-oath-portrait.webp"],
+	["Le sanctuaire interdit", "Au refuge, un ancien révéla l’existence d’un sanctuaire caché dans les hauteurs. Les ancêtres des Oculins en avaient interdit l’accès : un dieu du mal pouvait y être invoqué. L’ancien connaissait encore le rite.", "res://assets/game/introduction/prologue-council.webp", "res://assets/game/introduction/prologue-council-portrait.webp", ["L’invocateur", "Il peut nous donner la force de vaincre. Mais nous devrons le servir.", "Après une nuit de débats, les survivants décidèrent de s’y rendre."]],
+	["Votre royaume", "L’ancien les guida jusqu’à une gorge étroite. Là, à l’abri des regards, des pierres dressées entouraient une dalle gravée. Il s’avança au centre du sanctuaire et prononça votre nom.", "res://assets/game/introduction/prologue-oath.webp", "res://assets/game/introduction/prologue-oath-portrait.webp", ["L’invocateur", "Nous vous offrons notre fidélité. Donnez-nous la force de renverser Aldren. Sous la montagne, nous bâtirons votre royaume.", "Autour de lui, les Oculins s’agenouillèrent. Leur appel venait de vous atteindre."]],
 ]
 const TITLES := ["", "Fermez le passage", "Creusez une alcôve", "Installez votre trésor"]
-const LINES := ["", "« Maître… depuis l’escalier, on voit votre Cœur. »", "« Nos richesses méritent mieux que la poussière du couloir. »", "« Ici, votre or sera à sa place. »"]
+const LINES := ["", "Maître… depuis l’escalier, on voit votre Cœur.", "Nos richesses méritent mieux que la poussière du couloir.", "Ici, votre or sera à sa place."]
 const ACTIONS := ["", "Poser la porte · %d or" % Types.COST_DOOR, "Creuser la roche · %d or" % Types.COST_DIG, "Poser un coffre"]
 const TOOLS := [Types.Tool.NONE, Types.Tool.BUILD_DOOR, Types.Tool.DIG, Types.Tool.STORE]
 
@@ -50,6 +50,9 @@ var panel := PanelContainer.new()
 var skip: Button
 var title: Label
 var reading_area := ScrollContainer.new()
+var reading_column := VBoxContainer.new()
+var reading_dialogue := Dialogue.new()
+var after_line: Label
 var line: Label
 var action: Button
 var target: Button
@@ -92,11 +95,18 @@ func _ready() -> void:
 	box.add_child(reading_area)
 	reading_area.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	UI.slim_scrollbar(reading_area)
-	line = UI.label(reading_area,"",20)
+	reading_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	reading_area.add_child(reading_column)
+	line = UI.label(reading_column,"",20)
 	line.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	line.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	line.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
+	reading_dialogue.embedded = true
+	reading_column.add_child(reading_dialogue)
+	after_line = UI.label(reading_column,"",20)
+	after_line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	after_line.hide()
+	reading_column.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
 	action = UI.button(box,"",_act,"",true)
 	skip = UI.button(root,"Passer",_skip)
 	for button in [action, skip]:
@@ -124,7 +134,9 @@ func _set_shot(next: int) -> void:
 			if is_instance_valid(artisan): artisan.queue_free()
 		artisans.clear()
 	shot = next
-	dialogue.present("", 0.)
+	dialogue.clear_line()
+	reading_dialogue.clear_line()
+	after_line.hide()
 	view.set_core_awakening(1.0 if shot in [Shot.CLOSED,Shot.LESSON] else 0.0)
 	view.set_core_cinematic_time(-1.0 if shot in [Shot.CLOSED,Shot.LESSON] else 0.0)
 	elapsed = 0
@@ -137,7 +149,8 @@ func _set_shot(next: int) -> void:
 	panel.visible = shot in [Shot.PROLOGUE, Shot.LESSON]
 	if shot != Shot.RITUAL: film.release()
 	story.visible = shot == Shot.PROLOGUE
-	reading_area.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO if story.visible else ScrollContainer.SCROLL_MODE_DISABLED
+	# Keep the same text width when a taller quote makes the scrollbar appear.
+	reading_area.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_RESERVE
 	root.color = UI.INK if story.visible else Color.TRANSPARENT
 	if not story.visible: story.texture = null
 	veil.color = Color.TRANSPARENT
@@ -165,6 +178,15 @@ func _show_page(index: int) -> void:
 	var entry: Array = PROLOGUE[page]
 	title.text = "%d / %d   ·   %s" % [page+1, PROLOGUE.size(), entry[0]]
 	line.text = entry[1]
+	line.show()
+	if entry.size() > 4:
+		var quote: Array = entry[4]
+		reading_dialogue.show_line(quote[0], quote[1])
+		after_line.text = quote[2]
+		after_line.show()
+	else:
+		reading_dialogue.clear_line()
+		after_line.hide()
 	reading_area.scroll_vertical = 0
 	action.text = "Répondre à l’appel" if page == PROLOGUE.size()-1 else "Poursuivre"
 	action.disabled = false
@@ -209,7 +231,12 @@ func _show_lesson() -> void:
 	_present_artisans(ENTRY_DURATION, _entrance_top())
 	var step := session.sim.lesson
 	title.text = "%d / 3   ·   %s" % [step, TITLES[step]]
-	line.text = LINES[step] if session.save_error.is_empty() else session.save_error
+	line.text = session.save_error
+	line.visible = not session.save_error.is_empty()
+	if session.save_error.is_empty():
+		reading_dialogue.show_line("L’invocateur", LINES[step])
+	else:
+		reading_dialogue.clear_line()
 	action.text = ACTIONS[step]
 	action.disabled = false
 	_focus(Vector2(_lesson_cell()) + Vector2(.5,.5))
@@ -386,12 +413,14 @@ func _fit_controls(window_size: Vector2, safe_pixels: Rect2, density: float) -> 
 	var panel_width := minf(680,area.size.x-margin*2)
 	var beside_story := shot == Shot.PROLOGUE and area.size.y < 460 and area.size.x >= 600
 	if beside_story: panel_width = minf(panel_width,area.size.x*.68)
-	if shot == Shot.PROLOGUE:
+	if shot in [Shot.PROLOGUE, Shot.LESSON]:
 		# Reserve room for the illustration, heading and fixed navigation.
 		var panel_budget := area.size.y - margin*2 if beside_story else area.size.y*.60
+		if shot == Shot.LESSON:
+			panel_budget = area.size.y * .73
 		var chrome := panel.get_theme_stylebox("panel").get_minimum_size().y + title.get_combined_minimum_size().y + action.get_combined_minimum_size().y
 		chrome += 2*title.get_parent().get_theme_constant("separation")
-		reading_area.custom_minimum_size.y = minf(line.get_minimum_size().y,maxf(32,panel_budget-chrome))
+		reading_area.custom_minimum_size.y = minf(reading_column.get_combined_minimum_size().y,maxf(32,panel_budget-chrome))
 	else:
 		reading_area.custom_minimum_size.y = 0
 	panel.size = Vector2(panel_width,panel.get_combined_minimum_size().y)

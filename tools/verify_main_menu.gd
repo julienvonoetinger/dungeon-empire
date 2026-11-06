@@ -28,6 +28,10 @@ func capture(label: String) -> void:
 	await RenderingServer.frame_post_draw
 	check(root.get_texture().get_image().save_png(OUT+label+".png")==OK,"Capture "+label)
 
+func check_lesson_dialogue(intro, phrase: String) -> void:
+	var speech = intro.get("reading_dialogue")
+	check(speech != null and speech.is_visible_in_tree() and speech.speaker.text == "L’invocateur" and speech.words.text.contains(phrase), "The invoker speaks the current lesson")
+
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(OUT)
 	check(ProjectSettings.get_setting("application/run/main_scene")==Menu.resource_path,"Project launches the title menu")
@@ -62,6 +66,15 @@ func run() -> void:
 			var expected_art := "res://assets/game/introduction/prologue-%s%s.webp" % [scene_name,image_variant]
 			check(intro.page==index and intro.story.texture.resource_path==expected_art and not intro.line.text.is_empty(),"Page waits for the reader with matching art and text")
 			check(intro.reading_area.scroll_vertical==0,"Each chapter starts at its first line")
+			var speech = intro.get("reading_dialogue")
+			if index in [3,8,9]:
+				check(speech != null and speech.is_visible_in_tree(), "Spoken prologue passage has a portrait")
+				if speech != null:
+					check(speech.speaker.text == ("Les anciens" if index == 3 else "L’invocateur"), "Prologue speaker is identified")
+					check(speech.portrait.texture.resource_path.ends_with("/elders.webp" if index == 3 else "/invoker.webp"), "Prologue uses the speaker's portrait")
+					check(not intro.line.text.contains(speech.words.text), "Narration does not repeat the quote")
+			elif speech != null:
+				check(not speech.is_visible_in_tree(), "Pure narration has no portrait")
 			if extent.y <= 320:
 				check(not intro.story.get_global_rect().intersects(intro.panel.get_global_rect()),"Short landscape keeps the prayer visible beside the text")
 			check(intro.root.get_rect().encloses(intro.panel.get_global_rect()) and not intro.panel.get_global_rect().intersects(intro.skip.get_global_rect()),"Story controls fit "+str(extent))
@@ -79,9 +92,9 @@ func run() -> void:
 				check(safe_pixels.encloses(Rect2(panel_rect.position*to_pixels,panel_rect.size*to_pixels)),"Phone dialogue stays inside safe insets")
 				intro._layout()
 			if extent.y <= 320:
-				intro.reading_area.scroll_vertical = ceili(intro.line.size.y)
+				intro.reading_area.scroll_vertical = ceili(intro.reading_column.size.y)
 				await process_frame
-				check(intro.line.get_global_rect().end.y <= intro.reading_area.get_global_rect().end.y+2,"Last line can be read "+scene_name)
+				check(intro.reading_column.get_global_rect().end.y <= intro.reading_area.get_global_rect().end.y+2,"Last line can be read "+scene_name)
 		intro.action.pressed.emit()
 	root.size = Vector2i(1024,680)
 	await process_frame
@@ -115,9 +128,11 @@ func run() -> void:
 	await capture("invoker-entering")
 	intro._process(intro.ENTRY_DURATION-intro.elapsed)
 	check(intro.invoker==guide and intro.shot==intro.Shot.LESSON and game.sim.lesson==GameTypes.Lesson.DOOR,"The arriving invoker gives the first door lesson")
+	check_lesson_dialogue(intro,"depuis l’escalier")
 	for extent in [Vector2i(390,844),Vector2i(568,320)]:
 		root.size = extent
 		await capture("first-lesson-%dx%d"%[extent.x,extent.y])
+		check(intro.reading_area.get_global_rect().grow(1).encloses(intro.reading_dialogue.words.get_global_rect()),"Entire tutorial line is visible beside the portrait")
 		check(intro.root.get_rect().encloses(intro.panel.get_global_rect()) and intro.root.get_rect().encloses(intro.skip.get_global_rect()) and not intro.target.get_global_rect().intersects(intro.panel.get_global_rect()),"Lesson controls fit "+str(extent))
 		var cell_on_screen: Vector2 = intro.view.get_global_transform_with_canvas() * intro.view.grid_to_local(intro.focus_cell)
 		check(intro.target.get_global_rect().get_center().distance_to(cell_on_screen)<2,"Lesson button follows the indicated cell "+str(extent))
@@ -130,7 +145,9 @@ func run() -> void:
 	game = current_scene
 	intro = game.get_node("Introduction")
 	check(intro.shot==intro.Shot.LESSON and game.sim.lesson==GameTypes.Lesson.ALCOVE,"Continue resumes the next lesson without replaying the ritual")
+	check_lesson_dialogue(intro,"Nos richesses")
 	intro.action.pressed.emit()
+	check_lesson_dialogue(intro,"votre or")
 	check(game.sim.grid[7][6]==GameTypes.Tile.FLOOR and game.sim.gold==275,"Player excavates the alcove")
 	intro.target.pressed.emit()
 	check(game.sim.grid[7][6]==GameTypes.Tile.VAULT and not intro.visible and game.get_node("HUD").visible,"Guided chest stays on the playable map")
