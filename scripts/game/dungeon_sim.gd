@@ -28,9 +28,12 @@ const ROOM_SIDES := ["N","E","S","W"]
 const ROOM_OUT := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
 var lesson := GameTypes.Lesson.FREE
+var lesson_alcove := GameTypes.FIRST_ALCOVE
 var grid: Array = []
 var selected_tool: int = Tool.NONE
 var gold := START_GOLD
+# Spendable gold on these floor cells is already included in gold.
+var floor_gold: Dictionary = {}
 var vault_gold: Dictionary = {}
 var vault_locks: Dictionary = {}
 var vault_opened: Dictionary = {}
@@ -48,6 +51,8 @@ var raid = null
 
 func new_map() -> void:
 	lesson = GameTypes.Lesson.FREE
+	lesson_alcove = GameTypes.FIRST_ALCOVE
+	floor_gold.clear()
 	vault_gold.clear()
 	vault_locks.clear()
 	vault_opened.clear()
@@ -288,6 +293,44 @@ func _storage_capacity() -> int:
 	for limit: int in vault_capacities().values(): total += limit
 	return total
 
+func can_place_gift(cell: Vector2i) -> bool:
+	if lesson != GameTypes.Lesson.VILLAGE_GIFT or not _inside(cell) or grid[cell.y][cell.x] != Tile.FLOOR or floor_gold.has(cell):
+		return false
+	var core := Vector2(_core_origin())
+	if cell == Vector2i((core + GameTypes.COUNCIL_INVOKER).floor()): return false
+	for offset in GameTypes.COUNCIL_ARTISANS:
+		if cell == Vector2i((core + offset).floor()): return false
+	# Keep two stretches of corridor free for the door. Excavating one rock
+	# can widen either stretch before the carpenter arrives.
+	if not _is_core_access(cell):
+		for placed: Vector2i in floor_gold:
+			if not _is_core_access(placed): return false
+	return floor_gold.size() < GameTypes.VILLAGE_BAG_COUNT
+
+func place_gift(cell: Vector2i) -> bool:
+	if not can_place_gift(cell): return false
+	floor_gold[cell] = GameTypes.GOLD_BAG_CAPACITY
+	gold += GameTypes.GOLD_BAG_CAPACITY
+	if floor_gold.size() == GameTypes.VILLAGE_BAG_COUNT:
+		lesson = GameTypes.Lesson.MEET_MINER
+	return true
+
+func bag_gold_total() -> int:
+	var total := 0
+	for amount: int in floor_gold.values(): total += amount
+	return total
+
+func _take_from_bags(amount: int) -> void:
+	for cell in floor_gold.keys():
+		if amount <= 0: break
+		var taken := mini(amount, floor_gold[cell])
+		amount -= taken
+		floor_gold[cell] -= taken
+		if floor_gold[cell] == 0: floor_gold.erase(cell)
+
+func _spend_gold(cost: int) -> void:
+	_take_from_bags(cost)
+	gold -= cost
 
 func _deposit_gold(amount: int) -> int:
 	var take := clampi(amount, 0, maxi(0, _storage_capacity() - gold))
@@ -299,7 +342,7 @@ func _deposit_gold(amount: int) -> int:
 func _spill_overflow_at(p: Vector2i, previous_capacity: int = -1) -> void:
 	var capacity := _storage_capacity()
 	if previous_capacity >= 0 and capacity >= previous_capacity: return
-	var extra := gold - capacity
+	var extra := gold - bag_gold_total() - capacity
 	if extra > 0:
 		gold -= extra
 		loot_bags.append({"pos": p, "gold": extra, "taken": false})
@@ -376,7 +419,11 @@ func _storage_state() -> Dictionary:
 	var assigned := 0
 	for amount in vaults.values():
 		assigned += int(amount)
-	var difference := gold - assigned
+	# A new chest takes the remaining offering up to its capacity.
+	var bag_total := bag_gold_total()
+	var stowed := clampi(capacity - (gold - bag_total), 0, bag_total)
+	if stowed > 0: _take_from_bags(stowed)
+	var difference := gold - (bag_total - stowed) - assigned
 	for p in vaults:
 		var change := clampi(difference, -int(vaults[p]), int(limits[p]) - int(vaults[p]))
 		vaults[p] += change
@@ -460,6 +507,7 @@ func _can_place_tile(p: Vector2i, tile: int) -> bool:
 	var current := int(grid[p.y][p.x])
 	if current == Tile.ROCK or current == Tile.ENTRANCE or current == Tile.CORE:
 		return false
+	if floor_gold.has(p) and tile != Tile.VAULT: return false
 	if _is_core_access(p) and (_is_door_tile(tile) or tile == Tile.ENTRANCE):
 		return false
 	if _is_door_tile(tile) and current != tile and not _door_between_walls(p):
@@ -541,7 +589,7 @@ func build_vault(p: Vector2i, tier: int) -> bool:
 	if not existing:
 		_clear_cell_state(p)
 		grid[p.y][p.x] = Tile.VAULT
-	gold -= cost
+	_spend_gold(cost)
 	if tier > 0:
 		vault_locks[p] = tier
 		if existing: _spill_overflow_at(p, previous_capacity)
@@ -559,7 +607,7 @@ func repair_vault(p: Vector2i) -> bool:
 	if gold < GameTypes.COST_REPAIR_VAULT:
 		message = "Not enough gold: %d required." % GameTypes.COST_REPAIR_VAULT
 		return false
-	gold -= GameTypes.COST_REPAIR_VAULT
+	_spend_gold(GameTypes.COST_REPAIR_VAULT)
 	vault_opened.erase(p)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(p)
@@ -585,7 +633,7 @@ func _try_dig(gp: Vector2i) -> void:
 		message = reason
 		return
 	var previous_capacity := _storage_capacity()
-	gold -= COST_DIG
+	_spend_gold(COST_DIG)
 	grid[gp.y][gp.x] = Tile.FLOOR
 	_spill_overflow_at(gp, previous_capacity)
 	if raid != null:
@@ -626,7 +674,7 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 	if gold < cost:
 		message = "Not enough gold (%d required)." % cost
 		return
-	gold -= cost
+	_spend_gold(cost)
 	var was_vault := current == Tile.VAULT
 	_clear_cell_state(p)
 	grid[p.y][p.x] = tile
@@ -651,6 +699,9 @@ func _door_between_walls(p: Vector2i) -> bool:
 	var ns := _is_rock_cell(p + Vector2i.UP) and _is_rock_cell(p + Vector2i.DOWN)
 	return ew or ns
 
+func is_lesson_build_site(p: Vector2i, tile: int) -> bool:
+	return _inside(p) and p != lesson_alcove and grid[p.y][p.x] == Tile.FLOOR and _can_place_tile(p, tile)
+
 
 func _is_rock_cell(n: Vector2i) -> bool:
 	# The map boundary has the same solid wall as an unexcavated cell.
@@ -665,7 +716,7 @@ func repair_trap(p: Vector2i) -> int:
 		return 0
 	var charges := 0
 	while int(trap_charges.get(p, _trap_max_charges(tile))) < _trap_max_charges(tile) and gold >= COST_REPAIR_TRAP:
-		gold -= COST_REPAIR_TRAP
+		_spend_gold(COST_REPAIR_TRAP)
 		trap_charges[p] = int(trap_charges[p]) + 1
 		charges += 1
 	return charges
@@ -679,7 +730,7 @@ func repair_door(p: Vector2i) -> bool:
 	var maximum := GameTypes.door_max_hp(tile)
 	if int(door_hp.get(p, maximum)) >= maximum and not bool(door_opened.get(p, false)):
 		return false
-	gold -= COST_REPAIR_DOOR
+	_spend_gold(COST_REPAIR_DOOR)
 	door_hp[p] = maximum
 	door_opened.erase(p)
 	if raid != null:
@@ -699,7 +750,7 @@ func _repair_structures() -> void:
 			continue
 		if gold < COST_REPAIR_DOOR:
 			break
-		gold -= COST_REPAIR_DOOR
+		_spend_gold(COST_REPAIR_DOOR)
 		door_hp[p] = maximum
 		doors += 1
 	for key in trap_charges.keys():
@@ -708,7 +759,7 @@ func _repair_structures() -> void:
 		if not _is_trap_tile(t):
 			continue
 		while int(trap_charges[p]) < _trap_max_charges(t) and gold >= COST_REPAIR_TRAP:
-			gold -= COST_REPAIR_TRAP
+			_spend_gold(COST_REPAIR_TRAP)
 			trap_charges[p] = int(trap_charges[p]) + 1
 			charges += 1
 	if doors == 0 and charges == 0:

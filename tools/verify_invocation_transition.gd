@@ -15,6 +15,7 @@ func run() -> void:
 	var intro=game.get_node("Introduction")
 	intro.set_process(false)
 	for extent in [Vector2i(1280,720),Vector2i(390,844),Vector2i(844,390)]:
+		game.restart(false,true)
 		root.size=extent
 		await process_frame
 		intro._set_shot(intro.Shot.RITUAL)
@@ -90,7 +91,17 @@ func run() -> void:
 		for artisan in intro.artisans: check(not artisan.visible,"Seeking back hides the artisan")
 		intro._process(intro.ENTRY_DURATION-intro.elapsed)
 		intro.set_process(false)
-		check(intro.shot==intro.Shot.LESSON,"Entrance reaches playable lesson")
+		check(game.sim.lesson==GameTypes.Lesson.INVOKER_OFFER and intro.dialogue.speaker.text=="L’invocateur","The invoker offers the villagers' gold first")
+		intro._skip()
+		game.place_village_bag(Vector2i(6,8))
+		game.place_village_bag(Vector2i(9,8))
+		check(intro.shot==intro.Shot.ARTISAN and intro.dialogue.speaker.text=="Le mineur","Miner addresses the assembled artisans")
+		intro._process(intro.ARTISAN_OFFER_DURATION+.75)
+		check(intro.level_up.visible and game.progression.level()==1,"Promotion announces level one")
+		check(intro.artisans.size()==3 and game.get_node("HUD").dig_targets.blocks.is_empty(),"Free-build rock volumes cannot reorder the assembled artisans during the promotion")
+		intro._process(intro.ARTISAN_BEAT_DURATION-intro.elapsed)
+		intro.set_process(false)
+		check(intro.shot==intro.Shot.LESSON,"Miner's offer leads to the playable lesson")
 		check(intro.dungeon_master==null and intro.arrival_light==null,"Arrival sprites cleaned up")
 		check(intro.film.master_view.render_target_update_mode==SubViewport.UPDATE_DISABLED,"Master renderer released")
 		check(intro.invoker.sprite.texture.resource_path.contains("invoker-follow/se-idle"),"Tutorial invoker faces the Core")
@@ -105,6 +116,21 @@ func run() -> void:
 		intro._skip()
 		intro.set_process(false)
 		check(intro.shot==intro.Shot.LESSON and intro.dungeon_master==null,"Skip cleans up either scene")
+	# The previous save format started with the door, then the alcove and chest.
+	var legacy := GameplaySave.capture(game.sim, game.raid, game.progression)
+	legacy.erase("floor_gold")
+	legacy.gold = GameTypes.START_GOLD
+	legacy.lesson = GameTypes.Lesson.DOOR
+	legacy.progression = {"xp":60,"last_raid_id":0}
+	check(GameplaySave.apply(legacy,game.sim,game.raid,game.progression) and game.progression.level()==2 and game.sim.gold==320 and game.sim.floor_gold.is_empty(),"Existing save retains its level and funds without a second gift")
+	game.selected = GameTypes.FIRST_DOOR
+	game.confirm_action(GameTypes.Tool.BUILD_DOOR)
+	check(game.sim.lesson==GameTypes.Lesson.ALCOVE,"Legacy door still leads to the unexcavated rock")
+	game.selected = GameTypes.FIRST_ALCOVE
+	game.confirm_action(GameTypes.Tool.DIG)
+	check(game.sim.lesson==GameTypes.Lesson.MEET_CARPENTER,"Legacy excavation introduces the carpenter")
+	game.learn_from_artisan(GameTypes.Lesson.MEET_CARPENTER)
+	check(game.sim.lesson==GameTypes.Lesson.MEET_SCIENTIST and game.progression.xp==60,"Existing door is recognised without an extra charge or XP grant")
 	check(not game.persistence_enabled,"Preview cannot access player saves")
 	game.queue_free()
 	await process_frame
@@ -122,6 +148,21 @@ func run() -> void:
 			await RenderingServer.frame_post_draw
 			check(preview.timeline.size.x>80.,"Preview timeline remains usable")
 			root.get_texture().get_image().save_png("res://artifacts/sanctuary-procession/preview-transition-%d-%04d.png" % [extent.x,roundi(moment*100)])
+		var mineral_beat: float = preview.duration-preview.intro.ARTISAN_BEAT_DURATION
+		preview.present(mineral_beat-1.)
+		check(preview.game.sim.gold==50 and preview.game.sim.lesson==GameTypes.Lesson.VILLAGE_GIFT and preview.game.progression.level()==0,"Preview shows the first bag before the miner")
+		preview.present(mineral_beat + .5)
+		check(preview.intro.dialogue.speaker.text=="Le mineur" and preview.game.progression.level()==0,"Preview restores the level-zero offer")
+		preview.present(mineral_beat+preview.intro.ARTISAN_OFFER_DURATION+1.)
+		await process_frame
+		await RenderingServer.frame_post_draw
+		check(preview.intro.level_up.visible and preview.game.progression.level()==1 and not preview.intro.panel.visible,"Preview separates promotion from digging")
+		check(preview.intro.level_up.origin.distance_to(preview.intro._core_on_screen()) < 1.,"Halo is anchored to the Core after resizing")
+		var held: float = preview.intro.level_up.progress
+		await process_frame
+		check(preview.intro.level_up.progress==held,"Pausing the preview holds the level-up animation")
+		preview.present(mineral_beat+.5)
+		check(not preview.intro.level_up.visible and preview.game.progression.level()==0,"Seeking back clears the promotion")
 	preview.present(preview.duration)
 	var final_phase: float=preview.intro.view._vortex_animator.phase
 	await process_frame

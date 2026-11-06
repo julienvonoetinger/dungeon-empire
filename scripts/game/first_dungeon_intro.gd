@@ -1,11 +1,20 @@
 extends CanvasLayer
-## Each introduction uses the live map. Only the three playable lessons are saved.
+## Each introduction uses the live map and resumes at the current lesson.
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 const Types = preload("res://scripts/game/game_types.gd")
 const Film = preload("res://scripts/game/invocation_sanctuary.gd")
 const Dialogue = preload("res://scripts/game/invocation_dialogue.gd")
-enum Shot { CLOSED, PROLOGUE, RITUAL, ENTRANCE, LESSON }
+const LevelUp = preload("res://scripts/game/artisan_level_up.gd")
+const BuildSite = preload("res://scripts/game/ui/tutorial_build_site.gd")
+enum Shot { CLOSED, PROLOGUE, RITUAL, ENTRANCE, ARTISAN, LESSON, GIFT }
 const ENTRY_DURATION := 36.5
+const ARTISAN_OFFER_DURATION := 6.
+const ARTISAN_BEAT_DURATION := ARTISAN_OFFER_DURATION + LevelUp.DURATION
+const OFFERS := {
+	Types.Lesson.MEET_MINER: ["Le mineur", "Maître, je peux vous aider à agrandir votre donjon. Dites-moi où creuser, et je me mets à l’ouvrage.", 1, "Creusement débloqué"],
+	Types.Lesson.MEET_CARPENTER: ["Le menuisier", "Maître, je peux fabriquer des portes pour votre donjon. Choisissez un passage entre deux murs, et j’y poserai une porte en bois.", 2, "Portes en bois débloquées"],
+	Types.Lesson.MEET_SCIENTIST: ["Le scientifique", "Maître, je peux fabriquer des pièges pour défendre le donjon. Choisissez une dalle : mes pointes en jailliront sous les pas des intrus.", 3, "Pièges à pointes débloqués"],
+}
 const ARTISAN_START := 21.0
 const ARTISAN_SPACING := 1.65
 const ARTISAN_SPEED := .56
@@ -29,16 +38,16 @@ const PROLOGUE := [
 	["Le sanctuaire interdit", "Au refuge, un ancien révéla l’existence d’un sanctuaire caché dans les hauteurs. Les ancêtres des Oculins en avaient interdit l’accès : un dieu du mal pouvait y être invoqué. L’ancien connaissait encore le rite.", "res://assets/game/introduction/prologue-council.webp", "res://assets/game/introduction/prologue-council-portrait.webp", ["L’invocateur", "Il peut nous donner la force de vaincre. Mais nous devrons le servir.", "Après une nuit de débats, les survivants décidèrent de s’y rendre."]],
 	["Votre royaume", "L’ancien les guida jusqu’à une gorge étroite. Là, à l’abri des regards, des pierres dressées entouraient une dalle gravée. Il s’avança au centre du sanctuaire et prononça votre nom.", "res://assets/game/introduction/prologue-oath.webp", "res://assets/game/introduction/prologue-oath-portrait.webp", ["L’invocateur", "Nous vous offrons notre fidélité. Donnez-nous la force de renverser Aldren. Sous la montagne, nous bâtirons votre royaume.", "Autour de lui, les Oculins s’agenouillèrent. Leur appel venait de vous atteindre."]],
 ]
-const TITLES := ["", "Fermez le passage", "Creusez une alcôve", "Installez votre trésor"]
-const LINES := ["", "Maître… depuis l’escalier, on voit votre Cœur.", "Nos richesses méritent mieux que la poussière du couloir.", "Ici, votre or sera à sa place."]
-const ACTIONS := ["", "Poser la porte · %d or" % Types.COST_DOOR, "Creuser la roche · %d or" % Types.COST_DIG, "Poser un coffre"]
-const TOOLS := [Types.Tool.NONE, Types.Tool.BUILD_DOOR, Types.Tool.DIG, Types.Tool.STORE]
 
 @onready var session: IsometricGameSession = get_parent()
 @onready var hud: CanvasLayer = session.get_node("HUD")
 @onready var view: Node2D = session.get_node("PlayArea/World/Dungeon")
 @onready var camera: Camera2D = session.get_node("PlayArea/World/Camera2D")
 var shot := Shot.CLOSED
+var artisan_lesson := Types.Lesson.MEET_MINER
+var site_buttons := Control.new()
+var site_ink := Node2D.new()
+var placement_sites: Array[Vector2i] = []
 var elapsed := 0.0
 var root := ColorRect.new()
 var story := TextureRect.new()
@@ -46,6 +55,7 @@ var page := 0
 var film := Film.new()
 var veil := ColorRect.new()
 var dialogue := Dialogue.new()
+var level_up := LevelUp.new()
 var panel := PanelContainer.new()
 var skip: Button
 var title: Label
@@ -84,6 +94,14 @@ func _ready() -> void:
 	veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(dialogue)
+	level_up.locate_core = _core_on_screen
+	root.add_child(level_up)
+	root.add_child(site_buttons)
+	site_buttons.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	site_buttons.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	view.add_child(site_ink)
+	site_ink.draw.connect(_draw_build_sites)
+	site_ink.hide()
 	target = UI.button(root, "◆", _act, "", true)
 	target.accessibility_name = "Agir sur la case indiquée"
 	root.add_child(panel)
@@ -122,28 +140,41 @@ func _sync(_structure: bool) -> void:
 	if session.sim.lesson == Types.Lesson.FREE:
 		if shot != Shot.CLOSED: _set_shot(Shot.CLOSED)
 		return
-	if shot == Shot.CLOSED: _set_shot(Shot.LESSON)
+	var new_offer := shot == Shot.LESSON and OFFERS.has(session.sim.lesson)
+	var gift_accepted := shot == Shot.GIFT and session.sim.lesson != Types.Lesson.INVOKER_OFFER
+	if shot == Shot.CLOSED or new_offer or gift_accepted: _set_shot(Shot.LESSON)
 	elif shot == Shot.LESSON: _show_lesson()
 	visible = not session.paused and not session.confirmation_open
 	hud.visible = not visible
+	site_ink.visible = visible and not placement_sites.is_empty()
 
 func _set_shot(next: int) -> void:
+	_set_dig_controls(false)
+	_clear_build_sites()
+	reading_area.show()
+	title.add_theme_font_size_override("font_size",24)
+	if next == Shot.LESSON and OFFERS.has(session.sim.lesson):
+		artisan_lesson = session.sim.lesson
+		next = Shot.ARTISAN
+	elif next == Shot.LESSON and session.sim.lesson == Types.Lesson.INVOKER_OFFER:
+		next = Shot.GIFT
 	_clear_master_arrival()
-	if next != Shot.LESSON:
+	if next not in [Shot.LESSON, Shot.ARTISAN, Shot.GIFT]:
 		for artisan in artisans:
 			if is_instance_valid(artisan): artisan.queue_free()
 		artisans.clear()
 	shot = next
 	dialogue.clear_line()
+	level_up.hide()
 	reading_dialogue.clear_line()
 	after_line.hide()
-	view.set_core_awakening(1.0 if shot in [Shot.CLOSED,Shot.LESSON] else 0.0)
-	view.set_core_cinematic_time(-1.0 if shot in [Shot.CLOSED,Shot.LESSON] else 0.0)
+	view.set_core_awakening(1.0 if shot in [Shot.CLOSED,Shot.ARTISAN,Shot.LESSON,Shot.GIFT] else 0.0)
+	view.set_core_cinematic_time(-1.0 if shot in [Shot.CLOSED,Shot.LESSON,Shot.GIFT] else 0.0)
 	elapsed = 0
 	visible = shot != Shot.CLOSED and not session.paused
 	hud.visible = not visible
 	set_process(shot != Shot.CLOSED)
-	if is_instance_valid(invoker) and next != Shot.LESSON:
+	if is_instance_valid(invoker) and next not in [Shot.LESSON, Shot.ARTISAN, Shot.GIFT]:
 		invoker.queue_free()
 		invoker = null
 	panel.visible = shot in [Shot.PROLOGUE, Shot.LESSON]
@@ -156,6 +187,7 @@ func _set_shot(next: int) -> void:
 	veil.color = Color.TRANSPARENT
 	target.visible = shot == Shot.LESSON
 	action.visible = shot in [Shot.PROLOGUE, Shot.LESSON]
+	skip.show()
 	skip.text = "Jouer librement" if shot == Shot.LESSON else "Passer"
 	match shot:
 		Shot.CLOSED:
@@ -169,6 +201,14 @@ func _set_shot(next: int) -> void:
 		Shot.ENTRANCE:
 			_ensure_master_arrival()
 			_walk_in(0.)
+		Shot.ARTISAN:
+			_assemble_artisans()
+			present_artisan_offer(0.)
+		Shot.GIFT:
+			_assemble_artisans()
+			_focus(Vector2(Types.core_origin_cell()) + Vector2(.5,1.05),0.)
+			dialogue.show_line("L’invocateur", "Maître, les villageois ont réuni tout leur or pour vous. Ces deux sacs contiennent cinquante pièces chacun. Où devons-nous les déposer ?")
+			skip.text = "Choisir les cases"
 		Shot.LESSON: _show_lesson()
 	_layout()
 
@@ -192,9 +232,6 @@ func _show_page(index: int) -> void:
 	action.disabled = false
 	veil.color = Color(.028,.013,.045,.85)
 	_layout()
-
-func _lesson_cell() -> Vector2i:
-	return Types.FIRST_DOOR if session.sim.lesson == Types.Lesson.DOOR else Types.FIRST_ALCOVE
 
 func _ensure_invoker() -> void:
 	if is_instance_valid(invoker) and not invoker.is_queued_for_deletion(): return
@@ -222,48 +259,199 @@ func _clear_master_arrival() -> void:
 	dungeon_master=null
 	arrival_light=null
 
-func _show_lesson() -> void:
+func _assemble_artisans() -> void:
 	_ensure_invoker()
 	invoker.modulate.a = 1
 	view.position_invoker(invoker,_invoker_destination())
 	invoker_at=_invoker_destination()
 	invoker.present_direction("idle",0,"se")
 	_present_artisans(ENTRY_DURATION, _entrance_top())
+
+func present_artisan_offer(time: float) -> void:
+	var core := Vector2(Types.core_origin_cell()) + Vector2(.5,.5)
+	_focus(core + Vector2(0.,.55),0.)
+	view.set_core_cinematic_time(ENTRY_DURATION + time)
+	var offer: Array = OFFERS[artisan_lesson]
+	if time < ARTISAN_OFFER_DURATION:
+		dialogue.show_line(offer[0], offer[1])
+	else:
+		dialogue.clear_line()
+	level_up.present(time-ARTISAN_OFFER_DURATION,unit,dialogue.area,offer[2],offer[3])
+
+func _core_on_screen() -> Vector2:
+	var heart: Dictionary = view.DEFINITION.get("entries")["heart"]
+	var center: Vector2 = view.grid_to_local(Vector2(Types.core_origin_cell())+Vector2(.5,.5))
+	center += Vector2(heart.offset[0], heart.offset[1]) + Vector2(heart.vortex.center[0], heart.vortex.center[1])
+	var play: SubViewportContainer = session.get_node("PlayArea")
+	var in_world: Vector2 = view.get_global_transform_with_canvas() * center
+	return play.get_global_transform_with_canvas() * (in_world * play.size / Vector2(view.get_viewport().size))
+
+func _show_lesson() -> void:
 	var step := session.sim.lesson
-	title.text = "%d / 3   ·   %s" % [step, TITLES[step]]
+	var gift := step == Types.Lesson.VILLAGE_GIFT
+	var digging := step == Types.Lesson.ALCOVE
+	var building := step in [Types.Lesson.DOOR, Types.Lesson.SPIKES]
+	var choose_cell := gift or digging or building
+	_set_dig_controls(digging)
+	_clear_build_sites()
+	_assemble_artisans()
+	target.visible = not choose_cell
+	action.visible = not choose_cell
+	reading_area.visible = not choose_cell or not session.save_error.is_empty()
+	title.add_theme_font_size_override("font_size",18 if choose_cell else 24)
 	line.text = session.save_error
 	line.visible = not session.save_error.is_empty()
+	needs_focus = not choose_cell
+	skip.visible = not gift
+	if choose_cell:
+		if digging:
+			title.text = "Touchez un cube violet · %d or" % Types.COST_DIG
+		else:
+			_show_build_sites(step)
+		reading_dialogue.clear_line()
+		_layout()
+		return
+	title.text = "Installez votre trésor"
 	if session.save_error.is_empty():
-		reading_dialogue.show_line("L’invocateur", LINES[step])
+		reading_dialogue.show_line("L’invocateur", "Ici, votre or sera à sa place.")
 	else:
 		reading_dialogue.clear_line()
-	action.text = ACTIONS[step]
+	action.text = "Poser un coffre"
 	action.disabled = false
-	_focus(Vector2(_lesson_cell()) + Vector2(.5,.5))
-	needs_focus = true
+	_focus(Vector2(session.sim.lesson_alcove) + Vector2(.5,.5))
 	_layout()
+
+func _set_dig_controls(enabled: bool) -> void:
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE if enabled else Control.MOUSE_FILTER_STOP
+	if view.lesson_digging == enabled: return
+	view.set_lesson_digging(enabled)
+	hud.dig_targets.refresh()
+	if not enabled: session.get_node("Input")._apply_presentation()
+
+func _frame_dig_cells(area: Rect2) -> void:
+	if hud.dig_targets.blocks.is_empty(): return
+	var bounds: Rect2 = hud.dig_targets.blocks[0].support.rect
+	for block in hud.dig_targets.blocks:
+		bounds = bounds.merge(block.support.rect)
+	_frame_sites(bounds,area)
+
+func _frame_sites(bounds: Rect2, area: Rect2) -> void:
+	var top := skip.get_global_rect().end.y + 6.*unit
+	var bottom := panel.position.y - 8.*unit
+	var space := Vector2(area.size.x*unit-20.*unit,maxf(1.,bottom-top))
+	var input = session.get_node("Input")
+	var zoom := minf(input.FIXED_ZOOM * input.presentation_scale(), minf(space.x/bounds.size.x,space.y/bounds.size.y))
+	camera.zoom = Vector2.ONE * zoom
+	var screen_center := Vector2(area.get_center().x*unit,(top+bottom)*.5)
+	camera.position = bounds.get_center() + (root.size*.5-screen_center)/zoom
+	camera.force_update_scroll()
+
+func _clear_build_sites() -> void:
+	if not placement_sites.is_empty(): session.get_node("Input")._apply_presentation()
+	placement_sites.clear()
+	site_ink.hide()
+	for button in site_buttons.get_children():
+		site_buttons.remove_child(button)
+		button.queue_free()
+
+func _show_build_sites(step: int) -> void:
+	var gift := step == Types.Lesson.VILLAGE_GIFT
+	var door := step == Types.Lesson.DOOR
+	var tile := Types.Tile.DOOR if door else Types.Tile.SPIKE
+	var tool := Types.Tool.BUILD_DOOR if door else Types.Tool.TRAP_SPIKE
+	var glyph := "door" if door else "spike"
+	var placement_label := "Poser la porte" if door else "Poser le piège"
+	var extent: Vector2 = view.grid_to_local(Vector2(1,0)) * 2. * .87
+	if gift:
+		title.text = "Choisissez une case pour le %s sac · %d or" % ["premier" if session.sim.floor_gold.is_empty() else "second", Types.GOLD_BAG_CAPACITY]
+		placement_label = "Déposer le sac"
+	else:
+		title.text = "Posez une porte entre deux murs · %d or" % Types.COST_DOOR if door else "Posez un piège à pointes sur une case libre · %d or" % Types.COST_SPIKE
+	for y in Types.ROWS:
+		for x in Types.COLS:
+			var cell := Vector2i(x,y)
+			if gift:
+				if not session.sim.can_place_gift(cell): continue
+			elif not session.sim.is_lesson_build_site(cell,tile) or not session.check_action(cell,tool).valid: continue
+			var button := BuildSite.new()
+			button.view = view
+			button.gift = gift
+			if gift:
+				if not button.find_visible_floor(view.grid_to_local(Vector2(cell)+Vector2(.5,.5)),extent):
+					button.free()
+					continue
+				button.icon = UI.icon("coins")
+				button.pressed.connect(session.place_village_bag.bind(cell))
+			else:
+				button.icon = UI.icon(glyph)
+				button.pressed.connect(_build_at.bind(cell,tool))
+			for signal_name in ["mouse_entered","mouse_exited","focus_entered","focus_exited","button_down","button_up"]:
+				button.connect(signal_name,site_ink.queue_redraw)
+			button.accessibility_name = placement_label + " (%d, %d)" % [x,y]
+			site_buttons.add_child(button)
+			placement_sites.append(cell)
+	# Paint after the floor but beneath the level-1 scenery and actors.
+	view.move_child(site_ink,-1)
+	site_ink.visible = visible
+	site_ink.queue_redraw()
+
+func _draw_build_sites() -> void:
+	var extent: Vector2 = view.grid_to_local(Vector2(1,0)) * 2. * .87
+	for i in placement_sites.size():
+		var center: Vector2 = view.grid_to_local(Vector2(placement_sites[i])+Vector2(.5,.5))
+		site_buttons.get_child(i).paint_on_floor(site_ink,center,extent,unit/camera.zoom.x)
+
+func _build_at(cell: Vector2i, tool: int) -> void:
+	if not visible or shot != Shot.LESSON or not session.can_edit(): return
+	session.selected = cell
+	session.confirm_action(tool)
+
+func _frame_build_sites(area: Rect2) -> void:
+	var points := PackedVector2Array()
+	for cell in placement_sites:
+		points.append(view.grid_to_local(Vector2(cell)+Vector2(.5,.5)))
+	var bounds := Rect2(points[0],Vector2.ZERO)
+	for point in points: bounds = bounds.expand(point)
+	if session.sim.lesson == Types.Lesson.VILLAGE_GIFT:
+		for cell: Vector2i in session.sim.floor_gold:
+			bounds = bounds.expand(view.grid_to_local(Vector2(cell)+Vector2(.5,.5)))
+	_frame_sites(bounds.grow(88.),area)
+	for i in points.size():
+		var button: BaseButton = site_buttons.get_child(i)
+		var cell_size: Vector2 = view.grid_to_local(Vector2(1,0)) * 2. * camera.zoom * .87
+		button.scale = Vector2.ONE * unit
+		button.size = cell_size / unit
+		button.position = view.get_global_transform_with_canvas()*points[i] - button.size * unit * .5
+	site_ink.queue_redraw()
 
 func _act() -> void:
 	if not visible or session.paused: return
 	if shot == Shot.PROLOGUE:
 		if page+1 < PROLOGUE.size(): _show_page(page+1)
 		else: _set_shot(Shot.RITUAL)
-	elif shot == Shot.LESSON:
-		session.selected = _lesson_cell()
-		session.confirm_action(TOOLS[session.sim.lesson])
+	elif shot == Shot.LESSON and session.sim.lesson == Types.Lesson.CHEST:
+		session.selected = session.sim.lesson_alcove
+		session.confirm_action(Types.Tool.STORE)
 
 func _skip() -> void:
 	if not visible or session.paused: return
 	match shot:
 		Shot.PROLOGUE: _set_shot(Shot.RITUAL)
 		Shot.RITUAL, Shot.ENTRANCE: _set_shot(Shot.LESSON)
+		Shot.GIFT: session.accept_village_gift()
+		Shot.ARTISAN:
+			if elapsed < ARTISAN_OFFER_DURATION:
+				elapsed = ARTISAN_OFFER_DURATION
+				_process(0.)
+			else:
+				_set_shot(Shot.LESSON)
 		Shot.LESSON: session.leave_tutorial()
 
 func _entrance_top() -> Vector2:
 	return Vector2(Types.FIRST_STAIR) + Vector2(.5,.5) - Vector2(session.sim._entrance_mouth(Types.FIRST_STAIR)) * Stairs.TOP_TRAVEL
 
 func _invoker_destination() -> Vector2:
-	return Vector2(Types.core_origin_cell()) + Vector2(-.5,.23)
+	return Vector2(Types.core_origin_cell()) + Types.COUNCIL_INVOKER
 
 func _present_artisans(time: float, start: Vector2) -> Vector2:
 	var core := Vector2(Types.core_origin_cell())
@@ -293,8 +481,8 @@ func _present_artisans(time: float, start: Vector2) -> Vector2:
 		var travel := maxf(0.,time-ARTISAN_START-i*ARTISAN_SPACING)*ARTISAN_SPEED
 		# Keep to the open corridor, then fan out along the front of the Core.
 		var corner := core + Vector2(-.65,.75)
-		var front := core + Vector2(-.65,1.48)
-		var stop := front + Vector2(2.10-i*1.05,0)
+		var front := core + Types.COUNCIL_ARTISANS[-1]
+		var stop := core + Types.COUNCIL_ARTISANS[i]
 		var at := start
 		var remaining := travel
 		var facing: StringName = &"ne"
@@ -369,7 +557,7 @@ func _process(delta: float) -> void:
 			veil.color.a = .85*(1.-smoothstep(0.,.55,elapsed))
 		Shot.LESSON:
 			if needs_focus:
-				_focus(Vector2(_lesson_cell())+Vector2(.5,.5))
+				_focus(Vector2(session.sim.lesson_alcove)+Vector2(.5,.5))
 				needs_focus = false
 		Shot.RITUAL:
 			elapsed += delta
@@ -388,6 +576,14 @@ func _process(delta: float) -> void:
 				_set_shot(Shot.LESSON)
 			else:
 				_walk_in(elapsed / ENTRY_DURATION)
+		Shot.ARTISAN:
+			elapsed += delta
+			if elapsed >= ARTISAN_OFFER_DURATION:
+				session.learn_from_artisan(artisan_lesson)
+			if elapsed >= ARTISAN_BEAT_DURATION:
+				_set_shot(Shot.LESSON)
+			else:
+				present_artisan_offer(elapsed)
 
 func _layout() -> void:
 	if not is_instance_valid(skip) or root.size.x < 1: return
@@ -406,6 +602,7 @@ func _fit_controls(window_size: Vector2, safe_pixels: Rect2, density: float) -> 
 	unit = root.size.x / window_size.x * pixels_per_unit
 	var area := Rect2(safe_pixels.position / pixels_per_unit, safe_pixels.size / pixels_per_unit)
 	dialogue.fit(area, unit)
+	if shot == Shot.ARTISAN: present_artisan_offer(elapsed)
 	for control in [skip,panel,target]: control.scale=Vector2.ONE*unit
 	var margin := 12.
 	skip.reset_size()
@@ -437,4 +634,7 @@ func _fit_controls(window_size: Vector2, safe_pixels: Rect2, density: float) -> 
 	target.position = root.size*.5-target.size*unit*.5
 	if shot in [Shot.LESSON, Shot.ENTRANCE]:
 		target.position.y = minf(target.position.y, panel.position.y - (target.size.y + margin) * unit)
-		if shot == Shot.LESSON: _focus(focus_cell)
+		if shot == Shot.LESSON:
+			if view.lesson_digging: _frame_dig_cells(area)
+			elif not placement_sites.is_empty(): _frame_build_sites(area)
+			else: _focus(focus_cell)

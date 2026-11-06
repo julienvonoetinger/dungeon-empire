@@ -43,6 +43,7 @@ func _scenario(extent: Vector2i) -> void:
 	root.add_child(game)
 	await _settle()
 	hud=game.get_node("HUD")
+	game.progression.xp = 150 # The palette exercise buys and repeats a spike trap.
 	game.sim.new_map()
 	for y in range(5,10):
 		for x in range(5,10): game.sim.grid[y][x]=TYPES.Tile.FLOOR

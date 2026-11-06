@@ -16,10 +16,13 @@ static func capture(sim, raid, progression) -> Dictionary:
 		"raid_index": raid.raid_index, "mage_pressure": raid.mage_pressure, "progression": progression.snapshot(), "vault_gold": sim.vault_gold}
 	for field in SIM_FIELDS:
 		data[field] = sim.get(field)
+	if not sim.floor_gold.is_empty(): data["floor_gold"] = sim.floor_gold
 	data["vault_locks"] = sim.vault_locks
 	data["vault_opened"] = sim.vault_opened
 	data["hero_roster"] = raid.roster.snapshot()
 	if sim.lesson != Types.Lesson.FREE: data["lesson"] = sim.lesson
+	if sim.lesson != Types.Lesson.FREE and sim.lesson_alcove != Types.FIRST_ALCOVE:
+		data["lesson_alcove"] = sim.lesson_alcove
 	return data.duplicate(true)
 
 static func apply(data: Dictionary, sim, raid, progression) -> bool:
@@ -30,10 +33,18 @@ static func apply(data: Dictionary, sim, raid, progression) -> bool:
 		return false
 	for field in SIM_FIELDS:
 		sim.set(field, snapshot[field])
+	sim.floor_gold = snapshot.get("floor_gold", {})
 	sim.vault_gold = snapshot.get("vault_gold", {})
 	sim.vault_locks = snapshot.get("vault_locks", {})
 	sim.vault_opened = snapshot.get("vault_opened", {})
 	sim.lesson = snapshot.get("lesson", Types.Lesson.FREE)
+	sim.lesson_alcove = snapshot.get("lesson_alcove", Types.FIRST_ALCOVE)
+	progression.awaiting_miner = sim.lesson in [Types.Lesson.INVOKER_OFFER, Types.Lesson.VILLAGE_GIFT, Types.Lesson.MEET_MINER]
+	if sim.lesson == Types.Lesson.DOOR and progression.level() < 2:
+		# Old saves either started with a door, or had already paid to excavate.
+		sim.lesson = Types.Lesson.ALCOVE if sim.grid[sim.lesson_alcove.y][sim.lesson_alcove.x] == Types.Tile.ROCK else Types.Lesson.MEET_CARPENTER
+	elif sim.lesson == Types.Lesson.CHEST and progression.level() < 3:
+		sim.lesson = Types.Lesson.MEET_CARPENTER if progression.level() < 2 else Types.Lesson.MEET_SCIENTIST
 	sim.selected_tool = Types.Tool.NONE
 	sim.reset_armed = false
 	sim.message = ""
@@ -128,9 +139,12 @@ static func _valid(data: Dictionary) -> bool:
 	if data.has("lesson"):
 		if not data.lesson is int or data.lesson not in Types.Lesson.values(): return false
 		fields.append("lesson")
+	if data.has("lesson_alcove"):
+		if not _coord(data.lesson_alcove) or data.get("lesson") not in [Types.Lesson.MEET_CARPENTER, Types.Lesson.DOOR, Types.Lesson.MEET_SCIENTIST, Types.Lesson.SPIKES, Types.Lesson.CHEST]: return false
+		fields.append("lesson_alcove")
 	if data.has("vault_gold"):
 		fields.append("vault_gold")
-	for field in ["vault_locks", "vault_opened", "hero_roster"]:
+	for field in ["floor_gold", "vault_locks", "vault_opened", "hero_roster"]:
 		if data.has(field):
 			fields.append(field)
 	if not _keys(data, fields) or not data.version is int or data.version != VERSION:
@@ -143,10 +157,17 @@ static func _valid(data: Dictionary) -> bool:
 		return false
 	if not data.game_over is bool:
 		return false
-	if not _keys(data.progression, ["xp", "last_raid_id"]):
+	if not data.progression is Dictionary: return false
+	var progression_fields := ["xp", "last_raid_id"]
+	if data.progression.has("invocation_xp"):
+		progression_fields.append("invocation_xp")
+		if not _integer(data.progression.invocation_xp): return false
+	if not _keys(data.progression, progression_fields):
 		return false
 	if not _integer(data.progression.xp) or not _integer(data.progression.last_raid_id):
 		return false
+	if data.progression.get("invocation_xp",0) > data.progression.xp: return false
+	if data.get("lesson") in [Types.Lesson.INVOKER_OFFER, Types.Lesson.VILLAGE_GIFT, Types.Lesson.MEET_MINER] and data.progression.get("invocation_xp",0) != data.progression.xp: return false
 	if not data.grid is Array or data.grid.size() != Types.ROWS:
 		return false
 	for row in data.grid:
@@ -155,6 +176,18 @@ static func _valid(data: Dictionary) -> bool:
 		for tile in row:
 			if not _tile(tile):
 				return false
+	if data.has("lesson_alcove") and data.grid[data.lesson_alcove.y][data.lesson_alcove.x] != Types.Tile.FLOOR: return false
+	var bags = data.get("floor_gold", {})
+	if not bags is Dictionary or bags.size() > Types.VILLAGE_BAG_COUNT: return false
+	var bag_total := 0
+	for cell in bags:
+		if not _coord(cell) or data.grid[cell.y][cell.x] != Types.Tile.FLOOR: return false
+		if not _integer(bags[cell], Types.GOLD_BAG_CAPACITY) or bags[cell] == 0: return false
+		bag_total += bags[cell]
+	if bag_total > data.gold: return false
+	if data.get("lesson") == Types.Lesson.INVOKER_OFFER and data.gold != 0: return false
+	if data.get("lesson") == Types.Lesson.VILLAGE_GIFT:
+		if bags.size() >= Types.VILLAGE_BAG_COUNT or data.gold != bags.size() * Types.GOLD_BAG_CAPACITY or data.gold != bag_total: return false
 	var balances = data.get("vault_gold", {})
 	if not balances is Dictionary or balances.size() > Types.COLS * Types.ROWS:
 		return false
@@ -178,7 +211,7 @@ static func _valid(data: Dictionary) -> bool:
 			if not _coord(pos) or not limits.has(pos) or not _integer(balances[pos], limits[pos]):
 				return false
 			stored += int(balances[pos])
-		if stored > data.gold:
+		if stored + bag_total > data.gold:
 			return false
 	for field in ["door_hp", "door_opened", "trap_charges", "kingdom_knowledge"]:
 		if not data[field] is Dictionary or data[field].size() > Types.COLS * Types.ROWS:

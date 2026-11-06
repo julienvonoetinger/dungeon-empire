@@ -35,6 +35,7 @@ func run() -> void:
 	check(ProjectSettings.get_setting("display/window/handheld/orientation", 0) == DisplayServer.SCREEN_SENSOR, "Project must enable automatic portrait and landscape")
 	var game = GAME.instantiate()
 	game.persistence_enabled=false
+	game.progression.xp = 150 # Rotate with an unlocked spike tool.
 	game.save_path = out + "never-created.save"
 	root.add_child(game); game.set_process(false)
 	await settle()

@@ -9,6 +9,7 @@ func check(ok: bool, message: String) -> void:
 func run() -> void:
 	var game = GAME.instantiate()
 	game.persistence_enabled=false
+	game.progression.xp = 150 # This HUD exercise places spike traps.
 	game.save_path="res://artifacts/master-ui-never-player.save"
 	root.add_child(game); game.set_process(false)
 	await process_frame

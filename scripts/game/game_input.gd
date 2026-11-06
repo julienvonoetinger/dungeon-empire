@@ -106,7 +106,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		session.get_node("HUD").handle_back()
 		get_viewport().set_input_as_handled()
 		return
-	if session.sim.lesson != GameTypes.Lesson.FREE: return
+	if session.sim.lesson != GameTypes.Lesson.FREE and not view.lesson_digging: return
 	if session.paused or session.result_open or session.confirmation_open or session.save_blocked: return
 	if (event is InputEventScreenTouch or event is InputEventMouseButton) and session.get_node("HUD").blocks_pointer(event.position):
 		if not event.pressed: _cancel_world_pointer()
@@ -151,7 +151,7 @@ func _finish(point: Vector2) -> void:
 		var released_target: Vector2i=hud.dig_targets.hit_cell(point/hud.scale.x)
 		if _dig_target.x>=0:
 			if released_target==_dig_target: session.dig_cell(_dig_target)
-		elif released_target.x<0:
+		elif released_target.x<0 and session.sim.lesson == GameTypes.Lesson.FREE:
 			var local_point: Vector2 = point - session.get_node("PlayArea").position
 			var world_point: Vector2 = view.get_global_transform_with_canvas().affine_inverse() * local_point
 			hud.world_tapped(view.pick_cell(world_point),world_point)

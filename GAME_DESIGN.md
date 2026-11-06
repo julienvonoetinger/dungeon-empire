@@ -40,12 +40,19 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
 
 - Grille logique 16×16 ; cœur solide **1×1**, au centre de sa case, sans changer
   son sprite. L'ancienne empreinte 2×2 est abandonnée dans cette version.
-- Le premier donjon démarre avec 320 or, un Cœur central à 100 PV, un escalier
+- Le premier donjon démarre sans or, avec un Cœur central à 100 PV, un escalier
   et un couloir. Le passage d’une case autour du Cœur est dégagé gratuitement,
   diagonales comprises. Entrées et portes y sont interdites.
-- L’invocateur guide la pose d’une porte, le creusement d’une alcôve et la pose
-  d’un coffre. Chaque geste est sauvegardé. Le joueur peut passer l’invocation
-  ou quitter les leçons pour construire librement.
+- Au niveau 0, l’invocateur offre les économies du village. Le joueur choisit
+  deux cases de sol pour y déposer deux sacs de 50 pièces. Chaque dépôt est
+  sauvegardé. Le mineur prend la parole après le second sac.
+- Après la montée de niveau, les cubes violets indiquent les roches que le mineur
+  peut creuser. Après le creusement, le menuisier propose ses portes et le Maître
+  passe au niveau 2. Le joueur choisit une case de passage entre deux murs et y
+  pose une porte en bois. Le scientifique propose alors ses pièges. Au niveau 3,
+  le joueur pose un piège à pointes sur une case de sol libre, puis installe son
+  coffre dans l’alcôve creusée. Le creusement (5), la porte (40) et les pointes
+  (35) laissent 20 pièces dans le dernier sac. Le premier coffre les recueille.
 - Creusement : 5 or, voisin cardinal d'un espace excavé. La roche soutenant
   l'entrée est protégée. Retirer une structure laisse du sol, sans remboursement.
   Cœur et entrée sont permanents. Poser un élément sur roche ne creuse pas.
@@ -60,21 +67,22 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
 
 | Élément/action | Prix | État et contrainte |
 | --- | ---: | --- |
+| Sac du village | Don | Capacité 50, traversable, pièces disponibles dès le dépôt |
 | Coffre simple | 0 | Capacité 150, traversable |
 | Coffre verrouillé / scellé | 40 / 80 | Capacité 150 ; le scellé requiert le niveau 4 |
-| Pointes | 35 | 3 charges, 30 dégâts (20 contre le Paladin) |
+| Pointes | 35 | Niveau 3, 3 charges, 30 dégâts (20 contre le Paladin) |
 | Entrave | 30 | Niveau 2, 3 charges, 16 dégâts et arrêt de 3 secondes |
 | Néant | 45 | Niveau 3, 1 charge, bannissement vivant du visiteur avec son butin |
-| Porte en bois | 40 | 60 PV |
+| Porte en bois | 40 | Niveau 2, 60 PV ; passage entre deux murs |
 | Porte renforcée en fer | 60 | 120 PV, disponible au niveau 2 |
 | Porte magique | 80 | 60 PV, disponible au niveau 4 |
 | Entrée | 0 | Unique, permanente |
 | Réparer porte ou protection de coffre | 15 | Restaure intégralement / referme la protection |
 | Réparer piège | 10 par charge | Autant de charges manquantes que l'or permet |
 
-Les coffres conservent chacun leur contenu. Dépenses et réallocation suivent
-l'ordre de grille du prototype. Les 320 or initiaux peuvent être temporairement
-non stockés, mais un raid exige une capacité totale suffisante. Les transferts
+Les achats puisent d’abord dans les sacs, dans l’ordre de dépôt. Les coffres
+conservent chacun leur contenu et reçoivent l’or des sacs dans la limite de leur
+capacité. Un raid exige une capacité totale suffisante dans les coffres. Les transferts
 entre coffres sont gratuits, limités au solde source et à la place disponible.
 Améliorer un coffre facture la différence de protection ; répétition et baisse
 de gamme sont refusées. Supprimer du stockage peut laisser le surplus en butin.
@@ -327,7 +335,11 @@ le raid. Quitter en raid retrouve la préparation précédente, sans héros à
 mi-action. Sauvegarde temporaire contrôlée, copie de secours `.bak`, puis renommage.
 Un fichier illisible bloque l'édition et reste conservé jusqu'à un redémarrage
 explicitement confirmé ; une erreur d'écriture est signalée et empêche le raid.
-Recommencer conserve l'XP du cœur, mais réinitialise carte, richesse et visiteurs.
+Recommencer conserve l’XP cumulée du Cœur. Le Maître nouvellement invoqué apparaît
+au niveau 0 et obtient le niveau 1 quand le mineur lui propose son aide, après
+le dépôt du don des villageois. Les enseignements du menuisier et du scientifique lui
+accordent les seuils des niveaux 2 et 3, respectivement 60 et 150 XP depuis
+cette invocation. Une reprise conserve les enseignements déjà reçus.
 
 Pour les vérifications manuelles, l'argument utilisateur **`--review-session`**
 emploie uniquement `user://isometric_review_v1.save`. Il ne change ni règles ni

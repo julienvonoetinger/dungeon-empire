@@ -52,6 +52,7 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(OUT)
 	root.size=Vector2i(1280,720)
 	game=GAME.instantiate(); game.persistence_enabled=false
+	game.progression.xp = 150 # A later interaction arms the spike tool.
 	root.add_child(game); game.set_process(false); await settle()
 	hud=game.get_node("HUD"); view=game.get_node("PlayArea/World/Dungeon"); terrain=game.get_node("PlayArea/World/Terrain")
 	check(game.sim._core_origin()==Vector2i(8,8) and not hud.shade.visible and visible_blocks()>0,"Cold start opens the centred Core chamber for excavation")

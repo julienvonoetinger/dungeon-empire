@@ -52,6 +52,7 @@ var access_visible := false:
 var _valid_cells: Array[Vector2i] = []
 var _floor_guide: Node2D
 var dig_cells: Array[Vector2i] = []
+var lesson_digging := false
 var assisted_dig_cells: Dictionary = {}
 var dig_guides_visible := false:
 	set(value):
@@ -75,14 +76,7 @@ func _ready() -> void:
 
 func _on_change(structure: bool) -> void:
 	if structure: rebuild()
-	dig_cells.clear()
-	# Cache the affordable frontier on state changes, never dry-run 256 complete
-	# transactions per frame. The simulator owns adjacency/support/cost rules.
-	if session.can_edit() and session.sim._has_core():
-		for y in Types.ROWS:
-			for x in Types.COLS:
-				var cell := Vector2i(x,y)
-				if session.sim.dig_failure_reason(cell).is_empty(): dig_cells.append(cell)
+	_update_dig_cells()
 	_valid_cells.clear()
 	if session.can_edit() and session.sim._has_core() and session.tool!=Types.Tool.NONE:
 		for y in Types.ROWS:
@@ -92,6 +86,20 @@ func _on_change(structure: bool) -> void:
 	queue_redraw()
 	_floor_guide.queue_redraw()
 	_overlay.queue_redraw()
+
+func set_lesson_digging(enabled: bool) -> void:
+	if lesson_digging == enabled: return
+	lesson_digging = enabled
+	_update_dig_cells()
+
+func _update_dig_cells() -> void:
+	dig_cells.clear()
+	if session.sim.lesson != Types.Lesson.FREE and not (lesson_digging and session.sim.lesson == Types.Lesson.ALCOVE): return
+	if not session.can_edit() or not session.sim._has_core(): return
+	for y in Types.ROWS:
+		for x in Types.COLS:
+			var cell := Vector2i(x,y)
+			if session.sim.dig_failure_reason(cell).is_empty(): dig_cells.append(cell)
 
 func _vortex_can_advance() -> bool:
 	return session != null and not (session.paused or session.confirmation_open or session.result_open or session.save_blocked or session.sim.game_over)
@@ -188,6 +196,8 @@ func rebuild() -> void:
 		else: _add_marker("corpse", corpse.pos, Color("aa7187"), false)
 	for bag in sim.loot_bags:
 		if bag.gold > 0: _add_marker("loot", bag.pos, Color("f4c55b"), false)
+	for cell: Vector2i in sim.floor_gold:
+		_add_marker("village_bag", cell, Color("f4c55b"), true)
 	# Sort architecture + static gameplay proxies only when the map changes.
 	var ordered := super._ordered_parts(solid_groups.duplicate())
 	solid_groups = ordered
@@ -350,6 +360,7 @@ func _update_markers() -> void:
 				item.node.badge.set_door_status("closed" if hp>0 else "open" if sim.door_opened.get(p,false) else "broken")
 			"corpse": text_value = "Corpse"
 			"loot": text_value = "Loot"
+			"village_bag": text_value = "%d" % sim.floor_gold.get(p,0)
 		item.node.refresh(text_value)
 	if not is_instance_valid(_actor): return
 	var hero := session.raid.hero

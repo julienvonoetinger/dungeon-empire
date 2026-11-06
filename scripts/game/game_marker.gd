@@ -2,6 +2,7 @@ extends Node2D
 
 ## Provisional gameplay symbols and shared mobile status rings.
 const Badge = preload("res://scripts/game/ui/world_badge.gd")
+const GOLD_BAG = preload("res://assets/game/introduction/village-gold-bag.png")
 var kind := "chest"
 var caption := ""
 var tint := Color("e5b85e")
@@ -13,6 +14,11 @@ var badge: Control
 var badge_anchor_y := -26.0
 
 func fit_badge(extent: float) -> void:
+	if kind == "village_bag" and label:
+		var unit := extent / Badge.SCREEN_DIAMETER
+		label.scale = Vector2.ONE * unit
+		label.position = Vector2(-label.size.x*.5*unit,-73.-17.*unit)
+		return
 	if not badge: return
 	badge.scale=Vector2.ONE*(extent/badge.size.x)
 	badge.position=Vector2(-extent/2,badge_anchor_y-extent-5)
@@ -28,6 +34,13 @@ func _ready() -> void:
 	label.add_theme_constant_override("outline_size", 6)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(label)
+	if kind == "village_bag":
+		var sprite := Sprite2D.new()
+		sprite.texture = GOLD_BAG
+		sprite.scale = Vector2.ONE * (78. / GOLD_BAG.get_height())
+		sprite.position.y = -36.
+		add_child(sprite)
+		label.add_theme_font_size_override("font_size",13)
 	if kind in ["chest","trap","door"]:
 		label.hide()
 		badge=Badge.new()
@@ -55,7 +68,7 @@ func _draw() -> void:
 		draw_circle(Vector2(0, -66), 16, Color("131a29"), false, 3, true)
 		draw_line(Vector2(-24, -91), Vector2(24, -91), Color("161e2a"), 6)
 		draw_line(Vector2(-24, -91), Vector2(-24 + 48 * health, -91), Color("80d6a0"), 4)
-	elif kind in ["chest","door"]:
+	elif kind in ["chest","door","village_bag"]:
 		pass
 	elif kind == "trap":
 		pass # The prepared inset tile owns the mechanism; retain only its ring.

@@ -42,6 +42,7 @@ func run() -> void:
 	check(b.mode!="jubile","result reaction completes and does not loop")
 	session.restart(true); header.refresh(session)
 	check(b.reaction.is_empty(),"restart clears previous reaction")
+	session.progression.xp = 150 # Test the price of a learned trap.
 	session.selected=Vector2i(-1,-1); session.sim.gold=0
 	session.choose_tool(SESSION.Types.Tool.TRAP_SPIKE); session.activate_cell(Vector2i(4,8)); header.refresh(session,.01)
 	check(b.mode=="fauche","real unaffordable placement triggers poor")

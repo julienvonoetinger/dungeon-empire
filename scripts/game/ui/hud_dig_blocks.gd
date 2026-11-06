@@ -45,13 +45,13 @@ func refresh() -> void:
 		# disturb that order when no excavation volumes need insertion.
 		if not blocks.is_empty():
 			for part in ordered: _view._world.move_child(part.node,-1)
-	var enabled: bool=_view.dig_guides_visible and hud.session.can_edit()
+	var enabled: bool=(_view.dig_guides_visible or _view.lesson_digging) and hud.session.can_edit()
 	if is_instance_valid(hud.shade): enabled=enabled and not hud.shade.visible
 	for block in blocks: block.visible=enabled
 
 func hit_cell(point: Vector2) -> Vector2i:
 	refresh()
-	if not is_instance_valid(_view) or not _view.dig_guides_visible or not hud.session.can_edit(): return Vector2i(-1,-1)
+	if not is_instance_valid(_view) or not (_view.dig_guides_visible or _view.lesson_digging) or not hud.session.can_edit(): return Vector2i(-1,-1)
 	if is_instance_valid(hud.shade) and hud.shade.visible: return Vector2i(-1,-1)
 	var local_point: Vector2=_view.get_global_transform_with_canvas().affine_inverse()*(point*hud.scale.x)
 	if _view.solid_covers_point(local_point): return Vector2i(-1,-1)

@@ -20,7 +20,9 @@ func validate(data: Variant) -> Dictionary:
 	var errors: Array[String] = []
 	if not data is Dictionary: return {"ok":false,"errors":["Scenario must be an object"]}
 	for key in data:
-		if key not in ["version","name","initial","seed","steps"]: errors.append("Unknown scenario field: " + str(key))
+		if key not in ["version","name","initial","initial_xp","seed","steps"]: errors.append("Unknown scenario field: " + str(key))
+	var initial_xp = data.get("initial_xp",0)
+	if not _integer(initial_xp) or float(initial_xp) < 0 or float(initial_xp) > 2147483647: errors.append("initial_xp must be a nonnegative integer")
 	if not _integer(data.get("version",1)) or int(data.get("version",1)) != 1: errors.append("Unsupported scenario version")
 	if not data.get("name") is String or str(data.get("name","")).is_empty(): errors.append("name must be a nonempty string")
 	if data.get("initial","prepared") not in ["empty","prepared"]: errors.append("initial must be empty or prepared")
@@ -99,6 +101,7 @@ func run(data: Dictionary, parent: Node) -> Dictionary:
 	parent.add_child(_game)
 	_game.set_process(false)
 	_game.restart(data.get("initial","prepared") == "prepared")
+	_game.progression.xp = int(data.get("initial_xp",0))
 	_game.raid.trap_activated.connect(_trap_event)
 	_game.raid.raid_finished.connect(_raid_event)
 	_step = -1

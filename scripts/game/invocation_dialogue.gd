@@ -5,6 +5,9 @@ const PORTRAITS := {
 	"L’invocateur": preload("res://assets/game/introduction/portraits/invoker.webp"),
 	"Le Maître": preload("res://assets/game/introduction/portraits/master.webp"),
 	"Les anciens": preload("res://assets/game/introduction/portraits/elders.webp"),
+	"Le mineur": preload("res://assets/game/introduction/portraits/miner.webp"),
+	"Le menuisier": preload("res://assets/game/introduction/portraits/carpenter.webp"),
+	"Le scientifique": preload("res://assets/game/introduction/portraits/scientist.webp"),
 }
 const RITUAL := [
 	[10.0, 14.8, "L’invocateur", "Aldren a pris nos terres. Nos familles se terrent dans les grottes."],

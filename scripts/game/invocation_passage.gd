@@ -157,7 +157,8 @@ func _draw() -> void:
 			var points:=PackedVector2Array()
 			for i in 41:
 				var f:=i/40.
-				var p:=source.lerp(impact,f)
+				# The remaining ritual charge opens the passage before the Master has powers.
+				var p:=CENTER.lerp(impact,f)
 				p+=Vector2(sin(f*9.-seconds*2.2+strand*2.1)*18.,sin(f*6.+seconds+strand)*7.)*sin(PI*f)
 				points.append(p)
 			_line(points,casting*.44,2.1)

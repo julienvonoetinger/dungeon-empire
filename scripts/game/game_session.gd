@@ -18,7 +18,7 @@ static func launch_save_path() -> String:
 var save_path := launch_save_path()
 ## Set before entering the tree for isolated simulations; no disk reads or writes.
 var persistence_enabled := true
-const FIELDS := ["grid", "gold", "vault_gold", "vault_locks", "vault_opened", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over"]
+const FIELDS := ["grid", "gold", "floor_gold", "vault_gold", "vault_locks", "vault_opened", "core_hp", "door_hp", "door_opened", "trap_charges", "loot_bags", "corpses", "game_over"]
 var sim := DungeonSim.new()
 var raid := RaidDirector.new()
 var progression := CoreProgression.new()
@@ -70,7 +70,7 @@ func phase() -> String:
 	return "Preparation"
 
 func can_edit() -> bool:
-	return not paused and not confirmation_open and not result_open and not raid.raid_active and not sim.game_over and not save_blocked
+	return not progression.awaiting_miner and sim.lesson not in [Types.Lesson.MEET_CARPENTER,Types.Lesson.MEET_SCIENTIST] and not paused and not confirmation_open and not result_open and not raid.raid_active and not sim.game_over and not save_blocked
 
 func ready_for_raid() -> bool:
 	return sim.lesson == Types.Lesson.FREE and sim._has_required_storage() and not sim.game_over and not save_blocked
@@ -179,6 +179,19 @@ func cancel_selection() -> void:
 func check_action(cell: Vector2i, requested_tool: int = -1) -> Dictionary:
 	if not can_edit() or not sim._inside(cell): return {"valid": false, "reason": "Action unavailable", "cost": 0}
 	var action_tool := tool if requested_tool < 0 else requested_tool
+	match sim.lesson:
+		Types.Lesson.ALCOVE:
+			if action_tool != Types.Tool.DIG or sim.grid[cell.y][cell.x] != Types.Tile.ROCK:
+				return {"valid":false, "reason":"Choisissez un cube violet à creuser.", "cost":0}
+		Types.Lesson.DOOR:
+			if action_tool != Types.Tool.BUILD_DOOR or not sim.is_lesson_build_site(cell,Types.Tile.DOOR):
+				return {"valid":false, "reason":"Choisissez un passage entre deux murs.", "cost":0}
+		Types.Lesson.SPIKES:
+			if action_tool != Types.Tool.TRAP_SPIKE or not sim.is_lesson_build_site(cell,Types.Tile.SPIKE):
+				return {"valid":false, "reason":"Choisissez une case de sol libre.", "cost":0}
+		Types.Lesson.CHEST:
+			if cell != sim.lesson_alcove or action_tool != Types.Tool.STORE:
+				return {"valid":false, "reason":"Installez le coffre dans l’alcôve.", "cost":0}
 	if sim._has_core() and not progression.allows(action_tool):
 		return {"valid": false, "reason": "Core level %d required" % progression.required_level(action_tool), "cost": 0}
 	var copy := DungeonSim.new()
@@ -231,7 +244,7 @@ func confirm_action(requested_tool: int = -1) -> void:
 		report_rejected_action(selected, requested_tool)
 		changed.emit(false)
 		return
-	if sim._has_core():
+	if sim._has_core() and sim.lesson == Types.Lesson.FREE:
 		_build_history.append(_build_snapshot())
 		if _build_history.size() > 32: _build_history.pop_front()
 	var previous_rooms := sim.treasure_rooms().size()
@@ -241,11 +254,17 @@ func confirm_action(requested_tool: int = -1) -> void:
 	var used := tool if requested_tool < 0 else requested_tool
 	match sim.lesson:
 		Types.Lesson.DOOR:
-			if selected == Types.FIRST_DOOR and used == Types.Tool.BUILD_DOOR: sim.lesson = Types.Lesson.ALCOVE
+			if used == Types.Tool.BUILD_DOOR:
+				# An older tutorial save may still put the door before the excavation.
+				sim.lesson = Types.Lesson.ALCOVE if sim.grid[sim.lesson_alcove.y][sim.lesson_alcove.x] == Types.Tile.ROCK else Types.Lesson.MEET_SCIENTIST
 		Types.Lesson.ALCOVE:
-			if selected == Types.FIRST_ALCOVE and used == Types.Tool.DIG: sim.lesson = Types.Lesson.CHEST
+			if used == Types.Tool.DIG:
+				sim.lesson_alcove = selected
+				sim.lesson = Types.Lesson.MEET_CARPENTER
+		Types.Lesson.SPIKES:
+			if used == Types.Tool.TRAP_SPIKE: sim.lesson = Types.Lesson.CHEST
 		Types.Lesson.CHEST:
-			if selected == Types.FIRST_ALCOVE and used == Types.Tool.STORE:
+			if selected == sim.lesson_alcove and used == Types.Tool.STORE:
 				sim.lesson = Types.Lesson.FREE
 				notice = "Votre premier coffre est prêt. Agrandissez votre domaine."
 	presentation_event.emit("placed")
@@ -325,9 +344,38 @@ func set_paused(value: bool) -> void:
 	changed.emit(false)
 
 func leave_tutorial() -> void:
+	if progression.awaiting_miner or sim.lesson in [Types.Lesson.MEET_CARPENTER, Types.Lesson.MEET_SCIENTIST]: return
 	sim.lesson = Types.Lesson.FREE
 	notice = ""
 	_after_edit()
+
+func accept_village_gift() -> void:
+	if sim.lesson != Types.Lesson.INVOKER_OFFER or paused or confirmation_open or save_blocked: return
+	sim.lesson = Types.Lesson.VILLAGE_GIFT
+	_save()
+	changed.emit(false)
+
+func place_village_bag(cell: Vector2i) -> void:
+	if paused or confirmation_open or save_blocked or not sim.place_gift(cell): return
+	_after_edit()
+
+func learn_from_artisan(checkpoint: int) -> void:
+	if sim.lesson != checkpoint: return
+	match checkpoint:
+		Types.Lesson.MEET_MINER:
+			sim.lesson = Types.Lesson.ALCOVE
+			progression.awaiting_miner = false
+		Types.Lesson.MEET_CARPENTER:
+			progression.grant_tutorial_level(2)
+			# Older tutorials may already have built a door before digging.
+			sim.lesson = Types.Lesson.MEET_SCIENTIST if sim._find_tile(Types.Tile.DOOR).x >= 0 else Types.Lesson.DOOR
+		Types.Lesson.MEET_SCIENTIST:
+			progression.grant_tutorial_level(3)
+			sim.lesson = Types.Lesson.SPIKES
+		_:
+			return
+	_save()
+	changed.emit(false)
 
 func restart(prepared: bool, introduction := false) -> void:
 	# Called only after an explicit confirmation in the HUD.
@@ -336,6 +384,7 @@ func restart(prepared: bool, introduction := false) -> void:
 	sim.new_map()
 	raid.reset_for_new_map()
 	progression.last_raid_id = 0
+	progression.awaiting_miner = introduction
 	result_open = false
 	paused = false
 	confirmation_open = false
@@ -349,7 +398,10 @@ func restart(prepared: bool, introduction := false) -> void:
 		for x in range(Types.FIRST_STAIR.x, Types.core_origin_cell().x):
 			sim.grid[Types.FIRST_STAIR.y][x] = Types.Tile.FLOOR
 		sim._place_entrance(Types.FIRST_STAIR)
-	if introduction: sim.lesson = Types.Lesson.DOOR
+	if introduction:
+		progression.invocation_xp = progression.xp
+		sim.gold = 0
+		sim.lesson = Types.Lesson.INVOKER_OFFER
 	if prepared:
 		for p in [Vector2i(7, 7), Vector2i(9, 7), Vector2i(9, 9)]: sim.build_vault(p, 0)
 		sim._place(Vector2i(5, 8), Types.Tile.DOOR, Types.COST_DOOR)

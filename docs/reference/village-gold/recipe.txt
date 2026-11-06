@@ -1,0 +1,18 @@
+Village gold bag
+
+source.png is the original transparent PNG from the built-in ImageGen tool.
+SHA-256 8377e89d917591fb4a9b4f7bd23dd6f03db4a9c28fca4897f8599c84c85a5b0c
+
+Prompt
+
+A single production-ready transparent-background item sprite for a hand-painted isometric dark fantasy dungeon game. One humble small, squat, worn ochre leather drawstring money bag donated by villagers, gathered narrow neck tied with a chunky twisted cord, slightly open lip with a couple of hexagonal gold coin rims peeking out, two little gold coins resting against the base. Readable beautifully at only 40 px tall. Three-quarter isometric view from above at 30 degrees elevation. Bold clear silhouette, grounded flat base, lighting from upper left, warm brass on the lit side, cool deep violet-brown shadow side, chunky painted facets, wry old-school fantasy strategy-game art, emphasize simple value masses. Center single prop entirely visible with margins, no labels, no numbers, no UI, no floor, no border or halo. True transparent background. No shadow beyond the feet.
+
+Packing from the repository root with Node and sharp
+
+await sharp('docs/reference/village-gold/source.png')
+  .trim({threshold:4,background:'#00000000'})
+  .resize(128,128,{fit:'inside'})
+  .extend({top:2,bottom:2,left:2,right:2,background:'#00000000'})
+  .png().toFile('assets/game/introduction/village-gold-bag.png')
+
+Output SHA-256 5ae97ee6db5fa60d6364c3536e4317afff6082cb9c81eb03885d93fd209a533c

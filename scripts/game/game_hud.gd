@@ -194,6 +194,7 @@ func blocks_pointer(point: Vector2) -> bool:
 	if shade.visible or radial.visible: return true
 	var logical:=point/scale.x
 	if not _safe.has_point(logical): return true
+	if not visible: return false
 	for control in [header,utilities,speeds,pose_bar,catalog,selection]:
 		if control.visible and control.get_global_rect().has_point(logical): return true
 	return false
