@@ -1,15 +1,10 @@
 extends Control
-## Shared excavation volumes; GameInput owns the one-shot touch/Undo pipeline.
+## Excavation and construction share the same map markers and touch handling.
 const Block=preload("res://scripts/dig_rock_target.gd")
-const Sorter=preload("res://scripts/mobile_dungeon_renderer.gd")
-const Layout=preload("res://scripts/dig_target_layout.gd")
-const Geometry=preload("res://scripts/game/terrain_geometry.gd")
+const Types=preload("res://scripts/game/game_types.gd")
 var hud: CanvasLayer
 var blocks: Array[Node2D]=[]
-var ordered: Array[Dictionary]=[]
-var height:=0.0
 var pressed_cell:=Vector2i(-1,-1)
-var _sorter:=Sorter.new()
 var _view: Node2D
 var _signature:=0
 
@@ -25,49 +20,51 @@ func _process(_delta: float) -> void:
 func refresh() -> void:
 	# HUD children enter the tree before the session's first renderer rebuild.
 	if not is_instance_valid(_view) or _view._definition==null or not is_instance_valid(_view._world): return
-	height=float(_view._definition.get("entries")["wall-h-0"].bounds.max[2])
-	var signature:=hash([_view.dig_cells,_view.solid_groups])
+	var icon: Texture2D = _view.build_site_icon
+	var cells: Array[Vector2i] = _view._valid_cells if icon else _view.dig_cells
+	var signature:=hash([cells,icon])
 	if signature!=_signature:
 		_signature=signature
 		for block in blocks:
 			if is_instance_valid(block) and not block.is_queued_for_deletion():
 				block.get_parent().remove_child(block); block.queue_free()
-		blocks.clear(); ordered=_view.solid_groups.duplicate()
-		var terrain=hud.session.get_node("PlayArea/World/Terrain")
-		var shifts: Dictionary=Layout.offsets(_view,_view.dig_cells,maxf(0,terrain.cut_margin-Geometry.MARGIN))
-		for cell in _view.dig_cells:
+		blocks.clear()
+		for cell in cells:
 			var block:=Block.new()
-			block.configure(_view,cell,height,shifts[cell])
-			_view._world.add_child(block)
-			blocks.append(block); ordered.append(block.support)
-		ordered=_sorter._ordered_parts(ordered)
-		# The renderer already orders masonry and heroes during raids. Do not
-		# disturb that order when no excavation volumes need insertion.
-		if not blocks.is_empty():
-			for part in ordered: _view._world.move_child(part.node,-1)
-	var enabled: bool=(_view.dig_guides_visible or _view.lesson_digging) and hud.session.can_edit()
+			block.configure(_view,cell,icon if icon else Block.DIG_ICON)
+			if icon: block.preview.flip_h = _view.should_flip_build_icon(icon,cell)
+			_view._floor_guide.add_child(block)
+			blocks.append(block)
+	var dragging: bool = icon != null and _view.placement_tool != Types.Tool.NONE
+	var building: bool = icon != null and (dragging or not hud.session.catalog_open and hud.session.selected.x < 0)
+	var enabled: bool=(_view.dig_guides_visible or _view.lesson_digging or building) and hud.session.can_edit()
 	if is_instance_valid(hud.shade): enabled=enabled and not hud.shade.visible
-	for block in blocks: block.visible=enabled
+	var active_cell := pressed_cell
+	if dragging: active_cell = _view._placement_cell if _view._placement_valid else Vector2i(-1,-1)
+	for block in blocks:
+		block.visible=enabled
+		block.pressed=block.cell==active_cell
 
 func hit_cell(point: Vector2) -> Vector2i:
 	refresh()
-	if not is_instance_valid(_view) or not (_view.dig_guides_visible or _view.lesson_digging) or not hud.session.can_edit(): return Vector2i(-1,-1)
-	if is_instance_valid(hud.shade) and hud.shade.visible: return Vector2i(-1,-1)
+	if blocks.is_empty() or not blocks[0].is_visible_in_tree(): return Vector2i(-1,-1)
 	var local_point: Vector2=_view.get_global_transform_with_canvas().affine_inverse()*(point*hud.scale.x)
-	if _view.solid_covers_point(local_point): return Vector2i(-1,-1)
-	for index in range(ordered.size()-1,-1,-1):
-		var part: Dictionary=ordered[index]
-		if not part.rect.has_point(local_point): continue
-		if part.has("dig_cell") and part.node.visible and part.node.covers(local_point): return part.dig_cell
+	var on_badge: bool = _view.badge_covers_point(local_point)
+	if on_badge and not _view.build_site_icon: return Vector2i(-1,-1)
+	# All raised previews draw above the floor tiles, in sibling order.
+	for index in range(blocks.size()-1,-1,-1):
+		var block := blocks[index]
+		if block.preview_covers(local_point): return block.cell
+	if on_badge or _view.scenery_covers_point(local_point): return Vector2i(-1,-1)
+	for index in range(blocks.size()-1,-1,-1):
+		var block := blocks[index]
+		if block.support.rect.has_point(local_point) and block.covers(local_point): return block.cell
 	return Vector2i(-1,-1)
 
 func press(cell: Vector2i) -> void:
 	pressed_cell=cell
 	for block in blocks:
-		if is_instance_valid(block): block.pressed=block.cell==cell; block.queue_redraw()
+		if is_instance_valid(block): block.pressed=block.cell==cell
 
 func cancel_press() -> void:
 	press(Vector2i(-1,-1))
-
-func _exit_tree() -> void:
-	_sorter.free()

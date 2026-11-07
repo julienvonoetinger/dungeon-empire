@@ -10,7 +10,7 @@ const STONE_BUTTON = preload("res://assets/ui/master/stone-menu/button.png")
 const STONE_ROUND = preload("res://assets/ui/master/stone-menu/round.png")
 const STONE_FACE = preload("res://assets/ui/master/stone-menu/face.png")
 const ASSETS := "res://assets/ui/black-gold/"
-const PAINTED := {"pick":"dig","hammer":"dig","spike":"spikes","door":"door","chest":"chest","locked":"locked","gem":"heart","void":"crystal"}
+const PAINTED := {"hammer":"dig","spike":"spikes","door":"door","chest":"chest","locked":"locked","gem":"heart","void":"crystal"}
 const ICON_REGIONS = preload("res://assets/ui/forge/icon_regions.gd")
 static var _icons: Dictionary = {}
 
@@ -83,8 +83,17 @@ static func create() -> Theme:
 	theme.set_stylebox("fill", "ProgressBar", flat(Color("965ccc"), 3))
 	return theme
 
+static func build_site_icon(tool: int) -> Texture2D:
+	match tool:
+		GameTypes.Tool.BUILD_DOOR, GameTypes.Tool.BUILD_REINFORCED_DOOR, GameTypes.Tool.BUILD_MAGIC_DOOR: return icon("door")
+		GameTypes.Tool.TRAP_SPIKE: return icon("spike")
+		GameTypes.Tool.TRAP_SNARE: return icon("snare")
+		GameTypes.Tool.TRAP_VOID: return icon("void")
+	return null
+
 static func icon(name: String) -> Texture2D:
 	if _icons.has(name): return _icons[name]
+	if name=="pick": return preload("res://assets/ui/master/dark-icons/dig.png")
 	if name in ["cross","pause"]: return load("res://assets/ui/master/stone-menu/"+name+".svg")
 	if name in ["spike","snare","void"]:
 		_icons[name]=load("res://assets/ui/master/trap-"+name+".png")
@@ -126,6 +135,37 @@ static func button(parent: Node, text: String, action: Callable, glyph: String =
 		if not item.get_meta("palette_dragging",false): action.call())
 	parent.add_child(item)
 	return item
+
+## Navigation on the story strip, or floating over a cinematic illustration.
+static func intro_button(parent: Node, text: String, action: Callable, over_art := false) -> Button:
+	var item := button(parent, text, action)
+	item.size_flags_horizontal = Control.SIZE_SHRINK_END
+	item.icon_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	item.add_theme_constant_override("icon_max_width", 21)
+	item.add_theme_constant_override("h_separation", 8)
+	item.add_theme_font_size_override("font_size", 18)
+	var idle := Color("#0a1526ad") if over_art else Color.TRANSPARENT
+	for state in ["normal", "hover", "pressed", "hover_pressed", "disabled"]:
+		var fill := idle
+		if state == "hover": fill = Color("#263952e8")
+		if state in ["pressed", "hover_pressed"]: fill = Color("#0d192bec")
+		var surface := flat(fill, 2)
+		surface.set_content_margin_all(8)
+		surface.set_content_margin(SIDE_LEFT, 12)
+		surface.set_content_margin(SIDE_RIGHT, 12)
+		item.add_theme_stylebox_override(state, surface)
+	var focus := flat(Color.TRANSPARENT, 2)
+	focus.border_color = Color("f1d392")
+	focus.set_border_width_all(2)
+	item.add_theme_stylebox_override("focus", focus)
+	for state in ["font_hover_color", "font_focus_color", "font_pressed_color", "font_hover_pressed_color"]:
+		item.add_theme_color_override(state, Color("fff1d8"))
+	set_intro_advance(item, not over_art)
+	return item
+
+static func set_intro_advance(item: Button, advance: bool) -> void:
+	item.icon = preload("res://assets/ui/black-gold/arrow.svg") if advance else null
+	item.add_theme_color_override("font_color", Color("f2d18b") if advance else Color("d4deed"))
 
 ## Icon above a short visible label: actions stay understandable without tooltips.
 static func tile(parent: Node, glyph: String, text: String, action: Callable) -> Button:

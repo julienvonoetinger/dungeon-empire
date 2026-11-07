@@ -2,7 +2,7 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),sharp=require('sharp');
 const root=path.resolve(__dirname,'..');
 async function prepareDigIcon(){
-  const review=path.join(root,'docs/reference/interface-review/v23-dark-dig-icon');
+  const review=path.join(root,'docs/reference/interface-review/v30-floating-pick');
   const source=path.join(review,'source/dig.png');
   const output=path.join(root,'assets/ui/master/dark-icons/dig.png');
   const {data,info}=await sharp(source).ensureAlpha().raw().toBuffer({resolveWithObject:true});

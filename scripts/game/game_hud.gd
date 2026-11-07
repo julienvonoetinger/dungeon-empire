@@ -113,7 +113,11 @@ func world_tapped(cell: Vector2i, world_point: Vector2 = Vector2.INF) -> void:
 	if _catalog_open: _close_catalog(); return
 	if selection.visible and selection.removal_pending: session.cancel_selection(); return
 	if session.selected.x>=0 and session.tool==Types.Tool.NONE: session.cancel_selection()
-	if session.tool!=Types.Tool.NONE or not session.sim._has_core(): session.activate_cell(cell); return
+	if session.tool!=Types.Tool.NONE or not session.sim._has_core():
+		var view = session.get_node("PlayArea/World/Dungeon")
+		if world_point.is_finite() and view.build_site_icon and session.sim.grid[cell.y][cell.x] == Types.Tile.FLOOR and cell in view._valid_cells and view.solid_covers_point(world_point): return
+		session.activate_cell(cell)
+		return
 	var tile: int=session.sim.grid[cell.y][cell.x]
 	if tile == Types.Tile.ROCK:
 		# The inverse floor projection may land behind a tall door or wall.
@@ -269,7 +273,7 @@ func _refresh_live() -> void:
 	elif session.raid.raid_active:
 		hint.text="Raid in progress · Drag to explore"
 	else:
-		hint.text="Tap a marked block to dig · %d gold\nFloor: build · Drag to explore" % Types.COST_DIG
+		hint.text="Tap a pickaxe to dig · %d gold\nFloor: build · Drag to explore" % Types.COST_DIG
 
 func _float_notice(text: String, color: Color) -> void:
 	var label:=UI.label(root,text,19,color)

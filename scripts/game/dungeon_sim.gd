@@ -502,17 +502,22 @@ func _clear_cell_state(p: Vector2i) -> void:
 
 
 func _can_place_tile(p: Vector2i, tile: int) -> bool:
+	return _placement_failure_reason(p, tile).is_empty()
+
+func _placement_failure_reason(p: Vector2i, tile: int) -> String:
 	if not _inside(p):
-		return false
+		return "No tile under the cursor."
 	var current := int(grid[p.y][p.x])
-	if current == Tile.ROCK or current == Tile.ENTRANCE or current == Tile.CORE:
-		return false
-	if floor_gold.has(p) and tile != Tile.VAULT: return false
+	if current == Tile.ROCK: return "Dig this passage first."
+	if current == Tile.ENTRANCE or current == Tile.CORE: return "The entrance and the Core cannot be modified."
+	if floor_gold.has(p) and tile != Tile.VAULT: return "This tile holds a bag of gold."
+	if _is_door_tile(tile) and _is_trap_tile(current):
+		return "Remove the trap before placing a door here."
 	if _is_core_access(p) and (_is_door_tile(tile) or tile == Tile.ENTRANCE):
-		return false
+		return "Keep the passage around the Core clear."
 	if _is_door_tile(tile) and current != tile and not _door_between_walls(p):
-		return false
-	return true
+		return "A door must sit in a gap between two walls."
+	return ""
 
 # --- Player input ----------------------------------------------------------
 
@@ -661,13 +666,11 @@ func _place_entrance(p: Vector2i) -> void:
 
 
 func _place(p: Vector2i, tile: int, cost: int) -> void:
+	var reason := _placement_failure_reason(p, tile)
+	if not reason.is_empty():
+		message = reason
+		return
 	var current := int(grid[p.y][p.x])
-	if current == Tile.ROCK:
-		message = "Dig this passage first."
-		return
-	if not _can_place_tile(p, tile):
-		message = "Keep the passage around the Core clear." if _is_core_access(p) else "A door must sit in a gap between two walls."
-		return
 	if current == tile:
 		if not _is_door_tile(tile) or _door_intact(p):
 			return

@@ -1,6 +1,7 @@
 extends Control
 ## Speaker portraits shared by timed subtitles and reader-paced dialogue.
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
+const StoneBand = preload("res://scripts/game/ui/intro_stone_band.gd")
 const PORTRAITS := {
 	"L’invocateur": preload("res://assets/game/introduction/portraits/invoker.webp"),
 	"Le Maître": preload("res://assets/game/introduction/portraits/master.webp"),
@@ -20,16 +21,17 @@ const RITUAL := [
 const ENTRANCE := [
 	[1.0, 4.8, "L’invocateur", "Tout est à bâtir… La montagne nous cachera-t-elle d’Aldren ?"],
 	[5.0, 8.9, "Le Maître", "Ce cœur abritera ma puissance. Défendez-le, et notre royaume grandira."],
-	[9.3, 14.2, "L’invocateur", "Maître, chez nous, on apprend à manier les outils. Bien peu des nôtres savent tenir une épée."],
-	[14.5, 18.8, "L’invocateur", "Mais nous vous avons donné notre parole. Tout ce que nos mains savent faire, nous le ferons pour vous."],
-	[19.2, 23.4, "L’invocateur", "J’ai fait venir nos meilleurs artisans. Tenez, les voilà qui descendent."],
-	[31.1, 36.1, "L’invocateur", "Approchez, mes amis. Maître, voici notre mineur, notre menuisier et notre scientifique."],
+	[9.3, 16.0, "L’invocateur", "Maître, les héros d’Aldren ont sûrement vu les éclairs du rituel depuis la vallée. Ils viendront en chercher la source."],
+	[16.3, 23.0, "L’invocateur", "S’ils trouvent cet escalier, ils auront le champ libre jusqu’au Cœur. Préparons les défenses du donjon avant leur arrivée."],
+	[23.3, 28.2, "L’invocateur", "Chez nous, on apprend à manier les outils. Bien peu des nôtres savent tenir une épée."],
+	[28.5, 32.8, "L’invocateur", "Mais nous vous avons donné notre parole. Tout ce que nos mains savent faire, nous le ferons pour vous."],
+	[33.2, 37.4, "L’invocateur", "J’ai fait venir nos meilleurs artisans. Tenez, les voilà qui descendent."],
+	[45.1, 50.1, "L’invocateur", "Approchez, mes amis. Maître, voici notre mineur, notre menuisier et notre scientifique."],
 ]
 var speaker := Label.new()
 var words := Label.new()
 var portrait := TextureRect.new()
-var band := Panel.new()
-var nameplate := Panel.new()
+var band := StoneBand.new()
 var bottom_reserve := 0.0
 var area := Rect2()
 var ui_unit := 1.0
@@ -37,9 +39,6 @@ var embedded := false
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var stone := UI.surface("panel", 14)
-	for panel in [band, nameplate]:
-		panel.add_theme_stylebox_override("panel", stone)
 	portrait.name = "Portrait"
 	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -47,11 +46,9 @@ func _ready() -> void:
 	speaker.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	words.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	words.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	for control in [band, words, portrait, nameplate, speaker]:
+	for control in [band, portrait, speaker, words]:
 		control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(control)
-	if embedded:
-		resized.connect(_place, CONNECT_DEFERRED)
 	hide()
 
 func present(stage: String, time: float) -> void:
@@ -84,43 +81,44 @@ func fit(safe_area: Rect2, unit: float) -> void:
 
 func _place() -> void:
 	if not portrait.texture: return
-	if embedded and size.x < 1.0: return
-	if not embedded and not area.has_area(): return
+	if not area.has_area(): return
 	scale = Vector2.ONE * ui_unit
-	var tall := area.size.y > area.size.x
-	var margin := 4.0
-	var width := size.x if embedded else area.size.x - 2.0 * margin
-	# Inline passages follow the width of the reading column, including its scrollbar.
-	var usable_height := clampf(width * .6, 190., 290.) if embedded else area.size.y - bottom_reserve
-	var face_width := width * (.32 if tall else .23)
+	var width := area.size.x
+	var tall := area.size.y > width
+	var inset := clampf(width * .018, 8., 24.)
+	var gap := clampf(width * .016, 8., 20.)
+	var face_width := clampf(width * (.26 if tall else .16), 72., 184.)
+	var face_height := (area.size.y - bottom_reserve) * (.19 if tall else .30)
 	if embedded:
-		face_width = clampf(face_width, 64., 96.)
+		face_width = clampf(width * .20, 64., 90.)
+		face_height = 85.
 	var face_size := Vector2(portrait.texture.get_size())
-	face_size *= minf(face_width / face_size.x, usable_height * (.23 if tall else .41) / face_size.y)
+	face_size *= minf(face_width / face_size.x, face_height / face_size.y)
 	speaker.add_theme_font_size_override("font_size", clampi(roundi(width * (.0355 if tall else .0222)), 12, 22))
 	words.add_theme_font_size_override("font_size", 18 if embedded else clampi(roundi(width * (.0465 if tall else .0285)), 15, 26))
-	var name_width := maxf(face_width, speaker.get_minimum_size().x + 16.0)
-	var text_x := name_width + clampf(width * .023, 8., 28.)
-	var pad := clampf(width * .029, 12., 28.)
-	if embedded:
-		pad = 12.
-	words.size = Vector2(maxf(1., width - text_x - pad), 0.)
-	var band_height := maxf(usable_height * (.13 if tall else .24), words.get_minimum_size().y + 2.0 * pad)
-	var name_height := maxf(speaker.get_minimum_size().y + 12., usable_height * (.046 if tall else .085))
-	var overlap := name_height * .65
-	var height := ceilf(maxf(face_size.y + name_height, band_height + name_height - overlap))
-	if embedded:
-		custom_minimum_size.y = height
-	else:
-		size = Vector2(width, height)
-		position = Vector2(area.position.x + margin, area.end.y - bottom_reserve - margin - height) * ui_unit
-	nameplate.size = Vector2(name_width, name_height)
-	nameplate.position = Vector2(0, height - name_height)
-	speaker.position = nameplate.position
-	speaker.size = nameplate.size
+	var speaker_size := speaker.get_minimum_size()
+	var column := maxf(face_size.x, speaker_size.x)
+	var text_x := inset + column + gap
+	var pad_top := clampf(width * .01, 7., 11.)
+	var pad_bottom := 5.
+	words.size = Vector2(maxf(1., width - text_x - inset), 0.)
+	var band_height := ceilf(maxf(words.get_minimum_size().y, speaker_size.y) + pad_top + pad_bottom)
+	var name_bottom_gap := 3.
+	var height := ceilf(maxf(face_size.y + speaker_size.y + name_bottom_gap, band_height))
+	var content_left := area.position.x
+	var canvas := get_parent_control().size / ui_unit
+	var strip_width := canvas.x
+	var bottom_inset := 0.
+	if not embedded:
+		if bottom_reserve == 0.: bottom_inset = maxf(0., canvas.y - area.end.y)
+		position = Vector2(0, area.end.y - bottom_reserve - height) * ui_unit
+	# The stone spans the viewport. Faces and lettering stay in the safe area.
+	size = Vector2(strip_width, height + bottom_inset)
+	speaker.position = Vector2(content_left + inset, height - name_bottom_gap - speaker_size.y)
+	speaker.size = Vector2(column, speaker_size.y)
 	portrait.size = face_size
-	portrait.position = Vector2((name_width - face_size.x) * .5, nameplate.position.y - face_size.y)
-	band.size = Vector2(width, band_height)
-	band.position = Vector2(0, nameplate.position.y + overlap - band_height)
-	words.position = band.position + Vector2(text_x, pad)
-	words.size.y = band_height - 2.0 * pad
+	portrait.position = speaker.position + Vector2((column - face_size.x) * .5, -face_size.y)
+	band.position = Vector2(0, height - band_height)
+	band.size = Vector2(strip_width, band_height + bottom_inset)
+	words.position = band.position + Vector2(content_left + text_x, pad_top)
+	words.size.y = band_height - pad_top - pad_bottom

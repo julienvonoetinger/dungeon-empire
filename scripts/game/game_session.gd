@@ -176,13 +176,24 @@ func cancel_selection() -> void:
 	preview = {}
 	changed.emit(false)
 
+## Door and trap sites, including objects that the selected tool can replace.
+func available_build_sites(build_tool: int) -> Array[Vector2i]:
+	var sites: Array[Vector2i] = []
+	if not can_edit() or not sim._has_core() or not progression.allows(build_tool): return sites
+	for y in Types.ROWS:
+		for x in Types.COLS:
+			if sim.grid[y][x] == Types.Tile.ROCK: continue
+			var cell := Vector2i(x,y)
+			if check_action(cell,build_tool).valid: sites.append(cell)
+	return sites
+
 func check_action(cell: Vector2i, requested_tool: int = -1) -> Dictionary:
 	if not can_edit() or not sim._inside(cell): return {"valid": false, "reason": "Action unavailable", "cost": 0}
 	var action_tool := tool if requested_tool < 0 else requested_tool
 	match sim.lesson:
 		Types.Lesson.ALCOVE:
 			if action_tool != Types.Tool.DIG or sim.grid[cell.y][cell.x] != Types.Tile.ROCK:
-				return {"valid":false, "reason":"Choisissez un cube violet à creuser.", "cost":0}
+				return {"valid":false, "reason":"Touchez une pioche pour creuser à cet endroit.", "cost":0}
 		Types.Lesson.DOOR:
 			if action_tool != Types.Tool.BUILD_DOOR or not sim.is_lesson_build_site(cell,Types.Tile.DOOR):
 				return {"valid":false, "reason":"Choisissez un passage entre deux murs.", "cost":0}

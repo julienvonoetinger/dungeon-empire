@@ -45,11 +45,13 @@ var _treasure_rooms: Array[Dictionary] = []
 var _overlay: Node2D
 var _placement_cell := Vector2i(-1,-1)
 var _placement_valid := false
+var placement_tool := Types.Tool.NONE
 var access_visible := false:
 	set(value):
 		access_visible=value
 		if is_instance_valid(_floor_guide): _floor_guide.queue_redraw()
 var _valid_cells: Array[Vector2i] = []
+var build_site_icon: Texture2D
 var _floor_guide: Node2D
 var dig_cells: Array[Vector2i] = []
 var lesson_digging := false
@@ -77,15 +79,22 @@ func _ready() -> void:
 func _on_change(structure: bool) -> void:
 	if structure: rebuild()
 	_update_dig_cells()
+	_update_placement_cells()
+	queue_redraw()
+	_floor_guide.queue_redraw()
+	_overlay.queue_redraw()
+
+func _update_placement_cells() -> void:
 	_valid_cells.clear()
-	if session.can_edit() and session.sim._has_core() and session.tool!=Types.Tool.NONE:
+	var active_tool: int = placement_tool if placement_tool != Types.Tool.NONE else session.tool
+	build_site_icon = UI.build_site_icon(active_tool) if session.sim.lesson == Types.Lesson.FREE and session.sim._has_core() else null
+	if build_site_icon:
+		_valid_cells = session.available_build_sites(active_tool)
+	elif session.can_edit() and session.sim._has_core() and session.tool!=Types.Tool.NONE:
 		for y in Types.ROWS:
 			for x in Types.COLS:
 				var cell:=Vector2i(x,y)
 				if session.sim.grid[y][x] in [Types.Tile.FLOOR,Types.Tile.ROCK] and session.check_action(cell).get("valid",false): _valid_cells.append(cell)
-	queue_redraw()
-	_floor_guide.queue_redraw()
-	_overlay.queue_redraw()
 
 func set_lesson_digging(enabled: bool) -> void:
 	if lesson_digging == enabled: return
@@ -103,6 +112,15 @@ func _update_dig_cells() -> void:
 
 func _vortex_can_advance() -> bool:
 	return session != null and not (session.paused or session.confirmation_open or session.result_open or session.save_blocked or session.sim.game_over)
+
+func _door_facing(cell: Vector2i) -> String:
+	var sim := session.sim
+	if sim._is_rock_cell(cell + Vector2i.LEFT) and sim._is_rock_cell(cell + Vector2i.RIGHT): return "north"
+	return "west"
+
+func should_flip_build_icon(icon: Texture2D, cell: Vector2i) -> bool:
+	# The painted door icon already faces the same way as the north door sprite.
+	return icon == UI.icon("door") and _door_facing(cell) == "west"
 
 func _process(delta: float) -> void:
 	super._process(delta)
@@ -167,8 +185,7 @@ func rebuild() -> void:
 				chest_facings[p] = orientation
 				chests[Vector2(p) + Vector2(.5,.5)] = ChestOrientation.sprite_id(sim.vault_protected(p), orientation.facing)
 			if sim._is_door_tile(tile):
-				var vertical_passage := sim._is_rock_cell(p + Vector2i.LEFT) and sim._is_rock_cell(p + Vector2i.RIGHT)
-				specials[p] = "doors/north" if vertical_passage else "doors/west"
+				specials[p] = "doors/" + _door_facing(p)
 				door_materials[p] = Types.door_material(tile)
 				if not sim._door_intact(p): open_doors[p] = true
 			if tile == Types.Tile.ENTRANCE:
@@ -339,7 +356,12 @@ func _update_markers() -> void:
 	var ui_scale := get_tree().root.get_visible_rect().size.x/maxf(1,get_window().size.x)*density
 	var badge_extent := Marker.Badge.SCREEN_DIAMETER*ui_scale/maxf(.01,get_canvas_transform().get_scale().x)
 	for item in _markers:
-		item.node.fit_badge(badge_extent)
+		# The excavation lesson frames every rock. A screen-sized bag ring at
+		# that zoom can cover the pick on the next tile and intercept its tap.
+		var extent := badge_extent
+		if lesson_digging and item.kind == "village_bag":
+			extent = minf(extent, Marker.GOLD_BAG_HEIGHT)
+		item.node.fit_badge(extent)
 		var p: Vector2i = item.cell
 		var text_value := ""
 		match item.kind:
@@ -347,6 +369,8 @@ func _update_markers() -> void:
 				item.node.badge.set_amount(sim.stored_gold(item.cells), Types.store_capacity(item.cells))
 			"chest":
 				item.node.badge.set_amount(int(sim.vault_gold.get(p,0)),Types.VAULT_CAPACITY,int(sim.vault_locks.get(p,0)),sim.vault_protected(p))
+			"village_bag":
+				item.node.badge.set_amount(int(sim.floor_gold.get(p,0)), Types.GOLD_BAG_CAPACITY)
 			"trap":
 				var maximum := Types.trap_max_charges(sim.grid[p.y][p.x])
 				var charges := int(sim.trap_charges.get(p, maximum))
@@ -360,7 +384,6 @@ func _update_markers() -> void:
 				item.node.badge.set_door_status("closed" if hp>0 else "open" if sim.door_opened.get(p,false) else "broken")
 			"corpse": text_value = "Corpse"
 			"loot": text_value = "Loot"
-			"village_bag": text_value = "%d" % sim.floor_gold.get(p,0)
 		item.node.refresh(text_value)
 	if not is_instance_valid(_actor): return
 	var hero := session.raid.hero
@@ -450,6 +473,9 @@ func pick_cell(local_point: Vector2) -> Vector2i:
 	return Vector2i(local_to_grid(local_point).floor())
 
 func solid_covers_point(local_point: Vector2) -> bool:
+	return badge_covers_point(local_point) or scenery_covers_point(local_point)
+
+func badge_covers_point(local_point: Vector2) -> bool:
 	var world_point := to_global(local_point)
 	# Status rings keep their mobile screen size, so they can overlap rock
 	# outside their object's floor cell. They must not become paid dig targets.
@@ -458,6 +484,10 @@ func solid_covers_point(local_point: Vector2) -> bool:
 		if not is_instance_valid(badge) or not badge.is_visible_in_tree(): continue
 		var badge_point := badge.get_global_transform().affine_inverse()*world_point
 		if badge.contains_ink(badge_point): return true
+	return false
+
+func scenery_covers_point(local_point: Vector2) -> bool:
+	var world_point := to_global(local_point)
 	for part in solid_groups:
 		if part.has("pick_bounds") and not part.pick_bounds.has_point(local_point): continue
 		# Junction shaders retain only a physical segment of a full wall image.
@@ -492,9 +522,8 @@ func _draw() -> void:
 			for x in Types.COLS: draw_polyline(_diamond(Vector2i(x,y)),Color(.4,.45,.65,.22),1,true)
 
 func _draw_ground_guide() -> void:
-	# The shared controller draws excavation volumes. This layer still draws
-	# valid placement cells and the Paths overlay.
-	if session.can_edit():
+	# Floating build sites already paint their own floor tiles.
+	if session.can_edit() and not build_site_icon:
 		for cell in _valid_cells: _floor_guide.draw_polyline(_diamond(cell),Color(.74,.50,.85,.42),1.5,true)
 	if access_visible:
 		# Geometric access guide, not a prediction of a hero's private knowledge.
@@ -512,11 +541,16 @@ func _draw_ground_guide() -> void:
 				if session.sim.grid[next.y][next.x] in [Types.Tile.ROCK,Types.Tile.CORE]: continue
 				seen[next]=true; pending.append(next)
 
-func show_placement(cell: Vector2i, valid: bool) -> void:
+func show_placement(cell: Vector2i, valid: bool, tool := Types.Tool.NONE) -> void:
+	if placement_tool != tool:
+		placement_tool = tool
+		_update_placement_cells()
+		_floor_guide.queue_redraw()
 	_placement_cell=cell; _placement_valid=valid
 	_overlay.queue_redraw()
 
 func _draw_guide() -> void:
+	if placement_tool != Types.Tool.NONE and build_site_icon and _placement_valid: return
 	var cell := _placement_cell if _placement_cell.x>=0 else session.selected
 	if cell.x<0: return
 	var valid := _placement_valid if _placement_cell.x>=0 else bool(session.preview.get("valid",true))

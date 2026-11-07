@@ -3,6 +3,7 @@ extends Node2D
 ## Provisional gameplay symbols and shared mobile status rings.
 const Badge = preload("res://scripts/game/ui/world_badge.gd")
 const GOLD_BAG = preload("res://assets/game/introduction/village-gold-bag.png")
+const GOLD_BAG_HEIGHT := 78.0
 var kind := "chest"
 var caption := ""
 var tint := Color("e5b85e")
@@ -14,11 +15,6 @@ var badge: Control
 var badge_anchor_y := -26.0
 
 func fit_badge(extent: float) -> void:
-	if kind == "village_bag" and label:
-		var unit := extent / Badge.SCREEN_DIAMETER
-		label.scale = Vector2.ONE * unit
-		label.position = Vector2(-label.size.x*.5*unit,-73.-17.*unit)
-		return
 	if not badge: return
 	badge.scale=Vector2.ONE*(extent/badge.size.x)
 	badge.position=Vector2(-extent/2,badge_anchor_y-extent-5)
@@ -37,11 +33,11 @@ func _ready() -> void:
 	if kind == "village_bag":
 		var sprite := Sprite2D.new()
 		sprite.texture = GOLD_BAG
-		sprite.scale = Vector2.ONE * (78. / GOLD_BAG.get_height())
+		sprite.scale = Vector2.ONE * (GOLD_BAG_HEIGHT / GOLD_BAG.get_height())
 		sprite.position.y = -36.
 		add_child(sprite)
-		label.add_theme_font_size_override("font_size",13)
-	if kind in ["chest","trap","door"]:
+		badge_anchor_y = (sprite.transform * sprite.get_rect()).position.y
+	if kind in ["chest","village_bag","trap","door"]:
 		label.hide()
 		badge=Badge.new()
 		badge.name="StatusRing"
@@ -49,7 +45,10 @@ func _ready() -> void:
 		badge.z_index=10
 		add_child(badge)
 		fit_badge(Badge.SCREEN_DIAMETER)
-		badge.configure("coins" if kind=="chest" else "lock" if kind=="door" else "spike",Color("e9b94f") if kind=="chest" else Color("c66b50"),kind=="trap")
+		match kind:
+			"chest", "village_bag": badge.configure("coins", Color("e9b94f"))
+			"door": badge.configure("lock", Color("c66b50"))
+			"trap": badge.configure("spike", Color("c66b50"), true)
 
 func refresh(text_value: String, ratio := 1.0) -> void:
 	caption = text_value

@@ -23,20 +23,16 @@ func inspect(preview: Node, stage: String) -> void:
 	var upper_bounds: Array[Rect2]=[]
 	for polygon in upper: upper_bounds.append(bounds(polygon))
 	for block in preview.targets.blocks:
-		var physical:=0.0; var projected:=0.0
-		for face_index in block.faces.size():
-			var polygon:=PackedVector2Array()
-			for p in block.faces[face_index]: polygon.append(view.local_to_grid(p,terrain.HEIGHT))
-			var rectangle:=bounds(polygon)
-			for i in upper.size():
-				if not rectangle.intersects(upper_bounds[i]): continue
-				for intersection in Geometry2D.intersect_polygons(polygon,upper[i]):
-					var amount:=area(intersection)
-					projected+=amount
-					if face_index==0: physical+=amount
-		check(physical<.0001,stage+": full footprint clears the exterior rock at "+str(block.cell))
-		check(projected<.0001,stage+": visible cube faces do not paint over upper rock at "+str(block.cell))
-		if physical>=.0001 or projected>=.0001: intersections.append({"stage":stage,"cell":str(block.cell),"physical_area":physical,"projected_area":projected})
+		var overlap:=0.0
+		var polygon:=PackedVector2Array()
+		for p in block.footprint: polygon.append(view.local_to_grid(p,terrain.HEIGHT))
+		var rectangle:=bounds(polygon)
+		for i in upper.size():
+			if not rectangle.intersects(upper_bounds[i]): continue
+			for intersection in Geometry2D.intersect_polygons(polygon,upper[i]):
+				overlap+=area(intersection)
+		check(overlap<.0001,stage+": full footprint clears the exterior rock at "+str(block.cell))
+		if overlap>=.0001: intersections.append({"stage":stage,"cell":str(block.cell),"physical_area":overlap})
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(OUT)
 	var preview=SCENE.instantiate(); root.add_child(preview)

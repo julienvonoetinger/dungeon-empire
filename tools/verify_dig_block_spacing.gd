@@ -18,16 +18,16 @@ func inspect(preview: Node, stage: int) -> void:
 		if stage==0:
 			var label: String="%.2f x %.2f x %.6f" % [size.x,size.y,size.z]
 			initial_sizes[label]=initial_sizes.get(label,0)+1
-		check(size.is_equal_approx(Vector3(.74,.74,preview.targets.height)),"Stage "+str(stage)+" uniform full-size volume at "+str(block.cell))
-		var top: PackedVector2Array=block.faces[0]
-		check((top[1]-top[0]).distance_to(view.grid_to_local(Vector2(.74,0)))<.001 and (top[3]-top[0]).distance_to(view.grid_to_local(Vector2(0,.74)))<.001,"Stage "+str(stage)+" uniform projected top at "+str(block.cell))
+		check(size.is_equal_approx(Vector3(.87,.87,0)),"Stage "+str(stage)+" uniform flat footprint at "+str(block.cell))
+		var top: PackedVector2Array=block.footprint
+		check((top[1]-top[0]).distance_to(view.grid_to_local(Vector2(.87,0)))<.001 and (top[3]-top[0]).distance_to(view.grid_to_local(Vector2(0,.87)))<.001,"Stage "+str(stage)+" uniform projected tile at "+str(block.cell))
 	for i in blocks.size():
 		for j in range(i+1,blocks.size()):
 			var a: Dictionary=blocks[i].support; var b: Dictionary=blocks[j].support
 			var overlap:=Vector2(minf(a.max.x,b.max.x)-maxf(a.min.x,b.min.x),minf(a.max.y,b.max.y)-maxf(a.min.y,b.min.y))
 			checks+=1
 			if overlap.x>.0001 and overlap.y>.0001:
-				failures.append("Stage "+str(stage)+" cube footprints overlap: "+str(blocks[i].cell)+" / "+str(blocks[j].cell))
+				failures.append("Stage "+str(stage)+" excavation footprints overlap: "+str(blocks[i].cell)+" / "+str(blocks[j].cell))
 				pairs.append({"stage":stage,"a":str(blocks[i].cell),"a_min":str(a.min),"a_max":str(a.max),"b":str(blocks[j].cell),"b_min":str(b.min),"b_max":str(b.max),"overlap":str(overlap)})
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(OUT)

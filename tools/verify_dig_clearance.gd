@@ -56,6 +56,11 @@ func run() -> void:
 		var clean:=root.get_texture().get_image()
 		view.dig_guides_visible=true; await settle(); await RenderingServer.frame_post_draw
 		var marked:=root.get_texture().get_image()
+		# The floating tools intentionally draw over walls. Isolate the ground layer
+		# for the pixel and touch checks, keeping the full scene for the review PNG.
+		for block in preview.targets.blocks: block.preview.hide()
+		await settle(); await RenderingServer.frame_post_draw
+		var ground:=root.get_texture().get_image()
 		var canvas: Transform2D=view.get_global_transform_with_canvas()
 		var image_scale:=Vector2(marked.get_size())/root.get_visible_rect().size
 		var stained:=0
@@ -76,7 +81,7 @@ func run() -> void:
 					if not block.covers(local) or hud.blocks_pointer(screen): continue
 					if not masonry_interior(view,local,canvas): continue
 					masonry_samples+=1
-					var a:=clean.get_pixel(x,y); var b:=marked.get_pixel(x,y)
+					var a:=clean.get_pixel(x,y); var b:=ground.get_pixel(x,y)
 					var changed:=maxf(absf(a.r-b.r),maxf(absf(a.g-b.g),absf(a.b-b.b)))>.025
 					if changed: stained+=1
 					var picked: bool=preview.targets.hit_cell(screen/hud.scale.x).x>=0
@@ -90,6 +95,7 @@ func run() -> void:
 		check(stained==0,"Excavation volumes leave masonry pixels intact at "+str(extent)+": "+str(stained)+" tinted samples")
 		check(intercepted==0,"Excavation does not intercept masonry at "+str(extent)+": "+str(intercepted)+" samples")
 		marked.save_png(OUT+"%dx%d.png" % [extent.x,extent.y])
+		for block in preview.targets.blocks: block.preview.show()
 	check(not preview.game.persistence_enabled,"Clearance fixture never accesses player saves")
 	FileAccess.open(OUT+"report.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"samples":samples},"\t"))
 	print("Dig clearance: ",checks," checks, ",failures.size()," failures")

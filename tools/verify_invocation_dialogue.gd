@@ -16,11 +16,30 @@ func run() -> void:
 	for extent in [Vector2i(1280,720), Vector2i(390,844), Vector2i(844,390)]:
 		root.size = extent
 		await process_frame
-		for moment in [11., 16., 23., 28., 34., 38., dungeon+2., dungeon+6., dungeon+10., dungeon+16., dungeon+20., dungeon+33.]:
+		for moment in [11., 16., 23., 28., 34., 38., dungeon+2., dungeon+6., dungeon+12., dungeon+19., dungeon+25., dungeon+30., dungeon+34., dungeon+47.]:
 			preview.present(moment)
 			for frame in range(4): await process_frame
 			check(captions.visible and not captions.words.text.is_empty(), "Dialogue shown at " + str(moment))
+			if moment == dungeon + 12. or moment == dungeon + 19.:
+				var subject := "éclairs du rituel" if moment == dungeon + 12. else "défenses du donjon"
+				check(captions.words.text.contains(subject) and captions.speaker.text == "L’invocateur", "The invoker explains " + subject)
+				check(intro.artisans.all(func(actor): return not actor.visible) and preview.game.sim.gold == 0, "The warning precedes the artisans and the donation")
 			var bounds: Rect2 = captions.get_global_rect()
+			var strip: Rect2 = captions.band.get_global_rect()
+			check(is_zero_approx(strip.position.x) and is_equal_approx(strip.end.x,intro.root.size.x), "Stone strip spans the screen")
+			check(is_equal_approx(strip.end.y,intro.root.size.y-48*intro.unit), "Stone reaches the preview controls")
+			check(captions.band.size.y <= captions.words.get_minimum_size().y + 17., "Band height follows the wrapped line")
+			if extent.x == 1280 and moment == 11.:
+				await RenderingServer.frame_post_draw
+				var frame := root.get_texture().get_image()
+				var y := ceili(strip.position.y) + 5
+				var repeated := 0
+				# The old 128px tile repeated every stone vein across this clear row.
+				for x in range(300,900):
+					var a := frame.get_pixel(x,y)
+					var b := frame.get_pixel(x+128,y)
+					if maxi(maxi(absi(a.r8-b.r8),absi(a.g8-b.g8)),absi(a.b8-b.b8)) <= 2: repeated += 1
+				check(repeated < 450, "Stone grain does not repeat at 128px intervals")
 			check(bounds.position.x >= 0 and bounds.position.y >= 0 and bounds.end.x <= intro.root.size.x + 1, "Caption inside viewport")
 			check(bounds.end.y <= intro.root.size.y - 48 * intro.unit, "Caption clears preview controls")
 			check(captions.words.size.y >= captions.words.get_minimum_size().y, "No clipped text")
@@ -33,7 +52,7 @@ func run() -> void:
 				check(bounds.encloses(face) and face.end.x <= captions.words.get_global_rect().position.x, "Portrait fits to the left of the line")
 				check(captions.speaker.get_global_rect().position.y >= face.end.y - 1, "Name sits under the portrait")
 				check(bounds.encloses(captions.words.get_global_rect()), "Whole line fits in the dialogue")
-			if moment in [16., 28., dungeon+6.]:
+			if moment in [11., 16., 28., dungeon+6., dungeon+12., dungeon+19.]:
 				await RenderingServer.frame_post_draw
 				root.get_texture().get_image().save_png("res://artifacts/sanctuary-procession/dialogue-%d-%04d.png" % [extent.x, roundi(moment*100)])
 		preview.present(28.)

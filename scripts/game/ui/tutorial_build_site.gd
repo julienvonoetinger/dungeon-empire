@@ -1,24 +1,38 @@
 extends BaseButton
 ## A selectable floor tile for a gift, door or spike.
-var icon: Texture2D
+const BAG_TEXTURE = preload("res://assets/game/introduction/village-gold-bag.png")
+const FloatingMarker = preload("res://scripts/game/ui/floating_site_marker.gd")
+const LIFT := 42.0 # Logical pixels between the floor and the bottom of the preview.
+var icon: Texture2D = BAG_TEXTURE
 var view: Node2D
-var gift := false
-var icon_offset := Vector2.ZERO
+var tile_size := Vector2.ZERO
+var tile_center := Vector2.ZERO
+var preview := FloatingMarker.new()
 
-func find_visible_floor(center: Vector2, extent: Vector2) -> bool:
-	# A low wall can hide the middle of a floor diamond. Put the invitation
-	# on the exposed stone so tapping its coin always reaches this tile.
-	for radius in [0., .16, .29, .40]:
-		for axis in [Vector2.UP, Vector2.RIGHT, Vector2.LEFT, Vector2.DOWN]:
-			icon_offset = axis * extent * radius
-			var point := center + icon_offset
-			if not view.solid_covers_point(point) and not view.solid_covers_point(point + Vector2(0,4)) and not view.solid_covers_point(point - Vector2(0,4)):
-				return true
-	return false
+func _ready() -> void:
+	preview.name = "SitePreview"
+	preview.set_icon(icon,icon != BAG_TEXTURE)
+	add_child(preview)
+	for state_change in [mouse_entered,mouse_exited,focus_entered,focus_exited,button_down,button_up]:
+		state_change.connect(queue_redraw)
+
+func fit(screen_center: Vector2, extent: Vector2, zoom: float, unit: float) -> void:
+	scale = Vector2.ONE * unit
+	tile_size = extent * zoom / unit
+	var span := maxf(26., 70. * zoom / unit)
+	preview.scale = Vector2.ONE * span / maxf(icon.get_width(),icon.get_height())
+	var height := icon.get_height() * preview.scale.y
+	var headroom := maxf(0., LIFT + height - tile_size.y*.5)
+	size = Vector2(tile_size.x, tile_size.y + headroom)
+	tile_center = Vector2(tile_size.x*.5, size.y-tile_size.y*.5)
+	position = screen_center - tile_center * unit
+	preview.position = tile_center + Vector2.UP * (LIFT + height*.5)
+	queue_redraw()
 
 func _has_point(point: Vector2) -> bool:
-	if size.x <= 0. or size.y <= 0.: return false
-	var delta := (point - size*.5).abs() / (size*.5)
+	if tile_size.x <= 0. or tile_size.y <= 0.: return false
+	if preview.is_pixel_opaque(preview.transform.affine_inverse() * point): return true
+	var delta := (point - tile_center).abs() / (tile_size*.5)
 	if delta.x + delta.y > 1.: return false
 	var screen := get_global_transform_with_canvas() * point
 	return not view.solid_covers_point(view.get_global_transform_with_canvas().affine_inverse()*screen)
@@ -27,11 +41,9 @@ func paint_on_floor(floor_node: Node2D, at: Vector2, extent: Vector2, world_per_
 	var half := extent*.5
 	var corners := PackedVector2Array([at+Vector2(0,-half.y),at+Vector2(half.x,0),at+Vector2(0,half.y),at+Vector2(-half.x,0)])
 	var active := is_hovered() or has_focus() or is_pressed()
-	var fill := Color("ab792c") if gift else Color("7d40c4")
-	fill.a = .55 if active else .30
-	floor_node.draw_colored_polygon(corners,fill)
-	corners.append(corners[0])
-	floor_node.draw_polyline(corners, Color("f6d48f") if gift or active else Color("c99aef"),1.6*world_per_ui,true)
-	var icon_size := Vector2(icon.get_size())
-	icon_size *= minf(extent.y*.78,34.*world_per_ui) / maxf(icon_size.x,icon_size.y)
-	floor_node.draw_texture_rect(icon,Rect2(at+icon_offset-icon_size*.5,icon_size),false)
+	FloatingMarker.draw_tile(floor_node, at, corners, world_per_ui, active, icon != BAG_TEXTURE)
+
+func _draw() -> void:
+	var active := is_hovered() or has_focus() or is_pressed()
+	preview.highlight(active)
+	FloatingMarker.draw_link(self, tile_center, LIFT, 1., active)

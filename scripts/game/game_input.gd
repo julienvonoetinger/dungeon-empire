@@ -9,7 +9,8 @@ var _pointer := -2
 var _start := Vector2.ZERO
 var _last := Vector2.ZERO
 var _dragged := false
-var _dig_target := Vector2i(-1,-1)
+var _pressed_site := Vector2i(-1,-1)
+var _pressed_tool := GameTypes.Tool.NONE
 var _touches := {}
 var _last_core := Vector2i(-1,-1)
 var _previous_quit_on_back := true
@@ -63,7 +64,8 @@ func center_core() -> void:
 	camera.position = view.grid_to_local(point)
 
 func _changed(_structure: bool) -> void:
-	if session.paused or session.result_open or (_dig_target.x>=0 and not session.can_edit()): _cancel_world_pointer()
+	if session.paused or session.result_open or (_pointer != -2 and (session.tool != _pressed_tool or not session.can_edit())): _cancel_world_pointer()
+	if _palette_button and (not session.can_edit() or not session.catalog_open): _cancel_palette()
 	var core := session.sim._core_origin()
 	if core != _last_core:
 		_last_core = core
@@ -96,7 +98,7 @@ func _cancel_if_released(pointer: int) -> void:
 
 func _cancel_world_pointer() -> void:
 	_pointer=-2
-	_dig_target=Vector2i(-1,-1)
+	_pressed_site=Vector2i(-1,-1)
 	if not is_instance_valid(session): return
 	var hud=session.get_node("HUD")
 	if is_instance_valid(hud.dig_targets): hud.dig_targets.cancel_press()
@@ -131,8 +133,9 @@ func _begin(pointer: int, point: Vector2) -> void:
 	_last = point
 	_dragged = false
 	var hud=session.get_node("HUD")
-	_dig_target=hud.dig_targets.hit_cell(point/hud.scale.x)
-	hud.dig_targets.press(_dig_target)
+	_pressed_tool = session.tool
+	_pressed_site=hud.dig_targets.hit_cell(point/hud.scale.x)
+	hud.dig_targets.press(_pressed_site)
 
 func _move(point: Vector2) -> void:
 	if point.distance_to(_start) >= _threshold(): _dragged = true
@@ -149,8 +152,10 @@ func _finish(point: Vector2) -> void:
 	if not _dragged and not session.get_node("HUD").blocks_pointer(point):
 		var hud=session.get_node("HUD")
 		var released_target: Vector2i=hud.dig_targets.hit_cell(point/hud.scale.x)
-		if _dig_target.x>=0:
-			if released_target==_dig_target: session.dig_cell(_dig_target)
+		if _pressed_site.x>=0:
+			if released_target==_pressed_site and session.tool==_pressed_tool:
+				if _pressed_tool == GameTypes.Tool.NONE: session.dig_cell(_pressed_site)
+				else: hud.world_tapped(_pressed_site)
 		elif released_target.x<0 and session.sim.lesson == GameTypes.Lesson.FREE:
 			var local_point: Vector2 = point - session.get_node("PlayArea").position
 			var world_point: Vector2 = view.get_global_transform_with_canvas().affine_inverse() * local_point
@@ -192,7 +197,7 @@ func palette_event(button: Button, id: int, event: InputEvent) -> void:
 			var lifted: Vector2=point-Vector2(0,52)*session.get_node("HUD").scale.x
 			var cell := _palette_cell(lifted)
 			var valid: bool=not session.get_node("HUD").blocks_pointer(point) and not session.get_node("HUD").blocks_pointer(lifted) and session.check_action(cell,id).get("valid",false)
-			view.show_placement(cell,valid)
+			view.show_placement(cell,valid,id)
 
 func _clear_palette_button(button: Button) -> void:
 	if is_instance_valid(button): button.set_meta("palette_dragging",false)

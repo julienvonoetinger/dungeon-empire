@@ -64,7 +64,8 @@ func run() -> void:
 		intro._process(.5)
 		check(intro.elapsed==time,"Paused entrance does not advance")
 		game.paused=false
-		for moment in [11.,16.,20.,22.,24.,26.,35.9]:
+		var arrival: float = intro.ARTISAN_START
+		for moment in [11.,19.,arrival-1.,arrival+1.,arrival+3.,arrival+5.,arrival+14.9]:
 			intro.elapsed = moment
 			intro._walk_in(moment/intro.ENTRY_DURATION)
 			if moment < intro.ARTISAN_START:
@@ -77,8 +78,8 @@ func run() -> void:
 						var role: String = ["mineur","menuisier","scientifique"][count]
 						check(artisan.sprite_frames.resource_path.contains("oculin-"+role+"-walk"),"Arrival order: "+role)
 						count += 1
-				check(count == (1 if moment==22. else 2 if moment==24. else 3),"Artisans enter one after another")
-			if moment==26. or moment==35.9:
+				check(count == (1 if moment==arrival+1. else 2 if moment==arrival+3. else 3),"Artisans enter one after another")
+			if moment==arrival+5. or moment==arrival+14.9:
 				await process_frame
 				await RenderingServer.frame_post_draw
 				root.get_texture().get_image().save_png("res://artifacts/sanctuary-procession/artisans-%d-%d.png" % [extent.x,roundi(moment)])

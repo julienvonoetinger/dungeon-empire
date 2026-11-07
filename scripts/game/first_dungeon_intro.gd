@@ -6,8 +6,12 @@ const Film = preload("res://scripts/game/invocation_sanctuary.gd")
 const Dialogue = preload("res://scripts/game/invocation_dialogue.gd")
 const LevelUp = preload("res://scripts/game/artisan_level_up.gd")
 const BuildSite = preload("res://scripts/game/ui/tutorial_build_site.gd")
+const FloatingMarker = preload("res://scripts/game/ui/floating_site_marker.gd")
+const StoneBand = preload("res://scripts/game/ui/intro_stone_band.gd")
+const PageTurn = preload("res://scripts/game/ui/prologue_page_turn.gd")
 enum Shot { CLOSED, PROLOGUE, RITUAL, ENTRANCE, ARTISAN, LESSON, GIFT }
-const ENTRY_DURATION := 36.5
+const ARTISAN_START := 35.0
+const ENTRY_DURATION := ARTISAN_START + 15.5
 const ARTISAN_OFFER_DURATION := 6.
 const ARTISAN_BEAT_DURATION := ARTISAN_OFFER_DURATION + LevelUp.DURATION
 const OFFERS := {
@@ -15,7 +19,6 @@ const OFFERS := {
 	Types.Lesson.MEET_CARPENTER: ["Le menuisier", "Maître, je peux fabriquer des portes pour votre donjon. Choisissez un passage entre deux murs, et j’y poserai une porte en bois.", 2, "Portes en bois débloquées"],
 	Types.Lesson.MEET_SCIENTIST: ["Le scientifique", "Maître, je peux fabriquer des pièges pour défendre le donjon. Choisissez une dalle : mes pointes en jailliront sous les pas des intrus.", 3, "Pièges à pointes débloqués"],
 }
-const ARTISAN_START := 21.0
 const ARTISAN_SPACING := 1.65
 const ARTISAN_SPEED := .56
 const ARTISAN_FRAMES := [
@@ -30,7 +33,7 @@ const PROLOGUE := [
 	["À l’écart du monde", "Au cœur des montagnes, les Oculins vivaient dans un village dissimulé entre les falaises. Ils avaient aménagé les pentes pour leurs cultures et bâti leurs maisons dans la pierre. Depuis des générations, ils vivaient ainsi, sans contact avec les autres peuples. Leur village ne figurait sur aucune carte. Aucun royaume ne connaissait leur existence.", "res://assets/game/introduction/prologue-basalt.webp", "res://assets/game/introduction/prologue-basalt-portrait.webp"],
 	["La découverte", "Au pied des montagnes s’étendait le royaume de Valdorne. Son souverain, le roi Aldren, voulait ouvrir une route vers les terres de l’autre versant. Il envoya un cartographe et deux éclaireurs reconnaître les cols. Depuis une crête, ils découvrirent le village des Oculins. Le cartographe dessina les maisons, les sentiers et le passage qu’elles dominaient.", "res://assets/game/introduction/prologue-lookout.webp", "res://assets/game/introduction/prologue-lookout-portrait.webp"],
 	["L’audience", "À la cour, le cartographe présenta son dessin à Aldren. Le roi l’interrogea sur les habitants et les chemins menant au col. Les trois voyageurs n’avaient observé le village que de loin. Ils ignoraient qui étaient ces êtres et s’ils accepteraient des visiteurs. Aldren envoya un émissaire et quelques gardes demander l’ouverture d’une route à travers leurs terres.", "res://assets/game/introduction/prologue-audience.webp", "res://assets/game/introduction/prologue-audience-portrait.webp"],
-	["Les étrangers", "À l’approche des envoyés, les Oculins barrèrent l’entrée du village. Jamais ils n’avaient rencontré de tels êtres. L’émissaire leur parla de Valdorne, de son roi et de la route qu’il souhaitait ouvrir. Les anciens refusèrent de le laisser poursuivre.", "res://assets/game/introduction/prologue-envoy.webp", "res://assets/game/introduction/prologue-envoy-portrait.webp", ["Les anciens", "Ces montagnes sont notre foyer. Nous ne céderons aucune terre. Vos gens ne passeront pas.", "Les envoyés repartirent sous leur surveillance."]],
+	["Les étrangers", "À l’approche des envoyés, les Oculins barrèrent l’entrée du village. Jamais ils n’avaient rencontré de tels êtres. L’émissaire leur parla de Valdorne, de son roi et de la route qu’il souhaitait ouvrir. Les anciens refusèrent de le laisser poursuivre.\n« Ces montagnes sont notre foyer. Nous ne céderons aucune terre. Vos gens ne passeront pas. »\nLes envoyés repartirent sous leur surveillance.", "res://assets/game/introduction/prologue-envoy.webp", "res://assets/game/introduction/prologue-envoy-portrait.webp"],
 	["Le passage fermé", "À leur retour, les envoyés rapportèrent le refus des Oculins. Ceux-ci avaient fermé les sentiers et montaient désormais la garde aux abords du col. Aldren voulait cette route pour étendre son royaume de l’autre côté des montagnes. Il décida de l’ouvrir par la force. Son capitaine reçut l’ordre de prendre le passage et d’y établir une garnison.", "res://assets/game/introduction/prologue-decree.webp", "res://assets/game/introduction/prologue-decree-portrait.webp"],
 	["L’attaque", "Lorsque les bannières de Valdorne apparurent dans la vallée, les Oculins transportèrent des provisions vers les grottes et renforcèrent leurs barricades. Les soldats forcèrent le passage. Le combat gagna les ruelles, où ils incendièrent les maisons pour en déloger les défenseurs. Les Oculins durent abandonner le village. Les survivants se replièrent dans les hauteurs en emportant leurs blessés.", "res://assets/game/introduction/prologue-assault.webp", "res://assets/game/introduction/prologue-assault-portrait.webp"],
 	["Les survivants", "Les rescapés se regroupèrent dans les grottes. On pansa les blessés et partagea les provisions mises à l’abri. Jusqu’à la nuit, des survivants continuèrent d’arriver. Puis les sentiers restèrent vides. À l’entrée du refuge, les Oculins veillèrent longtemps, espérant encore voir apparaître ceux qui manquaient. En contrebas, leurs maisons brûlaient.", "res://assets/game/introduction/prologue-pass.webp", "res://assets/game/introduction/prologue-pass-portrait.webp"],
@@ -56,11 +59,20 @@ var film := Film.new()
 var veil := ColorRect.new()
 var dialogue := Dialogue.new()
 var level_up := LevelUp.new()
+var story_band := StoneBand.new()
+var page_turn := PageTurn.new()
 var panel := PanelContainer.new()
+var story_padding := StyleBoxEmpty.new()
+var lesson_surface := UI.surface("panel",12)
+var panel_box := VBoxContainer.new()
+var heading := HBoxContainer.new()
 var skip: Button
 var title: Label
 var reading_area := ScrollContainer.new()
 var reading_column := VBoxContainer.new()
+var story_quote := RichTextLabel.new()
+var quote_slot := Control.new()
+var quote_clip := Control.new()
 var reading_dialogue := Dialogue.new()
 var after_line: Label
 var line: Label
@@ -104,13 +116,19 @@ func _ready() -> void:
 	site_ink.hide()
 	target = UI.button(root, "◆", _act, "", true)
 	target.accessibility_name = "Agir sur la case indiquée"
+	root.add_child(story_band)
+	story_band.hide()
+	story_padding.set_content_margin(SIDE_LEFT,16)
+	story_padding.set_content_margin(SIDE_RIGHT,16)
+	story_padding.set_content_margin(SIDE_TOP,8)
+	story_padding.set_content_margin(SIDE_BOTTOM,6)
 	root.add_child(panel)
-	panel.add_theme_stylebox_override("panel",UI.surface("panel",12))
-	var box := VBoxContainer.new()
-	panel.add_child(box)
-	title = UI.label(box,"",24,UI.GOLD)
+	panel.add_child(panel_box)
+	panel_box.add_child(heading)
+	title = UI.label(heading,"",24,UI.GOLD)
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	box.add_child(reading_area)
+	panel_box.add_child(reading_area)
 	reading_area.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	UI.slim_scrollbar(reading_area)
 	reading_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -119,16 +137,38 @@ func _ready() -> void:
 	line.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	line.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	reading_column.add_child(story_quote)
+	story_quote.fit_content = true
+	story_quote.scroll_active = false
+	story_quote.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	story_quote.focus_mode = Control.FOCUS_NONE
+	story_quote.add_theme_font_size_override("normal_font_size", line.get_theme_font_size("font_size"))
+	story_quote.add_theme_color_override("default_color", UI.TEXT)
+	story_quote.add_theme_color_override("font_shadow_color", line.get_theme_color("font_shadow_color"))
+	story_quote.add_theme_constant_override("shadow_offset_x", 0)
+	story_quote.add_theme_constant_override("shadow_offset_y", 1)
+	story_quote.hide()
+	# The tutorial dialogue can extend beyond the narrower lesson panel.
+	reading_column.add_child(quote_slot)
+	quote_slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	quote_slot.hide()
+	root.add_child(quote_clip)
+	quote_clip.clip_contents = true
+	quote_clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	reading_dialogue.embedded = true
-	reading_column.add_child(reading_dialogue)
+	quote_clip.add_child(reading_dialogue)
+	reading_column.item_rect_changed.connect(_position_reading_quote, CONNECT_DEFERRED)
+	quote_slot.item_rect_changed.connect(_position_reading_quote, CONNECT_DEFERRED)
 	after_line = UI.label(reading_column,"",20)
 	after_line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	after_line.hide()
 	reading_column.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
-	action = UI.button(box,"",_act,"",true)
-	skip = UI.button(root,"Passer",_skip)
-	for button in [action, skip]:
-		button.add_theme_font_size_override("font_size",18)
+	action = UI.intro_button(panel_box,"",_act)
+	page_turn.reading_area = reading_area
+	root.add_child(page_turn)
+	page_turn.hide()
+	page_turn.pressed.connect(_act)
+	skip = UI.intro_button(root,"Passer",_skip,true)
 	root.resized.connect(_layout)
 	panel.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
 	skip.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
@@ -167,6 +207,7 @@ func _set_shot(next: int) -> void:
 	dialogue.clear_line()
 	level_up.hide()
 	reading_dialogue.clear_line()
+	story_quote.hide()
 	after_line.hide()
 	view.set_core_awakening(1.0 if shot in [Shot.CLOSED,Shot.ARTISAN,Shot.LESSON,Shot.GIFT] else 0.0)
 	view.set_core_cinematic_time(-1.0 if shot in [Shot.CLOSED,Shot.LESSON,Shot.GIFT] else 0.0)
@@ -178,6 +219,8 @@ func _set_shot(next: int) -> void:
 		invoker.queue_free()
 		invoker = null
 	panel.visible = shot in [Shot.PROLOGUE, Shot.LESSON]
+	story_band.visible = shot == Shot.PROLOGUE
+	panel.add_theme_stylebox_override("panel", story_padding if story_band.visible else lesson_surface)
 	if shot != Shot.RITUAL: film.release()
 	story.visible = shot == Shot.PROLOGUE
 	# Keep the same text width when a taller quote makes the scrollbar appear.
@@ -187,7 +230,10 @@ func _set_shot(next: int) -> void:
 	veil.color = Color.TRANSPARENT
 	target.visible = shot == Shot.LESSON
 	action.visible = shot in [Shot.PROLOGUE, Shot.LESSON]
+	page_turn.hide()
+	story_padding.set_content_margin(SIDE_RIGHT,16)
 	skip.show()
+	UI.set_intro_advance(skip, shot == Shot.GIFT)
 	skip.text = "Jouer librement" if shot == Shot.LESSON else "Passer"
 	match shot:
 		Shot.CLOSED:
@@ -219,19 +265,30 @@ func _show_page(index: int) -> void:
 	title.text = "%d / %d   ·   %s" % [page+1, PROLOGUE.size(), entry[0]]
 	line.text = entry[1]
 	line.show()
-	if entry.size() > 4:
+	story_quote.clear()
+	story_quote.visible = entry.size() > 4
+	after_line.visible = story_quote.visible
+	if story_quote.visible:
 		var quote: Array = entry[4]
-		reading_dialogue.show_line(quote[0], quote[1])
+		story_quote.add_image(Dialogue.PORTRAITS[quote[0]], 0, 38, Color.WHITE, INLINE_ALIGNMENT_CENTER)
+		story_quote.add_text("  ")
+		story_quote.push_color(UI.GOLD)
+		story_quote.add_text(quote[0])
+		story_quote.pop()
+		story_quote.add_text("  « %s »" % quote[1])
 		after_line.text = quote[2]
-		after_line.show()
-	else:
-		reading_dialogue.clear_line()
-		after_line.hide()
 	reading_area.scroll_vertical = 0
-	action.text = "Répondre à l’appel" if page == PROLOGUE.size()-1 else "Poursuivre"
+	var turning_page := page < PROLOGUE.size()-1
+	var transfer_focus := page_turn.has_focus() and not turning_page
+	page_turn.reset_gesture()
+	page_turn.visible = turning_page
+	story_padding.set_content_margin(SIDE_RIGHT,40 if turning_page else 16)
+	action.visible = not turning_page
+	action.text = "Répondre à l’appel"
 	action.disabled = false
 	veil.color = Color(.028,.013,.045,.85)
 	_layout()
+	if transfer_focus: action.grab_focus()
 
 func _ensure_invoker() -> void:
 	if is_instance_valid(invoker) and not invoker.is_queued_for_deletion(): return
@@ -305,7 +362,7 @@ func _show_lesson() -> void:
 	skip.visible = not gift
 	if choose_cell:
 		if digging:
-			title.text = "Touchez un cube violet · %d or" % Types.COST_DIG
+			title.text = "Touchez la case ou la pioche · %d or" % Types.COST_DIG
 		else:
 			_show_build_sites(step)
 		reading_dialogue.clear_line()
@@ -332,7 +389,7 @@ func _frame_dig_cells(area: Rect2) -> void:
 	if hud.dig_targets.blocks.is_empty(): return
 	var bounds: Rect2 = hud.dig_targets.blocks[0].support.rect
 	for block in hud.dig_targets.blocks:
-		bounds = bounds.merge(block.support.rect)
+		bounds = bounds.merge(block.framing_bounds())
 	_frame_sites(bounds,area)
 
 func _frame_sites(bounds: Rect2, area: Rect2) -> void:
@@ -357,46 +414,41 @@ func _clear_build_sites() -> void:
 func _show_build_sites(step: int) -> void:
 	var gift := step == Types.Lesson.VILLAGE_GIFT
 	var door := step == Types.Lesson.DOOR
-	var tile := Types.Tile.DOOR if door else Types.Tile.SPIKE
 	var tool := Types.Tool.BUILD_DOOR if door else Types.Tool.TRAP_SPIKE
-	var glyph := "door" if door else "spike"
 	var placement_label := "Poser la porte" if door else "Poser le piège"
-	var extent: Vector2 = view.grid_to_local(Vector2(1,0)) * 2. * .87
 	if gift:
 		title.text = "Choisissez une case pour le %s sac · %d or" % ["premier" if session.sim.floor_gold.is_empty() else "second", Types.GOLD_BAG_CAPACITY]
 		placement_label = "Déposer le sac"
+		for y in Types.ROWS:
+			for x in Types.COLS:
+				var cell := Vector2i(x,y)
+				if session.sim.can_place_gift(cell): placement_sites.append(cell)
 	else:
-		title.text = "Posez une porte entre deux murs · %d or" % Types.COST_DOOR if door else "Posez un piège à pointes sur une case libre · %d or" % Types.COST_SPIKE
-	for y in Types.ROWS:
-		for x in Types.COLS:
-			var cell := Vector2i(x,y)
-			if gift:
-				if not session.sim.can_place_gift(cell): continue
-			elif not session.sim.is_lesson_build_site(cell,tile) or not session.check_action(cell,tool).valid: continue
-			var button := BuildSite.new()
-			button.view = view
-			button.gift = gift
-			if gift:
-				if not button.find_visible_floor(view.grid_to_local(Vector2(cell)+Vector2(.5,.5)),extent):
-					button.free()
-					continue
-				button.icon = UI.icon("coins")
-				button.pressed.connect(session.place_village_bag.bind(cell))
-			else:
-				button.icon = UI.icon(glyph)
-				button.pressed.connect(_build_at.bind(cell,tool))
-			for signal_name in ["mouse_entered","mouse_exited","focus_entered","focus_exited","button_down","button_up"]:
-				button.connect(signal_name,site_ink.queue_redraw)
-			button.accessibility_name = placement_label + " (%d, %d)" % [x,y]
-			site_buttons.add_child(button)
-			placement_sites.append(cell)
+		placement_sites = session.available_build_sites(tool)
+		var count := placement_sites.size()
+		var sites := "1 case possible" if count == 1 else "%d cases possibles" % count
+		var instruction := "Posez une porte entre deux murs" if door else "Posez un piège à pointes"
+		title.text = "%s · %s · %d or" % [instruction,sites,Types.fixed_tool_cost(tool)]
+	for cell in placement_sites:
+		var button := BuildSite.new()
+		button.view = view
+		if gift:
+			button.pressed.connect(session.place_village_bag.bind(cell))
+		else:
+			button.icon = UI.build_site_icon(tool)
+			button.preview.flip_h = view.should_flip_build_icon(button.icon,cell)
+			button.pressed.connect(_build_at.bind(cell,tool))
+		for signal_name in ["mouse_entered","mouse_exited","focus_entered","focus_exited","button_down","button_up"]:
+			button.connect(signal_name,site_ink.queue_redraw)
+		button.accessibility_name = placement_label + " (%d, %d)" % [cell.x,cell.y]
+		site_buttons.add_child(button)
 	# Paint after the floor but beneath the level-1 scenery and actors.
 	view.move_child(site_ink,-1)
 	site_ink.visible = visible
 	site_ink.queue_redraw()
 
 func _draw_build_sites() -> void:
-	var extent: Vector2 = view.grid_to_local(Vector2(1,0)) * 2. * .87
+	var extent := FloatingMarker.tile_extent(view)
 	for i in placement_sites.size():
 		var center: Vector2 = view.grid_to_local(Vector2(placement_sites[i])+Vector2(.5,.5))
 		site_buttons.get_child(i).paint_on_floor(site_ink,center,extent,unit/camera.zoom.x)
@@ -416,12 +468,10 @@ func _frame_build_sites(area: Rect2) -> void:
 		for cell: Vector2i in session.sim.floor_gold:
 			bounds = bounds.expand(view.grid_to_local(Vector2(cell)+Vector2(.5,.5)))
 	_frame_sites(bounds.grow(88.),area)
+	var extent := FloatingMarker.tile_extent(view)
 	for i in points.size():
-		var button: BaseButton = site_buttons.get_child(i)
-		var cell_size: Vector2 = view.grid_to_local(Vector2(1,0)) * 2. * camera.zoom * .87
-		button.scale = Vector2.ONE * unit
-		button.size = cell_size / unit
-		button.position = view.get_global_transform_with_canvas()*points[i] - button.size * unit * .5
+		var button: BuildSite = site_buttons.get_child(i)
+		button.fit(view.get_global_transform_with_canvas()*points[i], extent, camera.zoom.x, unit)
 	site_ink.queue_redraw()
 
 func _act() -> void:
@@ -501,7 +551,7 @@ func _present_artisans(time: float, start: Vector2) -> Vector2:
 		var gait_speed := float(ARTISAN_GAITS[i]) * (256./2.55) * .70710678 / 128. * actor.scale.x
 		actor.frame = 0 if at == stop else int(travel/gait_speed*20.) % actor.sprite_frames.get_frame_count(facing)
 		if i == 0: leader = at
-	return leader.lerp(group_center,smoothstep(28.0,32.5,time))
+	return leader.lerp(group_center,smoothstep(7.0,11.5,time-ARTISAN_START))
 
 func _walk_in(progress: float) -> void:
 	_ensure_master_arrival()
@@ -539,7 +589,7 @@ func _walk_in(progress: float) -> void:
 	invoker.present_direction("walk" if moving else "idle",int(distance/(Film.Actor.stride_pixels("se")*invoker.scale.x)*24.)%24 if moving else 0,"se")
 	var assembly := _present_artisans(time,start)
 	var entrance_focus := start if time < ARTISAN_START else assembly
-	_focus(at.lerp(entrance_focus,smoothstep(19.6,21.7,time)),0.)
+	_focus(at.lerp(entrance_focus,smoothstep(-1.4,.7,time-ARTISAN_START)),0.)
 
 func _focus(cell: Vector2, panel_offset := 1.) -> void:
 	focus_cell = cell
@@ -597,6 +647,13 @@ func _layout() -> void:
 		if safe.has_area(): safe_pixels = safe
 	_fit_controls(window_size, safe_pixels, density)
 
+func _position_reading_quote() -> void:
+	if not quote_slot.visible: return
+	var scroll := reading_area.get_global_rect()
+	quote_clip.position = Vector2(0, scroll.position.y)
+	quote_clip.size = Vector2(root.size.x, scroll.size.y)
+	reading_dialogue.position = Vector2(0, quote_slot.global_position.y - scroll.position.y)
+
 func _fit_controls(window_size: Vector2, safe_pixels: Rect2, density: float) -> void:
 	var pixels_per_unit := density * (.9 if safe_pixels.size.y / density < 360 else 1.)
 	unit = root.size.x / window_size.x * pixels_per_unit
@@ -607,31 +664,42 @@ func _fit_controls(window_size: Vector2, safe_pixels: Rect2, density: float) -> 
 	var margin := 12.
 	skip.reset_size()
 	skip.position = Vector2(area.end.x-skip.size.x-margin,area.position.y+margin)*unit
-	var panel_width := minf(680,area.size.x-margin*2)
-	var beside_story := shot == Shot.PROLOGUE and area.size.y < 460 and area.size.x >= 600
-	if beside_story: panel_width = minf(panel_width,area.size.x*.68)
+	var prologue := shot == Shot.PROLOGUE
+	var panel_width := area.size.x if prologue else minf(680,area.size.x-margin*2)
+	var action_in_heading := prologue and area.size.x >= 520.
+	var action_parent: Container = heading if action_in_heading else panel_box
+	if action.get_parent() != action_parent:
+		var keep_focus := action.has_focus()
+		action.reparent(action_parent, false)
+		if keep_focus and action.is_visible_in_tree(): action.grab_focus()
+	quote_slot.visible = reading_dialogue.visible
+	if quote_slot.visible:
+		quote_clip.size.x = root.size.x
+		reading_dialogue.fit(area, unit)
+		quote_slot.custom_minimum_size.y = reading_dialogue.size.y
 	if shot in [Shot.PROLOGUE, Shot.LESSON]:
 		# Reserve room for the illustration, heading and fixed navigation.
-		var panel_budget := area.size.y - margin*2 if beside_story else area.size.y*.60
-		if shot == Shot.LESSON:
-			panel_budget = area.size.y * .73
-		var chrome := panel.get_theme_stylebox("panel").get_minimum_size().y + title.get_combined_minimum_size().y + action.get_combined_minimum_size().y
-		chrome += 2*title.get_parent().get_theme_constant("separation")
+		var panel_budget := area.size.y * (.60 if prologue else .73)
+		var separation := panel_box.get_theme_constant("separation")
+		var chrome := panel.get_theme_stylebox("panel").get_minimum_size().y + heading.get_combined_minimum_size().y + separation
+		if not action_in_heading and action.visible: chrome += action.get_combined_minimum_size().y + separation
 		reading_area.custom_minimum_size.y = minf(reading_column.get_combined_minimum_size().y,maxf(32,panel_budget-chrome))
 	else:
 		reading_area.custom_minimum_size.y = 0
 	panel.size = Vector2(panel_width,panel.get_combined_minimum_size().y)
-	panel.position = Vector2(area.get_center().x-panel.size.x/2,area.end.y-panel.size.y-margin)*unit
-	if shot == Shot.PROLOGUE:
-		story.offset_right = 0
-		if beside_story:
-			panel.position.x = (area.end.x-panel.size.x-margin)*unit
-			story.offset_right = panel.position.x - margin*unit - root.size.x
-			skip.position = Vector2(area.position.x+margin,area.end.y-skip.size.y-margin)*unit
-		var image_path: String = PROLOGUE[page][3 if story.size.x < story.size.y else 2]
+	panel.position = Vector2(area.get_center().x-panel.size.x/2,area.end.y-panel.size.y-(0. if prologue else margin))*unit
+	if prologue:
+		story_band.scale = Vector2.ONE * unit
+		story_band.position = Vector2(0,panel.position.y)
+		story_band.size = Vector2(root.size.x,root.size.y-panel.position.y) / unit
+		page_turn.scale = panel.scale
+		page_turn.position = panel.position
+		page_turn.size = panel.size
+		var image_path: String = PROLOGUE[page][3 if window_size.y > window_size.x else 2]
 		if not story.texture or story.texture.resource_path != image_path:
 			story.texture = load(image_path)
 	target.position = root.size*.5-target.size*unit*.5
+	_position_reading_quote()
 	if shot in [Shot.LESSON, Shot.ENTRANCE]:
 		target.position.y = minf(target.position.y, panel.position.y - (target.size.y + margin) * unit)
 		if shot == Shot.LESSON:

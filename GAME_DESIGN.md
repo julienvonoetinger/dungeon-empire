@@ -43,11 +43,14 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
 - Le premier donjon démarre sans or, avec un Cœur central à 100 PV, un escalier
   et un couloir. Le passage d’une case autour du Cœur est dégagé gratuitement,
   diagonales comprises. Entrées et portes y sont interdites.
+- Après l’éveil du Cœur, l’invocateur avertit le Maître que les héros d’Aldren
+  ont probablement vu les éclairs du rituel et viendront en chercher la source.
+  Il demande de défendre le donjon, puis présente les artisans.
 - Au niveau 0, l’invocateur offre les économies du village. Le joueur choisit
   deux cases de sol pour y déposer deux sacs de 50 pièces. Chaque dépôt est
   sauvegardé. Le mineur prend la parole après le second sac.
-- Après la montée de niveau, les cubes violets indiquent les roches que le mineur
-  peut creuser. Après le creusement, le menuisier propose ses portes et le Maître
+- Après la montée de niveau, une pioche flotte au-dessus de chaque case que le
+  mineur peut creuser. Après le creusement, le menuisier propose ses portes et le Maître
   passe au niveau 2. Le joueur choisit une case de passage entre deux murs et y
   pose une porte en bois. Le scientifique propose alors ses pièges. Au niveau 3,
   le joueur pose un piège à pointes sur une case de sol libre, puis installe son
@@ -57,7 +60,9 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
   l'entrée est protégée. Retirer une structure laisse du sol, sans remboursement.
   Cœur et entrée sont permanents. Poser un élément sur roche ne creuse pas.
 - Une porte exige deux voisins rocheux opposés (la limite de carte compte comme
-  roche). L'entrée unique exige un dos rocheux et un passage ouvert devant.
+  roche). Si la case contient un piège, il faut le retirer avant d’y poser la
+  porte, même si le piège a épuisé ses charges.
+  L'entrée unique exige un dos rocheux et un passage ouvert devant.
   Le héros passe par cette bouche, jamais par le dos de l'escalier.
   La variante visuelle de l'escalier porte le nom de ce côté ouvert : sa marche
   basse rejoint le passage et sa marche haute reste contre la paroi. La position
