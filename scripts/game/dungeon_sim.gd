@@ -28,6 +28,7 @@ const ROOM_SIDES := ["N","E","S","W"]
 const ROOM_OUT := [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
 
 var lesson := GameTypes.Lesson.FREE
+var invoker_resident := false
 var lesson_alcove := GameTypes.FIRST_ALCOVE
 var grid: Array = []
 var selected_tool: int = Tool.NONE
@@ -51,6 +52,7 @@ var raid = null
 
 func new_map() -> void:
 	lesson = GameTypes.Lesson.FREE
+	invoker_resident = false
 	lesson_alcove = GameTypes.FIRST_ALCOVE
 	floor_gold.clear()
 	vault_gold.clear()

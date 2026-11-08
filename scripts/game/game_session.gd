@@ -70,7 +70,7 @@ func phase() -> String:
 	return "Preparation"
 
 func can_edit() -> bool:
-	return not progression.awaiting_miner and sim.lesson not in [Types.Lesson.MEET_CARPENTER,Types.Lesson.MEET_SCIENTIST] and not paused and not confirmation_open and not result_open and not raid.raid_active and not sim.game_over and not save_blocked
+	return not progression.awaiting_miner and sim.lesson not in [Types.Lesson.MEET_CARPENTER,Types.Lesson.MEET_SCIENTIST,Types.Lesson.PRACTICE_RAID] and not paused and not confirmation_open and not result_open and not raid.raid_active and not sim.game_over and not save_blocked
 
 func ready_for_raid() -> bool:
 	return sim.lesson == Types.Lesson.FREE and sim._has_required_storage() and not sim.game_over and not save_blocked
@@ -276,8 +276,8 @@ func confirm_action(requested_tool: int = -1) -> void:
 			if used == Types.Tool.TRAP_SPIKE: sim.lesson = Types.Lesson.CHEST
 		Types.Lesson.CHEST:
 			if selected == sim.lesson_alcove and used == Types.Tool.STORE:
-				sim.lesson = Types.Lesson.FREE
-				notice = "Votre premier coffre est prêt. Agrandissez votre domaine."
+				sim.lesson = Types.Lesson.PRACTICE_RAID
+				notice = ""
 	presentation_event.emit("placed")
 	_after_edit()
 
@@ -355,7 +355,7 @@ func set_paused(value: bool) -> void:
 	changed.emit(false)
 
 func leave_tutorial() -> void:
-	if progression.awaiting_miner or sim.lesson in [Types.Lesson.MEET_CARPENTER, Types.Lesson.MEET_SCIENTIST]: return
+	if progression.awaiting_miner or sim.lesson in [Types.Lesson.MEET_CARPENTER, Types.Lesson.MEET_SCIENTIST, Types.Lesson.PRACTICE_RAID]: return
 	sim.lesson = Types.Lesson.FREE
 	notice = ""
 	_after_edit()
@@ -363,6 +363,13 @@ func leave_tutorial() -> void:
 func accept_village_gift() -> void:
 	if sim.lesson != Types.Lesson.INVOKER_OFFER or paused or confirmation_open or save_blocked: return
 	sim.lesson = Types.Lesson.VILLAGE_GIFT
+	_save()
+	changed.emit(false)
+
+func finish_practice_raid() -> void:
+	if sim.lesson != Types.Lesson.PRACTICE_RAID or paused or confirmation_open or save_blocked: return
+	sim.invoker_resident = true
+	sim.lesson = Types.Lesson.FREE
 	_save()
 	changed.emit(false)
 

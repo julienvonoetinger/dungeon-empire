@@ -9,7 +9,10 @@ const BuildSite = preload("res://scripts/game/ui/tutorial_build_site.gd")
 const FloatingMarker = preload("res://scripts/game/ui/floating_site_marker.gd")
 const StoneBand = preload("res://scripts/game/ui/intro_stone_band.gd")
 const PageTurn = preload("res://scripts/game/ui/prologue_page_turn.gd")
-enum Shot { CLOSED, PROLOGUE, RITUAL, ENTRANCE, ARTISAN, LESSON, GIFT }
+const TutorialRaid = preload("res://scripts/game/tutorial_raid.gd")
+enum Shot { CLOSED, PROLOGUE, RITUAL, ENTRANCE, ARTISAN, LESSON, GIFT, ARTISAN_EXIT, PRACTICE_OFFER, PRACTICE_RUN, PRACTICE_REPORT }
+const PRACTICE_SHOTS := [Shot.ARTISAN_EXIT, Shot.PRACTICE_OFFER, Shot.PRACTICE_RUN, Shot.PRACTICE_REPORT]
+const EXIT_SPEED := 1.35
 const ARTISAN_START := 35.0
 const ENTRY_DURATION := ARTISAN_START + 15.5
 const ARTISAN_OFFER_DURATION := 6.
@@ -79,6 +82,8 @@ var line: Label
 var action: Button
 var target: Button
 var invoker: Node2D
+var volunteer: Film.Actor
+var practice: TutorialRaid
 var invoker_at:=Vector2.ZERO
 var artisans: Array[AnimatedSprite2D] = []
 var dungeon_master: Sprite2D
@@ -176,19 +181,24 @@ func _ready() -> void:
 	session.changed.connect(_sync)
 	set_process(false)
 
-func _sync(_structure: bool) -> void:
+func _sync(structure: bool) -> void:
 	if session.sim.lesson == Types.Lesson.FREE:
 		if shot != Shot.CLOSED: _set_shot(Shot.CLOSED)
+		if session.sim.invoker_resident and (structure or not is_instance_valid(invoker)):
+			_station_invoker()
 		return
 	var new_offer := shot == Shot.LESSON and OFFERS.has(session.sim.lesson)
 	var gift_accepted := shot == Shot.GIFT and session.sim.lesson != Types.Lesson.INVOKER_OFFER
-	if shot == Shot.CLOSED or new_offer or gift_accepted: _set_shot(Shot.LESSON)
+	if session.sim.lesson == Types.Lesson.PRACTICE_RAID:
+		if shot not in PRACTICE_SHOTS: _set_shot(Shot.ARTISAN_EXIT)
+	elif shot == Shot.CLOSED or new_offer or gift_accepted: _set_shot(Shot.LESSON)
 	elif shot == Shot.LESSON: _show_lesson()
 	visible = not session.paused and not session.confirmation_open
 	hud.visible = not visible
 	site_ink.visible = visible and not placement_sites.is_empty()
 
 func _set_shot(next: int) -> void:
+	if shot == Shot.PRACTICE_RUN: session.get_node("Input")._apply_presentation()
 	_set_dig_controls(false)
 	_clear_build_sites()
 	reading_area.show()
@@ -199,23 +209,30 @@ func _set_shot(next: int) -> void:
 	elif next == Shot.LESSON and session.sim.lesson == Types.Lesson.INVOKER_OFFER:
 		next = Shot.GIFT
 	_clear_master_arrival()
-	if next not in [Shot.LESSON, Shot.ARTISAN, Shot.GIFT]:
+	view.set_procession_doors_open(next == Shot.ARTISAN_EXIT)
+	if next not in [Shot.LESSON, Shot.ARTISAN, Shot.GIFT, Shot.ARTISAN_EXIT]:
 		for artisan in artisans:
 			if is_instance_valid(artisan): artisan.queue_free()
 		artisans.clear()
+	if is_instance_valid(volunteer):
+		volunteer.queue_free()
+		volunteer = null
+	if next not in [Shot.PRACTICE_RUN, Shot.PRACTICE_REPORT]: practice = null
 	shot = next
 	dialogue.clear_line()
 	level_up.hide()
 	reading_dialogue.clear_line()
 	story_quote.hide()
 	after_line.hide()
-	view.set_core_awakening(1.0 if shot in [Shot.CLOSED,Shot.ARTISAN,Shot.LESSON,Shot.GIFT] else 0.0)
-	view.set_core_cinematic_time(-1.0 if shot in [Shot.CLOSED,Shot.LESSON,Shot.GIFT] else 0.0)
+	var cinematic := shot in [Shot.PROLOGUE, Shot.RITUAL, Shot.ENTRANCE]
+	view.set_core_awakening(0.0 if cinematic else 1.0)
+	view.set_core_cinematic_time(0.0 if cinematic or shot == Shot.ARTISAN else -1.0)
 	elapsed = 0
 	visible = shot != Shot.CLOSED and not session.paused
 	hud.visible = not visible
 	set_process(shot != Shot.CLOSED)
-	if is_instance_valid(invoker) and next not in [Shot.LESSON, Shot.ARTISAN, Shot.GIFT]:
+	var dismiss_invoker := cinematic or (next == Shot.CLOSED and not session.sim.invoker_resident)
+	if dismiss_invoker and is_instance_valid(invoker):
 		invoker.queue_free()
 		invoker = null
 	panel.visible = shot in [Shot.PROLOGUE, Shot.LESSON]
@@ -233,7 +250,7 @@ func _set_shot(next: int) -> void:
 	page_turn.hide()
 	story_padding.set_content_margin(SIDE_RIGHT,16)
 	skip.show()
-	UI.set_intro_advance(skip, shot == Shot.GIFT)
+	UI.set_intro_advance(skip, shot in [Shot.GIFT, Shot.PRACTICE_OFFER, Shot.PRACTICE_REPORT])
 	skip.text = "Jouer librement" if shot == Shot.LESSON else "Passer"
 	match shot:
 		Shot.CLOSED:
@@ -256,6 +273,25 @@ func _set_shot(next: int) -> void:
 			dialogue.show_line("L’invocateur", "Maître, les villageois ont réuni tout leur or pour vous. Ces deux sacs contiennent cinquante pièces chacun. Où devons-nous les déposer ?")
 			skip.text = "Choisir les cases"
 		Shot.LESSON: _show_lesson()
+		Shot.ARTISAN_EXIT:
+			_assemble_artisans()
+			_focus(_invoker_destination(),0.)
+		Shot.PRACTICE_OFFER:
+			_station_invoker()
+			_focus(invoker_at,0.)
+			dialogue.show_line("L’invocateur", "Je vais demander à l’un des nôtres de jouer l’intrus. Voyons jusqu’où il peut aller. Il laissera votre or en paix et ne portera aucun coup au Cœur.")
+			skip.text = "Lancer l’exercice"
+		Shot.PRACTICE_RUN:
+			practice = TutorialRaid.new(session.sim,session.raid)
+			volunteer = Film.Actor.new()
+			volunteer.scale = Vector2.ONE * .82
+			volunteer.z_index = 1
+			_follow_volunteer(0.)
+			skip.hide()
+		Shot.PRACTICE_REPORT:
+			_focus(invoker_at,0.)
+			dialogue.show_line("L’invocateur",practice.report())
+			skip.text = "Jouer librement"
 	_layout()
 
 func _show_page(index: int) -> void:
@@ -316,12 +352,15 @@ func _clear_master_arrival() -> void:
 	dungeon_master=null
 	arrival_light=null
 
-func _assemble_artisans() -> void:
+func _station_invoker() -> void:
 	_ensure_invoker()
 	invoker.modulate.a = 1
-	view.position_invoker(invoker,_invoker_destination())
 	invoker_at=_invoker_destination()
+	view.position_invoker(invoker,invoker_at)
 	invoker.present_direction("idle",0,"se")
+
+func _assemble_artisans() -> void:
+	_station_invoker()
 	_present_artisans(ENTRY_DURATION, _entrance_top())
 
 func present_artisan_offer(time: float) -> void:
@@ -496,6 +535,9 @@ func _skip() -> void:
 			else:
 				_set_shot(Shot.LESSON)
 		Shot.LESSON: session.leave_tutorial()
+		Shot.ARTISAN_EXIT: _set_shot(Shot.PRACTICE_OFFER)
+		Shot.PRACTICE_OFFER: _set_shot(Shot.PRACTICE_RUN)
+		Shot.PRACTICE_REPORT: session.finish_practice_raid()
 
 func _entrance_top() -> Vector2:
 	return Vector2(Types.FIRST_STAIR) + Vector2(.5,.5) - Vector2(session.sim._entrance_mouth(Types.FIRST_STAIR)) * Stairs.TOP_TRAVEL
@@ -503,7 +545,7 @@ func _entrance_top() -> Vector2:
 func _invoker_destination() -> Vector2:
 	return Vector2(Types.core_origin_cell()) + Types.COUNCIL_INVOKER
 
-func _present_artisans(time: float, start: Vector2) -> Vector2:
+func _present_artisans(time: float, start: Vector2, departing := false) -> Vector2:
 	var core := Vector2(Types.core_origin_cell())
 	var group_center := core + Vector2(.35,.8)
 	if time < ARTISAN_START:
@@ -540,6 +582,7 @@ func _present_artisans(time: float, start: Vector2) -> Vector2:
 			var length := at.distance_to(waypoint)
 			if remaining < length:
 				facing = &"sw" if waypoint == front else &"se"
+				if departing: facing = &"ne" if waypoint == front else &"nw"
 				at = at.move_toward(waypoint,remaining)
 				break
 			remaining -= length
@@ -549,7 +592,8 @@ func _present_artisans(time: float, start: Vector2) -> Vector2:
 		actor.modulate.a = smoothstep(0.,.15,travel)
 		actor.animation = facing
 		var gait_speed := float(ARTISAN_GAITS[i]) * (256./2.55) * .70710678 / 128. * actor.scale.x
-		actor.frame = 0 if at == stop else int(travel/gait_speed*20.) % actor.sprite_frames.get_frame_count(facing)
+		var frame := int(travel/gait_speed*20.)
+		actor.frame = 0 if at == stop else posmod(-frame if departing else frame,actor.sprite_frames.get_frame_count(facing))
 		if i == 0: leader = at
 	return leader.lerp(group_center,smoothstep(7.0,11.5,time-ARTISAN_START))
 
@@ -599,9 +643,28 @@ func _focus(cell: Vector2, panel_offset := 1.) -> void:
 		camera.position.y += panel_offset * (root.size.y * .5 - target_center_y) / camera.zoom.y
 	camera.force_update_scroll()
 
+func _follow_volunteer(time: float) -> void:
+	var input = session.get_node("Input")
+	camera.zoom = Vector2.ONE * input.FIXED_ZOOM * input.presentation_scale() * 1.55
+	_focus(practice.present(volunteer,view,time),0.)
+
 func _process(delta: float) -> void:
 	if not visible or session.paused: return
 	match shot:
+		Shot.ARTISAN_EXIT:
+			elapsed += delta
+			var time := ENTRY_DURATION - elapsed * EXIT_SPEED
+			if time <= ARTISAN_START:
+				_set_shot(Shot.PRACTICE_OFFER)
+			else:
+				_focus(_present_artisans(time,_entrance_top(),true),0.)
+		Shot.PRACTICE_RUN:
+			var previous := elapsed
+			elapsed += delta
+			_follow_volunteer(elapsed)
+			if previous < practice.travel_time and elapsed >= practice.travel_time and practice.outcome == TutorialRaid.Outcome.TRAP:
+				view._on_trap_activated(practice.contact, session.sim.grid[practice.contact.y][practice.contact.x])
+			if elapsed >= practice.duration(): _set_shot(Shot.PRACTICE_REPORT)
 		Shot.PROLOGUE:
 			elapsed += delta
 			veil.color.a = .85*(1.-smoothstep(0.,.55,elapsed))

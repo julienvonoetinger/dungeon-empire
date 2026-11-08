@@ -45,7 +45,10 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
   diagonales comprises. Entrées et portes y sont interdites.
 - Après l’éveil du Cœur, l’invocateur avertit le Maître que les héros d’Aldren
   ont probablement vu les éclairs du rituel et viendront en chercher la source.
-  Il demande de défendre le donjon, puis présente les artisans.
+  Il demande de défendre le donjon, puis présente les artisans. Pendant la marche,
+  le mineur oriente sa pioche dans le sens du passage et le menuisier garde son
+  marteau près du buste. Le scientifique a les mains libres, sa loupe sur le front
+  et une fiole à la ceinture.
 - Au niveau 0, l’invocateur offre les économies du village. Le joueur choisit
   deux cases de sol pour y déposer deux sacs de 50 pièces. Chaque dépôt est
   sauvegardé. Le mineur prend la parole après le second sac.
@@ -56,6 +59,18 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
   le joueur pose un piège à pointes sur une case de sol libre, puis installe son
   coffre dans l’alcôve creusée. Le creusement (5), la porte (40) et les pointes
   (35) laissent 20 pièces dans le dernier sac. Le premier coffre les recueille.
+- Une fois le coffre installé, les trois artisans remontent l’escalier. L’invocateur
+  reste auprès du Cœur et demande à un Oculin du village de jouer l’intrus.
+  « Lancer l’exercice » fait entrer le volontaire dans le donjon du joueur.
+  Il cherche un chemin jusqu’au Cœur, contourne les portes fermées si un autre
+  passage existe et rebrousse chemin devant la première porte incontournable,
+  sur un piège chargé ou à portée du Cœur. Sur la case piégée, le mécanisme
+  reste visible autour des pieds de l’Oculin. L’invocateur commente ce qu’il a vu.
+- L’exercice est gratuit. Le Cœur, l’or et les défenses gardent leur état.
+  Le premier raid et son compte à rebours attendent le passage en jeu libre.
+  Quitter pendant l’essai reprend au départ des artisans, coffre déjà posé.
+  Après le bilan, « Jouer librement » sauvegarde la fin de l’exercice.
+  L’invocateur reste dans le donjon.
 - Creusement : 5 or, voisin cardinal d'un espace excavé. La roche soutenant
   l'entrée est protégée. Retirer une structure laisse du sol, sans remboursement.
   Cœur et entrée sont permanents. Poser un élément sur roche ne creuse pas.

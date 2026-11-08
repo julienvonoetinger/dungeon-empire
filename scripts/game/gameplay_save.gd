@@ -21,7 +21,8 @@ static func capture(sim, raid, progression) -> Dictionary:
 	data["vault_opened"] = sim.vault_opened
 	data["hero_roster"] = raid.roster.snapshot()
 	if sim.lesson != Types.Lesson.FREE: data["lesson"] = sim.lesson
-	if sim.lesson != Types.Lesson.FREE and sim.lesson_alcove != Types.FIRST_ALCOVE:
+	if sim.invoker_resident: data["invoker_resident"] = true
+	if sim.lesson not in [Types.Lesson.FREE, Types.Lesson.PRACTICE_RAID] and sim.lesson_alcove != Types.FIRST_ALCOVE:
 		data["lesson_alcove"] = sim.lesson_alcove
 	return data.duplicate(true)
 
@@ -38,6 +39,7 @@ static func apply(data: Dictionary, sim, raid, progression) -> bool:
 	sim.vault_locks = snapshot.get("vault_locks", {})
 	sim.vault_opened = snapshot.get("vault_opened", {})
 	sim.lesson = snapshot.get("lesson", Types.Lesson.FREE)
+	sim.invoker_resident = snapshot.get("invoker_resident", false)
 	sim.lesson_alcove = snapshot.get("lesson_alcove", Types.FIRST_ALCOVE)
 	progression.awaiting_miner = sim.lesson in [Types.Lesson.INVOKER_OFFER, Types.Lesson.VILLAGE_GIFT, Types.Lesson.MEET_MINER]
 	if sim.lesson == Types.Lesson.DOOR and progression.level() < 2:
@@ -136,6 +138,9 @@ static func _tile(value) -> bool:
 
 static func _valid(data: Dictionary) -> bool:
 	var fields := FIELDS.duplicate()
+	if data.has("invoker_resident"):
+		if not data.invoker_resident is bool: return false
+		fields.append("invoker_resident")
 	if data.has("lesson"):
 		if not data.lesson is int or data.lesson not in Types.Lesson.values(): return false
 		fields.append("lesson")

@@ -55,8 +55,11 @@ Des dialogues écrits accompagnent la scène. Le Maître crée un escalier, desc
 suivi de l’invocateur et rejoint le Cœur, dont la sphère s’éveille à son arrivée.
 Cette transition dans le donjon dure neuf secondes. Pour revoir le rite seul, ouvrez
 `scenes/game/InvocationIsometrique.tscn` et appuyez sur **F6**. Le
-tutoriel guide la pose d’une porte, le creusement d’une alcôve et l’installation
-d’un coffre. **Passer** rejoint la première construction et **Jouer librement** quitte le tutoriel. Si un donjon existe déjà, le jeu demande de confirmer
+tutoriel guide le don d’or, le creusement d’une alcôve, la pose d’une porte,
+d’un piège et du premier coffre. Les artisans repartent, puis l’invocateur propose
+un raid d’entraînement. Pour tester directement cette fin de tutoriel, ouvrir
+`scenes/previews/OculinPracticeRaid.tscn` avec **F6** et choisir **Poser un coffre**.
+Cet aperçu utilise une partie en mémoire. Si un donjon existe déjà dans le menu principal, le jeu demande de confirmer
 son remplacement. Pour accéder directement à la scène de jeu,
 ouvrir `scenes/game/DungeonGame.tscn`, puis appuyer sur **F6**. Choisir un nouveau
 donjon, ou **Donjon d'essai** puis confirmer pour disposer d'une entrée, d'une

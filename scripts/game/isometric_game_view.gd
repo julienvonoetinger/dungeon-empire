@@ -55,6 +55,7 @@ var build_site_icon: Texture2D
 var _floor_guide: Node2D
 var dig_cells: Array[Vector2i] = []
 var lesson_digging := false
+var procession_doors_open := false
 var assisted_dig_cells: Dictionary = {}
 var dig_guides_visible := false:
 	set(value):
@@ -100,6 +101,11 @@ func set_lesson_digging(enabled: bool) -> void:
 	if lesson_digging == enabled: return
 	lesson_digging = enabled
 	_update_dig_cells()
+
+func set_procession_doors_open(open: bool) -> void:
+	if procession_doors_open == open: return
+	procession_doors_open = open
+	rebuild()
 
 func _update_dig_cells() -> void:
 	dig_cells.clear()
@@ -187,7 +193,7 @@ func rebuild() -> void:
 			if sim._is_door_tile(tile):
 				specials[p] = "doors/" + _door_facing(p)
 				door_materials[p] = Types.door_material(tile)
-				if not sim._door_intact(p): open_doors[p] = true
+				if procession_doors_open or not sim._door_intact(p): open_doors[p] = true
 			if tile == Types.Tile.ENTRANCE:
 				# Despite its legacy name, this returns the direction into the dungeon.
 				var mouth := sim._wall_entrance_face(p)
@@ -277,6 +283,7 @@ func _draw_part(part: Dictionary, layer: int) -> void:
 		_world.add_child(_last_group)
 		var record := part.duplicate()
 		record["node"] = _last_group
+		if entry.has("trap"): record["trap_cell"] = Vector2i(part.at)
 		solid_groups.append(record)
 		_paint_cursor += 1
 	# Keep each host and its following ornament in a single movable group.
@@ -362,6 +369,8 @@ func _update_markers() -> void:
 		if lesson_digging and item.kind == "village_bag":
 			extent = minf(extent, Marker.GOLD_BAG_HEIGHT)
 		item.node.fit_badge(extent)
+		# Keep the passing volunteer visible behind the foreground status rings.
+		if item.node.badge: item.node.badge.visible = sim.lesson != Types.Lesson.PRACTICE_RAID
 		var p: Vector2i = item.cell
 		var text_value := ""
 		match item.kind:
@@ -452,10 +461,16 @@ func _order_actor(actor: Dictionary) -> void:
 	var lower := 0
 	var upper := solid_groups.size()
 	var fallback := 0
+	var foot_cell := Vector2i(Vector2(actor.at).floor())
 	for i in solid_groups.size():
 		var other := solid_groups[i]
 		if other.depth < actor.depth: fallback = i+1
 		if not other.rect.intersects(actor.rect): continue
+		# Draw the occupied trap beneath the actor's feet, even when its
+		# mechanism and the actor overlap in both footprint and height.
+		if other.has("trap_cell") and other.trap_cell == foot_cell:
+			lower = maxi(lower,i+1)
+			continue
 		# The merged stair volume contains all five heights. It is supporting
 		# ground, not a solid wall in front of a hero on one of its lower treads.
 		if String(other.get("id","")).begins_with("stair-") and actor.get("stair",Vector2i(-1,-1)) == Vector2i(other.at):

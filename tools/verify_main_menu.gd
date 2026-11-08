@@ -28,6 +28,23 @@ func capture(label: String) -> void:
 	await RenderingServer.frame_post_draw
 	check(root.get_texture().get_image().save_png(OUT+label+".png")==OK,"Capture "+label)
 
+func check_practice_spike_depth(intro, phase: String, on_plate := true) -> void:
+	var actor: Node2D = intro.volunteer
+	var tile: Vector2i = intro.practice.contact
+	var mechanism: Node2D
+	for visual in intro.view._trap_visuals:
+		if visual.cell != tile: continue
+		if visual.layer == "floor":
+			check(visual.node.z_index < actor.z_index,phase+": the paving is below the Oculin")
+		elif visual.layer == "mechanism":
+			mechanism = visual.node.get_parent()
+	check(is_instance_valid(mechanism) and mechanism.get_parent()==actor.get_parent(),phase+": the mechanism and the Oculin share a depth layer")
+	if is_instance_valid(mechanism):
+		check((mechanism.get_index()<actor.get_index()) == on_plate,phase+": the Oculin covers the spikes only after stepping onto the plate")
+	for part in intro.view.solid_groups:
+		if str(part.get("id","")).ends_with("-panel"):
+			check(actor.get_index()<part.node.get_index(),phase+": the nearer closed door can still cover the Oculin")
+
 func check_lesson_dialogue(intro, phrase: String, speaker := "L’invocateur") -> void:
 	var speech = intro.get("reading_dialogue")
 	check(speech != null and speech.is_visible_in_tree() and speech.speaker.text == speaker and speech.words.text.contains(phrase), "The correct artisan speaks the current lesson")
@@ -44,6 +61,27 @@ func check_gold_bag_rings(intro, expected: Dictionary) -> void:
 		check(badge.capacity == 50 and is_equal_approx(badge.ratio, badge.amount / 50.0), "Bag ring fills relative to its own capacity")
 		amounts[marker.cell] = badge.amount
 	check(amounts == expected, "Visible gold bag rings match the coins left on each tile")
+
+func check_practice_routes(snapshot: Dictionary) -> void:
+	var sim := DungeonSim.new()
+	var raid := RaidDirector.new()
+	raid.sim = sim
+	raid.solid_core = true
+	check(GameplaySave.apply(snapshot,sim,raid,CoreProgression.new()),"Exercise checkpoint can be restored")
+	var door := Vector2i(4,8)
+	var spikes := Vector2i(5,8)
+	sim.door_hp[door] = 0
+	var trial := preload("res://scripts/game/tutorial_raid.gd").new(sim,raid)
+	check(trial.outcome == trial.Outcome.TRAP and trial.contact == spikes,"Volunteer reaches the armed spikes behind an open door")
+	sim.trap_charges[spikes] = 0
+	trial = preload("res://scripts/game/tutorial_raid.gd").new(sim,raid)
+	check(trial.outcome == trial.Outcome.CORE and trial.contact == GameTypes.core_origin_cell(),"Spent spikes allow the volunteer to reach the Core")
+	# A detour beyond the stair mouth bypasses a newly positioned closed door.
+	sim.grid[8][4] = GameTypes.Tile.FLOOR
+	sim.grid[8][5] = GameTypes.Tile.DOOR
+	for x in range(4,7): sim.grid[7][x] = GameTypes.Tile.FLOOR
+	trial = preload("res://scripts/game/tutorial_raid.gd").new(sim,raid)
+	check(trial.outcome == trial.Outcome.CORE and trial.path.get_baked_length()>6., "Volunteer follows the player's open detour around the door")
 
 func touch_cube(at: Vector2, down: bool, finger := 0, canceled := false) -> void:
 	var touch := InputEventScreenTouch.new()
@@ -481,9 +519,60 @@ func run() -> void:
 	check_gold_bag_rings(intro,{second_bag:20})
 	check_lesson_dialogue(intro,"votre or")
 	intro.target.pressed.emit()
-	check(game.sim.grid[chosen.y][chosen.x]==GameTypes.Tile.VAULT and not intro.visible and game.get_node("HUD").visible,"Chest follows the chosen excavation across a save and reload")
+	check(game.sim.grid[chosen.y][chosen.x]==GameTypes.Tile.VAULT and intro.visible and intro.artisans.size()==3,"Placing the chest begins the three artisans' departure")
 	check(game.sim.gold==20 and game.sim.floor_gold.is_empty() and game.sim.vault_gold.get(chosen)==20,"The first chest secures the remaining twenty exactly once")
 	check_gold_bag_rings(intro,{})
+	intro.set_process(false)
+	var departure_at: Vector2 = intro.artisans[2].position
+	var guide_at: Vector2 = intro.invoker.position
+	intro._process(5.)
+	check(intro.shot==intro.Shot.ARTISAN_EXIT and intro.artisans[2].position.distance_to(departure_at)>30. and intro.invoker.position==guide_at, "Artisans walk out while the invoker stays beside the Core")
+	await capture("practice-departure")
+	intro._process(12.)
+	check(intro.shot==intro.Shot.PRACTICE_OFFER and intro.artisans.is_empty() and intro.invoker.position==guide_at and intro.dialogue.words.text.contains("l’un des nôtres"),"The invoker calls a volunteer after all three artisans have left")
+	await capture("practice-offer")
+	var prepared := GameplaySave.capture(game.sim,game.raid,game.progression)
+	check_practice_routes(prepared)
+	intro.skip.pressed.emit()
+	intro.set_process(false)
+	var timer: float = game.raid.raid_timer
+	intro._process(.65)
+	game.start_raid()
+	game.advance_simulation(1.)
+	check(intro.volunteer.visible and intro.volunteer.modulate.a==1. and not game.can_edit() and not game.raid.raid_active and game.raid.raid_timer==timer, "Only the Oculin moves during the exercise")
+	game.set_paused(true)
+	var frozen_at: Vector2 = intro.volunteer.position
+	intro._process(3.)
+	check(intro.volunteer.position==frozen_at,"Pause freezes the volunteer")
+	game.set_paused(false)
+	# Leaving mid-run resumes the saved rehearsal, with the paid buildings intact.
+	menu = await open_menu()
+	menu.primary.pressed.emit()
+	await scene_changed
+	game = current_scene
+	intro = game.get_node("Introduction")
+	check(intro.shot==intro.Shot.ARTISAN_EXIT and GameplaySave.capture(game.sim,game.raid,game.progression)==prepared,"Reload restarts the rehearsal on the same dungeon")
+	await process_frame
+	intro.skip.pressed.emit()
+	intro.skip.pressed.emit()
+	intro.set_process(false)
+	intro._process(intro.practice.travel_time+.15)
+	check(intro.practice.contact==Vector2i(4,8) and intro.practice.outcome==intro.practice.Outcome.DOOR and intro.volunteer.modulate.a==1., "The approach stops at the player's first closed door")
+	await capture("practice-door")
+	var stopped_at: Vector2 = intro.volunteer.position
+	intro._process(intro.practice.INSPECT_TIME+.12)
+	check(intro.volunteer.position.distance_to(stopped_at)>1.,"The volunteer turns back toward the stair")
+	intro._process(intro.practice.duration())
+	check(intro.shot==intro.Shot.PRACTICE_REPORT and intro.volunteer==null and intro.dialogue.words.text.contains("votre porte"),"The invoker reports the observed defense after the return")
+	check(GameplaySave.capture(game.sim,game.raid,game.progression)==prepared and game.raid.hero.is_empty() and not game.result_open,"Exercise preserves balances, HP, charges, XP, roster and raid history")
+	intro.skip.pressed.emit()
+	check(not intro.visible and game.get_node("HUD").visible and game.sim.invoker_resident and intro.invoker.is_visible_in_tree(), "Free play opens with the invoker still present")
+	menu = await open_menu()
+	menu.primary.pressed.emit()
+	await scene_changed
+	game = current_scene
+	intro = game.get_node("Introduction")
+	check(game.sim.lesson==GameTypes.Lesson.FREE and not intro.visible and intro.invoker.is_visible_in_tree() and intro.artisans.is_empty(),"Continue keeps the invoker in free play without repeating the exercise")
 	game.progression.xp = 60
 	game.restart(true)
 	var original := FileAccess.get_sha256(slot)
@@ -555,5 +644,44 @@ func run() -> void:
 	menu.primary.pressed.emit()
 	check(menu.confirming and FileAccess.get_file_as_string(slot)=="invalid","Unreadable slot still requires replacement confirmation")
 	DirAccess.remove_absolute(slot)
+	change_scene_to_packed(preload("res://scenes/previews/OculinPracticeRaid.tscn"))
+	await scene_changed
+	game = current_scene.game
+	intro = game.get_node("Introduction")
+	check(not game.persistence_enabled and game.sim.lesson==GameTypes.Lesson.CHEST and game.sim.gold==20,"F6 preview starts at the last paid construction with an isolated game")
+	intro.action.pressed.emit()
+	intro.skip.pressed.emit()
+	intro.skip.pressed.emit()
+	intro.set_process(false)
+	root.size = Vector2i(960,540)
+	await process_frame
+	var before_spikes := GameplaySave.capture(game.sim,game.raid,game.progression)
+	intro._process(intro.practice.travel_time-.85)
+	check_practice_spike_depth(intro,"Behind the spikes",false)
+	intro._process(.60)
+	check_practice_spike_depth(intro,"Approaching across the spike plate")
+	intro._process(.30)
+	check_practice_spike_depth(intro,"Raised spikes")
+	check(intro.view._trap_state(Vector2i(5,8),GameTypes.Tile.SPIKE)=="triggered","The volunteer visibly triggers the practice spikes")
+	for marker in intro.view._markers:
+		if marker.node.badge: check(not marker.node.badge.is_visible_in_tree(),"A status ring cannot hide the volunteer during the rehearsal")
+	await capture("practice-spikes")
+	root.size = Vector2i(390,844)
+	await process_frame
+	intro._process(0.)
+	await capture("practice-spikes-portrait")
+	intro.view._advance_trap_effects(1.)
+	check_practice_spike_depth(intro,"Retracted spikes")
+	root.size = Vector2i(960,540)
+	await process_frame
+	intro._process(0.)
+	await capture("practice-spikes-retracted")
+	intro._process(intro.practice.INSPECT_TIME+.20)
+	check_practice_spike_depth(intro,"Leaving the plate")
+	intro._process(intro.practice.duration())
+	check(intro.dialogue.words.text.contains("pointes") and GameplaySave.capture(game.sim,game.raid,game.progression)==before_spikes,"Spike report costs no charges, HP, gold or XP")
+	intro.skip.pressed.emit()
+	game.start_raid()
+	check(game.raid.raid_active and game.raid.raid_index==1 and intro.invoker.is_visible_in_tree(),"First real raid remains raid one with a resident invoker")
 	print("%d main menu checks, %d failures" % [checks,failures])
 	quit(1 if failures else 0)
