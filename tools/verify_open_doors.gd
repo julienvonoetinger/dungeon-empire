@@ -129,8 +129,9 @@ func run() -> void:
 			check(is_equal_approx(item.node.badge.ratio,.5), "60 HP fills half the reinforced door ring")
 	var hud = game.get_node("HUD")
 	game.progression.xp = 60
-	hud.radial._choose_family(1)
-	check(hud.radial.choices.any(func(item): return item[0]==TYPES.Tool.BUILD_REINFORCED_DOOR), "Reinforced door is available in the Doors menu")
+	hud._open_catalog(1)
+	check(not hud.catalog.cards.any(func(card): return card.id==TYPES.Tool.BUILD_REINFORCED_DOOR and card.button.visible), "Legacy iron doors remain inspectable while new construction stays locked")
+	hud._close_catalog()
 	game.tool = TYPES.Tool.NONE
 	game.selected = gate
 	hud.selection.refresh()

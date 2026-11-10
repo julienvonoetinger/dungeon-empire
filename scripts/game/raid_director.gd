@@ -77,7 +77,7 @@ func _start_raid() -> void:
 		"class_name": profile.class_name,
 		"level": Roster.level_for_xp(profile.xp),
 		"trait": profile.trait,
-		"display": "%s, %s (%s)" % [Roster.display_name(profile), profile.class_name, profile.trait],
+		"display": tr("%s, %s (%s)") % [Roster.display_name(profile), tr(profile.class_name), tr(profile.trait)],
 		"kind": profile.kind,
 		"pos": entrance,
 		"entering": true,
@@ -124,7 +124,7 @@ func _start_raid() -> void:
 		"core_lost": 0
 	}
 	sim.report = ""
-	sim.message = "RAID %d: %s enters the dungeon. All changes are locked." % [raid_index, hero["display"]]
+	sim.message = tr("RAID %d: %s enters the dungeon. All changes are locked.") % [raid_index, hero["display"]]
 
 func _starting_gold(kind: String) -> int:
 	var limits: Array = {"thief": [80, 150], "paladin": [140, 240], "ranger": [95, 175], "mage": [110, 190]}[kind]
@@ -239,9 +239,9 @@ func _end_raid(result_text: String) -> void:
 	hero = {}
 	sim.message = result_text
 	if not sim.game_over:
-		sim.message += "  Preparation: repairs and collection available."
+		sim.message += "  " + tr("Preparation: repairs and collection available.")
 	# Report fields follow GAME_DESIGN.md §3.
-	sim.report = "Raid %d report — killed: %d | escaped: %d | gold stolen: %d | carried out: %d | loot remaining: %d | doors destroyed: %d | structures damaged: %d | Core: %d%%" % [
+	sim.report = tr("Raid %d report — killed: %d | escaped: %d | gold stolen: %d | carried out: %d | loot remaining: %d | doors destroyed: %d | structures damaged: %d | Core: %d%%") % [
 		raid_index,
 		int(raid_stats.get("killed", 0)),
 		int(raid_stats.get("escaped", 0)),
@@ -301,7 +301,7 @@ func _update_hero(delta: float) -> void:
 		hero["collect_t"] = float(hero.get("collect_t", 0.0)) - delta
 		if float(hero["collect_t"]) <= 0.0:
 			_finish_vulpin_collect()
-			var collect_result := String(hero.get("collect_result", "%s leaves the dungeon." % hero["display"]))
+			var collect_result := String(hero.get("collect_result", tr("%s leaves the dungeon.") % hero["display"]))
 			hero.erase("collecting_gold")
 			hero.erase("collect_t")
 			hero.erase("collect_result")
@@ -385,7 +385,7 @@ func _update_hero(delta: float) -> void:
 
 	var next := _choose_next_step(hero)
 	if next == pos:
-		_begin_retreat("%s stops exploring and heads for the entrance." % hero["display"])
+		_begin_retreat(tr("%s stops exploring and heads for the entrance.") % hero["display"])
 		if int(sim.grid[pos.y][pos.x]) == Tile.ENTRANCE:
 			_hero_escapes()
 			return
@@ -393,7 +393,7 @@ func _update_hero(delta: float) -> void:
 		if next == pos:
 			# A legal, immutable raid map always retains the route used to enter.
 			# Corrupt/debug layouts are aborted, never counted as a magical escape.
-			_end_raid("Raid interrupted: no known return path to the entrance.")
+			_end_raid(tr("Raid interrupted: no known return path to the entrance."))
 			return
 	if solid_core and int(sim.grid[next.y][next.x]) == Tile.CORE:
 		hero["facing"] = next - pos
@@ -495,7 +495,7 @@ func _recover_from_core() -> bool:
 				hero["facing"] = cell - next
 				hero["visited"][next] = int(hero["visited"].get(next, 0)) + 1
 				return true
-	_end_raid("%s cannot leave the sealed Core chamber." % hero["display"])
+	_end_raid(tr("%s cannot leave the sealed Core chamber.") % hero["display"])
 	return false
 
 
@@ -517,7 +517,7 @@ func _morale_event(event: String, value: float) -> void:
 		value = 20.0
 	hero["morale"] = clampf(float(hero.get("morale", 100.0)) + value, 0.0, 100.0)
 	if float(hero["morale"]) == 0.0 and int(hero["hp"]) > 0 and not bool(hero.get("fleeing", false)):
-		_begin_retreat("%s loses heart and looks for the exit." % hero.get("display", "Hero"))
+		_begin_retreat(tr("%s loses heart and looks for the exit.") % hero.get("display", tr("Hero")))
 
 
 func _morale_progress() -> void:
@@ -556,7 +556,7 @@ func _resolve_cell(pos: Vector2i) -> void:
 		if String(hero.get("kind", "")) == "thief":
 			hero["dying"] = true
 			hero["dying_t"] = VULPIN_DYING_HOLD
-			sim.message = "%s falls to the ground." % hero["display"]
+			sim.message = tr("%s falls to the ground.") % hero["display"]
 			return
 		_kill_hero()
 		return
@@ -572,7 +572,7 @@ func _resolve_cell(pos: Vector2i) -> void:
 			hero["arcane_opening"] = true
 			hero["arcane_open_t"] = MAGE_ARCANE_OPEN_HOLD
 			hero["arcane_open_pos"] = pos
-			sim.message = "%s begins dissipating a magic vault seal." % hero["display"]
+			sim.message = tr("%s begins dissipating a magic vault seal.") % hero["display"]
 		return
 
 	if tile == Tile.CORE:
@@ -595,7 +595,7 @@ func _pick_up_loot(pos: Vector2i) -> void:
 	hero["carried_gold"] = int(hero["carried_gold"]) + taken
 	_record_xp_gold(taken)
 	sim.loot_bags = sim.loot_bags.filter(func(b): return not bool(b.get("taken", false)))
-	sim.message = "%s picks up %d gold of unsecured loot!" % [hero["display"], taken]
+	sim.message = tr("%s picks up %d gold of unsecured loot!") % [hero["display"], taken]
 
 
 func _trigger_trap(p: Vector2i, tile: int) -> void:
@@ -641,8 +641,8 @@ func _banish_via_void() -> void:
 	hero["void_absorbing"] = true
 	hero["portaling"] = true
 	hero["portal_t"] = portal_hold
-	hero["portal_msg"] = "%s is swallowed by a void rift with %d gold." % [hero["display"], carried]
-	sim.message = "%s is pulled into the void." % hero["display"]
+	hero["portal_msg"] = tr("%s is swallowed by a void rift with %d gold.") % [hero["display"], carried]
+	sim.message = tr("%s is pulled into the void.") % hero["display"]
 
 
 func _attack_door(p: Vector2i) -> void:
@@ -654,7 +654,7 @@ func _attack_door(p: Vector2i) -> void:
 	if String(hero.get("kind", "")) == "paladin":
 		if sim.grid[p.y][p.x] == Tile.REINFORCED_DOOR:
 			hero.get_or_add("avoided_doors", {})[p] = true
-			sim.message = "%s cannot break the reinforced door and looks for another route." % hero.display
+			sim.message = tr("%s cannot break the reinforced door and looks for another route.") % hero.display
 			return
 		if bool(hero.get("door_striking", false)):
 			return
@@ -668,14 +668,14 @@ func _attack_door(p: Vector2i) -> void:
 		hero["door_striking"] = true
 		hero["door_strike_t"] = CORE_STRIKE_HOLD
 		hero["door_strike_pos"] = p
-		sim.message = "%s raises its hammer against a door." % hero["display"]
+		sim.message = tr("%s raises its hammer against a door.") % hero["display"]
 		return
 	if String(hero.get("kind", "")) == "thief":
 		_start_vulpin_lockpick(p)
 		return
 	if hero.get("kind") == "mage":
 		hero.get_or_add("avoided_doors", {})[p] = true
-		sim.message = "%s finds no arcane seal and looks for another route." % hero.display
+		sim.message = tr("%s finds no arcane seal and looks for another route.") % hero.display
 
 func _vulpin_lockpick_limit() -> int:
 	var level := maxi(1, int(hero.get("level", 1)))
@@ -694,7 +694,7 @@ func _start_vulpin_lockpick(p: Vector2i) -> void:
 	hero["lockpicking"] = true
 	hero["lockpick_t"] = VULPIN_LOCKPICK_HOLD
 	hero["lockpick_pos"] = p
-	sim.message = "%s starts picking a lock." % hero["display"]
+	sim.message = tr("%s starts picking a lock.") % hero["display"]
 
 
 func _attack_magic_door(p: Vector2i) -> void:
@@ -704,13 +704,13 @@ func _attack_magic_door(p: Vector2i) -> void:
 		hero["arcane_opening"] = true
 		hero["arcane_open_t"] = MAGE_ARCANE_OPEN_HOLD
 		hero["arcane_open_pos"] = p
-		sim.message = "%s begins an arcane opening ritual." % hero["display"]
+		sim.message = tr("%s begins an arcane opening ritual.") % hero["display"]
 		return
 	var avoided: Dictionary = hero.get("avoided_doors", {})
 	avoided[p] = true
 	hero["avoided_doors"] = avoided
 	hero["saw_magic_door_blocker"] = true
-	sim.message = "%s cannot open the arcane door." % hero["display"]
+	sim.message = tr("%s cannot open the arcane door.") % hero["display"]
 
 
 func _resolve_mage_arcane_open(p: Vector2i) -> void:
@@ -720,20 +720,20 @@ func _resolve_mage_arcane_open(p: Vector2i) -> void:
 			mage_pressure = 0
 			_record_xp_obstacle(p, "obstacles")
 			_morale_event("unlock", 5.0)
-			sim.message = "%s dissipates the magic vault seal." % hero["display"]
+			sim.message = tr("%s dissipates the magic vault seal.") % hero["display"]
 		return
 	if p.x < 0 or not sim._door_intact(p) or int(sim.grid[p.y][p.x]) != Tile.MAGIC_DOOR:
 		return
 	if not _passes_stat_check(hero.intelligence, hero.arcane_door_rolls, p):
 		hero.get_or_add("avoided_doors", {})[p] = true
-		sim.message = "%s cannot break the seal and looks for another route." % hero.display
+		sim.message = tr("%s cannot break the seal and looks for another route.") % hero.display
 		return
 	sim.door_hp[p] = 0
 	sim.door_opened[p] = true
 	mage_pressure = 0
 	_record_xp_obstacle(p, "obstacles")
 	_morale_event("unlock", 5.0)
-	sim.message = "%s unseals the arcane door." % hero["display"]
+	sim.message = tr("%s unseals the arcane door.") % hero["display"]
 
 
 func _resolve_vulpin_lockpick(p: Vector2i) -> void:
@@ -746,7 +746,7 @@ func _resolve_vulpin_lockpick(p: Vector2i) -> void:
 			sim.vault_opened[p] = true
 			_record_xp_obstacle(p, "locks")
 			_morale_event("unlock", 5.0)
-			sim.message = "%s picks the vault lock and leaves its contents untouched." % hero["display"]
+			sim.message = tr("%s picks the vault lock and leaves its contents untouched.") % hero["display"]
 			return
 		_mark_vulpin_lockpick_failure(p, true)
 		return
@@ -757,7 +757,7 @@ func _resolve_vulpin_lockpick(p: Vector2i) -> void:
 		sim.door_opened[p] = true
 		_record_xp_obstacle(p, "locks")
 		_morale_event("unlock", 5.0)
-		sim.message = "%s picks the lock and slips through the door." % hero["display"]
+		sim.message = tr("%s picks the lock and slips through the door.") % hero["display"]
 		return
 	_mark_vulpin_lockpick_failure(p, false)
 
@@ -770,7 +770,7 @@ func _mark_vulpin_lockpick_failure(p: Vector2i, vault: bool) -> void:
 	if bool(hero.get("fleeing", false)):
 		return
 	if count < _vulpin_lockpick_limit():
-		sim.message = "%s fails to pick the lock and tries again." % hero["display"]
+		sim.message = tr("%s fails to pick the lock and tries again.") % hero["display"]
 		if vault:
 			_start_vulpin_lockpick(p)
 		else:
@@ -778,12 +778,12 @@ func _mark_vulpin_lockpick_failure(p: Vector2i, vault: bool) -> void:
 		return
 	if vault:
 		hero["ignored"][p] = true
-		sim.message = "%s abandons the stubborn vault lock and seeks another route." % hero["display"]
+		sim.message = tr("%s abandons the stubborn vault lock and seeks another route.") % hero["display"]
 		return
 	var avoided: Dictionary = hero.get("avoided_doors", {})
 	avoided[p] = true
 	hero["avoided_doors"] = avoided
-	sim.message = "%s abandons the stubborn lock and looks for another route." % hero["display"]
+	sim.message = tr("%s abandons the stubborn lock and looks for another route.") % hero["display"]
 
 
 func _try_force_door(p: Vector2i) -> bool:
@@ -791,7 +791,7 @@ func _try_force_door(p: Vector2i) -> bool:
 		return false
 	if not _passes_stat_check(hero.strength, hero.door_force_rolls, p):
 		hero.get_or_add("avoided_doors", {})[p] = true
-		sim.message = "%s cannot force the door and looks for another route." % hero.display
+		sim.message = tr("%s cannot force the door and looks for another route.") % hero.display
 		return false
 	_apply_door_damage(p)
 	return true
@@ -807,10 +807,10 @@ func _apply_door_damage(p: Vector2i) -> void:
 		sim.door_hp[p] = 0
 		_record_xp_obstacle(p, "obstacles")
 		raid_stats["doors_destroyed"] = int(raid_stats["doors_destroyed"]) + 1
-		sim.message = "%s forces a door. The wreck stays after the raid." % hero["display"]
+		sim.message = tr("%s forces a door. The wreck stays after the raid.") % hero["display"]
 	else:
 		sim.door_hp[p] = hp
-		sim.message = "%s strikes a door (%d HP left)." % [hero["display"], hp]
+		sim.message = tr("%s strikes a door (%d HP left).") % [hero["display"], hp]
 
 # A thief takes only what fits in its bag, then returns to the entrance.
 func _try_rob_vault(p: Vector2i) -> void:
@@ -824,7 +824,7 @@ func _try_rob_vault(p: Vector2i) -> void:
 			hero["ignored"][p] = true
 			# Abandoning a magic vault seal contributes the same mage pressure as a magic door.
 			hero["saw_magic_door_blocker"] = true
-			sim.message = "%s cannot open the magic vault seal and moves on." % hero["display"]
+			sim.message = tr("%s cannot open the magic vault seal and moves on.") % hero["display"]
 		elif tier == 1:
 			if int(hero.get("lockpick_attempts", {}).get(p, 0)) >= _vulpin_lockpick_limit():
 				hero["ignored"][p] = true
@@ -835,11 +835,11 @@ func _try_rob_vault(p: Vector2i) -> void:
 	var available := sim.stored_gold(sim.storage_cells(p))
 	if available <= 0:
 		hero["ignored"][p] = true
-		sim.message = "%s finds nothing but an empty storage." % hero["display"]
+		sim.message = tr("%s finds nothing but an empty storage.") % hero["display"]
 		return
 	var remaining_capacity := maxi(0, int(hero["steal_capacity"]) - int(hero.get("stolen_gold", 0)))
 	if remaining_capacity <= 0:
-		_begin_retreat("%s heads for the entrance with a full bag." % hero["display"])
+		_begin_retreat(tr("%s heads for the entrance with a full bag.") % hero["display"])
 		return
 	var amount := mini(available, remaining_capacity)
 	if amount == remaining_capacity or amount == sim.gold:
@@ -855,7 +855,7 @@ func _try_rob_vault(p: Vector2i) -> void:
 	raid_stats["stolen"] = int(raid_stats["stolen"]) + amount
 	if left <= 0:
 		hero["ignored"][p] = true
-	sim.message = "%s pockets %d gold and looks for another vault." % [hero["display"], amount]
+	sim.message = tr("%s pockets %d gold and looks for another vault.") % [hero["display"], amount]
 
 
 func _start_vulpin_exit(pending_gold: int = 0, vault: Vector2i = Vector2i(-1, -1)) -> void:
@@ -865,8 +865,8 @@ func _start_vulpin_exit(pending_gold: int = 0, vault: Vector2i = Vector2i(-1, -1
 	hero["collect_t"] = VULPIN_COLLECT_HOLD
 	hero["collect_gold"] = pending_gold
 	hero["collect_vault"] = vault
-	hero["collect_result"] = "%s fills its bag and heads for the entrance." % hero["display"]
-	sim.message = "%s gathers the last useful gold before leaving." % hero["display"]
+	hero["collect_result"] = tr("%s fills its bag and heads for the entrance.") % hero["display"]
+	sim.message = tr("%s gathers the last useful gold before leaving.") % hero["display"]
 
 
 func _finish_vulpin_collect() -> void:
@@ -893,7 +893,7 @@ func _hero_reaches_core() -> void:
 		hero["core_striking"] = true
 		hero["core_strike_t"] = CORE_STRIKE_HOLD
 		hero["core_strike_damage"] = damage
-		sim.message = "%s raises its hammer against the Core." % hero["display"]
+		sim.message = tr("%s raises its hammer against the Core.") % hero["display"]
 		return
 
 	_begin_retreat(_apply_core_damage(damage))
@@ -908,10 +908,10 @@ func _apply_core_damage(damage: int) -> String:
 		hero.xp_ledger.core_damage += lost
 	sim.core_hp = maxi(0, sim.core_hp - damage)
 	raid_stats["core_lost"] = int(raid_stats["core_lost"]) + lost
-	var result_text := "%s strikes the Core (-%d integrity) and heads for the entrance." % [hero["display"], damage]
+	var result_text := tr("%s strikes the Core (-%d integrity) and heads for the entrance.") % [hero["display"], damage]
 	if sim.core_hp <= 0:
 		sim.game_over = true
-		result_text = "DEFEAT — %s destroys the Core. Click Reset to start a new campaign." % hero["display"]
+		result_text = tr("DEFEAT — %s destroys the Core. Click Reset to start a new campaign.") % hero["display"]
 	return result_text
 
 
@@ -940,7 +940,7 @@ func _kill_hero() -> void:
 		heal = 5
 	sim.core_hp = mini(CORE_MAX, sim.core_hp + heal)
 	raid_stats["killed"] = int(raid_stats["killed"]) + 1
-	_end_raid("%s dies. The Core absorbs its essence (+%d); body and loot stay where they fell." % [hero["display"], heal])
+	_end_raid(tr("%s dies. The Core absorbs its essence (+%d); body and loot stay where they fell.") % [hero["display"], heal])
 
 # --- AI: partial knowledge and decision ------------------------------------
 
@@ -1284,7 +1284,7 @@ func _finish_departure() -> void:
 	hero["departed_alive"] = true
 	raid_stats["escaped"] = int(raid_stats["escaped"]) + 1
 	raid_stats["carried_out"] = int(hero["carried_gold"])
-	var text := String(hero.get("portal_msg", "")) if via_void else "%s walks out of the dungeon alive with %d gold." % [hero["display"], hero["carried_gold"]]
+	var text := String(hero.get("portal_msg", "")) if via_void else tr("%s walks out of the dungeon alive with %d gold.") % [hero["display"], hero["carried_gold"]]
 	_record_magic_door_escape()
 	_merge_hero_knowledge()
 	_end_raid(text)

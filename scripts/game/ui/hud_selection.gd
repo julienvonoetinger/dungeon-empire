@@ -67,23 +67,24 @@ func _ready() -> void:
 	detail = UI.label(words, "", 14, UI.MUTED)
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var close := UI.button(top, "", _close, "cross")
-	close.tooltip_text = "Cancel / close"
+	close.tooltip_text = tr("Cancel / close")
+	close.accessibility_name = close.tooltip_text
 	close.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	close.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	confirm = UI.button(header, "CONFIRM", _confirm, "", true)
-	transfer = UI.button(header, "Transfer gold", _open_transfer, "arrow")
-	repair = UI.button(header,"Repair",func():
+	confirm = UI.button(header, tr("CONFIRM"), _confirm, "", true)
+	transfer = UI.button(header, tr("Transfer gold"), _open_transfer, "arrow")
+	repair = UI.button(header,tr("Repair"),func():
 		var cell:=session.selected
 		session.choose_tool(Types.Tool.REPAIR)
 		session.select_cell(cell),"hammer")
-	remove = UI.button(header,"Remove",func():
+	remove = UI.button(header,tr("Remove"),func():
 		removal_pending = true
 		_transfer_open = false
 		refresh(),"cross")
 	actions = HFlowContainer.new()
 	content.add_child(actions)
-	collect = UI.button(actions, "Collect loot", func(): session.collect_selected(), "coin", true)
-	absorb = UI.button(actions, "Absorb · +2 HP", func(): session.absorb_selected(), "gem")
+	collect = UI.button(actions, tr("Collect loot"), func(): session.collect_selected(), "coin", true)
+	absorb = UI.button(actions, tr("Absorb · +2 HP"), func(): session.absorb_selected(), "gem")
 	for button in [collect,absorb]:
 		button.add_theme_font_size_override("font_size",13)
 		button.add_theme_constant_override("icon_max_width",22)
@@ -92,17 +93,19 @@ func _ready() -> void:
 	var target_row := HBoxContainer.new()
 	transfers.add_child(target_row)
 	previous = UI.button(target_row, "‹", func(): _cycle(-1))
+	previous.accessibility_name = tr("Previous destination")
 	target_label = UI.label(target_row, "", 15)
 	target_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	target_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	target_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	next = UI.button(target_row, "›", func(): _cycle(1))
+	next.accessibility_name = tr("Next destination")
 	var amount_row := HBoxContainer.new()
 	transfers.add_child(amount_row)
 	amount_label = UI.label(amount_row, "", 18, UI.GOLD)
 	amount_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	amount_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	maximum = UI.button(amount_row, "All", func(): _set_amount(_limit))
+	maximum = UI.button(amount_row, tr("All"), func(): _set_amount(_limit))
 	maximum.custom_minimum_size.x = 72
 	# Equal steps in a grid: no single button wraps alone onto a new line.
 	steps = GridContainer.new()
@@ -115,7 +118,7 @@ func _ready() -> void:
 	more_one = UI.button(steps, "+1", func(): _set_amount(_amount + 1))
 	more = UI.button(steps, "+25", func(): _set_amount(_amount + 25))
 	for step in [less, less_one, more_one, more]: step.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	send = UI.button(transfers, "TRANSFER", _send, "", true)
+	send = UI.button(transfers, tr("TRANSFER"), _send, "", true)
 	transfers.hide()
 
 func refresh() -> void:
@@ -127,37 +130,42 @@ func refresh() -> void:
 		_transfer_open = false
 		_destination = Vector2i(-1, -1)
 	var tile: int = session.sim.grid[p.y][p.x] if p.x >= 0 else Types.Tile.ROCK
+	var has_bag := session.sim.floor_gold.has(p)
 	if placing:
 		var item := Catalog.definition(session.tool)
-		title.text = item[1]
+		title.text = tr(item[1])
 		glyph.texture = UI.icon(item[3])
-		detail.text = "Tap to place · %s" % item[2]
+		detail.text = tr("Tap to place · %s") % Catalog.price_text(item)
 		if not session.preview.is_empty():
-			detail.text = "%d gold · %s" % [session.preview.get("cost", 0), "Ready to confirm" if session.preview.get("valid", false) else str(session.preview.get("reason", "Cannot place here"))]
+			detail.text = tr("%d gold · %s") % [session.preview.get("cost", 0), tr("Ready to confirm") if session.preview.get("valid", false) else str(session.preview.get("reason", tr("Cannot place here")))]
 	else:
-		var names := ["Rock", "Floor", "Entrance", "Core", "Chest", "Spikes", "Snare", "Door", "Void", "Arcane door", "Reinforced door"]
-		title.text = names[tile]
+		var names := ["Rock", "Floor", "Entrance", "Core", "Chest", "Spike trap", "Snare", "Wooden door", "Void trap", "Arcane door", "Reinforced door"]
+		title.text = tr(names[tile])
 		glyph.texture = UI.icon("chest" if tile == Types.Tile.VAULT else "gem" if tile == Types.Tile.CORE else "door" if session.sim._is_door_tile(tile) else "pick")
-		detail.text = "Tile %d, %d" % [p.x + 1, p.y + 1]
-		if tile == Types.Tile.VAULT:
+		detail.text = tr("Tile %d, %d") % [p.x + 1, p.y + 1]
+		if has_bag:
+			title.text = tr("Gold bag")
+			glyph.texture = UI.icon("bag")
+			detail.text = tr("%d / %d gold") % [session.sim.floor_gold[p], Types.GOLD_BAG_CAPACITY]
+		elif tile == Types.Tile.VAULT:
 			var store := session.sim.storage_cells(p)
-			if store.size() > 1: title.text = "Treasure room"
-			detail.text = "%d / %d gold" % [session.sim.stored_gold(store), Types.store_capacity(store)]
+			if store.size() > 1: title.text = tr("Treasure room")
+			detail.text = tr("%d / %d gold") % [session.sim.stored_gold(store), Types.store_capacity(store)]
 		elif session.sim._is_door_tile(tile):
 			var maximum := Types.door_max_hp(tile)
 			var hp:=int(session.sim.door_hp.get(p,maximum))
-			detail.text="%d / %d HP" % [hp,maximum] if hp>0 else "Unlocked" if session.sim.door_opened.get(p,false) else "Broken · Needs repair"
-		elif Types.is_trap_tile(tile): detail.text = "%d / %d charges" % [session.sim.trap_charges.get(p, 0), Types.trap_max_charges(tile)]
+			detail.text=tr("%d / %d HP") % [hp,maximum] if hp>0 else tr("Unlocked") if session.sim.door_opened.get(p,false) else tr("Broken · Needs repair")
+		elif Types.is_trap_tile(tile): detail.text = tr("%d / %d charges") % [session.sim.trap_charges.get(p, 0), Types.trap_max_charges(tile)]
 	if removal_pending:
-		title.text = "Remove structure"
-		detail.text = "Return this tile to floor? No refund."
+		title.text = tr("Remove structure")
+		detail.text = tr("Return this tile to floor? No refund.")
 	confirm.visible = placing or removal_pending
 	var repair_action:=session.check_action(p,Types.Tool.REPAIR)
 	repair.visible=not placing and not removal_pending and (Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
 	repair.disabled=not repair_action.get("valid",false)
-	repair.text="Repair · %d gold" % repair_action.get("cost",0)
+	repair.text=tr("Repair · %d gold") % repair_action.get("cost",0)
 	repair.tooltip_text=str(repair_action.get("reason",""))
-	remove.visible=not placing and not removal_pending and (Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
+	remove.visible=not placing and not removal_pending and (has_bag or Types.is_trap_tile(tile) or session.sim._is_door_tile(tile) or tile==Types.Tile.VAULT)
 	remove.disabled=not session.can_edit()
 	confirm.disabled = not session.can_edit() or not session.preview.get("valid", false)
 	if removal_pending: confirm.disabled = not session.check_action(p,Types.Tool.DIG).get("valid",false)
@@ -206,11 +214,11 @@ func _refresh_transfer() -> void:
 		var target_gold := session.sim.stored_gold(target)
 		var capacity := Types.store_capacity(target)
 		_limit = maxi(0, mini(session.sim.stored_gold(source), capacity - target_gold))
-		var name_label := "treasure room" if target.size() > 1 else "chest %d" % (_destinations.find(_destination) + 1)
-		target_label.text = "To %s · %d / %d gold\nTile %d, %d" % [name_label, target_gold, capacity, _destination.x + 1, _destination.y + 1]
-	else: target_label.text = "Build another chest to transfer gold."
+		var name_label := tr("treasure room") if target.size() > 1 else tr("chest %d") % (_destinations.find(_destination) + 1)
+		target_label.text = tr("To %s · %d / %d gold\nTile %d, %d") % [name_label, target_gold, capacity, _destination.x + 1, _destination.y + 1]
+	else: target_label.text = tr("Build another chest to transfer gold.")
 	_amount = clampi(_amount, 0, _limit)
-	amount_label.text = "%d gold" % _amount
+	amount_label.text = tr("%d gold") % _amount
 	previous.disabled = _destinations.size() < 2
 	next.disabled = previous.disabled
 	less.disabled = _amount <= 0

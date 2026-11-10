@@ -1,0 +1,940 @@
+msgid ""
+msgstr ""
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+# Main menu
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "New game"
+msgstr "Nouvelle partie"
+
+msgid "Continue"
+msgstr "Continuer"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "The save file could not be read."
+msgstr "La sauvegarde est illisible."
+
+msgid "Replace the saved dungeon?"
+msgstr "Remplacer le donjon sauvegardé ?"
+
+msgid "Replace dungeon"
+msgstr "Remplacer le donjon"
+
+msgid "Could not open the dungeon."
+msgstr "Impossible d’ouvrir le donjon."
+
+# Story and tutorial
+
+msgid "  “%s”"
+msgstr "  « %s »"
+
+msgid "%d / %d   ·   %s"
+msgstr "%d / %d   ·   %s"
+
+msgid "%d available tiles"
+msgstr "%d cases possibles"
+
+msgid "%s (%d, %d)"
+msgstr "%s (%d, %d)"
+
+msgid "%s · %s · %d gold"
+msgstr "%s · %s · %d or"
+
+msgid "1 available tile"
+msgstr "1 case possible"
+
+msgid "A few days later, some Oculins went back down to look at the ruins. The soldiers had built a palisade around the village. Workers were pulling down the houses that still stood to reuse the stone. Aldren’s fortress was beginning to rise on their land. The scouts brought the news back to the caves. Up there, supplies were dwindling and the cold was setting in."
+msgstr "Quelques jours plus tard, des Oculins redescendirent observer les ruines. Les soldats avaient dressé une palissade autour du village. Des ouvriers démolissaient les maisons encore debout pour en réemployer les pierres. La forteresse d’Aldren commençait à s’élever sur leurs terres. Les éclaireurs regagnèrent les grottes avec cette nouvelle. Là-haut, les provisions diminuaient et le froid s’installait."
+
+msgid "Accept our oath. Give us the strength to reclaim our home!"
+msgstr "Recevez notre serment. Donnez-nous la force de reprendre notre foyer !"
+
+msgid "After a night of debate, the survivors decided to go."
+msgstr "Après une nuit de débats, les survivants décidèrent de s’y rendre."
+
+msgid "Aldren has taken our lands. Our families are hiding in caves."
+msgstr "Aldren a pris nos terres. Nos familles se terrent dans les grottes."
+
+msgid "An Audience with the King"
+msgstr "L’audience"
+
+msgid "Answer the call"
+msgstr "Répondre à l’appel"
+
+msgid "Around him, the Oculins knelt. Their call had reached you."
+msgstr "Autour de lui, les Oculins s’agenouillèrent. Leur appel venait de vous atteindre."
+
+msgid "As the envoys approached, the Oculins barred the village entrance. They had never seen anyone like these strangers. The envoy told them of Valdorne, its king and the road he wished to open. The elders refused to let him go any farther.\n“These mountains are our home. We will give up no land. Your people shall not pass.”\nThe Oculins watched the envoys leave."
+msgstr "À l’approche des envoyés, les Oculins barrèrent l’entrée du village. Jamais ils n’avaient rencontré de tels êtres. L’émissaire leur parla de Valdorne, de son roi et de la route qu’il souhaitait ouvrir. Les anciens refusèrent de le laisser poursuivre.\n« Ces montagnes sont notre foyer. Nous ne céderons aucune terre. Vos gens ne passeront pas. »\nLes envoyés repartirent sous leur surveillance."
+
+msgid "At court, the mapmaker showed Aldren his sketch. The king asked about the villagers and the paths leading to the pass. The three travelers had seen the village only from a distance. They knew nothing of its people or whether they would welcome visitors. Aldren sent an envoy with a few guards to ask for a road through their lands."
+msgstr "À la cour, le cartographe présenta son dessin à Aldren. Le roi l’interrogea sur les habitants et les chemins menant au col. Les trois voyageurs n’avaient observé le village que de loin. Ils ignoraient qui étaient ces êtres et s’ils accepteraient des visiteurs. Aldren envoya un émissaire et quelques gardes demander l’ouverture d’une route à travers leurs terres."
+
+msgid "At the foot of the mountains lay the kingdom of Valdorne. Its ruler, King Aldren, wanted to open a road to the lands on the other side. He sent a mapmaker and two scouts to survey the passes. From a ridge, they spotted the Oculin village. The mapmaker sketched the houses, the paths and the pass they overlooked."
+msgstr "Au pied des montagnes s’étendait le royaume de Valdorne. Son souverain, le roi Aldren, voulait ouvrir une route vers les terres de l’autre versant. Il envoya un cartographe et deux éclaireurs reconnaître les cols. Depuis une crête, ils découvrirent le village des Oculins. Le cartographe dessina les maisons, les sentiers et le passage qu’elles dominaient."
+
+msgid "At the refuge, an elder told the survivors of a sanctuary hidden high in the mountains. The Oculins’ ancestors had forbidden anyone to enter. An evil god could be summoned there, and the elder still knew the rite."
+msgstr "Au refuge, un ancien révéla l’existence d’un sanctuaire caché dans les hauteurs. Les ancêtres des Oculins en avaient interdit l’accès : un dieu du mal pouvait y être invoqué. L’ancien connaissait encore le rite."
+
+msgid "Beneath this mountain my kingdom shall rise. Follow me, Invoker."
+msgstr "Sous cette montagne s’élèvera mon royaume. Suis-moi, invocateur."
+
+msgid "But we gave you our word. Whatever our hands can make, we will make for you."
+msgstr "Mais nous vous avons donné notre parole. Tout ce que nos mains savent faire, nous le ferons pour vous."
+
+msgid "Choose a tile for the first gold bag · %d gold"
+msgstr "Choisissez une case pour le premier sac · %d or"
+
+msgid "Choose a tile for the second gold bag · %d gold"
+msgstr "Choisissez une case pour le second sac · %d or"
+
+msgid "Choose tiles"
+msgstr "Choisir les cases"
+
+msgid "Come closer, my friends. Master, this is our miner, our carpenter and our scientist."
+msgstr "Approchez, mes amis. Maître, voici notre mineur, notre menuisier et notre scientifique."
+
+msgid "Deep in the mountains, the Oculins lived in a village hidden between the cliffs. They had terraced the slopes for their crops and built their homes of stone. For generations they had lived this way, cut off from the rest of the world. Their village appeared on no map. No kingdom knew they existed."
+msgstr "Au cœur des montagnes, les Oculins vivaient dans un village dissimulé entre les falaises. Ils avaient aménagé les pentes pour leurs cultures et bâti leurs maisons dans la pierre. Depuis des générations, ils vivaient ainsi, sans contact avec les autres peuples. Leur village ne figurait sur aucune carte. Aucun royaume ne connaissait leur existence."
+
+msgid "Digging unlocked"
+msgstr "Creusement débloqué"
+
+msgid "Far from the World"
+msgstr "À l’écart du monde"
+
+msgid "Free play"
+msgstr "Jouer librement"
+
+msgid "Go back to the caves. Find the others and bring them here!"
+msgstr "Retournez aux grottes. Allez chercher les autres et ramenez-les ici !"
+
+msgid "He can give us the strength to prevail. But we will have to serve him."
+msgstr "Il peut nous donner la force de vaincre. Mais nous devrons le servir."
+
+msgid "He made it all the way to the Core, Master. Now you know which passage needs stronger defenses before the heroes arrive."
+msgstr "Il est arrivé jusqu’au Cœur, Maître. Vous savez maintenant quel passage il faudra mieux défendre avant la venue des héros."
+
+msgid "He stepped on the trapped tile. That’s where your spikes would have struck a real intruder."
+msgstr "Il a posé le pied sur la dalle piégée. Face à un véritable intrus, vos pointes auraient frappé à cet endroit."
+
+msgid "I follow you, Master. May our people find shelter at last."
+msgstr "Je vous suis, Maître. Que les nôtres trouvent enfin un refuge."
+
+msgid "I have heard your call. My power comes at a price. I demand your loyalty."
+msgstr "J’ai entendu votre appel. Ma puissance aura un prix : votre fidélité."
+
+msgid "I sent for our finest artisans. Look, here they come."
+msgstr "J’ai fait venir nos meilleurs artisans. Tenez, les voilà qui descendent."
+
+msgid "If they find these stairs, they’ll have a clear path to the Core. Let’s prepare the dungeon’s defenses before they arrive."
+msgstr "S’ils trouvent cet escalier, ils auront le champ libre jusqu’au Cœur. Préparons les défenses du donjon avant leur arrivée."
+
+msgid "I’ll ask one of our people to play the intruder. Let’s see how far he gets. He’ll leave your gold alone and won’t strike the Core."
+msgstr "Je vais demander à l’un des nôtres de jouer l’intrus. Voyons jusqu’où il peut aller. Il laissera votre or en paix et ne portera aucun coup au Cœur."
+
+msgid "Level %d"
+msgstr "Niveau %d"
+
+msgid "Master, Aldren’s heroes must have seen the ritual lightning from the valley. They’ll come looking for its source."
+msgstr "Maître, les héros d’Aldren ont sûrement vu les éclairs du rituel depuis la vallée. Ils viendront en chercher la source."
+
+msgid "Master, I can build traps to defend the dungeon. Choose a tile and my spikes will spring up beneath an intruder’s feet."
+msgstr "Maître, je peux fabriquer des pièges pour défendre le donjon. Choisissez une dalle : mes pointes en jailliront sous les pas des intrus."
+
+msgid "Master, I can help you expand your dungeon. Tell me where to dig and I’ll get to work."
+msgstr "Maître, je peux vous aider à agrandir votre donjon. Dites-moi où creuser, et je me mets à l’ouvrage."
+
+msgid "Master, I can make doors for your dungeon. Choose a passage between two walls and I’ll fit it with a wooden door."
+msgstr "Maître, je peux fabriquer des portes pour votre donjon. Choisissez un passage entre deux murs, et j’y poserai une porte en bois."
+
+msgid "Master, the villagers have gathered all their gold for you. These two bags hold fifty coins each. Where shall we put them?"
+msgstr "Maître, les villageois ont réuni tout leur or pour vous. Ces deux sacs contiennent cinquante pièces chacun. Où devons-nous les déposer ?"
+
+msgid "Next page"
+msgstr "Page suivante"
+
+msgid "Occupied Lands"
+msgstr "Les terres occupées"
+
+msgid "Our people learn to handle tools. Few of us know how to wield a sword."
+msgstr "Chez nous, on apprend à manier les outils. Bien peu des nôtres savent tenir une épée."
+
+msgid "Our scout could find no way through to the Core. He’s back in the village now."
+msgstr "Notre éclaireur n’a trouvé aucun passage jusqu’au Cœur. Le voilà de retour au village."
+
+msgid "Place a door between two walls"
+msgstr "Posez une porte entre deux murs"
+
+msgid "Place a spike trap"
+msgstr "Posez un piège à pointes"
+
+msgid "Place the bag"
+msgstr "Déposer le sac"
+
+msgid "Place the door"
+msgstr "Poser la porte"
+
+msgid "Place the trap"
+msgstr "Poser le piège"
+
+msgid "Skip"
+msgstr "Passer"
+
+msgid "Skip story"
+msgstr "Passer le récit"
+
+msgid "Spike traps unlocked"
+msgstr "Pièges à pointes débloqués"
+
+msgid "Start practice"
+msgstr "Lancer l’exercice"
+
+msgid "Tap the tile or the pickaxe · %d gold"
+msgstr "Touchez la case ou la pioche · %d or"
+
+msgid "The Attack"
+msgstr "L’attaque"
+
+msgid "The Carpenter"
+msgstr "Le menuisier"
+
+msgid "The Closed Pass"
+msgstr "Le passage fermé"
+
+msgid "The Discovery"
+msgstr "La découverte"
+
+msgid "The Elders"
+msgstr "Les anciens"
+
+msgid "The Forbidden Sanctuary"
+msgstr "Le sanctuaire interdit"
+
+msgid "The Invoker"
+msgstr "L’invocateur"
+
+msgid "The Master"
+msgstr "Le Maître"
+
+msgid "The Miner"
+msgstr "Le mineur"
+
+msgid "The Scientist"
+msgstr "Le scientifique"
+
+msgid "The Strangers"
+msgstr "Les étrangers"
+
+msgid "The Survivors"
+msgstr "Les survivants"
+
+msgid "The elder led them to a narrow gorge. There, hidden from view, standing stones encircled an engraved slab. He stepped into the center of the sanctuary and spoke your name."
+msgstr "L’ancien les guida jusqu’à une gorge étroite. Là, à l’abri des regards, des pierres dressées entouraient une dalle gravée. Il s’avança au centre du sanctuaire et prononça votre nom."
+
+msgid "The envoys returned with word of the Oculins’ refusal. The villagers had closed the paths and now stood guard on the approaches to the pass. Aldren wanted the road so he could extend his kingdom beyond the mountains. He decided to open it by force. He ordered his captain to seize the pass and establish a garrison there."
+msgstr "À leur retour, les envoyés rapportèrent le refus des Oculins. Ceux-ci avaient fermé les sentiers et montaient désormais la garde aux abords du col. Aldren voulait cette route pour étendre son royaume de l’autre côté des montagnes. Il décida de l’ouvrir par la force. Son capitaine reçut l’ordre de prendre le passage et d’y établir une garnison."
+
+msgid "The survivors gathered in the caves. They tended the wounded and shared the food they had brought to safety. People kept arriving until nightfall. Then the paths fell silent. The Oculins kept watch at the cave mouth long into the night, still hoping to see those who were missing. Below them, their homes were burning."
+msgstr "Les rescapés se regroupèrent dans les grottes. On pansa les blessés et partagea les provisions mises à l’abri. Jusqu’à la nuit, des survivants continuèrent d’arriver. Puis les sentiers restèrent vides. À l’entrée du refuge, les Oculins veillèrent longtemps, espérant encore voir apparaître ceux qui manquaient. En contrebas, leurs maisons brûlaient."
+
+msgid "This Core will hold my power. Defend it, and our kingdom will grow."
+msgstr "Ce cœur abritera ma puissance. Défendez-le, et notre royaume grandira."
+
+msgid "We must build everything from the ground up… Will the mountain hide us from Aldren?"
+msgstr "Tout est à bâtir… La montagne nous cachera-t-elle d’Aldren ?"
+
+msgid "We pledge our loyalty to you. Give us the strength to overthrow Aldren. Beneath the mountain, we will build your kingdom."
+msgstr "Nous vous offrons notre fidélité. Donnez-nous la force de renverser Aldren. Sous la montagne, nous bâtirons votre royaume."
+
+msgid "When Valdorne’s banners appeared in the valley, the Oculins carried provisions to the caves and reinforced their barricades. The soldiers forced their way through. The fighting spread into the narrow streets, where the soldiers set fire to houses to drive out the defenders. The Oculins had to abandon their village. The survivors retreated higher into the mountains, carrying their wounded."
+msgstr "Lorsque les bannières de Valdorne apparurent dans la vallée, les Oculins transportèrent des provisions vers les grottes et renforcèrent leurs barricades. Les soldats forcèrent le passage. Le combat gagna les ruelles, où ils incendièrent les maisons pour en déloger les défenseurs. Les Oculins durent abandonner le village. Les survivants se replièrent dans les hauteurs en emportant leurs blessés."
+
+msgid "Wooden doors unlocked"
+msgstr "Portes en bois débloquées"
+
+msgid "Your Kingdom"
+msgstr "Votre royaume"
+
+msgid "Your door forced him to turn back, Master. A hero would have to break it down to get any farther."
+msgstr "Il a dû rebrousser chemin devant votre porte, Maître. Un héros qui voudrait aller plus loin devrait d’abord la forcer."
+
+# Dungeon interface
+
+msgid "%d / %d HP"
+msgstr "%d / %d PV"
+
+msgid "%d / %d charges"
+msgstr "%d / %d charges"
+
+msgid "%d / %d gold"
+msgstr "%d / %d or"
+
+msgid "%d gold"
+msgstr "%d or"
+
+msgid "%d gold · %s"
+msgstr "%d or · %s"
+
+msgid "%s · %d escaped\n%d gold stolen · +%d XP\nDefenses to repair: %d"
+msgstr "%s · Fuites : %d\nOr volé : %d · +%d XP\nDéfenses à réparer : %d"
+
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "%s · %s\nTap tiles to place."
+msgstr "%s · %s\nTouchez les cases où le placer."
+
+msgid "Absorb · +2 HP"
+msgstr "Absorber · +2 PV"
+
+msgid "All"
+msgstr "Tout"
+
+msgid "Anchor the Core, dig out your domain and set your traps."
+msgstr "Ancrez le Cœur, creusez votre domaine et tendez vos pièges."
+
+msgid "Arcane"
+msgstr "Magique"
+
+msgid "Arcane door"
+msgstr "Porte magique"
+
+msgid "Available gold / storage capacity"
+msgstr "Or disponible / capacité de stockage"
+
+msgid "Available: %d"
+msgstr "Choix disponibles : %d"
+
+msgid "BACK TO DUNGEON"
+msgstr "RETOUR AU DONJON"
+
+msgid "Broken · Needs repair"
+msgstr "Brisée · À réparer"
+
+msgid "Build another chest to transfer gold."
+msgstr "Construisez un autre coffre pour transférer l’or."
+
+msgid "Building · countdown paused"
+msgstr "Construction · compte à rebours suspendu"
+
+msgid "CONFIRM"
+msgstr "CONFIRMER"
+
+msgid "Cancel / close"
+msgstr "Annuler / fermer"
+
+msgid "Cannot place here"
+msgstr "Pose impossible ici"
+
+msgid "Chest"
+msgstr "Coffre"
+
+msgid "Choose a door"
+msgstr "Choisissez une porte"
+
+msgid "Choose a storage option"
+msgstr "Choisissez un type de stockage"
+
+msgid "Choose a tool to build or dig"
+msgstr "Choisissez un outil pour construire ou creuser"
+
+msgid "Choose a trap"
+msgstr "Choisissez un piège"
+
+msgid "Close catalog"
+msgstr "Fermer le catalogue"
+
+msgid "Collect loot"
+msgstr "Ramasser le butin"
+
+msgid "Confirm replacement"
+msgstr "Confirmer le remplacement"
+
+msgid "Core"
+msgstr "Cœur"
+
+msgid "Core destroyed"
+msgstr "Cœur détruit"
+
+msgid "Core health · %s"
+msgstr "Vie du Cœur · %s"
+
+msgid "Core required"
+msgstr "Cœur requis"
+
+msgid "Core · Level %d"
+msgstr "Cœur · Niveau %d"
+
+msgid "Demo dungeon…"
+msgstr "Donjon d’essai…"
+
+msgid "Dig"
+msgstr "Creuser"
+
+msgid "Doors"
+msgstr "Portes"
+
+msgid "Dungeon master · Pause / domain"
+msgstr "Maître du donjon · Pause / domaine"
+
+msgid "Entrance"
+msgstr "Entrée"
+
+msgid "Entrance required"
+msgstr "Entrée requise"
+
+msgid "FEAST"
+msgstr "FESTIN"
+
+msgid "Floor"
+msgstr "Sol"
+
+msgid "Free"
+msgstr "Gratuit"
+
+msgid "Gold bag"
+msgstr "Sac d’or"
+
+msgid "Intruder: %s"
+msgstr "Intrus : %s"
+
+msgid "Iron"
+msgstr "Fer"
+
+msgid "Locked"
+msgstr "À clé"
+
+msgid "Locked chest"
+msgstr "Coffre verrouillé"
+
+msgid "New dungeon…"
+msgstr "Nouveau donjon…"
+
+msgid "Next destination"
+msgstr "Destination suivante"
+
+msgid "Next raid"
+msgstr "Prochain raid"
+
+msgid "PLACE MY CORE"
+msgstr "PLACER MON CŒUR"
+
+msgid "Paths from the entrance · the hero chooses a route."
+msgstr "Accès possibles depuis l’entrée · le héros choisit son trajet."
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Previous destination"
+msgstr "Destination précédente"
+
+msgid "RAID COMPLETE"
+msgstr "RAID TERMINÉ"
+
+msgid "REPLACE THIS DUNGEON?"
+msgstr "REMPLACER CE DONJON ?"
+
+msgid "RESUME"
+msgstr "REPRENDRE"
+
+msgid "Raid complete"
+msgstr "Raid terminé"
+
+msgid "Raid in progress"
+msgstr "Raid en cours"
+
+msgid "Raid in progress · Drag to explore"
+msgstr "Raid en cours · Glissez pour explorer"
+
+msgid "Ready to confirm"
+msgstr "Prêt à confirmer"
+
+msgid "Reinforced"
+msgstr "Renforcée"
+
+msgid "Reinforced door"
+msgstr "Porte renforcée"
+
+msgid "Remove"
+msgstr "Retirer"
+
+msgid "Remove structure"
+msgstr "Retirer la structure"
+
+msgid "Repair"
+msgstr "Réparer"
+
+msgid "Repair · %d gold"
+msgstr "Réparer · %d or"
+
+msgid "Resume"
+msgstr "Reprendre"
+
+msgid "Return this tile to floor? No refund."
+msgstr "Libérer cette case ? Aucun remboursement."
+
+msgid "Rock"
+msgstr "Roche"
+
+msgid "Sealed"
+msgstr "Scellé"
+
+msgid "Sealed chest"
+msgstr "Coffre scellé"
+
+msgid "Snare"
+msgstr "Entrave"
+
+msgid "Spike trap"
+msgstr "Piège à pointes"
+
+msgid "Spikes"
+msgstr "Pointes"
+
+msgid "Start raid"
+msgstr "Lancer le raid"
+
+msgid "Stop"
+msgstr "Arrêter"
+
+msgid "Storage"
+msgstr "Stockage"
+
+msgid "Storage required"
+msgstr "Stockage requis"
+
+msgid "THE CORE HAS FALLEN"
+msgstr "LE CŒUR EST TOMBÉ"
+
+msgid "TRANSFER"
+msgstr "TRANSFÉRER"
+
+msgid "Tap a pickaxe to dig · %d gold per tile"
+msgstr "Touchez une pioche pour creuser · %d or par case"
+
+msgid "Tap a tile to anchor the Core."
+msgstr "Touchez une case pour ancrer le Cœur."
+
+msgid "Tap to place · %s"
+msgstr "Touchez pour poser · %s"
+
+msgid "Terrain"
+msgstr "Terrain"
+
+msgid "The layout, gold and visitors will be reset. Core experience is kept."
+msgstr "Le plan du donjon, l’or et les visiteurs seront réinitialisés. L’expérience du Cœur est conservée."
+
+msgid "Tile %d, %d"
+msgstr "Case %d, %d"
+
+msgid "To %s · %d / %d gold\nTile %d, %d"
+msgstr "Vers %s · %d / %d or\nCase %d, %d"
+
+msgid "Toggle digging · %d gold per tile"
+msgstr "Activer ou désactiver le creusement · %d or par case"
+
+msgid "Transfer gold"
+msgstr "Transférer l’or"
+
+msgid "Traps"
+msgstr "Pièges"
+
+msgid "Treasure room"
+msgstr "Salle du trésor"
+
+msgid "UNREADABLE SAVE"
+msgstr "SAUVEGARDE ILLISIBLE"
+
+msgid "Unlocked"
+msgstr "Déverrouillée"
+
+msgid "Varies"
+msgstr "Variable"
+
+msgid "Visitor"
+msgstr "Visiteur"
+
+msgid "Void"
+msgstr "Néant"
+
+msgid "Void trap"
+msgstr "Piège du néant"
+
+msgid "Wooden"
+msgstr "Bois"
+
+msgid "Wooden door"
+msgstr "Porte en bois"
+
+msgid "YOUR DOMAIN"
+msgstr "VOTRE DOMAINE"
+
+msgid "YOUR DUNGEON"
+msgstr "VOTRE DONJON"
+
+msgid "You need %d more gold (%d / %d)."
+msgstr "Il manque %d pièces d’or (%d / %d)."
+
+msgid "chest %d"
+msgstr "le coffre %d"
+
+msgid "defeated"
+msgstr "vaincus"
+
+msgid "dropped loot"
+msgstr "butin au sol"
+
+msgid "treasure room"
+msgstr "la salle du trésor"
+
+msgid "−%d gold"
+msgstr "−%d or"
+
+# Dungeon and raids
+
+msgid "Forge · Review"
+msgstr "Forge · Aperçu"
+
+msgid "Dungeon Empire · Review"
+msgstr "Dungeon Empire · Aperçu"
+
+msgid "Dungeon restored. Preparation resumes."
+msgstr "Donjon retrouvé. La préparation reprend."
+
+msgid "The save could not be read. It has been kept. Start a new dungeon to play again."
+msgstr "Sauvegarde illisible. Votre fichier est conservé. Créez un nouveau donjon pour rejouer."
+
+msgid "Cannot place here."
+msgstr "Pose impossible ici."
+
+msgid "Last build undone."
+msgstr "Dernière construction annulée."
+
+msgid "Action unavailable"
+msgstr "Action indisponible"
+
+msgid "Tap a pickaxe to dig here."
+msgstr "Touchez une pioche pour creuser à cet endroit."
+
+msgid "Choose a passage between two walls."
+msgstr "Choisissez un passage entre deux murs."
+
+msgid "Choose an empty floor tile."
+msgstr "Choisissez une case de sol libre."
+
+msgid "This structure is still locked."
+msgstr "Cette construction reste verrouillée."
+
+msgid "Core level %d required"
+msgstr "Niveau du Cœur requis : %d"
+
+msgid "Dig this tile before building."
+msgstr "Creusez cette case avant d’y construire."
+
+msgid "Treasure room discovered! +%d storage capacity."
+msgstr "Salle du trésor découverte ! Capacité de stockage : +%d."
+
+msgid "Action complete."
+msgstr "Action effectuée."
+
+msgid "%d gold collected (limited by storage capacity)."
+msgstr "Or récupéré : %d (dans la limite du stockage disponible)."
+
+msgid "Corpse absorbed: +2 Core HP."
+msgstr "Corps absorbé : +2 PV pour le Cœur."
+
+msgid "%d gold transferred."
+msgstr "Or transféré : %d."
+
+msgid "Save the prepared dungeon before starting the raid."
+msgstr "Sauvegardez le donjon préparé avant de lancer le raid."
+
+msgid "The hero explores on their own. Watch the raid."
+msgstr "Le héros explore seul. Observez le raid."
+
+msgid "Raid complete. Review the results."
+msgstr "Raid terminé. Consultez le bilan."
+
+msgid "Repair your defenses and prepare for the next raid."
+msgstr "Réparez vos défenses et préparez le prochain raid."
+
+msgid "Demo dungeon: 245 gold, a door and a spike trap. Start the raid."
+msgstr "Donjon d’essai : 245 pièces d’or, une porte et un piège à pointes. Lancez le raid."
+
+msgid "Could not save: your previous save has been kept."
+msgstr "Échec de la sauvegarde. Votre sauvegarde précédente a été conservée."
+
+msgid "Choose an anchoring site for the Dungeon Core."
+msgstr "Choisissez où ancrer le Cœur du donjon."
+
+msgid "The Core must anchor inside the marked influence field."
+msgstr "Le Cœur doit être ancré dans la zone d’influence indiquée."
+
+msgid "The Core awakens. Its surrounding passage is free. Dig out from this room."
+msgstr "Le Cœur s’éveille. Le passage qui l’entoure est dégagé. Creusez depuis cette salle."
+
+msgid "Entrance repositioned against a wall."
+msgstr "Entrée replacée contre une paroi."
+
+msgid "Old entrance removed: place a new entrance against a wall for free."
+msgstr "L’ancienne entrée a été retirée. Placez gratuitement une nouvelle entrée contre une paroi."
+
+msgid "No tile under the cursor."
+msgstr "Aucune case ici."
+
+msgid "Dig this passage first."
+msgstr "Creusez d’abord ce passage."
+
+msgid "The entrance and the Core cannot be modified."
+msgstr "L’entrée et le Cœur ne peuvent pas être modifiés."
+
+msgid "This tile holds a bag of gold."
+msgstr "Cette case contient un sac d’or."
+
+msgid "Remove the trap before placing a door here."
+msgstr "Retirez le piège avant de placer une porte ici."
+
+msgid "Keep the passage around the Core clear."
+msgstr "Laissez libre le passage autour du Cœur."
+
+msgid "A door must sit in a gap between two walls."
+msgstr "Une porte se place dans une ouverture entre deux murs."
+
+msgid "Choose an empty floor tile for the gold bag."
+msgstr "Choisissez une case de sol libre pour le sac."
+
+msgid "Gold bag placed."
+msgstr "Sac posé."
+
+msgid "Structure cleared."
+msgstr "Structure retirée."
+
+msgid "Place the chest on an excavated tile."
+msgstr "Placez le coffre sur une case creusée."
+
+msgid "This chest already has this protection or better."
+msgstr "Ce coffre dispose déjà d’une protection au moins équivalente."
+
+msgid "Not enough gold: %d required."
+msgstr "Or insuffisant : il faut %d pièces d’or."
+
+msgid "Chest upgraded."
+msgstr "Coffre amélioré."
+
+msgid "Chest placed."
+msgstr "Coffre installé."
+
+msgid "Chest protection restored."
+msgstr "Protection du coffre restaurée."
+
+msgid "This tile is not rock."
+msgstr "Cette case n’est pas de la roche."
+
+msgid "This rock supports the entrance."
+msgstr "Cette roche soutient l’entrée."
+
+msgid "You must dig from an existing passage."
+msgstr "Creusez depuis un passage existant."
+
+msgid "Not enough gold to dig (%d)."
+msgstr "Or insuffisant pour creuser : il faut %d pièces d’or."
+
+msgid "Dug a passage."
+msgstr "Passage creusé."
+
+msgid "Keep the passage around the Core clear: place the entrance farther away."
+msgstr "Laissez libre le passage autour du Cœur. Placez l’entrée plus loin."
+
+msgid "The entrance stair is already set. It cannot be moved."
+msgstr "L’escalier d’entrée est déjà en place. Il ne peut plus être déplacé."
+
+msgid "Place the entrance against a wall, with a clear passage in front."
+msgstr "Placez l’entrée contre une paroi, avec un passage libre devant."
+
+msgid "Entrance opened. Heroes will find it in %ds."
+msgstr "Entrée ouverte. Les héros la trouveront dans %d s."
+
+msgid "Entrance opened. Build enough storage before heroes can find it."
+msgstr "Entrée ouverte. Les héros la trouveront une fois que vous aurez assez de stockage."
+
+msgid "Not enough gold (%d required)."
+msgstr "Or insuffisant : il faut %d pièces d’or."
+
+msgid "Nothing to repair (or not enough gold)."
+msgstr "Rien à réparer, ou pas assez d’or."
+
+msgid "Repairs: %d door(s), %d trap charge(s)."
+msgstr "Portes réparées : %d. Charges de piège rétablies : %d."
+
+msgid "%s, %s (%s)"
+msgstr "%s, %s (%s)"
+
+msgid "RAID %d: %s enters the dungeon. All changes are locked."
+msgstr "RAID %d : %s entre dans le donjon. Toute modification est suspendue."
+
+msgid "Preparation: repairs and collection available."
+msgstr "Préparation : vous pouvez réparer les défenses et récupérer le butin."
+
+msgid "%s leaves the dungeon."
+msgstr "%s quitte le donjon."
+
+msgid "%s stops exploring and heads for the entrance."
+msgstr "%s cesse son exploration et se dirige vers l’entrée."
+
+msgid "Raid interrupted: no known return path to the entrance."
+msgstr "Raid interrompu : aucun chemin de retour connu vers l’entrée."
+
+msgid "%s cannot leave the sealed Core chamber."
+msgstr "%s ne trouve aucune issue dans la salle scellée du Cœur."
+
+msgid "%s loses heart and looks for the exit."
+msgstr "%s perd courage et cherche la sortie."
+
+msgid "%s falls to the ground."
+msgstr "%s s’effondre."
+
+msgid "%s begins dissipating a magic vault seal."
+msgstr "%s commence à dissiper le sceau magique d’un coffre."
+
+msgid "%s picks up %d gold of unsecured loot!"
+msgstr "%s ramasse %d pièces d’or laissées sans protection !"
+
+msgid "%s is swallowed by a void rift with %d gold."
+msgstr "%s disparaît dans une faille du vide avec %d pièces d’or."
+
+msgid "%s is pulled into the void."
+msgstr "%s disparaît dans le vide."
+
+msgid "%s cannot break the reinforced door and looks for another route."
+msgstr "%s ne parvient pas à enfoncer la porte renforcée et cherche un autre chemin."
+
+msgid "%s raises its hammer against a door."
+msgstr "%s lève son marteau pour frapper une porte."
+
+msgid "%s finds no arcane seal and looks for another route."
+msgstr "%s ne trouve aucun sceau arcanique et cherche un autre chemin."
+
+msgid "%s starts picking a lock."
+msgstr "%s commence à crocheter une serrure."
+
+msgid "%s begins an arcane opening ritual."
+msgstr "%s entame un rituel d’ouverture arcanique."
+
+msgid "%s cannot open the arcane door."
+msgstr "%s ne parvient pas à ouvrir la porte magique."
+
+msgid "%s dissipates the magic vault seal."
+msgstr "%s dissipe le sceau magique du coffre."
+
+msgid "%s cannot break the seal and looks for another route."
+msgstr "%s ne parvient pas à briser le sceau et cherche un autre chemin."
+
+msgid "%s unseals the arcane door."
+msgstr "%s lève le sceau de la porte magique."
+
+msgid "%s picks the vault lock and leaves its contents untouched."
+msgstr "%s crochète la serrure du coffre sans rien y prendre."
+
+msgid "%s picks the lock and slips through the door."
+msgstr "%s crochète la serrure et se glisse par la porte."
+
+msgid "%s fails to pick the lock and tries again."
+msgstr "%s échoue à crocheter la serrure et réessaie."
+
+msgid "%s abandons the stubborn vault lock and seeks another route."
+msgstr "%s renonce à crocheter le coffre et cherche un autre chemin."
+
+msgid "%s abandons the stubborn lock and looks for another route."
+msgstr "%s renonce à crocheter la serrure et cherche un autre chemin."
+
+msgid "%s cannot force the door and looks for another route."
+msgstr "%s ne parvient pas à forcer la porte et cherche un autre chemin."
+
+msgid "%s forces a door. The wreck stays after the raid."
+msgstr "%s enfonce une porte. Elle restera brisée après le raid."
+
+msgid "%s strikes a door (%d HP left)."
+msgstr "%s frappe une porte (PV restants : %d)."
+
+msgid "%s cannot open the magic vault seal and moves on."
+msgstr "%s ne parvient pas à lever le sceau magique du coffre et poursuit son chemin."
+
+msgid "%s finds nothing but an empty storage."
+msgstr "%s ne trouve qu’un coffre vide."
+
+msgid "%s heads for the entrance with a full bag."
+msgstr "%s se dirige vers l’entrée, le sac plein."
+
+msgid "%s pockets %d gold and looks for another vault."
+msgstr "%s empoche %d pièces d’or et cherche un autre coffre."
+
+msgid "%s fills its bag and heads for the entrance."
+msgstr "%s remplit son sac et se dirige vers l’entrée."
+
+msgid "%s gathers the last useful gold before leaving."
+msgstr "%s ramasse les dernières pièces qu’il peut emporter avant de partir."
+
+msgid "%s raises its hammer against the Core."
+msgstr "%s lève son marteau pour frapper le Cœur."
+
+msgid "%s strikes the Core (-%d integrity) and heads for the entrance."
+msgstr "%s frappe le Cœur (−%d d’intégrité) et se dirige vers l’entrée."
+
+msgid "DEFEAT — %s destroys the Core. Click Reset to start a new campaign."
+msgstr "DÉFAITE — %s détruit le Cœur. Recommencez pour lancer une nouvelle campagne."
+
+msgid "%s dies. The Core absorbs its essence (+%d); body and loot stay where they fell."
+msgstr "%s succombe. Le Cœur absorbe son essence (+%d). Le corps et le butin restent sur place."
+
+msgid "%s walks out of the dungeon alive with %d gold."
+msgstr "%s quitte le donjon en vie avec %d pièces d’or."
+
+msgid "Raid %d report — killed: %d | escaped: %d | gold stolen: %d | carried out: %d | loot remaining: %d | doors destroyed: %d | structures damaged: %d | Core: %d%%"
+msgstr "Bilan du raid %d — morts : %d | évadés : %d | or volé : %d | or emporté : %d | butin restant : %d | portes détruites : %d | structures endommagées : %d | Cœur : %d %%"
+
+msgid "Hero"
+msgstr "Héros"
+
+msgid "Vulpin Thief"
+msgstr "Voleur vulpin"
+
+msgid "Lithide Paladin"
+msgstr "Paladin lithide"
+
+msgid "Batrafian Ranger"
+msgstr "Rôdeur batrafian"
+
+msgid "Sable Mage"
+msgstr "Mage des sables"
+
+msgid "Greedy"
+msgstr "Cupide"
+
+msgid "Cautious"
+msgstr "Prudent"
+
+msgid "Stubborn"
+msgstr "Obstiné"
+
+msgid "Cowardly"
+msgstr "Peureux"
+
+msgid "Corpse"
+msgstr "Corps"
+
+msgid "Loot"
+msgstr "Butin"
+
+msgid "%s · Lv. %d"
+msgstr "%s · Niv. %d"
+
+msgid "Building"
+msgstr "Construction"

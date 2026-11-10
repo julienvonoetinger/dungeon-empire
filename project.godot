@@ -19,6 +19,10 @@ run/main_scene="res://scenes/game/MainMenu.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://assets/ui/app-icon/dungeon-empire-512.png"
 
+[autoload]
+
+LanguagePreferences="*res://scripts/game/game_language.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -28,6 +32,11 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=6
+
+[internationalization]
+
+locale/fallback="en"
+locale/translations=PackedStringArray("res://assets/i18n/fr.po")
 
 [rendering]
 

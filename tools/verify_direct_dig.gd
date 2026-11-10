@@ -35,8 +35,9 @@ func target_point(cell: Vector2i) -> Vector2:
 	return view.get_global_transform_with_canvas()*view.grid_to_local(Vector2(cell)+Vector2(.5,.5))
 
 func fresh() -> void:
-	hud._close_radial(false); hud._close_catalog()
+	hud._close_catalog()
 	game.restart(true); game.notice = ""; game.cancel_selection()
+	hud.dig_button.pressed.emit()
 	for child in hud.root.get_children():
 		if child.has_meta("transient_feedback"): child.queue_free()
 	await settle()
@@ -72,23 +73,29 @@ func run() -> void:
 	check(visible_cells() == cells, "Every legal frontier cell is highlighted, without invalid rock")
 	for card in hud.catalog.cards:
 		check(card.id != TYPES.Tool.DIG, "Dig is absent from the catalog")
-	hud.world_tapped(Vector2i(7,8))
-	for family in 4:
-		hud.radial._choose_family(family)
-		for choice in hud.radial.choices:
-			check(choice[0] != TYPES.Tool.DIG, "Dig is absent from radial families")
-	check(visible_cells().is_empty(), "Radial hides direct-dig hints")
-	hud._close_radial()
-	check(visible_cells() == cells, "Closing radial restores frontier")
+	var toggle: Vector2 = hud.dig_button.get_global_rect().get_center()*hud.scale.x
+	mouse(toggle,true); mouse(toggle,false); await settle()
+	check(visible_cells().is_empty() and game.tool == TYPES.Tool.NONE, "Turning Dig off hides the picks")
+	check(not hud.dig_button.button_pressed and hud.dig_button.get_meta("words").text=="Dig", "Inactive Dig has a plain rim and stable label")
+	var initial_gold: int = game.sim.gold
+	hud.world_tapped(cells[0]); hud.world_tapped(Vector2i(7,8))
+	check(game.sim.gold==initial_gold and game.selected.x<0 and not game.catalog_open, "Unarmed rock and floor taps are inert")
+	mouse(toggle,true); mouse(toggle,false); await settle()
+	check(hud.dig_button.button_pressed and visible_cells() == cells, "Turning Dig on restores the frontier")
+	check(hud.dig_button.button_pressed and hud.dig_button.get_meta("words").text=="Dig", "The active stone tab retains its Dig label")
+	var pick_icon: TextureRect = hud.dig_button.get_meta("mark")
+	check(pick_icon.texture==hud.BuildMenu.TOOL_ICONS[TYPES.Tool.DIG] and pick_icon.material==null, "Toolbar uses the full-colour pickaxe pictogram")
+	hud.world_tapped(Vector2i(5,8))
+	check(game.sim.grid[8][5]==TYPES.Tile.DOOR and game.selected.x<0, "Dig never removes a door")
 	await capture("landscape")
-	# Real tap, exact price, no persistent tool, and normal Undo.
+	# Real tap, exact price, persistent mode, and normal Undo.
 	var cell: Vector2i = cells[0]
 	var gold: int = game.sim.gold
 	var point := target_point(cell)
 	await settle()
 	mouse(point,true); await process_frame; mouse(point,false); await settle()
 	check(game.sim.grid[cell.y][cell.x] == TYPES.Tile.FLOOR and game.sim.gold == gold-TYPES.COST_DIG, "Mouse tap digs once at the advertised price")
-	check(game.tool == TYPES.Tool.NONE and not hud.radial.visible and game.selected.x < 0, "Direct digging leaves no tool, selection or menu armed")
+	check(game.tool == TYPES.Tool.DIG and hud.dig_button.button_pressed and game.selected.x < 0, "Dig remains active for the next tile")
 	check(visible_cells() == candidates(), "Expansion refreshes highlights after the actual transaction")
 	game.undo_build(); await settle()
 	check(game.sim.grid[cell.y][cell.x] == TYPES.Tile.ROCK and game.sim.gold == gold, "Dig uses the existing undo transaction")
@@ -111,7 +118,7 @@ func run() -> void:
 		point = target_point(cell); await settle()
 		touch(point,true); await process_frame; touch(point,false); await settle()
 		check(game.sim.grid[cell.y][cell.x] == TYPES.Tile.FLOOR and game.sim.gold == gold-TYPES.COST_DIG, "Native touch digs exactly once at "+str(extent))
-		check(not hud.radial.visible and game.tool == TYPES.Tool.NONE, "Touch needs no menu at "+str(extent))
+		check(hud.dig_button.button_pressed and game.tool == TYPES.Tool.DIG, "Touch needs no menu at "+str(extent))
 	await fresh(); cell = candidates()[0]; gold = game.sim.gold
 	point = target_point(cell); await settle()
 	touch(point,true); await process_frame; touch(point,false,0,true); await settle()
@@ -126,22 +133,23 @@ func run() -> void:
 	hud._open_catalog(); check(visible_cells().is_empty(), "Catalog hides frontier")
 	hud.world_tapped(cell)
 	check(game.sim.gold == gold and not hud.catalog.visible, "First world tap only dismisses catalog")
-	check(visible_cells() == candidates(), "Closing catalog restores frontier without a structural edit")
+	check(visible_cells().is_empty() and not hud.dig_button.button_pressed, "Opening the catalog leaves dig mode")
 	game.choose_tool(TYPES.Tool.TRAP_SPIKE)
 	check(visible_cells().is_empty(), "Armed construction hides dig hints")
 	hud.world_tapped(cell); check(game.sim.gold == gold and game.tool == TYPES.Tool.TRAP_SPIKE, "Armed trap cannot silently dig")
 	game.cancel_selection()
+	hud.dig_button.pressed.emit()
 	game.sim.gold = TYPES.COST_DIG-1; game.changed.emit(false)
 	check(visible_cells().is_empty(), "Unaffordable tiles are not offered")
 	hud.world_tapped(cell)
-	check(game.sim.gold == TYPES.COST_DIG-1 and game.notice.contains("gold"), "Poor dig reports actual rejection without opening radial")
+	check(game.sim.gold == TYPES.COST_DIG-1 and game.notice.contains("gold"), "Poor dig reports actual rejection without opening a menu")
 	await fresh(); gold = game.sim.gold
 	for y in TYPES.ROWS:
 		for x in TYPES.COLS:
 			var p := Vector2i(x,y)
 			if game.sim.grid[y][x] != TYPES.Tile.ROCK or game.sim.dig_failure_reason(p).is_empty(): continue
 			hud.world_tapped(p)
-			check(game.sim.grid[y][x] == TYPES.Tile.ROCK and game.sim.gold == gold and not hud.radial.visible, "Invalid rock neither digs nor opens a build menu: "+str(p))
+			check(game.sim.grid[y][x] == TYPES.Tile.ROCK and game.sim.gold == gold and not game.catalog_open, "Invalid rock neither digs nor opens a build menu: "+str(p))
 	game.set_paused(true)
 	check(visible_cells().is_empty(), "Pause hides hints")
 	hud.world_tapped(cell); check(game.sim.gold == gold, "Pause cannot dig")

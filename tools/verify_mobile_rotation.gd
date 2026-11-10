@@ -20,7 +20,7 @@ func settle() -> void:
 
 func capture(hud: CanvasLayer, state: String) -> void:
 	await settle()
-	var panels: Array[Control] = [hud.header, hud.utilities, hud.speeds, hud.pose_bar, hud.catalog, hud.selection, hud.radial, hud.modal]
+	var panels: Array[Control] = [hud.header, hud.utilities, hud.speeds, hud.pose_bar, hud.catalog, hud.selection, hud.modal]
 	for panel in panels:
 		if panel.is_visible_in_tree():
 			check(hud._safe.grow(1).encloses(panel.get_global_rect()), "%s %s: visible %s rect=%s outside safe=%s" % [root.size, state, panel.name, panel.get_global_rect(), hud._safe])
@@ -64,9 +64,8 @@ func run() -> void:
 			hud._open_catalog(family); await capture(hud, "catalogue-%d" % family); hud._close_catalog()
 		game.choose_tool(TYPES.Tool.TRAP_SPIKE); await capture(hud, "placing"); game.cancel_selection()
 		game.select_cell(Vector2i(5,5)); await capture(hud, "selection"); game.cancel_selection()
-		hud.world_tapped(Vector2i(6,6)); await capture(hud, "radial"); hud.handle_back()
-		# Opening radial may centre its target; keep the user's new centre next time.
-		centre = input.camera.position
+		hud.dig_button.pressed.emit(); await capture(hud, "digging"); hud.handle_back()
+		check(input.camera.position.is_equal_approx(centre), "Changing tool preserves the camera centre")
 		game.set_paused(true); await capture(hud, "pause"); game.set_paused(false)
 		game.raid.raid_active = true; game.changed.emit(false); await capture(hud, "raid")
 		game.raid.raid_active = false; game.changed.emit(false)
@@ -85,11 +84,10 @@ func run() -> void:
 	root.size = Vector2i(844,390); await settle()
 	check(input._palette_button == null, "Rotation must cancel a catalogue drag")
 	check(hud.catalog.visible and hud.catalog.category == 2, "Rotation must keep the open catalogue family")
-	hud._close_catalog(); hud.world_tapped(Vector2i(6,6)); hud.radial._down = true
+	hud._close_catalog(); hud.dig_button.pressed.emit()
 	root.size = Vector2i(390,844); await settle()
-	check(not hud.radial._down, "Rotation must cancel a pending radial press")
-	check(hud.radial.visible, "Rotation must keep the radial open")
-	await capture(hud, "rotated-radial")
+	check(hud.dig_button.button_pressed and game.tool==TYPES.Tool.DIG, "Rotation preserves dig mode")
+	await capture(hud, "rotated-digging")
 	hud.handle_back()
 	# Real viewport touch: release at the newly projected cell after rotation.
 	root.size = Vector2i(844,390); await settle()
@@ -108,39 +106,46 @@ func run() -> void:
 	touch.position = view.get_global_transform_with_canvas()*view.grid_to_local(Vector2(target)+Vector2(.5,.5))
 	root.push_input(touch,true); await settle()
 	check(hash([game.sim.grid, game.sim.gold, game.sim.core_hp, game.sim.vault_gold]) == baseline, "Post-rotation touch release cannot purchase")
-	game.cancel_selection()
+	for block in hud.dig_targets.blocks:
+		if game.sim.grid[block.cell.y][block.cell.x] != TYPES.Tile.FLOOR: continue
+		var point: Vector2 = block.preview.get_global_transform_with_canvas().origin
+		if not hud.blocks_pointer(point) and hud.dig_targets.hit_cell(point/hud.scale.x)==block.cell:
+			target=block.cell
+			touch.position=point
+			break
 	touch = touch.duplicate(); touch.pressed = true; root.push_input(touch,true)
 	touch = touch.duplicate(); touch.pressed = false; root.push_input(touch,true); await settle()
-	check(hud.radial.visible and hud.radial.cell == target, "A fresh touch must work after rotation cancellation")
+	check(game.sim.grid[target.y][target.x] == TYPES.Tile.SPIKE, "A fresh touch must work after rotation cancellation")
 	hud.handle_back()
 	# Ordinary Control capture must not survive a viewport rotation either.
+	var button: Button = hud.build_buttons[hud.Catalog.TRAPS]
 	var clicks := [0]
-	hud.catalog_button.pressed.connect(func(): clicks[0] += 1)
+	button.pressed.connect(func(): clicks[0] += 1)
 	var mouse := InputEventMouseButton.new()
 	mouse.button_index = MOUSE_BUTTON_LEFT; mouse.pressed = true
-	mouse.position = hud.catalog_button.get_global_rect().get_center()*hud.scale.x
+	mouse.position = button.get_global_rect().get_center()*hud.scale.x
 	root.push_input(mouse,true); await process_frame
 	root.size = Vector2i(844,390); await settle()
 	mouse = mouse.duplicate(); mouse.pressed = false
-	mouse.position = hud.catalog_button.get_global_rect().get_center()*hud.scale.x
+	mouse.position = button.get_global_rect().get_center()*hud.scale.x
 	root.push_input(mouse,true); await settle()
 	check(clicks[0] == 0, "An ordinary button held through rotation must not activate on release")
 	mouse = mouse.duplicate(); mouse.pressed = true; root.push_input(mouse,true)
 	mouse = mouse.duplicate(); mouse.pressed = false; root.push_input(mouse,true); await settle()
-	check(clicks[0] == 1 and hud.catalog.visible, "A fresh button click must work after rotation")
-	hud._close_catalog()
+	check(clicks[0] == 1 and game.tool == TYPES.Tool.TRAP_SPIKE, "A fresh button click must work after rotation")
+	game.cancel_selection()
 	touch = InputEventScreenTouch.new(); touch.index = 0; touch.pressed = true
-	touch.position = hud.catalog_button.get_global_rect().get_center()*hud.scale.x
+	touch.position = button.get_global_rect().get_center()*hud.scale.x
 	root.push_input(touch,true); await process_frame
 	root.size = Vector2i(390,844); await settle()
 	touch = touch.duplicate(); touch.pressed = false
-	touch.position = hud.catalog_button.get_global_rect().get_center()*hud.scale.x
+	touch.position = button.get_global_rect().get_center()*hud.scale.x
 	root.push_input(touch,true); await settle()
 	check(clicks[0] == 1, "A button touch held through rotation must not activate on release")
 	touch = touch.duplicate(); touch.pressed = true; root.push_input(touch,true)
 	touch = touch.duplicate(); touch.pressed = false; root.push_input(touch,true); await settle()
-	check(clicks[0] == 2 and hud.catalog.visible, "A fresh button touch must work after rotation")
-	hud._close_catalog()
+	check(clicks[0] == 2 and game.tool == TYPES.Tool.TRAP_SPIKE, "A fresh button touch must work after rotation")
+	game.cancel_selection()
 	check(not FileAccess.file_exists(game.save_path), "Review must not write a save")
 	FileAccess.open(out + "results.json", FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"captures":records}, "\t"))
 	game.queue_free(); await process_frame

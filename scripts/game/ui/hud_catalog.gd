@@ -4,20 +4,24 @@ signal tool_chosen(tool: int)
 signal closed
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 const Types = preload("res://scripts/game/game_types.gd")
-const GROUPS := ["Terrain", "Doors", "Traps", "Treasures"]
-const GROUP_ICONS := ["pick", "door", "spike", "chest"]
+const GROUPS := ["Terrain", "Doors", "Traps", "Storage"]
+const GROUP_ICONS := ["pick", "door", "spike", "bag"]
+const DOORS := 1
+const TRAPS := 2
+const CHESTS := 3
 const TOOLS := [
 	[Types.Tool.BUILD_ENTRANCE, "Entrance", "Free", "door", 0],
 	[Types.Tool.REPAIR, "Repair", "Varies", "hammer", 0],
-	[Types.Tool.TRAP_SPIKE, "Spikes", "35 gold", "spike", 2],
-	[Types.Tool.BUILD_DOOR, "Door", "40 gold", "door", 1],
-	[Types.Tool.BUILD_REINFORCED_DOOR, "Reinforced door", "%d gold" % Types.COST_REINFORCED_DOOR, "door", 1],
-	[Types.Tool.TRAP_SNARE, "Snare", "30 gold", "snare", 2],
-	[Types.Tool.TRAP_VOID, "Void", "45 gold", "void", 2],
-	[Types.Tool.BUILD_MAGIC_DOOR, "Arcane door", "80 gold", "door", 1],
-	[Types.Tool.STORE, "Chest", "Free", "chest", 3],
-	[Types.Tool.STORE_LOCKED, "Locked", "40 gold", "locked", 3],
-	[Types.Tool.STORE_MAGIC, "Sealed", "80 gold", "chest", 3],
+	[Types.Tool.TRAP_SPIKE, "Spike trap", Types.COST_SPIKE, "spike", TRAPS],
+	[Types.Tool.BUILD_DOOR, "Wooden door", Types.COST_DOOR, "door", DOORS],
+	[Types.Tool.BUILD_REINFORCED_DOOR, "Reinforced door", Types.COST_REINFORCED_DOOR, "door", DOORS],
+	[Types.Tool.TRAP_SNARE, "Snare", Types.COST_SNARE, "snare", TRAPS],
+	[Types.Tool.TRAP_VOID, "Void trap", Types.COST_VOID, "void", TRAPS],
+	[Types.Tool.BUILD_MAGIC_DOOR, "Arcane door", Types.COST_MAGIC_DOOR, "door", DOORS],
+	[Types.Tool.STORE, "Chest", "Free", "chest", CHESTS],
+	[Types.Tool.GOLD_BAG, "Gold bag", "Free", "bag", CHESTS],
+	[Types.Tool.STORE_LOCKED, "Locked chest", Types.VAULT_PROTECTION_COSTS[1], "locked", CHESTS],
+	[Types.Tool.STORE_MAGIC, "Sealed chest", Types.VAULT_PROTECTION_COSTS[2], "chest", CHESTS],
 ]
 var category := 1
 var cards: Array[Dictionary] = []
@@ -37,12 +41,12 @@ func _ready() -> void:
 	heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var close := UI.button(header, "✕", func(): closed.emit())
-	close.tooltip_text = "Close catalog"
+	close.tooltip_text = tr("Close catalog")
 	count_label=UI.label(box,"",12,UI.MUTED)
 	tabs=HBoxContainer.new(); box.add_child(tabs)
 	tabs.add_theme_constant_override("separation",4)
 	for index in GROUPS.size():
-		var tab:=UI.button(tabs,GROUPS[index],func(): _choose_category(index))
+		var tab:=UI.button(tabs,tr(GROUPS[index]),func(): _choose_category(index))
 		tab.add_theme_font_size_override("font_size",11)
 		tab.add_theme_stylebox_override("normal",UI.command_surface(false,4))
 		tab.add_theme_stylebox_override("pressed",UI.command_surface(true,4))
@@ -64,7 +68,8 @@ func _ready() -> void:
 		card.custom_minimum_size = Vector2(0, 72)
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		card.toggle_mode = true
-		card.tooltip_text = definition[1]
+		card.tooltip_text = tr(definition[1])
+		card.accessibility_name = card.tooltip_text
 		var contents := HBoxContainer.new()
 		contents.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		card.add_child(contents)
@@ -80,12 +85,11 @@ func _ready() -> void:
 		words.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		words.add_theme_constant_override("separation", 1)
 		contents.add_child(words)
-		var caption := UI.label(words, definition[1], 13)
+		var caption := UI.label(words, tr(definition[1]), 13)
 		caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		UI.label(words, definition[2], 11, UI.GOLD)
-		var lock_label := UI.label(words, "", 11, UI.MUTED)
+		UI.label(words, price_text(definition), 11, UI.GOLD)
 		words.minimum_size_changed.connect(func(): card.custom_minimum_size.y=maxf(72,words.get_combined_minimum_size().y+20))
-		cards.append({"button": card, "contents": contents, "lock": lock_label, "id": id, "category": definition[4]})
+		cards.append({"button": card, "contents": contents, "unlocked": false, "id": id, "category": definition[4]})
 	_choose_category(category)
 
 func fit_width(width: float) -> void:
@@ -100,30 +104,38 @@ func preferred_height() -> float:
 
 func _choose_category(index: int) -> void:
 	category = index
-	heading.text = GROUPS[index]
-	for card in cards: card.button.visible = card.category == index
+	heading.text = tr(GROUPS[index])
+	var available := 0
+	for card in cards:
+		card.button.visible = card.category == index and card.unlocked
+		if card.button.visible: available += 1
 	for i in tab_buttons.size(): tab_buttons[i].set_pressed_no_signal(i==index)
 	if is_instance_valid(count_label):
-		var unlocked:=0; var total:=0
-		for card in cards:
-			if card.category==index:
-				total+=1
-				if not card.lock.visible: unlocked+=1
-		count_label.text="%d / %d unlocked · tap to select" % [unlocked,total]
+		count_label.text=tr("Available: %d") % available
 
 func refresh(session: IsometricGameSession) -> void:
 	for card in cards:
 		var unlocked: bool = session.progression.allows(card.id)
 		card.button.disabled = not session.can_edit() or not session.sim._has_core() or not unlocked
 		card.contents.modulate = Color.WHITE if not card.button.disabled else Color("9f9e9c")
-		card.lock.text = "Lv. %d" % session.progression.required_level(card.id) if not unlocked else ""
-		card.lock.visible = not unlocked
+		card.unlocked = unlocked
 		card.button.set_pressed_no_signal(session.tool == card.id)
 	_choose_category(category)
 
+static func price_text(item: Array, compact := false) -> String:
+	if item[2] is int:
+		return str(item[2]) if compact else TranslationServer.translate("%d gold") % item[2]
+	return TranslationServer.translate(item[2])
+
+static func unlocked_items(category_id: int, progression: CoreProgression) -> Array[Array]:
+	var items: Array[Array] = []
+	for item in TOOLS:
+		if item[4] == category_id and progression.allows(item[0]): items.append(item)
+	return items
+
 static func definition(tool: int) -> Array:
 	# Legacy/probe commands can still use Dig; it is no longer a menu item.
-	if tool == Types.Tool.DIG: return [tool, "Dig", "%d gold" % Types.COST_DIG, "pick", 0]
+	if tool == Types.Tool.DIG: return [tool, "Dig", Types.COST_DIG, "pick", 0]
 	for item in TOOLS:
 		if item[0] == tool: return item
 	return [Types.Tool.NONE, "Core", "Free", "gem", 0]

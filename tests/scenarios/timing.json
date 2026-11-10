@@ -4,7 +4,7 @@
   "initial":"prepared",
   "seed":7,
   "steps":[
-    {"action":"build","tool":"STORE","cell":[7,9]},
+    {"action":"build","tool":"GOLD_BAG","cell":[7,9]},
     {"action":"pause","value":true},
     {"action":"advance","seconds":1},
     {"action":"assert","probe":"raid","field":"timer","op":"eq","value":25},

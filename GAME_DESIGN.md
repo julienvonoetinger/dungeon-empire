@@ -56,10 +56,10 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
   mineur peut creuser. Après le creusement, le menuisier propose ses portes et le Maître
   passe au niveau 2. Le joueur choisit une case de passage entre deux murs et y
   pose une porte en bois. Le scientifique propose alors ses pièges. Au niveau 3,
-  le joueur pose un piège à pointes sur une case de sol libre, puis installe son
-  coffre dans l’alcôve creusée. Le creusement (5), la porte (40) et les pointes
-  (35) laissent 20 pièces dans le dernier sac. Le premier coffre les recueille.
-- Une fois le coffre installé, les trois artisans remontent l’escalier. L’invocateur
+  le joueur pose un piège à pointes sur une case de sol libre. La case creusée
+  peut accueillir une défense si elle convient. Le creusement (5), la porte (40) et les pointes
+  (35) laissent 20 pièces dans les sacs du don.
+- Une fois le piège posé, les trois artisans remontent l’escalier. L’invocateur
   reste auprès du Cœur et demande à un Oculin du village de jouer l’intrus.
   « Lancer l’exercice » fait entrer le volontaire dans le donjon du joueur.
   Il cherche un chemin jusqu’au Cœur, contourne les portes fermées si un autre
@@ -68,7 +68,7 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
   reste visible autour des pieds de l’Oculin. L’invocateur commente ce qu’il a vu.
 - L’exercice est gratuit. Le Cœur, l’or et les défenses gardent leur état.
   Le premier raid et son compte à rebours attendent le passage en jeu libre.
-  Quitter pendant l’essai reprend au départ des artisans, coffre déjà posé.
+  Quitter pendant l’essai reprend au départ des artisans, avec la porte et le piège en place.
   Après le bilan, « Jouer librement » sauvegarde la fin de l’exercice.
   L’invocateur reste dans le donjon.
 - Creusement : 5 or, voisin cardinal d'un espace excavé. La roche soutenant
@@ -88,25 +88,26 @@ Ces fonctionnalités sont implémentées ; la validation interactive complète r
 | Élément/action | Prix | État et contrainte |
 | --- | ---: | --- |
 | Sac du village | Don | Capacité 50, traversable, pièces disponibles dès le dépôt |
-| Coffre simple | 0 | Capacité 150, traversable |
-| Coffre verrouillé / scellé | 40 / 80 | Capacité 150 ; le scellé requiert le niveau 4 |
+| Sac d’or | 0 | Case de sol libre, capacité 50. Le sac reste en place une fois vidé. |
+| Coffre simple | 0 | Verrouillé, capacité 150 |
+| Coffre verrouillé / scellé | 40 / 80 | Verrouillés, capacité 150 |
 | Pointes | 35 | Niveau 3, 3 charges, 30 dégâts (20 contre le Paladin) |
-| Entrave | 30 | Niveau 2, 3 charges, 16 dégâts et arrêt de 3 secondes |
-| Néant | 45 | Niveau 3, 1 charge, bannissement vivant du visiteur avec son butin |
+| Entrave | 30 | Verrouillé, 3 charges, 16 dégâts et arrêt de 3 secondes |
+| Néant | 45 | Verrouillé, 1 charge, bannissement vivant du visiteur avec son butin |
 | Porte en bois | 40 | Niveau 2, 60 PV ; passage entre deux murs |
-| Porte renforcée en fer | 60 | 120 PV, disponible au niveau 2 |
-| Porte magique | 80 | 60 PV, disponible au niveau 4 |
+| Porte renforcée en fer | 60 | Verrouillée, 120 PV |
+| Porte magique | 80 | Verrouillée, 60 PV |
 | Entrée | 0 | Unique, permanente |
 | Réparer porte ou protection de coffre | 15 | Restaure intégralement / referme la protection |
 | Réparer piège | 10 par charge | Autant de charges manquantes que l'or permet |
 
 Les achats puisent d’abord dans les sacs, dans l’ordre de dépôt. Les coffres
 conservent chacun leur contenu et reçoivent l’or des sacs dans la limite de leur
-capacité. Un raid exige une capacité totale suffisante dans les coffres. Les transferts
+capacité. Un raid exige une capacité suffisante dans les sacs et les coffres existants. Les transferts
 entre coffres sont gratuits, limités au solde source et à la place disponible.
 Améliorer un coffre facture la différence de protection ; répétition et baisse
 de gamme sont refusées. Supprimer du stockage peut laisser le surplus en butin.
-Ramasser ne dépose que ce qui tient dans les coffres. Absorber un corps donne
+Le ramassage remplit les emplacements de stockage dans la limite de leur capacité. Absorber un corps donne
 2 PV au cœur (maximum 100) ; le bouton explicite confirme l'absorption.
 
 ### Salle au trésor secrète
@@ -201,7 +202,7 @@ Les visiteurs survivants gardent identité, personnalité, XP et découvertes ;
 un mort ne revient pas. Choix 50 % ancien visiteur éligible / 50 % recrue,
 sans reprendre l'individu du raid immédiatement précédent. Les règles de
 pression du Mage et d'XP d'expédition de `v1.0.0` sont conservées. Le cœur gagne
-25 XP par héros tué ; seuils de niveau 0/60/150/280, déblocages 2/3/4 ci-dessus.
+25 XP par héros tué ; seuils de niveau 0/60/150/280, la porte en bois se débloque au niveau 2 et les pointes au niveau 3. Les coffres et les variantes avancées attendent un futur palier.
 Les anciens réglages `testing/vulpin_only` et `testing/unlock_defenses` ne sont
 pas activés. Pas de groupes, monstres défenseurs, recherches ou monde extérieur.
 
@@ -209,14 +210,19 @@ pas activés. Pas de groupes, monstres défenseurs, recherches ou monde extérie
 
 Projection 2:1 et zoom fixe **0,75**. Glisser sur le donjon au doigt ou à la souris
 déplace la vue. Après choix d'un outil, toucher une case libre construit directement
-et garde l'outil actif. Le glissement depuis une icône de palette affiche une cible
-52 unités au-dessus du doigt ; relâcher dans le monde applique la même action.
-Un glissement commencé dans le monde ne construit pas. Sans outil, toucher
-sélectionne une case. Ancrage initial du cœur et remplacement/retrait d'un objet
-demandent toujours **Confirmer**. Les réparations utilisent la pose directe.
-Pas de zoom, rotation ni suivi automatique ; bouton de recentrage dans **Voir**.
+et garde l'outil actif.
+Le bouton **Dig** active ou désactive le creusement en série.
+Les pioches flottantes indiquent les cases creusables tant que le mode est actif.
+À droite de **Dig** apparaissent les portes et les pièges appris, suivis du sac gratuit.
+Un modèle débloqué occupe directement le bouton principal. Plusieurs modèles
+apparaissent côte à côte juste au-dessus du bandeau de pierre, chacun avec
+son icône et son prix en pastille. Un liseré violet marque la commande active.
+Les emplacements des portes et des pièges s’éclairent à la sélection. L’or est débité à la pose.
+Sans outil, toucher une structure ouvre sa fiche et toucher un sol libre laisse
+la vue en place. Ancrage initial du cœur et remplacement/retrait d'un objet
+demandent toujours **Confirmer**. L’œil du Maître ouvre le menu de pause.
 Un second doigt annule le geste. Perte de focus : pause,
-sans reprise automatique. Échap et le bouton Pause ne ferment pas implicitement
+sans reprise automatique. Échap et l’œil du Maître ne ferment pas implicitement
 une confirmation de redémarrage ; annuler celle-ci revient au menu de pause.
 
 Le HUD **Forge en pierre et violet** adopte la maquette v9, dans une zone réservée

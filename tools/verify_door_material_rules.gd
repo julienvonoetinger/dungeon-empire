@@ -40,8 +40,10 @@ func check_reinforced(game, tool: int, tile: int) -> void:
 	var raid: RaidDirector = game.raid
 	var gold := sim.gold
 	check(not game.check_action(GATE, tool).valid, "Core level one cannot build the reinforced door")
-	game.progression.xp = 60
-	check(game.check_action(GATE, tool).cost == 60, "Core level two quotes 60 gold")
+	game.progression.xp = 280
+	check(not game.check_action(GATE, tool).valid, "The advanced model has no gameplay unlock yet")
+	game.progression.testing_unlock_defenses = true
+	check(game.check_action(GATE, tool).cost == 60, "Isolated material preview quotes 60 gold")
 	game.choose_tool(tool)
 	game.activate_cell(GATE)
 	check(sim.gold == gold and sim.grid[GATE.y][GATE.x] == 7, "Replacing a legacy standard door requires confirmation")

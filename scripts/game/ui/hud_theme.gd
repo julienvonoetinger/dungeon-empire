@@ -85,6 +85,7 @@ static func create() -> Theme:
 
 static func build_site_icon(tool: int) -> Texture2D:
 	match tool:
+		GameTypes.Tool.GOLD_BAG: return icon("bag")
 		GameTypes.Tool.BUILD_DOOR, GameTypes.Tool.BUILD_REINFORCED_DOOR, GameTypes.Tool.BUILD_MAGIC_DOOR: return icon("door")
 		GameTypes.Tool.TRAP_SPIKE: return icon("spike")
 		GameTypes.Tool.TRAP_SNARE: return icon("snare")
@@ -92,6 +93,7 @@ static func build_site_icon(tool: int) -> Texture2D:
 	return null
 
 static func icon(name: String) -> Texture2D:
+	if name=="bag": return preload("res://assets/game/introduction/village-gold-bag.png")
 	if _icons.has(name): return _icons[name]
 	if name=="pick": return preload("res://assets/ui/master/dark-icons/dig.png")
 	if name in ["cross","pause"]: return load("res://assets/ui/master/stone-menu/"+name+".svg")
@@ -164,38 +166,55 @@ static func intro_button(parent: Node, text: String, action: Callable, over_art 
 	return item
 
 static func set_intro_advance(item: Button, advance: bool) -> void:
-	item.icon = preload("res://assets/ui/black-gold/arrow.svg") if advance else null
+	item.icon = preload("res://assets/ui/master/stone-menu/story-next.png") if advance else null
 	item.add_theme_color_override("font_color", Color("f2d18b") if advance else Color("d4deed"))
 
-## Icon above a short visible label: actions stay understandable without tooltips.
-static func tile(parent: Node, glyph: String, text: String, action: Callable) -> Button:
+## Strip actions share their parent's stone. Keyboard focus uses one edge.
+static func strip_action(item: Button) -> void:
+	var empty := StyleBoxEmpty.new()
+	for state in ["normal", "hover", "pressed", "hover_pressed", "disabled"]:
+		item.add_theme_stylebox_override(state, empty)
+	var focus := flat(Color.TRANSPARENT, 0)
+	focus.border_width_bottom = 2
+	focus.border_color = Color("e3ca91")
+	item.add_theme_stylebox_override("focus", focus)
+
+static func tile(parent: Node, image: Texture2D, text: String, action: Callable) -> Button:
 	var item := button(parent, "", action)
-	for state in ["normal","hover","pressed"]:
-		var circle:=round_surface(state=="pressed")
-		item.add_theme_stylebox_override(state,circle)
-	var disabled:=round_surface()
-	disabled.modulate_color=Color(.48,.48,.55)
-	item.add_theme_stylebox_override("disabled",disabled)
-	item.custom_minimum_size = Vector2(56, 58)
+	strip_action(item)
+	item.toggle_mode = true
+	item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	item.draw.connect(func():
+		if item.disabled: return
+		var area := Rect2(Vector2.ZERO, item.size).grow_side(SIDE_TOP, -1)
+		if item.button_pressed:
+			item.draw_rect(area, Color("a76cff2e"))
+			item.draw_rect(Rect2(0, item.size.y - 3, item.size.x, 3), Color("c599fb"))
+		elif item.is_hovered():
+			item.draw_rect(area, Color("b5cbea16")))
+	item.custom_minimum_size = Vector2(48, 48)
 	item.tooltip_text = text
-	var box := VBoxContainer.new()
+	var box := BoxContainer.new()
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	box.alignment = BoxContainer.ALIGNMENT_CENTER
-	box.add_theme_constant_override("separation", 1)
 	item.add_child(box)
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	box.offset_left = 8; box.offset_right = -8; box.offset_top = 5; box.offset_bottom = -5
-	var mark := picture(box, glyph, 24)
+	var mark := _picture(box, image, 28)
 	mark.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	var words := label(box, text, 11)
+	mark.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var words := label(box, text, 15)
 	words.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	words.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	item.set_meta("mark", mark)
 	item.set_meta("words", words)
 	return item
 
 static func picture(parent: Node, glyph: String, extent: float = 36) -> TextureRect:
+	return _picture(parent, icon(glyph), extent)
+
+static func _picture(parent: Node, image: Texture2D, extent: float) -> TextureRect:
 	var item := TextureRect.new()
-	item.texture = icon(glyph)
+	item.texture = image
 	item.custom_minimum_size = Vector2.ONE * extent
 	item.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	item.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED

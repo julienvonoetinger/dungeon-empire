@@ -2,14 +2,17 @@ class_name CoreProgression
 extends RefCounted
 
 const THRESHOLDS := [0, 60, 150, 280]
+const NOT_YET_AVAILABLE := -1
 const REQUIRED_LEVEL := {
 	GameTypes.Tool.BUILD_DOOR: 2,
 	GameTypes.Tool.TRAP_SPIKE: 3,
-	GameTypes.Tool.TRAP_SNARE: 2,
-	GameTypes.Tool.BUILD_REINFORCED_DOOR: 2,
-	GameTypes.Tool.TRAP_VOID: 3,
-	GameTypes.Tool.BUILD_MAGIC_DOOR: 4,
-	GameTypes.Tool.STORE_MAGIC: 4,
+	GameTypes.Tool.TRAP_SNARE: NOT_YET_AVAILABLE,
+	GameTypes.Tool.BUILD_REINFORCED_DOOR: NOT_YET_AVAILABLE,
+	GameTypes.Tool.TRAP_VOID: NOT_YET_AVAILABLE,
+	GameTypes.Tool.BUILD_MAGIC_DOOR: NOT_YET_AVAILABLE,
+	GameTypes.Tool.STORE: NOT_YET_AVAILABLE,
+	GameTypes.Tool.STORE_LOCKED: NOT_YET_AVAILABLE,
+	GameTypes.Tool.STORE_MAGIC: NOT_YET_AVAILABLE,
 }
 var xp := 0
 var invocation_xp := 0
@@ -28,7 +31,8 @@ func level() -> int:
 	return value
 
 func allows(tool: int) -> bool:
-	return not awaiting_miner and tool >= 0 and tool < GameTypes.Tool.size() and (testing_unlock_defenses or level() >= required_level(tool))
+	var required := required_level(tool)
+	return not awaiting_miner and tool >= 0 and tool < GameTypes.Tool.size() and (testing_unlock_defenses or (required != NOT_YET_AVAILABLE and level() >= required))
 
 func required_level(tool: int) -> int:
 	return int(REQUIRED_LEVEL.get(tool, 1))

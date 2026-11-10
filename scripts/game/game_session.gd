@@ -42,9 +42,9 @@ var _build_history: Array[Dictionary] = []
 func _ready() -> void:
 	# Explicit manual-review slot; never touches the player's current dungeon.
 	if persistence_enabled and OS.get_cmdline_user_args().has("--forge-review"):
-		get_window().title = "Forge · Review"
+		get_window().title = tr("Forge · Review")
 	elif persistence_enabled and OS.get_cmdline_user_args().has("--review-session"):
-		get_window().title = "Dungeon Empire · Review"
+		get_window().title = tr("Dungeon Empire · Review")
 	sim.raid = raid
 	raid.sim = sim
 	raid.solid_core = true
@@ -52,10 +52,10 @@ func _ready() -> void:
 	sim.new_map()
 	var data := Save.read_save(save_path) if persistence_enabled else {}
 	if not data.is_empty() and Save.apply(data, sim, raid, progression):
-		notice = "Dungeon restored. Preparation resumes."
+		notice = tr("Dungeon restored. Preparation resumes.")
 	elif persistence_enabled and (FileAccess.file_exists(save_path) or FileAccess.file_exists(save_path + ".bak")):
 		save_blocked = true
-		save_error = "The save could not be read. It has been kept. Start a new dungeon to play again."
+		save_error = tr("The save could not be read. It has been kept. Start a new dungeon to play again.")
 	else:
 		sim._place_core(Types.core_origin_cell())
 		notice = sim.message
@@ -124,9 +124,12 @@ func activate_cell(cell: Vector2i) -> void:
 	if tool == Types.Tool.NONE or not sim._has_core():
 		select_cell(cell)
 		return
+	if tool == Types.Tool.DIG:
+		dig_cell(cell)
+		return
 	var action := check_action(cell)
 	if not action.get("valid",false):
-		notice = str(action.get("reason","Cannot place here."))
+		notice = str(action.get("reason",tr("Cannot place here.")))
 		report_rejected_action(cell)
 		changed.emit(false)
 		return
@@ -139,10 +142,9 @@ func activate_cell(cell: Vector2i) -> void:
 		return
 	confirm_action()
 
-## One-shot excavation from the world. Keep the usual validation, undo and
-## save transaction, without arming a tool that could remove an occupied tile.
+## Excavation is rock-only, both in the guided lesson and in repeat dig mode.
 func dig_cell(cell: Vector2i) -> void:
-	if not can_edit() or catalog_open or tool != Types.Tool.NONE or not sim._has_core(): return
+	if not can_edit() or catalog_open or tool not in [Types.Tool.NONE, Types.Tool.DIG] or not sim._has_core(): return
 	if not sim._inside(cell) or sim.grid[cell.y][cell.x] != Types.Tile.ROCK: return
 	selected = cell
 	confirm_action(Types.Tool.DIG)
@@ -167,7 +169,7 @@ func undo_build() -> void:
 	for field in FIELDS: sim.set(field,state[field])
 	raid.kingdom_knowledge = state.knowledge
 	raid.raid_timer = state.timer
-	notice = "Last build undone."
+	notice = tr("Last build undone.")
 	_after_edit()
 
 func cancel_selection() -> void:
@@ -188,23 +190,22 @@ func available_build_sites(build_tool: int) -> Array[Vector2i]:
 	return sites
 
 func check_action(cell: Vector2i, requested_tool: int = -1) -> Dictionary:
-	if not can_edit() or not sim._inside(cell): return {"valid": false, "reason": "Action unavailable", "cost": 0}
+	if not can_edit() or not sim._inside(cell): return {"valid": false, "reason": tr("Action unavailable"), "cost": 0}
 	var action_tool := tool if requested_tool < 0 else requested_tool
 	match sim.lesson:
 		Types.Lesson.ALCOVE:
 			if action_tool != Types.Tool.DIG or sim.grid[cell.y][cell.x] != Types.Tile.ROCK:
-				return {"valid":false, "reason":"Touchez une pioche pour creuser à cet endroit.", "cost":0}
+				return {"valid":false, "reason":tr("Tap a pickaxe to dig here."), "cost":0}
 		Types.Lesson.DOOR:
 			if action_tool != Types.Tool.BUILD_DOOR or not sim.is_lesson_build_site(cell,Types.Tile.DOOR):
-				return {"valid":false, "reason":"Choisissez un passage entre deux murs.", "cost":0}
+				return {"valid":false, "reason":tr("Choose a passage between two walls."), "cost":0}
 		Types.Lesson.SPIKES:
 			if action_tool != Types.Tool.TRAP_SPIKE or not sim.is_lesson_build_site(cell,Types.Tile.SPIKE):
-				return {"valid":false, "reason":"Choisissez une case de sol libre.", "cost":0}
-		Types.Lesson.CHEST:
-			if cell != sim.lesson_alcove or action_tool != Types.Tool.STORE:
-				return {"valid":false, "reason":"Installez le coffre dans l’alcôve.", "cost":0}
+				return {"valid":false, "reason":tr("Choose an empty floor tile."), "cost":0}
 	if sim._has_core() and not progression.allows(action_tool):
-		return {"valid": false, "reason": "Core level %d required" % progression.required_level(action_tool), "cost": 0}
+		if progression.required_level(action_tool) == CoreProgression.NOT_YET_AVAILABLE:
+			return {"valid": false, "reason": tr("This structure is still locked."), "cost": 0}
+		return {"valid": false, "reason": tr("Core level %d required") % progression.required_level(action_tool), "cost": 0}
 	var copy := DungeonSim.new()
 	for field in FIELDS:
 		var value = sim.get(field)
@@ -228,7 +229,7 @@ func _apply(target: DungeonSim, cell: Vector2i, requested_tool: int = -1) -> voi
 		else: target.repair_vault(cell)
 		return
 	if target.grid[cell.y][cell.x] == Types.Tile.ROCK and action_tool != Types.Tool.DIG:
-		target.message = "Dig this tile before building."
+		target.message = tr("Dig this tile before building.")
 		return
 	target.selected_tool = action_tool
 	target._build_at(cell)
@@ -261,7 +262,7 @@ func confirm_action(requested_tool: int = -1) -> void:
 	var previous_rooms := sim.treasure_rooms().size()
 	_apply(sim, selected, requested_tool)
 	sim._storage_state()
-	notice = "Treasure room discovered! +%d storage capacity." % Types.TREASURY_CAPACITY_BONUS if sim.treasure_rooms().size() > previous_rooms else "Action complete."
+	notice = tr("Treasure room discovered! +%d storage capacity.") % Types.TREASURY_CAPACITY_BONUS if sim.treasure_rooms().size() > previous_rooms else tr("Action complete.")
 	var used := tool if requested_tool < 0 else requested_tool
 	match sim.lesson:
 		Types.Lesson.DOOR:
@@ -273,9 +274,7 @@ func confirm_action(requested_tool: int = -1) -> void:
 				sim.lesson_alcove = selected
 				sim.lesson = Types.Lesson.MEET_CARPENTER
 		Types.Lesson.SPIKES:
-			if used == Types.Tool.TRAP_SPIKE: sim.lesson = Types.Lesson.CHEST
-		Types.Lesson.CHEST:
-			if selected == sim.lesson_alcove and used == Types.Tool.STORE:
+			if used == Types.Tool.TRAP_SPIKE:
 				sim.lesson = Types.Lesson.PRACTICE_RAID
 				notice = ""
 	presentation_event.emit("placed")
@@ -298,7 +297,7 @@ func collect_selected() -> void:
 			bag.gold -= amount
 			total += amount
 	sim.loot_bags = sim.loot_bags.filter(func(bag): return bag.gold > 0)
-	notice = "%d gold collected (limited by chest capacity)." % total
+	notice = tr("%d gold collected (limited by storage capacity).") % total
 	_after_edit()
 
 func absorb_selected() -> void:
@@ -308,7 +307,7 @@ func absorb_selected() -> void:
 		if corpse.pos == selected:
 			sim.corpses.erase(corpse)
 			sim.core_hp = mini(Types.CORE_MAX, sim.core_hp + 2)
-			notice = "Corpse absorbed: +2 Core HP."
+			notice = tr("Corpse absorbed: +2 Core HP.")
 			_after_edit()
 			return
 
@@ -316,20 +315,20 @@ func transfer_selected(destination: Vector2i, amount: int) -> void:
 	if not can_edit() or selected.x < 0: return
 	_build_history.clear()
 	var moved := sim.transfer_gold(selected, destination, amount)
-	notice = "%d gold transferred." % moved
+	notice = tr("%d gold transferred.") % moved
 	_save()
 	changed.emit(false)
 
 func start_raid() -> void:
 	if not can_edit() or not ready_for_raid(): return
 	if not _save():
-		notice = "Save the prepared dungeon before starting the raid."
+		notice = tr("Save the prepared dungeon before starting the raid.")
 		changed.emit(false)
 		return
 	_build_history.clear()
 	cancel_selection()
 	raid._start_raid()
-	notice = "The hero explores on their own. Watch the raid."
+	notice = tr("The hero explores on their own. Watch the raid.")
 	changed.emit(true)
 
 func _raid_finished(_result: Dictionary) -> void:
@@ -337,7 +336,7 @@ func _raid_finished(_result: Dictionary) -> void:
 	result_open = true
 	selected = Vector2i(-1, -1)
 	tool = Types.Tool.NONE
-	notice = "Raid complete. Review the results."
+	notice = tr("Raid complete. Review the results.")
 	_save()
 	changed.emit(true)
 
@@ -346,7 +345,7 @@ func continue_preparation() -> void:
 	result_open = false
 	paused = false
 	raid.raid_timer = Types.RAID_DELAY
-	notice = "Repair your defenses and prepare for the next raid."
+	notice = tr("Repair your defenses and prepare for the next raid.")
 	changed.emit(false)
 
 func set_paused(value: bool) -> void:
@@ -425,7 +424,7 @@ func restart(prepared: bool, introduction := false) -> void:
 		sim._place(Vector2i(5, 8), Types.Tile.DOOR, Types.COST_DOOR)
 		sim._place(Vector2i(6, 8), Types.Tile.SPIKE, Types.COST_SPIKE)
 		sim._storage_state()
-		notice = "Demo dungeon: 245 gold, a door and a spike trap. Start the raid."
+		notice = tr("Demo dungeon: 245 gold, a door and a spike trap. Start the raid.")
 		# Inspection keeps the preparation countdown stopped for the first look.
 		selected = Vector2i(8, 8)
 	else:
@@ -443,7 +442,7 @@ func _save() -> bool:
 	var data := Save.capture(sim, raid, progression)
 	if not persistence_enabled: return true
 	var ok := Save.write_save(save_path, data)
-	save_error = "" if ok else "Could not save: your previous save has been kept."
+	save_error = "" if ok else tr("Could not save: your previous save has been kept.")
 	return ok
 
 func _notification(what: int) -> void:

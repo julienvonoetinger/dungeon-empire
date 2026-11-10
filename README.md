@@ -43,7 +43,9 @@ n'ont pas été modifiées pour ajouter le gameplay.
 
 ## Jouer
 
-Appuyer sur **F5** dans Godot pour lancer le menu principal. **Continuer** reprend
+Appuyer sur **F5** dans Godot pour lancer le menu principal. Le jeu démarre en anglais.
+Pour suivre ces instructions en français, choisir **Français** en haut à droite du
+menu. Ce choix est mémorisé pour les prochaines parties. **Continuer** reprend
 la sauvegarde. **Nouvelle partie** ouvre le prologue des Oculins. Aldren, roi de
 Valdorne, veut ouvrir une route à travers leur col. Après le refus des anciens,
 son armée prend le village. Réfugiés dans les grottes, les survivants décident
@@ -55,27 +57,25 @@ Des dialogues écrits accompagnent la scène. Le Maître crée un escalier, desc
 suivi de l’invocateur et rejoint le Cœur, dont la sphère s’éveille à son arrivée.
 Cette transition dans le donjon dure neuf secondes. Pour revoir le rite seul, ouvrez
 `scenes/game/InvocationIsometrique.tscn` et appuyez sur **F6**. Le
-tutoriel guide le don d’or, le creusement d’une alcôve, la pose d’une porte,
-d’un piège et du premier coffre. Les artisans repartent, puis l’invocateur propose
+tutoriel guide le dépôt des deux sacs d’or, le creusement d’une case, la pose d’une porte
+et celle d’un piège à pointes. Les artisans repartent dès que le piège est posé, puis l’invocateur propose
 un raid d’entraînement. Pour tester directement cette fin de tutoriel, ouvrir
-`scenes/previews/OculinPracticeRaid.tscn` avec **F6** et choisir **Poser un coffre**.
+`scenes/previews/OculinPracticeRaid.tscn` avec **F6**. L’aperçu débute au départ des artisans.
 Cet aperçu utilise une partie en mémoire. Si un donjon existe déjà dans le menu principal, le jeu demande de confirmer
 son remplacement. Pour accéder directement à la scène de jeu,
 ouvrir `scenes/game/DungeonGame.tscn`, puis appuyer sur **F6**. Choisir un nouveau
 donjon, ou **Donjon d'essai** puis confirmer pour disposer d'une entrée, d'une
 porte, de pointes et de trois coffres. **Lancer le raid** commence l'expédition.
 
-Glisser sur le donjon déplace la vue ; le zoom reste fixe. Choisir un outil puis
-toucher les cases pour poser en série, ou glisser l'outil depuis la palette.
-**↶** annule la dernière construction de cette session. Le jeu demande une
-confirmation avant de remplacer un objet.
-La **Forge en pierre et violet** réserve une colonne aux commandes, hors de la
-vue du donjon. Le catalogue commence directement par **Terrain, Portes, Pièges
-et Trésors** : choisir une famille puis son outil, qui reste actif pour poser
-en série. **Voir** réduit cette colonne. Les cibles gardent au moins
-48 unités d'interface. Les coffres se gèrent via un panneau contextuel avec
-transferts à l'unité ; les longs panneaux et bilans peuvent défiler. Le menu
-accessible par la trésorerie ou Pause propose **Lancer le raid**.
+Glisser sur le donjon déplace la vue. En jeu libre, **Dig**, dans la barre du bas,
+active les pioches des cases creusables.
+Toucher une pioche ou la roche visible creuse une case pour 5 pièces. Appuyer
+de nouveau sur **Dig** quitte ce mode. À droite figurent la porte standard dès le niveau 2, les pointes dès le niveau 3
+et le sac d’or gratuit (50 pièces de capacité). Les coffres et les variantes avancées restent verrouillés. Avec un seul modèle, le bouton
+active directement sa pose. Avec plusieurs modèles, une rangée s’ouvre juste
+au-dessus du bandeau. Le prix figure sous chaque modèle. Choisissez un modèle, puis touchez une case.
+Toucher une structure ouvre sa fiche. Le remplacement
+et le retrait d’un objet demandent confirmation. L’œil du Maître ouvre le menu de pause.
 Le timer reste visible au-dessus des panneaux, avec son état de pause pendant
 la construction. Les couronnes dorées avec des pièces indiquent le remplissage
 des coffres ; les couronnes cuivrées des pièges montrent les charges restantes.
@@ -184,8 +184,15 @@ node tools/prepare_android_game.cjs
 $stage = (Get-Content build/android-game-inventory.json -Raw | ConvertFrom-Json).staging
 # Remplacer godot par le chemin de Godot 4.7.2 si nécessaire.
 godot --headless --path $stage --editor --import
-godot --headless --path $stage --export-debug "Android Game" "$PWD/build/dungeon-empire-0.1.11-test-oculins.apk"
+godot --headless --path $stage --export-debug "Android Game" "$PWD/build/dungeon-empire-0.1.21-test-universel.apk"
+godot --headless --path $stage --export-debug "Android Game ARM64" "$PWD/build/dungeon-empire-0.1.21-test-arm64.apk"
+python tools/verify_android_story_art.py build/dungeon-empire-0.1.21-test-universel.apk
 ```
+
+Les deux APK contiennent le même jeu. La variante ARM64 économise le poids du
+moteur 32 bits. L’export conserve les WebP originaux du prologue, compresse en
+haute qualité les planches d’animation peintes et limite à 1024 pixels les
+textures du Maître rendu dans une vue de 512 pixels.
 
 Les modèles Android correspondant à la version de Godot, le JDK et le SDK Android
 doivent être installés et configurés dans Godot. Cet APK de test signé couvre

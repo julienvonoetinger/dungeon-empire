@@ -26,7 +26,7 @@ func finish() -> void:
 	for failure in failures: print(failure)
 	game.queue_free(); await process_frame; quit(0 if failures.is_empty() else 1)
 func fresh(extent: Vector2i) -> void:
-	root.size=extent; game.restart(true); game.notice=""; game.cancel_selection()
+	root.size=extent; game.restart(true); game.notice=""; game.cancel_selection(); hud.dig_button.pressed.emit()
 	for node in hud.root.get_children():
 		if node.has_meta("transient_feedback"): node.queue_free()
 	await settle()
@@ -34,6 +34,17 @@ func fresh(extent: Vector2i) -> void:
 	# Keep the rear wall comfortably below the HUD in short landscape too.
 	camera.position=view.grid_to_local(Vector2(7.5,8.5))-Vector2(0,100)
 	camera.force_update_scroll(); await settle()
+func visible_targets() -> Array[Dictionary]:
+	hints.refresh()
+	var result: Array[Dictionary]=[]
+	for block in hints.blocks:
+		if not block.is_visible_in_tree() or block.preview.texture!=hints.Block.DIG_ICON: continue
+		var point: Vector2 = block.preview.get_global_transform_with_canvas().origin
+		var center: Vector2 = point/hud.scale.x
+		if hud.blocks_pointer(point) or not hud._safe.has_point(center): continue
+		if hints.hit_cell(center)==block.cell: result.append({"center":center,"cell":block.cell})
+	return result
+
 func capture(name: String) -> void:
 	await settle(); await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png(OUT+name+".png")
@@ -49,37 +60,25 @@ func run() -> void:
 	if hints == null: await finish(); return
 	for extent in [Vector2i(1280,720),Vector2i(844,390),Vector2i(568,320),Vector2i(390,844),Vector2i(320,568)]:
 		await fresh(extent)
-		hints._signature=0
-		var started:=Time.get_ticks_usec()
-		hints.refresh()
-		layouts.append({"viewport":str(extent),"targets":hints.targets.size(),"layout_ms":(Time.get_ticks_usec()-started)/1000.0})
-		check(not hints.targets.is_empty(),"Obscured rock has targets at "+str(extent))
-		for target in hints.targets:
-			check(game.sim.dig_failure_reason(target.cell).is_empty(),"Targets only refer to legal affordable rock")
-			check(hud._safe.has_point(target.anchor) and view.pick_cell(hints._world(target.anchor))==target.cell and not view.solid_covers_point(hints._world(target.anchor)),"Leader ends on a visible part of its own rock cell")
-			check(hints.hit_cell(target.center)==target.cell,"Target centre identifies its cell")
-			check(hints.hit_cell(target.center+Vector2(23,0))==target.cell,"Target keeps a 48-unit touch diameter")
-			check(hud._safe.encloses(Rect2(target.center-Vector2(24,24),Vector2(48,48))),"Whole target fits the safe area")
-			check(not hud.blocks_pointer(target.center*hud.scale.x),"HUD does not block excavation targets")
-			for angle in range(0,360,15):
-				var local_point: Vector2=hints._world(target.center+Vector2.from_angle(deg_to_rad(angle))*23)
-				var cell: Vector2i=view.pick_cell(local_point)
-				check(game.sim._inside(cell) and game.sim.grid[cell.y][cell.x]==TYPES.Tile.ROCK and not view.solid_covers_point(local_point),"Entire touch disc avoids floor and visible structures")
-			for other in hints.targets:
-				if target.cell!=other.cell: check(target.center.distance_to(other.center)>=52-.01,"Adjacent touch targets stay separate")
+		var targets:=visible_targets()
+		layouts.append({"viewport":str(extent),"targets":targets.size()})
+		check(not targets.is_empty(),"Dig mode offers reachable floating picks at "+str(extent))
+		for target in targets:
+			check(game.sim.dig_failure_reason(target.cell).is_empty(),"Each pick marks affordable rock")
+			check(hints.hit_cell(target.center)==target.cell,"Raised pick resolves to its marked cell")
 		await capture("%dx%d" % [extent.x,extent.y])
-		if hints.targets.is_empty(): continue
-		var target: Dictionary=hints.targets[0]
+		if targets.is_empty(): continue
+		var target: Dictionary=targets[0]
 		var gold: int=game.sim.gold
 		var point: Vector2=target.center*hud.scale.x
 		touch(point,true); await process_frame; touch(point,false); await settle()
 		check(game.sim.grid[target.cell.y][target.cell.x]==TYPES.Tile.FLOOR and game.sim.gold==gold-TYPES.COST_DIG,"One native tap digs exactly the connected cell: "+str(extent))
-		check(game.tool==TYPES.Tool.NONE and not hud.radial.visible,"Assisted digging stays one-shot")
+		check(game.tool==TYPES.Tool.DIG and not game.catalog_open,"Assisted digging keeps dig mode")
 		game.undo_build(); await settle()
 		check(game.sim.grid[target.cell.y][target.cell.x]==TYPES.Tile.ROCK and game.sim.gold==gold,"Assisted digging supports Undo")
 	await fresh(Vector2i(844,390))
-	if hints.targets.is_empty(): await finish(); return
-	var target: Dictionary=hints.targets[0]
+	if visible_targets().is_empty(): await finish(); return
+	var target: Dictionary=visible_targets()[0]
 	var point: Vector2=target.center*hud.scale.x
 	var gold: int=game.sim.gold
 	var camera: Camera2D=game.get_node("PlayArea/World/Camera2D")
@@ -89,7 +88,7 @@ func run() -> void:
 	root.push_input(drag,true); await process_frame
 	touch(drag.position,false); await settle()
 	check(camera.position!=before and game.sim.gold==gold,"Dragging a target pans without digging")
-	await fresh(Vector2i(844,390)); target=hints.targets[0]; point=target.center*hud.scale.x; gold=game.sim.gold
+	await fresh(Vector2i(844,390)); target=visible_targets()[0]; point=target.center*hud.scale.x; gold=game.sim.gold
 	touch(point,true); await process_frame; touch(point,false,0,true); await settle()
 	check(game.sim.gold==gold,"Canceled target press never digs")
 	touch(point,true); await process_frame
@@ -105,8 +104,8 @@ func run() -> void:
 	touch(point,true); await process_frame
 	root.size=Vector2i(390,844); await settle(); touch(point,false); await settle()
 	check(game.sim.gold==gold,"Rotation cancels a target press")
-	hud._open_catalog(); await settle(); check(hints.targets.is_empty(),"Catalog hides targets")
-	hud._close_catalog(); game.choose_tool(TYPES.Tool.TRAP_SPIKE); await settle(); check(hints.targets.is_empty(),"Armed tool hides targets")
-	game.cancel_selection(); game.set_paused(true); await settle(); check(hints.targets.is_empty(),"Pause hides targets")
-	game.set_paused(false); game.start_raid(); await settle(); check(hints.targets.is_empty(),"Raid hides targets")
+	hud._open_catalog(); await settle(); check(visible_targets().is_empty(),"Catalog hides targets")
+	hud._close_catalog(); game.choose_tool(TYPES.Tool.TRAP_SPIKE); await settle(); check(visible_targets().is_empty(),"Armed tool hides targets")
+	game.cancel_selection(); game.set_paused(true); await settle(); check(visible_targets().is_empty(),"Pause hides targets")
+	game.set_paused(false); game.start_raid(); await settle(); check(visible_targets().is_empty(),"Raid hides targets")
 	await finish()

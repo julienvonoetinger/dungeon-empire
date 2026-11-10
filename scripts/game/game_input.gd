@@ -154,7 +154,7 @@ func _finish(point: Vector2) -> void:
 		var released_target: Vector2i=hud.dig_targets.hit_cell(point/hud.scale.x)
 		if _pressed_site.x>=0:
 			if released_target==_pressed_site and session.tool==_pressed_tool:
-				if _pressed_tool == GameTypes.Tool.NONE: session.dig_cell(_pressed_site)
+				if view.lesson_digging: session.dig_cell(_pressed_site)
 				else: hud.world_tapped(_pressed_site)
 		elif released_target.x<0 and session.sim.lesson == GameTypes.Lesson.FREE:
 			var local_point: Vector2 = point - session.get_node("PlayArea").position

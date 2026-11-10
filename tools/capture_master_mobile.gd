@@ -25,8 +25,8 @@ func run() -> void:
 	game.changed.emit(true)
 	for extent in [Vector2i(844,390),Vector2i(740,360),Vector2i(667,375),Vector2i(568,320),Vector2i(390,844),Vector2i(320,568),Vector2i(1280,720)]:
 		root.size=extent; await settle(); game.get_node("Input").center_core(); await settle()
-		for state in ["idle","radial","radial-unlocked","catalog","catalog-unlocked","catalog-doors","catalog-terrain","catalog-treasures","placing","access","selection","transfer","menu","raid","result","welcome","reset","defeat","blocked"]:
-			hud._close_radial(false); hud._catalog_open=false; hud._reset_pending=false
+		for state in ["idle","digging","catalog","catalog-unlocked","catalog-doors","catalog-terrain","catalog-treasures","placing","access","selection","transfer","menu","raid","result","welcome","reset","defeat","blocked"]:
+			hud._catalog_open=false; hud._reset_pending=false
 			game.selected=Vector2i(-1,-1); game.tool=TYPES.Tool.NONE; game.preview={}
 			game.paused=false; game.result_open=false; game.sim.game_over=false; game.save_blocked=false; game.confirmation_open=false
 			game.save_error=""
@@ -48,7 +48,7 @@ func run() -> void:
 			for child in hud.root.get_children():
 				if child.has_meta("transient_feedback"): child.queue_free()
 			game.changed.emit(true)
-			if state.begins_with("radial"): hud.world_tapped(Vector2i(6,6))
+			if state=="digging": hud.dig_button.pressed.emit()
 			if state=="transfer": hud.selection._open_transfer()
 			await settle()
 			await RenderingServer.frame_post_draw

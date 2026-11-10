@@ -22,7 +22,7 @@ static func capture(sim, raid, progression) -> Dictionary:
 	data["hero_roster"] = raid.roster.snapshot()
 	if sim.lesson != Types.Lesson.FREE: data["lesson"] = sim.lesson
 	if sim.invoker_resident: data["invoker_resident"] = true
-	if sim.lesson not in [Types.Lesson.FREE, Types.Lesson.PRACTICE_RAID] and sim.lesson_alcove != Types.FIRST_ALCOVE:
+	if sim.lesson in [Types.Lesson.MEET_CARPENTER, Types.Lesson.DOOR] and sim.lesson_alcove != Types.FIRST_ALCOVE:
 		data["lesson_alcove"] = sim.lesson_alcove
 	return data.duplicate(true)
 
@@ -45,8 +45,11 @@ static func apply(data: Dictionary, sim, raid, progression) -> bool:
 	if sim.lesson == Types.Lesson.DOOR and progression.level() < 2:
 		# Old saves either started with a door, or had already paid to excavate.
 		sim.lesson = Types.Lesson.ALCOVE if sim.grid[sim.lesson_alcove.y][sim.lesson_alcove.x] == Types.Tile.ROCK else Types.Lesson.MEET_CARPENTER
-	elif sim.lesson == Types.Lesson.CHEST and progression.level() < 3:
-		sim.lesson = Types.Lesson.MEET_CARPENTER if progression.level() < 2 else Types.Lesson.MEET_SCIENTIST
+	elif sim.lesson == Types.Lesson.LEGACY_BAG:
+		if progression.level() < 3:
+			sim.lesson = Types.Lesson.MEET_CARPENTER if progression.level() < 2 else Types.Lesson.MEET_SCIENTIST
+		else:
+			sim.lesson = Types.Lesson.SPIKES if sim._find_tile(Types.Tile.SPIKE).x < 0 else Types.Lesson.PRACTICE_RAID
 	sim.selected_tool = Types.Tool.NONE
 	sim.reset_armed = false
 	sim.message = ""
@@ -145,7 +148,7 @@ static func _valid(data: Dictionary) -> bool:
 		if not data.lesson is int or data.lesson not in Types.Lesson.values(): return false
 		fields.append("lesson")
 	if data.has("lesson_alcove"):
-		if not _coord(data.lesson_alcove) or data.get("lesson") not in [Types.Lesson.MEET_CARPENTER, Types.Lesson.DOOR, Types.Lesson.MEET_SCIENTIST, Types.Lesson.SPIKES, Types.Lesson.CHEST]: return false
+		if not _coord(data.lesson_alcove) or data.get("lesson") not in [Types.Lesson.MEET_CARPENTER, Types.Lesson.DOOR, Types.Lesson.MEET_SCIENTIST, Types.Lesson.SPIKES, Types.Lesson.LEGACY_BAG]: return false
 		fields.append("lesson_alcove")
 	if data.has("vault_gold"):
 		fields.append("vault_gold")
@@ -183,14 +186,14 @@ static func _valid(data: Dictionary) -> bool:
 				return false
 	if data.has("lesson_alcove") and data.grid[data.lesson_alcove.y][data.lesson_alcove.x] != Types.Tile.FLOOR: return false
 	var bags = data.get("floor_gold", {})
-	if not bags is Dictionary or bags.size() > Types.VILLAGE_BAG_COUNT: return false
+	if not bags is Dictionary or bags.size() > Types.COLS * Types.ROWS: return false
 	var bag_total := 0
 	for cell in bags:
 		if not _coord(cell) or data.grid[cell.y][cell.x] != Types.Tile.FLOOR: return false
-		if not _integer(bags[cell], Types.GOLD_BAG_CAPACITY) or bags[cell] == 0: return false
+		if not _integer(bags[cell], Types.GOLD_BAG_CAPACITY): return false
 		bag_total += bags[cell]
 	if bag_total > data.gold: return false
-	if data.get("lesson") == Types.Lesson.INVOKER_OFFER and data.gold != 0: return false
+	if data.get("lesson") == Types.Lesson.INVOKER_OFFER and (data.gold != 0 or not bags.is_empty()): return false
 	if data.get("lesson") == Types.Lesson.VILLAGE_GIFT:
 		if bags.size() >= Types.VILLAGE_BAG_COUNT or data.gold != bags.size() * Types.GOLD_BAG_CAPACITY or data.gold != bag_total: return false
 	var balances = data.get("vault_gold", {})

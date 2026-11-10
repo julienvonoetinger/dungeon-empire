@@ -3,30 +3,30 @@ extends Control
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 const StoneBand = preload("res://scripts/game/ui/intro_stone_band.gd")
 const PORTRAITS := {
-	"L’invocateur": preload("res://assets/game/introduction/portraits/invoker.webp"),
-	"Le Maître": preload("res://assets/game/introduction/portraits/master.webp"),
-	"Les anciens": preload("res://assets/game/introduction/portraits/elders.webp"),
-	"Le mineur": preload("res://assets/game/introduction/portraits/miner.webp"),
-	"Le menuisier": preload("res://assets/game/introduction/portraits/carpenter.webp"),
-	"Le scientifique": preload("res://assets/game/introduction/portraits/scientist.webp"),
+	"The Invoker": preload("res://assets/game/introduction/portraits/invoker.webp"),
+	"The Master": preload("res://assets/game/introduction/portraits/master.webp"),
+	"The Elders": preload("res://assets/game/introduction/portraits/elders.webp"),
+	"The Miner": preload("res://assets/game/introduction/portraits/miner.webp"),
+	"The Carpenter": preload("res://assets/game/introduction/portraits/carpenter.webp"),
+	"The Scientist": preload("res://assets/game/introduction/portraits/scientist.webp"),
 }
 const RITUAL := [
-	[10.0, 14.8, "L’invocateur", "Aldren a pris nos terres. Nos familles se terrent dans les grottes."],
-	[15.0, 20.0, "L’invocateur", "Recevez notre serment. Donnez-nous la force de reprendre notre foyer !"],
-	[22.2, 26.4, "Le Maître", "J’ai entendu votre appel. Ma puissance aura un prix : votre fidélité."],
-	[26.7, 30.5, "L’invocateur", "Retournez aux grottes. Allez chercher les autres et ramenez-les ici !"],
-	[32.6, 36.8, "Le Maître", "Sous cette montagne s’élèvera mon royaume. Suis-moi, invocateur."],
-	[37.1, 40.2, "L’invocateur", "Je vous suis, Maître. Que les nôtres trouvent enfin un refuge."],
+	[10.0, 14.8, "The Invoker", "Aldren has taken our lands. Our families are hiding in caves."],
+	[15.0, 20.0, "The Invoker", "Accept our oath. Give us the strength to reclaim our home!"],
+	[22.2, 26.4, "The Master", "I have heard your call. My power comes at a price. I demand your loyalty."],
+	[26.7, 30.5, "The Invoker", "Go back to the caves. Find the others and bring them here!"],
+	[32.6, 36.8, "The Master", "Beneath this mountain my kingdom shall rise. Follow me, Invoker."],
+	[37.1, 40.2, "The Invoker", "I follow you, Master. May our people find shelter at last."],
 ]
 const ENTRANCE := [
-	[1.0, 4.8, "L’invocateur", "Tout est à bâtir… La montagne nous cachera-t-elle d’Aldren ?"],
-	[5.0, 8.9, "Le Maître", "Ce cœur abritera ma puissance. Défendez-le, et notre royaume grandira."],
-	[9.3, 16.0, "L’invocateur", "Maître, les héros d’Aldren ont sûrement vu les éclairs du rituel depuis la vallée. Ils viendront en chercher la source."],
-	[16.3, 23.0, "L’invocateur", "S’ils trouvent cet escalier, ils auront le champ libre jusqu’au Cœur. Préparons les défenses du donjon avant leur arrivée."],
-	[23.3, 28.2, "L’invocateur", "Chez nous, on apprend à manier les outils. Bien peu des nôtres savent tenir une épée."],
-	[28.5, 32.8, "L’invocateur", "Mais nous vous avons donné notre parole. Tout ce que nos mains savent faire, nous le ferons pour vous."],
-	[33.2, 37.4, "L’invocateur", "J’ai fait venir nos meilleurs artisans. Tenez, les voilà qui descendent."],
-	[45.1, 50.1, "L’invocateur", "Approchez, mes amis. Maître, voici notre mineur, notre menuisier et notre scientifique."],
+	[1.0, 4.8, "The Invoker", "We must build everything from the ground up… Will the mountain hide us from Aldren?"],
+	[5.0, 8.9, "The Master", "This Core will hold my power. Defend it, and our kingdom will grow."],
+	[9.3, 16.0, "The Invoker", "Master, Aldren’s heroes must have seen the ritual lightning from the valley. They’ll come looking for its source."],
+	[16.3, 23.0, "The Invoker", "If they find these stairs, they’ll have a clear path to the Core. Let’s prepare the dungeon’s defenses before they arrive."],
+	[23.3, 28.2, "The Invoker", "Our people learn to handle tools. Few of us know how to wield a sword."],
+	[28.5, 32.8, "The Invoker", "But we gave you our word. Whatever our hands can make, we will make for you."],
+	[33.2, 37.4, "The Invoker", "I sent for our finest artisans. Look, here they come."],
+	[45.1, 50.1, "The Invoker", "Come closer, my friends. Master, this is our miner, our carpenter and our scientist."],
 ]
 var speaker := Label.new()
 var words := Label.new()
@@ -60,11 +60,13 @@ func present(stage: String, time: float) -> void:
 	clear_line()
 
 func show_line(who: String, text: String) -> void:
-	if speaker.text != who or words.text != text:
-		speaker.text = who
-		words.text = text
+	var name_text := tr(who)
+	var dialogue_text := tr(text)
+	if speaker.text != name_text or words.text != dialogue_text:
+		speaker.text = name_text
+		words.text = dialogue_text
 		portrait.texture = PORTRAITS[who]
-		speaker.add_theme_color_override("font_color", UI.ACCENT if who == "Le Maître" else UI.GOLD)
+		speaker.add_theme_color_override("font_color", UI.ACCENT if who == "The Master" else UI.GOLD)
 		_place()
 	show()
 
@@ -100,10 +102,12 @@ func _place() -> void:
 	var column := maxf(face_size.x, speaker_size.x)
 	var text_x := inset + column + gap
 	var pad_top := clampf(width * .01, 7., 11.)
-	var pad_bottom := 5.
+	# The safe area can reach the physical edge on phones with gesture navigation.
+	var pad_bottom := 12. if tall else 8.
+	if embedded: pad_bottom = 5.
 	words.size = Vector2(maxf(1., width - text_x - inset), 0.)
 	var band_height := ceilf(maxf(words.get_minimum_size().y, speaker_size.y) + pad_top + pad_bottom)
-	var name_bottom_gap := 3.
+	var name_bottom_gap := 3. if embedded else pad_bottom
 	var height := ceilf(maxf(face_size.y + speaker_size.y + name_bottom_gap, band_height))
 	var content_left := area.position.x
 	var canvas := get_parent_control().size / ui_unit

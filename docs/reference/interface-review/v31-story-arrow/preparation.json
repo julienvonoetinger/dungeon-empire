@@ -1,0 +1,13 @@
+{
+  "tool": "Built-in ImageGen",
+  "source": "source/story-next.png",
+  "sha256": "9b653b23134d430b83ef2a4ea69e992570cd4a0a86a2973ca5bfafa52d9243ed",
+  "crop": {
+    "left": 50,
+    "top": 41,
+    "width": 1335,
+    "height": 975
+  },
+  "resize": "120x88 contain, Lanczos3, transparent; 4px transparent inset",
+  "output": "assets/ui/master/stone-menu/story-next.png"
+}

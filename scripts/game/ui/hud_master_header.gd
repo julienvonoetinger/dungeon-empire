@@ -79,7 +79,8 @@ func _ready() -> void:
 	time_socket=_gauge_socket(); gold_socket=_gauge_socket()
 	time_bar=_inset_bar(time_socket); gold_bar=_inset_bar(gold_socket)
 	eye_button=Button.new(); add_child(eye_button)
-	eye_button.flat=true; eye_button.tooltip_text="Dungeon master · Pause / domain"
+	eye_button.flat=true; eye_button.tooltip_text=tr("Dungeon master · Pause / domain")
+	eye_button.accessibility_name=eye_button.tooltip_text
 	for state in ["normal","hover","pressed"]: eye_button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	eye_button.pressed.connect(func(): menu_requested.emit())
 	resized.connect(_layout)
@@ -240,25 +241,25 @@ func refresh(session: IsometricGameSession, delta: float=0) -> void:
 	var building:=session.catalog_open or session.tool!=Types.Tool.NONE or session.selected.x>=0
 	var ready:=session.ready_for_raid()
 	var seconds:=int(session.raid.elapsed_seconds) if raid else ceili(session.raid.raid_timer)
-	phase_description="Raid in progress" if raid else "Next raid"
-	if stopped: phase_description="Pause"
-	elif building and not raid: phase_description="Building · countdown paused"
+	phase_description=tr("Raid in progress") if raid else tr("Next raid")
+	if stopped: phase_description=tr("Pause")
+	elif building and not raid: phase_description=tr("Building · countdown paused")
 	if not raid and not ready:
-		phase_description="Core required" if not session.sim._has_core() else "Entrance required" if not session.sim._has_entrance() else "Storage required"
-	if session.result_open: phase_description="Raid complete"
-	if session.sim.game_over: phase_description="Core destroyed"
+		phase_description=tr("Core required") if not session.sim._has_core() else tr("Entrance required") if not session.sim._has_entrance() else tr("Storage required")
+	if session.result_open: phase_description=tr("Raid complete")
+	if session.sim.game_over: phase_description=tr("Core destroyed")
 	timer_icon.texture=RAID_ICON if raid else COUNTDOWN_ICON
 	timer_icon.modulate=Color(.65,.65,.65) if stopped or building else Color.WHITE
 	timer.text="%02d:%02d" % [seconds/60,seconds%60] if raid or ready else "—:—"
 	gold.text=str(session.sim.gold)
 	health.text="%d %%" % session.sim.core_hp
-	health.tooltip_text="Core health · "+health.text
+	health.tooltip_text=tr("Core health · %s") % health.text
 	time_bar.value=100*clampf(session.raid.raid_timer/Types.RAID_DELAY,0,1) if not raid else 100
 	time_bar.modulate=Color(.65,.65,.65) if stopped or building else Color.WHITE
 	var capacity:=session.sim._storage_capacity()
 	gold_bar.value=100*clampf(float(session.sim.gold)/maxi(capacity,1),0,1)
-	gold_bar.tooltip_text="Available gold / storage capacity"
+	gold_bar.tooltip_text=tr("Available gold / storage capacity")
 	_refresh_eye(session,delta)
 	eye_material.set_shader_parameter("life",float(session.sim.core_hp)/100)
-	tooltip_text=phase_description+" · "+timer.text+" · "+str(session.sim.gold)+" gold"
+	tooltip_text=tr("%s · %s · %d gold") % [phase_description,timer.text,session.sim.gold]
 	if timer.text!=old_timer or gold.text!=old_gold: _layout()

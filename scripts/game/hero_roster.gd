@@ -36,7 +36,7 @@ static func aptitudes_at_level(profile: Dictionary, level: int) -> Dictionary:
 	return current
 
 static func display_name(hero: Dictionary) -> String:
-	var stored := str(hero.get("name", "Hero"))
+	var stored := str(hero.get("name", TranslationServer.translate("Hero")))
 	var id := int(hero.get("id", 0))
 	for personal_name in NAMES.get(str(hero.get("kind", "")), []):
 		if stored == "%s %d" % [personal_name, id]:

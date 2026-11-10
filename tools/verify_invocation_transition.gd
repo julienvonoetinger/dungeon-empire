@@ -6,6 +6,7 @@ func check(ok: bool, label: String) -> void:
 		print("FAIL: ",label)
 func _initialize() -> void: run.call_deferred()
 func run() -> void:
+	TranslationServer.set_locale("fr")
 	DirAccess.make_dir_recursive_absolute("res://artifacts/sanctuary-procession")
 	var game=load("res://scenes/game/DungeonGame.tscn").instantiate()
 	game.persistence_enabled=false

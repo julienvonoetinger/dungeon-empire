@@ -76,10 +76,10 @@ func run() -> void:
 	game.progression.xp = 150 # A later interaction arms the spike tool.
 	root.add_child(game); game.set_process(false); await settle()
 	hud=game.get_node("HUD"); view=game.get_node("PlayArea/World/Dungeon"); terrain=game.get_node("PlayArea/World/Terrain")
-	check(game.sim._core_origin()==Vector2i(8,8) and not hud.shade.visible and visible_blocks()>0,"Cold start opens the centred Core chamber for excavation")
+	check(game.sim._core_origin()==Vector2i(8,8) and not hud.shade.visible and visible_blocks()==0,"Cold start keeps excavation off")
 	check(is_equal_approx(terrain.cut_margin,1.35),"Main scene uses the approved terrain placement reference")
 	check(hud.dig_targets.get("blocks") is Array,"Main HUD uses excavation cubes, without preview replacement")
-	hud._welcome=false; game.restart(true); game.notice=""; game.cancel_selection(); await settle()
+	hud._welcome=false; game.restart(true); game.notice=""; game.cancel_selection(); hud.dig_button.pressed.emit(); await settle()
 	check(terrain.geometry.has("projection_setback"),"Main terrain protects the projected cube silhouette")
 	if not failures.is_empty(): await finish(); return
 	check(hud.dig_targets.blocks.size()==view.dig_cells.size() and not view.dig_cells.is_empty(),"Main scene creates one cube per legal dig cell")
@@ -105,7 +105,7 @@ func run() -> void:
 		var gold: int=game.sim.gold
 		touch(target.point,true); await process_frame; touch(target.point,false); await settle()
 		check(game.sim.grid[target.cell.y][target.cell.x]==game.Types.Tile.FLOOR and game.sim.gold==gold-5,"Main-scene touch buys exactly one excavation")
-		check(game.tool==game.Types.Tool.NONE and game.selected.x<0 and not hud.radial.visible,"Direct dig does not arm a tool or menu")
+		check(game.tool==game.Types.Tool.DIG and game.selected.x<0 and not game.catalog_open,"Direct dig keeps the toggle on")
 		check(terrain.geometry!=original,"Actual production excavation updates the rock cut")
 		game.undo_build(); await settle()
 		check(game.sim.gold==gold and terrain.geometry==original,"Main-scene Undo restores the approved terrain")
@@ -135,6 +135,7 @@ func run() -> void:
 	hud._open_catalog(); await settle()
 	check(visible_blocks()==0,"Catalog hides excavation actions")
 	var previous_xp: int = game.progression.xp
+	game.progression.testing_unlock_defenses = true
 	game.progression.xp = 280
 	var buildings := {
 		GameTypes.Tool.BUILD_DOOR: GameTypes.Tile.DOOR,
@@ -219,6 +220,7 @@ func run() -> void:
 			check(not game.check_action(site.cell,GameTypes.Tool.BUILD_DOOR).valid, "A spent trap still occupies its tile")
 		game.undo_build(); await settle()
 		check(game.sim.gold == gold, "Undo restores the placement cost")
+	game.progression.testing_unlock_defenses = false
 	game.progression.xp = previous_xp
 	hud._stop_placing(); await settle()
 	game.undo_build(); await settle()
@@ -249,7 +251,7 @@ func run() -> void:
 	check(game.result_open and not game.raid.raid_active and visible_blocks()==0,"Real raid results retain a hidden excavation controller")
 	game.continue_preparation(); await settle()
 	check(not game.sim.game_over and game.can_edit(),"Raid can return to ordinary preparation")
-	check(visible_blocks()==view.dig_cells.size(),"Preparation restores the affordable frontier after the raid")
+	check(visible_blocks()==0 and not hud.dig_button.button_pressed,"A new preparation starts with digging switched off")
 	var actual_count:=0
 	for child in view._floor_guide.get_children():
 		if child.get_script()==hud.dig_targets.Block: actual_count+=1

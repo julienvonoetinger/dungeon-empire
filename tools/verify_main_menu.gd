@@ -28,6 +28,32 @@ func capture(label: String) -> void:
 	await RenderingServer.frame_post_draw
 	check(root.get_texture().get_image().save_png(OUT+label+".png")==OK,"Capture "+label)
 
+func check_phone_dialogue(intro) -> void:
+	var captions = intro.dialogue
+	for extent: Vector2i in [Vector2i(575,1280), Vector2i(1280,575)]:
+		root.size = extent
+		await process_frame
+		await process_frame
+		var portrait := extent.y > extent.x
+		var density := 1.5
+		var pixels := Vector2(extent)
+		var to_pixels: float = pixels.x / intro.root.size.x
+		for bottom in [0,48]:
+			var safe := Rect2(0,70 if portrait else 0,pixels.x,pixels.y - (70 if portrait else 0) - bottom)
+			intro._fit_controls(pixels,safe,density)
+			for label in [captions.speaker,captions.words]:
+				var rect: Rect2 = label.get_global_rect()
+				var gap := safe.end.y - rect.end.y * to_pixels
+				var margin: float = gap / (intro.unit * to_pixels)
+				check(absf(margin - (12. if portrait else 8.)) <= .5,"Speaker and dialogue keep a compact margin inside the safe area in %s (%.1f px)" % [extent,gap])
+			check(captions.words.size.y >= captions.words.get_minimum_size().y,"All wrapped dialogue lines fit above the phone inset")
+			var stone_end: Vector2 = captions.band.get_global_rect().end
+			check(stone_end.distance_to(intro.root.size) * to_pixels <= 1.,"Dialogue stone reaches beneath the phone inset: %s / %s" % [stone_end,intro.root.size])
+			if portrait and bottom==0:
+				check(captions.words.get_line_count()>1,"The invoker's first line wraps on the reported portrait screen")
+				await capture("invocation-dialogue-575x1280")
+	intro._layout()
+
 func check_practice_spike_depth(intro, phase: String, on_plate := true) -> void:
 	var actor: Node2D = intro.volunteer
 	var tile: Vector2i = intro.practice.contact
@@ -45,17 +71,13 @@ func check_practice_spike_depth(intro, phase: String, on_plate := true) -> void:
 		if str(part.get("id","")).ends_with("-panel"):
 			check(actor.get_index()<part.node.get_index(),phase+": the nearer closed door can still cover the Oculin")
 
-func check_lesson_dialogue(intro, phrase: String, speaker := "L’invocateur") -> void:
-	var speech = intro.get("reading_dialogue")
-	check(speech != null and speech.is_visible_in_tree() and speech.speaker.text == speaker and speech.words.text.contains(phrase), "The correct artisan speaks the current lesson")
-	check(speech.band.get_global_rect().end.x == intro.root.size.x and is_zero_approx(speech.band.get_global_rect().position.x),"The spoken lesson spans the screen")
-
 func check_gold_bag_rings(intro, expected: Dictionary) -> void:
 	var amounts := {}
 	for marker in intro.view._markers:
 		if marker.kind != "village_bag": continue
 		var badge = marker.node.badge
-		check(badge != null and badge.is_visible_in_tree() and not marker.node.label.visible, "Gold bag shows the storage ring in place of a floating number")
+		var show_ring: bool = intro.session.sim.lesson != GameTypes.Lesson.PRACTICE_RAID
+		check(badge != null and badge.is_visible_in_tree()==show_ring and not marker.node.label.visible, "Gold bags use storage rings, hidden during the practice raid")
 		if not badge: continue
 		check(badge.glyph == "coins" and badge.protection_tier == 0 and not badge.segmented, "Bag uses the unprotected chest's coin indicator")
 		check(badge.capacity == 50 and is_equal_approx(badge.ratio, badge.amount / 50.0), "Bag ring fills relative to its own capacity")
@@ -168,7 +190,7 @@ func check_placement_layout(intro, label: String) -> void:
 	for extent in [Vector2i(960,540),Vector2i(390,844),Vector2i(568,320)]:
 		root.size = extent
 		await capture("%s-%dx%d"%[label,extent.x,extent.y])
-		check(not intro.target.visible and not intro.action.visible and not intro.placement_sites.is_empty(),"Player picks a build site in the dungeon")
+		check(not intro.action.visible and not intro.placement_sites.is_empty(),"Player picks a build site in the dungeon")
 		for i in intro.placement_sites.size():
 			var button: BaseButton = intro.site_buttons.get_child(i)
 			var bounds := button.get_global_rect()
@@ -188,11 +210,31 @@ func check_placement_layout(intro, label: String) -> void:
 			root.push_input(motion,true)
 			check(root.gui_get_hovered_control()==button, "The raised preview takes priority over neighbouring tiles in " + label)
 
+func check_english_intro() -> void:
+	var game: IsometricGameSession = preload("res://scenes/game/DungeonGame.tscn").instantiate()
+	game.persistence_enabled = false
+	root.add_child(game)
+	game.restart(false, true)
+	var intro = game.get_node("Introduction")
+	check(intro.title.text.ends_with("Far from the World") and intro.line.text.begins_with("Deep in the mountains"), "English prologue opens in English")
+	for chapter in intro.PROLOGUE.size():
+		intro._show_page(chapter)
+		check(intro.line.text == intro.PROLOGUE[chapter][1], "English chapter body %d" % (chapter + 1))
+	intro.dialogue.present("ritual", 11.0)
+	check(intro.dialogue.speaker.text == "The Invoker" and intro.dialogue.words.text.begins_with("Aldren has taken our lands."), "English subtitles identify the speaker")
+	game.free()
+
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(OUT)
 	check(ProjectSettings.get_setting("application/run/main_scene")==Menu.resource_path,"Project launches the title menu")
+	TranslationServer.set_locale("en")
 	var menu = await open_menu()
-	check(not FileAccess.file_exists(slot) and menu.primary.text=="Nouvelle partie" and not menu.secondary.visible,"First launch offers a new game without writing a save")
+	check(menu.primary.atr(menu.primary.text) == "New game" and menu.language_picker.selected == 0, "The English menu offers a new game")
+	check_english_intro()
+	TranslationServer.set_locale("fr")
+	await process_frame
+	check(menu.language_picker.selected == 1 and menu.language_picker.accessibility_name == "Langue", "The language selector follows the active locale")
+	check(not FileAccess.file_exists(slot) and menu.primary.atr(menu.primary.text)=="Nouvelle partie" and not menu.secondary.visible,"First launch offers a new game without writing a save")
 	await capture("first-launch")
 	menu.primary.pressed.emit()
 	await scene_changed
@@ -225,10 +267,13 @@ func run() -> void:
 			check(intro.reading_area.scroll_vertical==0,"Each chapter starts at its first line")
 			if index < story_scenes.size()-1:
 				check(intro.page_turn.is_visible_in_tree() and intro.page_turn.accessibility_name=="Page suivante" and not intro.action.visible,"The strip is the next-page action")
+				check(intro.page_turn.text.is_empty() and intro.page_turn.icon != null and intro.page_turn.icon.resource_path=="res://assets/ui/master/stone-menu/story-next.png","The next-page cue shows the painted arrow by itself")
+				var cue: Rect2 = intro.page_turn.get_global_rect()
+				check(intro.heading.get_global_rect().grow(.01).encloses(cue) and not cue.intersects(intro.reading_area.get_global_rect()),"The next-page control fits beside the chapter title: %s in %s at %s" % [cue,intro.heading.get_global_rect(),extent])
 			else:
 				check(not intro.page_turn.visible and intro.action.visible and intro.action.text=="Répondre à l’appel","The final choice is written out")
 			var quote := intro.get("story_quote") as RichTextLabel
-			check(not intro.reading_dialogue.is_visible_in_tree(),"The prologue uses a single reading surface")
+			check(not intro.dialogue.is_visible_in_tree(),"The prologue uses a single reading surface")
 			if scene_name == "envoy":
 				check(not quote.visible and not intro.after_line.visible,"The elders speak within the narration without a separate portrait or speaker label")
 				check(intro.line.text.contains("\n« Ces montagnes sont notre foyer. Nous ne céderons aucune terre. Vos gens ne passeront pas. »\nLes envoyés repartirent sous leur surveillance."),"The elders’ words and the envoys’ departure remain in reading order")
@@ -237,8 +282,8 @@ func run() -> void:
 				if quote != null:
 					var passage: Array = intro.PROLOGUE[index][4]
 					var text := quote.get_parsed_text()
-					check(text.contains(passage[0]) and text.contains("« %s »" % passage[1]), "Speaker and original words appear together in French quotation marks")
-					check(quote.get_parent()==intro.reading_column and intro.after_line.text==passage[2],"The story resumes after the quotation")
+					check(text.contains(tr(passage[0])) and text.contains("« %s »" % tr(passage[1])), "Speaker and original words appear together in French quotation marks")
+					check(quote.get_parent()==intro.reading_column and intro.after_line.text==tr(passage[2]),"The story resumes after the quotation")
 					check(quote.size.y >= quote.get_content_height(),"All wrapped lines of the quote fit")
 			elif quote != null:
 				check(not quote.is_visible_in_tree(), "Pure narration has no quotation")
@@ -249,7 +294,7 @@ func run() -> void:
 			var pixels_per_unit: float = intro.line.get_global_transform().get_scale().y * extent.x / intro.root.size.x
 			check(intro.line.get_theme_font_size("font_size") * pixels_per_unit >= 17.9,"Story body is readable at "+str(extent))
 			for button in [intro.page_turn if intro.page_turn.visible else intro.action,intro.skip]:
-				if button is Button: check(button.get_theme_font_size("font_size") * pixels_per_unit >= 15.9,"Story button is readable at "+str(extent))
+				if button is Button and not button.text.is_empty(): check(button.get_theme_font_size("font_size") * pixels_per_unit >= 15.9,"Story button is readable at "+str(extent))
 				check(button.size.y >= 48. and button.focus_mode == Control.FOCUS_ALL,"Story navigation remains touchable and keyboard focusable")
 			if index == 0 and extent == Vector2i(1024,680): await check_band_transparency(intro)
 			if extent.y > extent.x:
@@ -303,6 +348,15 @@ func run() -> void:
 			var next_action = intro.action if index==8 else intro.page_turn
 			check(intro.page==index+1 and next_action.has_focus(),"Enter advances one chapter and keeps focus on the story action")
 			next_action.release_focus()
+		elif index == 2:
+			root.size = Vector2i(390,844)
+			await process_frame
+			await process_frame
+			var cue_center: Vector2 = intro.page_turn.get_global_rect().get_center()
+			touch_cube(cue_center,true)
+			touch_cube(cue_center,false)
+			await process_frame
+			check(intro.page==3,"Tapping the next-page icon on L’audience turns exactly one page in portrait")
 		elif index == 3:
 			intro.reading_area.scroll_vertical = 0
 			await process_frame
@@ -337,7 +391,7 @@ func run() -> void:
 	check(intro.shot==intro.Shot.RITUAL and not intro.story.visible and intro.story.texture==null,"Answering the call enters the ritual and releases the story image")
 	check(intro.film.master.player.has_animation(intro.film.master.clip) and not intro.film.master.model.find_children("*","Skeleton3D",true,false).is_empty(),"Manifestation uses the animated Wraith skeleton")
 	check(intro.find_children("*","AudioStreamPlayer",true,false).is_empty(),"Written dialogue adds no voice playback")
-	check(not intro.panel.visible and not intro.target.visible,"Ritual begins without the lesson controls")
+	check(not intro.panel.visible,"Ritual begins without the lesson controls")
 	root.size = Vector2i(390,844)
 	intro.set_process(false)
 	for moment in [1., 10., 16., 21., 24., 28., 32., 38.]:
@@ -346,6 +400,7 @@ func run() -> void:
 		check(intro.film.actors.size()==5 and intro.film.visible,"Live procession remains present through the ritual")
 		await capture("invocation-iso-%02d" % int(moment))
 		if moment in [10., 24.]:
+			if moment==10.: await check_phone_dialogue(intro)
 			root.size = Vector2i(1280,720)
 			await capture("invocation-dialogue-full-width" if moment == 10. else "master-dialogue-full-width")
 			var strip: Rect2 = intro.dialogue.band.get_global_rect()
@@ -423,14 +478,14 @@ func run() -> void:
 	intro.set_process(false)
 	check(intro.shot==intro.Shot.LESSON and game.sim.lesson==GameTypes.Lesson.ALCOVE,"The miner unlocks the excavation lesson")
 	check(not game.check_action(GameTypes.FIRST_DOOR,GameTypes.Tool.BUILD_DOOR).valid,"First lesson only accepts the indicated excavation")
-	check(game.get_node("HUD").dig_targets.blocks.size()>1 and not intro.target.visible and intro.title.text.contains("pioche"),"Excavation lesson immediately offers the floating picks")
+	check(game.get_node("HUD").dig_targets.blocks.size()>1 and intro.title.text.contains("pioche"),"Excavation lesson immediately offers the floating picks")
 	var chosen := Vector2i(8,6)
 	var finger := Vector2.INF
 	for extent in [Vector2i(960,540),Vector2i(390,844),Vector2i(568,320)]:
 		root.size = extent
 		await capture("first-lesson-%dx%d"%[extent.x,extent.y])
 		var targets = game.get_node("HUD").dig_targets
-		check(not intro.action.visible and not intro.target.visible and not intro.reading_area.visible,"Tap directly in the dungeon")
+		check(not intro.action.visible and not intro.reading_area.visible,"Tap directly in the dungeon")
 		var legal_count := 0
 		for y in GameTypes.ROWS:
 			for x in GameTypes.COLS:
@@ -512,16 +567,21 @@ func run() -> void:
 	check(intro.shot==intro.Shot.LESSON and game.sim.lesson==GameTypes.Lesson.SPIKES and game.progression.xp==150,"Level-three save resumes at spike placement")
 	game.learn_from_artisan(GameTypes.Lesson.MEET_SCIENTIST)
 	check(game.progression.xp==150,"The scientist's reward cannot be claimed twice")
-	check(not intro.placement_sites.has(chosen) and not intro.placement_sites.has(Vector2i(4,8)),"Spikes protect a free tile, reserving the alcove and door")
+	check(intro.placement_sites.has(chosen) and not intro.placement_sites.has(Vector2i(4,8)) and not intro.placement_sites.has(first_bag),"The dug tile can take spikes while the door and bags remain protected")
 	await check_placement_layout(intro,"spike-placements")
 	await tap_site(intro,Vector2i(5,8))
-	check(game.sim.grid[8][5]==GameTypes.Tile.SPIKE and game.sim.trap_charges.get(Vector2i(5,8))==GameTypes.TRAP_MAX_CHARGES and game.sim.gold==20 and game.sim.floor_gold=={second_bag:20},"The spike exhausts the first bag and leaves twenty in the second")
-	check_gold_bag_rings(intro,{second_bag:20})
-	check_lesson_dialogue(intro,"votre or")
-	intro.target.pressed.emit()
-	check(game.sim.grid[chosen.y][chosen.x]==GameTypes.Tile.VAULT and intro.visible and intro.artisans.size()==3,"Placing the chest begins the three artisans' departure")
-	check(game.sim.gold==20 and game.sim.floor_gold.is_empty() and game.sim.vault_gold.get(chosen)==20,"The first chest secures the remaining twenty exactly once")
-	check_gold_bag_rings(intro,{})
+	check(game.sim.grid[8][5]==GameTypes.Tile.SPIKE and game.sim.trap_charges.get(Vector2i(5,8))==GameTypes.TRAP_MAX_CHARGES and game.sim.gold==20 and game.sim.floor_gold=={first_bag:0,second_bag:20},"The spike exhausts the first bag and leaves twenty in the second")
+	check_gold_bag_rings(intro,{first_bag:0,second_bag:20})
+	check(game.sim.lesson==GameTypes.Lesson.PRACTICE_RAID and intro.shot==intro.Shot.ARTISAN_EXIT and not intro.panel.visible and intro.artisans.size()==3,"Spikes immediately send the artisans home")
+	var restored := DungeonSim.new()
+	check(GameplaySave.apply(GameplaySave.capture(game.sim,game.raid,game.progression),restored,RaidDirector.new(),CoreProgression.new()), "Both village bags round-trip after the last paid build")
+	check(restored._deposit_gold(200)==80 and restored.bag_gold_total()==100 and restored.gold==100, "Restored bags receive only their remaining capacity")
+	restored._spend_gold(100)
+	check(restored.gold==0 and restored.floor_gold.size()==2 and restored._storage_capacity()==100,"Empty bags remain usable storage")
+	restored._deposit_gold(100)
+	restored.selected_tool=GameTypes.Tool.DIG
+	restored._build_at(first_bag)
+	check(restored.gold==50 and restored._storage_capacity()==50 and restored._unsecured_loot_total()==50,"Removing a full bag leaves overflow as recoverable loot")
 	intro.set_process(false)
 	var departure_at: Vector2 = intro.artisans[2].position
 	var guide_at: Vector2 = intro.invoker.position
@@ -533,6 +593,9 @@ func run() -> void:
 	await capture("practice-offer")
 	var prepared := GameplaySave.capture(game.sim,game.raid,game.progression)
 	check_practice_routes(prepared)
+	var old_treasure_screen: Dictionary = prepared.duplicate(true)
+	old_treasure_screen.lesson = 3 # Serialized checkpoint from 0.1.16.
+	old_treasure_screen.lesson_alcove = chosen
 	intro.skip.pressed.emit()
 	intro.set_process(false)
 	var timer: float = game.raid.raid_timer
@@ -545,13 +608,14 @@ func run() -> void:
 	intro._process(3.)
 	check(intro.volunteer.position==frozen_at,"Pause freezes the volunteer")
 	game.set_paused(false)
-	# Leaving mid-run resumes the saved rehearsal, with the paid buildings intact.
+	# Continue on a pre-update save stranded at the final treasure prompt.
 	menu = await open_menu()
+	check(GameplaySave.write_save(slot,old_treasure_screen),"Legacy treasure checkpoint is readable")
 	menu.primary.pressed.emit()
 	await scene_changed
 	game = current_scene
 	intro = game.get_node("Introduction")
-	check(intro.shot==intro.Shot.ARTISAN_EXIT and GameplaySave.capture(game.sim,game.raid,game.progression)==prepared,"Reload restarts the rehearsal on the same dungeon")
+	check(intro.shot==intro.Shot.ARTISAN_EXIT and GameplaySave.capture(game.sim,game.raid,game.progression)==prepared,"Continue migrates the old treasure screen to the exercise with the same balances, defences and XP")
 	await process_frame
 	intro.skip.pressed.emit()
 	intro.skip.pressed.emit()
@@ -577,14 +641,14 @@ func run() -> void:
 	game.restart(true)
 	var original := FileAccess.get_sha256(slot)
 	menu = await open_menu()
-	check(menu.primary.text=="Continuer" and menu.secondary.visible,"Existing game gets Continue")
+	check(menu.primary.atr(menu.primary.text)=="Continuer" and menu.secondary.visible,"Existing game gets Continue")
 	for extent in [Vector2i(1280,720),Vector2i(390,844),Vector2i(568,320)]:
 		root.size = extent
 		await capture("menu-%dx%d"%[extent.x,extent.y])
 		check(menu.backdrop.get_rect().is_equal_approx(menu.get_rect()) and menu.backdrop.texture==menu.SANCTUM,"Illustration covers viewport at "+str(extent))
 		check(menu.logo.texture==menu.LOGO and menu.get_rect().encloses(menu.logo.get_global_rect()) and menu.logo.get_global_rect().end.y < menu.size.y*.45 and menu.get_rect().encloses(menu.actions.get_global_rect()) and menu.actions.position.y > menu.size.y*.52,"Logo and controls leave the painted Core visible at "+str(extent))
 	menu.secondary.pressed.emit()
-	check(menu.confirming and menu.primary.text=="Annuler","New game asks before replacing")
+	check(menu.confirming and menu.primary.atr(menu.primary.text)=="Annuler","New game asks before replacing")
 	await capture("confirm")
 	check(menu.get_rect().encloses(menu.actions.get_global_rect()) and menu.actions.get_global_rect().encloses(menu.secondary.get_global_rect()),"Both confirmation actions fit")
 	menu.primary.pressed.emit()
@@ -637,7 +701,7 @@ func run() -> void:
 	corrupt.store_string("invalid")
 	corrupt.close()
 	menu = await open_menu()
-	check(menu.primary.text=="Continuer","Backup enables Continue after primary corruption")
+	check(menu.primary.atr(menu.primary.text)=="Continuer","Backup enables Continue after primary corruption")
 	DirAccess.remove_absolute(slot+".bak")
 	menu = await open_menu()
 	check(not menu.resumable and menu.message.visible,"Unreadable save is signalled")
@@ -648,8 +712,7 @@ func run() -> void:
 	await scene_changed
 	game = current_scene.game
 	intro = game.get_node("Introduction")
-	check(not game.persistence_enabled and game.sim.lesson==GameTypes.Lesson.CHEST and game.sim.gold==20,"F6 preview starts at the last paid construction with an isolated game")
-	intro.action.pressed.emit()
+	check(not game.persistence_enabled and game.sim.lesson==GameTypes.Lesson.PRACTICE_RAID and intro.shot==intro.Shot.ARTISAN_EXIT and game.sim.gold==20,"F6 preview starts at departure immediately after spike placement")
 	intro.skip.pressed.emit()
 	intro.skip.pressed.emit()
 	intro.set_process(false)

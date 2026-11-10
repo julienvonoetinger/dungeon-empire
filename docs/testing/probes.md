@@ -94,6 +94,7 @@ seulement pendant leur phase ; utiliser `exists` pour attendre son apparition.
 
 `initial` vaut `empty` (grille neuve) ou `prepared` (le vrai donjon d'essai).
 Le champ facultatif `initial_xp` initialise l’expérience du Maître pour tester les outils débloqués.
+Les scénarios de coffres utilisent `preview_locked_models` pour exercer leurs mécaniques dans une session de test isolée.
 La première commande `build` sur une grille vide place le cœur, comme en jeu.
 Chaque commande est effectuée par les méthodes de session existantes, y compris
 les contrôles de niveau, coût, phase et les confirmations de remplacement.

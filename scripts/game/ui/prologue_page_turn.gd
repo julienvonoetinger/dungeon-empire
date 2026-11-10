@@ -1,6 +1,8 @@
-extends BaseButton
+extends Button
 ## Tap to turn the page or drag to read. The scrollbar and wheel stay native.
+const UI = preload("res://scripts/game/ui/hud_theme.gd")
 const TAP_SLOP := 8.
+var reading_panel: Control
 var reading_area: ScrollContainer
 var _fingers := {}
 var _start := Vector2.INF
@@ -8,13 +10,15 @@ var _initial_scroll := 0
 var _dragging := false
 
 func _ready() -> void:
+	UI.strip_action(self)
+	UI.set_intro_advance(self,true)
+	icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	add_theme_constant_override("icon_max_width",36)
+	custom_minimum_size = Vector2(48,48)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	focus_mode = Control.FOCUS_ALL
-	accessibility_name = "Page suivante"
+	accessibility_name = tr("Next page")
 	visibility_changed.connect(reset_gesture)
-	focus_entered.connect(queue_redraw)
-	focus_exited.connect(queue_redraw)
-	resized.connect(queue_redraw)
 
 func reset_gesture() -> void:
 	_start = Vector2.INF
@@ -42,13 +46,13 @@ func _input(event: InputEvent) -> void:
 			_check_motion(event.position)
 
 func _local_point(point: Vector2) -> Vector2:
-	return get_global_transform_with_canvas().affine_inverse() * point
+	return reading_panel.get_global_transform_with_canvas().affine_inverse() * point
 
 func _can_tap(point: Vector2) -> bool:
 	var scroll_bar := reading_area.get_v_scroll_bar()
 	var bar_point := scroll_bar.get_global_transform_with_canvas().affine_inverse() * point
 	if scroll_bar.is_visible_in_tree() and Rect2(Vector2.ZERO,scroll_bar.size).has_point(bar_point): return false
-	return Rect2(Vector2.ZERO,size).has_point(_local_point(point))
+	return Rect2(Vector2.ZERO,reading_panel.size).has_point(_local_point(point))
 
 func _begin(point: Vector2) -> void:
 	_start = _local_point(point) if _can_tap(point) else Vector2.INF
@@ -70,17 +74,3 @@ func _finish(point: Vector2, canceled: bool) -> void:
 	var tapped := not canceled and not _dragging and _can_tap(point) and _initial_scroll == reading_area.scroll_vertical
 	_start = Vector2.INF
 	if tapped: pressed.emit()
-
-func _draw() -> void:
-	var center := size - Vector2(24,16)
-	draw_set_transform(center)
-	if has_focus():
-		draw_style_box(get_theme_stylebox("focus","Button"),Rect2(-19,-14,38,27))
-	var left := Vector2(-10,-7)
-	var right := Vector2(10,-7)
-	var tip := Vector2(0,5)
-	var mid := Vector2(0,-4)
-	draw_colored_polygon(PackedVector2Array([left,right,mid]),Color("f4e5ff"))
-	draw_colored_polygon(PackedVector2Array([left,mid,tip]),Color("c7b2e7"))
-	draw_colored_polygon(PackedVector2Array([mid,right,tip]),Color("8872b2"))
-	draw_polyline(PackedVector2Array([Vector2(-5,4),Vector2(0,9),Vector2(5,4)]),Color("b7acd5"),1.5,true)

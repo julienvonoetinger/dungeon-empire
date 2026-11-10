@@ -29,8 +29,8 @@ func _ready() -> void:
 func present(seconds: float, ui_unit: float, safe_area: Rect2, new_level: int, ability: String) -> void:
 	visible = seconds >= 0. and seconds < DURATION
 	if not visible: return
-	title.text = "Niveau %d" % new_level
-	detail.text = ability
+	title.text = tr("Level %d") % new_level
+	detail.text = tr(ability)
 	unit = ui_unit
 	progress = seconds / DURATION
 	safe = Rect2(safe_area.position*unit,safe_area.size*unit)

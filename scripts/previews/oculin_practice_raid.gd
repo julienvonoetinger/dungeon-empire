@@ -1,5 +1,5 @@
 extends Node
-## F6 starts at the last construction in an isolated, playable tutorial.
+## F6 starts at the artisans' departure after the spike trap is built.
 const GAME = preload("res://scenes/game/DungeonGame.tscn")
 var game: IsometricGameSession
 
@@ -19,5 +19,3 @@ func _ready() -> void:
 	game.learn_from_artisan(GameTypes.Lesson.MEET_SCIENTIST)
 	game.select_cell(Vector2i(5,8))
 	game.confirm_action(GameTypes.Tool.TRAP_SPIKE)
-	var intro = game.get_node("Introduction")
-	intro._set_shot(intro.Shot.LESSON)

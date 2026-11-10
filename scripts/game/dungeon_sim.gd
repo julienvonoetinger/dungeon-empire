@@ -75,7 +75,7 @@ func new_map() -> void:
 	reset_armed = false
 	selected_tool = Tool.NONE
 	report = ""
-	message = "Choose an anchoring site for the Dungeon Core."
+	message = tr("Choose an anchoring site for the Dungeon Core.")
 
 
 func _has_core() -> bool:
@@ -96,13 +96,13 @@ func _can_place_core(origin: Vector2i) -> bool:
 
 func _place_core(origin: Vector2i) -> bool:
 	if not _can_place_core(origin):
-		message = "The Core must anchor inside the marked influence field."
+		message = tr("The Core must anchor inside the marked influence field.")
 		return false
 	for dy in range(CORE_H):
 		for dx in range(CORE_W):
 			grid[origin.y + dy][origin.x + dx] = Tile.CORE
 	repair_core_access()
-	message = "The Core awakens. Its surrounding passage is free. Dig out from this room."
+	message = tr("The Core awakens. Its surrounding passage is free. Dig out from this room.")
 	return true
 
 
@@ -231,9 +231,9 @@ func repair_entrance_placement() -> Dictionary:
 				queue.append(next)
 	if destination.x >= 0:
 		grid[destination.y][destination.x] = Tile.ENTRANCE
-		message = "Entrance repositioned against a wall."
+		message = tr("Entrance repositioned against a wall.")
 	else:
-		message = "Old entrance removed: place a new entrance against a wall for free."
+		message = tr("Old entrance removed: place a new entrance against a wall for free.")
 	return {"from": old, "to": destination}
 
 # Entrances connect through their mouth, never through their stone backing.
@@ -291,7 +291,7 @@ func _find_tile(tile: int) -> Vector2i:
 
 
 func _storage_capacity() -> int:
-	var total := 0
+	var total := floor_gold.size() * GameTypes.GOLD_BAG_CAPACITY
 	for limit: int in vault_capacities().values(): total += limit
 	return total
 
@@ -323,12 +323,11 @@ func bag_gold_total() -> int:
 	return total
 
 func _take_from_bags(amount: int) -> void:
-	for cell in floor_gold.keys():
+	for cell in floor_gold:
 		if amount <= 0: break
 		var taken := mini(amount, floor_gold[cell])
 		amount -= taken
 		floor_gold[cell] -= taken
-		if floor_gold[cell] == 0: floor_gold.erase(cell)
 
 func _spend_gold(cost: int) -> void:
 	_take_from_bags(cost)
@@ -344,7 +343,7 @@ func _deposit_gold(amount: int) -> int:
 func _spill_overflow_at(p: Vector2i, previous_capacity: int = -1) -> void:
 	var capacity := _storage_capacity()
 	if previous_capacity >= 0 and capacity >= previous_capacity: return
-	var extra := gold - bag_gold_total() - capacity
+	var extra := gold - capacity
 	if extra > 0:
 		gold -= extra
 		loot_bags.append({"pos": p, "gold": extra, "taken": false})
@@ -430,8 +429,13 @@ func _storage_state() -> Dictionary:
 		var change := clampi(difference, -int(vaults[p]), int(limits[p]) - int(vaults[p]))
 		vaults[p] += change
 		difference -= change
+	for p in floor_gold:
+		if difference <= 0: break
+		var deposit := mini(difference, GameTypes.GOLD_BAG_CAPACITY - int(floor_gold[p]))
+		floor_gold[p] += deposit
+		difference -= deposit
 	vault_gold = vaults.duplicate()
-	return {"vaults": vaults, "unstored": maxi(0, difference), "capacity": capacity}
+	return {"vaults": vaults, "unstored": maxi(0, difference), "capacity": capacity + floor_gold.size() * GameTypes.GOLD_BAG_CAPACITY}
 
 
 func transfer_gold(source: Vector2i, destination: Vector2i, requested: int) -> int:
@@ -508,17 +512,17 @@ func _can_place_tile(p: Vector2i, tile: int) -> bool:
 
 func _placement_failure_reason(p: Vector2i, tile: int) -> String:
 	if not _inside(p):
-		return "No tile under the cursor."
+		return tr("No tile under the cursor.")
 	var current := int(grid[p.y][p.x])
-	if current == Tile.ROCK: return "Dig this passage first."
-	if current == Tile.ENTRANCE or current == Tile.CORE: return "The entrance and the Core cannot be modified."
-	if floor_gold.has(p) and tile != Tile.VAULT: return "This tile holds a bag of gold."
+	if current == Tile.ROCK: return tr("Dig this passage first.")
+	if current == Tile.ENTRANCE or current == Tile.CORE: return tr("The entrance and the Core cannot be modified.")
+	if floor_gold.has(p) and tile != Tile.VAULT: return tr("This tile holds a bag of gold.")
 	if _is_door_tile(tile) and _is_trap_tile(current):
-		return "Remove the trap before placing a door here."
+		return tr("Remove the trap before placing a door here.")
 	if _is_core_access(p) and (_is_door_tile(tile) or tile == Tile.ENTRANCE):
-		return "Keep the passage around the Core clear."
+		return tr("Keep the passage around the Core clear.")
 	if _is_door_tile(tile) and current != tile and not _door_between_walls(p):
-		return "A door must sit in a gap between two walls."
+		return tr("A door must sit in a gap between two walls.")
 	return ""
 
 # --- Player input ----------------------------------------------------------
@@ -530,28 +534,36 @@ func _build_at(gp: Vector2i) -> void:
 	if raid != null and bool(raid.raid_active):
 		return
 	if not _inside(gp):
-		message = "No tile under the cursor."
+		message = tr("No tile under the cursor.")
 		return
 	var current := int(grid[gp.y][gp.x])
+	if selected_tool == Tool.GOLD_BAG:
+		if current != Tile.FLOOR or floor_gold.has(gp):
+			message = tr("Choose an empty floor tile for the gold bag.")
+			return
+		floor_gold[gp] = 0
+		message = tr("Gold bag placed.")
+		return
 	if current == Tile.ROCK:
 		_try_dig(gp)
 		return
 	if selected_tool == Tool.NONE:
 		return
 	if current == Tile.ENTRANCE or current == Tile.CORE:
-		message = "The entrance and the Core cannot be modified."
+		message = tr("The entrance and the Core cannot be modified.")
 		return
 
 	match selected_tool:
 		Tool.DIG:
-			var was_vault := current == Tile.VAULT
+			var removed_storage := current == Tile.VAULT or floor_gold.has(gp)
+			floor_gold.erase(gp)
 			_clear_cell_state(gp)
 			grid[gp.y][gp.x] = Tile.FLOOR
 			if raid != null:
 				raid.invalidate_kingdom_knowledge(gp)
-			if was_vault:
+			if removed_storage:
 				_spill_overflow_at(gp)
-			message = "Structure cleared."
+			message = tr("Structure cleared.")
 		Tool.STORE:
 			build_vault(gp, 0)
 		Tool.STORE_LOCKED:
@@ -581,20 +593,21 @@ func build_vault(p: Vector2i, tier: int) -> bool:
 	if game_over or (raid != null and raid.raid_active) or tier < 0 or tier > 2 or not _inside(p):
 		return false
 	if not _can_place_tile(p, Tile.VAULT):
-		message = "Place the chest on an excavated tile."
+		message = tr("Place the chest on an excavated tile.")
 		return false
 	var existing := int(grid[p.y][p.x]) == Tile.VAULT
 	var previous := int(vault_locks.get(p, 0)) if existing else 0
 	if existing and tier <= previous:
-		message = "This chest already has this protection or better."
+		message = tr("This chest already has this protection or better.")
 		return false
 	var cost: int = GameTypes.VAULT_PROTECTION_COSTS[tier] - GameTypes.VAULT_PROTECTION_COSTS[previous]
 	if gold < cost:
-		message = "Not enough gold: %d required." % cost
+		message = tr("Not enough gold: %d required.") % cost
 		return false
 	var previous_capacity := int(_storage_state().capacity)
 	if not existing:
 		_clear_cell_state(p)
+		floor_gold.erase(p)
 		grid[p.y][p.x] = Tile.VAULT
 	_spend_gold(cost)
 	if tier > 0:
@@ -603,7 +616,7 @@ func build_vault(p: Vector2i, tier: int) -> bool:
 	vault_opened.erase(p)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(p)
-	message = "Chest upgraded." if existing else "Chest placed."
+	message = tr("Chest upgraded.") if existing else tr("Chest placed.")
 	return true
 
 func repair_vault(p: Vector2i) -> bool:
@@ -612,26 +625,26 @@ func repair_vault(p: Vector2i) -> bool:
 	if int(grid[p.y][p.x]) != Tile.VAULT or int(vault_locks.get(p, 0)) <= 0 or vault_protected(p):
 		return false
 	if gold < GameTypes.COST_REPAIR_VAULT:
-		message = "Not enough gold: %d required." % GameTypes.COST_REPAIR_VAULT
+		message = tr("Not enough gold: %d required.") % GameTypes.COST_REPAIR_VAULT
 		return false
 	_spend_gold(GameTypes.COST_REPAIR_VAULT)
 	vault_opened.erase(p)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(p)
-	message = "Chest protection restored."
+	message = tr("Chest protection restored.")
 	return true
 
 func dig_failure_reason(gp: Vector2i) -> String:
 	if not _inside(gp) or int(grid[gp.y][gp.x]) != Tile.ROCK:
-		return "This tile is not rock."
+		return tr("This tile is not rock.")
 	for direction in DIRS:
 		var neighbour := gp + direction
 		if _inside(neighbour) and int(grid[neighbour.y][neighbour.x]) == Tile.ENTRANCE:
-			return "This rock supports the entrance."
+			return tr("This rock supports the entrance.")
 	if not _has_open_neighbour(gp):
-		return "You must dig from an existing passage."
+		return tr("You must dig from an existing passage.")
 	if gold < COST_DIG:
-		return "Not enough gold to dig (%d)." % COST_DIG
+		return tr("Not enough gold to dig (%d).") % COST_DIG
 	return ""
 
 func _try_dig(gp: Vector2i) -> void:
@@ -645,26 +658,26 @@ func _try_dig(gp: Vector2i) -> void:
 	_spill_overflow_at(gp, previous_capacity)
 	if raid != null:
 		raid.invalidate_kingdom_knowledge(gp)
-	message = "Dug a passage."
+	message = tr("Dug a passage.")
 
 
 func _place_entrance(p: Vector2i) -> void:
 	if _is_core_access(p):
-		message = "Keep the passage around the Core clear: place the entrance farther away."
+		message = tr("Keep the passage around the Core clear: place the entrance farther away.")
 		return
 	if _has_entrance():
-		message = "The entrance stair is already set. It cannot be moved."
+		message = tr("The entrance stair is already set. It cannot be moved.")
 		return
-	if not _inside(p) or int(grid[p.y][p.x]) != Tile.FLOOR or _wall_entrance_face(p) == Vector2i.ZERO:
-		message = "Place the entrance against a wall, with a clear passage in front."
+	if not _inside(p) or int(grid[p.y][p.x]) != Tile.FLOOR or floor_gold.has(p) or _wall_entrance_face(p) == Vector2i.ZERO:
+		message = tr("Place the entrance against a wall, with a clear passage in front.")
 		return
 	grid[p.y][p.x] = Tile.ENTRANCE
 	if raid != null:
 		raid.raid_timer = RAID_DELAY
 	if _has_required_storage():
-		message = "Entrance opened. Heroes will find it in %ds." % int(RAID_DELAY)
+		message = tr("Entrance opened. Heroes will find it in %ds.") % int(RAID_DELAY)
 	else:
-		message = "Entrance opened. Build enough storage before heroes can find it."
+		message = tr("Entrance opened. Build enough storage before heroes can find it.")
 
 
 func _place(p: Vector2i, tile: int, cost: int) -> void:
@@ -677,7 +690,7 @@ func _place(p: Vector2i, tile: int, cost: int) -> void:
 		if not _is_door_tile(tile) or _door_intact(p):
 			return
 	if gold < cost:
-		message = "Not enough gold (%d required)." % cost
+		message = tr("Not enough gold (%d required).") % cost
 		return
 	_spend_gold(cost)
 	var was_vault := current == Tile.VAULT
@@ -705,7 +718,7 @@ func _door_between_walls(p: Vector2i) -> bool:
 	return ew or ns
 
 func is_lesson_build_site(p: Vector2i, tile: int) -> bool:
-	return _inside(p) and p != lesson_alcove and grid[p.y][p.x] == Tile.FLOOR and _can_place_tile(p, tile)
+	return _inside(p) and grid[p.y][p.x] == Tile.FLOOR and _can_place_tile(p, tile)
 
 
 func _is_rock_cell(n: Vector2i) -> bool:
@@ -768,6 +781,6 @@ func _repair_structures() -> void:
 			trap_charges[p] = int(trap_charges[p]) + 1
 			charges += 1
 	if doors == 0 and charges == 0:
-		message = "Nothing to repair (or not enough gold)."
+		message = tr("Nothing to repair (or not enough gold).")
 	else:
-		message = "Repairs: %d door(s), %d trap charge(s)." % [doors, charges]
+		message = tr("Repairs: %d door(s), %d trap charge(s).") % [doors, charges]

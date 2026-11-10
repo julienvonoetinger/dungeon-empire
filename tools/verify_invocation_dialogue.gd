@@ -6,6 +6,7 @@ func check(ok: bool, label: String) -> void:
 		print("FAIL: ", label)
 func _initialize() -> void: run.call_deferred()
 func run() -> void:
+	TranslationServer.set_locale("fr")
 	DirAccess.make_dir_recursive_absolute("res://artifacts/sanctuary-procession")
 	var preview = load("res://scenes/previews/SanctuaryTransition.tscn").instantiate()
 	root.add_child(preview)
@@ -28,7 +29,8 @@ func run() -> void:
 			var strip: Rect2 = captions.band.get_global_rect()
 			check(is_zero_approx(strip.position.x) and is_equal_approx(strip.end.x,intro.root.size.x), "Stone strip spans the screen")
 			check(is_equal_approx(strip.end.y,intro.root.size.y-48*intro.unit), "Stone reaches the preview controls")
-			check(captions.band.size.y <= captions.words.get_minimum_size().y + 17., "Band height follows the wrapped line")
+			var bottom_space := 12. if extent.y > extent.x else 8.
+			check(captions.band.size.y <= captions.words.get_minimum_size().y + 12. + bottom_space, "Band height follows the wrapped line plus its reading margin")
 			if extent.x == 1280 and moment == 11.:
 				await RenderingServer.frame_post_draw
 				var frame := root.get_texture().get_image()

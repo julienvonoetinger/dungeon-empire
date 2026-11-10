@@ -2,6 +2,7 @@ extends Control
 
 const Game = preload("res://scenes/game/DungeonGame.tscn")
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
+const Language = preload("res://scripts/game/game_language.gd")
 const SANCTUM = preload("res://assets/ui/main-menu/core-sanctum.png")
 const LOGO = preload("res://assets/ui/main-menu/dungeon-empire-logo.png")
 
@@ -12,12 +13,16 @@ var actions := VBoxContainer.new()
 var message: Label
 var primary: Button
 var secondary: Button
+var language_picker := OptionButton.new()
 var confirming := false
 var resumable := false
 
 func _ready() -> void:
 	theme = UI.create()
 	backdrop.texture = SANCTUM
+	var core_material := ShaderMaterial.new()
+	core_material.shader = preload("res://shaders/menu_core.gdshader")
+	backdrop.material = core_material
 	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -39,9 +44,28 @@ func _ready() -> void:
 	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	primary = UI.button(actions,"",_primary_pressed,"",true)
 	secondary = UI.button(actions,"",_secondary_pressed)
+	language_picker.flat = true
+	language_picker.custom_minimum_size = Vector2(112, 44)
+	for code: String in Language.LANGUAGES:
+		language_picker.add_item(Language.LANGUAGES[code])
+		language_picker.set_item_metadata(language_picker.item_count - 1, code)
+		language_picker.set_item_auto_translate_mode(language_picker.item_count - 1, Node.AUTO_TRANSLATE_MODE_DISABLED)
+	add_child(language_picker)
+	_sync_language_picker()
+	language_picker.item_selected.connect(func(index: int): Language.choose(language_picker.get_item_metadata(index)))
 	resized.connect(_layout)
 	actions.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
 	_show_choices()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and is_node_ready():
+		_sync_language_picker()
+		_layout.call_deferred()
+
+func _sync_language_picker() -> void:
+	language_picker.select(maxi(0, Language.LANGUAGES.keys().find(TranslationServer.get_locale().get_slice("_", 0))))
+	language_picker.tooltip_text = tr("Language")
+	language_picker.accessibility_name = tr("Language")
 
 func _show_choices() -> void:
 	confirming = false
@@ -49,9 +73,9 @@ func _show_choices() -> void:
 	var data := GameplaySave.read_save(save_path)
 	resumable = not data.is_empty()
 	message.visible = occupied and not resumable
-	message.text = "La sauvegarde est illisible." if message.visible else ""
-	primary.text = "Continuer" if resumable else "Nouvelle partie"
-	secondary.text = "Nouvelle partie"
+	message.text = "The save file could not be read." if message.visible else ""
+	primary.text = "Continue" if resumable else "New game"
+	secondary.text = "New game"
 	secondary.visible = resumable
 	primary.grab_focus()
 	_layout()
@@ -75,10 +99,10 @@ func _new_game() -> void:
 		_enter_game(true)
 		return
 	confirming = true
-	message.text = "Remplacer le donjon sauvegardé ?"
+	message.text = "Replace the saved dungeon?"
 	message.show()
-	primary.text = "Annuler"
-	secondary.text = "Remplacer le donjon"
+	primary.text = "Cancel"
+	secondary.text = "Replace dungeon"
 	secondary.show()
 	primary.grab_focus()
 	_layout()
@@ -91,7 +115,7 @@ func _enter_game(fresh: bool) -> void:
 		session.ready.connect(session.restart.bind(false, true), CONNECT_ONE_SHOT)
 	if get_tree().change_scene_to_node(session) != OK:
 		session.free()
-		message.text = "Impossible d’ouvrir le donjon."
+		message.text = "Could not open the dungeon."
 		message.show()
 		_layout()
 
@@ -114,7 +138,14 @@ func _layout() -> void:
 	var aspect := LOGO.get_size().aspect()
 	var logo_width := minf(minf(width*.94,600),safe.size.y*.32*aspect)
 	logo.size = Vector2(logo_width,logo_width/aspect)*unit
-	logo.position = Vector2(center.x-logo_width/2,safe.position.y+safe.size.y*.045)*unit
+	language_picker.scale = Vector2.ONE * unit
+	language_picker.size = language_picker.get_combined_minimum_size()
+	var picker_at := Vector2(safe.end.x - language_picker.size.x - 8, safe.position.y + 4)
+	language_picker.position = picker_at * unit
+	var logo_top := safe.position.y + safe.size.y * .045
+	if center.x + logo_width / 2 > picker_at.x:
+		logo_top = maxf(logo_top, picker_at.y + language_picker.size.y + 4)
+	logo.position = Vector2(center.x-logo_width/2,logo_top)*unit
 	actions.scale = Vector2.ONE*unit
 	actions.size = Vector2(minf(width,330),0)
 	actions.size.y = actions.get_combined_minimum_size().y
