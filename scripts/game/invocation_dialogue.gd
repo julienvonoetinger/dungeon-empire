@@ -22,7 +22,7 @@ const ENTRANCE := [
 	[1.0, 4.8, "The Invoker", "We must build everything from the ground up… Will the mountain hide us from Aldren?"],
 	[5.0, 8.9, "The Master", "This Core will hold my power. Defend it, and our kingdom will grow."],
 	[9.3, 16.0, "The Invoker", "Master, Aldren’s heroes must have seen the ritual lightning from the valley. They’ll come looking for its source."],
-	[16.3, 23.0, "The Invoker", "If they find these stairs, they’ll have a clear path to the Core. Let’s prepare the dungeon’s defenses before they arrive."],
+	[16.3, 23.0, "The Invoker", "Guard these stairs, Master. Heroes who get past our defenses can strike the Core. If it falls, we lose the dungeon."],
 	[23.3, 28.2, "The Invoker", "Our people learn to handle tools. Few of us know how to wield a sword."],
 	[28.5, 32.8, "The Invoker", "But we gave you our word. Whatever our hands can make, we will make for you."],
 	[33.2, 37.4, "The Invoker", "I sent for our finest artisans. Look, here they come."],

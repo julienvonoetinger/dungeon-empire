@@ -119,11 +119,11 @@ msgstr "Retournez aux grottes. Allez chercher les autres et ramenez-les ici !"
 msgid "He can give us the strength to prevail. But we will have to serve him."
 msgstr "Il peut nous donner la force de vaincre. Mais nous devrons le servir."
 
-msgid "He made it all the way to the Core, Master. Now you know which passage needs stronger defenses before the heroes arrive."
-msgstr "Il est arrivé jusqu’au Cœur, Maître. Vous savez maintenant quel passage il faudra mieux défendre avant la venue des héros."
+msgid "He reached the Core, Master. In a real raid, an attacker could strike it from here. Let’s guard this passage."
+msgstr "Il a atteint le Cœur, Maître. En plein raid, un héros pourrait le frapper d’ici. Gardons ce passage."
 
-msgid "He stepped on the trapped tile. That’s where your spikes would have struck a real intruder."
-msgstr "Il a posé le pied sur la dalle piégée. Face à un véritable intrus, vos pointes auraient frappé à cet endroit."
+msgid "The spikes rose under his feet, Master. In a real raid, they can wound the same hero only once, even on the way back."
+msgstr "Les pointes ont jailli sous ses pieds, Maître. Pendant un raid, ce piège ne blesse un même héros qu’une fois, même s’il repasse dessus."
 
 msgid "I follow you, Master. May our people find shelter at last."
 msgstr "Je vous suis, Maître. Que les nôtres trouvent enfin un refuge."
@@ -134,8 +134,8 @@ msgstr "J’ai entendu votre appel. Ma puissance aura un prix : votre fidélité
 msgid "I sent for our finest artisans. Look, here they come."
 msgstr "J’ai fait venir nos meilleurs artisans. Tenez, les voilà qui descendent."
 
-msgid "If they find these stairs, they’ll have a clear path to the Core. Let’s prepare the dungeon’s defenses before they arrive."
-msgstr "S’ils trouvent cet escalier, ils auront le champ libre jusqu’au Cœur. Préparons les défenses du donjon avant leur arrivée."
+msgid "Guard these stairs, Master. Heroes who get past our defenses can strike the Core. If it falls, we lose the dungeon."
+msgstr "Gardons cet escalier, Maître. Si les héros percent les défenses du donjon, ils pourront frapper le Cœur. S’il tombe, tout est perdu."
 
 msgid "I’ll ask one of our people to play the intruder. Let’s see how far he gets. He’ll leave your gold alone and won’t strike the Core."
 msgstr "Je vais demander à l’un des nôtres de jouer l’intrus. Voyons jusqu’où il peut aller. Il laissera votre or en paix et ne portera aucun coup au Cœur."
@@ -146,17 +146,26 @@ msgstr "Niveau %d"
 msgid "Master, Aldren’s heroes must have seen the ritual lightning from the valley. They’ll come looking for its source."
 msgstr "Maître, les héros d’Aldren ont sûrement vu les éclairs du rituel depuis la vallée. Ils viendront en chercher la source."
 
-msgid "Master, I can build traps to defend the dungeon. Choose a tile and my spikes will spring up beneath an intruder’s feet."
-msgstr "Maître, je peux fabriquer des pièges pour défendre le donjon. Choisissez une dalle : mes pointes en jailliront sous les pas des intrus."
+msgid "I can hide spikes beneath a floor tile, Master. When a hero steps on it, the spikes spring up and wound them."
+msgstr "Je peux cacher des pointes sous une dalle, Maître. Dès qu’un héros y pose le pied, elles jaillissent et le blessent."
+
+msgid "Each hit uses one of %d charges. Rearm the trap when it runs out."
+msgstr "Le piège a %d charges, une par coup. À zéro, il faut le réarmer."
 
 msgid "Master, I can help you expand your dungeon. Tell me where to dig and I’ll get to work."
 msgstr "Maître, je peux vous aider à agrandir votre donjon. Dites-moi où creuser, et je me mets à l’ouvrage."
 
-msgid "Master, I can make doors for your dungeon. Choose a passage between two walls and I’ll fit it with a wooden door."
-msgstr "Maître, je peux fabriquer des portes pour votre donjon. Choisissez un passage entre deux murs, et j’y poserai une porte en bois."
+msgid "I can bar a passage with a wooden door, Master. Any hero who can’t open it will have to find another way."
+msgstr "Je peux barrer un passage avec une porte en bois, Maître. Un héros qui ne parvient pas à l’ouvrir devra chercher un autre chemin."
+
+msgid "A paladin can force the door. A thief can pick the lock."
+msgstr "Un paladin peut forcer la porte. Un voleur peut crocheter la serrure."
 
 msgid "Master, the villagers have gathered all their gold for you. These two bags hold fifty coins each. Where shall we put them?"
 msgstr "Maître, les villageois ont réuni tout leur or pour vous. Ces deux sacs contiennent cinquante pièces chacun. Où devons-nous les déposer ?"
+
+msgid "Heroes can steal the gold in these bags. Choose tiles you can defend."
+msgstr "Les héros peuvent voler l’or de ces sacs. Choisissez des cases que vous pourrez défendre."
 
 msgid "Next page"
 msgstr "Page suivante"
@@ -263,8 +272,8 @@ msgstr "Portes en bois débloquées"
 msgid "Your Kingdom"
 msgstr "Votre royaume"
 
-msgid "Your door forced him to turn back, Master. A hero would have to break it down to get any farther."
-msgstr "Il a dû rebrousser chemin devant votre porte, Maître. Un héros qui voudrait aller plus loin devrait d’abord la forcer."
+msgid "He turned back at your door, Master. He couldn’t find an open passage to the Core."
+msgstr "Il a rebroussé chemin devant votre porte, Maître. Il n’a trouvé aucun passage ouvert vers le Cœur."
 
 # Dungeon interface
 

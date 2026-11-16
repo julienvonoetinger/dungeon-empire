@@ -11,6 +11,12 @@ const Paths = preload("res://scripts/game/invocation_paths.gd")
 const Magic = preload("res://scripts/game/invocation_magic.gd")
 const MASTER_HOVER_CENTER := Vector2(-6,-181)
 const Passage = preload("res://scripts/game/invocation_passage.gd")
+const LIGHTNING_SOUND = preload("res://assets/game/sfx/lightning-strike.wav")
+const LIGHTNING_PITCH := [1.0, .98, 1.03, .96, 1.04, 1.01]
+var music := AudioStreamPlayer.new()
+var lightning_sounds: Array[AudioStreamPlayer] = []
+var pillar_link_sound := AudioStreamPlayer.new()
+var boulder_sound := AudioStreamPlayer.new()
 var gate := Passage.new()
 var ground_magic := Magic.new()
 var air_magic := Magic.new()
@@ -36,6 +42,22 @@ var camera_focus:=Vector2.ZERO
 var camera_scale:=1.0
 
 func _ready() -> void:
+	music.stream = preload("res://assets/game/music/ritual-of-the-forgotten.ogg")
+	music.volume_db = -3.0
+	add_child(music)
+	pillar_link_sound.stream = preload("res://assets/game/sfx/pillar-links.wav")
+	pillar_link_sound.volume_db = -3.0
+	add_child(pillar_link_sound)
+	boulder_sound.stream = preload("res://assets/game/sfx/boulder-shatter.wav")
+	boulder_sound.volume_db = -3.0
+	add_child(boulder_sound)
+	for i in Magic.STRIKE_TIMES.size():
+		var strike := AudioStreamPlayer.new()
+		strike.stream = LIGHTNING_SOUND
+		strike.pitch_scale = LIGHTNING_PITCH[i]
+		strike.volume_db = -4.0
+		add_child(strike)
+		lightning_sounds.append(strike)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	sanctuary = ENVIRONMENT.instantiate()
@@ -102,11 +124,17 @@ func _fit() -> void:
 	var was_visible := visible
 	# A hidden film may lend its viewport to the dungeon arrival shot.
 	# Resizing must not reset that shot's model pose or disable its renderer.
-	if was_visible: present(seconds)
+	if was_visible: present(seconds, music.playing and not music.stream_paused)
 
-func present(time: float) -> void:
+func present(time: float, play_audio := false) -> void:
 	seconds = clampf(time,0.0,DURATION)
 	if starts.size() != 5: return
+	_sync_audio(music, seconds, play_audio)
+	_sync_audio(pillar_link_sound, seconds - Magic.LINK_START, play_audio)
+	for i in lightning_sounds.size():
+		var strike := lightning_sounds[i]
+		var age: float = (seconds - Magic.STRIKE_TIMES[i]) * strike.pitch_scale
+		_sync_audio(strike, age, play_audio)
 	for i in 5:
 		var delay := i*.38
 		var progress := clampf((seconds-delay)/(9.5-delay),0.0,1.0)
@@ -139,6 +167,7 @@ func present(time: float) -> void:
 	master_sprite.position = Magic.MANIFESTATION_CENTER.lerp(MASTER_HOVER_CENTER,smoothstep(20.6,22.0,seconds))-master_root.position
 	# Hold the passage choreography while the invoker addresses the survivors.
 	var passage_time := seconds - clampf(seconds-24.,0.,DISPATCH_BEAT)
+	_sync_audio(boulder_sound, passage_time - Passage.FRACTURE_TIME, play_audio)
 	var contraction:=smoothstep(26.8,28.8,passage_time)
 	master_sprite.scale*=lerpf(1.,.42/1.10,contraction)
 	var travel_ground: Vector2=gate.master_ground(passage_time)
@@ -250,7 +279,32 @@ func _present_invoker_departure(passage_time: float) -> void:
 		actor.shadow.modulate.a=.7*(1.-smoothstep(35.7,36.,passage_time))
 		actor.modulate.a=1.-smoothstep(38.25,38.7,passage_time)
 
+func _sync_audio(player: AudioStreamPlayer, position: float, playing: bool) -> void:
+	if position < 0.0 or position >= minf(player.stream.get_length(), DURATION) - .001:
+		player.stop()
+		return
+	if not playing and not player.playing:
+		return
+	if not player.playing:
+		player.play(position)
+	elif absf(player.get_playback_position() - position) > .20:
+		# Scrubbing and replay follow the same clock as the ritual.
+		player.seek(position)
+	player.stream_paused = not playing
+
+func set_audio_paused(paused: bool) -> void:
+	music.stream_paused = paused
+	pillar_link_sound.stream_paused = paused
+	boulder_sound.stream_paused = paused
+	for strike in lightning_sounds:
+		strike.stream_paused = paused
+
 func release() -> void:
+	music.stop()
+	pillar_link_sound.stop()
+	boulder_sound.stop()
+	for strike in lightning_sounds:
+		strike.stop()
 	master_view.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	hide()
 

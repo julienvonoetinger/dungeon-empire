@@ -98,6 +98,7 @@ func check_practice_routes(snapshot: Dictionary) -> void:
 	sim.trap_charges[spikes] = 0
 	trial = preload("res://scripts/game/tutorial_raid.gd").new(sim,raid)
 	check(trial.outcome == trial.Outcome.CORE and trial.contact == GameTypes.core_origin_cell(),"Spent spikes allow the volunteer to reach the Core")
+	check(tr(trial.report()).contains("pourrait le frapper"),"The report explains what a real attacker can do from the volunteer’s position")
 	# A detour beyond the stair mouth bypasses a newly positioned closed door.
 	sim.grid[8][4] = GameTypes.Tile.FLOOR
 	sim.grid[8][5] = GameTypes.Tile.DOOR
@@ -390,7 +391,7 @@ func run() -> void:
 	await process_frame
 	check(intro.shot==intro.Shot.RITUAL and not intro.story.visible and intro.story.texture==null,"Answering the call enters the ritual and releases the story image")
 	check(intro.film.master.player.has_animation(intro.film.master.clip) and not intro.film.master.model.find_children("*","Skeleton3D",true,false).is_empty(),"Manifestation uses the animated Wraith skeleton")
-	check(intro.find_children("*","AudioStreamPlayer",true,false).is_empty(),"Written dialogue adds no voice playback")
+	check(intro.dialogue.find_children("*","AudioStreamPlayer",true,false).is_empty(),"Written dialogue adds no voice playback")
 	check(not intro.panel.visible,"Ritual begins without the lesson controls")
 	root.size = Vector2i(390,844)
 	intro.set_process(false)
@@ -431,6 +432,7 @@ func run() -> void:
 	intro.skip.pressed.emit()
 	check(not game.check_action(GameTypes.FIRST_ALCOVE,GameTypes.Tool.DIG).valid and not game.progression.allows(GameTypes.Tool.STORE),"Neither digging nor chests are available during the gift")
 	await check_placement_layout(intro,"village-gift")
+	check(intro.line.is_visible_in_tree() and intro.line.text.contains("voler"),"The player sees the theft warning before choosing a bag site")
 	var first_bag := Vector2i(6,8)
 	var second_bag := Vector2i(9,8)
 	game.place_village_bag(GameTypes.FIRST_STAIR)
@@ -456,6 +458,7 @@ func run() -> void:
 	intro = game.get_node("Introduction")
 	intro.set_process(false)
 	check(game.sim.floor_gold=={first_bag:50} and game.progression.level()==0 and intro.title.text.contains("second"),"Continue retains the chosen cell and prompts for the second bag")
+	check(intro.line.is_visible_in_tree() and intro.line.text.contains("voler"),"A resumed gift still explains why the bag's position matters")
 	await tap_site(intro,second_bag)
 	check(game.sim.floor_gold=={first_bag:50,second_bag:50} and game.sim.gold==100 and game.progression.level()==0,"Two distinct paid-in bags precede the miner")
 	game.place_village_bag(Vector2i(8,7))
@@ -540,6 +543,7 @@ func run() -> void:
 	intro._process(intro.ARTISAN_BEAT_DURATION-intro.elapsed)
 	intro.set_process(false)
 	check(intro.shot==intro.Shot.LESSON and game.sim.lesson==GameTypes.Lesson.DOOR,"Door placement follows the promotion")
+	check(intro.line.is_visible_in_tree() and intro.line.text.contains("crocheter"), "The door lesson explains lockpicking while the player chooses a tile")
 	check(not game.progression.allows(GameTypes.Tool.TRAP_SPIKE) and not intro.placement_sites.has(Vector2i(7,7)),"Spikes remain locked and an unsupported door is excluded")
 	await check_placement_layout(intro,"door-placements")
 	await tap_site(intro,Vector2i(4,8),true)
@@ -568,6 +572,7 @@ func run() -> void:
 	game.learn_from_artisan(GameTypes.Lesson.MEET_SCIENTIST)
 	check(game.progression.xp==150,"The scientist's reward cannot be claimed twice")
 	check(intro.placement_sites.has(chosen) and not intro.placement_sites.has(Vector2i(4,8)) and not intro.placement_sites.has(first_bag),"The dug tile can take spikes while the door and bags remain protected")
+	check(intro.line.is_visible_in_tree() and intro.line.text.contains("%d charges" % GameTypes.trap_max_charges(GameTypes.Tile.SPIKE)), "The spike lesson explains its charge limit while the player chooses a tile")
 	await check_placement_layout(intro,"spike-placements")
 	await tap_site(intro,Vector2i(5,8))
 	check(game.sim.grid[8][5]==GameTypes.Tile.SPIKE and game.sim.trap_charges.get(Vector2i(5,8))==GameTypes.TRAP_MAX_CHARGES and game.sim.gold==20 and game.sim.floor_gold=={first_bag:0,second_bag:20},"The spike exhausts the first bag and leaves twenty in the second")

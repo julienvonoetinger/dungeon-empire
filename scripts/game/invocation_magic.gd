@@ -7,6 +7,7 @@ const VIOLET := Color(.60,.19,1.0)
 const PALE := Color(.88,.70,1.0)
 # Clockwise stone indices, alternating distant impacts around the sanctuary.
 const STRIKE_TIMES := [13.12, 14.74, 13.70, 15.24, 14.23, 15.72]
+const LINK_START := 16.42
 const SKY_OFFSETS := [-205., 160., 155., -120., -145., -180.]
 var sky_top := -800.0
 var crystal_lights := PackedVector3Array()
@@ -149,7 +150,7 @@ func _draw_discharge(index: int, settled: float) -> void:
 	var charge := smoothstep(.06,.13,age)*settled
 	_glow(stone,Vector2(120,135),VIOLET,charge*(.60+.4*hit))
 	_glow(stone,Vector2(34,43),PALE,charge*(.84+.16*cos(seconds*4+index)))
-	var link := smoothstep(16.42+index*.18,16.75+index*.18,seconds)
+	var link := smoothstep(LINK_START+index*.18,LINK_START+.33+index*.18,seconds)
 	var rim := link*(1.0-smoothstep(18.28,19.5,seconds))
 	if rim > 0.0:
 		var neighbor := stones[(index+1)%stones.size()]

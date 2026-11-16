@@ -3,6 +3,7 @@ extends Control
 const Game = preload("res://scenes/game/DungeonGame.tscn")
 const UI = preload("res://scripts/game/ui/hud_theme.gd")
 const Language = preload("res://scripts/game/game_language.gd")
+const MENU_CLICK = preload("res://assets/game/sfx/menu-click.wav")
 const SANCTUM = preload("res://assets/ui/main-menu/core-sanctum.png")
 const LOGO = preload("res://assets/ui/main-menu/dungeon-empire-logo.png")
 
@@ -52,6 +53,8 @@ func _ready() -> void:
 		language_picker.set_item_auto_translate_mode(language_picker.item_count - 1, Node.AUTO_TRANSLATE_MODE_DISABLED)
 	add_child(language_picker)
 	_sync_language_picker()
+	language_picker.pressed.connect(_play_click)
+	language_picker.get_popup().id_pressed.connect(func(_id: int): _play_click())
 	language_picker.item_selected.connect(func(index: int): Language.choose(language_picker.get_item_metadata(index)))
 	resized.connect(_layout)
 	actions.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
@@ -80,7 +83,16 @@ func _show_choices() -> void:
 	primary.grab_focus()
 	_layout()
 
+func _play_click() -> void:
+	var player := AudioStreamPlayer.new()
+	player.stream = MENU_CLICK
+	# The last click finishes even when its button immediately changes scenes.
+	get_tree().root.add_child(player)
+	player.finished.connect(player.queue_free)
+	player.play()
+
 func _primary_pressed() -> void:
+	_play_click()
 	if confirming:
 		_show_choices()
 	elif resumable:
@@ -89,6 +101,7 @@ func _primary_pressed() -> void:
 		_new_game()
 
 func _secondary_pressed() -> void:
+	_play_click()
 	if confirming:
 		_enter_game(true)
 	else:
@@ -122,7 +135,7 @@ func _enter_game(fresh: bool) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if confirming and event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		_show_choices()
+		_primary_pressed()
 
 func _layout() -> void:
 	if not is_inside_tree() or not is_instance_valid(primary) or size.x <= 0: return

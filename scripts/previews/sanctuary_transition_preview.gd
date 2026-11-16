@@ -38,7 +38,7 @@ func _ready() -> void:
 	var row := HBoxContainer.new()
 	panel.add_child(row)
 	pause_button.text="Pause"
-	pause_button.pressed.connect(func(): paused=not paused;_button_text())
+	pause_button.pressed.connect(func(): paused=not paused;_button_text();present(clock))
 	row.add_child(pause_button)
 	for entry in [["Début",0.0],["Entrée",23.5]]:
 		var button := Button.new()
@@ -80,7 +80,7 @@ func present(time: float) -> void:
 	if time<intro.Film.DURATION:
 		if intro.shot!=intro.Shot.RITUAL: intro._set_shot(intro.Shot.RITUAL)
 		intro.elapsed=time
-		intro.film.present(time)
+		intro.film.present(time,not paused)
 		intro.dialogue.present("ritual",time)
 		intro.film.modulate.a=1.
 		intro.veil.color=Color(.025,.009,.045,smoothstep(intro.Film.DURATION-1.,intro.Film.DURATION,time))

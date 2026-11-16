@@ -5,6 +5,7 @@ const FOREGROUND=preload("res://assets/game/introduction/stairwell-v2/foreground
 const APERTURE=preload("res://assets/game/introduction/stairwell-v2/aperture.png")
 const ARCH=preload("res://assets/game/introduction/stairwell-v2/arch.png")
 const GATE_CENTER:=Vector2(64,-352) # Top step, ground level: grid (.5,2,0).
+const FRACTURE_TIME := 26.0
 var opening:=0.0
 var charge:=0.0
 var source:=Vector2.ZERO
@@ -94,15 +95,15 @@ func present(time: float) -> void:
 	visible=time>24.5 and time<30.5
 	if material: material.set_shader_parameter("effect_time",time)
 	if is_instance_valid(wall):
-		wall.visible=time<=26.
+		wall.visible=time<=FRACTURE_TIME
 		stairs.visible=time>27.
 		reveal_material.set_shader_parameter("reveal",opening)
-		rubble.visible=time>26. and time<28.8
+		rubble.visible=time>FRACTURE_TIME and time<28.8
 		if wall_shadow:
 			wall_shadow.visible=time<28.
-			wall_shadow.modulate.a=1.-smoothstep(26.,28.,time)
+			wall_shadow.modulate.a=1.-smoothstep(FRACTURE_TIME,28.,time)
 		for i in fragments.size():
-			var age:=maxf(0.,time-26.-float(i%6)*.025)
+			var age:=maxf(0.,time-FRACTURE_TIME-float(i%6)*.025)
 			var origin:=fragment_origins[i]
 			var outward: Vector2=(origin-Vector2(wall.texture.get_size())*.5).normalized()
 			var velocity:=outward*Vector2(74,24)+Vector2(sin(i*5.2)*24,-38-24*fposmod(i*.618,1.))

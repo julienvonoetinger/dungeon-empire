@@ -19,8 +19,8 @@ const ARTISAN_OFFER_DURATION := 6.
 const ARTISAN_BEAT_DURATION := ARTISAN_OFFER_DURATION + LevelUp.DURATION
 const OFFERS := {
 	Types.Lesson.MEET_MINER: ["The Miner", "Master, I can help you expand your dungeon. Tell me where to dig and I’ll get to work.", 1, "Digging unlocked"],
-	Types.Lesson.MEET_CARPENTER: ["The Carpenter", "Master, I can make doors for your dungeon. Choose a passage between two walls and I’ll fit it with a wooden door.", 2, "Wooden doors unlocked"],
-	Types.Lesson.MEET_SCIENTIST: ["The Scientist", "Master, I can build traps to defend the dungeon. Choose a tile and my spikes will spring up beneath an intruder’s feet.", 3, "Spike traps unlocked"],
+	Types.Lesson.MEET_CARPENTER: ["The Carpenter", "I can bar a passage with a wooden door, Master. Any hero who can’t open it will have to find another way.", 2, "Wooden doors unlocked"],
+	Types.Lesson.MEET_SCIENTIST: ["The Scientist", "I can hide spikes beneath a floor tile, Master. When a hero steps on it, the spikes spring up and wound them.", 3, "Spike traps unlocked"],
 }
 const ARTISAN_SPACING := 1.65
 const ARTISAN_SPEED := .56
@@ -49,6 +49,7 @@ const PROLOGUE := [
 @onready var hud: CanvasLayer = session.get_node("HUD")
 @onready var view: Node2D = session.get_node("PlayArea/World/Dungeon")
 @onready var camera: Camera2D = session.get_node("PlayArea/World/Camera2D")
+@onready var prologue_music: AudioStreamPlayer = $PrologueMusic
 var shot := Shot.CLOSED
 var artisan_lesson := Types.Lesson.MEET_MINER
 var site_buttons := Control.new()
@@ -176,10 +177,16 @@ func _sync(structure: bool) -> void:
 	elif shot == Shot.CLOSED or new_offer or gift_accepted: _set_shot(Shot.LESSON)
 	elif shot == Shot.LESSON: _show_lesson()
 	visible = not session.paused and not session.confirmation_open
+	if shot == Shot.PROLOGUE:
+		prologue_music.stream_paused = not visible
+	elif shot == Shot.RITUAL:
+		film.set_audio_paused(not visible)
 	hud.visible = not visible
 	site_ink.visible = visible and not placement_sites.is_empty()
 
 func _set_shot(next: int) -> void:
+	if shot == Shot.PROLOGUE:
+		prologue_music.stop()
 	if shot == Shot.PRACTICE_RUN: session.get_node("Input")._apply_presentation()
 	_set_dig_controls(false)
 	_clear_build_sites()
@@ -237,9 +244,11 @@ func _set_shot(next: int) -> void:
 		Shot.PROLOGUE:
 			skip.text = tr("Skip story")
 			_show_page(0)
+			prologue_music.play()
+			prologue_music.stream_paused = session.paused or session.confirmation_open
 		Shot.RITUAL:
 			film.modulate.a = 1.
-			film.present(0.)
+			film.present(0., not session.paused and not session.confirmation_open)
 		Shot.ENTRANCE:
 			_ensure_master_arrival()
 			_walk_in(0.)
@@ -367,10 +376,18 @@ func _show_lesson() -> void:
 	_set_dig_controls(digging)
 	_clear_build_sites()
 	_assemble_artisans()
-	reading_area.visible = not session.save_error.is_empty()
 	title.add_theme_font_size_override("font_size",18)
 	line.text = session.save_error
-	line.visible = not session.save_error.is_empty()
+	if session.save_error.is_empty():
+		match step:
+			Types.Lesson.VILLAGE_GIFT:
+				line.text = tr("Heroes can steal the gold in these bags. Choose tiles you can defend.")
+			Types.Lesson.DOOR:
+				line.text = tr("A paladin can force the door. A thief can pick the lock.")
+			Types.Lesson.SPIKES:
+				line.text = tr("Each hit uses one of %d charges. Rearm the trap when it runs out.") % Types.trap_max_charges(Types.Tile.SPIKE)
+	line.visible = not line.text.is_empty()
+	reading_area.visible = line.visible
 	skip.visible = not gift
 	if digging:
 		title.text = tr("Tap the tile or the pickaxe · %d gold") % Types.COST_DIG
@@ -625,7 +642,7 @@ func _process(delta: float) -> void:
 			veil.color.a = .85*(1.-smoothstep(0.,.55,elapsed))
 		Shot.RITUAL:
 			elapsed += delta
-			film.present(elapsed)
+			film.present(elapsed, true)
 			dialogue.present("ritual", elapsed)
 			film.modulate.a = 1.
 			# Cover the cut completely, rather than showing both environments at once.

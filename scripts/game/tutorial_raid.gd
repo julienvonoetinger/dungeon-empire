@@ -71,7 +71,7 @@ func present(actor: Actor, view: Node2D, time: float) -> Vector2:
 
 func report() -> String:
 	match outcome:
-		Outcome.DOOR: return "Your door forced him to turn back, Master. A hero would have to break it down to get any farther."
-		Outcome.TRAP: return "He stepped on the trapped tile. That’s where your spikes would have struck a real intruder."
-		Outcome.CORE: return "He made it all the way to the Core, Master. Now you know which passage needs stronger defenses before the heroes arrive."
+		Outcome.DOOR: return "He turned back at your door, Master. He couldn’t find an open passage to the Core."
+		Outcome.TRAP: return "The spikes rose under his feet, Master. In a real raid, they can wound the same hero only once, even on the way back."
+		Outcome.CORE: return "He reached the Core, Master. In a real raid, an attacker could strike it from here. Let’s guard this passage."
 		_: return "Our scout could find no way through to the Core. He’s back in the village now."

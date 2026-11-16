@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/game_session.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/game/isometric_game_view.gd" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/game/excavation_terrain.gd" id="5"]
 
 [ext_resource type="Script" path="res://scripts/game/first_dungeon_intro.gd" id="6"]
+[ext_resource type="AudioStream" path="res://assets/game/music/the-oculin-lute.ogg" id="7"]
 
 [node name="DungeonGame" type="Node"]
 script = ExtResource("1")
@@ -41,3 +42,7 @@ script = ExtResource("4")
 [node name="Introduction" type="CanvasLayer" parent="."]
 layer = 4
 script = ExtResource("6")
+
+[node name="PrologueMusic" type="AudioStreamPlayer" parent="Introduction"]
+stream = ExtResource("7")
+volume_db = -6.0
