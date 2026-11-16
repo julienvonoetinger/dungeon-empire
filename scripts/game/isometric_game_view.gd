@@ -56,6 +56,7 @@ var _floor_guide: Node2D
 var dig_cells: Array[Vector2i] = []
 var lesson_digging := false
 var procession_doors_open := false
+var _pick_cutaway := ShaderMaterial.new()
 var assisted_dig_cells: Dictionary = {}
 var dig_guides_visible := false:
 	set(value):
@@ -64,6 +65,7 @@ var dig_guides_visible := false:
 		if is_instance_valid(_floor_guide): _floor_guide.queue_redraw()
 
 func _ready() -> void:
+	_pick_cutaway.shader = preload("res://shaders/practice_door_cutaway.gdshader")
 	session = owner as IsometricGameSession
 	session.changed.connect(_on_change)
 	session.frame_updated.connect(_update_markers)
@@ -107,6 +109,22 @@ func set_procession_doors_open(open: bool) -> void:
 	procession_doors_open = open
 	rebuild()
 
+func reveal_practice_lockpick(cell: Vector2i, actor: Node2D, amount: float) -> void:
+	# A volunteer on the far side can disappear entirely behind the closed
+	# panel. Fade only parts of this doorway drawn in front of the volunteer.
+	if actor != null and amount > 0.:
+		_pick_cutaway.set_shader_parameter("center",actor.to_global(Vector2(0,-54)))
+		_pick_cutaway.set_shader_parameter("radius",actor.global_scale.abs()*Vector2(85,112))
+		_pick_cutaway.set_shader_parameter("strength",amount)
+	for part in solid_groups:
+		if not str(part.get("id","")).begins_with("door-") or Vector2i(part.at) != cell: continue
+		var group: Node2D = part.node
+		var obscures := amount > 0. and actor != null and group.get_index() > actor.get_index()
+		for sprite in group.get_children():
+			if not sprite is Sprite2D: continue
+			if obscures and sprite.material == null: sprite.material = _pick_cutaway
+			elif not obscures and sprite.material == _pick_cutaway: sprite.material = null
+
 func _update_dig_cells() -> void:
 	dig_cells.clear()
 	if session.sim.lesson != Types.Lesson.FREE and not (lesson_digging and session.sim.lesson == Types.Lesson.ALCOVE): return
@@ -120,9 +138,7 @@ func _vortex_can_advance() -> bool:
 	return session != null and not (session.paused or session.confirmation_open or session.result_open or session.save_blocked or session.sim.game_over)
 
 func _door_facing(cell: Vector2i) -> String:
-	var sim := session.sim
-	if sim._is_rock_cell(cell + Vector2i.LEFT) and sim._is_rock_cell(cell + Vector2i.RIGHT): return "north"
-	return "west"
+	return session.sim.door_facing(cell)
 
 func should_flip_build_icon(icon: Texture2D, cell: Vector2i) -> bool:
 	# The painted door icon already faces the same way as the north door sprite.

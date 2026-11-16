@@ -50,6 +50,7 @@ const PROLOGUE := [
 @onready var view: Node2D = session.get_node("PlayArea/World/Dungeon")
 @onready var camera: Camera2D = session.get_node("PlayArea/World/Camera2D")
 @onready var prologue_music: AudioStreamPlayer = $PrologueMusic
+@onready var dungeon_music: AudioStreamPlayer = session.get_node("DungeonMusic")
 var shot := Shot.CLOSED
 var artisan_lesson := Types.Lesson.MEET_MINER
 var site_buttons := Control.new()
@@ -162,7 +163,19 @@ func _ready() -> void:
 	skip.minimum_size_changed.connect(_layout, CONNECT_DEFERRED)
 	session.introduction_started.connect(func(): _set_shot(Shot.PROLOGUE))
 	session.changed.connect(_sync)
+	# A new game emits its initial dungeon state before it announces the prologue.
+	session.changed.connect(_sync_dungeon_music.unbind(1), CONNECT_DEFERRED)
 	set_process(false)
+
+func _sync_dungeon_music() -> void:
+	if not dungeon_music.is_inside_tree(): return
+	if shot in [Shot.PROLOGUE, Shot.RITUAL] or session.save_blocked:
+		dungeon_music.stop()
+		return
+	var paused := session.paused or session.confirmation_open
+	dungeon_music.stream_paused = paused
+	if not paused and not dungeon_music.playing:
+		dungeon_music.play()
 
 func _sync(structure: bool) -> void:
 	if session.sim.lesson == Types.Lesson.FREE:
@@ -187,7 +200,10 @@ func _sync(structure: bool) -> void:
 func _set_shot(next: int) -> void:
 	if shot == Shot.PROLOGUE:
 		prologue_music.stop()
-	if shot == Shot.PRACTICE_RUN: session.get_node("Input")._apply_presentation()
+	if shot == Shot.PRACTICE_RUN:
+		session.get_node("Input")._apply_presentation()
+		if practice.outcome == TutorialRaid.Outcome.DOOR:
+			view.reveal_practice_lockpick(practice.contact,null,0.)
 	_set_dig_controls(false)
 	_clear_build_sites()
 	reading_area.show()
@@ -208,6 +224,7 @@ func _set_shot(next: int) -> void:
 		volunteer = null
 	if next not in [Shot.PRACTICE_RUN, Shot.PRACTICE_REPORT]: practice = null
 	shot = next
+	_sync_dungeon_music.call_deferred()
 	dialogue.clear_line()
 	level_up.hide()
 	story_quote.hide()
@@ -272,7 +289,7 @@ func _set_shot(next: int) -> void:
 		Shot.PRACTICE_RUN:
 			practice = TutorialRaid.new(session.sim,session.raid)
 			volunteer = Film.Actor.new()
-			volunteer.scale = Vector2.ONE * .82
+			volunteer.scale = Vector2.ONE * TutorialRaid.VOLUNTEER_SCALE
 			volunteer.z_index = 1
 			_follow_volunteer(0.)
 			skip.hide()

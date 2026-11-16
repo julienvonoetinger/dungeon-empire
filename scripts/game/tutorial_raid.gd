@@ -5,6 +5,11 @@ const Stairs = preload("res://scripts/game/stair_traversal.gd")
 const Actor = preload("res://scripts/game/invocation_actor.gd")
 const SPEED := 1.05
 const INSPECT_TIME := 2.2
+const VOLUNTEER_SCALE := .82
+# The camera renders 256 px per three model units. One dungeon cell spans
+# 128 horizontal pixels after a 45-degree turn onto a corridor axis.
+const MODEL_TO_CELLS := VOLUNTEER_SCALE * 256. / (3. * 128. * sqrt(2.))
+const PICK_FRAMES := [0,1,2,3,4,5,3,6,5,7,4,5,3,8,9,10]
 enum Outcome { BLOCKED, DOOR, TRAP, CORE }
 
 var path := Curve2D.new()
@@ -38,8 +43,16 @@ func _init(sim: DungeonSim, raid: RaidDirector) -> void:
 		var tile: int = scout.known[next]
 		if sim._door_intact(next) or tile == Types.Tile.CORE:
 			outcome = Outcome.CORE if tile == Types.Tile.CORE else Outcome.DOOR
-			# Leave room on the approach side for the volunteer's silhouette.
-			path.add_point(center.lerp(target,.06 if outcome == Outcome.DOOR else .32))
+			if outcome == Outcome.DOOR:
+				# In the working poses the tip is 1.14 units forward, .06 to
+				# the actor's right, at the painted keyhole height (.32 cells).
+				var forward := target-center
+				var right := Vector2(forward.y,-forward.x)
+				var panel_normal := Vector2.DOWN if sim.door_facing(next) == "north" else Vector2.RIGHT
+				var keyhole := target + panel_normal*.035
+				path.add_point(keyhole-(1.14*forward+.06*right)*MODEL_TO_CELLS)
+			else:
+				path.add_point(center.lerp(target,.32))
 			contact = next
 			break
 		path.add_point(target)
@@ -64,9 +77,20 @@ func present(actor: Actor, view: Node2D, time: float) -> Vector2:
 	var ahead := path.sample_baked(minf(path.get_baked_length(),distance+.015))
 	var heading := Actor.direction_for(view.grid_to_local(previous-ahead if returning else ahead-previous))
 	view.position_invoker(actor,at)
+	if outcome == Outcome.DOOR:
+		var remaining := path.get_baked_length()-distance
+		view.reveal_practice_lockpick(contact,actor,1.-smoothstep(.0,.95,remaining))
 	actor.modulate.a = smoothstep(0.,.13,distance)
-	var running := time < travel_time or returning
-	actor.present_messenger("run-"+heading, int(time*24.)%12 if running else 0)
+	var contact_age := time - travel_time
+	if outcome == Outcome.TRAP and contact_age >= 0. and not returning:
+		# Eight non-looping poses, then stay grounded until the turn home.
+		actor.present_messenger("hurt-"+heading, mini(7, int(contact_age * 10.)))
+	elif outcome == Outcome.DOOR and contact_age >= 0. and not returning:
+		var beat := mini(PICK_FRAMES.size()-1,int(contact_age/INSPECT_TIME*PICK_FRAMES.size()))
+		actor.present_messenger("lockpick-"+heading,PICK_FRAMES[beat])
+	else:
+		var running := time < travel_time or returning
+		actor.present_messenger("run-"+heading, int(time*24.)%12 if running else 0)
 	return at
 
 func report() -> String:

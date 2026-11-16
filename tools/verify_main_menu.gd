@@ -205,11 +205,64 @@ func check_placement_layout(intro, label: String) -> void:
 				check(sprite.flip_h == across_y, "The carpenter's door preview joins the two walls at %s" % cell)
 			var floor_at: Vector2 = intro.view.get_global_transform_with_canvas() * intro.view.grid_to_local(Vector2(intro.placement_sites[i])+Vector2(.5,.5))
 			var sprite_rect := sprite.get_global_transform_with_canvas() * sprite.get_rect()
-			check(absf(sprite_rect.get_center().x-floor_at.x)<1 and (floor_at.y-sprite_rect.end.y)/intro.unit >= 40, "Preview clears its tile in " + label)
+			if intro.session.sim.lesson == GameTypes.Lesson.VILLAGE_GIFT:
+				var corner: Vector2 = (sprite_rect.position - floor_at).abs() / (button.tile_size * intro.unit * .5)
+				check(corner.x + corner.y <= 1.001, "Bag preview fits inside its own selectable diamond")
+			else:
+				check(absf(sprite_rect.get_center().x-floor_at.x)<1 and (floor_at.y-sprite_rect.end.y)/intro.unit >= 40, "Preview clears its tile in " + label)
 			var motion := InputEventMouseMotion.new()
 			motion.position = sprite_rect.get_center()
 			root.push_input(motion,true)
 			check(root.gui_get_hovered_control()==button, "The raised preview takes priority over neighbouring tiles in " + label)
+
+func check_portrait_bag_taps() -> void:
+	var original_size := root.size
+	root.size = Vector2i(575,1280)
+	var game := preload("res://scenes/game/DungeonGame.tscn").instantiate()
+	game.persistence_enabled = false
+	game.get_node("HUD")._welcome = false
+	root.add_child(game)
+	game.restart(false,true)
+	var intro = game.get_node("Introduction")
+	intro._skip()
+	intro._skip()
+	intro._skip()
+	var first := Vector2i(4,8)
+	var second := first + Vector2i.RIGHT
+	await tap_site(intro,first,true)
+	check(game.sim.floor_gold == {first:50},"Portrait: first tap places one bag in the corridor")
+	var saved := GameplaySave.capture(game.sim,game.raid,game.progression)
+	game.free()
+	game = preload("res://scenes/game/DungeonGame.tscn").instantiate()
+	game.save_path = OUT + "corridor-%d.save" % Time.get_ticks_usec()
+	check(GameplaySave.write_save(game.save_path,saved),"Save the first bag before resuming the gift")
+	game.get_node("HUD")._welcome = false
+	root.add_child(game)
+	intro = game.get_node("Introduction")
+	check(intro.placement_sites.has(second), "The next corridor tile stays available after the first bag")
+	await process_frame
+	intro._fit_controls(Vector2(root.size),Rect2(Vector2.ZERO,Vector2(root.size)),1.5)
+	var at: Vector2 = intro.view.get_global_transform_with_canvas() * intro.view.grid_to_local(Vector2(second) + Vector2(.5,.5))
+	touch_cube(at,true)
+	await process_frame
+	touch_cube(at,false)
+	await process_frame
+	check(game.sim.floor_gold == {first:50, second:50} and game.sim.lesson == GameTypes.Lesson.MEET_MINER,
+		"Portrait: touching the second floor tile pays into that tile and advances to the miner")
+	await capture("two-corridor-bags-portrait")
+	if game.sim.lesson == GameTypes.Lesson.MEET_MINER:
+		game.learn_from_artisan(GameTypes.Lesson.MEET_MINER)
+		var risky := Vector2i(6,7)
+		check(not game.check_action(risky,GameTypes.Tool.DIG).valid and not intro.view.dig_cells.has(risky),
+			"Excavation cannot remove the walls of the last free doorway")
+		game.dig_cell(Vector2i(5,7))
+		game.learn_from_artisan(GameTypes.Lesson.MEET_CARPENTER)
+		game.selected = Vector2i(6,8)
+		game.confirm_action(GameTypes.Tool.BUILD_DOOR)
+		check(game.sim.grid[8][6] == GameTypes.Tile.DOOR and game.sim.lesson == GameTypes.Lesson.MEET_SCIENTIST,
+			"The carpenter can build beside both corridor bags")
+	game.free()
+	root.size = original_size
 
 func check_english_intro() -> void:
 	var game: IsometricGameSession = preload("res://scenes/game/DungeonGame.tscn").instantiate()
@@ -227,6 +280,7 @@ func check_english_intro() -> void:
 
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(OUT)
+	await check_portrait_bag_taps()
 	check(ProjectSettings.get_setting("application/run/main_scene")==Menu.resource_path,"Project launches the title menu")
 	TranslationServer.set_locale("en")
 	var menu = await open_menu()
@@ -627,12 +681,28 @@ func run() -> void:
 	intro.set_process(false)
 	intro._process(intro.practice.travel_time+.15)
 	check(intro.practice.contact==Vector2i(4,8) and intro.practice.outcome==intro.practice.Outcome.DOOR and intro.volunteer.modulate.a==1., "The approach stops at the player's first closed door")
+	var pick_sprite: Sprite2D = intro.volunteer.sprite
+	check(pick_sprite.texture.resource_path.get_file()=="lockpick-se.png", "The volunteer faces the lock with his own pick")
+	var reach_pose := pick_sprite.region_rect
+	intro._process(.72)
+	check(pick_sprite.region_rect != reach_pose, "The volunteer reaches in and works the lock")
+	var rendered_tip: Vector2 = intro.volunteer.position + Vector2(72.408,-28.754)*intro.volunteer.scale
+	var keyhole: Vector2 = intro.view.grid_to_local(Vector2(4.535,8.5),.32)
+	check(rendered_tip.distance_to(keyhole)<1., "The working tip meets the keyhole beside the stairs")
+	var cutaway_sprites: Array[Sprite2D] = []
+	for part in intro.view.solid_groups:
+		if not str(part.get("id","")).begins_with("door-") or Vector2i(part.at) != intro.practice.contact: continue
+		for node in part.node.get_children():
+			if node is Sprite2D and node.material == intro.view._pick_cutaway: cutaway_sprites.append(node)
+	check(not cutaway_sprites.is_empty(), "Door parts in front reveal the volunteer's hands")
 	await capture("practice-door")
 	var stopped_at: Vector2 = intro.volunteer.position
-	intro._process(intro.practice.INSPECT_TIME+.12)
+	intro._process(intro.practice.INSPECT_TIME-.72+.12)
 	check(intro.volunteer.position.distance_to(stopped_at)>1.,"The volunteer turns back toward the stair")
 	intro._process(intro.practice.duration())
 	check(intro.shot==intro.Shot.PRACTICE_REPORT and intro.volunteer==null and intro.dialogue.words.text.contains("votre porte"),"The invoker reports the observed defense after the return")
+	for node in cutaway_sprites:
+		check(not is_instance_valid(node) or node.material == null,"The door recovers its opaque appearance after practice")
 	check(GameplaySave.capture(game.sim,game.raid,game.progression)==prepared and game.raid.hero.is_empty() and not game.result_open,"Exercise preserves balances, HP, charges, XP, roster and raid history")
 	intro.skip.pressed.emit()
 	check(not intro.visible and game.get_node("HUD").visible and game.sim.invoker_resident and intro.invoker.is_visible_in_tree(), "Free play opens with the invoker still present")
@@ -730,6 +800,16 @@ func run() -> void:
 	check_practice_spike_depth(intro,"Approaching across the spike plate")
 	intro._process(.30)
 	check_practice_spike_depth(intro,"Raised spikes")
+	var hit_sprite: Sprite2D = intro.volunteer.sprite
+	check(hit_sprite.texture.resource_path.get_file().begins_with("hurt-"), "Spike contact displays the Oculin damage animation")
+	var first_pose := hit_sprite.region_rect
+	intro._process(.16)
+	check(first_pose != hit_sprite.region_rect, "The Oculin recoils during the spike strike")
+	game.set_paused(true)
+	var frozen_pose := hit_sprite.region_rect
+	intro._process(.35)
+	check(hit_sprite.region_rect == frozen_pose, "Pause holds the recoil pose")
+	game.set_paused(false)
 	check(intro.view._trap_state(Vector2i(5,8),GameTypes.Tile.SPIKE)=="triggered","The volunteer visibly triggers the practice spikes")
 	for marker in intro.view._markers:
 		if marker.node.badge: check(not marker.node.badge.is_visible_in_tree(),"A status ring cannot hide the volunteer during the rehearsal")
@@ -746,6 +826,7 @@ func run() -> void:
 	await capture("practice-spikes-retracted")
 	intro._process(intro.practice.INSPECT_TIME+.20)
 	check_practice_spike_depth(intro,"Leaving the plate")
+	check(hit_sprite.texture.resource_path.get_file().begins_with("run-"), "The Oculin runs back after recovering")
 	intro._process(intro.practice.duration())
 	check(intro.dialogue.words.text.contains("pointes") and GameplaySave.capture(game.sim,game.raid,game.progression)==before_spikes,"Spike report costs no charges, HP, gold or XP")
 	intro.skip.pressed.emit()

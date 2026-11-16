@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3]
+[gd_scene load_steps=88 format=3]
 
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-1.png" id="Paroi-1"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Paroi-2.png" id="Paroi-2"]
@@ -36,9 +36,6 @@
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Crete-4.png" id="Crete-4"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Crete-5.png" id="Crete-5"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/Crete-6.png" id="Crete-6"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/candles.png" id="candles"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/candle-dish.png" id="candle-dish"]
-[ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/candle-bowl.png" id="candle-bowl"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/fern.png" id="fern"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/violets.png" id="violets"]
 [ext_resource type="Texture2D" path="res://assets/game/introduction/sanctuary/mushrooms.png" id="mushrooms"]
@@ -8700,22 +8697,6 @@ offset = Vector2(-58.050000000000004,-68.85000000000001)
 scale = Vector2(0.8,0.8)
 metadata/grid_position = Vector2(1.4,-2.1)
 
-[node name="Bougies3" type="Sprite2D" parent="."]
-position = Vector2(195,-44)
-texture = ExtResource("candles")
-centered = false
-offset = Vector2(-59.35121951219512,-71.13170731707318)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(0.41796875,-1.10546875)
-
-[node name="Bougies2" type="Sprite2D" parent="."]
-position = Vector2(-208,-40)
-texture = ExtResource("candle-dish")
-centered = false
-offset = Vector2(-55.11111111111111,-70)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-1.125,0.5)
-
 [node name="Menhir3" type="Sprite2D" parent="."]
 position = Vector2(-99,-40)
 texture = ExtResource("Menhir3")
@@ -8790,22 +8771,6 @@ centered = false
 offset = Vector2(-48,-182)
 metadata/crystal = Vector2(0,-151)
 
-[node name="Bougies0" type="Sprite2D" parent="."]
-position = Vector2(-273.92,78.08)
-texture = ExtResource("candles")
-centered = false
-offset = Vector2(-59.35121951219512,-71.13170731707318)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(-0.46,1.68)
-
-[node name="Bougies1" type="Sprite2D" parent="."]
-position = Vector2(270.08,81.28)
-texture = ExtResource("candles")
-centered = false
-offset = Vector2(-59.35121951219512,-71.13170731707318)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(1.69,-0.42)
-
 [node name="Vegetation2" type="Sprite2D" parent="."]
 position = Vector2(326.4,99.19999999999999)
 texture = ExtResource("mushrooms")
@@ -8836,14 +8801,6 @@ offset = Vector2(-58.050000000000004,-68.85000000000001)
 scale = Vector2(1.1,1.1)
 metadata/grid_position = Vector2(-1.7,4.5)
 
-[node name="Bougies5" type="Sprite2D" parent="."]
-position = Vector2(-133.12,184.32)
-texture = ExtResource("candles")
-centered = false
-offset = Vector2(-59.35121951219512,-71.13170731707318)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(0.92,1.96)
-
 [node name="Eboulis3" type="Sprite2D" parent="."]
 position = Vector2(-788.48,194.55999999999997)
 texture = ExtResource("Eboulis-3")
@@ -8851,14 +8808,6 @@ centered = false
 offset = Vector2(-127.63768115942028,-176.55072463768116)
 scale = Vector2(1,1)
 metadata/grid_position = Vector2(-1.56,4.6)
-
-[node name="Bougies4" type="Sprite2D" parent="."]
-position = Vector2(108,197)
-texture = ExtResource("candle-bowl")
-centered = false
-offset = Vector2(-53.773770491803276,-67.94754098360656)
-scale = Vector2(1,1)
-metadata/grid_position = Vector2(1.9609375,1.1171875)
 
 [node name="Vegetation14" type="Sprite2D" parent="."]
 position = Vector2(-332.8,230.4)

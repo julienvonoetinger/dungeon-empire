@@ -18,6 +18,18 @@ const MESSENGER_ATLASES := {
 	"run-sw": "res://assets/game/introduction/messengers/run-sw.png",
 	"run-w": "res://assets/game/introduction/messengers/run-w.png",
 	"run-nw": "res://assets/game/introduction/messengers/run-nw.png",
+	"hurt-n": "res://assets/game/introduction/messengers/hurt-n.png",
+	"hurt-ne": "res://assets/game/introduction/messengers/hurt-ne.png",
+	"hurt-e": "res://assets/game/introduction/messengers/hurt-e.png",
+	"hurt-se": "res://assets/game/introduction/messengers/hurt-se.png",
+	"hurt-s": "res://assets/game/introduction/messengers/hurt-s.png",
+	"hurt-sw": "res://assets/game/introduction/messengers/hurt-sw.png",
+	"hurt-w": "res://assets/game/introduction/messengers/hurt-w.png",
+	"hurt-nw": "res://assets/game/introduction/messengers/hurt-nw.png",
+	"lockpick-ne": "res://assets/game/introduction/messengers/lockpick-ne.png",
+	"lockpick-se": "res://assets/game/introduction/messengers/lockpick-se.png",
+	"lockpick-sw": "res://assets/game/introduction/messengers/lockpick-sw.png",
+	"lockpick-nw": "res://assets/game/introduction/messengers/lockpick-nw.png",
 }
 
 func _ready() -> void:

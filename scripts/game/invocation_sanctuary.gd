@@ -16,6 +16,7 @@ const LIGHTNING_PITCH := [1.0, .98, 1.03, .96, 1.04, 1.01]
 var music := AudioStreamPlayer.new()
 var lightning_sounds: Array[AudioStreamPlayer] = []
 var pillar_link_sound := AudioStreamPlayer.new()
+var entrance_mist_sound := AudioStreamPlayer.new()
 var boulder_sound := AudioStreamPlayer.new()
 var gate := Passage.new()
 var ground_magic := Magic.new()
@@ -34,6 +35,8 @@ var seconds := 0.0
 var kneel_progress := 0.0
 var master_view := SubViewport.new()
 var master: Node3D
+var master_rig: Skeleton3D
+var casting_hands := PackedInt32Array()
 var master_root := Node2D.new()
 var master_sprite := Sprite2D.new()
 var ritual_light := Sprite2D.new()
@@ -48,6 +51,9 @@ func _ready() -> void:
 	pillar_link_sound.stream = preload("res://assets/game/sfx/pillar-links.wav")
 	pillar_link_sound.volume_db = -3.0
 	add_child(pillar_link_sound)
+	entrance_mist_sound.stream = preload("res://assets/game/sfx/entrance-mist.wav")
+	entrance_mist_sound.volume_db = -7.0
+	add_child(entrance_mist_sound)
 	boulder_sound.stream = preload("res://assets/game/sfx/boulder-shatter.wav")
 	boulder_sound.volume_db = -3.0
 	add_child(boulder_sound)
@@ -167,6 +173,7 @@ func present(time: float, play_audio := false) -> void:
 	master_sprite.position = Magic.MANIFESTATION_CENTER.lerp(MASTER_HOVER_CENTER,smoothstep(20.6,22.0,seconds))-master_root.position
 	# Hold the passage choreography while the invoker addresses the survivors.
 	var passage_time := seconds - clampf(seconds-24.,0.,DISPATCH_BEAT)
+	_sync_audio(entrance_mist_sound, passage_time - Passage.CAST_START, play_audio)
 	_sync_audio(boulder_sound, passage_time - Passage.FRACTURE_TIME, play_audio)
 	var contraction:=smoothstep(26.8,28.8,passage_time)
 	master_sprite.scale*=lerpf(1.,.42/1.10,contraction)
@@ -174,7 +181,7 @@ func present(time: float, play_audio := false) -> void:
 	if passage_time>26.8:
 		master_sprite.position=travel_ground-master_root.position+Vector2(0,lerpf(-235.,-76.,contraction))
 	master_sprite.modulate.a*=1.-smoothstep(33.55,34.,passage_time)
-	master.rotation.y=PI*smoothstep(24.5,26.2,passage_time)-.65*smoothstep(30.4,31.4,passage_time)
+	master.rotation.y=PI*smoothstep(24.0,25.18,passage_time)-.65*smoothstep(30.4,31.4,passage_time)
 	master_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS if master_sprite.visible else SubViewport.UPDATE_DISABLED
 	if master_sprite.visible: master.present(fposmod(seconds-20.0,6.0))
 	ritual_light.modulate = Color(.62,.23,1.0,(.16*smoothstep(11.0,20.0,passage_time)+.2*manifestation))
@@ -194,13 +201,22 @@ func present(time: float, play_audio := false) -> void:
 	if passage_time>=31. and master_root.get_index()<gate.stairs.get_index():
 		sanctuary.move_child(master_root,gate.stairs.get_index())
 	_sort_at(air_magic,190.0)
-	gate.source=master_root.position+master_sprite.position
+	var casting := passage_time >= Passage.CAST_START and passage_time < Passage.STREAM_END
+	if casting:
+		for i in casting_hands.size():
+			var palm := master_rig.to_global(master_rig.get_bone_global_pose(casting_hands[i]).origin)
+			var pixel := master_view.get_camera_3d().unproject_position(palm)
+			var on_sprite := master_sprite.get_rect().position + pixel
+			gate.cast_origins[i] = gate.to_local(master_sprite.to_global(on_sprite))
 	gate.present(passage_time)
 	_sort_at(gate,54.8)
+	if casting and gate.get_index() < master_root.get_index():
+		sanctuary.move_child(gate,master_root.get_index())
 	gate.mask_master(master_sprite,master_root.position,passage_time)
 	_present_invoker_departure(passage_time)
 	var group_focus := camera_focus.lerp(Vector2(0,260),smoothstep(24.2,26.5,seconds))
-	var pan:=smoothstep(24.5,29.5,passage_time)
+	# Follow the departing villagers first, then frame the caster and the rock together.
+	var pan:=smoothstep(31.0,33.5,seconds)
 	var zoom:=lerpf(1.,1.18,pan) if size.x>size.y else 1.
 	sanctuary.scale=Vector2.ONE*camera_scale*zoom
 	sanctuary.position=size*.5-group_focus.lerp(Vector2(70,-220),pan)*camera_scale*zoom
@@ -295,6 +311,7 @@ func _sync_audio(player: AudioStreamPlayer, position: float, playing: bool) -> v
 func set_audio_paused(paused: bool) -> void:
 	music.stream_paused = paused
 	pillar_link_sound.stream_paused = paused
+	entrance_mist_sound.stream_paused = paused
 	boulder_sound.stream_paused = paused
 	for strike in lightning_sounds:
 		strike.stream_paused = paused
@@ -302,6 +319,7 @@ func set_audio_paused(paused: bool) -> void:
 func release() -> void:
 	music.stop()
 	pillar_link_sound.stop()
+	entrance_mist_sound.stop()
 	boulder_sound.stop()
 	for strike in lightning_sounds:
 		strike.stop()
@@ -315,7 +333,7 @@ func _sort_at(node: Node2D, depth: float) -> void:
 		if child == node or not child is Sprite2D: continue
 		if child == ritual_light or str(child.name).contains("Ombre"): continue
 		var name_string := str(child.name)
-		if not (name_string.begins_with("Menhir") or name_string.begins_with("Paroi") or name_string.begins_with("Eboulis") or name_string.begins_with("RocheApproche") or name_string.begins_with("Crete") or name_string == "Dalle" or name_string.begins_with("Bougies")): continue
+		if not (name_string.begins_with("Menhir") or name_string.begins_with("Paroi") or name_string.begins_with("Eboulis") or name_string.begins_with("RocheApproche") or name_string.begins_with("Crete") or name_string == "Dalle"): continue
 		if child.position.y > depth:
 			target = child.get_index()
 			if node.get_index() < target: target -= 1
@@ -342,6 +360,8 @@ func _setup_master() -> void:
 	master_view.add_child(key)
 	master = Master.new()
 	master_view.add_child(master)
+	master_rig = master.model.find_children("*","Skeleton3D",true,false)[0]
+	casting_hands = PackedInt32Array([master_rig.find_bone("Bone_015"), master_rig.find_bone("Bone_020")])
 	var camera := Camera3D.new()
 	master_view.add_child(camera)
 	camera.projection = Camera3D.PROJECTION_ORTHOGONAL

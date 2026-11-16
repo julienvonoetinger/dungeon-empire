@@ -1,19 +1,28 @@
-extends "res://scripts/game/invocation_magic.gd"
-## Physical rock fracture and stairwell, sampled only from the film clock.
-const STAIR=preload("res://assets/game/introduction/stairwell-v2/stairs.png")
-const FOREGROUND=preload("res://assets/game/introduction/stairwell-v2/foreground.png")
-const APERTURE=preload("res://assets/game/introduction/stairwell-v2/aperture.png")
-const ARCH=preload("res://assets/game/introduction/stairwell-v2/arch.png")
+extends Node2D
+## The Master shrouds the rock while the physical stairwell opens inside the mist.
+const STAIR=preload("res://assets/game/introduction/cursed-passage/stairs.png")
+const TAINTED_GROUND=preload("res://assets/game/introduction/cursed-passage/tainted-ground.webp")
+const GROUND_FISSURES=preload("res://assets/game/introduction/cursed-passage/violet-fissures.svg")
+const GROUND_OFFSET := Vector2(-404,-139) # Registered to the painted stairwell mouth.
+const GROUND_SPREAD := 1.85
+const STONE_MASKS=preload("res://assets/game/introduction/cursed-passage/occlusion.png")
+const MIST=preload("res://assets/game/introduction/cursed-passage/mist.webp")
 const GATE_CENTER:=Vector2(64,-352) # Top step, ground level: grid (.5,2,0).
 const FRACTURE_TIME := 26.0
+const CAST_START := FRACTURE_TIME - 1.72
+const STREAM_END := FRACTURE_TIME + .55
+const MIST_END := FRACTURE_TIME + 3.85
+var seconds := 0.0
 var opening:=0.0
-var charge:=0.0
-var source:=Vector2.ZERO
+var cast_origins := PackedVector2Array([Vector2.ZERO, Vector2.ZERO])
 var impact:=Vector2.ZERO
 var wall: Sprite2D
 var wall_shadow: Sprite2D
 var stairs:=Sprite2D.new()
+var tainted_ground := Sprite2D.new()
 var rubble:=Node2D.new()
+var mist := Sprite2D.new()
+var mist_material := ShaderMaterial.new()
 var fragments: Array[Polygon2D]=[]
 var fragment_origins: Array[Vector2]=[]
 var geometry: Dictionary
@@ -38,7 +47,32 @@ func bind_wall(rock: Sprite2D) -> void:
 	stairs.centered=false
 	stairs.position=Vector2(geometry.mouth[0],geometry.mouth[1])
 	stairs.offset=Vector2(geometry.frame[0],geometry.frame[1])
+	tainted_ground.name="CorruptedGround"
+	tainted_ground.texture=TAINTED_GROUND
+	tainted_ground.centered=false
+	# Expand around the centre of the painted scar, under the middle of the staircase.
+	var ground_center := Vector2(TAINTED_GROUND.get_size()) * .5
+	tainted_ground.scale = Vector2.ONE * GROUND_SPREAD
+	tainted_ground.position = stairs.position + GROUND_OFFSET + ground_center * (1.0 - GROUND_SPREAD)
+	var fissures := Sprite2D.new()
+	fissures.name = "VioletFissures"
+	fissures.texture = GROUND_FISSURES
+	fissures.centered = false
+	var fissure_material := ShaderMaterial.new()
+	fissure_material.shader = preload("res://shaders/invocation_ground_fissures.gdshader")
+	fissure_material.set_shader_parameter("shale", TAINTED_GROUND)
+	fissures.material = fissure_material
+	tainted_ground.add_child(fissures)
+	scenery.add_child(tainted_ground)
+	# All the ground polygons precede the painted vegetation, shadows and rocks.
+	for child in scenery.get_children():
+		if child is Sprite2D:
+			scenery.move_child(tainted_ground,child.get_index())
+			break
 	reveal_material.shader=preload("res://shaders/invocation_stair_reveal.gdshader")
+	reveal_material.set_shader_parameter("earth",TAINTED_GROUND)
+	reveal_material.set_shader_parameter("earth_offset",stairs.position+stairs.offset-tainted_ground.position)
+	reveal_material.set_shader_parameter("earth_scale",GROUND_SPREAD)
 	stairs.material=reveal_material
 	scenery.add_child(stairs)
 	scenery.move_child(stairs,wall.get_index())
@@ -47,10 +81,23 @@ func bind_wall(rock: Sprite2D) -> void:
 	scenery.add_child(rubble)
 	scenery.move_child(rubble,wall.get_index()+1)
 	_make_fragments()
+	# The bank lives at the rock's depth. The separate wisps at the hand cross in front of the caster.
+	var rock_bounds := Rect2(wall.position+wall.offset+Vector2(ink.position),Vector2(ink.size))
+	var stair_ink := STAIR.get_image().get_used_rect()
+	var stair_bounds := Rect2(stairs.position+stairs.offset+Vector2(stair_ink.position),Vector2(stair_ink.size))
+	var bank := rock_bounds.merge(stair_bounds).grow_individual(134.,123.,116.,85.)
+	mist.texture = MIST
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	mist.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	mist.position = bank.get_center()
+	mist.scale = bank.size / Vector2(MIST.get_size())
+	mist_material.shader = preload("res://shaders/invocation_mist.gdshader")
+	mist_material.set_shader_parameter("strike_uv",(impact-bank.position)/bank.size)
+	mist.material = mist_material
+	scenery.add_child(mist)
+	scenery.move_child(mist,rubble.get_index()+1)
 	occlusion_material.shader=preload("res://shaders/invocation_stair_occlusion.gdshader")
-	occlusion_material.set_shader_parameter("masonry",FOREGROUND)
-	occlusion_material.set_shader_parameter("aperture",APERTURE)
-	occlusion_material.set_shader_parameter("arch",ARCH)
+	occlusion_material.set_shader_parameter("stone_masks",STONE_MASKS)
 	occlusion_material.set_shader_parameter("stair_origin",stairs.position+stairs.offset)
 	occlusion_material.set_shader_parameter("stair_extent",Vector2(STAIR.get_size()))
 	invoker_occlusion=occlusion_material.duplicate()
@@ -90,15 +137,17 @@ func _make_fragments() -> void:
 
 func present(time: float) -> void:
 	seconds=time
-	opening=smoothstep(27.0,29.0,time)
-	charge=smoothstep(24.5,26.0,time)*(1.0-smoothstep(27.5,29.0,time))
-	visible=time>24.5 and time<30.5
-	if material: material.set_shader_parameter("effect_time",time)
+	opening=smoothstep(FRACTURE_TIME+.12,FRACTURE_TIME+.82,time)
+	visible=time>CAST_START and time<STREAM_END
 	if is_instance_valid(wall):
-		wall.visible=time<=FRACTURE_TIME
-		stairs.visible=time>27.
+		tainted_ground.visible=time>FRACTURE_TIME
+		tainted_ground.modulate.a=smoothstep(FRACTURE_TIME,FRACTURE_TIME+1.65,time)
+		mist.visible=time>FRACTURE_TIME-1.08 and time<MIST_END
+		if mist.visible: mist_material.set_shader_parameter("age",time-FRACTURE_TIME)
+		wall.visible=time<FRACTURE_TIME
+		stairs.visible=opening>0.
 		reveal_material.set_shader_parameter("reveal",opening)
-		rubble.visible=time>FRACTURE_TIME and time<28.8
+		rubble.visible=time>=FRACTURE_TIME and time<FRACTURE_TIME+1.65
 		if wall_shadow:
 			wall_shadow.visible=time<28.
 			wall_shadow.modulate.a=1.-smoothstep(FRACTURE_TIME,28.,time)
@@ -110,7 +159,7 @@ func present(time: float) -> void:
 			fragments[i].position=origin+velocity*age+Vector2(0,96*age*age)
 			fragments[i].rotation=sin(i*3.8)*age*.58
 			fragments[i].scale=Vector2.ONE*(1.-.24*smoothstep(0.,2.4,age))
-			fragments[i].modulate=Color(1.,1.,1.,1.-smoothstep(1.35,2.6,age))
+			fragments[i].modulate=Color(1.,1.,1.,1.-smoothstep(.72,1.48,age))
 	queue_redraw()
 
 static func project_stair(point: Vector3) -> Vector2:
@@ -150,25 +199,29 @@ func mask_invoker(actor: Node2D,time: float) -> void:
 	invoker_occlusion.set_shader_parameter("tunnel",smoothstep(33.26,33.5,time))
 
 func _draw() -> void:
-	ribbons.clear()
-	if charge>0.:
-		_glow(impact,Vector2(220,240),VIOLET,charge*.17)
-		var casting:=smoothstep(24.5,25.7,seconds)*(1.-smoothstep(26.,27.4,seconds))
-		for strand in 3:
-			var points:=PackedVector2Array()
-			for i in 41:
-				var f:=i/40.
-				# The remaining ritual charge opens the passage before the Master has powers.
-				var p:=CENTER.lerp(impact,f)
-				p+=Vector2(sin(f*9.-seconds*2.2+strand*2.1)*18.,sin(f*6.+seconds+strand)*7.)*sin(PI*f)
-				points.append(p)
-			_line(points,casting*.44,2.1)
-		_glow(impact,Vector2(310,250),PALE,_pulse(seconds,25.9,.4)*.55)
-	var gathering:=sin(PI*smoothstep(26.8,28.8,seconds))
-	_glow(source,Vector2(130,160),VIOLET,gathering*.28)
-	var dust:=smoothstep(26.,26.4,seconds)*(1.-smoothstep(28.,30.2,seconds))
-	for i in 18:
-		var drift:=maxf(0.,seconds-26.)
-		var angle:=i*2.4
-		var p:=impact+Vector2(cos(angle)*75.,sin(angle)*44.)+Vector2(cos(angle)*drift*27.,drift*20.)
-		_glow(p,Vector2(70,54)*(1.+drift*.25),Color(.48,.43,.44),dust*.16)
+	_draw_hand_mist(cast_origins[0], -1.)
+	_draw_hand_mist(cast_origins[1], 1.)
+	draw_set_transform(Vector2.ZERO,0.,Vector2.ONE)
+
+func _draw_hand_mist(origin: Vector2, bend: float) -> void:
+	var age := seconds - CAST_START
+	var flow := impact - origin
+	var side := -flow.normalized().orthogonal() * bend
+	var travel := .73
+	var well := smoothstep(0.,.38,age) * (1.-smoothstep(FRACTURE_TIME-.24,FRACTURE_TIME+.18,seconds))
+	var palm_size := Vector2(64.,52.)*(.82+.18*sin(age*4.))
+	draw_set_transform(origin,bend*(-.64+.24*sin(age*3.)),Vector2.ONE)
+	draw_texture_rect(MIST,Rect2(-palm_size*.5,palm_size),false,Color(1.,1.,1.,well))
+	for i in 14:
+		var f := fposmod(age/travel + (i + .25*bend)/14.,1.)
+		var born := seconds - f*travel
+		var strength := smoothstep(CAST_START,CAST_START+.28,born) * (1.-smoothstep(STREAM_END-.95,STREAM_END-.56,born))
+		if strength <= .001: continue
+		var curl := sin(f*PI)*(29. + 12.*sin(f*TAU*1.6-seconds*4.))
+		var point := origin.lerp(impact,f) + side*curl
+		var width := lerpf(38.,138.,f) * (1.+.13*sin(i*2.4))
+		var extent := Vector2(width,width*.72)
+		var rotation := flow.angle() + .33*sin(f*TAU+seconds*1.8)
+		draw_set_transform(point,rotation,Vector2(-1. if i%2 else 1.,1.))
+		var alpha := strength * (.57-.22*f) * (1.-smoothstep(.68,1.,f))
+		draw_texture_rect(MIST,Rect2(-extent*.5,extent),false,Color(1.,1.,1.,alpha))

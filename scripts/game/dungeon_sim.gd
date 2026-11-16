@@ -271,6 +271,10 @@ func _can_step(from: Vector2i, to: Vector2i) -> bool:
 	return true
 
 
+func door_facing(cell: Vector2i) -> String:
+	if _is_rock_cell(cell + Vector2i.LEFT) and _is_rock_cell(cell + Vector2i.RIGHT): return "north"
+	return "west"
+
 func _door_intact(p: Vector2i) -> bool:
 	if not _inside(p):
 		return false
@@ -302,11 +306,6 @@ func can_place_gift(cell: Vector2i) -> bool:
 	if cell == Vector2i((core + GameTypes.COUNCIL_INVOKER).floor()): return false
 	for offset in GameTypes.COUNCIL_ARTISANS:
 		if cell == Vector2i((core + offset).floor()): return false
-	# Keep two stretches of corridor free for the door. Excavating one rock
-	# can widen either stretch before the carpenter arrives.
-	if not _is_core_access(cell):
-		for placed: Vector2i in floor_gold:
-			if not _is_core_access(placed): return false
 	return floor_gold.size() < GameTypes.VILLAGE_BAG_COUNT
 
 func place_gift(cell: Vector2i) -> bool:
@@ -645,7 +644,21 @@ func dig_failure_reason(gp: Vector2i) -> String:
 		return tr("You must dig from an existing passage.")
 	if gold < COST_DIG:
 		return tr("Not enough gold to dig (%d).") % COST_DIG
+	if lesson == GameTypes.Lesson.ALCOVE and _find_tile(Tile.DOOR).x < 0 and not _leaves_tutorial_door_site(gp):
+		return tr("Keep a gap between two walls for the carpenter's door.")
 	return ""
+
+func _leaves_tutorial_door_site(dug: Vector2i) -> bool:
+	# Check the post-dig floor plan with both bags in their chosen cells.
+	var layout := DungeonSim.new()
+	layout.grid = grid.duplicate()
+	layout.grid[dug.y] = grid[dug.y].duplicate()
+	layout.grid[dug.y][dug.x] = Tile.FLOOR
+	layout.floor_gold = floor_gold
+	for y in ROWS:
+		for x in COLS:
+			if layout.is_lesson_build_site(Vector2i(x,y), Tile.DOOR): return true
+	return false
 
 func _try_dig(gp: Vector2i) -> void:
 	var reason := dig_failure_reason(gp)

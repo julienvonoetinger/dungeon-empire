@@ -207,6 +207,7 @@ func check_action(cell: Vector2i, requested_tool: int = -1) -> Dictionary:
 			return {"valid": false, "reason": tr("This structure is still locked."), "cost": 0}
 		return {"valid": false, "reason": tr("Core level %d required") % progression.required_level(action_tool), "cost": 0}
 	var copy := DungeonSim.new()
+	copy.lesson = sim.lesson
 	for field in FIELDS:
 		var value = sim.get(field)
 		copy.set(field, value.duplicate(true) if value is Array or value is Dictionary else value)
@@ -240,6 +241,7 @@ func report_rejected_action(cell:Vector2i,requested_tool:int=-1) -> void:
 	var action_tool:=tool if requested_tool<0 else requested_tool
 	if not can_edit() or not sim._inside(cell) or not progression.allows(action_tool): return
 	var copy:=DungeonSim.new()
+	copy.lesson = sim.lesson
 	for field in FIELDS:
 		var value=sim.get(field)
 		copy.set(field,value.duplicate(true) if value is Array or value is Dictionary else value)

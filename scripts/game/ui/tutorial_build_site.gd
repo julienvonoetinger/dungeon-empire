@@ -20,13 +20,18 @@ func fit(screen_center: Vector2, extent: Vector2, zoom: float, unit: float) -> v
 	scale = Vector2.ONE * unit
 	tile_size = extent * zoom / unit
 	var span := maxf(26., 70. * zoom / unit)
+	# A raised bag can cover the selectable floor of the next isometric row.
+	# Keep the bag and its touch target together inside the marked diamond.
+	if icon == BAG_TEXTURE:
+		span = minf(span, tile_size.y * .5)
 	preview.scale = Vector2.ONE * span / maxf(icon.get_width(),icon.get_height())
 	var height := icon.get_height() * preview.scale.y
-	var headroom := maxf(0., LIFT + height - tile_size.y*.5)
+	var center_lift := tile_size.y * .06 if icon == BAG_TEXTURE else LIFT + height * .5
+	var headroom := maxf(0., center_lift + height * .5 - tile_size.y * .5)
 	size = Vector2(tile_size.x, tile_size.y + headroom)
 	tile_center = Vector2(tile_size.x*.5, size.y-tile_size.y*.5)
 	position = screen_center - tile_center * unit
-	preview.position = tile_center + Vector2.UP * (LIFT + height*.5)
+	preview.position = tile_center + Vector2.UP * center_lift
 	queue_redraw()
 
 func _has_point(point: Vector2) -> bool:
@@ -46,4 +51,5 @@ func paint_on_floor(floor_node: Node2D, at: Vector2, extent: Vector2, world_per_
 func _draw() -> void:
 	var active := is_hovered() or has_focus() or is_pressed()
 	preview.highlight(active)
-	FloatingMarker.draw_link(self, tile_center, LIFT, 1., active)
+	if icon != BAG_TEXTURE:
+		FloatingMarker.draw_link(self, tile_center, LIFT, 1., active)

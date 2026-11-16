@@ -35,6 +35,22 @@ func lit_pixels(image: Image, base: Image, area: Rect2) -> int:
 				count += 1
 	return count
 
+func changed_pixels(image: Image, base: Image, area: Rect2) -> int:
+	return lit_pixels(image,base,area) + lit_pixels(base,image,area)
+
+func check_mist_covers(sprite: Sprite2D, label: String) -> void:
+	var area := sprite.get_rect()
+	area.position += sprite.position
+	var covered := await capture()
+	sprite.hide()
+	var leaks := changed_pixels(covered,await capture(),area)
+	film.gate.mist.hide()
+	var empty := await capture()
+	sprite.show()
+	var exposed := changed_pixels(await capture(),empty,area)
+	film.gate.mist.show()
+	check(exposed>100 and leaks<exposed*.03,label)
+
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(OUTPUT)
 	root.content_scale_size = Vector2i.ZERO
@@ -78,5 +94,33 @@ func run() -> void:
 		check((await capture()).get_data() == ring_frame.get_data(), "Seeking back restores the circuit frame")
 		film.present(26.)
 		check(brightness(await capture()) > daylight * .76, "Daylight returns for the departure")
+		var fracture: float = film.DISPATCH_BEAT + film.gate.FRACTURE_TIME
+		film.present(fracture-1.25)
+		var charge := await capture()
+		film.gate.hide()
+		var before := await capture()
+		for hand in ["Bone_015", "Bone_020"]:
+			var rig := film.master_rig
+			var palm := rig.to_global(rig.get_bone_global_pose(rig.find_bone(hand)).origin)
+			var pixel := film.master_view.get_camera_3d().unproject_position(palm)
+			var on_sprite := film.master_sprite.get_rect().position + pixel
+			var center := film.sanctuary.to_local(film.master_sprite.to_global(on_sprite))
+			var area := Rect2(center - Vector2.ONE * 18., Vector2.ONE * 36.)
+			check(changed_pixels(charge,before,area)>=3 and film.gate.wall.visible,
+				"Smoke leaves palm %s before the fracture at %s" % [hand, extent])
+		film.present(fracture-.02)
+		await check_mist_covers(film.gate.wall,"The rock disappears inside the mist before it breaks")
+		film.present(fracture+1.)
+		var stairs = film.gate.stairs
+		check(stairs.visible and film.gate.mist.visible,"The stairwell forms under the fog")
+		await check_mist_covers(stairs,"Dense mist hides the new steps before they are revealed")
+		film.present(fracture+4.)
+		check(stairs.visible and not film.gate.mist.visible,"The fog clears before the descent")
+		var soil := film.gate.tainted_ground
+		check(soil.is_visible_in_tree() and is_equal_approx(soil.modulate.a,1.) and soil.get_index()<stairs.get_index(),
+			"The scar stays on the ground beneath the revealed entrance")
+		film.present(fracture-2.)
+		check(film.gate.wall.visible and not film.gate.mist.visible and not stairs.visible and not soil.visible,
+			"Seeking back restores the untouched rock and soil")
 	print("INVOCATION_STORM: failures=", failures)
 	quit(int(failures > 0))

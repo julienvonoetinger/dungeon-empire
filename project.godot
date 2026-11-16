@@ -35,7 +35,6 @@ window/handheld/orientation=6
 
 [internationalization]
 
-locale/fallback="en"
 locale/translations=PackedStringArray("res://assets/i18n/fr.po")
 
 [rendering]
